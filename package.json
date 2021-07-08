@@ -28,7 +28,7 @@
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/color-mode": "^2.0.10",
-    "markdown-it-prism": "^2.1.6",
+    "markdown-it-prism": "^2.1.8",
     "nuxt-windicss": "1.0.3",
     "sass-loader": "10.1.1"
   }
