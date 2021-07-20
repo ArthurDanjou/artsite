@@ -20,7 +20,7 @@
     "core-js": "^3.14.0",
     "nuxt": "^2.15.7",
     "nuxt-i18n": "^6.27.1",
-    "prism-themes": "^1.7.0",
+    "prism-themes": "^1.8.0",
     "sass": "^1.35.2",
     "windicss": "^3.1.3"
   },
