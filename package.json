@@ -1,0 +1,34 @@
+{
+  "name": "artsite",
+  "private": true,
+  "packageManager": "pnpm@9.4.0",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@iconify/json": "^2.2.221",
+    "@nuxt/content": "^2.13.0",
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/ui": "^2.17.0",
+    "@nuxthub/core": "^0.6.17",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "nuxt": "^3.12.2"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.3.13",
+    "@nuxt/ui": "^2.17.0",
+    "@types/node": "^20.14.6",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "eslint": "^9.5.0",
+    "typescript": "^5.5.2",
+    "vue-tsc": "^2.0.21",
+    "wrangler": "^3.61.0"
+  }
+}
