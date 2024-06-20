@@ -5,14 +5,13 @@ Hey, I'm Arthur Danjou, a mathematics student at the Paris-Saclay Faculty of Sci
 With a **deep understanding of emerging technologies**, I'm at the heart of a rapidly expanding field. My background in **mathematics** gives me a head start in understanding the concepts and theories behind these **technologies** and in designing them effectively.
 
 As a software engineer and mathematics student, my **expertise** covers
-<AIcon icon="i-logos:typescript-icon">TypeScript</AIcon>,
-<AIcon icon="i-logos:vue">Vue</AIcon>,
-<AIcon icon="i-logos:nuxt-icon">Nuxt</AIcon>,
-<AIcon icon="i-logos:adonisjs-icon">Adonis</AIcon>,
-<AIcon icon="i-logos:java">Java</AIcon>,
-<AIcon icon="i-logos:python">Python</AIcon>,
-<AIcon icon="i-logos:r-lang">R</AIcon>, which enables me to **understand** the different needs of mathematical projects and to propose the best solutions.
-
+:a-icon[TypeScript]{icon="i-logos:typescript-icon"},
+:a-icon[Vue]{icon="i-logos:vue"},
+:a-icon[Nuxt]{icon="i-logos:nuxt-icon"},
+:a-icon[Adonis]{icon="i-logos:adonisjs-icon"},
+:a-icon[Java]{icon="i-logos:java"},
+:a-icon[Python]{icon="i-logos:python"},
+:a-icon[R]{icon="i-logos:r-lang"}, which enables me to **understand** the different needs of mathematical projects and to propose the best solutions.
 
 I'm **constantly** learning new things, from technology to finance and entrepreneurship. I love **sharing** my knowledge and learning new theorems and technologies. I'm a **curious** person and eager to continue learning and growing throughout my life.
 
