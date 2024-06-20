@@ -14,6 +14,7 @@
     "@iconify/json": "^2.2.221",
     "@nuxt/content": "^2.13.0",
     "@nuxt/eslint": "^0.3.13",
+    "@nuxt/image": "^1.7.0",
     "@nuxt/ui": "^2.17.0",
     "@nuxthq/studio": "^2.0.1",
     "@nuxthub/core": "^0.6.17",

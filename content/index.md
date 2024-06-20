@@ -16,3 +16,6 @@ As a software engineer and mathematics student, my **expertise** covers
 I'm **constantly** learning new things, from technology to finance and entrepreneurship. I love **sharing** my knowledge and learning new theorems and technologies. I'm a **curious** person and eager to continue learning and growing throughout my life.
 
 As well as programming, I enjoy **sport** and **travelling**. My passion, commitment and eagerness to learn and progress are the qualities that enable me to succeed in my **career** and **studies**.
+
+:stats
+:activity

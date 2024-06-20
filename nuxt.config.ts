@@ -9,11 +9,13 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxthq/studio'
+    '@nuxthq/studio',
+    '@nuxt/image'
   ],
 
   hub: {
-    cache: true
+    cache: true,
+    kv: true
   },
 
   app: {
@@ -63,5 +65,16 @@ export default defineNuxtConfig({
     experimental: {
       openAPI: true
     }
+  },
+
+  runtimeConfig: {
+    discordUserId: process.env.NUXT_DISCORD_USER_ID,
+    discordId: process.env.NUXT_DISCORD_ID,
+    discordToken: process.env.NUXT_DISCORD_TOKEN,
+    wakatimeUserId: process.env.NUXT_WAKATIME_USER_UD,
+    wakatimeCodig: process.env.NUXT_WAKATIME_CODING,
+    wakatimeEditors: process.env.NUXT_WAKATIME_EDITORS,
+    wakatimeLanguages: process.env.NUXT_WAKATIME_LANGUAGES,
+    wakatimeOs: process.env.NUXT_WAKATIME_OS
   }
 })
