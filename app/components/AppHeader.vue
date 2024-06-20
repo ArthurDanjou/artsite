@@ -36,7 +36,10 @@ const navs = [
       Logo
     </div>
     <div class="flex gap-2 items-center">
-      <div v-for="nav in navs" :key="nav.label">
+      <div
+        v-for="nav in navs"
+        :key="nav.label"
+      >
         <UTooltip :text="nav.label">
           <UButton
             :icon="nav.icon"

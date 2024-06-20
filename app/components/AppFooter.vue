@@ -3,17 +3,17 @@ const socials = [
   {
     icon: 'i-ph-x-logo-bold',
     label: 'Twitter',
-    link: 'https://twitter.com/ArthurDanj',
+    link: 'https://twitter.com/ArthurDanj'
   },
   {
     icon: 'i-ph-github-logo-bold',
     label: 'GitHub',
-    link: 'https://github.com/ArthurDanjou',
+    link: 'https://github.com/ArthurDanjou'
   },
   {
     icon: 'i-ph-linkedin-logo-bold',
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/arthurdanjou/',
+    link: 'https://www.linkedin.com/in/arthurdanjou/'
   }
 ]
 </script>
@@ -21,7 +21,11 @@ const socials = [
 <template>
   <footer class="mb-16">
     <div class="flex justify-center my-8">
-      <UDivider class="md:w-2/3" size="2xs" type="solid" />
+      <UDivider
+        class="md:w-2/3"
+        size="2xs"
+        type="solid"
+      />
     </div>
     <div>
       <h3>Find me on:</h3>
@@ -39,7 +43,8 @@ const socials = [
         <HomeLink
           label="arthurdanjou@outlook.fr"
           href="mailto:arthurdanjou@outlook.fr"
-          blanked />
+          blanked
+        />
       </div>
     </div>
   </footer>

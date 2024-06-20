@@ -8,36 +8,36 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    "@nuxtjs/google-fonts"
+    '@nuxtjs/google-fonts'
   ],
 
   hub: {
-    cache: true,
+    cache: true
   },
 
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
 
   content: {
     highlight: {
-      theme: "github-dark",
-    },
+      theme: 'github-dark'
+    }
   },
 
   colorMode: {
-    preference: "light",
-    fallback: "light",
+    preference: 'light',
+    fallback: 'light'
   },
 
   ui: {
-    icons: ["heroicons", "logos", "ph"],
+    icons: ['heroicons', 'logos', 'ph']
 
   },
 
   devtools: {
     enabled: true,
-    timeline: { enabled: true, }
+    timeline: { enabled: true }
   },
 
   eslint: {
@@ -50,11 +50,17 @@ export default defineNuxtConfig({
   },
 
   googleFonts: {
-    display: "swap",
+    display: 'swap',
     families: {
-      Inter: [400, 500, 600, 700, 800, 900],
+      'Inter': [400, 500, 600, 700, 800, 900],
       'Sofia Sans': [400],
-      'DM Sans': [400, 500, 600, 700, 800, 900],
-    },
+      'DM Sans': [400, 500, 600, 700, 800, 900]
+    }
   },
+
+  nitro: {
+    experimental: {
+      openAPI: true
+    }
+  }
 })
