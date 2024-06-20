@@ -27,16 +27,18 @@ const socials = [
         type="solid"
       />
     </div>
-    <div>
-      <h3>Find me on:</h3>
-      <div class="flex gap-4 my-4">
-        <HomeLink
-          v-for="social in socials"
-          :key="social.label"
-          :icon="social.icon"
-          :label="social.label"
-          :href="social.link"
-        />
+    <div class="space-y-4">
+      <div class="flex gap-2 items-center">
+        <h3>Find me on:</h3>
+        <div class="flex gap-4">
+          <HomeLink
+            v-for="social in socials"
+            :key="social.label"
+            :href="social.link"
+            :icon="social.icon"
+            :label="social.label"
+          />
+        </div>
       </div>
       <div class="flex gap-2">
         <h4>Or send me an email:</h4>
@@ -46,6 +48,9 @@ const socials = [
           blanked
         />
       </div>
+    </div>
+    <div class="mt-8 w-full flex justify-center text-xs">
+      © {{ new Date().getFullYear() }} Arthur Danjou. All rights reserved.
     </div>
   </footer>
 </template>
