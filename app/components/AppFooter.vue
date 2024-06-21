@@ -28,7 +28,7 @@ const socials = [
       />
     </div>
     <div class="space-y-4">
-      <div class="flex gap-2 items-center">
+      <div class="flex flex-col md:flex-row gap-2 md:items-center">
         <h3>Find me on:</h3>
         <div class="flex gap-4">
           <HomeLink
@@ -40,7 +40,7 @@ const socials = [
           />
         </div>
       </div>
-      <div class="flex gap-2">
+      <div class="flex flex-col md:flex-row gap-2 md:items-center">
         <h4>Or send me an email:</h4>
         <HomeLink
           label="arthurdanjou@outlook.fr"

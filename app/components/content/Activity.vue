@@ -34,10 +34,10 @@ useIntervalFn(async () => await refresh(), 5000)
   </div>
   <div
     v-else
-    class="flex items-center gap-2"
+    class="flex md:items-start gap-2"
   >
     <UTooltip text="I'm offline 🫥">
-      <div class="h-3 w-3 inline-flex rounded-full bg-red-500" />
+      <div class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-7" />
     </UTooltip>
     <p>
       I'm currently offline. Come back later to see what I'm working on.
