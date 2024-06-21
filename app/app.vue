@@ -1,10 +1,3 @@
-<script setup lang="ts">
-useSeoMeta({
-  title: 'Arthur Danjou - Maths lover',
-  description: 'A Nuxt template to build your full-stack application on the edge.'
-})
-</script>
-
 <template>
   <NuxtLoadingIndicator color="#14b8a6" />
   <AppBackground />
