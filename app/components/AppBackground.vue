@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const points = useState(() => Array.from({ length: 45 }).fill(0).map(() => [Math.random(), Math.random()]))
-
 const poly = computed(() => points.value.map(([x, y]) => `${x * 100}% ${y * 100}%`).join(', '))
 
 function jumpVal(val: number) {
@@ -8,7 +7,6 @@ function jumpVal(val: number) {
 }
 
 let timeout: NodeJS.Timeout
-
 function jumpPoints() {
   for (let i = 0; i < points.value.length; i++)
     points.value[i] = [jumpVal(points.value[i][0]), jumpVal(points.value[i][1])]
