@@ -47,6 +47,15 @@ const ide = items.value!.filter(item => item.category === 'ide')
           label="IDE & Font"
           size="xs"
         />
+        <li class="w-2/3 mx-auto">
+          <NuxtImg
+            alt="My IntelliJ IDE"
+            src="/jetbrains.png"
+          />
+          <p class="text-center text-gray-600 dark:text-gray-400 text-sm mt-2 italic">
+            My IntelliJ Idea Ultimate IDE
+          </p>
+        </li>
         <UsesItem
           v-for="(item, id) in ide"
           :key="id"
