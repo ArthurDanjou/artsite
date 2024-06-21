@@ -19,7 +19,7 @@ const navs = [
   {
     label: 'writings',
     to: '/writings',
-    icon: 'i-ph-newspaper-duotone'
+    icon: 'i-ph-newspaper-clipping-duotone'
   },
   {
     label: 'resume',
