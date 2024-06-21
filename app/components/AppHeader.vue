@@ -9,23 +9,23 @@ const navs = [
   {
     label: 'home',
     to: '/',
-    icon: 'i-ph-house-bold'
+    icon: 'i-ph-house-line-duotone'
   },
   {
     label: 'uses',
     to: '/uses',
-    icon: 'i-ph-briefcase-bold'
+    icon: 'i-ph-briefcase-duotone'
   },
   {
     label: 'writings',
     to: '/writings',
-    icon: 'i-ph-newspaper-bold'
+    icon: 'i-ph-newspaper-duotone'
   },
   {
     label: 'resume',
     to: '/resume.pdf',
     target: '_blank',
-    icon: 'i-ph-person-arms-spread-bold'
+    icon: 'i-ph-address-book-duotone'
   }
 ]
 </script>
@@ -55,7 +55,7 @@ const navs = [
       <ClientOnly>
         <UTooltip text="switch theme">
           <UButton
-            :icon="isDark ? 'i-lucide:moon' : 'i-lucide:sun'"
+            :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
             variant="link"
             color="gray"
             size="sm"
