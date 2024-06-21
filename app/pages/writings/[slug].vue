@@ -14,6 +14,10 @@ const { copy, copied } = useClipboard({
   source: `https://arthurdanjou.fr/writing/${route.params.slug}`,
   copiedDuring: 4000
 })
+
+useHead({
+  title: `${post.value!.title ?? 'Untitled'} | Arthur Danjou`
+})
 </script>
 
 <template>
