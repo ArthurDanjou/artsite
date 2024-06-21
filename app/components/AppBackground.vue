@@ -16,13 +16,16 @@ function jumpPoints() {
 
 onMounted(() => jumpPoints())
 onUnmounted(() => clearTimeout(timeout))
+
+const route = useRoute()
 </script>
 
 <template>
   <ClientOnly>
     <div
+      v-show="route.path === '/'"
       aria-hidden="true"
-      class="bg sm:mx-8 absolute inset-0 z-20 transform-gpu blur-3xl overflow-hidden"
+      class="duration-300 bg sm:mx-8 absolute inset-0 z-20 transform-gpu blur-3xl overflow-hidden"
     >
       <div
         :style="{ 'clip-path': `polygon(${poly})` }"
