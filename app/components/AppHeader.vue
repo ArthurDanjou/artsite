@@ -62,6 +62,14 @@ const navs = [
             @click="isDark = !isDark"
           />
         </UTooltip>
+        <UTooltip text="open menu">
+          <UButton
+            color="gray"
+            icon="i-ph-command-duotone"
+            size="sm"
+            variant="link"
+          />
+        </UTooltip>
       </ClientOnly>
     </nav>
   </header>
