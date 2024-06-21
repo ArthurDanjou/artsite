@@ -23,7 +23,8 @@ useIntervalFn(async () => await refresh(), 5000)
       />
     </UTooltip>
     <p v-if="codingActivity.state.toLowerCase().includes('editing')">
-      I'm actually working on <strong>{{ codingActivity.details }}</strong>, {{ codingActivity.state.toLowerCase() }}
+      I'm actually working on <strong>{{ codingActivity.details }}</strong>,
+      {{ codingActivity.state.charAt(0).toLowerCase() + codingActivity.state.slice(1) }}.
       using <strong>{{ codingActivity.name }}</strong>.
       I've started <strong>{{ useTimeAgo(codingActivity.timestamps.start).value }}</strong>, the
       <strong>{{ formatDate(codingActivity.timestamps.start) }}</strong>.
