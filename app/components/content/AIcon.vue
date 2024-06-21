@@ -14,7 +14,7 @@ defineProps({
       :name="icon"
       :dynamic="true"
     />
-    <span class="sofia font-medium underline decoration-gray-100 dark:decoration-neutral-700">
+    <span class="sofia font-medium underline decoration-neutral-300 dark:decoration-neutral-700">
       <slot />
     </span>
   </div>
