@@ -42,11 +42,13 @@ const socials = [
       </div>
       <div class="flex flex-col md:flex-row gap-2 md:items-center">
         <h4>Or send me an email:</h4>
-        <HomeLink
-          label="arthurdanjou@outlook.fr"
-          href="mailto:arthurdanjou@outlook.fr"
-          blanked
-        />
+        <div class="flex">
+          <HomeLink
+            blanked
+            href="mailto:arthurdanjou@outlook.fr"
+            label="arthurdanjou@outlook.fr"
+          />
+        </div>
       </div>
     </div>
     <div class="mt-8 w-full flex justify-center text-xs">
