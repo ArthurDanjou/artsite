@@ -10,7 +10,7 @@ useSeoMeta({
   <AppBackground />
   <UContainer class="z-50 relative">
     <AppHeader />
-    <NuxtPage />
+    <NuxtPage class="mt-24" />
     <AppFooter />
   </UContainer>
 </template>
@@ -18,7 +18,7 @@ useSeoMeta({
 <style>
 body {
   font-family: 'DM Sans', sans-serif;
-  @apply h-full w-full p-0 m-0 text-[#374151] dark:text-[#d1d5db];
+  @apply h-full w-full text-[#374151] dark:text-[#d1d5db];
 }
 
 .sofia {
