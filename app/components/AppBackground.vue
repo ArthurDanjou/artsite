@@ -28,7 +28,7 @@ onUnmounted(() => clearTimeout(timeout))
     >
       <div
         :style="{ 'clip-path': `polygon(${poly})` }"
-        class="aspect-[2] h-2/3 w-full bg-gradient-to-r from-neutral-400 dark:from-neutral-600 to-white/10 lg:opacity-30 xs:opacity-50"
+        class="aspect-[2] h-full w-full bg-gradient-to-r from-neutral-400 dark:from-neutral-600 to-white/10 lg:opacity-30 xs:opacity-50"
       />
     </div>
   </ClientOnly>
