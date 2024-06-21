@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const socials = [
   {
-    icon: 'i-ph-x-logo-bold',
+    icon: 'i-ph-x-logo-duotone',
     label: 'Twitter',
     link: 'https://twitter.com/ArthurDanj'
   },
   {
-    icon: 'i-ph-github-logo-bold',
+    icon: 'i-ph-github-logo-duotone',
     label: 'GitHub',
     link: 'https://github.com/ArthurDanjou'
   },
   {
-    icon: 'i-ph-linkedin-logo-bold',
+    icon: 'i-ph-linkedin-logo-duotone',
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/arthurdanjou/'
   }
@@ -19,8 +19,8 @@ const socials = [
 </script>
 
 <template>
-  <footer class="mb-16">
-    <div class="flex justify-center mb-8">
+  <footer class="my-16">
+    <div class="flex justify-center mb-16">
       <UDivider
         class="md:w-2/3"
         size="2xs"
