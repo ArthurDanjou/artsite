@@ -1,4 +1,4 @@
-export default defineCachedEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const coding = await $fetch(`https://wakatime.com/share/${config.wakatimeUserId}/${config.wakatimeCodig}.json`)
   const editors = await $fetch(`https://wakatime.com/share/${config.wakatimeUserId}/${config.wakatimeEditors}.json`)
