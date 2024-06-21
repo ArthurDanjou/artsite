@@ -7,7 +7,8 @@ useSeoMeta({
 
 <template>
   <NuxtLoadingIndicator color="#14b8a6" />
-  <UContainer>
+  <AppBackground />
+  <UContainer class="z-50 relative">
     <AppHeader />
     <NuxtPage />
     <AppFooter />
