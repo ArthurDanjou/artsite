@@ -1,5 +1,3 @@
-# Arthur Danjou
-
 Hey, I'm Arthur Danjou, a mathematics student at the Paris-Saclay Faculty of Science in France.
 
 With a **deep understanding of emerging technologies**, I'm at the heart of a rapidly expanding field. My background in **mathematics** gives me a head start in understanding the concepts and theories behind these **technologies** and in designing them effectively.

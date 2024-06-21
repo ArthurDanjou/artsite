@@ -18,7 +18,7 @@ defineProps({
     >
       {{ title }}
     </h1>
-    <p class="mt-6 text-base text-gray-600 dark:text-gray-400">
+    <p class="mt-6 text-base">
       {{ description }}
     </p>
   </div>

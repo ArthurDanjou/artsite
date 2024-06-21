@@ -50,9 +50,9 @@ const ide = items.value!.filter(item => item.category === 'ide')
         <li class="w-2/3 mx-auto">
           <NuxtImg
             alt="My IntelliJ IDE"
-            src="/jetbrains.png"
+            src="/uses/jetbrains.png"
           />
-          <p class="text-center text-gray-600 dark:text-gray-400 text-sm mt-2 italic">
+          <p class="text-center text-sm mt-2 italic">
             My IntelliJ Idea Ultimate IDE
           </p>
         </li>

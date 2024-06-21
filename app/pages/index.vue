@@ -1,5 +1,5 @@
 <template>
-  <main class="!max-w-none prose dark:prose-invert mt-12">
+  <main class="!max-w-none prose dark:prose-invert">
     <ContentDoc path="/" />
   </main>
 </template>

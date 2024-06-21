@@ -31,10 +31,13 @@ const navs = [
 </script>
 
 <template>
-  <header class="flex justify-between my-8">
-    <div>
-      Logo
-    </div>
+  <header class="flex items-center justify-between my-8">
+    <NuxtLink
+      class="handwriting text-3xl flex gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+      to="/"
+    >
+      Arthur Danjou
+    </NuxtLink>
     <nav class="flex gap-2 items-center">
       <div
         v-for="nav in navs"
@@ -62,15 +65,13 @@ const navs = [
             @click="isDark = !isDark"
           />
         </UTooltip>
-        <UTooltip text="open menu">
-          <UButton
-            color="gray"
-            icon="i-ph-command-duotone"
-            size="sm"
-            variant="link"
-          />
-        </UTooltip>
       </ClientOnly>
     </nav>
   </header>
 </template>
+
+<style>
+.handwriting {
+  font-family: 'Dancing Script', cursive;
+}
+</style>

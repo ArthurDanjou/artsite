@@ -15,7 +15,7 @@ defineProps({
     <p class="text-base font-semibold text-black dark:text-white">
       {{ item.name }}
     </p>
-    <p class="text-sm text-gray-600 dark:text-gray-400">
+    <p class="text-sm">
       {{ item.description }}
     </p>
   </li>

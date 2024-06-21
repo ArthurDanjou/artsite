@@ -57,7 +57,8 @@ export default defineNuxtConfig({
     families: {
       'Inter': [400, 500, 600, 700, 800, 900],
       'Sofia Sans': [400],
-      'DM Sans': [400, 500, 600, 700, 800, 900]
+      'DM Sans': [400, 500, 600, 700, 800, 900],
+      'Dancing Script': [400, 700]
     }
   },
 
