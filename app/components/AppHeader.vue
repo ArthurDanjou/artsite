@@ -35,7 +35,7 @@ const navs = [
     <div>
       Logo
     </div>
-    <div class="flex gap-2 items-center">
+    <nav class="flex gap-2 items-center">
       <div
         v-for="nav in navs"
         :key="nav.label"
@@ -63,6 +63,6 @@ const navs = [
           />
         </UTooltip>
       </ClientOnly>
-    </div>
+    </nav>
   </header>
 </template>
