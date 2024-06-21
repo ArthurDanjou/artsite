@@ -18,4 +18,5 @@ I'm **constantly** learning new things, from technology to finance and entrepren
 As well as programming, I enjoy **sport** and **travelling**. My passion, commitment and eagerness to learn and progress are the qualities that enable me to succeed in my **career** and **studies**.
 
 :stats
+
 :activity

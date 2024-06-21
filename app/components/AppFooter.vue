@@ -20,7 +20,7 @@ const socials = [
 
 <template>
   <footer class="mb-16">
-    <div class="flex justify-center my-8">
+    <div class="flex justify-center mb-8">
       <UDivider
         class="md:w-2/3"
         size="2xs"
