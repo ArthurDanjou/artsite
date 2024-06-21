@@ -45,3 +45,8 @@ export const IDEs = [
   { name: 'IntelliJ IDEA Ultimate', icon: 'i-skill-icons-idea-light' },
   { name: 'WebStorm', icon: 'i-skill-icons-webstorm-light' }
 ]
+
+export interface UsesItem {
+  name: string
+  description: string
+}
