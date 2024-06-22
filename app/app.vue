@@ -1,5 +1,5 @@
 <template>
-  <NuxtLoadingIndicator color="#14b8a6" />
+  <NuxtLoadingIndicator color="#808080" />
   <AppBackground />
   <UContainer class="z-50 relative">
     <AppHeader />

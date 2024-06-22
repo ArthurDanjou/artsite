@@ -2,13 +2,12 @@
 import { type Activity, IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
+useIntervalFn(async () => await refresh(), 5000)
 const codingActivity = computed(() => activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name))[0])
 
 function formatDate(date: number) {
   return `${useDateFormat(date, 'DD MMM YYYY').value} at ${useDateFormat(date, 'HH:mm:ss').value}`
 }
-
-useIntervalFn(async () => await refresh(), 5000)
 </script>
 
 <template>
