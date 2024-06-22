@@ -1,8 +1,8 @@
 ---
 slug: how-does-my-website-work
-title: 'How does my website work?'
-description: 'My new website is using a fantastical stack and I am explaining how my playground works'
-publishedAt: '2024/06/21'
+title: How does my website work?
+description: My new website is using a fantastical stack and I am explaining how my playground works
+publishedAt: 2024/06/21
 readingTime: 7
 ---
 
