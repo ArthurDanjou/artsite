@@ -28,6 +28,15 @@ const navs = [
     icon: 'i-ph-address-book-duotone'
   }
 ]
+
+function toggleTheme() {
+  if (!document.startViewTransition) {
+    isDark.value = !isDark.value
+  }
+
+  // @ts-ignore
+  document.startViewTransition(() => isDark.value = !isDark.value)
+}
 </script>
 
 <template>
@@ -61,7 +70,7 @@ const navs = [
             variant="link"
             color="gray"
             size="sm"
-            @click="isDark = !isDark"
+            @click="toggleTheme()"
           />
         </UTooltip>
       </ClientOnly>
