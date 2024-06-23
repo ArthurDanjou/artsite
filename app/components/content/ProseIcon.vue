@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="inline">
+  <span class="inline">
     <UIcon
       class="mb-1 mr-1"
       :name="icon"
@@ -17,5 +17,5 @@ defineProps({
     <span class="sofia font-medium underline decoration-neutral-300 dark:decoration-neutral-700">
       <slot />
     </span>
-  </div>
+  </span>
 </template>

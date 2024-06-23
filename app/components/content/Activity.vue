@@ -38,15 +38,15 @@ function formatDate(date: number) {
       I'm Idling on my computer with <strong>{{ codingActivity.name }}</strong> running in background.
     </span>
   </p>
-  <p
+  <div
     v-else
-    class="flex md:items-start gap-2"
+    class="my-5 flex md:items-start gap-2"
   >
     <UTooltip text="I'm offline 🫥">
-      <div class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-2" />
+      <span class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-2" />
     </UTooltip>
-    <span>
+    <p class="not-prose">
       I'm currently offline. Come back later to see what I'm working on.
-    </span>
-  </p>
+    </p>
+  </div>
 </template>
