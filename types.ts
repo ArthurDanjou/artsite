@@ -41,12 +41,23 @@ export interface Activity {
 }
 
 export const IDEs = [
-  { name: 'Visual Studio Code', icon: 'i-skill-icons-vscode-light' },
-  { name: 'IntelliJ IDEA Ultimate', icon: 'i-skill-icons-idea-light' },
-  { name: 'WebStorm', icon: 'i-skill-icons-webstorm-light' }
+  { name: 'Visual Studio Code', icon: 'i-logos-visual-studio-code' },
+  { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos-intellij-idea' },
+  { name: 'WebStorm', icon: 'i-logos-webstorm' }
 ]
 
 export interface UsesItem {
   name: string
   description: string
+}
+
+export interface CodingActivity {
+  name: string
+  active: boolean
+  project: string
+  state: string
+  start: {
+    ago: string
+    formated: string
+  }
 }

@@ -80,6 +80,9 @@ export default defineNuxtConfig({
       editors: '',
       languages: '',
       os: ''
+    },
+    cloud: {
+      resume: ''
     }
   }
 })

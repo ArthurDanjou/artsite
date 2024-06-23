@@ -5,6 +5,7 @@ watch(isDark, () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 })
 
+const { cloud } = useRuntimeConfig()
 const navs = [
   {
     label: 'home',
@@ -23,7 +24,7 @@ const navs = [
   },
   {
     label: 'resume',
-    to: 'https://cvws.icloud-content.com/B/AX71VtCX0vhZs6_jUHDuotOGnb0VAQE4MV8KB7QIeY5Q5Gik5J1erx4y/CV+English.pdf?o=AkIvC5IrO-5fS21fwPXq7UGd0lswyMuXT-P7E5CowQQ0&v=1&x=3&a=CAogqklcIUioRMDFGNGnrRfaDkS9YEmojlUNZ6rG0QyMiuwSbxDU2oOLhDIY1LffjIQyIgEAUgSGnb0VWgRerx4yaieUQJCUnGaHq9iuUS1_UtlGN8Ioa3fXnJFInkj9n6PaXX4XnUO2y_ByJ8VXz1TffVsstlH_R9jT0WX2nkZVem0ZdiIZue6zB1iI0RG7vslM9A&e=1719087389&fl=&r=76b32fd5-6d83-4903-83a5-2ab70677813b-1&k=_NuEhyMkXeSuqqVw_4seIg&ckc=com.apple.clouddocs&ckz=com.apple.CloudDocs&p=160&s=j5LuqIi_tMAZoyRrQVfV3PNfcjI&cd=i',
+    to: '',
     target: '_blank',
     icon: 'i-ph-address-book-duotone'
   }

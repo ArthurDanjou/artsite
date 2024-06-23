@@ -12,7 +12,6 @@ defineProps({
     <UIcon
       class="mb-1 mr-1"
       :name="icon"
-      :dynamic="true"
     />
     <span class="sofia font-medium underline decoration-neutral-300 dark:decoration-neutral-700">
       <slot />
