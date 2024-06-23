@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Stats } from '~~/types'
 
-const stats = await $fetch<Stats>('/api/stats')
+const { data: stats }  = await useFetch<Stats>('/api/stats')
 </script>
 
 <template>
@@ -13,7 +13,9 @@ const stats = await $fetch<Stats>('/api/stats')
     }}</strong> hours.
     My best editors are
     {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(' and ') }}.
+    <template v-if="stats.os.data[0]">
     My best OS is {{ stats.os.data[0].name }} ({{ stats.os.data[0].percent }}%).
+    </template>
     My top languages are
     {{ stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(' and ') }}.
   </p>
