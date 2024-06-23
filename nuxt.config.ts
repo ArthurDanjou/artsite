@@ -70,16 +70,16 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     discord: {
-      userId: "",
-      id: "",
-      token: "",
+      userId: '',
+      id: '',
+      token: ''
     },
     wakatime: {
-      userId: "",
-      coding: "",
-      editors: "",
-      languages: "",
-      os: "",
-    },
-  },
+      userId: '',
+      coding: '',
+      editors: '',
+      languages: '',
+      os: ''
+    }
+  }
 })

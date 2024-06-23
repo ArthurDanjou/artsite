@@ -32,10 +32,11 @@ const navs = [
 function toggleTheme() {
   if (!document.startViewTransition) {
     isDark.value = !isDark.value
+    return
   }
 
-  // @ts-ignore
-  document.startViewTransition(() => isDark.value = !isDark.value)
+  document.startViewTransition(() => {
+  })
 }
 </script>
 
