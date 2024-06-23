@@ -75,7 +75,7 @@ const getActivity = computed<CodingActivity | undefined>(() => {
       <span>I'm Idling on my computer with</span>
       <UIcon
         :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
-        size="20"
+        size="16"
       />
       <span>
         <strong>{{ getActivity.name }}</strong> running in background.
