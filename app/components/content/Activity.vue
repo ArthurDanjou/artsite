@@ -38,59 +38,63 @@ const getActivity = computed<CodingActivity | undefined>(() => {
 </script>
 
 <template>
-  <div
-    v-if="getActivity"
-    class="flex items-start gap-2"
-  >
-    <UTooltip :text="getActivity.active ? 'I\'m online 👋' : 'I\'m sleeping 😴'">
-      <div class="relative flex h-3 w-3 mt-2">
-        <div
-          v-if="getActivity.active"
-          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
-        />
-        <div
-          :class="getActivity.active ? 'bg-green-500' : 'bg-amber-500'"
-          class="relative inline-flex rounded-full h-3 w-3"
-        />
-      </div>
-    </UTooltip>
-    <span
-      v-if="getActivity.active"
-      class="space-x-1"
+  <ClientOnly>
+    <div
+      v-if="getActivity"
+      class="flex items-start gap-2"
     >
-      <span>I'm actually working on <strong>{{ getActivity.project }}</strong>, {{ getActivity.state }}, using</span>
-      <UIcon
-        :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
-        size="16"
-      />
-      <span>
-        <strong>{{ getActivity.name }}</strong>.
-        I've started <strong>{{ getActivity.start.ago }}</strong>, the <strong>{{ getActivity.start.formated }}</strong>.
+      <UTooltip :text="getActivity.active ? 'I\'m online 👋' : 'I\'m sleeping 😴'">
+        <div class="relative flex h-3 w-3 mt-2">
+          <div
+            v-if="getActivity.active"
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+          />
+          <div
+            :class="getActivity.active ? 'bg-green-500' : 'bg-amber-500'"
+            class="relative inline-flex rounded-full h-3 w-3"
+          />
+        </div>
+      </UTooltip>
+      <span
+        v-if="getActivity.active"
+        class="space-x-1"
+      >
+        <span>I'm actually working on <strong>{{ getActivity.project }}</strong>, {{ getActivity.state }}, using</span>
+        <UIcon
+          :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
+          size="16"
+        />
+        <span>
+          <strong>{{ getActivity.name }}</strong>.
+          I've started <strong>{{ getActivity.start.ago }}</strong>, the <strong>{{
+            getActivity.start.formated
+          }}</strong>.
+        </span>
       </span>
-    </span>
+      <div
+        v-else
+        class="space-x-1"
+      >
+        <span>I'm Idling on my computer with</span>
+        <UIcon
+          :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
+          size="16"
+        />
+        <span>
+          <strong>{{ getActivity.name }}</strong> running in background.
+        </span>
+      </div>
+    </div>
     <div
       v-else
-      class="space-x-1"
+      class="my-5 flex md:items-start gap-2"
     >
-      <span>I'm Idling on my computer with</span>
-      <UIcon
-        :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
-        size="16"
-      />
-      <span>
-        <strong>{{ getActivity.name }}</strong> running in background.
-      </span>
+      <UTooltip text="I'm offline 🫥">
+        <span class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-2" />
+      </UTooltip>
+      <p class="not-prose">
+        I'm currently offline. Come back later to see what I'm working on.
+      </p>
     </div>
-  </div>
-  <div
-    v-else
-    class="my-5 flex md:items-start gap-2"
-  >
-    <UTooltip text="I'm offline 🫥">
-      <span class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-2" />
-    </UTooltip>
-    <p class="not-prose">
-      I'm currently offline. Come back later to see what I'm working on.
-    </p>
-  </div>
+  </ClientOnly>
 </template>
