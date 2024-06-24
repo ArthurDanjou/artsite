@@ -31,13 +31,14 @@ const navs = [
 ]
 
 function toggleTheme() {
-  if (!document.startViewTransition) {
+  document.body.style.animation = 'theme-switch-on .5s'
+  setTimeout(() => {
     isDark.value = !isDark.value
-    return
-  }
-
-  document.startViewTransition(() => {
-  })
+    document.body.style.animation = 'theme-switch-off .5s'
+    setTimeout(() => {
+      document.body.style.animation = ''
+    }, 500)
+  }, 500)
 }
 </script>
 
@@ -83,5 +84,27 @@ function toggleTheme() {
 <style>
 .handwriting {
   font-family: 'Dancing Script', cursive;
+}
+
+@keyframes theme-switch-on {
+  0% {
+    filter: blur(0);
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.98);
+    filter: blur(3px);
+  }
+}
+
+@keyframes theme-switch-off {
+  0% {
+    transform: scale(0.98);
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0);
+    transform: scale(1);
+  }
 }
 </style>
