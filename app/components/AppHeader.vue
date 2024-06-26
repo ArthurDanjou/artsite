@@ -5,7 +5,7 @@ watch(isDark, () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 })
 
-const { cloud } = useRuntimeConfig()
+const config = useRuntimeConfig()
 const navs = [
   {
     label: 'home',
@@ -24,21 +24,21 @@ const navs = [
   },
   {
     label: 'resume',
-    to: '',
+    to: config.public.cloud.resume,
     target: '_blank',
     icon: 'i-ph-address-book-duotone'
   }
 ]
 
-function toggleTheme() {
+async function toggleTheme() {
   document.body.style.animation = 'theme-switch-on .5s'
-  setTimeout(() => {
-    isDark.value = !isDark.value
-    document.body.style.animation = 'theme-switch-off .5s'
-    setTimeout(() => {
-      document.body.style.animation = ''
-    }, 500)
-  }, 500)
+  await new Promise(resolve => setTimeout(resolve, 500))
+
+  isDark.value = !isDark.value
+  document.body.style.animation = 'theme-switch-off .5s'
+
+  await new Promise(resolve => setTimeout(resolve, 500))
+  document.body.style.animation = ''
 }
 </script>
 
@@ -48,7 +48,7 @@ function toggleTheme() {
       class="handwriting text-lg sm:text-3xl flex gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
       to="/"
     >
-      Arthur Danjou
+      Arthur Danjou {{ cloud }}
     </NuxtLink>
     <nav class="flex gap-2 items-center">
       <UTooltip

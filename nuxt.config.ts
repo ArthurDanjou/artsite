@@ -81,8 +81,10 @@ export default defineNuxtConfig({
       languages: '',
       os: ''
     },
-    cloud: {
-      resume: ''
+    public: {
+      cloud: {
+        resume: ''
+      }
     }
   }
 })
