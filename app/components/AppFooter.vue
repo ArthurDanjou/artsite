@@ -37,6 +37,7 @@ const socials = [
             :href="social.link"
             :icon="social.icon"
             :label="social.label"
+            target="_blank"
           />
         </div>
       </div>
