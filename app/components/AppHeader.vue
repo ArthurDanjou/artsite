@@ -48,7 +48,7 @@ async function toggleTheme() {
       class="handwriting text-lg sm:text-3xl flex gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
       to="/"
     >
-      Arthur Danjou {{ cloud }}
+      Arthur Danjou
     </NuxtLink>
     <nav class="flex gap-2 items-center">
       <UTooltip
