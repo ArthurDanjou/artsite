@@ -14,7 +14,7 @@ Testing frameworks (new nuxt 3), improving css style, discovering new technologi
 
 ### Fast
 
-Faster than the old one thanks to the new version
+Faster than the old one thanks to the new version of Nuxt
 
 ## FrontEnd & BackEnd with Nuxt 3
 
@@ -30,7 +30,7 @@ Nuxt Studio
 
 ## How much everything costs
 
-0 thanks to nuxt free plan
+0 thanks to nuxt free plan and cloudflare free plan
 
 ## What's next
 
