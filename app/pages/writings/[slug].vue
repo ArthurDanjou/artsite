@@ -66,7 +66,7 @@ useHead({
         </p>
         <div class="flex gap-4 items-center">
           <UButton
-            color="black"
+            color="white"
             icon="i-ph-arrow-fat-lines-up-duotone"
             label="Go to top"
             size="lg"
@@ -84,7 +84,7 @@ useHead({
           />
           <UButton
             v-else
-            color="black"
+            color="white"
             icon="i-ph-square-duotone"
             label="Copy link"
             size="lg"

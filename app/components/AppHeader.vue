@@ -73,7 +73,7 @@ defineShortcuts({
           :icon="nav.icon"
           :target="nav.target ? nav.target : '_self'"
           :to="nav.to"
-          color="gray"
+          color="white"
           size="sm"
           label=""
           variant="solid"
@@ -83,7 +83,7 @@ defineShortcuts({
         <UTooltip text="switch theme">
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
-            color="black"
+            color="white"
             size="sm"
             variant="solid"
             @click="toggleTheme()"
