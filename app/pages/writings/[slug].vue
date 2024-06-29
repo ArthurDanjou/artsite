@@ -66,11 +66,11 @@ useHead({
         </p>
         <div class="flex gap-4 items-center">
           <UButton
-            color="gray"
+            color="black"
             icon="i-ph-arrow-fat-lines-up-duotone"
             label="Go to top"
             size="lg"
-            variant="ghost"
+            variant="solid"
             @click.prevent="top()"
           />
           <UButton
@@ -79,16 +79,16 @@ useHead({
             icon="i-ph-check-square-duotone"
             label="Link copied"
             size="lg"
-            variant="ghost"
+            variant="solid"
             @click.prevent="copy()"
           />
           <UButton
             v-else
-            color="gray"
+            color="black"
             icon="i-ph-square-duotone"
             label="Copy link"
             size="lg"
-            variant="ghost"
+            variant="solid"
             @click.prevent="copy()"
           />
         </div>
