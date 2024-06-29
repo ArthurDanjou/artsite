@@ -24,7 +24,7 @@ useHead({
   <main v-if="post">
     <div class="flex">
       <NuxtLink
-        class="flex items-center gap-2 mb-4 group text-sm hover:text-black dark:hover:text-white duration-300"
+        class="flex items-center gap-2 mb-8 group text-sm hover:text-black dark:hover:text-white duration-300"
         to="/writings"
       >
         <UIcon
