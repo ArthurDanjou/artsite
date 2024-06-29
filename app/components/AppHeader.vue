@@ -50,7 +50,8 @@ defineShortcuts({
   h: () => router.push('/'),
   u: () => router.push('/uses'),
   w: () => router.push('/writings'),
-  r: () => window.open(config.public.cloud.resume, '_blank')
+  r: () => window.open(config.public.cloud.resume, '_blank'),
+  t: () => toggleTheme()
 })
 </script>
 
@@ -80,7 +81,10 @@ defineShortcuts({
         />
       </UTooltip>
       <ClientOnly>
-        <UTooltip text="switch theme">
+        <UTooltip
+          :shortcuts="['T']"
+          text="switch theme"
+        >
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
             color="white"
