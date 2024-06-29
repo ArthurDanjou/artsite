@@ -10,23 +10,27 @@ const navs = [
   {
     label: 'home',
     to: '/',
-    icon: 'i-ph-house-line-duotone'
+    icon: 'i-ph-house-line-duotone',
+    shortcut: 'h'
   },
   {
     label: 'uses',
     to: '/uses',
-    icon: 'i-ph-briefcase-duotone'
+    icon: 'i-ph-briefcase-duotone',
+    shortcut: 'u'
   },
   {
     label: 'writings',
     to: '/writings',
-    icon: 'i-ph-newspaper-clipping-duotone'
+    icon: 'i-ph-newspaper-clipping-duotone',
+    shortcut: 'w'
   },
   {
     label: 'resume',
     to: config.public.cloud.resume,
     target: '_blank',
-    icon: 'i-ph-address-book-duotone'
+    icon: 'i-ph-address-book-duotone',
+    shortcut: 'r'
   }
 ]
 
@@ -40,6 +44,14 @@ async function toggleTheme() {
   await new Promise(resolve => setTimeout(resolve, 500))
   document.body.style.animation = ''
 }
+
+const router = useRouter()
+defineShortcuts({
+  h: () => router.push('/'),
+  u: () => router.push('/uses'),
+  w: () => router.push('/writings'),
+  r: () => window.open(config.public.cloud.resume, '_blank')
+})
 </script>
 
 <template>
@@ -55,24 +67,25 @@ async function toggleTheme() {
         v-for="nav in navs"
         :key="nav.label"
         :text="nav.label"
+        :shortcuts="[nav.shortcut]"
       >
         <UButton
           :icon="nav.icon"
           :target="nav.target ? nav.target : '_self'"
           :to="nav.to"
           color="gray"
-          dynamic
           size="sm"
-          variant="link"
+          label=""
+          variant="solid"
         />
       </UTooltip>
       <ClientOnly>
         <UTooltip text="switch theme">
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
-            variant="link"
-            color="gray"
+            color="black"
             size="sm"
+            variant="solid"
             @click="toggleTheme()"
           />
         </UTooltip>
