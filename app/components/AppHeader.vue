@@ -82,7 +82,7 @@ defineShortcuts({
       </UTooltip>
       <ClientOnly>
         <UTooltip
-          :shortcuts="['T']"
+          :shortcuts="['t']"
           text="switch theme"
         >
           <UButton
