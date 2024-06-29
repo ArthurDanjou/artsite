@@ -35,6 +35,9 @@ useHead({
         Go back
       </NuxtLink>
     </div>
+    <div class="mb-2 border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
+      {{ useDateFormat(post.publishedAt, 'DD MMMM YYYY').value }} - {{ post.readingTime }}min.
+    </div>
     <AppTitle
       :description="post.description"
       :title="post.title ?? 'Untitled'"
@@ -48,6 +51,10 @@ useHead({
         alt="Writing cover"
       />
     </div>
+    <UDivider
+      class="mt-8"
+      icon="i-ph-pencil-line-duotone"
+    />
     <article class="mt-8">
       <ContentRenderer :value="post">
         <ContentRendererMarkdown
