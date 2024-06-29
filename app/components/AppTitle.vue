@@ -14,11 +14,11 @@ defineProps({
 <template>
   <div>
     <h1
-      class="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
+      class="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
     >
       {{ title }}
     </h1>
-    <p class="mt-6 text-base">
+    <p class="mt-4 text-base">
       {{ description }}
     </p>
   </div>

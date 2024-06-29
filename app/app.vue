@@ -11,7 +11,7 @@
 <style>
 body {
   font-family: 'DM Sans', sans-serif;
-  @apply h-full w-full !text-gray-600 dark:!text-gray-400;
+  @apply h-full w-full text-neutral-700 dark:text-neutral-300;
 }
 
 .sofia {
