@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
-    "@nuxt/image"
+    '@nuxt/image',
+    '@nuxtjs/seo'
   ],
 
   hub: {
@@ -25,6 +26,13 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'en' }
     }
+  },
+
+  site: {
+    url: 'https://arthurdanjou.fr',
+    name: 'Arthur Danjou | Mathematics Lover and IA Enthusiast',
+    description: 'I\'m Arthur, a Mathematics lover and IA enthusiast. I\'m currently studying at the University of Paris-Saclay. I\'m passionate about Mathematics, Computer Science, and Artificial Intelligence.',
+    defaultLocale: 'en'
   },
 
   content: {

@@ -25,3 +25,6 @@ logs
 
 # Drizzle
 migrations
+
+# Unlighthouse
+.unlighthouse
