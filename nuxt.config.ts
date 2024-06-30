@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
@@ -39,7 +38,7 @@ export default defineNuxtConfig({
     name: 'Arthur Danjou',
     description: 'I\'m Arthur, a Mathematics lover and IA enthusiast. I\'m currently studying at the University of Paris-Saclay. I\'m passionate about Mathematics, Computer Science, and Artificial Intelligence.',
     defaultLocale: 'en',
-    trailingSlash: true
+    trailingSlash: false
   },
   seo: {
     redirectToCanonicalSiteUrl: true
@@ -50,9 +49,6 @@ export default defineNuxtConfig({
     enabled: false
   },
   seoExperiments: {
-    enabled: false
-  },
-  schemaOrg: {
     enabled: false
   },
   linkChecker: {
@@ -70,11 +66,6 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'system',
     fallback: 'light'
-  },
-
-  // Nuxt UI
-  ui: {
-    icons: ['heroicons', 'logos', 'ph']
   },
 
   // Nuxt Devtools

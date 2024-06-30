@@ -19,7 +19,7 @@ const { copy, copied } = useClipboard({
   copiedDuring: 4000
 })
 
-useSeoMeta({
+definePageMeta({
   title: post.value?.title,
   description: post.value?.description
 })
