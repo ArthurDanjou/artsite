@@ -74,6 +74,7 @@ defineShortcuts({
           :icon="nav.icon"
           :target="nav.target ? nav.target : '_self'"
           :to="nav.to"
+          :aria-label="nav.label"
           color="white"
           size="sm"
           label=""
@@ -88,6 +89,7 @@ defineShortcuts({
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
             color="white"
+            aria-label="switch theme"
             size="sm"
             variant="solid"
             @click="toggleTheme()"

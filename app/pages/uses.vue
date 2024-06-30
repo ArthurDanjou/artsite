@@ -20,28 +20,20 @@ const ide = items.value!.filter(item => item.category === 'ide')
       title="Uses"
     />
     <div class="mt-12 space-y-24">
-      <ul class="space-y-8">
-        <UDivider
-          label="Hardware"
-          size="xs"
-        />
+      <UsesList title="Hardware">
         <UsesItem
           v-for="(item, id) in hardware"
           :key="id"
           :item="item"
         />
-      </ul>
-      <ul class="space-y-8">
-        <UDivider
-          label="Software"
-          size="xs"
-        />
+      </UsesList>
+      <UsesList title="Software">
         <UsesItem
           v-for="(item, id) in software"
           :key="id"
           :item="item"
         />
-      </ul>
+      </UsesList>
       <ul class="space-y-8">
         <UDivider
           label="IDE & Font"
