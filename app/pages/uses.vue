@@ -48,10 +48,10 @@ const ide = items.value!.filter(item => item.category === 'ide')
           size="xs"
         />
         <li class="w-2/3 mx-auto">
-          <NuxtImg
+          <img
             alt="My IntelliJ IDE"
             src="/uses/jetbrains.png"
-          />
+          >
           <p class="text-center text-sm mt-2 italic">
             My IntelliJ Idea Ultimate IDE
           </p>

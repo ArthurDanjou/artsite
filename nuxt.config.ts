@@ -9,17 +9,21 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxthq/studio',
-    '@nuxt/image'
+    '@nuxthq/studio'
   ],
 
   hub: {
     cache: true,
-    kv: true
+    kv: true,
+    database: true,
+    analytics: true
   },
 
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      htmlAttrs: { lang: 'en' }
+    }
   },
 
   content: {
@@ -35,7 +39,6 @@ export default defineNuxtConfig({
 
   ui: {
     icons: ['heroicons', 'logos', 'ph']
-
   },
 
   devtools: {

@@ -8,6 +8,20 @@ useSeoMeta({
 const { data: writings } = await useAsyncData('all-writings', () =>
   queryContent('/writings').sort({ published: -1 }).without('body').find()
 )
+
+const { data: writingsDB } = await useAsyncData('all-writings-db', () =>
+  $fetch(`/api/posts`)
+)
+
+function getDetails(slug: string) {
+  const writing = writingsDB.value!.find((writing: any) => writing.slug === slug)
+  if (!writing) return ''
+
+  const like = writing.likes! > 1 ? 'likes' : 'like'
+  const view = writing.views! > 1 ? 'views' : 'view'
+
+  return `${writing.likes} ${like} · ${writing.views} ${view}`
+}
 </script>
 
 <template>
@@ -25,15 +39,20 @@ const { data: writings } = await useAsyncData('all-writings', () =>
           :to="writing._path"
           class="group"
         >
-          <article>
+          <article class="space-y-1">
             <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
-              {{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} - {{ writing.readingTime }}min.
+              <p>{{ getDetails(writing.slug) }}</p>
             </div>
-            <h1
-              class="font-bold my-2 text-lg duration-300 text-gray-600 group-hover:text-black dark:text-gray-400 dark:group-hover:text-white"
-            >
-              {{ writing.title }}
-            </h1>
+            <div class="flex items-center gap-2">
+              <h1
+                class="font-bold text-lg duration-300 text-neutral-600 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white"
+              >
+                {{ writing.title }}
+              </h1>
+              <p class="text-sm text-neutral-500 group-hover:text-black dark:group-hover:text-white duration-300">
+                {{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} · {{ writing.readingTime }}min long
+              </p>
+            </div>
             <h3>
               {{ writing.description }}
             </h3>

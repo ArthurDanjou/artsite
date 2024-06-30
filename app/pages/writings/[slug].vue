@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 const route = useRoute()
 const { data: post } = await useAsyncData(`writing:${route.params.slug}`, () => queryContent(`/writings/${route.params.slug}`).findOne())
+const {
+  data: postDB,
+  refresh
+} = await useAsyncData(`writing:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
 function top() {
   window.scrollTo({
@@ -18,10 +22,25 @@ const { copy, copied } = useClipboard({
 useHead({
   title: `${post.value!.title ?? 'Untitled'} | Arthur Danjou`
 })
+
+function getDetails() {
+  const likes = postDB.value?.likes ?? 0
+  const views = postDB.value?.views ?? 0
+
+  const like = likes > 1 ? 'likes' : 'like'
+  const view = views > 1 ? 'views' : 'view'
+
+  return `${likes} ${like} · ${views} ${view}`
+}
+
+async function handleLike() {
+  await $fetch(`/api/posts/like/${route.params.slug}`, { method: 'PUT' })
+  await refresh()
+}
 </script>
 
 <template>
-  <main v-if="post">
+  <main v-if="post && postDB">
     <div class="flex">
       <NuxtLink
         class="flex items-center gap-2 mb-8 group text-sm hover:text-black dark:hover:text-white duration-300"
@@ -35,21 +54,32 @@ useHead({
         Go back
       </NuxtLink>
     </div>
-    <div class="mb-2 border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
-      {{ useDateFormat(post.publishedAt, 'DD MMMM YYYY').value }} - {{ post.readingTime }}min.
+    <p class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
+      {{ getDetails() }}
+    </p>
+    <div>
+      <div class="flex items-end gap-2">
+        <h1
+          class="font-bold text-3xl text-black dark:text-white"
+        >
+          {{ post.title }}
+        </h1>
+        <p class="text-sm text-neutral-500">
+          {{ useDateFormat(post.publishedAt, 'DD MMMM YYYY').value }} · {{ post.readingTime }}min long
+        </p>
+      </div>
+      <p class="mt-4 text-base">
+        {{ post.description }}
+      </p>
     </div>
-    <AppTitle
-      :description="post.description"
-      :title="post.title ?? 'Untitled'"
-    />
     <div
       v-if="post.cover"
       class="w-full rounded-md my-8"
     >
-      <NuxtImg
+      <img
         :src="`/writings/${post.cover}`"
         alt="Writing cover"
-      />
+      >
     </div>
     <UDivider
       class="mt-8"
@@ -73,6 +103,15 @@ useHead({
         </p>
         <div class="flex gap-4 items-center">
           <UButton
+            v-if="postDB.likes"
+            :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
+            color="red"
+            icon="i-ph-heart-duotone"
+            size="lg"
+            variant="outline"
+            @click.prevent="handleLike()"
+          />
+          <UButton
             color="white"
             icon="i-ph-arrow-fat-lines-up-duotone"
             label="Go to top"
@@ -86,7 +125,7 @@ useHead({
             icon="i-ph-check-square-duotone"
             label="Link copied"
             size="lg"
-            variant="solid"
+            variant="outline"
             @click.prevent="copy()"
           />
           <UButton
