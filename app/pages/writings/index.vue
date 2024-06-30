@@ -14,7 +14,7 @@ const { data: writingsDB } = await useAsyncData('all-writings-db', () =>
 )
 
 function getDetails(slug: string) {
-  const writing = writingsDB.value!.find((writing: any) => writing.slug === slug)
+  const writing = writingsDB.value!.find(writing => writing.slug === slug)
   if (!writing) return ''
 
   const like = writing.likes! > 1 ? 'likes' : 'like'

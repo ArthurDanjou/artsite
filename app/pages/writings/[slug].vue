@@ -103,7 +103,6 @@ async function handleLike() {
         </p>
         <div class="flex gap-4 items-center">
           <UButton
-            v-if="postDB.likes"
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
             color="red"
             icon="i-ph-heart-duotone"

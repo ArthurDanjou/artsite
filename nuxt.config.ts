@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxthq/studio'
+    '@nuxthq/studio',
+    "@nuxt/image"
   ],
 
   hub: {
