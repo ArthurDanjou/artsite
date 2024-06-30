@@ -77,10 +77,10 @@ async function handleLike() {
       v-if="post.cover"
       class="w-full rounded-md my-8"
     >
-      <img
+      <NuxtImg
         :src="`/writings/${post.cover}`"
         alt="Writing cover"
-      >
+      />
     </div>
     <UDivider
       class="mt-8"

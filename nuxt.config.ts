@@ -39,6 +39,20 @@ export default defineNuxtConfig({
     trailingSlash: true
   },
 
+  // Disable to reduce size
+  ogImage: {
+    enabled: false
+  },
+  seoExperiments: {
+    enabled: false
+  },
+  schemaOrg: {
+    enabled: false
+  },
+  linkChecker: {
+    enabled: false
+  },
+
   content: {
     highlight: {
       theme: 'github-dark'
