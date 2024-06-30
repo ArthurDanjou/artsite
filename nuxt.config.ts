@@ -2,6 +2,17 @@
 export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      htmlAttrs: { lang: 'en' },
+      templateParams: {
+        separator: '•'
+      }
+    }
+  },
+
+  // Nuxt Modules
   modules: [
     '@nuxthub/core',
     '@nuxt/eslint',
@@ -14,6 +25,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo'
   ],
 
+  // Nuxt Hub
   hub: {
     cache: true,
     kv: true,
@@ -21,22 +33,16 @@ export default defineNuxtConfig({
     analytics: true
   },
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      htmlAttrs: { lang: 'en' },
-      templateParams: {
-        separator: '•'
-      }
-    }
-  },
-
+  // Nuxt SEO
   site: {
     url: 'https://arthurdanjou.fr',
     name: 'Arthur Danjou',
     description: 'I\'m Arthur, a Mathematics lover and IA enthusiast. I\'m currently studying at the University of Paris-Saclay. I\'m passionate about Mathematics, Computer Science, and Artificial Intelligence.',
     defaultLocale: 'en',
     trailingSlash: true
+  },
+  seo: {
+    redirectToCanonicalSiteUrl: true
   },
 
   // Disable to reduce size
@@ -53,26 +59,31 @@ export default defineNuxtConfig({
     enabled: false
   },
 
+  // Nuxt Content
   content: {
     highlight: {
       theme: 'github-dark'
     }
   },
 
+  // Nuxt ColorMode
   colorMode: {
     preference: 'system',
     fallback: 'light'
   },
 
+  // Nuxt UI
   ui: {
     icons: ['heroicons', 'logos', 'ph']
   },
 
+  // Nuxt Devtools
   devtools: {
     enabled: true,
     timeline: { enabled: true }
   },
 
+  // Nuxt Eslint
   eslint: {
     config: {
       stylistic: {
@@ -82,6 +93,7 @@ export default defineNuxtConfig({
     }
   },
 
+  // Nuxt Google Fonts
   googleFonts: {
     display: 'swap',
     families: {
@@ -92,12 +104,14 @@ export default defineNuxtConfig({
     }
   },
 
+  // Nitro
   nitro: {
     experimental: {
       openAPI: true
     }
   },
 
+  // Nuxt Env
   runtimeConfig: {
     discord: {
       userId: '',
