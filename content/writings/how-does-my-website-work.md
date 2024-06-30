@@ -22,7 +22,7 @@ Faster than the old one thanks to the new version of Nuxt
 
 ### Database & Deployment
 
-NuxtHub & Cloudflare
+NuxtHub & Cloudflare workers
 
 ### Editing
 
