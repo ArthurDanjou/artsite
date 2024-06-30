@@ -19,8 +19,9 @@ const { copy, copied } = useClipboard({
   copiedDuring: 4000
 })
 
-useHead({
-  title: `${post.value!.title ?? 'Untitled'} | Arthur Danjou`
+useSeoMeta({
+  title: post.value?.title,
+  description: post.value?.description
 })
 
 function getDetails() {

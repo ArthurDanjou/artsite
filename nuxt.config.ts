@@ -24,15 +24,19 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      htmlAttrs: { lang: 'en' }
+      htmlAttrs: { lang: 'en' },
+      templateParams: {
+        separator: '•'
+      }
     }
   },
 
   site: {
     url: 'https://arthurdanjou.fr',
-    name: 'Arthur Danjou | Mathematics Lover and IA Enthusiast',
+    name: 'Arthur Danjou',
     description: 'I\'m Arthur, a Mathematics lover and IA enthusiast. I\'m currently studying at the University of Paris-Saclay. I\'m passionate about Mathematics, Computer Science, and Artificial Intelligence.',
-    defaultLocale: 'en'
+    defaultLocale: 'en',
+    trailingSlash: true
   },
 
   content: {
@@ -42,7 +46,7 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
-    preference: 'light',
+    preference: 'system',
     fallback: 'light'
   },
 
