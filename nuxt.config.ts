@@ -40,9 +40,6 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     trailingSlash: false
   },
-  seo: {
-    redirectToCanonicalSiteUrl: true
-  },
 
   // Disable to reduce size
   ogImage: {
