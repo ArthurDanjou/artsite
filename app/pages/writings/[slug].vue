@@ -58,7 +58,7 @@ async function handleLike() {
       {{ getDetails() }}
     </p>
     <div>
-      <div class="flex items-end gap-2">
+      <div class="flex items-end gap-2 flex-wrap">
         <h1
           class="font-bold text-3xl text-black dark:text-white"
         >
@@ -101,7 +101,7 @@ async function handleLike() {
           Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't
             forget to leave a like!</strong>
         </p>
-        <div class="flex gap-4 items-center">
+        <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
             color="red"

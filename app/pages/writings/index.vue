@@ -43,7 +43,7 @@ function getDetails(slug: string) {
             <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
               <p>{{ getDetails(writing.slug) }}</p>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <h1
                 class="font-bold text-lg duration-300 text-neutral-600 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white"
               >
