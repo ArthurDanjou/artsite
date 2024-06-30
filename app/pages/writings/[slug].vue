@@ -19,9 +19,10 @@ const { copy, copied } = useClipboard({
   copiedDuring: 4000
 })
 
-definePageMeta({
+useSeoMeta({
   title: post.value?.title,
-  description: post.value?.description
+  description: post.value?.description,
+  author: 'Arthur Danjou'
 })
 
 function getDetails() {
