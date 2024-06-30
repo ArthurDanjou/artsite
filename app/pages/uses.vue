@@ -47,12 +47,13 @@ const ide = items.value!.filter(item => item.category === 'ide')
           label="IDE & Font"
           size="xs"
         />
-        <li class="w-2/3 mx-auto">
+        <li class="relative">
           <img
             alt="My IntelliJ IDE"
             src="/uses/jetbrains.png"
+            class="mx-auto md:w-4/5"
           >
-          <p class="text-center text-sm mt-2 italic">
+          <p class="mt-2 text-sm italic flex gap-2 justify-center items-center">
             My IntelliJ Idea Ultimate IDE
           </p>
         </li>
