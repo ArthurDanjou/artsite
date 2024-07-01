@@ -11,6 +11,9 @@
 </template>
 
 <script lang="ts" setup>
+useHead({
+  link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+})
 </script>
 
 <style>
