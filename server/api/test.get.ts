@@ -1,6 +1,5 @@
-// @ts-expect-error alias module
-import { serverQueryContent } from '#content/server'
+import { prefixStorage } from 'unstorage'
 
 export default defineEventHandler((event) => {
-  return serverQueryContent(event).find()
+  return prefixStorage(useStorage(), 'content:source').getKeys()
 })
