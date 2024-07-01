@@ -1,3 +1,5 @@
+import { prefixStorage } from "unstorage"
+
 export default defineEventHandler((event) => {
-  return globalThis.__env__
+  return prefixStorage(useStorage(), 'cache:content:parsed')
 })
