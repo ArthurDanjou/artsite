@@ -11,9 +11,9 @@
         </div>
       </UTooltip>
     </div>
-    <div>
+    <p class="my-0">
       Hello everyone! Thanks for visiting my portfolio. Please leave whatever you like to say, such as suggestions,
       appreciations, questions or anything!
-    </div>
+    </p>
   </div>
 </template>
