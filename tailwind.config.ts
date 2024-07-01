@@ -16,5 +16,22 @@ export default <Partial<Config>>{
     './app.config.{js,ts}',
     'content/**/*.md'
   ],
+  theme: {
+    extend: {
+      animation: {
+        wave: 'wave 3s infinite'
+      },
+      keyframes: {
+        wave: {
+          '0%, 50%, 100%': {
+            transform: 'rotate(-12deg)'
+          },
+          '25%, 75%': {
+            transform: 'rotate(12deg) scale(1.5)'
+          }
+        }
+      }
+    }
+  },
   plugins: [typography]
 }
