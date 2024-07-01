@@ -26,12 +26,12 @@ export default defineNuxtConfig({
     'nuxt-simple-robots'
   ],
 
-  // Nuxt SiteMap
+  // Nuxt Sitemap
   sitemap: {
     cacheMaxAgeSeconds: 60 * 60 * 24, // 24 hours
-    sources: [
-      '/api/__sitemap__/urls'
-    ]
+    // sources: [
+    //   '/api/__sitemap__/urls'
+    // ]
   },
 
   // Nuxt Hub
