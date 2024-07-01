@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
+  // Nuxt App
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -20,9 +21,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
-    '@nuxt/image',
-    '@nuxtjs/seo'
-  ],
+    '@nuxt/image'
 
   // Nuxt Hub
   hub: {
@@ -32,24 +31,6 @@ export default defineNuxtConfig({
     analytics: true
   },
 
-  // Nuxt SEO
-  site: {
-    name: 'Arthur Danjou',
-    description: 'I\'m Arthur, a Mathematics lover and IA enthusiast. I\'m currently studying at the University of Paris-Saclay. I\'m passionate about Mathematics, Computer Science, and Artificial Intelligence.',
-    defaultLocale: 'en'
-  },
-
-  // Disable to reduce size
-  ogImage: {
-    enabled: false
-  },
-  seoExperiments: {
-    enabled: false
-  },
-  linkChecker: {
-    enabled: false
-  },
-
   // Nuxt Content
   content: {
     highlight: {
@@ -57,7 +38,7 @@ export default defineNuxtConfig({
     }
   },
 
-  // Nuxt ColorMode
+  // Nuxt Color Mode
   colorMode: {
     preference: 'system',
     fallback: 'light'

@@ -22,7 +22,8 @@ const { copy, copied } = useClipboard({
 useSeoMeta({
   title: post.value?.title,
   description: post.value?.description,
-  author: 'Arthur Danjou'
+  author: 'Arthur Danjou',
+  image: post.value?.cover
 })
 
 function getDetails() {
