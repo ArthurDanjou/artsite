@@ -16,13 +16,13 @@ const navs = [
   {
     label: 'uses',
     to: '/uses',
-    icon: 'i-ph-briefcase-duotone',
+    icon: 'i-ph-backpack-duotone',
     shortcut: 'u'
   },
   {
     label: 'writings',
     to: '/writings',
-    icon: 'i-ph-newspaper-clipping-duotone',
+    icon: 'i-ph-books-duotone',
     shortcut: 'w'
   },
   {
