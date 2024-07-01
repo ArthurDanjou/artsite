@@ -22,8 +22,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
     '@nuxt/image',
-    '@nuxtjs/sitemap',
-    'nuxt-simple-robots'
+    // '@nuxtjs/sitemap',
+    // 'nuxt-simple-robots'
   ],
 
   // Nuxt Sitemap
