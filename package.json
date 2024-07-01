@@ -40,5 +40,10 @@
     "typescript": "^5.5.2",
     "vue-tsc": "^2.0.24",
     "wrangler": "^3.62.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@nuxt/content@2.13.0": "patches/@nuxt__content@2.13.0.patch"
+    }
   }
 }

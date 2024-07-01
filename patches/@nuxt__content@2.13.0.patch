@@ -1,0 +1,30 @@
+diff --git a/dist/runtime/server/storage.js b/dist/runtime/server/storage.js
+index b6663a235cfaa3b00a69564eba62d60bfbbd892d..c152273d431bfcdec8597ff12a67d6838e4649f8 100644
+--- a/dist/runtime/server/storage.js
++++ b/dist/runtime/server/storage.js
+@@ -14,22 +14,13 @@ let _sourceStorage;
+ let _cacheStorage;
+ let _cacheParsedStorage;
+ export const sourceStorage = () => {
+-  if (!_sourceStorage) {
+-    _sourceStorage = prefixStorage(useStorage(), "content:source");
+-  }
+-  return _sourceStorage;
++  return prefixStorage(useStorage(), "content:source");
+ };
+ export const cacheStorage = () => {
+-  if (!_cacheStorage) {
+-    _cacheStorage = prefixStorage(useStorage(), "cache:content");
+-  }
+-  return _cacheStorage;
++  return prefixStorage(useStorage(), "cache:content");
+ };
+ export const cacheParsedStorage = () => {
+-  if (!_cacheParsedStorage) {
+-    _cacheParsedStorage = prefixStorage(useStorage(), "cache:content:parsed");
+-  }
+-  return _cacheParsedStorage;
++  return prefixStorage(useStorage(), "cache:content:parsed");
+ };
+ const isProduction = process.env.NODE_ENV === "production";
+ const isPrerendering = import.meta.prerender;
