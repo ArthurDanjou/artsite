@@ -24,3 +24,5 @@ As well as programming, I enjoy **sport** and **travelling**. My passion, commit
 :stats
 
 :activity
+
+:quote
