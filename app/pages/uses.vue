@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const description = 'Software I use, gadgets I love, and other things I recommend. Here’s a big list of all of my favorite stuff.'
 useSeoMeta({
-  title: 'Things I use | Arthur Danjou',
+  title: 'Things I use',
   description
 })
 
