@@ -19,8 +19,11 @@ const { copy, copied } = useClipboard({
   copiedDuring: 4000
 })
 
-useHead({
-  title: `${post.value!.title ?? 'Untitled'} | Arthur Danjou`
+useSeoMeta({
+  title: post.value?.title,
+  description: post.value?.description,
+  author: 'Arthur Danjou',
+  image: post.value?.cover
 })
 
 function getDetails() {
@@ -76,10 +79,10 @@ async function handleLike() {
       v-if="post.cover"
       class="w-full rounded-md my-8"
     >
-      <img
+      <NuxtImg
         :src="`/writings/${post.cover}`"
         alt="Writing cover"
-      >
+      />
     </div>
     <UDivider
       class="mt-8"
@@ -98,16 +101,16 @@ async function handleLike() {
       />
       <div class="space-y-8">
         <p>
-          Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't
-            forget to leave a like!</strong>
+          Thanks for reading this post! If you liked it, please consider sharing it with your friends.
+          <strong>Don't forget to leave a like!</strong>
         </p>
         <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
-            color="red"
+            color="white"
             icon="i-ph-heart-duotone"
             size="lg"
-            variant="outline"
+            variant="solid"
             @click.prevent="handleLike()"
           />
           <UButton

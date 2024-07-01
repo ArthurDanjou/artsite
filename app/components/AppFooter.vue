@@ -29,7 +29,7 @@ const socials = [
     </div>
     <div class="space-y-4">
       <div class="flex flex-col md:flex-row gap-2 md:items-center">
-        <h3>Find me on:</h3>
+        <h1>Find me on:</h1>
         <div class="flex gap-4">
           <HomeLink
             v-for="social in socials"
@@ -42,7 +42,7 @@ const socials = [
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-2 md:items-center">
-        <h4>Or send me an email:</h4>
+        <h1>Or send me an email:</h1>
         <div class="flex">
           <HomeLink
             blanked

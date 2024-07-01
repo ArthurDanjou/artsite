@@ -2,6 +2,18 @@
 export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
+  // Nuxt App
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      htmlAttrs: { lang: 'en' },
+      templateParams: {
+        separator: '•'
+      }
+    }
+  },
+
+  // Nuxt Modules
   modules: [
     '@nuxthub/core',
     '@nuxt/eslint',
@@ -10,9 +22,10 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
-    "@nuxt/image"
+    '@nuxt/image'
   ],
 
+  // Nuxt Hub
   hub: {
     cache: true,
     kv: true,
@@ -20,33 +33,26 @@ export default defineNuxtConfig({
     analytics: true
   },
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      htmlAttrs: { lang: 'en' }
-    }
-  },
-
+  // Nuxt Content
   content: {
     highlight: {
       theme: 'github-dark'
     }
   },
 
+  // Nuxt Color Mode
   colorMode: {
-    preference: 'light',
+    preference: 'system',
     fallback: 'light'
   },
 
-  ui: {
-    icons: ['heroicons', 'logos', 'ph']
-  },
-
+  // Nuxt Devtools
   devtools: {
     enabled: true,
     timeline: { enabled: true }
   },
 
+  // Nuxt Eslint
   eslint: {
     config: {
       stylistic: {
@@ -56,6 +62,7 @@ export default defineNuxtConfig({
     }
   },
 
+  // Nuxt Google Fonts
   googleFonts: {
     display: 'swap',
     families: {
@@ -66,12 +73,14 @@ export default defineNuxtConfig({
     }
   },
 
+  // Nitro
   nitro: {
     experimental: {
       openAPI: true
     }
   },
 
+  // Nuxt Env
   runtimeConfig: {
     discord: {
       userId: '',

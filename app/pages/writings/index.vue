@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const description = 'All my thoughts on programming, mathematics, artificial intelligence design, etc., are put together in chronological order. I also write about my projects, my discoveries, and my thoughts.'
 useSeoMeta({
-  title: 'My Shelf | Arthur Danjou',
+  title: 'My Shelf',
   description
 })
 
@@ -43,13 +43,15 @@ function getDetails(slug: string) {
             <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
               <p>{{ getDetails(writing.slug) }}</p>
             </div>
-            <div class="flex items-center gap-2 flex-wrap">
+            <div class="flex items-end gap-2 flex-wrap">
               <h1
                 class="font-bold text-lg duration-300 text-neutral-600 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white"
               >
                 {{ writing.title }}
               </h1>
-              <p class="text-sm text-neutral-500 group-hover:text-black dark:group-hover:text-white duration-300">
+              <p
+                class="mb-0.5 text-sm text-neutral-500 group-hover:text-black dark:group-hover:text-white duration-300"
+              >
                 {{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} · {{ writing.readingTime }}min long
               </p>
             </div>
