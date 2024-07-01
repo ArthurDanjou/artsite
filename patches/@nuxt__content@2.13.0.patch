@@ -1,5 +1,5 @@
 diff --git a/dist/runtime/server/storage.js b/dist/runtime/server/storage.js
-index b6663a235cfaa3b00a69564eba62d60bfbbd892d..5d96ab27739f75a0217b1d9025ea6e6ce078224b 100644
+index b6663a235cfaa3b00a69564eba62d60bfbbd892d..32d05c276d0d5cefad2d2746240fab8cb6928ed4 100644
 --- a/dist/runtime/server/storage.js
 +++ b/dist/runtime/server/storage.js
 @@ -14,22 +14,13 @@ let _sourceStorage;
@@ -67,3 +67,18 @@ index b6663a235cfaa3b00a69564eba62d60bfbbd892d..5d96ab27739f75a0217b1d9025ea6e6c
    if (isPreview(event)) {
      const { key } = getPreview(event);
      const previewId = `preview:${key}:${id}`;
+@@ -195,10 +195,14 @@ export const createServerQueryFetch = (event) => (query) => {
+   return createPipelineFetcher(() => getIndexedContentsList(event, query))(query);
+ };
+ export function serverQueryContent(event, query, ...pathParts) {
++  console.error('enter in serverQueryContent')
+   const { advanceQuery } = useRuntimeConfig().public.content.experimental;
++  console.error('advanceQuery', advanceQuery)
+   const config = contentConfig();
++  console.error('config', config)
+   const queryBuilder = advanceQuery ? createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: false }) : createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: true });
+   let path;
++  console.error('pathParts', pathParts)
+   if (typeof query === "string") {
+     path = withLeadingSlash(joinURL(query, ...pathParts));
+   }
