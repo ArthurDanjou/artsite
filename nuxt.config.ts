@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     '@nuxt/image',
     // '@nuxtjs/sitemap',
-    // 'nuxt-simple-robots'
+    'nuxt-simple-robots'
   ],
 
   // Nuxt Sitemap
