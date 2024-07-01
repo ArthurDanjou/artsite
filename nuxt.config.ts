@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
     '@nuxt/image'
+  ],
 
   // Nuxt Hub
   hub: {
