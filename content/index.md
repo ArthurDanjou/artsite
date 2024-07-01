@@ -11,6 +11,11 @@ As a software engineer and mathematics student, my **expertise** covers
 :prose-icon[Python]{icon="i-logos:python"},
 :prose-icon[R]{icon="i-logos:r-lang"}, which enables me to **understand** the different needs of mathematical projects
 and to propose the best solutions.
+I also learned other important technologies, such as
+:prose-icon[Docker]{icon="i-logos:docker-icon"},
+:prose-icon[Redis]{icon="i-logos:redis"},
+:prose-icon[MySQL]{icon="i-logos:mysql-icon"} and
+:prose-icon[Git]{icon="i-logos:git-icon"} to **improve** and **complete** my knowledge.
 
 I'm **constantly** learning new things, from technology to finance and entrepreneurship. I love **sharing** my knowledge and learning new theorems and technologies. I'm a **curious** person and eager to continue learning and growing throughout my life.
 
