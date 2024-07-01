@@ -1,75 +1,71 @@
-# Nuxt UI Minimal Starter
+<div align="center">
 
-Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
+# [Portfolio 2024](https://arthurdanjou.fr/)
 
-## Setup
+🖼 My new portfolio built with `Nuxt`, `Nuxt Content`, `NuxtUI`, `Nuxt Studio`, `NuxtHub`
 
-Make sure to install the dependencies:
+</div>
 
-```bash
-# npm
-npm install
+---
 
-# pnpm
-pnpm install
+## ⚒️ Tech stack
 
-# yarn
-yarn install
+- **UI** → [Vue.js](https://vuejs.org/)
+- **Framework** → [Nuxt.js](https://nuxtjs.org/)
+- **Content** → [Nuxt Content](https://content.nuxtjs.org/)
+- **Design System** → [NuxtUI](https://nuxtui.com/)
+- **CMS & Editing** → [Nuxt Studio](https://studio.nuxtjs.org/)
+- **Langage** → [Typescript](https://www.typescriptlang.org/)
+- **Deployment** → [NuxtHub](https://hub.nuxt.com/)
+- **Styling** → [Sass](https://sass-lang.com/) & [Tailwind CSS](https://tailwindcss.com/)
+- **Package Manager** → [pnpm](https://pnpm.io/)
 
-# bun
-bun install
-```
+## 🍱 Adding content
 
-## Development Server
+### Writings
 
-Start the development server on `http://localhost:3000`:
+Add a new `.md` file in `/content/writings/` and follow the same pattern as the other articles. Add images
+in `/public/images/writings/`.
 
-```bash
-# npm
-npm run dev
+### Uses
 
-# pnpm
-pnpm run dev
+Add a new item in `/content/uses`.
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
+## ⚡ Running locally
 
 ```bash
-# npm
-npm run build
+# Installation (recommended for nuxt3)
+pnpm i --shamefully-hoist
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+# Development server
+pnpm dev
 ```
 
-Locally preview production build:
+Add a `.env` file with the following content:
 
-```bash
-# npm
-npm run preview
+```env
+# Wakatime
+NUXT_WAKATIME_USER_ID=...
+NUXT_WAKATIME_CODING=...
+NUXT_WAKATIME_LANGUAGES=...
+NUXT_WAKATIME_OS=...
+NUXT_WAKATIME_EDITORS=...
 
-# pnpm
-pnpm run preview
+# Nuxt Sitemap
+NUXT_PUBLIC_SITE_URL=...
 
-# yarn
-yarn preview
+# Nuxt Hub
+NUXT_HUB_PROJECT_KEY=...
 
-# bun
-bun run preview
+# Discord
+NUXT_DISCORD_ID=...
+NUXT_DISCORD_TOKEN=...
+NUXT_DISCORD_USER_ID=...
+
+# Cloud files
+NUXT_PUBLIC_CLOUD_RESUME=...
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 📄 License
+
+[MIT](./LICENSE) © Arthur Danjou

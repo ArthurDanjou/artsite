@@ -76,6 +76,10 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       openAPI: true
+    },
+    prerender: {
+      crawlLinks: true,
+      routes: ['/']
     }
   },
 
