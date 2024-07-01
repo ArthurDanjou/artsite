@@ -8,10 +8,17 @@ const { data: stats } = await useFetch<Stats>('/api/stats')
   <ClientOnly>
     <p v-if="stats">
       I collect some data for {{ useTimeAgo(new Date(stats.coding.data.range.start)).value }}, started the
-      <strong>{{ useDateFormat(new Date(stats.coding.data.range.start), 'Do MMMM YYYY').value }}</strong>.
-      I've coded for a total of <strong>{{
-        usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0)
-      }}</strong> hours.
+      <HoverText
+        :text="useDateFormat(new Date(stats.coding.data.range.start), 'Do MMMM YYYY').value"
+        hover="That was so long ago 🫣"
+      />
+      .
+      I've coded for a total of
+      <HoverText
+        :text="usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0).value"
+        hover="That's a lot 😮"
+      />
+      hours.
       My best editors are
       {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(' and ') }}.
       <template v-if="stats.os.data[0]">

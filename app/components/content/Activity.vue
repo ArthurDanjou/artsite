@@ -5,34 +5,24 @@ const { data: activity, refresh } = await useAsyncData<Activity>('activity', () 
 useIntervalFn(async () => await refresh(), 5000)
 const codingActivity = computed(() => activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name))[0])
 
-// eslint-disable-next-line vue/return-in-computed-property
 const getActivity = computed<CodingActivity | undefined>(() => {
   const activity = codingActivity.value
   if (!activity) return
-  switch (activity.name) {
-    case 'Visual Studio Code':
-      return {
-        active: !activity.details.includes('Idling'),
-        name: activity.name,
-        project: activity.state ? activity.state.replace('Workspace:', '') : '',
-        state: activity.details.charAt(0).toLowerCase() + activity.details.slice(1),
-        start: {
-          ago: useTimeAgo(activity.timestamps.start).value,
-          formated: `${useDateFormat(activity.timestamps.start, 'DD MMM YYYY').value} at ${useDateFormat(activity.timestamps.start, 'HH:mm:ss').value}`
-        }
-      }
-    case 'WebStorm':
-    case 'IntelliJ IDEA Ultimate':
-      return {
-        active: activity.state.toLowerCase().includes('editing'),
-        project: activity.details,
-        state: activity.state.charAt(0).toLowerCase() + activity.state.slice(1),
-        name: activity.name,
-        start: {
-          ago: useTimeAgo(activity.timestamps.start).value,
-          formated: `${useDateFormat(activity.timestamps.start, 'DD MMM YYYY').value} at ${useDateFormat(activity.timestamps.start, 'HH:mm:ss').value}`
-        }
-      }
+
+  const active = activity.name === 'Visual Studio Code' ? !activity.details.includes('Idling') : activity.state.toLowerCase().includes('editing')
+  const project = activity.state ? activity.state.replace('Workspace:', '') : ''
+  const state = activity.details.charAt(0).toLowerCase() + activity.details.slice(1)
+  const start = {
+    ago: useTimeAgo(activity.timestamps.start).value,
+    formated: `${useDateFormat(activity.timestamps.start, 'DD MMM YYYY').value} at ${useDateFormat(activity.timestamps.start, 'HH:mm:ss').value}`
+  }
+
+  return {
+    active,
+    name: activity.name,
+    project,
+    state,
+    start
   }
 })
 </script>
@@ -66,9 +56,8 @@ const getActivity = computed<CodingActivity | undefined>(() => {
         />
         <span>
           <strong>{{ getActivity.name }}</strong>.
-          I've started <strong>{{ getActivity.start.ago }}</strong>, the <strong>{{
-            getActivity.start.formated
-          }}</strong>.
+          I've started <strong>{{ getActivity.start.ago }}</strong>, the
+          <strong>{{ getActivity.start.formated }}</strong>.
         </span>
       </span>
       <div
