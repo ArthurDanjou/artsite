@@ -1,5 +1,5 @@
 export default defineEventHandler((event) => {
-  console.log(globalThis.__env__)
+  console.error(globalThis.__env__)
 
   return event
 })
