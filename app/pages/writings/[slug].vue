@@ -4,7 +4,7 @@ const { data: post } = await useAsyncData(`writing:${route.params.slug}`, () => 
 const {
   data: postDB,
   refresh
-} = await useAsyncData(`writing:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
+} = await useAsyncData(`writing:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug as string}`, { method: 'POST' }))
 
 function top() {
   window.scrollTo({

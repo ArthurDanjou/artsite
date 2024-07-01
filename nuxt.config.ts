@@ -21,8 +21,18 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/sitemap',
+    'nuxt-simple-robots'
   ],
+
+  // Nuxt SiteMap
+  sitemap: {
+    cacheMaxAgeSeconds: 60 * 60 * 24, // 24 hours
+    sources: [
+      '/api/__sitemap__/urls'
+    ]
+  },
 
   // Nuxt Hub
   hub: {
