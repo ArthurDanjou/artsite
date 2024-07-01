@@ -32,12 +32,12 @@ index b6663a235cfaa3b00a69564eba62d60bfbbd892d..5d96ab27739f75a0217b1d9025ea6e6c
    return true;
  };
  export const getContentsIds = async (event, prefix) => {
-+  console.warn('enter in getContentsIds')
++  console.error('enter in getContentsIds')
    let keys = [];
    if (isProduction) {
-+    console.warn('enter in isProduction')
++    console.error('enter in isProduction')
      keys = await cacheParsedStorage().getKeys(prefix);
-+    console.warn('keys', keys)
++    console.error('keys', keys)
    }
    const source = sourceStorage();
    if (keys.length === 0) {
@@ -45,7 +45,7 @@ index b6663a235cfaa3b00a69564eba62d60bfbbd892d..5d96ab27739f75a0217b1d9025ea6e6c
    let cachedContents = [];
    let pendingContentsListPromise = null;
    const _getContentsList = async (event, prefix) => {
-+    console.warn('enter in _getContentsList')
++    console.error('enter in _getContentsList')
      const keys = await getContentsIds(event, prefix);
      const keyChunks = [...chunksFromArray(keys, 10)];
      const contents = [];
@@ -53,17 +53,17 @@ index b6663a235cfaa3b00a69564eba62d60bfbbd892d..5d96ab27739f75a0217b1d9025ea6e6c
  })();
  const pendingPromises = {};
  export const getContent = async (event, id) => {
-+  console.warn('enter in getContent')
++  console.error('enter in getContent')
    const contentId = id;
-+  console.warn('contentId', contentId)
++  console.error('contentId', contentId)
    if (!contentIgnorePredicate(id)) {
      return { _id: contentId, body: null };
    }
-+  console.warn('after contentIgnorePredicate')
++  console.error('after contentIgnorePredicate')
    const source = sourceStorage();
    const cache = cacheParsedStorage();
-+  console.warn('source', source)
-+  console.warn('cache', cache)
++  console.error('source', source)
++  console.error('cache', cache)
    if (isPreview(event)) {
      const { key } = getPreview(event);
      const previewId = `preview:${key}:${id}`;
