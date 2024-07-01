@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <div>
     <NuxtLoadingIndicator color="#808080" />
     <AppBackground />
     <UContainer class="z-50 relative">
@@ -7,7 +7,7 @@
       <NuxtPage class="mt-12" />
       <AppFooter />
     </UContainer>
-  </NuxtLayout>
+  </div>
 </template>
 
 <style>
