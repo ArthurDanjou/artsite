@@ -1,6 +1,6 @@
-import { prefixStorage } from "unstorage"
+// @ts-expect-error alias module
+import { serverQueryContent } from '#content/server'
 
 export default defineEventHandler((event) => {
-  return ((globalThis as any)['CACHE'] ||
-      (globalThis as any).__env__?.['CACHE']) as KVNamespace | R2Bucket;
+  return serverQueryContent(event).find()
 })
