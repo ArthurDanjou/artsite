@@ -19,11 +19,12 @@ const { copy, copied } = useClipboard({
   copiedDuring: 4000
 })
 
+onMounted(() => $fetch(`/api/posts/view/${route.params.slug}`, { method: 'PUT' }))
+
 useSeoMeta({
   title: post.value?.title,
   description: post.value?.description,
-  author: 'Arthur Danjou',
-  image: post.value?.cover
+  author: 'Arthur Danjou'
 })
 
 function getDetails() {
