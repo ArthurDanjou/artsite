@@ -1,7 +1,8 @@
 Hey, I'm Arthur Danjou, a mathematics student at the Paris-Saclay Faculty of Science in France.
 
 With a **deep understanding of emerging technologies**, I'm at the heart of a rapidly expanding field. My background
-in :hover-text{hover="Maths is my main passion ∑" text="mathematics"} gives me a head start in understanding the
+in :hover-text{hover="Maths is my main passion ∑" text="mathematics" position="top"} gives me a head start in
+understanding the
 concepts and theories behind these :hover-text{hover="My second passion 📱" text="technologies"} and in designing them
 effectively.
 
@@ -20,7 +21,8 @@ I also learned other important technologies, such as
 :prose-icon[MySQL]{icon="i-logos:mysql-icon"} and
 :prose-icon[Git]{icon="i-logos:git-icon"} to **improve** and **complete** my knowledge.
 
-I'm :hover-text{hover="As tech is always evolving, I need to be up-to-date 🖥️" text="constantly"} learning new things,
+I'm :hover-text{hover="As tech is always evolving, I need to be up-to-date 🖥️" text="constantly" position="top"}
+learning new things,
 from technology to finance and entrepreneurship. I love :hover-text{hover="I love sharing my knowledge and helping
 others 🫂" text="sharing"} my knowledge and learning new theorems and technologies. I'm a **curious** person and eager to
 continue learning and growing throughout my life.
