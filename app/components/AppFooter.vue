@@ -14,6 +14,10 @@ const socials = [
     icon: 'i-ph-linkedin-logo-duotone',
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/arthurdanjou/'
+  }, {
+    icon: 'i-ph-discord-logo-duotone',
+    label: 'Discord',
+    link: 'https://discordapp.com/users/179635349100691456'
   }
 ]
 </script>
@@ -32,7 +36,7 @@ const socials = [
         <h1>Find me on:</h1>
         <div class="flex gap-4">
           <HomeLink
-            v-for="social in socials"
+            v-for="social in socials.sort((a, b) => a.label.localeCompare(b.label))"
             :key="social.label"
             :href="social.link"
             :icon="social.icon"
