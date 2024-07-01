@@ -11,6 +11,7 @@ const { data: items } = await useAsyncData('uses', () =>
 const hardware = items.value!.filter(item => item.category === 'hardware')
 const software = items.value!.filter(item => item.category === 'software')
 const ide = items.value!.filter(item => item.category === 'ide')
+const stack = items.value!.filter(item => item.category === 'stack')
 </script>
 
 <template>
@@ -55,6 +56,13 @@ const ide = items.value!.filter(item => item.category === 'ide')
           :item="item"
         />
       </ul>
+      <UsesList title="Stack">
+        <UsesItem
+          v-for="(item, id) in stack"
+          :key="id"
+          :item="item"
+        />
+      </UsesList>
     </div>
   </main>
 </template>

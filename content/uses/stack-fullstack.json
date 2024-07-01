@@ -1,0 +1,5 @@
+{
+  "name": "FrontEnd & BackEnd",
+  "description": "I use TypeScript, Vue 3 with Nuxt 3, Nuxt Stack (UI, Hub, Content, Studio) & TailwindCss for FrontEnd. Nuxt (powered by Nitro) and AdonisJs are used for BackEnd depending on project complexity. PostgreSQL are used for database, Redis for caching. Docker is used for containerization. Apps are deployed on NuxtHub (powered by CloudFlare) or Vercel.",
+  "category": "stack"
+}
