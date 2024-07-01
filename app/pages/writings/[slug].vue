@@ -22,8 +22,7 @@ const { copy, copied } = useClipboard({
 useSeoMeta({
   title: post.value?.title,
   description: post.value?.description,
-  author: 'Arthur Danjou',
-  image: post.value?.cover
+  author: 'Arthur Danjou'
 })
 
 function getDetails() {
@@ -36,9 +35,15 @@ function getDetails() {
   return `${likes} ${like} · ${views} ${view}`
 }
 
+const likeCookie = useCookie<boolean>(`post:like:${route.params.slug}`, {
+  maxAge: 7200
+})
+
 async function handleLike() {
+  if (likeCookie.value) return
   await $fetch(`/api/posts/like/${route.params.slug}`, { method: 'PUT' })
   await refresh()
+  likeCookie.value = true
 }
 </script>
 
@@ -107,7 +112,7 @@ async function handleLike() {
         <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
-            color="white"
+            :color="likeCookie ? 'red': 'white'"
             icon="i-ph-heart-duotone"
             size="lg"
             variant="solid"
