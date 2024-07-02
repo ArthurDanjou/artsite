@@ -5,14 +5,18 @@ understanding the
 concepts and theories behind these :hover-text{hover="My second passion 📱" text="technologies"} and in designing them
 effectively.
 
-As a software engineer and mathematics student, my :hover-text{hover="My bag of knowledge 🎒" text="expertise"} covers :
-prose-icon[TypeScript]{icon="i-logos:typescript-icon"},
+As a software engineer and mathematics student, my :hover-text{hover="My bag of knowledge 🎒" text="expertise"} covers
+
+::prose-icon{icon="i-logos-typescript-icon"}
+TypeScript
+::
+
 :prose-icon[Vue]{icon="i-logos:vue"},
 :prose-icon[Nuxt]{icon="i-logos:nuxt-icon"},
 :prose-icon[Adonis]{icon="i-logos:adonisjs-icon"},
 :prose-icon[Java]{icon="i-logos:java"},
 :prose-icon[Python]{icon="i-logos:python"},
-:prose-icon[R]{icon="i-logos:r-lang"}, which enables me to :hover-text{hover="need to quickly understand the complexity of projects 🏎️" text="understand"} the different needs of mathematical projects and to propose the best solutions. I also learned other important technologies, such as :prose-icon[Docker]{icon="i-logos:docker-icon"},
+:prose-icon[R]{icon="i-logos:r-lang"}, which enables me to :hover-text{hover="I need to quickly understand the complexity 🏎️" text="understand"} the different needs of mathematical projects and to propose the best solutions. I also learned other important technologies, such as :prose-icon[Docker]{icon="i-logos:docker-icon"},
 :prose-icon[Redis]{icon="i-logos:redis"},
 :prose-icon[MySQL]{icon="i-logos:mysql-icon"} and
 :prose-icon[Git]{icon="i-logos:git-icon"} to :hover-text{hover="All these technologies complement each other 🔗" text="complete"} my knowledge.
