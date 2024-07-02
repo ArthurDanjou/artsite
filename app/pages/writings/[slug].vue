@@ -65,7 +65,7 @@ async function handleLike() {
     <p class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
       {{ getDetails() }}
     </p>
-    <div>
+    <div class="mt-2">
       <div class="flex items-end gap-2 flex-wrap">
         <h1
           class="font-bold text-3xl text-black dark:text-white"
@@ -152,7 +152,8 @@ async function handleLike() {
 
 <style>
 .prose h2 a,
-.prose h3 a {
+.prose h3 a,
+.prose h4 a {
   @apply no-underline;
 }
 </style>

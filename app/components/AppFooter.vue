@@ -34,7 +34,7 @@ const socials = [
     <div class="space-y-4">
       <div class="flex flex-col md:flex-row gap-2 md:items-center">
         <h1>Find me on:</h1>
-        <div class="flex gap-4 flex-wrap">
+        <div class="flex gap-2 flex-wrap">
           <HomeLink
             v-for="social in socials.sort((a, b) => a.label.localeCompare(b.label))"
             :key="social.label"

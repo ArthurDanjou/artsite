@@ -5,7 +5,7 @@
     <a
       v-if="id && generate"
       :href="`#${id}`"
-      class="font-semibold border-transparent border-b-2 hover:border-black dark:hover:border-white duration-300"
+      class="text-xl font-bold border-transparent border-b-2 hover:border-black dark:hover:border-white duration-300"
     >
       <slot />
     </a>

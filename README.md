@@ -25,7 +25,7 @@
 ### Writings
 
 Add a new `.md` file in `/content/writings/` and follow the same pattern as the other articles. Add images
-in `/public/images/writings/`.
+in `/public/writings/`.
 
 ### Uses
 

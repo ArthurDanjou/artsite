@@ -11,7 +11,7 @@
         </div>
       </UTooltip>
     </div>
-    <p class="my-0">
+    <p class="not-prose">
       Hello everyone! Thanks for visiting my portfolio. Please leave whatever you like to say, such as suggestions,
       appreciations, questions or anything!
     </p>
