@@ -5,7 +5,8 @@ understanding the
 concepts and theories behind these :hover-text{hover="My second passion 📱" text="technologies"} and in designing them
 effectively.
 
-As a software engineer and mathematics student, my :hover-text{hover="My bag of knowledges 🎒" text="expertise"} covers :prose-icon[TypeScript]{icon="i-logos:typescript-icon"},
+As a software engineer and mathematics student, my :hover-text{hover="My bag of knowledge 🎒" text="expertise"} covers :
+prose-icon[TypeScript]{icon="i-logos:typescript-icon"},
 :prose-icon[Vue]{icon="i-logos:vue"},
 :prose-icon[Nuxt]{icon="i-logos:nuxt-icon"},
 :prose-icon[Adonis]{icon="i-logos:adonisjs-icon"},

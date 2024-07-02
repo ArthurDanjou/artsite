@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import type { Placement } from '@popperjs/core'
 import type { PropType } from 'vue'
 
 defineProps({
@@ -12,7 +11,7 @@ defineProps({
     required: true
   },
   position: {
-    type: String as PropType<Placement>
+    type: String as PropType<'top' | 'right' | 'bottom' | 'left'>
   }
 })
 </script>
