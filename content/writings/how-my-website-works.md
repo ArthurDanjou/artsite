@@ -12,7 +12,7 @@ break conventional rules, and satisfy my deep curiosity about web software.
 While it's still fresh in my mind, I wanted to document how this version of the site works, the tools I used to build
 it, and the challenges I overcame to bring it to its current state.
 
-![Website](/writings/how-my-website-works/website.png)
+![Website](/writings/website.png)
 
 ## Ideas and Goals
 
@@ -88,8 +88,6 @@ dark mode, and keyboard shortcuts. It's an excellent tool for both beginners and
 
 #### NuxtHub & Cloudflare workers
 
-![NuxtHub](/writings/how-my-website-works/nuxt-hub.png)
-
 NuxtHub is an innovative deployment and management platform tailored for Nuxt, leveraging the power of Cloudflare.
 Deploy your application effortlessly with database, key-value, and blob storage—all configured seamlessly within your
 Cloudflare account.
@@ -113,8 +111,6 @@ One word : `If you know SQL — you know Drizzle.`
 ### Writing
 
 #### Nuxt Studio
-
-![Nuxt Studio](/writings/how-my-website-works/nuxt-studio.png)
 
 Nuxt Studio introduces a fresh editing experience for your Nuxt Content website, providing limitless customization and a
 user-friendly interface. Edit your website effortlessly with our editor reminiscent of Notion, fostering seamless
@@ -141,7 +137,8 @@ I'm often asked how much it costs to run my website. Here's a breakdown of the c
 - NuxtHub: 0€
 - Cloudflare Workers: 0€
 - Nuxt Studio: 0€
-  Total: 0€ thanks to nuxt free plan and cloudflare free plan
+
+Total: 0€ thanks to nuxt free plan and cloudflare free plan
 
 ## Thanks
 
