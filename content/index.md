@@ -31,4 +31,7 @@ As well as programming, I enjoy :hover-text{hover="Sport allows me to burn off e
 :hover-text{hover="Travelling frees me and gets me away from it all ✈️" text="travelling"}. My passion, commitment and
 eagerness to learn and progress are the qualities that enable me to succeed in my **career** and **studies**.
 
-:stats:activity:quote:catch-phrase
+:stats
+:activity
+:quote
+:catch-phrase
