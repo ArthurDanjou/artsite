@@ -20,7 +20,7 @@ I'm :hover-text{hover="As tech is always evolving, I need to be up-to-date 🖥�
 others 🫂" text="sharing"} my knowledge and learning new theorems and technologies. I'm a :hover-text{hover="I'm constantly looking to discover new things" text="curious"} person and eager to continue learning and growing throughout my life.
 
 As well as programming, I enjoy :hover-text{hover="Sport allows me to burn off energy 🏋️‍♂️" text="sport"} and
-:hover-text{hover="Travelling frees me and gets me away from it all ✈️" text="travelling"}. My passion, commitment and eagerness to learn and progress are the qualities that enable me to succeed in my **** :hover-text{hover="Career already begun and far from over 😎" text="career"} and :hover-text{hover="Only 2 years of study left 💪" text="studies"}.
+:hover-text{hover="Travelling frees me and gets me away from it all ✈️" text="travelling"}. My passion, commitment and eagerness to learn and progress are the qualities that enable me to succeed in my :hover-text{hover="Career already begun and far from over 😎" text="career"} and :hover-text{hover="Only 2 years of study left 💪" text="studies"}.
 
 ::stats
 ::
