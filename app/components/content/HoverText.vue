@@ -21,6 +21,6 @@ defineProps({
     :popper="{ placement: position }"
     :text="hover"
   >
-    <strong class="leading-3">{{ text }}</strong>
+    <strong class="leading-3 cursor-help">{{ text }}</strong>
   </UTooltip>
 </template>
