@@ -1,84 +1,36 @@
 diff --git a/dist/runtime/server/storage.js b/dist/runtime/server/storage.js
-index b6663a235cfaa3b00a69564eba62d60bfbbd892d..32d05c276d0d5cefad2d2746240fab8cb6928ed4 100644
+index b6663a235cfaa3b00a69564eba62d60bfbbd892d..1c37330fd2393aca0712b38fe1d855d97e5c4ca6 100644
 --- a/dist/runtime/server/storage.js
 +++ b/dist/runtime/server/storage.js
-@@ -14,22 +14,13 @@ let _sourceStorage;
- let _cacheStorage;
- let _cacheParsedStorage;
- export const sourceStorage = () => {
--  if (!_sourceStorage) {
--    _sourceStorage = prefixStorage(useStorage(), "content:source");
--  }
--  return _sourceStorage;
-+  return prefixStorage(useStorage(), "content:source");
- };
- export const cacheStorage = () => {
--  if (!_cacheStorage) {
--    _cacheStorage = prefixStorage(useStorage(), "cache:content");
--  }
--  return _cacheStorage;
-+  return prefixStorage(useStorage(), "cache:content");
- };
- export const cacheParsedStorage = () => {
--  if (!_cacheParsedStorage) {
--    _cacheParsedStorage = prefixStorage(useStorage(), "cache:content:parsed");
--  }
--  return _cacheParsedStorage;
-+  return prefixStorage(useStorage(), "cache:content:parsed");
- };
- const isProduction = process.env.NODE_ENV === "production";
- const isPrerendering = import.meta.prerender;
-@@ -47,9 +38,12 @@ const contentIgnorePredicate = (key) => {
-   return true;
- };
- export const getContentsIds = async (event, prefix) => {
-+  console.error('enter in getContentsIds')
-   let keys = [];
-   if (isProduction) {
-+    console.error('enter in isProduction')
-     keys = await cacheParsedStorage().getKeys(prefix);
-+    console.error('keys', keys)
+@@ -82,19 +82,19 @@ export function* chunksFromArray(arr, n) {
    }
-   const source = sourceStorage();
-   if (keys.length === 0) {
-@@ -85,6 +79,7 @@ export const getContentsList = /* @__PURE__ */ (() => {
-   let cachedContents = [];
-   let pendingContentsListPromise = null;
-   const _getContentsList = async (event, prefix) => {
-+    console.error('enter in _getContentsList')
-     const keys = await getContentsIds(event, prefix);
-     const keyChunks = [...chunksFromArray(keys, 10)];
-     const contents = [];
-@@ -116,12 +111,17 @@ export const getContentsList = /* @__PURE__ */ (() => {
- })();
- const pendingPromises = {};
- export const getContent = async (event, id) => {
-+  console.error('enter in getContent')
-   const contentId = id;
-+  console.error('contentId', contentId)
-   if (!contentIgnorePredicate(id)) {
-     return { _id: contentId, body: null };
-   }
-+  console.error('after contentIgnorePredicate')
-   const source = sourceStorage();
-   const cache = cacheParsedStorage();
-+  console.error('source', source)
-+  console.error('cache', cache)
-   if (isPreview(event)) {
-     const { key } = getPreview(event);
-     const previewId = `preview:${key}:${id}`;
-@@ -195,10 +195,14 @@ export const createServerQueryFetch = (event) => (query) => {
-   return createPipelineFetcher(() => getIndexedContentsList(event, query))(query);
- };
- export function serverQueryContent(event, query, ...pathParts) {
-+  console.error('enter in serverQueryContent')
-   const { advanceQuery } = useRuntimeConfig().public.content.experimental;
-+  console.error('advanceQuery', advanceQuery)
-   const config = contentConfig();
-+  console.error('config', config)
-   const queryBuilder = advanceQuery ? createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: false }) : createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: true });
-   let path;
-+  console.error('pathParts', pathParts)
-   if (typeof query === "string") {
-     path = withLeadingSlash(joinURL(query, ...pathParts));
-   }
+ }
+ export const getContentsList = /* @__PURE__ */ (() => {
+-  let cachedContents = [];
+-  let pendingContentsListPromise = null;
+-  const _getContentsList = async (event, prefix) => {
+-    const keys = await getContentsIds(event, prefix);
+-    const keyChunks = [...chunksFromArray(keys, 10)];
+-    const contents = [];
+-    for (const chunk of keyChunks) {
+-      const result = await Promise.all(chunk.map((key) => getContent(event, key)));
+-      contents.push(...result);
+-    }
+-    return contents.filter((c) => c && c._path);
+-  };
+   return (event, prefix) => {
++    let cachedContents = [];
++    let pendingContentsListPromise = null;
++    const _getContentsList = async (event, prefix) => {
++      const keys = await getContentsIds(event, prefix);
++      const keyChunks = [...chunksFromArray(keys, 10)];
++      const contents = [];
++      for (const chunk of keyChunks) {
++        const result = await Promise.all(chunk.map((key) => getContent(event, key)));
++        contents.push(...result);
++      }
++      return contents.filter((c) => c && c._path);
++    };
+     if (event.context.__contentList) {
+       return event.context.__contentList;
+     }
