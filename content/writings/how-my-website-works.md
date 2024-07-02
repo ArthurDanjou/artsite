@@ -129,7 +129,7 @@ solution for publishing content on my site: plain text.
 
 The article you're currently reading is plain text stored in MySQL, rendered using vue-markdown. You can view my custom
 element renderings here. I enhance my Markdown capabilities by employing plugins like remark-gfm, which adds support for
-tables, strikethroughs, footnotes, and other features.
+tables, strikethrough, footnotes, and other features.
 
 Compromises are inevitable! I've chosen to sacrifice some features for simplicity and speed. I'm content with my
 decision, as it aligns with my goal of reducing friction in the writing process.
