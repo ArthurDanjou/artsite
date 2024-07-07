@@ -1,5 +1,8 @@
 {
   "name": "Logitech G203 LightSync Black",
-  "description": "This gaming mouse is designed to be the perfect gaming companion. With a classic design and simple layout, this mouse is perfect for any gamer.",
+  "description": {
+    "en": "This gaming mouse is designed to be the perfect gaming companion. With a classic design and simple layout, this mouse is perfect for any gamer.",
+    "fr": "Cette souris de jeu est conçue pour être le compagnon de jeu parfait. Avec un design classique et une disposition simple, cette souris est parfaite pour tout joueur."
+  },
   "category": "hardware"
 }

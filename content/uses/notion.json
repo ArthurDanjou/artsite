@@ -1,5 +1,8 @@
 {
   "name": "Notion",
-  "description": "Notion is my all-in-one note-taking, kanban boards, wikis, and draft notebook.",
+  "description": {
+    "en": "Notion is my all-in-one note-taking, kanban boards, wikis, and draft notebook.",
+    "fr": "Notion est mon outil de prise de notes, de kanban, de wikis et de brouillon tout-en-un."
+  },
   "category": "software"
 }

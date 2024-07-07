@@ -1,5 +1,8 @@
 {
   "name": "Google Chrome",
-  "description": "I'm using Google Chrome for browsing, the dev tool, and the extension market.",
+  "description": {
+    "en": "I'm using Google Chrome for browsing, the dev tool, and the extension market.",
+    "fr": "J'utilise Google Chrome pour naviguer, l'outil de développement et le marché des extensions."
+  },
   "category": "software"
 }

@@ -8,6 +8,8 @@ defineProps({
     required: true
   }
 })
+
+const { locale } = useI18n()
 </script>
 
 <template>
@@ -16,7 +18,7 @@ defineProps({
       {{ item.name }}
     </p>
     <p class="text-sm">
-      {{ item.description }}
+      {{ locale === 'en' ? item.description.en : item.description.fr }}
     </p>
   </li>
 </template>

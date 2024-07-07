@@ -1,5 +1,8 @@
 {
   "name": "Discord",
-  "description": "I'm using Discord for chatting and talking with my friends and my customers and discussing with some community members.",
+  "description": {
+    "en": "I'm using Discord for chatting and talking with my friends and my customers and discussing with some community members.",
+    "fr": "J'utilise Discord pour discuter et parler avec mes amis et mes clients et discuter avec certains membres de la communauté."
+  },
   "category": "software"
 }

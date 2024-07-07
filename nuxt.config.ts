@@ -21,7 +21,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/i18n'
   ],
 
   // Nuxt Hub
@@ -49,6 +50,23 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
     timeline: { enabled: true }
+  },
+
+  // Nuxt I18N
+  i18n: {
+    strategy: 'no_prefix',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-EN',
+        icon: 'i-twemoji-flag-united-kingdom'
+      }, {
+        code: 'fr',
+        iso: 'fr-FR',
+        icon: 'i-twemoji-flag-france'
+      }
+    ],
+    defaultLocale: 'en'
   },
 
   // Nuxt Eslint
@@ -98,5 +116,7 @@ export default defineNuxtConfig({
         resume: ''
       }
     }
-  }
+  },
+
+  compatibilityDate: '2024-07-08'
 })

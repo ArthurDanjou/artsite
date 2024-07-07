@@ -1,10 +1,12 @@
 <template>
   <main class="!max-w-none prose dark:prose-invert">
-    <ContentDoc path="/" />
+    <ContentDoc :path="`/home/${locale}`" />
   </main>
 </template>
 
 <script lang="ts" setup>
+const { locale } = useI18n()
+
 useSeoMeta({
   title: 'Arthur Danjou • Mathematics Lover and IA Enthusiast',
   titleTemplate: '%s',

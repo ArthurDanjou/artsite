@@ -1,5 +1,8 @@
 {
   "name": "SteelSeries Apex 9 TKL",
-  "description": "This TKL keyboard is a great choice for gamers who want a compact keyboard with a lot of features.",
+  "description": {
+    "en": "This TKL keyboard is a great choice for gamers who want a compact keyboard with a lot of features.",
+    "fr": "Ce clavier TKL est un excellent choix pour les joueurs qui veulent un clavier compact avec de nombreuses fonctionnalités."
+  },
   "category": "hardware"
 }

@@ -8,67 +8,109 @@ watch(isDark, () => {
 const config = useRuntimeConfig()
 const navs = [
   {
-    label: 'home',
+    label: {
+      en: 'home',
+      fr: 'accueil'
+    },
     to: '/',
     icon: 'i-ph-house-line-duotone',
-    shortcut: 'h'
+    shortcut: {
+      en: 'h',
+      fr: 'a'
+    }
   },
   {
-    label: 'uses',
+    label: {
+      en: 'uses',
+      fr: 'usages'
+    },
     to: '/uses',
     icon: 'i-ph-backpack-duotone',
-    shortcut: 'u'
+    shortcut: {
+      en: 'u',
+      fr: 'u'
+    }
   },
   {
-    label: 'writings',
+    label: {
+      en: 'writings',
+      fr: 'écrits'
+    },
     to: '/writings',
     icon: 'i-ph-books-duotone',
-    shortcut: 'w'
+    shortcut: {
+      en: 'w',
+      fr: 'e'
+    }
   },
   {
-    label: 'resume',
+    label: {
+      en: 'resume',
+      fr: 'cv'
+    },
     to: config.public.cloud.resume,
     target: '_blank',
     icon: 'i-ph-address-book-duotone',
-    shortcut: 'r'
+    shortcut: {
+      en: 'r',
+      fr: 'c'
+    }
   }
 ]
 
 async function toggleTheme() {
-  document.body.style.animation = 'theme-switch-on .5s'
+  document.body.style.animation = 'switch-on .5s'
   await new Promise(resolve => setTimeout(resolve, 500))
 
   isDark.value = !isDark.value
-  document.body.style.animation = 'theme-switch-off .5s'
+  document.body.style.animation = 'switch-off .5s'
 
   await new Promise(resolve => setTimeout(resolve, 500))
   document.body.style.animation = ''
 }
 
+async function changeLocale() {
+  document.body.style.animation = 'switch-on .2s'
+  await new Promise(resolve => setTimeout(resolve, 200))
+
+  await setLocale(locale.value === 'en' ? 'fr' : 'en')
+  document.body.style.animation = 'switch-off .2s'
+
+  await new Promise(resolve => setTimeout(resolve, 200))
+  document.body.style.animation = ''
+}
+
 const router = useRouter()
+const { locale, setLocale, locales, t } = useI18n()
+const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 defineShortcuts({
   h: () => router.push('/'),
+  a: () => router.push('/'),
   u: () => router.push('/uses'),
   w: () => router.push('/writings'),
+  e: () => router.push('/writings'),
   r: () => window.open(config.public.cloud.resume, '_blank'),
-  t: () => toggleTheme()
+  c: () => window.open(config.public.cloud.resume, '_blank'),
+  t: () => toggleTheme(),
+  l: () => changeLocale(),
+  backspace: () => router.back()
 })
 </script>
 
 <template>
   <header class="flex items-center justify-between my-8">
-    <NuxtLink
+    <NuxtLinkLocale
       class="handwriting text-lg sm:text-3xl flex gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
       to="/"
     >
       Arthur Danjou
-    </NuxtLink>
+    </NuxtLinkLocale>
     <nav class="flex gap-2 items-center">
       <UTooltip
         v-for="nav in navs"
-        :key="nav.label"
-        :text="nav.label"
-        :shortcuts="[nav.shortcut]"
+        :key="nav.label.en"
+        :shortcuts="[nav.shortcut[locale]]"
+        :text="nav.label[locale]"
       >
         <UButton
           :icon="nav.icon"
@@ -77,14 +119,13 @@ defineShortcuts({
           :aria-label="nav.label"
           color="white"
           size="sm"
-          label=""
           variant="solid"
         />
       </UTooltip>
       <ClientOnly>
         <UTooltip
           :shortcuts="['t']"
-          text="switch theme"
+          :text="t('theme')"
         >
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
@@ -93,6 +134,19 @@ defineShortcuts({
             size="sm"
             variant="solid"
             @click="toggleTheme()"
+          />
+        </UTooltip>
+        <UTooltip
+          :shortcuts="['l']"
+          :text="t('language')"
+        >
+          <UButton
+            :icon="currentLocale!.icon"
+            aria-label="switch language"
+            color="white"
+            size="sm"
+            variant="solid"
+            @click.prevent="changeLocale()"
           />
         </UTooltip>
       </ClientOnly>
@@ -105,7 +159,7 @@ defineShortcuts({
   font-family: 'Dancing Script', cursive;
 }
 
-@keyframes theme-switch-on {
+@keyframes switch-on {
   0% {
     filter: blur(0);
     transform: scale(1);
@@ -116,7 +170,7 @@ defineShortcuts({
   }
 }
 
-@keyframes theme-switch-off {
+@keyframes switch-off {
   0% {
     transform: scale(0.98);
     filter: blur(3px);
@@ -127,3 +181,16 @@ defineShortcuts({
   }
 }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "theme": "switch theme",
+    "language": "change language"
+  },
+  "fr": {
+    "theme": "changer de thème",
+    "language": "changer de langue"
+  }
+}
+</i18n>

@@ -17,10 +17,12 @@ defineProps({
 </script>
 
 <template>
-  <UTooltip
-    :popper="{ placement: position }"
-    :text="hover"
-  >
-    <strong class="leading-3 cursor-help">{{ text }}</strong>
-  </UTooltip>
+  <ClientOnly>
+    <UTooltip
+      :popper="{ placement: position }"
+      :text="hover"
+    >
+      <strong class="leading-3 cursor-help">{{ text }}</strong>
+    </UTooltip>
+  </ClientOnly>
 </template>

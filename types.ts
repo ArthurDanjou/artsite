@@ -45,19 +45,3 @@ export const IDEs = [
   { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos-intellij-idea' },
   { name: 'WebStorm', icon: 'i-logos-webstorm' }
 ]
-
-export interface UsesItem {
-  name: string
-  description: string
-}
-
-export interface CodingActivity {
-  name: string
-  active: boolean
-  project: string
-  state: string
-  start: {
-    ago: string
-    formated: string
-  }
-}

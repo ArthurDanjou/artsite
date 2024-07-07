@@ -1,5 +1,8 @@
 {
-  "name": "Apple MacBook Pro 13'",
-  "description": "My main programming computer is a MacBook Pro 13' 2020 with the Apple M1 Chip and 16Go RAM. I use MacOS Sorona.",
+  "name": "Custom Built Gaming PC",
+  "description": {
+    "en": "I have bought a customized computer for the gaming. I have chosen an Intel Core i5-10400F, with 16Go DDR4 and my graphical card is a RTX 2060. I use Windows 11.",
+    "fr": "J'ai acheté un ordinateur personnalisé pour le jeu. J'ai choisi un Intel Core i5-10400F, avec 16Go DDR4 et ma carte graphique est une RTX 2060. J'utilise Windows 11."
+  },
   "category": "hardware"
 }

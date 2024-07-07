@@ -1,5 +1,8 @@
 {
   "name": "Apple AirPods Pro",
-  "description": "Probably my most used item after my phone and laptop. I use them for everything from listening to music to taking calls. They are super convenient and the sound quality is great.",
+  "description": {
+    "en": "Probably my most used item after my phone and laptop. I use them for everything from listening to music to taking calls. They are super convenient and the sound quality is great.",
+    "fr": "Probablement l'objet que j'utilise le plus après mon téléphone et mon ordinateur portable. Je les utilise pour tout, de l'écoute de musique à la prise d'appels. Ils sont super pratiques et la qualité sonore est excellente."
+  },
   "category": "hardware"
 }

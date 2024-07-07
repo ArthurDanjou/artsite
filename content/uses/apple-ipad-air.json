@@ -1,5 +1,8 @@
 {
   "name": "Apple iPad Air",
-  "description": "I use my iPad to read books, watch movies, and browse the web, but also to take notes and write some equations during my math classes.",
+  "description": {
+    "en": "I use my iPad to read books, watch movies, and browse the web, but also to take notes and write some equations during my math classes.",
+    "fr": "J'utilise mon iPad pour lire des livres, regarder des films et naviguer sur le web, mais aussi pour prendre des notes et écrire des équations pendant mes cours de mathématiques."
+  },
   "category": "hardware"
 }

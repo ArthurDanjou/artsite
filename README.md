@@ -64,6 +64,9 @@ NUXT_DISCORD_USER_ID=...
 
 # Cloud files
 NUXT_PUBLIC_CLOUD_RESUME=...
+
+# Nuxt I18N
+NUXT_PUBLIC_I18N_BASE_URL=...
 ```
 
 ## 📄 License

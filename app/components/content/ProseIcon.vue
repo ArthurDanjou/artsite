@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <span class="inline">
+  <span class="inline-flex items-center">
     <UIcon
       class="mb-1 mr-1"
       :name="icon"

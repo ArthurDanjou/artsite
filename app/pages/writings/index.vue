@@ -1,8 +1,10 @@
 <script setup lang="ts">
-const description = 'All my thoughts on programming, mathematics, artificial intelligence design, etc., are put together in chronological order. I also write about my projects, my discoveries, and my thoughts.'
+const { t, locale } = useI18n({
+  useScope: 'local'
+})
 useSeoMeta({
   title: 'My Shelf',
-  description
+  description: t('description')
 })
 
 const { data: writings } = await useAsyncData('all-writings', () =>
@@ -17,8 +19,8 @@ function getDetails(slug: string) {
   const writing = writingsDB.value!.find(writing => writing.slug === slug)
   if (!writing) return ''
 
-  const like = writing.likes! > 1 ? 'likes' : 'like'
-  const view = writing.views! > 1 ? 'views' : 'view'
+  const like = writing.likes! > 1 ? t('likes.many') : t('likes.one')
+  const view = writing.views! > 1 ? t('views.many') : t('views.one')
 
   return `${writing.likes} ${like} · ${writing.views} ${view}`
 }
@@ -27,8 +29,17 @@ function getDetails(slug: string) {
 <template>
   <main>
     <AppTitle
-      :description="description"
-      title="Writing on my life, development and my passions."
+      :description="t('description')"
+      :title="t('title')"
+    />
+    <UAlert
+      v-if="locale !== 'en'"
+      :description="t('alert.description')"
+      :title="t('alert.title')"
+      class="mt-12"
+      color="red"
+      icon="i-ph-warning-duotone"
+      variant="outline"
     />
     <ul class="mt-12 space-y-24">
       <li
@@ -64,3 +75,40 @@ function getDetails(slug: string) {
     </ul>
   </main>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Writing on my life, development and my passions.",
+    "description": "All my thoughts on programming, mathematics, artificial intelligence design, etc., are put together in chronological order. I also write about my projects, my discoveries, and my thoughts.",
+    "likes": {
+      "one": "like",
+      "many": "likes"
+    },
+    "views": {
+      "one": "view",
+      "many": "views"
+    },
+    "alert": {
+      "title": "Translations alert!",
+      "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
+    }
+  },
+  "fr": {
+    "title": "Écrits sur ma vie, le développement et mes passions.",
+    "description": "Toutes mes réflexions sur la programmation, les mathématiques, la conception de l'intelligence artificielle, etc., sont mises en ordre chronologique. J'écris aussi sur mes projets, mes découvertes et mes pensées.",
+    "likes": {
+      "one": "like",
+      "many": "likes"
+    },
+    "views": {
+      "one": "vue",
+      "many": "vues"
+    },
+    "alert": {
+      "title": "Attentions aux traductions!",
+      "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
+    }
+  }
+}
+</i18n>
