@@ -1,4 +1,8 @@
-Bonjour, je suis Arthur Danjou, étudiant en mathématiques à la faculté des sciences de Paris-Saclay en France.
+---
+title: Arthur Danjou • Mathematics Lover and IA Enthusiast
+---
+
+Salut, je suis Arthur Danjou, étudiant en mathématiques à la faculté des sciences de Paris-Saclay en France.
 
 Avec une :hover-text{hover="La technologie évolue beaucoup trop vite 🤯" position="top" text="compréhension profonde des
 technologies émergentes"}, je suis au cœur d'un domaine en pleine expansion. Ma formation en :hover-text{hover="Les

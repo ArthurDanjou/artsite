@@ -13,7 +13,8 @@ const getActivity = computed(() => {
   if (!activity) return
 
   const active = activity.name === 'Visual Studio Code' ? !activity.details.includes('Idling') : activity.state.toLowerCase().includes('editing')
-  const project = activity.details ? activity.details.replace('Workspace:', '') : ''
+  const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
+  const project = activity.details ? capitalise(activity.details.replace('Workspace:', '')) : ''
   const state = activity.state.split(' ')[1]
   const start = {
     ago: useTimeAgo(activity.timestamps.start).value,

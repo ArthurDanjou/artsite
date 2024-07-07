@@ -1,3 +1,7 @@
+---
+title: Arthur Danjou • Mathematics Lover and IA Enthusiast
+---
+
 Hey, I'm Arthur Danjou, a mathematics student at the Paris-Saclay Faculty of Science in France.
 
 With a :hover-text{hover="Technology is evolving far too quickly 🤯" position="top" text="deep understanding of emerging technologies"}, I'm at the heart of a rapidly expanding field. My background in :hover-text{hover="Maths is my main passion ∑" position="right" text="mathematics"} gives me a head start in
