@@ -59,10 +59,16 @@ export default defineNuxtConfig({
         code: 'en',
         iso: 'en-EN',
         icon: 'i-twemoji-flag-united-kingdom'
-      }, {
+      },
+      {
         code: 'fr',
         iso: 'fr-FR',
         icon: 'i-twemoji-flag-france'
+      },
+      {
+        code: 'es',
+        iso: 'es-ES',
+        icon: 'i-twemoji-flag-spain'
       }
     ],
     defaultLocale: 'en'

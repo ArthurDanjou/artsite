@@ -18,7 +18,7 @@ const { locale } = useI18n()
       {{ item.name }}
     </p>
     <p class="text-sm">
-      {{ locale === 'en' ? item.description.en : item.description.fr }}
+      {{ locale === 'en' ? item.description.en : locale === 'es' ? item.description.es : item.description.fr }}
     </p>
   </li>
 </template>

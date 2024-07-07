@@ -10,50 +10,58 @@ const navs = [
   {
     label: {
       en: 'home',
-      fr: 'accueil'
+      fr: 'accueil',
+      es: 'inicio'
     },
     to: '/',
     icon: 'i-ph-house-line-duotone',
     shortcut: {
       en: 'h',
-      fr: 'a'
+      fr: 'a',
+      es: 'i'
     }
   },
   {
     label: {
       en: 'uses',
-      fr: 'usages'
+      fr: 'usages',
+      es: 'usos'
     },
     to: '/uses',
     icon: 'i-ph-backpack-duotone',
     shortcut: {
       en: 'u',
-      fr: 'u'
+      fr: 'u',
+      es: 'u'
     }
   },
   {
     label: {
       en: 'writings',
-      fr: 'écrits'
+      fr: 'écrits',
+      es: 'escritos'
     },
     to: '/writings',
     icon: 'i-ph-books-duotone',
     shortcut: {
       en: 'w',
-      fr: 'e'
+      fr: 'e',
+      es: 'e'
     }
   },
   {
     label: {
       en: 'resume',
-      fr: 'cv'
+      fr: 'cv',
+      es: 'currículum'
     },
     to: config.public.cloud.resume,
     target: '_blank',
     icon: 'i-ph-address-book-duotone',
     shortcut: {
       en: 'r',
-      fr: 'c'
+      fr: 'c',
+      es: 'c'
     }
   }
 ]
@@ -69,20 +77,30 @@ async function toggleTheme() {
   document.body.style.animation = ''
 }
 
-async function changeLocale() {
+const { locale, setLocale, locales, t, availableLocales } = useI18n()
+
+async function changeLocale(newLocale?: string) {
   document.body.style.animation = 'switch-on .2s'
   await new Promise(resolve => setTimeout(resolve, 200))
 
-  await setLocale(locale.value === 'en' ? 'fr' : 'en')
+  if (!newLocale) {
+    const currentLocaleIndex = availableLocales.findIndex(l => l === locale.value)
+    const nextLocaleIndex = (currentLocaleIndex + 1) % availableLocales.length
+    newLocale = availableLocales[nextLocaleIndex]
+  }
+
+  await setLocale(newLocale ?? 'en')
   document.body.style.animation = 'switch-off .2s'
 
   await new Promise(resolve => setTimeout(resolve, 200))
   document.body.style.animation = ''
 }
 
-const router = useRouter()
-const { locale, setLocale, locales, t } = useI18n()
+const lang = ref(locale.value)
+watch(lang, () => changeLocale(lang.value))
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
+
+const router = useRouter()
 defineShortcuts({
   h: () => router.push('/'),
   a: () => router.push('/'),
@@ -110,7 +128,7 @@ defineShortcuts({
         v-for="nav in navs"
         :key="nav.label.en"
         :shortcuts="[nav.shortcut[locale]]"
-        :text="nav.label[locale]"
+        :text="nav.label[locale]!"
       >
         <UButton
           :icon="nav.icon"
@@ -139,15 +157,23 @@ defineShortcuts({
         <UTooltip
           :shortcuts="['l']"
           :text="t('language')"
+          :popper="{ placement: 'right' }"
         >
-          <UButton
-            :icon="currentLocale!.icon"
-            aria-label="switch language"
-            color="white"
+          <USelectMenu
+            v-model="lang"
+            :options="locales"
             size="sm"
-            variant="solid"
-            @click.prevent="changeLocale()"
-          />
+            option-attribute="code"
+            value-attribute="code"
+            variant="outline"
+          >
+            <template #leading>
+              <UIcon
+                :name="currentLocale!.icon"
+                class="w-5 h-5"
+              />
+            </template>
+          </USelectMenu>
         </UTooltip>
       </ClientOnly>
     </nav>
@@ -191,6 +217,10 @@ defineShortcuts({
   "fr": {
     "theme": "changer de thème",
     "language": "changer de langue"
+  },
+  "es": {
+    "theme": "cambiar tema",
+    "language": "cambiar idioma"
   }
 }
 </i18n>

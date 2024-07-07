@@ -30,8 +30,8 @@ J'ai également appris d'autres technologies importantes, telles que
 compléter"} mes connaissances.
 
 Je suis :hover-text{hover="Je dois toujours chercher à être à jour 🖥️" position="top" text="constamment"} dans
-l'apprentissage de nouvelles choses, de la technologie à la finance en passant par l'entrepreneuriat. J'aime :
-hover-text{hover="J'aime partager et aider les autres 🫂" text="partager"} mes connaissances et apprendre de nouveaux
+l'apprentissage de nouvelles choses, de la technologie à la finance en passant par l'entrepreneuriat. J'aime
+:hover-text{hover="J'aime partager et aider les autres 🫂" text="partager"} mes connaissances et apprendre de nouveaux
 théorèmes et technologies. Je suis une personne :hover-text{hover="Je cherche à découvrir de nouvelles choses" text="
 curieuse"} et désireuse de continuer à apprendre et à grandir tout au long de ma vie.
 
