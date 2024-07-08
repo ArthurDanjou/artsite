@@ -3,47 +3,50 @@ import { type Activity, IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
 useIntervalFn(async () => await refresh(), 5000)
-const codingActivity = computed(() => activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name))[0])
+const codingActivity = computed(() => activity.value!.data.activities.find(activity => IDEs.some(ide => ide.name === activity.name)))
 
 const { locale, locales } = useI18n()
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
+const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const getActivity = computed(() => {
-  const activity = codingActivity.value
-  if (!activity) return
+  if (!codingActivity.value) return
 
-  const active = activity.name === 'Visual Studio Code' ? !activity.details.includes('Idling') : activity.state.toLowerCase().includes('editing')
-  const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
-  const project = activity.details ? capitalise(activity.details.replace('Workspace:', '')) : ''
-  const state = activity.state.split(' ')[1]
-  const start = {
-    ago: locale.value === 'en'
-      ? useTimeAgo(activity.timestamps.start).value
-      : useTimeAgo(activity.timestamps.start).value
-        .replace('ago', '')
-        .replace('hours', 'heures')
-        .replace('minutes', 'minutes')
-        .replace('seconds', 'secondes'),
-    formated: {
-      date: useDateFormat(
-        activity.timestamps.start,
-        'DD MMM YYYY',
-        { locales: currentLocale.value!.code ?? 'en' }
-      ).value,
-      time: useDateFormat(
-        activity.timestamps.start,
-        'HH:mm:ss',
-        { locales: currentLocale.value!.code ?? 'en' }
-      ).value
-    }
-  }
+  const { name, details, state, timestamps } = codingActivity.value
+  const isActive = name === 'Visual Studio Code'
+    ? !details.includes('Idling')
+    : state.toLowerCase().includes('editing')
+  const project = details
+    ? details
+      .charAt(0)
+      .toUpperCase()
+      + details
+        .slice(1)
+        .replace('Workspace:', '')
+        .trim()
+    : ''
+  const stateWord = state.split(' ')[1]
+  const timeAgo = useTimeAgo(timestamps.start).value
+  const formatDate = (date: number, format: string) => useDateFormat(date, format, { locales: currentLocale.value?.code ?? 'en' }).value
 
   return {
-    active,
-    name: activity.name,
+    active: isActive,
+    name,
     project,
-    state,
-    start
+    state: stateWord,
+    start: {
+      ago: locale.value === 'en'
+        ? timeAgo
+        : timeAgo
+          .replace('ago', '')
+          .replace('hours', 'heures')
+          .replace('minutes', 'minutes')
+          .replace('seconds', 'secondes')
+          .trim(),
+      formated: {
+        date: formatDate(timestamps.start, 'DD MMM YYYY'),
+        time: formatDate(timestamps.start, 'HH:mm:ss')
+      }
+    }
   }
 })
 
