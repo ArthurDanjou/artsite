@@ -5,8 +5,8 @@ description: I'm Arthur, a Mathematics lover and IA enthusiast. I'm currently st
 
 Salut, je suis Arthur Danjou, étudiant en mathématiques à la faculté des sciences de Paris-Saclay en France.
 
-Avec une :hover-text{hover="La technologie évolue beaucoup trop vite 🤯" position="top" text="compréhension profonde des
-technologies émergentes"}, je suis au cœur d'un domaine en pleine expansion. Ma formation en :hover-text{hover="Les
+Avec une :hover-text{hover="La technologie évolue beaucoup trop vite 🤯" position="top" text="compréhension profonde"}
+des technologies émergentes, je suis au cœur d'un domaine en pleine expansion. Ma formation en :hover-text{hover="Les
 mathématiques sont ma principale passion ∑" position="right" text="mathématiques"} me donne une longueur d'avance pour
 comprendre les concepts et les théories qui sous-tendent ces :hover-text{hover="Ma deuxième passion 📱" text="technologies"} et à les concevoir efficacement.
 
