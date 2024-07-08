@@ -27,13 +27,15 @@
       </template>
     </Head>
     <Body>
-      <NuxtLoadingIndicator color="#808080" />
-      <AppBackground />
-      <UContainer class="z-50 relative">
-        <AppHeader />
-        <NuxtPage class="mt-12" />
-        <AppFooter />
-      </UContainer>
+      <div>
+        <NuxtLoadingIndicator color="#808080" />
+        <AppBackground />
+        <UContainer class="z-50 relative">
+          <AppHeader />
+          <NuxtPage class="mt-12" />
+          <AppFooter />
+        </UContainer>
+      </div>
     </Body>
   </Html>
 </template>
