@@ -17,13 +17,25 @@ const getActivity = computed(() => {
   const project = activity.details ? capitalise(activity.details.replace('Workspace:', '')) : ''
   const state = activity.state.split(' ')[1]
   const start = {
-    ago: useTimeAgo(activity.timestamps.start).value,
-    formated: `${useDateFormat(
-      activity.timestamps.start,
-      'DD MMM YYYY',
-      { locales: currentLocale.value!.code ?? 'en' }
-    ).value} ${t('separator')}
-    ${useDateFormat(activity.timestamps.start, 'HH:mm:ss', { locales: currentLocale.value!.code ?? 'en' }).value}`
+    ago: locale.value === 'en'
+      ? useTimeAgo(activity.timestamps.start).value
+      : useTimeAgo(activity.timestamps.start).value
+        .replace('ago', '')
+        .replace('hours', 'heures')
+        .replace('minutes', 'minutes')
+        .replace('seconds', 'secondes'),
+    formated: {
+      date: useDateFormat(
+        activity.timestamps.start,
+        'DD MMM YYYY',
+        { locales: currentLocale.value!.code ?? 'en' }
+      ).value,
+      time: useDateFormat(
+        activity.timestamps.start,
+        'HH:mm:ss',
+        { locales: currentLocale.value!.code ?? 'en' }
+      ).value
+    }
   }
 
   return {
@@ -62,7 +74,6 @@ const { t } = useI18n({
         v-if="getActivity.active"
         keypath="working"
         tag="div"
-        class="space-x-1"
       >
         <template #project>
           <strong>{{ getActivity.project }}</strong>
@@ -71,17 +82,19 @@ const { t } = useI18n({
           {{ getActivity.state }}
         </template>
         <template #editor>
-          <UIcon
-            :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
-            size="16"
-          />
-          <strong>{{ getActivity.name }}</strong>
+          <span class="space-x-1">
+            <UIcon
+              :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
+              size="16"
+            />
+            <strong>{{ getActivity.name }}</strong></span>
         </template>
         <template #start>
           <strong>{{ getActivity.start.ago }}</strong>
         </template>
         <template #format>
-          <strong>{{ getActivity.start.formated }}</strong>
+          <strong>{{ getActivity.start.formated.date }}</strong> {{ t('separator') }}
+          <strong>{{ getActivity.start.formated.time }}</strong>
         </template>
       </i18n-t>
       <i18n-t
