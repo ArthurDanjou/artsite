@@ -16,9 +16,9 @@ const navs = [
     to: '/',
     icon: 'i-ph-house-line-duotone',
     shortcut: {
-      en: 'h',
-      fr: 'a',
-      es: 'i'
+      en: 'H',
+      fr: 'A',
+      es: 'I'
     }
   },
   {
@@ -30,9 +30,9 @@ const navs = [
     to: '/uses',
     icon: 'i-ph-backpack-duotone',
     shortcut: {
-      en: 'u',
-      fr: 'u',
-      es: 'u'
+      en: 'U',
+      fr: 'U',
+      es: 'U'
     }
   },
   {
@@ -44,9 +44,9 @@ const navs = [
     to: '/writings',
     icon: 'i-ph-books-duotone',
     shortcut: {
-      en: 'w',
-      fr: 'e',
-      es: 'e'
+      en: 'W',
+      fr: 'E',
+      es: 'E'
     }
   },
   {
@@ -59,9 +59,9 @@ const navs = [
     target: '_blank',
     icon: 'i-ph-address-book-duotone',
     shortcut: {
-      en: 'r',
-      fr: 'c',
-      es: 'c'
+      en: 'R',
+      fr: 'C',
+      es: 'C'
     }
   }
 ]
@@ -142,7 +142,7 @@ defineShortcuts({
       </UTooltip>
       <ClientOnly>
         <UTooltip
-          :shortcuts="['t']"
+          :shortcuts="['T']"
           :text="t('theme')"
         >
           <UButton
@@ -155,7 +155,7 @@ defineShortcuts({
           />
         </UTooltip>
         <UTooltip
-          :shortcuts="['l']"
+          :shortcuts="['L']"
           :text="t('language')"
           :popper="{ placement: 'right' }"
         >
