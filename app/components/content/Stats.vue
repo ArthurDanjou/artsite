@@ -29,6 +29,9 @@ const { t } = useI18n({
           :text="usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0).value"
         />
       </template>
+      <template #editors>
+        {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(' and ') }}
+      </template>
       <template
         v-if="stats.os.data[0]"
         #os
@@ -39,6 +42,7 @@ const { t } = useI18n({
         {{
           stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator'))
         }}
+        {{ stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator')) }}
       </template>
     </i18n-t>
   </ClientOnly>
@@ -64,3 +68,4 @@ const { t } = useI18n({
   }
 }
 </i18n>
+
