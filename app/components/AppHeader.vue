@@ -87,6 +87,7 @@ async function changeLocale(newLocale?: string) {
     const currentLocaleIndex = availableLocales.findIndex(l => l === locale.value)
     const nextLocaleIndex = (currentLocaleIndex + 1) % availableLocales.length
     newLocale = availableLocales[nextLocaleIndex]
+    lang.value = newLocale
   }
 
   await setLocale(newLocale ?? 'en')
@@ -96,9 +97,9 @@ async function changeLocale(newLocale?: string) {
   document.body.style.animation = ''
 }
 
+const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 const lang = ref(locale.value)
 watch(lang, () => changeLocale(lang.value))
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 
 const router = useRouter()
 defineShortcuts({
@@ -140,6 +141,7 @@ defineShortcuts({
           variant="solid"
         />
       </UTooltip>
+      {{ lang }}
       <ClientOnly>
         <UTooltip
           :shortcuts="['T']"
@@ -172,6 +174,13 @@ defineShortcuts({
                 :name="currentLocale!.icon"
                 class="w-5 h-5"
               />
+            </template>
+            <template #option="{ option: language }">
+              <UIcon
+                :name="language.icon"
+                class="w-5 h-5"
+              />
+              <span>{{ language.code }}</span>
             </template>
           </USelectMenu>
         </UTooltip>
