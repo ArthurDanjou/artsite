@@ -141,7 +141,6 @@ defineShortcuts({
           variant="solid"
         />
       </UTooltip>
-      {{ lang }}
       <ClientOnly>
         <UTooltip
           :shortcuts="['T']"
