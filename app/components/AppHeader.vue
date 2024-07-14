@@ -117,14 +117,14 @@ defineShortcuts({
 </script>
 
 <template>
-  <header class="flex items-center justify-between my-8">
+  <header class="flex items-center justify-between my-8 gap-2">
     <NuxtLinkLocale
-      class="handwriting text-lg sm:text-3xl flex gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+      class="handwriting text-xl sm:text-3xl text-nowrap gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
       to="/"
     >
       Arthur Danjou
     </NuxtLinkLocale>
-    <nav class="flex gap-2 items-center">
+    <nav class="flex gap-2 items-center justify-end flex-wrap">
       <UTooltip
         v-for="nav in navs"
         :key="nav.label.en"
