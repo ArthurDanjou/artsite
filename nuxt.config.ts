@@ -21,7 +21,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
     '@nuxt/image',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    'nuxt-mapbox'
   ],
 
   // Nuxt Hub
@@ -119,6 +120,13 @@ export default defineNuxtConfig({
     public: {
       cloud: {
         resume: ''
+      },
+      mapbox: {
+        accessToken: '',
+        style: {
+          light: '',
+          dark: ''
+        }
       }
     }
   },

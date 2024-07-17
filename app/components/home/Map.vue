@@ -23,6 +23,8 @@ function adjustZoom(amount: number) {
 const { t } = useI18n({
   useScope: 'local'
 })
+
+const config = useRuntimeConfig()
 </script>
 
 <template>
@@ -30,7 +32,8 @@ const { t } = useI18n({
     <div class="relative h-80 md:h-96 w-full">
       <MapboxMap
         :options="{
-          style: isDark ? 'mapbox://styles/arthurdanjou/clyor1rad005y01pibypu165j' : 'mapbox://styles/arthurdanjou/clyorg3yl018r01pi6esv8ab8',
+          accessToken: config.public.mapbox.accessToken,
+          style: isDark ? config.public.mapbox.style.dark : config.public.mapbox.style.light,
           center: coordinates,
           zoom,
           projection: 'globe'
