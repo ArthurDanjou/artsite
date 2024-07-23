@@ -136,6 +136,9 @@ const { t } = useI18n({
       "idling": "Je dors 😴"
     },
     "separator": "à"
+  },
+  "es": {
+
   }
 }
 </i18n>

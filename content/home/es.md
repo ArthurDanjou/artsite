@@ -26,7 +26,8 @@ technologies, such as
 :prose-icon[Docker]{icon="i-logos:docker-icon"},
 :prose-icon[Redis]{icon="i-logos:redis"},
 :prose-icon[MySQL]{icon="i-logos:mysql-icon"} and
-:prose-icon[Git]{icon="i-logos:git-icon"} to :hover-text{hover="All these technologies complement each other 🔗" text="complete"} my knowledge.
+:prose-icon[Git]{icon="i-logos:git-icon"} to :hover-text{hover="All these technologies complement each other 🔗" text="
+complete"} my knowledge.
 
 I'm :hover-text{hover="As tech is always evolving, I need to be up-to-date 🖥️" position="top" text="constantly"}
 learning new things, from technology to finance and entrepreneurship. I love
