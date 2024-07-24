@@ -141,7 +141,8 @@ I'm often asked how much it costs to run my website. Here's a breakdown of the c
 - NuxtHub: 0€
 - Cloudflare Workers: 0€
 - Nuxt Studio: 0€
-  Total: 0€ thanks to nuxt free plan and cloudflare free plan
+
+Total: 0€ thanks to nuxt free plan and cloudflare free plan
 
 ## Thanks
 
