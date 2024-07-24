@@ -42,7 +42,9 @@ const { t } = useI18n({
         {{
           stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator'))
         }}
-        {{ stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator')) }}
+        {{
+          stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator'))
+        }}
       </template>
     </i18n-t>
   </ClientOnly>
@@ -68,4 +70,3 @@ const { t } = useI18n({
   }
 }
 </i18n>
-

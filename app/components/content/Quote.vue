@@ -9,9 +9,13 @@ const { t } = useI18n({
     <div class="flex items-center">
       <UTooltip text="It's me 👋">
         <div class="flex items-center w-12 h-12">
-          <NuxtImg
-            alt="Arthur Danjou picture"
-            class="w-full h-full hover:rotate-[360deg] duration-500 transform-gpu"
+          <UAvatar
+            alt="Avatar"
+            chip-color="gray"
+            chip-position="top-right"
+            chip-text="?"
+            class="hover:rotate-[360deg] duration-500 transform-gpu"
+            size="md"
             src="/favicon.png"
           />
         </div>

@@ -35,6 +35,8 @@
     "@vueuse/nuxt": "^10.11.0",
     "drizzle-kit": "^0.22.8",
     "eslint": "^9.7.0",
+    "mapbox-gl": "^3.5.2",
+    "nuxt-mapbox": "^1.6.0",
     "typescript": "^5.5.4",
     "vue-tsc": "^2.0.28",
     "wrangler": "^3.66.0"
