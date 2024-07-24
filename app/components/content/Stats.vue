@@ -47,9 +47,6 @@ const formatDate = (date: Date, format: string) => useDateFormat(date, format, {
         {{
           stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator'))
         }}
-        {{
-          stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator'))
-        }}
       </template>
     </i18n-t>
   </ClientOnly>
