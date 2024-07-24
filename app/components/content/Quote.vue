@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+const { t } = useI18n({
+  useScope: 'local',
+})
+</script>
+
 <template>
   <div class="flex items-center gap-2 mt-4">
     <div class="flex items-center">
@@ -16,12 +22,6 @@
     </p>
   </div>
 </template>
-
-<script lang="ts" setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-</script>
 
 <i18n lang="json">
 {

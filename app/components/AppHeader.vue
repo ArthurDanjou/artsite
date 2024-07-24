@@ -10,52 +10,52 @@ const navs = [
   {
     label: {
       en: 'home',
-      fr: 'accueil'
+      fr: 'accueil',
     },
     to: '/',
     icon: 'i-ph-house-line-duotone',
     shortcut: {
       en: 'h',
-      fr: 'a'
-    }
+      fr: 'a',
+    },
   },
   {
     label: {
       en: 'uses',
-      fr: 'usages'
+      fr: 'usages',
     },
     to: '/uses',
     icon: 'i-ph-backpack-duotone',
     shortcut: {
       en: 'u',
-      fr: 'u'
-    }
+      fr: 'u',
+    },
   },
   {
     label: {
       en: 'writings',
-      fr: 'écrits'
+      fr: 'écrits',
     },
     to: '/writings',
     icon: 'i-ph-books-duotone',
     shortcut: {
       en: 'w',
-      fr: 'e'
-    }
+      fr: 'e',
+    },
   },
   {
     label: {
       en: 'resume',
-      fr: 'cv'
+      fr: 'cv',
     },
     to: config.public.cloud.resume,
     target: '_blank',
     icon: 'i-ph-address-book-duotone',
     shortcut: {
       en: 'r',
-      fr: 'c'
-    }
-  }
+      fr: 'c',
+    },
+  },
 ]
 
 async function toggleTheme() {
@@ -69,6 +69,9 @@ async function toggleTheme() {
   document.body.style.animation = ''
 }
 
+const { locale, setLocale, locales, t } = useI18n()
+const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
+
 async function changeLocale() {
   document.body.style.animation = 'switch-on .2s'
   await new Promise(resolve => setTimeout(resolve, 200))
@@ -81,8 +84,6 @@ async function changeLocale() {
 }
 
 const router = useRouter()
-const { locale, setLocale, locales, t } = useI18n()
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 defineShortcuts({
   h: () => router.push('/'),
   a: () => router.push('/'),
@@ -93,7 +94,7 @@ defineShortcuts({
   c: () => window.open(config.public.cloud.resume, '_blank'),
   t: () => toggleTheme(),
   l: () => changeLocale(),
-  backspace: () => router.back()
+  backspace: () => router.back(),
 })
 </script>
 

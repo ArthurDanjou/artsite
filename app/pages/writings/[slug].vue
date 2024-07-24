@@ -3,33 +3,33 @@ const route = useRoute()
 const { data: post } = await useAsyncData(`writing:${route.params.slug}`, () => queryContent(`/writings/${route.params.slug}`).findOne())
 const {
   data: postDB,
-  refresh
+  refresh,
 } = await useAsyncData(`writing:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
 const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 
 const { t } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 
 function top() {
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 
 const { copy, copied } = useClipboard({
   source: `https://arthurdanjou.fr/writings/${route.params.slug}`,
-  copiedDuring: 4000
+  copiedDuring: 4000,
 })
 
 useSeoMeta({
   title: post.value?.title,
   description: post.value?.description,
-  author: 'Arthur Danjou'
+  author: 'Arthur Danjou',
 })
 
 function getDetails() {
@@ -43,11 +43,12 @@ function getDetails() {
 }
 
 const likeCookie = useCookie<boolean>(`post:like:${route.params.slug}`, {
-  maxAge: 7200
+  maxAge: 7200,
 })
 
 async function handleLike() {
-  if (likeCookie.value) return
+  if (likeCookie.value)
+    return
   await $fetch(`/api/posts/like/${route.params.slug}`, { method: 'PUT' })
   await refresh()
   likeCookie.value = true
@@ -133,7 +134,7 @@ async function handleLike() {
         <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
-            :color="likeCookie ? 'red': 'white'"
+            :color="likeCookie ? 'red' : 'white'"
             icon="i-ph-heart-duotone"
             size="lg"
             variant="solid"

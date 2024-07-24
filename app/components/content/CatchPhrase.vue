@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+const { width } = useWindowSize()
+const { t } = useI18n({
+  useScope: 'local',
+})
+</script>
+
 <template>
   <ClientOnly>
     <div
@@ -12,13 +19,6 @@
     </div>
   </ClientOnly>
 </template>
-
-<script lang="ts" setup>
-const { width } = useWindowSize()
-const { t } = useI18n({
-  useScope: 'local'
-})
-</script>
 
 <i18n lang="json">
 {

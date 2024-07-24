@@ -5,8 +5,8 @@ import type { UsesItem } from '#components'
 defineProps({
   item: {
     type: Object as PropType<typeof UsesItem>,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const { locale } = useI18n()

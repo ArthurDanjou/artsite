@@ -10,9 +10,9 @@ export default defineCachedEventHandler(async (event) => {
     coding,
     editors,
     os,
-    languages
+    languages,
   }
 }, {
   maxAge: 24 * 60 * 60,
-  name: 'wakatime'
+  name: 'wakatime',
 })

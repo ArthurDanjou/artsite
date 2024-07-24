@@ -6,22 +6,21 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       templateParams: {
-        separator: '•'
-      }
-    }
+        separator: '•',
+      },
+    },
   },
 
   // Nuxt Modules
   modules: [
     '@nuxthub/core',
-    '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
     '@nuxt/image',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
   ],
 
   // Nuxt Hub
@@ -29,26 +28,27 @@ export default defineNuxtConfig({
     cache: true,
     kv: true,
     database: true,
-    analytics: true
+    analytics: true,
   },
 
   // Nuxt Content
   content: {
     highlight: {
-      theme: 'github-dark'
-    }
+      theme: 'github-dark',
+    },
+    locales: ['en', 'fr'],
   },
 
   // Nuxt Color Mode
   colorMode: {
     preference: 'system',
-    fallback: 'light'
+    fallback: 'light',
   },
 
   // Nuxt Devtools
   devtools: {
     enabled: true,
-    timeline: { enabled: true }
+    timeline: { enabled: true },
   },
 
   // Nuxt I18N
@@ -58,24 +58,15 @@ export default defineNuxtConfig({
       {
         code: 'en',
         iso: 'en-EN',
-        icon: 'i-twemoji-flag-united-kingdom'
-      }, {
+        icon: 'i-twemoji-flag-united-kingdom',
+      },
+      {
         code: 'fr',
         iso: 'fr-FR',
-        icon: 'i-twemoji-flag-france'
-      }
+        icon: 'i-twemoji-flag-france',
+      },
     ],
-    defaultLocale: 'en'
-  },
-
-  // Nuxt Eslint
-  eslint: {
-    config: {
-      stylistic: {
-        quotes: 'single',
-        commaDangle: 'never'
-      }
-    }
+    defaultLocale: 'en',
   },
 
   // Nuxt Google Fonts
@@ -85,15 +76,15 @@ export default defineNuxtConfig({
       'Inter': [400, 500, 600, 700, 800, 900],
       'Sofia Sans': [400],
       'DM Sans': [400, 500, 600, 700, 800, 900],
-      'Dancing Script': [400, 700]
-    }
+      'Dancing Script': [400, 700],
+    },
   },
 
   // Nitro
   nitro: {
     experimental: {
-      openAPI: true
-    }
+      openAPI: true,
+    },
   },
 
   // Nuxt Env
@@ -101,21 +92,21 @@ export default defineNuxtConfig({
     discord: {
       userId: '',
       id: '',
-      token: ''
+      token: '',
     },
     wakatime: {
       userId: '',
       coding: '',
       editors: '',
       languages: '',
-      os: ''
+      os: '',
     },
     public: {
       cloud: {
-        resume: ''
-      }
-    }
+        resume: '',
+      },
+    },
   },
 
-  compatibilityDate: '2024-07-08'
+  compatibilityDate: '2024-07-08',
 })

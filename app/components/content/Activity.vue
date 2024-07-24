@@ -9,7 +9,8 @@ const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const getActivity = computed(() => {
-  if (!codingActivity.value) return
+  if (!codingActivity.value)
+    return
 
   const { name, details, state, timestamps } = codingActivity.value
   const isActive = name === 'Visual Studio Code'
@@ -44,14 +45,14 @@ const getActivity = computed(() => {
           .trim(),
       formated: {
         date: formatDate(timestamps.start, 'DD MMM YYYY'),
-        time: formatDate(timestamps.start, 'HH:mm:ss')
-      }
-    }
+        time: formatDate(timestamps.start, 'HH:mm:ss'),
+      },
+    },
   }
 })
 
 const { t } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 </script>
 

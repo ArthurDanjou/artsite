@@ -3,7 +3,7 @@ import type { Stats } from '~~/types'
 
 const { data: stats } = await useFetch<Stats>('/api/stats')
 const { t } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 </script>
 

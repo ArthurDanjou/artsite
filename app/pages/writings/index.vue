@@ -1,23 +1,22 @@
 <script setup lang="ts">
 const { t, locale } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 useSeoMeta({
   title: 'My Shelf',
-  description: t('description')
+  description: t('description'),
 })
 
 const { data: writings } = await useAsyncData('all-writings', () =>
-  queryContent('/writings').sort({ published: -1 }).without('body').find()
-)
+  queryContent('/writings').sort({ published: -1 }).without('body').find())
 
 const { data: writingsDB } = await useAsyncData('all-writings-db', () =>
-  $fetch(`/api/posts`)
-)
+  $fetch(`/api/posts`))
 
 function getDetails(slug: string) {
   const writing = writingsDB.value!.find(writing => writing.slug === slug)
-  if (!writing) return ''
+  if (!writing)
+    return ''
 
   const like = writing.likes! > 1 ? t('likes.many') : t('likes.one')
   const view = writing.views! > 1 ? t('views.many') : t('views.one')
