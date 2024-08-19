@@ -43,30 +43,16 @@ export default defineNuxtConfig({
   // Nuxt UI
   ui: {
     safelistColors: [
-      'slate',
       'gray',
       'zinc',
-      'neutral',
-      'stone',
       'red',
       'orange',
       'amber',
-      'yellow',
-      'lime',
       'green',
       'emerald',
-      'teal',
-      'cyan',
       'sky',
       'blue',
-      'indigo',
-      'violet',
       'purple',
-      'fuchsia',
-      'pink',
-      'rose',
-      'black',
-      'white',
     ],
   },
 
@@ -153,5 +139,5 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2024-07-08',
+  compatibilityDate: '2024-08-19',
 })
