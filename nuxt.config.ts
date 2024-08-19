@@ -40,6 +40,36 @@ export default defineNuxtConfig({
     locales: ['en', 'fr'],
   },
 
+  // Nuxt UI
+  ui: {
+    safelistColors: [
+      'slate',
+      'gray',
+      'zinc',
+      'neutral',
+      'stone',
+      'red',
+      'orange',
+      'amber',
+      'yellow',
+      'lime',
+      'green',
+      'emerald',
+      'teal',
+      'cyan',
+      'sky',
+      'blue',
+      'indigo',
+      'violet',
+      'purple',
+      'fuchsia',
+      'pink',
+      'rose',
+      'black',
+      'white',
+    ],
+  },
+
   // Nuxt Color Mode
   colorMode: {
     preference: 'system',
@@ -58,16 +88,23 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'en',
-        iso: 'en-EN',
+        language: 'en-EN',
         icon: 'i-twemoji-flag-united-kingdom',
       },
       {
         code: 'fr',
-        iso: 'fr-FR',
+        language: 'fr-FR',
         icon: 'i-twemoji-flag-france',
       },
     ],
     defaultLocale: 'en',
+  },
+
+  // Nuxt Icon
+  icon: {
+    serverBundle: {
+      collections: ['ph', 'twemoji', 'logos'],
+    },
   },
 
   // Nuxt Google Fonts
