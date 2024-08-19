@@ -14,7 +14,7 @@ defineProps({
 <template>
   <span class="inline-flex items-center">
     <UIcon
-      class="mb-1 mr-1"
+      class="mr-1"
       :name="`i-logos:${icon}`"
     />
     <span
