@@ -87,7 +87,7 @@ const config = useRuntimeConfig()
 
 <style lang="scss">
 .map-button {
-  @apply z-30 absolute bottom-2 dark:bg-gray-800 dark:hover:bg-gray-900 bg-gray-200 hover:bg-gray-100 duration-300 border border-neutral-300 dark:border-neutral-700 cursor-pointer flex items-center justify-center rounded-full p-2
+  @apply z-30 absolute bottom-2 dark:bg-gray-900 dark:hover:bg-gray-900 bg-gray-200 hover:bg-gray-100 duration-300 border border-neutral-300 dark:border-neutral-700 cursor-pointer flex items-center justify-center rounded-full p-2
 }
 
 .mapboxgl-control-container {

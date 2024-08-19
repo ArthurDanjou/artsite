@@ -13,11 +13,7 @@ const navs = [
       fr: 'accueil',
     },
     to: '/',
-    icon: 'i-ph-house-line-duotone',
-    shortcut: {
-      en: 'h',
-      fr: 'a',
-    },
+    icon: 'house-line-duotone',
   },
   {
     label: {
@@ -25,11 +21,7 @@ const navs = [
       fr: 'usages',
     },
     to: '/uses',
-    icon: 'i-ph-backpack-duotone',
-    shortcut: {
-      en: 'u',
-      fr: 'u',
-    },
+    icon: 'backpack-duotone',
   },
   {
     label: {
@@ -37,11 +29,7 @@ const navs = [
       fr: 'écrits',
     },
     to: '/writings',
-    icon: 'i-ph-books-duotone',
-    shortcut: {
-      en: 'w',
-      fr: 'e',
-    },
+    icon: 'books-duotone',
   },
   {
     label: {
@@ -50,11 +38,7 @@ const navs = [
     },
     to: config.public.cloud.resume,
     target: '_blank',
-    icon: 'i-ph-address-book-duotone',
-    shortcut: {
-      en: 'r',
-      fr: 'c',
-    },
+    icon: 'address-book-duotone',
   },
 ]
 
@@ -85,13 +69,6 @@ async function changeLocale() {
 
 const router = useRouter()
 defineShortcuts({
-  h: () => router.push('/'),
-  a: () => router.push('/'),
-  u: () => router.push('/uses'),
-  w: () => router.push('/writings'),
-  e: () => router.push('/writings'),
-  r: () => window.open(config.public.cloud.resume, '_blank'),
-  c: () => window.open(config.public.cloud.resume, '_blank'),
   t: () => toggleTheme(),
   l: () => changeLocale(),
   backspace: () => router.back(),
@@ -110,11 +87,10 @@ defineShortcuts({
       <UTooltip
         v-for="nav in navs"
         :key="nav.label.en"
-        :shortcuts="[nav.shortcut[locale]]"
         :text="nav.label[locale]"
       >
         <UButton
-          :icon="nav.icon"
+          :icon="`i-ph:${nav.icon}`"
           :target="nav.target ? nav.target : '_self'"
           :to="nav.to"
           :aria-label="nav.label"

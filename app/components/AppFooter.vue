@@ -1,22 +1,22 @@
 <script setup lang="ts">
 const socials = [
   {
-    icon: 'i-ph-x-logo-duotone',
+    icon: 'x-logo-duotone',
     label: 'Twitter',
     link: 'https://twitter.com/ArthurDanj',
   },
   {
-    icon: 'i-ph-github-logo-duotone',
+    icon: 'github-logo-duotone',
     label: 'GitHub',
     link: 'https://github.com/ArthurDanjou',
   },
   {
-    icon: 'i-ph-linkedin-logo-duotone',
+    icon: 'linkedin-logo-duotone',
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/arthurdanjou/',
   },
   {
-    icon: 'i-ph-discord-logo-duotone',
+    icon: 'discord-logo-duotone',
     label: 'Discord',
     link: 'https://discordapp.com/users/179635349100691456',
   },
@@ -44,7 +44,7 @@ const { t } = useI18n({
             v-for="social in socials.sort((a, b) => a.label.localeCompare(b.label))"
             :key="social.label"
             :href="social.link"
-            :icon="social.icon"
+            :icon="`i-ph:${social.icon}`"
             :label="social.label"
             target="_blank"
           />

@@ -11,9 +11,6 @@ const { t } = useI18n({
         <div class="flex items-center w-12 h-12">
           <UAvatar
             alt="Avatar"
-            chip-color="gray"
-            chip-position="top-right"
-            chip-text="?"
             class="hover:rotate-[360deg] duration-500 transform-gpu"
             size="md"
             src="/favicon.png"

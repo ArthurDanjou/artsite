@@ -41,7 +41,7 @@ export interface Activity {
 }
 
 export const IDEs = [
-  { name: 'Visual Studio Code', icon: 'i-logos-visual-studio-code' },
-  { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos-intellij-idea' },
-  { name: 'WebStorm', icon: 'i-logos-webstorm' },
+  { name: 'Visual Studio Code', icon: 'visual-studio-code' },
+  { name: 'IntelliJ IDEA Ultimate', icon: 'intellij-idea' },
+  { name: 'WebStorm', icon: 'webstorm' },
 ]

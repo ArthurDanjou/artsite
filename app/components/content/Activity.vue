@@ -88,7 +88,7 @@ const { t } = useI18n({
         <template #editor>
           <span class="space-x-1">
             <UIcon
-              :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
+              :name="`i-logos:${IDEs.find(ide => ide.name === getActivity!.name)!.icon}`"
               size="16"
             />
             <strong>{{ getActivity.name }}</strong></span>
