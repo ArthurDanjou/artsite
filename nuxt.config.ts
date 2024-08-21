@@ -88,9 +88,7 @@ export default defineNuxtConfig({
 
   // Nuxt Icon
   icon: {
-    serverBundle: {
-      collections: ['ph', 'twemoji', 'logos'],
-    },
+    serverBundle: 'remote',
   },
 
   // Nuxt Google Fonts
