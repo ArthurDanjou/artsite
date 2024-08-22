@@ -15,7 +15,7 @@
 - **Content** → [Nuxt Content](https://content.nuxtjs.org/)
 - **Design System** → [NuxtUI](https://nuxtui.com/)
 - **CMS & Editing** → [Nuxt Studio](https://nuxt.studio)
-- **Langage** → [Typescript](https://www.typescriptlang.org/)
+- **Language** → [Typescript](https://www.typescriptlang.org/)
 - **Deployment** → [NuxtHub](https://hub.nuxt.com/)
 - **Styling** → [Sass](https://sass-lang.com/) & [Tailwind CSS](https://tailwindcss.com/)
 - **Package Manager** → [pnpm](https://pnpm.io/)
