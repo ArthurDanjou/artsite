@@ -12820,7 +12820,7 @@ snapshots:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.7
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
     optional: true
 
   scslre@0.3.0:
@@ -13365,7 +13365,7 @@ snapshots:
   unenv-nightly@2.0.0-1726478054.1e87097:
     dependencies:
       defu: 6.1.4
-      ohash: 1.1.3
+      ohash: 1.1.4
       pathe: 1.1.2
       ufo: 1.5.4
 
