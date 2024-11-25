@@ -89,7 +89,7 @@ Where:
 
 A $R^2$ close to 1 indicates a good fit.
 
-![R2 Score.png](/portfolio/ML/R2.png)
+![R2 Score.png](/portfolio/ML/r2.png)
 
 With these concepts in mind, you are better equipped to understand and apply ML models in your projects.
 
