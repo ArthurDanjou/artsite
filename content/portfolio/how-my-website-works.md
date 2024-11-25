@@ -4,7 +4,9 @@ title: How my website works?
 description: My new website is using a fantastical stack and I am explaining how my playground works
 publishedAt: 2024/06/21
 readingTime: 5
-tags: [article, dev]
+tags:
+  - article
+  - dev
 ---
 
 My personal website is an overengineered playground where I tinker, explore new technologies, experiment with tools, break conventional rules, and satisfy my deep curiosity about web software.
