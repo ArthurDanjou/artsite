@@ -87,7 +87,7 @@ Nuxt Studio introduces a fresh editing experience for your Nuxt Content website,
 
 #### Markdown
 
-I've abandoned using rich text editors on the web. They're overly complex, each with its own intricate abstractions for blocks and elements. To avoid another major rewrite soon I've sought the simplest, most straightforward solution for publishing content on my site: plain text.
+I've abandoned using rich text editors on the web. They're overly complex, each with its own intricate abstractions for blocks and elements. To avoid another major rewrite soon, I've sought the simplest, most straightforward solution for publishing content on my site: plain text.
 
 The article you're currently reading is plain text stored in MySQL, rendered using vue-markdown. You can view my custom element renderings here. I enhance my Markdown capabilities by employing plugins like remark-gfm, which add support for tables, strikethrough, footnotes, and other features.
 
