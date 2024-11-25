@@ -9,20 +9,6 @@ useSeoMeta({
 
 const { data: writings } = await useAsyncData('all-writings', () =>
   queryContent('/writings').sort({ published: -1 }).without('body').find())
-
-const { data: writingsDB } = await useAsyncData('all-writings-db', () =>
-  $fetch(`/api/posts`))
-
-function getDetails(slug: string) {
-  const writing = writingsDB.value!.find(writing => writing.slug === slug)
-  if (!writing)
-    return ''
-
-  const like = writing.likes! > 1 ? t('likes.many') : t('likes.one')
-  const view = writing.views! > 1 ? t('views.many') : t('views.one')
-
-  return `${writing.likes} ${like} · ${writing.views} ${view}`
-}
 </script>
 
 <template>
@@ -40,27 +26,24 @@ function getDetails(slug: string) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <ul class="mt-12 space-y-24">
+    <ul class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
       <li
         v-for="(writing, id) in writings"
         :key="id"
+        class="border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-500  duration-300"
       >
         <NuxtLink
           :to="writing._path"
-          class="group"
         >
-          <article class="space-y-1">
-            <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
-              <p>{{ getDetails(writing.slug) }}</p>
-            </div>
-            <div class="flex items-end gap-2 flex-wrap">
+          <article class="space-y-2">
+            <div class="flex gap-2 flex-col">
               <h1
-                class="font-bold text-lg duration-300 text-neutral-600 group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white"
+                class="font-bold text-lg duration-300 text-black dark:text-white"
               >
                 {{ writing.title }}
               </h1>
               <p
-                class="mb-0.5 text-sm text-neutral-500 group-hover:text-black dark:group-hover:text-white duration-300"
+                class="text-sm text-neutral-500 duration-300"
               >
                 {{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} · {{ writing.readingTime }}min long
               </p>
@@ -69,6 +52,17 @@ function getDetails(slug: string) {
               {{ writing.description }}
             </h3>
           </article>
+          <div class="flex gap-2 mt-2 flex-wrap">
+            <UBadge
+              v-for="tag in writing.tags"
+              :key="tag"
+              color="gray"
+              variant="soft"
+              size="md"
+            >
+              {{ tag }}
+            </UBadge>
+          </div>
         </NuxtLink>
       </li>
     </ul>
@@ -78,32 +72,16 @@ function getDetails(slug: string) {
 <i18n lang="json">
 {
   "en": {
-    "title": "Writing on my life, development and my passions.",
+    "title": "Writing on my life, development, academic and personal projects and passions",
     "description": "All my thoughts on programming, mathematics, artificial intelligence design, etc., are put together in chronological order. I also write about my projects, my discoveries, and my thoughts.",
-    "likes": {
-      "one": "like",
-      "many": "likes"
-    },
-    "views": {
-      "one": "view",
-      "many": "views"
-    },
     "alert": {
       "title": "Translations alert!",
       "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
     }
   },
   "fr": {
-    "title": "Écrits sur ma vie, le développement et mes passions.",
+    "title": "Écrits sur ma vie, le développement, mes projets et mes passions.",
     "description": "Toutes mes réflexions sur la programmation, les mathématiques, la conception de l'intelligence artificielle, etc., sont mises en ordre chronologique. J'écris aussi sur mes projets, mes découvertes et mes pensées.",
-    "likes": {
-      "one": "like",
-      "many": "likes"
-    },
-    "views": {
-      "one": "vue",
-      "many": "vues"
-    },
     "alert": {
       "title": "Attentions aux traductions!",
       "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
