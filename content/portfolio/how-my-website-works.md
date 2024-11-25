@@ -11,7 +11,7 @@ My personal website is an overengineered playground where I tinker, explore new 
 
 While it's still fresh in my mind, I wanted to document how this version of the site works, the tools I used to build it, and the challenges I overcame to bring it to its current state.
 
-![Website](/writings/how-my-website-works/website.png)
+![Website](/portfolio/how-my-website-works/website.png)
 
 ## Ideas and Goals
 
@@ -61,7 +61,7 @@ Nuxt UI aims to provide everything you need for the UI when building a Nuxt app,
 
 #### NuxtHub & Cloudflare workers
 
-![NuxtHub](/writings/how-my-website-works/nuxt-hub.png)
+![NuxtHub](/portfolio/how-my-website-works/nuxt-hub.png)
 
 NuxtHub is an innovative deployment and management platform tailored for Nuxt, leveraging the power of Cloudflare. Deploy your application effortlessly with database, key-value, and blob storage—all configured seamlessly within your Cloudflare account.
 
@@ -79,7 +79,7 @@ One word : `If you know SQL — you know Drizzle.`
 
 #### Nuxt Studio
 
-![Nuxt Studio](/writings/how-my-website-works/nuxt-studio.png)
+![Nuxt Studio](/portfolio/how-my-website-works/nuxt-studio.png)
 
 Nuxt Studio introduces a fresh editing experience for your Nuxt Content website, providing limitless customization and a user-friendly interface. Edit your website effortlessly with our editor reminiscent of Notion, fostering seamless collaboration between developers and copywriters. It offers a rich text editor, markdown support, and a live preview, enabling you to create and edit content with ease.
 

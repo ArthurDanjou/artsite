@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { data: post } = await useAsyncData(`writing:${route.params.slug}`, () => queryContent(`/writings/${route.params.slug}`).findOne())
+const { data: post } = await useAsyncData(`portfolio:${route.params.slug}`, () => queryContent(`/portfolio/${route.params.slug}`).findOne())
 const {
   data: postDB,
   refresh,
-} = await useAsyncData(`writing:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
+} = await useAsyncData(`portfolio:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
 const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
@@ -22,7 +22,7 @@ function top() {
 }
 
 const { copy, copied } = useClipboard({
-  source: `https://arthurdanjou.fr/writings/${route.params.slug}`,
+  source: `https://arthurdanjou.fr/portfolio/${route.params.slug}`,
   copiedDuring: 4000,
 })
 
@@ -60,7 +60,7 @@ async function handleLike() {
     <div class="flex">
       <NuxtLinkLocale
         class="flex items-center gap-2 mb-8 group text-sm hover:text-black dark:hover:text-white duration-300"
-        to="/writings"
+        to="/portfolio"
       >
         <UIcon
           class="group-hover:-translate-x-1 transform duration-300"
@@ -103,7 +103,7 @@ async function handleLike() {
       class="w-full rounded-md my-8"
     >
       <NuxtImg
-        :src="`/writings/${post.cover}`"
+        :src="`/portfolio/${post.cover}`"
         alt="Writing cover"
       />
     </div>

@@ -22,10 +22,9 @@
 
 ## 🍱 Adding content
 
-### Writings
+### Portfolio
 
-Add a new `.md` file in `/content/writings/` and follow the same pattern as the other articles. Add images
-in `/public/writings/`.
+Add a new `.md` file in `/content/portfolio/` and follow the same pattern as the other articles. Add images in `/public/portflio/`.
 
 ### Uses
 

@@ -25,10 +25,10 @@ const navs = [
   },
   {
     label: {
-      en: 'writings',
+      en: 'portfolio',
       fr: 'écrits',
     },
-    to: '/writings',
+    to: '/portfolio',
     icon: 'books-duotone',
   },
   {

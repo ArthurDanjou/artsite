@@ -7,8 +7,8 @@ useSeoMeta({
   description: t('description'),
 })
 
-const { data: writings } = await useAsyncData('all-writings', () =>
-  queryContent('/writings').sort({ published: -1 }).without('body').find())
+const { data: writings } = await useAsyncData('all-portfolio', () =>
+  queryContent('/portfolio').sort({ published: -1 }).without('body').find())
 </script>
 
 <template>
@@ -42,11 +42,14 @@ const { data: writings } = await useAsyncData('all-writings', () =>
               >
                 {{ writing.title }}
               </h1>
-              <p
-                class="text-sm text-neutral-500 duration-300"
+              <div
+                class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
               >
-                {{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} · {{ writing.readingTime }}min long
-              </p>
+                <UIcon name="ph:calendar-duotone" size="16" />
+                <p>{{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} </p>·
+                <UIcon name="ph:timer-duotone" size="16" />
+                <p>{{ writing.readingTime }}min long</p>
+              </div>
             </div>
             <h3>
               {{ writing.description }}
