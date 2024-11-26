@@ -3,7 +3,7 @@ title: Arthur Danjou • Mathematics Lover and IA Enthusiast
 description: I'm Arthur, a Mathematics lover and IA enthusiast. I'm currently studying at the University of Paris-Saclay. I'm passionate about Mathematics, Computer Science, and Artificial Intelligence.
 ---
 
-Hey, I'm Arthur Danjou, a mathematics student at the Paris-Saclay Faculty of Science in France.
+Hey, I'm Arthur Danjou, a Mathematics student in Statistics at the Paris-Dauphine University in France.
 
 With a :hover-text{hover="Technology is evolving far too quickly 🤯" position="top" text="deep understanding"} of
 emerging technologies, I'm at the heart of a rapidly expanding field. My background in :hover-text{hover="Maths is my

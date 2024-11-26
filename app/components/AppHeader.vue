@@ -36,7 +36,7 @@ const navs = [
       en: 'resume',
       fr: 'cv',
     },
-    to: config.public.cloud.resume,
+    to: '/Resume2024.pdf',
     target: '_blank',
     icon: 'address-book-duotone',
   },
@@ -54,7 +54,7 @@ async function toggleTheme() {
 }
 
 const { locale, setLocale, locales, t } = useI18n()
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
+const currentLocale = computed(() => locales.filter(l => l.code === locale.value)[0])
 
 async function changeLocale() {
   document.body.style.animation = 'switch-on .2s'
