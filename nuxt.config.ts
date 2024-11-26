@@ -37,7 +37,9 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark',
     },
-    locales: ['en', 'fr'],
+    markdown: {
+      remarkPlugins: ['remark-math'],
+    },
   },
 
   // Nuxt UI
