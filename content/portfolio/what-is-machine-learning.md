@@ -1,6 +1,6 @@
 ---
 slug: what-is-machine-learning
-title: What is Machine Learning ?
+title: What is Machine Learning?
 description: An introduction to machine learning, exploring its main types, key model selection criteria, and the workflow from training to evaluation, with a focus on practical insights.
 readingTime: 3
 publishedAt: 2024/11/26
@@ -8,8 +8,6 @@ tags:
   - article
   - ML
 ---
-
-# What Is Machine Learning?
 
 ## Introduction
 
