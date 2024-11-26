@@ -9,7 +9,7 @@ tags:
   - ML
 ---
 
-# What Is Machine Learning ?
+# What Is Machine Learning?
 
 ## Introduction
 
@@ -68,12 +68,9 @@ Once the model type is defined, the next step is to delve into the full workflow
 
 A machine learning project generally follows these steps:
 
-1. **Data Preparation*** Splitting data into training and testing sets.
-   * Preprocessing: scaling, handling missing values, etc.
-2. **Model Training*** Fitting the model on training data: `model.fit(X, y)`.
-   * Optimising parameters and hyperparameters.
-3. **Prediction and Evaluation*** Making predictions on unseen data: `model.predict(X)`.
-   * Comparing predictions ($$\hat{y}$$) with actual values ($$y$$).
+1. **Data Preparation**\* Splitting data into training and testing sets.* Preprocessing: scaling, handling missing values, etc.
+2. **Model Training**\* Fitting the model on training data: `model.fit(X, y)`.* Optimising parameters and hyperparameters.
+3. **Prediction and Evaluation**\* Making predictions on unseen data: `model.predict(X)`.* Comparing predictions ($$\hat{y}$$) with actual values ($$y$$).
 
 ![Modelization in Prog.png](/portfolio/ML/model.png)
 
