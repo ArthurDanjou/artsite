@@ -7,8 +7,7 @@ useSeoMeta({
   description: t('description'),
 })
 
-const { data: writings } = await useAsyncData('all-portfolio', () =>
-    queryContent('/portfolio').sort({publishedAt: -1}).without('body').find())
+const {data: writings} = await useAsyncData('all-portfolio', () => queryContent('/portfolio').sort({publishedAt: -1}).without('body').find())
 </script>
 
 <template>

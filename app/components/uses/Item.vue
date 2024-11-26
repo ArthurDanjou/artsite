@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { UsesItem } from '#components'
+import type {PropType} from 'vue'
 
 defineProps({
   item: {
