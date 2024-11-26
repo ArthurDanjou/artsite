@@ -178,6 +178,10 @@ async function handleLike() {
 .prose h4 a {
   @apply no-underline;
 }
+
+.katex-html {
+  display: none;
+}
 </style>
 
 <i18n lang="json">

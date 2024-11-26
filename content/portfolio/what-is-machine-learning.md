@@ -68,9 +68,15 @@ Once the model type is defined, the next step is to delve into the full workflow
 
 A machine learning project generally follows these steps:
 
-1. **Data Preparation** Splitting data into training and testing sets.\* Preprocessing: scaling, handling missing values, etc.
-2. **Model Training** Fitting the model on training data: `model.fit(X, y)`.\* Optimising parameters and hyperparameters.
-3. **Prediction and Evaluation** Making predictions on unseen data: `model.predict(X)`.\* Comparing predictions ($\hat{y}$​) with actual values ($y$).
+1. **Data Preparation**
+   - Splitting data into training and testing sets.
+   - Preprocessing: scaling, handling missing values, etc.
+2. **Model Training**
+   - Fitting the model on training data: `model.fit(X, y)`.
+   - Optimising parameters and hyperparameters.
+3. **Prediction and Evaluation**
+   - Making predictions on unseen data: `model.predict(X)`.
+   - Comparing predictions ($$\hat{y}$$) with actual values ($$y$$).
 
 ![Modelization in Prog.png](/portfolio/ML/model.png)
 
@@ -80,14 +86,12 @@ Evaluation is a crucial step to verify the performance of a model. For regressio
 
 For regression problems, the **R² score** measures the proportion of the target’s variance explained by the model:
 
-$R2 = 1 - \frac{\text{SS}\_{\text{residual}}}{\text{SS}\_{\text{total}}}$
+$$R2 = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}}$$   where:
 
-Where:
+- $$\text{SS}\_{\text{residual}}$$ : Sum of squared residuals between actual and predicted values.
+- $$\text{SS}\_{\text{total}}$$ : Total sum of squares relative to the target’s mean.
 
-- $\text{SS}\_{\text{residual}}$​: Sum of squared residuals between actual and predicted values.
-- $\text{SS}\_{\text{total}}$​: Total sum of squares relative to the target’s mean.
-
-A $R^2$ close to 1 indicates a good fit.
+A $$R^2$$ close to 1 indicates a good fit.
 
 ![R2 Score.png](/portfolio/ML/r2.png)
 
