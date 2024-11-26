@@ -14,18 +14,17 @@
 - **Framework** → [Nuxt.js](https://nuxtjs.org/)
 - **Content** → [Nuxt Content](https://content.nuxtjs.org/)
 - **Design System** → [NuxtUI](https://nuxtui.com/)
-- **CMS & Editing** → [Nuxt Studio](https://studio.nuxtjs.org/)
-- **Langage** → [Typescript](https://www.typescriptlang.org/)
+- **CMS & Editing** → [Nuxt Studio](https://nuxt.studio)
+- **Language** → [Typescript](https://www.typescriptlang.org/)
 - **Deployment** → [NuxtHub](https://hub.nuxt.com/)
 - **Styling** → [Sass](https://sass-lang.com/) & [Tailwind CSS](https://tailwindcss.com/)
 - **Package Manager** → [pnpm](https://pnpm.io/)
 
 ## 🍱 Adding content
 
-### Writings
+### Portfolio
 
-Add a new `.md` file in `/content/writings/` and follow the same pattern as the other articles. Add images
-in `/public/writings/`.
+Add a new `.md` file in `/content/portfolio/` and follow the same pattern as the other articles. Add images in `/public/portflio/`.
 
 ### Uses
 

@@ -1,35 +1,35 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { data: post } = await useAsyncData(`writing:${route.params.slug}`, () => queryContent(`/writings/${route.params.slug}`).findOne())
+const { data: post } = await useAsyncData(`portfolio:${route.params.slug}`, () => queryContent(`/portfolio/${route.params.slug}`).findOne())
 const {
   data: postDB,
-  refresh
-} = await useAsyncData(`writing:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
+  refresh,
+} = await useAsyncData(`portfolio:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
 const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 
 const { t } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 
 function top() {
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 
 const { copy, copied } = useClipboard({
-  source: `https://arthurdanjou.fr/writings/${route.params.slug}`,
-  copiedDuring: 4000
+  source: `https://arthurdanjou.fr/portfolio/${route.params.slug}`,
+  copiedDuring: 4000,
 })
 
 useSeoMeta({
   title: post.value?.title,
   description: post.value?.description,
-  author: 'Arthur Danjou'
+  author: 'Arthur Danjou',
 })
 
 function getDetails() {
@@ -39,15 +39,19 @@ function getDetails() {
   const like = likes > 1 ? t('likes.many') : t('likes.one')
   const view = views > 1 ? t('views.many') : t('views.one')
 
-  return `${likes} ${like} · ${views} ${view}`
+  return {
+    likes: `${likes} ${like}`,
+    views: `${views} ${view}`,
+  }
 }
 
 const likeCookie = useCookie<boolean>(`post:like:${route.params.slug}`, {
-  maxAge: 7200
+  maxAge: 7200,
 })
 
 async function handleLike() {
-  if (likeCookie.value) return
+  if (likeCookie.value)
+    return
   await $fetch(`/api/posts/like/${route.params.slug}`, { method: 'PUT' })
   await refresh()
   likeCookie.value = true
@@ -59,7 +63,7 @@ async function handleLike() {
     <div class="flex">
       <NuxtLinkLocale
         class="flex items-center gap-2 mb-8 group text-sm hover:text-black dark:hover:text-white duration-300"
-        to="/writings"
+        to="/portfolio"
       >
         <UIcon
           class="group-hover:-translate-x-1 transform duration-300"
@@ -78,20 +82,27 @@ async function handleLike() {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <p class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
-      {{ getDetails() }}
-    </p>
+    <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm flex gap-1 items-center">
+      <UIcon name="i-ph-heart-duotone" size="16" />
+      <p>{{ getDetails().likes }} </p>·
+      <UIcon name="i-ph-eye-duotone" size="16" />
+      <p>{{ getDetails().views }}</p>
+    </div>
     <div class="mt-2">
-      <div class="flex items-end gap-2 flex-wrap">
+      <div class="flex items-end gap-4 flex-wrap">
         <h1
           class="font-bold text-3xl text-black dark:text-white"
         >
           {{ post.title }}
         </h1>
-        <p class="text-sm text-neutral-500">
-          {{ useDateFormat(post.publishedAt, 'DD MMMM YYYY', { locales: currentLocale!.code ?? 'en' }).value }} ·
-          {{ post.readingTime }}min long
-        </p>
+        <div
+          class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
+        >
+          <UIcon name="ph:calendar-duotone" size="16" />
+          <p>{{ useDateFormat(post.publishedAt, 'DD MMMM YYYY').value }} </p>·
+          <UIcon name="ph:timer-duotone" size="16" />
+          <p>{{ post.readingTime }}min long</p>
+        </div>
       </div>
       <p class="mt-4 text-base">
         {{ post.description }}
@@ -102,7 +113,7 @@ async function handleLike() {
       class="w-full rounded-md my-8"
     >
       <NuxtImg
-        :src="`/writings/${post.cover}`"
+        :src="`/portfolio/${post.cover}`"
         alt="Writing cover"
       />
     </div>
@@ -133,7 +144,7 @@ async function handleLike() {
         <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
-            :color="likeCookie ? 'red': 'white'"
+            :color="likeCookie ? 'red' : 'white'"
             icon="i-ph-heart-duotone"
             size="lg"
             variant="solid"

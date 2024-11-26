@@ -3,10 +3,7 @@ export default defineAppConfig({
     gray: 'neutral',
     primary: 'gray',
     container: {
-      constrained: 'max-w-3xl'
+      constrained: 'max-w-4xl',
     },
-    icons: {
-      dynamic: true
-    }
-  }
+  },
 })

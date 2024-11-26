@@ -1,16 +1,21 @@
+<script lang="ts" setup>
+const { t } = useI18n({
+  useScope: 'local',
+})
+</script>
+
 <template>
   <div class="flex items-center gap-2 mt-4">
     <div class="flex items-center">
       <UTooltip text="It's me 👋">
-        <UAvatar
-          alt="Avatar"
-          chip-color="gray"
-          chip-position="top-right"
-          chip-text="!"
-          class="hover:rotate-[360deg] duration-500 transform-gpu"
-          size="md"
-          src="/favicon.png"
-        />
+        <div class="flex items-center w-12 h-12">
+          <UAvatar
+            alt="Avatar"
+            class="hover:rotate-[360deg] duration-500 transform-gpu"
+            size="md"
+            src="/favicon.png"
+          />
+        </div>
       </UTooltip>
     </div>
     <p class="not-prose">
@@ -18,12 +23,6 @@
     </p>
   </div>
 </template>
-
-<script lang="ts" setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-</script>
 
 <i18n lang="json">
 {

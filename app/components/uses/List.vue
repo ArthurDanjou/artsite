@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <div class="space-y-8">
     <UDivider
@@ -9,12 +18,3 @@
     </ul>
   </div>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  title: {
-    type: String,
-    required: true
-  }
-})
-</script>

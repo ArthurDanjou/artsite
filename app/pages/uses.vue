@@ -1,15 +1,14 @@
 <script setup lang="ts">
 const { t } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 
 useSeoMeta({
   title: 'Things I use',
-  description: t('description')
+  description: t('description'),
 })
 
-const { data: items } = await useAsyncData('uses', () => queryContent('/uses').find()
-)
+const { data: items } = await useAsyncData('uses', () => queryContent('/uses').find())
 
 const hardware = items.value!.filter(item => item.category === 'hardware')
 const software = items.value!.filter(item => item.category === 'software')

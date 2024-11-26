@@ -6,15 +6,14 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       templateParams: {
-        separator: '•'
-      }
-    }
+        separator: '•',
+      },
+    },
   },
 
   // Nuxt Modules
   modules: [
     '@nuxthub/core',
-    '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
@@ -22,7 +21,7 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    'nuxt-mapbox'
+    'nuxt-mapbox',
   ],
 
   // Nuxt Hub
@@ -30,26 +29,50 @@ export default defineNuxtConfig({
     cache: true,
     kv: true,
     database: true,
-    analytics: true
+    analytics: true,
   },
 
   // Nuxt Content
   content: {
     highlight: {
-      theme: 'github-dark'
-    }
+      theme: 'github-dark',
+    },
+    markdown: {
+      remarkPlugins: ['remark-math'],
+      rehypePlugins: {
+        'rehype-katex': {
+          output: 'mathml',
+        },
+      },
+    },
+  },
+
+  // Nuxt UI
+  ui: {
+    safelistColors: [
+      'gray',
+      'zinc',
+      'red',
+      'orange',
+      'amber',
+      'green',
+      'emerald',
+      'sky',
+      'blue',
+      'purple',
+    ],
   },
 
   // Nuxt Color Mode
   colorMode: {
     preference: 'system',
-    fallback: 'light'
+    fallback: 'light',
   },
 
   // Nuxt Devtools
   devtools: {
     enabled: true,
-    timeline: { enabled: true }
+    timeline: { enabled: true },
   },
 
   // Nuxt I18N
@@ -58,31 +81,26 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'en',
-        iso: 'en-EN',
+        language: 'en-EN',
         icon: 'i-twemoji-flag-united-kingdom'
       },
       {
         code: 'fr',
-        iso: 'fr-FR',
+        language: 'fr-FR',
         icon: 'i-twemoji-flag-france'
       },
       {
         code: 'es',
-        iso: 'es-ES',
+        language: 'es-ES',
         icon: 'i-twemoji-flag-spain'
       }
     ],
-    defaultLocale: 'en'
+    defaultLocale: 'en',
   },
 
-  // Nuxt Eslint
-  eslint: {
-    config: {
-      stylistic: {
-        quotes: 'single',
-        commaDangle: 'never'
-      }
-    }
+  // Nuxt Icon
+  icon: {
+    serverBundle: 'remote',
   },
 
   // Nuxt Google Fonts
@@ -92,15 +110,15 @@ export default defineNuxtConfig({
       'Inter': [400, 500, 600, 700, 800, 900],
       'Sofia Sans': [400],
       'DM Sans': [400, 500, 600, 700, 800, 900],
-      'Dancing Script': [400, 700]
-    }
+      'Dancing Script': [400, 700],
+    },
   },
 
   // Nitro
   nitro: {
     experimental: {
-      openAPI: true
-    }
+      openAPI: true,
+    },
   },
 
   // Nuxt Env
@@ -108,28 +126,28 @@ export default defineNuxtConfig({
     discord: {
       userId: '',
       id: '',
-      token: ''
+      token: '',
     },
     wakatime: {
       userId: '',
       coding: '',
       editors: '',
       languages: '',
-      os: ''
+      os: '',
     },
     public: {
-      cloud: {
-        resume: ''
+      i18n: {
+        baseUrl: '',
       },
       mapbox: {
         accessToken: '',
         style: {
           light: '',
-          dark: ''
-        }
-      }
-    }
+          dark: '',
+        },
+      },
+    },
   },
 
-  compatibilityDate: '2024-07-08'
+  compatibilityDate: '2024-08-19',
 })

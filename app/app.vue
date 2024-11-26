@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+useHead({
+  link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+})
+
+const head = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: 'id',
+  addSeoAttributes: true,
+})
+</script>
+
 <template>
   <Html
     :dir="head.htmlAttrs.dir"
@@ -27,28 +39,18 @@
       </template>
     </Head>
     <Body>
-      <NuxtLoadingIndicator color="#808080" />
-      <AppBackground />
-      <UContainer class="z-50 relative">
-        <AppHeader />
-        <NuxtPage class="mt-12" />
-        <AppFooter />
-      </UContainer>
+      <div>
+        <NuxtLoadingIndicator color="#808080" />
+        <AppBackground />
+        <UContainer class="z-50 relative">
+          <AppHeader />
+          <NuxtPage class="mt-12" />
+          <AppFooter />
+        </UContainer>
+      </div>
     </Body>
   </Html>
 </template>
-
-<script lang="ts" setup>
-useHead({
-  link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
-})
-
-const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true
-})
-</script>
 
 <style>
 body {

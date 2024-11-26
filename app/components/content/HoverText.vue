@@ -4,15 +4,15 @@ import type { PropType } from 'vue'
 defineProps({
   text: {
     type: [String, Number],
-    required: true
+    required: true,
   },
   hover: {
     type: String,
-    required: true
+    required: true,
   },
   position: {
-    type: String as PropType<'top' | 'right' | 'bottom' | 'left'>
-  }
+    type: String as PropType<'top' | 'right' | 'bottom' | 'left'>,
+  },
 })
 </script>
 

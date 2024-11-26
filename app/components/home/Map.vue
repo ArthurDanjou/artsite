@@ -21,7 +21,7 @@ function adjustZoom(amount: number) {
 }
 
 const { t } = useI18n({
-  useScope: 'local'
+  useScope: 'local',
 })
 
 const config = useRuntimeConfig()
@@ -36,7 +36,7 @@ const config = useRuntimeConfig()
           style: isDark ? config.public.mapbox.style.dark : config.public.mapbox.style.light,
           center: coordinates,
           zoom,
-          projection: 'globe'
+          projection: 'globe',
         }"
         class="relative z-10"
         map-id="map"
@@ -45,7 +45,7 @@ const config = useRuntimeConfig()
           :lnglat="coordinates"
           :options="{
             color: '#808080',
-            size: 1.5
+            size: 1.5,
           }"
           marker-id="marker"
         />
@@ -87,7 +87,7 @@ const config = useRuntimeConfig()
 
 <style lang="scss">
 .map-button {
-  @apply z-30 absolute bottom-2 dark:bg-gray-800 dark:hover:bg-gray-900 bg-gray-200 hover:bg-gray-100 duration-300 border border-neutral-300 dark:border-neutral-700 cursor-pointer flex items-center justify-center rounded-full p-2
+  @apply z-30 absolute bottom-2 dark:bg-gray-900 dark:hover:bg-gray-900 bg-gray-200 hover:bg-gray-100 duration-300 border border-neutral-300 dark:border-neutral-700 cursor-pointer flex items-center justify-center rounded-full p-2
 }
 
 .mapboxgl-control-container {

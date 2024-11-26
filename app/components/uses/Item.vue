@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { UsesItem } from '#components'
+import type { PropType } from 'vue'
 
 defineProps({
   item: {
     type: Object as PropType<typeof UsesItem>,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const { locale } = useI18n()

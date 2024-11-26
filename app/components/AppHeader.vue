@@ -14,7 +14,7 @@ const navs = [
       es: 'inicio'
     },
     to: '/',
-    icon: 'i-ph-house-line-duotone',
+    icon: 'house-line-duotone',
     shortcut: {
       en: 'H',
       fr: 'A',
@@ -28,7 +28,7 @@ const navs = [
       es: 'usos'
     },
     to: '/uses',
-    icon: 'i-ph-backpack-duotone',
+    icon: 'backpack-duotone',
     shortcut: {
       en: 'U',
       fr: 'U',
@@ -37,12 +37,12 @@ const navs = [
   },
   {
     label: {
-      en: 'writings',
-      fr: 'écrits',
+      en: 'portfolio',
+      fr: 'portfolio',
       es: 'escritos'
     },
-    to: '/writings',
-    icon: 'i-ph-books-duotone',
+    to: '/portfolio',
+    icon: 'books-duotone',
     shortcut: {
       en: 'W',
       fr: 'E',
@@ -55,9 +55,8 @@ const navs = [
       fr: 'cv',
       es: 'currículum'
     },
-    to: config.public.cloud.resume,
+    to: '/Resume2024.pdf',
     target: '_blank',
-    icon: 'i-ph-address-book-duotone',
     shortcut: {
       en: 'R',
       fr: 'C',
@@ -78,6 +77,7 @@ async function toggleTheme() {
 }
 
 const { locale, setLocale, locales, t, availableLocales } = useI18n()
+const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 
 async function changeLocale(newLocale?: string) {
   document.body.style.animation = 'switch-on .2s'
@@ -103,16 +103,9 @@ watch(lang, () => changeLocale(lang.value))
 
 const router = useRouter()
 defineShortcuts({
-  h: () => router.push('/'),
-  a: () => router.push('/'),
-  u: () => router.push('/uses'),
-  w: () => router.push('/writings'),
-  e: () => router.push('/writings'),
-  r: () => window.open(config.public.cloud.resume, '_blank'),
-  c: () => window.open(config.public.cloud.resume, '_blank'),
   t: () => toggleTheme(),
   l: () => changeLocale(),
-  backspace: () => router.back()
+  backspace: () => router.back(),
 })
 </script>
 
@@ -128,11 +121,10 @@ defineShortcuts({
       <UTooltip
         v-for="nav in navs"
         :key="nav.label.en"
-        :shortcuts="[nav.shortcut[locale]]"
         :text="nav.label[locale]!"
       >
         <UButton
-          :icon="nav.icon"
+          :icon="`i-ph:${nav.icon}`"
           :target="nav.target ? nav.target : '_self'"
           :to="nav.to"
           :aria-label="nav.label"

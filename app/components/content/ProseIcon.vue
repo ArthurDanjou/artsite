@@ -2,18 +2,25 @@
 defineProps({
   icon: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  color: {
+    type: String,
+    default: 'gray',
+  },
 })
 </script>
 
 <template>
   <span class="inline-flex items-center">
     <UIcon
-      class="mb-1 mr-1"
-      :name="icon"
+      class="mr-1"
+      :name="`i-logos:${icon}`"
     />
-    <span class="sofia font-medium underline-offset-2 underline decoration-neutral-300 dark:decoration-neutral-700">
+    <span
+      :class="`text-${color}-500 decoration-${color}-300`"
+      class="sofia font-medium underline-offset-2 underline"
+    >
       <slot />
     </span>
   </span>
