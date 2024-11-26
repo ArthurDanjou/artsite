@@ -57,7 +57,7 @@ function updateTag(index: number) {
       <li
         v-for="(writing, id) in writings"
         :key="id"
-        class="border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-500  duration-300"
+        class="border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-700 dark:hover:border-neutral-500  duration-300"
       >
         <NuxtLink
           :to="writing._path"
