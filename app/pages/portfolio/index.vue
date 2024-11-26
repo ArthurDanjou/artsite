@@ -7,11 +7,39 @@ useSeoMeta({
   description: t('description'),
 })
 
-const {data: writings} = await useAsyncData('all-portfolio', () => queryContent('/portfolio').sort({publishedAt: -1}).without('body').find())
+const tagFilter = ref<string | undefined>(undefined)
+
+const {data: writings, refresh} = await useAsyncData('all-portfolio', () => queryContent('/portfolio')
+    .sort({publishedAt: -1})
+    .where({
+      tags: {$contains: tagFilter.value},
+    })
+    .without('body')
+    .find())
+
+watch(tagFilter, async () => await refresh())
+
+const tags = [{
+  label: 'All',
+  icon: 'i-ph-books-duotone',
+}, {
+  label: 'Articles',
+  icon: 'i-ph-pencil-line-duotone',
+  tag: 'article',
+}, {
+  label: 'Projects',
+  icon: 'i-ph-briefcase-duotone',
+  tag: 'project',
+}]
+
+function updateTag(index: number) {
+  const tag = tags[index]
+  tagFilter.value = tag?.label === 'All' ? undefined : tag?.tag
+}
 </script>
 
 <template>
-  <main>
+  <main class="space-y-12">
     <AppTitle
       :description="t('description')"
       :title="t('title')"
@@ -20,12 +48,12 @@ const {data: writings} = await useAsyncData('all-portfolio', () => queryContent(
       v-if="locale !== 'en'"
       :description="t('alert.description')"
       :title="t('alert.title')"
-      class="mt-12"
       color="red"
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <ul class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <UTabs :items="tags" @change="updateTag"/>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <li
         v-for="(writing, id) in writings"
         :key="id"
