@@ -1,3 +1,5 @@
+import type { BadgeColor } from '#ui/types'
+
 interface WakatimeData {
   name: string
   percent: number
@@ -45,3 +47,47 @@ export const IDEs = [
   { name: 'IntelliJ IDEA Ultimate', icon: 'intellij-idea' },
   { name: 'WebStorm', icon: 'webstorm' },
 ]
+
+export interface Tag {
+  label: string
+  icon: string
+  color: BadgeColor
+}
+
+export const TAGS = [
+  {
+    label: 'Article',
+    icon: 'i-ph-pencil-line-duotone',
+    color: 'red',
+  },
+  {
+    label: 'Project',
+    icon: 'i-ph-briefcase-duotone',
+    color: 'blue',
+  },
+  {
+    label: 'R',
+    icon: 'i-vscode-icons-file-type-r',
+    color: 'orange',
+  },
+  {
+    label: 'ML',
+    icon: 'i-ph-brain-duotone',
+    color: 'green',
+  },
+  {
+    label: 'Data',
+    icon: 'i-ph-database-duotone',
+    color: 'purple',
+  },
+  {
+    label: 'Web',
+    icon: 'i-ph-globe-duotone',
+    color: 'cyan',
+  },
+  {
+    label: 'Python',
+    icon: 'i-vscode-icons-file-type-python',
+    color: 'amber',
+  },
+].sort((a, b) => a.label.localeCompare(b.label))

@@ -6,7 +6,7 @@ readingTime: 3
 publishedAt: 2024/11/26
 tags:
   - article
-  - ML
+  - ml
 ---
 
 ## Introduction

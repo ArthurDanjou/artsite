@@ -6,7 +6,7 @@ publishedAt: 2024/06/21
 readingTime: 5
 tags:
   - article
-  - dev
+  - web
 ---
 
 My personal website is an overengineered playground where I tinker, explore new technologies, experiment with tools, break conventional rules, and satisfy my deep curiosity about web software.

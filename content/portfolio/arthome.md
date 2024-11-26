@@ -7,7 +7,7 @@ readingTime: 1
 cover: arthome/cover.png
 tags:
   - project
-  - dev
+  - web
 ---
 
 [ArtHome](https://home.arthurdanjou.fr) is a personalised page where you can create categories and tabs to have a one page with all your shortcuts on all browsers.

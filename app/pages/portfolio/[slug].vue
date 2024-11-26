@@ -39,7 +39,10 @@ function getDetails() {
   const like = likes > 1 ? t('likes.many') : t('likes.one')
   const view = views > 1 ? t('views.many') : t('views.one')
 
-  return `${likes} ${like} · ${views} ${view}`
+  return {
+    likes: `${likes} ${like}`,
+    views: `${views} ${view}`,
+  }
 }
 
 const likeCookie = useCookie<boolean>(`post:like:${route.params.slug}`, {
@@ -79,20 +82,27 @@ async function handleLike() {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <p class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm">
-      {{ getDetails() }}
-    </p>
+    <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm flex gap-1 items-center">
+      <UIcon name="i-ph-heart-duotone" size="16" />
+      <p>{{ getDetails().likes }} </p>·
+      <UIcon name="i-ph-eye-duotone" size="16" />
+      <p>{{ getDetails().views }}</p>
+    </div>
     <div class="mt-2">
-      <div class="flex items-end gap-2 flex-wrap">
+      <div class="flex items-end gap-4 flex-wrap">
         <h1
           class="font-bold text-3xl text-black dark:text-white"
         >
           {{ post.title }}
         </h1>
-        <p class="text-sm text-neutral-500">
-          {{ useDateFormat(post.publishedAt, 'DD MMMM YYYY', { locales: currentLocale!.code ?? 'en' }).value }} ·
-          {{ post.readingTime }}min long
-        </p>
+        <div
+          class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
+        >
+          <UIcon name="ph:calendar-duotone" size="16" />
+          <p>{{ useDateFormat(post.publishedAt, 'DD MMMM YYYY').value }} </p>·
+          <UIcon name="ph:timer-duotone" size="16" />
+          <p>{{ post.readingTime }}min long</p>
+        </div>
       </div>
       <p class="mt-4 text-base">
         {{ post.description }}
