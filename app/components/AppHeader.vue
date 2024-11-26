@@ -5,7 +5,6 @@ watch(isDark, () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 })
 
-const config = useRuntimeConfig()
 const navs = [
   {
     label: {
@@ -78,6 +77,8 @@ async function toggleTheme() {
 
 const { locale, setLocale, locales, t, availableLocales } = useI18n()
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
+const lang = ref(locale.value)
+watch(lang, () => changeLocale(lang.value))
 
 async function changeLocale(newLocale?: string) {
   document.body.style.animation = 'switch-on .2s'
@@ -87,7 +88,7 @@ async function changeLocale(newLocale?: string) {
     const currentLocaleIndex = availableLocales.findIndex(l => l === locale.value)
     const nextLocaleIndex = (currentLocaleIndex + 1) % availableLocales.length
     newLocale = availableLocales[nextLocaleIndex]
-    lang.value = newLocale
+    lang.value = newLocale!
   }
 
   await setLocale(newLocale ?? 'en')
@@ -97,9 +98,6 @@ async function changeLocale(newLocale?: string) {
   document.body.style.animation = ''
 }
 
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
-const lang = ref(locale.value)
-watch(lang, () => changeLocale(lang.value))
 
 const router = useRouter()
 defineShortcuts({
