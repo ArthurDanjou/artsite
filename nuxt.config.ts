@@ -131,8 +131,8 @@ export default defineNuxtConfig({
       os: '',
     },
     public: {
-      cloud: {
-        resume: '',
+      i18n: {
+        baseUrl: '',
       },
       mapbox: {
         accessToken: '',
