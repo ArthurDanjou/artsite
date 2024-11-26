@@ -9,13 +9,13 @@ useSeoMeta({
 
 const tagFilter = ref<string | undefined>(undefined)
 
-const {data: writings, refresh} = await useAsyncData('all-portfolio', () => queryContent('/portfolio')
-    .sort({publishedAt: -1})
-    .where({
-      tags: {$contains: tagFilter.value},
-    })
-    .without('body')
-    .find())
+const { data: writings, refresh } = await useAsyncData('all-portfolio', () => queryContent('/portfolio')
+  .sort({ publishedAt: -1 })
+  .where({
+    tags: { $contains: tagFilter.value },
+  })
+  .without('body')
+  .find())
 
 watch(tagFilter, async () => await refresh())
 
@@ -52,7 +52,7 @@ function updateTag(index: number) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" @change="updateTag"/>
+    <UTabs :items="tags" @change="updateTag" />
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <li
         v-for="(writing, id) in writings"
