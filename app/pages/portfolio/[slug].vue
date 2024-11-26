@@ -7,7 +7,7 @@ const {
 } = await useAsyncData(`portfolio:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
 const { locale, locales } = useI18n()
-const currentLocale = computed(() => locales.filter(l => l.code === locale.value)[0])
+const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 
 const { t } = useI18n({
   useScope: 'local',
