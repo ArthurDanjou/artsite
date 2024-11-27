@@ -93,6 +93,6 @@ export const TAGS: Array<Tag> = [
   {
     label: 'Maths',
     icon: 'i-ph-calculator-duotone',
-    color: 'rose',
+    color: 'pink',
   },
 ]
