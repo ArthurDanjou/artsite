@@ -28,7 +28,7 @@ const tags: Array<{ label: string, icon: string } & Tag> = [
     color: 'black',
   },
   ...TAGS,
-]
+].sort((a, b) => a.label.localeCompare(b.label))
 
 function updateTag(index: number) {
   const tag = tags[index]
@@ -81,7 +81,7 @@ function updateTag(index: number) {
           </article>
           <div class="flex gap-2 mt-4 flex-wrap">
             <UBadge
-              v-for="tag in writing.tags"
+              v-for="tag in writing.tags.sort((a, b) => a.localeCompare(b))"
               :key="tag"
               :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color || 'black'"
               variant="soft"
