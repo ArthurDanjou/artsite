@@ -7,6 +7,7 @@ publishedAt: 2024/11/26
 tags:
   - article
   - ml
+  - maths
 ---
 
 ## Introduction

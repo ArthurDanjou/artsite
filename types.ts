@@ -54,7 +54,7 @@ export interface Tag {
   color: BadgeColor
 }
 
-export const TAGS = [
+export const TAGS: Array<Tag> = [
   {
     label: 'Article',
     icon: 'i-ph-pencil-line-duotone',
@@ -90,4 +90,9 @@ export const TAGS = [
     icon: 'i-vscode-icons-file-type-python',
     color: 'amber',
   },
-].sort((a, b) => a.label.localeCompare(b.label))
+  {
+    label: 'Maths',
+    icon: 'i-ph-calculator-duotone',
+    color: 'rose',
+  },
+]

@@ -7,6 +7,7 @@ readingTime: 4
 tags:
   - project
   - python
+  - maths
 ---
 
 This is the French version of the report for the Schelling Segregation Model project. The project was done as part of the course `Projet Numérique` at the Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.
