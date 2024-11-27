@@ -27,8 +27,8 @@ const tags: Array<{ label: string, icon: string } & Tag> = [
     icon: 'i-ph-books-duotone',
     color: 'black',
   },
-  ...TAGS,
-].filter(tag => tag.label === 'All' ? true : tag.sort).sort((a, b) => a.label.localeCompare(b.label))
+  ...TAGS.filter(tag => tag.sort).sort((a, b) => a.label.localeCompare(b.label)),
+]
 
 function updateTag(index: number) {
   const tag = tags[index]
@@ -79,16 +79,18 @@ function updateTag(index: number) {
             </h3>
           </article>
           <div class="flex gap-2 mt-4 flex-wrap">
-            <UBadge
-              v-for="tag in writing.tags.sort((a, b) => a.localeCompare(b))"
-              :key="tag"
-              :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color || 'black'"
-              variant="soft"
-              size="sm"
-              :ui="{ rounded: 'rounded-full' }"
-            >
-              {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
-            </UBadge>
+            <ClientOnly>
+              <UBadge
+                v-for="tag in writing.tags.sort((a: any, b: any) => a.localeCompare(b))"
+                :key="tag"
+                :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color"
+                variant="soft"
+                size="sm"
+                :ui="{ rounded: 'rounded-full' }"
+              >
+                {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
+              </UBadge>
+            </ClientOnly>
           </div>
         </li>
       </NuxtLink>
