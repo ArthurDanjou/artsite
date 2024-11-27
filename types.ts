@@ -52,6 +52,7 @@ export interface Tag {
   label: string
   icon: string
   color: BadgeColor
+  sort?: boolean
 }
 
 export const TAGS: Array<Tag> = [
@@ -59,11 +60,13 @@ export const TAGS: Array<Tag> = [
     label: 'Article',
     icon: 'i-ph-pencil-line-duotone',
     color: 'red',
+    sort: true,
   },
   {
     label: 'Project',
     icon: 'i-ph-briefcase-duotone',
     color: 'blue',
+    sort: true,
   },
   {
     label: 'R',

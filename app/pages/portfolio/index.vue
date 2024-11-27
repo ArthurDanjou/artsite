@@ -28,7 +28,7 @@ const tags: Array<{ label: string, icon: string } & Tag> = [
     color: 'black',
   },
   ...TAGS,
-].sort((a, b) => a.label.localeCompare(b.label))
+].filter(tag => tag.label === 'All' ? true : tag.sort).sort((a, b) => a.label.localeCompare(b.label))
 
 function updateTag(index: number) {
   const tag = tags[index]
@@ -50,8 +50,7 @@ function updateTag(index: number) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" class="hidden md:block" @change="updateTag" />
-    <UTabs :items="tags" orientation="vertical" class="md:hidden" @change="updateTag" />
+    <UTabs :items="tags" @change="updateTag" />
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <NuxtLink
         v-for="(writing, id) in writings"
