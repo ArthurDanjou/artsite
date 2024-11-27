@@ -88,7 +88,10 @@ function updateTag(index: number) {
                 size="sm"
                 :ui="{ rounded: 'rounded-full' }"
               >
-                {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
+                <div class="flex gap-1 items-center">
+                  <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon" size="16" />
+                  <p>{{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}</p>
+                </div>
               </UBadge>
             </ClientOnly>
           </div>
