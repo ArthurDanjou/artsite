@@ -34,15 +34,3 @@ A parte de la programación, me gusta el :hover-text{hover="el deporte me permit
 y :hover-text{hover="los viajes me permiten desconectar ✈️" text="viajar"}.
 Mi pasión, mi compromiso y mis ganas de aprender y mejorar son las cualidades que me permiten triunfar en mi
 :hover-text{hover="carrera que ya he empezado, y le queda mucho para terminar 😎" text="carrera"} y en mis :hover-text{hover="solo me quedan 2 años de estudios 💪" text="estudios"}.
-
-::stats
-::
-
-::activity
-::
-
-::quote
-::
-
-::catch-phrase
-::
