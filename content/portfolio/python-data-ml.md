@@ -7,7 +7,7 @@ readingTime: 1
 tags:
   - project
   - data
-  - ml
+  - ai
   - python
   - r
 ---

@@ -72,7 +72,7 @@ const stack = items.value!.filter(item => item.category === 'stack')
 <i18n lang="json">
 {
   "en": {
-    "title": "Uses",
+    "title": "My uses",
     "description": "Software I use, gadgets I love, and other things I recommend. Here’s a big list of all of my favorite stuff.",
     "hardware": "Hardware",
     "software": "Software",
@@ -88,6 +88,15 @@ const stack = items.value!.filter(item => item.category === 'stack')
     "ide": "IDE & Police",
     "stack": "Stack",
     "intellij": "Mon IDE IntelliJ Idea Ultimate"
+  },
+  "es": {
+    "title": "Mis aplicaciones.",
+    "description": "Los programas que utilizo, los gadgets que adoro y otras cosas que recomiendo. Aquí te hago una lista de todas mis cosas preferidas. ",
+    "hardware": "Material",
+    "software": "Programas",
+    "ide": "IDE y Fuente",
+    "stack": "Stack",
+    "intellij": "Mi IDE IntelliJ Idea Ultimate"
   }
 }
 </i18n>

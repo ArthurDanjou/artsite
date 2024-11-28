@@ -31,6 +31,9 @@ const { t } = useI18n({
   },
   "fr": {
     "quote": "Bonjour tout le monde ! Merci de visiter mon portfolio. N'hésitez pas à laisser ce que vous avez à dire, comme des suggestions, des appréciations, des questions ou autre chose !"
+  },
+  "es": {
+    "quote": "Hola a todos ! Muchas gracias por visitar mi portfolio. No dudes en dejar cualquier comentario, como sugerencias, apreciaciones. preguntas, o cualquier cosa !"
   }
 }
 </i18n>

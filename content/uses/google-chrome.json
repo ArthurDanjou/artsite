@@ -2,7 +2,8 @@
   "name": "Google Chrome",
   "description": {
     "en": "I'm using Google Chrome for browsing, the dev tool, and the extension market.",
-    "fr": "J'utilise Google Chrome pour naviguer, l'outil de développement et le marché des extensions."
+    "fr": "J'utilise Google Chrome pour naviguer, l'outil de développement et le marché des extensions.",
+    "es": "Utilizo Google Chrome cómo navegador, herramienta de desarrollo y mercado de extensiones. "
   },
   "category": "software"
 }

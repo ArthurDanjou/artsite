@@ -35,7 +35,7 @@ const formatDate = (date: Date, format: string) => useDateFormat(date, format, {
         />
       </template>
       <template #editors>
-        {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(' and ') }}
+        {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(t('separator')) }}
       </template>
       <template
         v-if="stats.os.data[0]"
@@ -68,6 +68,14 @@ const formatDate = (date: Date, format: string) => useDateFormat(date, format, {
     "tooltip": {
       "date": "C'était il y a si longtemps 🫣",
       "hours": "C'est beaucoup 😮"
+    }
+  },
+  "es": {
+    "stats": "Recopilo datos desde hace {time} años, empecé el {date}. He programado durante un total de {hours} horas. Mis mejores editores son {editors}. Mi mejor OS es {os}. Y mis lenguajes favoritos son {languages}.",
+    "separator": " y ",
+    "tooltip": {
+      "date": "hace tato tiempo…🫣",
+      "hours": "es mucho 😮"
     }
   }
 }

@@ -10,58 +10,59 @@ const navs = [
     label: {
       en: 'home',
       fr: 'accueil',
-      es: 'inicio'
+      es: 'inicio',
     },
     to: '/',
     icon: 'house-line-duotone',
     shortcut: {
       en: 'H',
       fr: 'A',
-      es: 'I'
-    }
+      es: 'I',
+    },
   },
   {
     label: {
       en: 'uses',
       fr: 'usages',
-      es: 'usos'
+      es: 'usos',
     },
     to: '/uses',
     icon: 'backpack-duotone',
     shortcut: {
       en: 'U',
       fr: 'U',
-      es: 'U'
-    }
+      es: 'U',
+    },
   },
   {
     label: {
       en: 'portfolio',
       fr: 'portfolio',
-      es: 'escritos'
+      es: 'escritos',
     },
     to: '/portfolio',
     icon: 'books-duotone',
     shortcut: {
       en: 'W',
       fr: 'E',
-      es: 'E'
-    }
+      es: 'E',
+    },
   },
   {
     label: {
       en: 'resume',
       fr: 'cv',
-      es: 'currículum'
+      es: 'currículum',
     },
+    icon: 'address-book-duotone',
     to: '/Resume2024.pdf',
     target: '_blank',
     shortcut: {
       en: 'R',
       fr: 'C',
-      es: 'C'
-    }
-  }
+      es: 'C',
+    },
+  },
 ]
 
 async function toggleTheme() {
@@ -98,7 +99,6 @@ async function changeLocale(newLocale?: string) {
   document.body.style.animation = ''
 }
 
-
 const router = useRouter()
 defineShortcuts({
   t: () => toggleTheme(),
@@ -119,7 +119,7 @@ defineShortcuts({
       <UTooltip
         v-for="nav in navs"
         :key="nav.label.en"
-        :text="nav.label[locale]!"
+        :text="nav.label[locale]"
       >
         <UButton
           :icon="`i-ph:${nav.icon}`"

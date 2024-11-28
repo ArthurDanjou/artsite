@@ -2,7 +2,8 @@
   "name": "JetBrains Suite (IntelliJ IDEA Ultimate, PyCharm Professional, WebStorm, DataGrip)",
   "description": {
     "en": "I use JetBrains Suite for development for 7 years. It's the best IDEs for Java, Python, JavaScript, SQL, and more. I used this suite to develop and to create this website.",
-    "fr": "J'utilise la suite JetBrains pour le développement depuis 7 ans. C'est le meilleur IDE pour Java, Python, JavaScript, SQL et plus encore. J'ai utilisé cette suite pour développer et créer ce site web."
+    "fr": "J'utilise la suite JetBrains pour le développement depuis 7 ans. C'est le meilleur IDE pour Java, Python, JavaScript, SQL et plus encore. J'ai utilisé cette suite pour développer et créer ce site web.",
+    "es": "Uso JetBrains Suite para el desarrollo desde hace 7 años. Es el mejor IDE para Java, Python, JavaScript, SQL y más. He utilizado esta suite para desarrollar y crear este sitio web."
   },
   "category": "ide"
 }

@@ -11,8 +11,7 @@ mathématiques sont ma principale passion ∑" position="right" text="mathémati
 comprendre les concepts et les théories qui sous-tendent ces :hover-text{hover="Ma deuxième passion 📱" text="
 technologies"} et à les concevoir efficacement.
 
-En tant qu'ingénieur logiciel et étudiant en mathématiques, mon :hover-text{hover="Mon sac de connaissances 🎒" text="
-expertise"} couvre
+En tant qu'ingénieur logiciel et étudiant en mathématiques, mon :hover-text{hover="Mon sac de connaissances 🎒" text="expertise"} couvre
 :prose-icon[TypeScript]{icon="typescript-icon" color="blue"},
 :prose-icon[Vue]{icon="vue" color="green"},
 :prose-icon[Nuxt]{icon="nuxt-icon" color="emerald"},
@@ -26,8 +25,7 @@ J'ai également appris d'autres technologies importantes, telles que
 :prose-icon[Docker]{icon="docker-icon" color="sky"},
 :prose-icon[Redis]{icon="redis" color="red"},
 :prose-icon[MySQL]{icon="mysql-icon" color="zinc"} et
-:prose-icon[Git]{icon="git-icon" color="orange"} pour :hover-text{hover="Toutes ces technologies se complètent 🔗" text="
-compléter"} mes connaissances.
+:prose-icon[Git]{icon="git-icon" color="orange"} pour :hover-text{hover="Toutes ces technologies se complètent 🔗" text="compléter"} mes connaissances.
 
 Je suis :hover-text{hover="Je dois toujours chercher à être à jour 🖥️" position="top" text="constamment"} dans
 l'apprentissage de nouvelles choses, de la technologie à la finance en passant par l'entrepreneuriat. J'aime

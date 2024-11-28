@@ -26,8 +26,9 @@ const tags: Array<{ label: string, icon: string } & Tag> = [
     label: 'All',
     icon: 'i-ph-books-duotone',
     color: 'black',
+    translation: 'tags.all',
   },
-  ...TAGS.filter(tag => tag.sort).sort((a, b) => a.label.localeCompare(b.label)),
+  ...TAGS.filter(tag => tag.title).sort((a, b) => a.label.localeCompare(b.label)),
 ]
 
 function updateTag(index: number) {
@@ -50,7 +51,11 @@ function updateTag(index: number) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" @change="updateTag" />
+    <UTabs :items="tags" @change="updateTag">
+      <template #default="{ item }">
+        <span class="truncate">{{ t(item.translation) }}</span>
+      </template>
+    </UTabs>
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <NuxtLink
         v-for="(writing, id) in writings"
@@ -89,7 +94,7 @@ function updateTag(index: number) {
                 :ui="{ rounded: 'rounded-full' }"
               >
                 <div class="flex gap-1 items-center">
-                  <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon" size="16" />
+                  <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon || ''" size="16" />
                   <p>{{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}</p>
                 </div>
               </UBadge>
@@ -117,6 +122,36 @@ function updateTag(index: number) {
     "alert": {
       "title": "Attentions aux traductions!",
       "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
+    },
+    "tags": {
+      "article": "Articles",
+      "all": "Bibliothèque",
+      "project": "Projets",
+      "r": "R",
+      "python": "Python",
+      "data": "Data",
+      "ai": "AI",
+      "maths": "Maths",
+      "web": "Web"
+    }
+  },
+  "es": {
+    "title": "Escritos sobre mi vida, el desarrollo, mis proyectos y mis pasiones.",
+    "description": " Todas mis reflexiones sobre la programación, las matemáticas, la conception de la inteligencia artificial, etc. están puestas en orden cronológico. También escribo sobre mis proyectos, mis descubrimientos y mis pensamientos.",
+    "alert": {
+      "title": "Cuidado con las traducciones !",
+      "description": "Por problema de tiempo, los artículos están solo disponibles en ingles. Gracias por vuestra comprensión."
+    },
+    "tags": {
+      "article": "Artículos",
+      "all": "Biblioteca",
+      "project": "Proyectos",
+      "r": "R",
+      "python": "Python",
+      "data": "Datos",
+      "ai": "IA",
+      "maths": "Mates",
+      "web": "Web"
     }
   }
 }

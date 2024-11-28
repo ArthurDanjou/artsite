@@ -2,7 +2,8 @@
   "name": "Warp",
   "description": {
     "en": "Warp is a modern, Rust-based terminal reimagined with AI and collaborative tools for better productivity. I'm loving it so far!",
-    "fr": "Warp est un terminal moderne basé sur Rust réimaginé avec l'IA et des outils collaboratifs pour une meilleure productivité. Je l'adore jusqu'à présent !"
+    "fr": "Warp est un terminal moderne basé sur Rust réimaginé avec l'IA et des outils collaboratifs pour une meilleure productivité. Je l'adore jusqu'à présent !",
+    "es": "Warp es un terminal moderno, basado en Rust y modernizado con la Ia y herramientas colaborativas, para conseguir una mejor productividad. Hasta ahora me encanta !"
   },
   "category": "software"
 }

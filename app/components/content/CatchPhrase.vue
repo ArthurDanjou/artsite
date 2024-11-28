@@ -27,6 +27,9 @@ const { t } = useI18n({
   },
   "fr": {
     "quote": "Survolez les textes en gras pour en savoir plus sur moi."
-  }
+  },
+  "es": {
+    "quote": "Pase el cursor sobre los textos en negrita para obtener más información sobre mí."
+  },
 }
 </i18n>

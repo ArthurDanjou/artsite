@@ -82,6 +82,11 @@ const { t } = useI18n({
     "find": "Retrouvez-moi sur :",
     "email": "Ou envoyez-moi un email :",
     "copyright": "© {date} Arthur Danjou. Tous droits réservés."
+  },
+  "es": {
+    "find": "Encuéntrame en :",
+    "email": "O envíame un mail",
+    "copyright": "2024 Arthur Danjour. Todos los derechos reservados."
   }
 }
 </i18n>

@@ -235,6 +235,28 @@ async function handleLike() {
     },
     "top": "Remonter en haut",
     "back": "Retourner en arrière"
+  },
+  "es": {
+    "likes": {
+      "one": "like",
+      "many": "likes"
+    },
+    "views": {
+      "one": "view",
+      "many": "views"
+    },
+    "alert": {
+      "title": "Cuidado con las traducciones!",
+      "description": " Por problemas de tiempo, los artículos solo están disponibles en inglés. Gracias por vuestra comprensión.ug ñeóicula."
+    },
+    "thanks": "Muchas gracias por leer este postougracoias afic! Si te ha gustado, no dudes en compartirlo con tus amigos.tsaf. {like}",
+    "like": "No te olvides de dejar un like!",
+    "link": {
+      "copied": "Link copiado",
+      "copy": "Copiar link"
+    },
+    "top": "Ir arribaarr",
+    "back": "Volver atrás"
   }
 }
 </i18n>

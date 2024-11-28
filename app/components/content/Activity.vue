@@ -130,6 +130,7 @@ const { t } = useI18n({
   </ClientOnly>
 </template>
 
+//todo: translate
 <i18n lang="json">
 {
   "en": {
@@ -155,7 +156,15 @@ const { t } = useI18n({
     "separator": "à"
   },
   "es": {
-
+    "offline": "Ahora mismo estoy desconectado. Vuelve más tarde para ver en lo que estoy trabajando.",
+    "working": "Estoy trabajando en {project}, editando {state}, y utilizando {editor}. He empezado hace {start}, el {format}.",
+    "idling": "Estoy en reposo en mi ordenador con {editor} en segundo plano.",
+    "tooltip": {
+      "online": "Estoy conectado 👋",
+      "offline": "Estoy desconectado 🫥",
+      "idling": "Estoy durmiendo 😴"
+    },
+    "separator": "a"
   }
 }
 </i18n>
