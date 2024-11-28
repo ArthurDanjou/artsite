@@ -7,6 +7,7 @@ publishedAt: 2024/11/26
 tags:
   - article
   - ml
+  - maths
 ---
 
 ## Introduction
@@ -81,8 +82,8 @@ For regression problems, the **R² score** measures the proportion of the target
 
 $$R2 = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}}$$ where:
 
-- $$\text{SS}\_{\text{residual}}$$ : Sum of squared residuals between actual and predicted values.
-- $$\text{SS}\_{\text{total}}$$ : Total sum of squares relative to the target’s mean.
+- $$\text{SS}_{\text{residual}}$$ : Sum of squared residuals between actual and predicted values.
+- $$\text{SS}_{\text{total}}$$ : Total sum of squares relative to the target’s mean.
 
 A $$R^2$$ close to 1 indicates a good fit.
 

@@ -52,18 +52,21 @@ export interface Tag {
   label: string
   icon: string
   color: BadgeColor
+  sort?: boolean
 }
 
-export const TAGS = [
+export const TAGS: Array<Tag> = [
   {
     label: 'Article',
     icon: 'i-ph-pencil-line-duotone',
     color: 'red',
+    sort: true,
   },
   {
     label: 'Project',
     icon: 'i-ph-briefcase-duotone',
     color: 'blue',
+    sort: true,
   },
   {
     label: 'R',
@@ -90,4 +93,9 @@ export const TAGS = [
     icon: 'i-vscode-icons-file-type-python',
     color: 'amber',
   },
-].sort((a, b) => a.label.localeCompare(b.label))
+  {
+    label: 'Maths',
+    icon: 'i-ph-calculator-duotone',
+    color: 'pink',
+  },
+]

@@ -27,7 +27,7 @@ const tags: Array<{ label: string, icon: string } & Tag> = [
     icon: 'i-ph-books-duotone',
     color: 'black',
   },
-  ...TAGS,
+  ...TAGS.filter(tag => tag.sort).sort((a, b) => a.label.localeCompare(b.label)),
 ]
 
 function updateTag(index: number) {
@@ -50,8 +50,7 @@ function updateTag(index: number) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" class="hidden md:block" @change="updateTag" />
-    <UTabs :items="tags" orientation="vertical" class="md:hidden" @change="updateTag" />
+    <UTabs :items="tags" @change="updateTag" />
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <NuxtLink
         v-for="(writing, id) in writings"
@@ -80,16 +79,21 @@ function updateTag(index: number) {
             </h3>
           </article>
           <div class="flex gap-2 mt-4 flex-wrap">
-            <UBadge
-              v-for="tag in writing.tags"
-              :key="tag"
-              :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color || 'black'"
-              variant="soft"
-              size="sm"
-              :ui="{ rounded: 'rounded-full' }"
-            >
-              {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
-            </UBadge>
+            <ClientOnly>
+              <UBadge
+                v-for="tag in writing.tags.sort((a: any, b: any) => a.localeCompare(b))"
+                :key="tag"
+                :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color"
+                variant="soft"
+                size="sm"
+                :ui="{ rounded: 'rounded-full' }"
+              >
+                <div class="flex gap-1 items-center">
+                  <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon" size="16" />
+                  <p>{{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}</p>
+                </div>
+              </UBadge>
+            </ClientOnly>
           </div>
         </li>
       </NuxtLink>
