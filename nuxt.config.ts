@@ -34,14 +34,18 @@ export default defineNuxtConfig({
 
   // Nuxt Content
   content: {
-    highlight: {
-      theme: 'github-dark',
-    },
-    markdown: {
-      remarkPlugins: ['remark-math'],
-      rehypePlugins: {
-        'rehype-katex': {
-          output: 'mathml',
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-dark',
+        },
+        remarkPlugins: {
+          'remark-math': {},
+        },
+        rehypePlugins: {
+          'rehype-katex': {
+            output: 'mathml',
+          },
         },
       },
     },

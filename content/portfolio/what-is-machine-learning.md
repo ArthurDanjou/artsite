@@ -10,6 +10,15 @@ tags:
   - maths
 ---
 
+::UAlert
+---
+icon: i-ph-warning-duotone
+color: amber
+variant: soft
+title: The Latex format may be not well rendered in the article, please refresh the page if you encounter any issue.
+---
+::
+
 ## Introduction
 
 Machine Learning (ML) is a key discipline in artificial intelligence (AI), enabling systems to learn from data to make predictions or discover patterns. It is the driving force behind many modern innovations, from personalised recommendations to autonomous vehicles.
