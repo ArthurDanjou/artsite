@@ -16,7 +16,6 @@
     "@nuxt/content": "3.0.0-alpha.7",
     "@nuxt/image": "^1.8.1",
     "@nuxt/ui": "^2.18.5",
-    "@nuxthq/studio": "^2.1.1",
     "@nuxthub/core": "^0.8.7",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^8.5.3",

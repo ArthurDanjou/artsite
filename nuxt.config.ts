@@ -18,7 +18,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxthq/studio',
     '@nuxt/image',
     '@nuxtjs/i18n',
     'nuxt-mapbox',
