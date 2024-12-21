@@ -11,7 +11,7 @@ position="right" text="matemáticas"}
 me permite comprender ampliamente los conceptos y las teorías que gobiernan las dichas
 :hover-text{hover="mi segunda pasión 📲" text="tecnologías"} y también poder concebirlas de manera eficaz.
 
-As a software engineer and mathematics student, my :hover-text{hover="mi mochila de conocimientos 🎒" text="conocimientos"} couvre
+Como ingeniero de software y estudiante de matemáticas, mi :hover-text{hover="mi mochila de conocimientos 🎒" text="conocimientos"} cubre
 :prose-icon[TypeScript]{icon="typescript-icon" color="blue"},
 :prose-icon[Vue]{icon="vue" color="green"},
 :prose-icon[Nuxt]{icon="nuxt-icon" color="emerald"},
