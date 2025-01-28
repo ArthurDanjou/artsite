@@ -108,7 +108,7 @@ defineShortcuts({
 </script>
 
 <template>
-  <header class="flex items-center justify-between my-8 gap-2">
+  <header class="flex md:items-center justify-between my-8 gap-2">
     <NuxtLinkLocale
       class="handwriting text-xl sm:text-3xl text-nowrap gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
       to="/"
