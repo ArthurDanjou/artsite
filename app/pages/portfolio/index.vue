@@ -111,6 +111,17 @@ function updateTag(index: number) {
     "alert": {
       "title": "Translations alert!",
       "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
+    },
+    "tags": {
+      "article": "Articles",
+      "all": "Library",
+      "project": "Projects",
+      "r": "R",
+      "python": "Python",
+      "data": "Data",
+      "ai": "AI",
+      "maths": "Maths",
+      "web": "Web"
     }
   },
   "fr": {
