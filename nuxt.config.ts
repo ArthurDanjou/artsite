@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/i18n',
     'nuxt-mapbox',
+    'nuxt-visitors',
   ],
 
   // Nuxt Hub
