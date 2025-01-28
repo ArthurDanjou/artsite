@@ -8,7 +8,7 @@ useSeoMeta({
   description: t('description'),
 })
 
-const { data: items } = await useAsyncData('uses', () => queryContent('/uses').find())
+const { data: items } = await useAsyncData('uses', async () => await queryCollection('uses').all())
 
 const hardware = items.value!.filter(item => item.category === 'hardware')
 const software = items.value!.filter(item => item.category === 'software')

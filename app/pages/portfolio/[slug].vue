@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { data: post } = await useAsyncData(`portfolio:${route.params.slug}`, () => queryContent(`/portfolio/${route.params.slug}`).findOne())
+const { data: post } = await useAsyncData(`portfolio/${route.params.slug}`, () =>
+  queryCollection('portfolio').path(`/portfolio/${route.params.slug}`).first())
+
 const {
   data: postDB,
   refresh,
-} = await useAsyncData(`portfolio:${route.params.slug}:db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
+} = await useAsyncData(`portfolio/${route.params.slug}/db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
-const { locale, locales } = useI18n()
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
-
+const { locale } = useI18n()
 const { t } = useI18n({
   useScope: 'local',
 })
@@ -122,12 +122,10 @@ async function handleLike() {
       icon="i-ph-pencil-line-duotone"
     />
     <article class="mt-8">
-      <ContentRenderer :value="post">
-        <ContentRendererMarkdown
-          :value="post"
-          class="!max-w-none prose dark:prose-invert"
-        />
-      </ContentRenderer>
+      <ContentRenderer
+        :value="post"
+        class="!max-w-none prose dark:prose-invert"
+      />
       <UDivider
         class="my-16"
         icon="i-ph-hands-clapping-duotone"
@@ -187,6 +185,10 @@ async function handleLike() {
 .prose h3 a,
 .prose h4 a {
   @apply no-underline;
+}
+
+.katex-html {
+  display: none;
 }
 </style>
 

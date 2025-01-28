@@ -32,14 +32,3 @@ As well as programming, I enjoy :hover-text{hover="Sport allows me to burn off e
 eagerness to learn and progress are the qualities that enable me to succeed in my :hover-text{hover="Career already
 begun and far from over 😎" text="career"} and :hover-text{hover="Only 2 years of study left 💪" text="studies"}.
 
-::stats
-::
-
-::activity
-::
-
-::quote
-::
-
-::catch-phrase
-::

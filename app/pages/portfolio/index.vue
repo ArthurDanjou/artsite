@@ -11,13 +11,10 @@ useSeoMeta({
 
 const tagFilter = ref<string | undefined>(undefined)
 
-const { data: writings, refresh } = await useAsyncData('all-portfolio', () => queryContent('/portfolio')
-  .sort({ publishedAt: -1 })
-  .where({
-    tags: { $contains: tagFilter.value },
-  })
-  .without('body')
-  .find())
+const { data: writings, refresh } = await useAsyncData('all-portfolio', () => queryCollection('portfolio')
+  .order('publishedAt', 'DESC')
+  .where('tags', 'LIKE', tagFilter.value ? `%${tagFilter.value}%` : '%')
+  .all())
 
 watch(tagFilter, async () => await refresh())
 
@@ -60,7 +57,7 @@ function updateTag(index: number) {
       <NuxtLink
         v-for="(writing, id) in writings"
         :key="id"
-        :to="writing._path"
+        :to="writing.path"
       >
         <li
           class=" h-full border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-700 dark:hover:border-neutral-500  duration-300"
@@ -114,6 +111,17 @@ function updateTag(index: number) {
     "alert": {
       "title": "Translations alert!",
       "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
+    },
+    "tags": {
+      "article": "Articles",
+      "all": "Library",
+      "project": "Projects",
+      "r": "R",
+      "python": "Python",
+      "data": "Data",
+      "ai": "AI",
+      "maths": "Maths",
+      "web": "Web"
     }
   },
   "fr": {

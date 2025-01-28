@@ -38,15 +38,3 @@ et :hover-text{hover="Les voyages me libèrent et m'évadent ✈️" text="voyag
 Ma passion, mon engagement et mon envie d'apprendre et de progresser sont les qualités qui me permettent de réussir dans
 ma :hover-text{hover="Carrière déjà commencée et loin d'être terminée 😎" text="carrière"} et mes :hover-text{hover="Il
 ne me reste que 2 ans d'études 💪" text="études"}.
-
-::stats
-::
-
-::activity
-::
-
-::quote
-::
-
-::catch-phrase
-::
