@@ -20,7 +20,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    'nuxt-mapbox',
     'nuxt-visitors',
   ],
 
@@ -120,8 +119,8 @@ export default defineNuxtConfig({
 
   // Nitro
   nitro: {
+    preset: 'cloudflare_durable',
     experimental: {
-      openAPI: true,
       websocket: true,
     },
   },
@@ -144,15 +143,8 @@ export default defineNuxtConfig({
       i18n: {
         baseUrl: '',
       },
-      mapbox: {
-        accessToken: '',
-        style: {
-          light: '',
-          dark: '',
-        },
-      },
     },
   },
 
-  compatibilityDate: '2024-08-19',
+  compatibilityDate: '2025-01-28',
 })

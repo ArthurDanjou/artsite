@@ -30,6 +30,6 @@ const { t } = useI18n({
   },
   "es": {
     "quote": "Pase el cursor sobre los textos en negrita para obtener más información sobre mí."
-  },
+  }
 }
 </i18n>

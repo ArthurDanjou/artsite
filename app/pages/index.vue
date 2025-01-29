@@ -15,6 +15,6 @@ const { data: page } = await useAsyncData(`/home/${locale.value}`, () => {
     <HomeActivity />
     <HomeQuote />
     <HomeCatchPhrase />
-    <HomeMap />
+    <HomeGlobe />
   </main>
 </template>

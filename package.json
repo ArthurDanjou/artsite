@@ -1,6 +1,7 @@
 {
   "name": "artsite",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@9.5.0",
   "scripts": {
     "build": "nuxt build",
@@ -19,6 +20,7 @@
     "@nuxthub/core": "^0.8.15",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^8.5.3",
+    "cobe": "^0.6.3",
     "drizzle-orm": "^0.33.0",
     "h3-zod": "^0.5.3",
     "nuxt": "^3.15.3",
@@ -31,14 +33,11 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.1.0",
-    "@nuxt/devtools": "^2.0.0-beta.3",
     "@types/node": "^22.12.0",
     "@vueuse/core": "^12.5.0",
     "@vueuse/nuxt": "^12.5.0",
     "drizzle-kit": "^0.30.3",
     "eslint": "^9.19.0",
-    "mapbox-gl": "^3.9.4",
-    "nuxt-mapbox": "^1.6.2",
     "typescript": "^5.7.3",
     "vue-tsc": "^2.2.0",
     "wrangler": "^3.106.0"
