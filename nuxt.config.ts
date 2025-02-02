@@ -34,9 +34,6 @@ export default defineNuxtConfig({
 
   // Nuxt Content
   content: {
-    preview: {
-      api: 'https://api.nuxt.studio',
-    },
     build: {
       markdown: {
         highlight: {
