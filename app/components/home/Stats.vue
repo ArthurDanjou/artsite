@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { Stats } from '~~/types'
+import { usePrecision } from '@vueuse/math'
 
 const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
@@ -11,7 +12,7 @@ const { t } = useI18n({
 
 const time = useTimeAgo(new Date(stats.value!.coding.data.range.start)).value.split(' ')[0]
 const date = useDateFormat(new Date(stats.value!.coding.data.range.start), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
-const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_including_other_language / 3600, 0, { math: 'ceil' })
+const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_including_other_language / 3600, 0)
 </script>
 
 <template>
