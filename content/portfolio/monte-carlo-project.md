@@ -12,7 +12,7 @@ tags:
 
 This is the report for the Monte Carlo Methods Project. The project was done as part of the course `Monte Carlo Methods` at the Paris-Dauphine University. The goal was to implement different methods and algorithms using Monte Carlo methods in R.
 
-Methods and algorithms implemented: 
+Methods and algorithms implemented:
 - Plotting graphs of functions
 - Inverse c.d.f. Random Variation simulation
 - Accept-Reject Random Variation simulation

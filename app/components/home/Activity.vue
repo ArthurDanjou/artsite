@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { type Activity, IDEs } from '~~/types'
+import type { Activity } from '~~/types'
+import { IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
 useIntervalFn(async () => await refresh(), 5000)
@@ -38,11 +39,11 @@ const getActivity = computed(() => {
       ago: locale.value === 'en'
         ? timeAgo
         : timeAgo
-          .replace('ago', '')
-          .replace('hours', 'heures')
-          .replace('minutes', 'minutes')
-          .replace('seconds', 'secondes')
-          .trim(),
+            .replace('ago', '')
+            .replace('hours', 'heures')
+            .replace('minutes', 'minutes')
+            .replace('seconds', 'secondes')
+            .trim(),
       formated: {
         date: formatDate(timestamps.start, 'DD MMM YYYY'),
         time: formatDate(timestamps.start, 'HH:mm:ss'),
