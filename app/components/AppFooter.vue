@@ -30,9 +30,9 @@ const { t } = useI18n({
 <template>
   <footer class="my-16">
     <div class="flex justify-center mb-16">
-      <UDivider
+      <USeparator
         class="md:w-2/3"
-        size="2xs"
+        size="xs"
         type="solid"
       />
     </div>

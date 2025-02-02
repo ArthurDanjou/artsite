@@ -20,6 +20,12 @@ defineProps({
   <ClientOnly>
     <UTooltip
       :popper="{ placement: position }"
+      :delay-duration="4"
+      :content="{
+        align: 'center',
+        side: position,
+        sideOffset: 8,
+      }"
       :text="hover"
     >
       <strong class="leading-3 cursor-help">{{ text }}</strong>

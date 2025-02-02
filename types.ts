@@ -1,5 +1,3 @@
-import type { BadgeColor } from '#ui/types'
-
 interface WakatimeData {
   name: string
   percent: number

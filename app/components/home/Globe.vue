@@ -1,83 +1,141 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+import type { COBEOptions } from 'cobe'
 import createGlobe from 'cobe'
+import { useSpring } from 'vue-use-spring'
 
-const { t } = useI18n({
-  useScope: 'local',
+interface GlobeProps {
+  class?: string
+  config?: Partial<COBEOptions>
+  mass?: number
+  tension?: number
+  friction?: number
+  precision?: number
+  locations?: Array<{ latitude: number, longitude: number }>
+  myLocation?: { latitude: number, longitude: number }
+}
+
+const props = withDefaults(defineProps<GlobeProps>(), {
+  mass: 1,
+  tension: 280,
+  friction: 100,
+  precision: 0.001,
 })
 
-const myLocation = useState<{ longitude: number, latitude: number }>('location')
-const globe = ref<HTMLCanvasElement | null>(null)
+const DEFAULT_CONFIG: COBEOptions = {
+  width: 400,
+  height: 400,
+  onRender: () => {},
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.3,
+  dark: 0,
+  diffuse: 0.4,
+  mapSamples: 20000,
+  mapBrightness: 1,
+  baseColor: [0.8, 0.8, 0.8],
+  opacity: 0.7,
+  markerColor: [251 / 255, 100 / 255, 21 / 255],
+  glowColor: [1, 1, 1],
+  markers: [],
+}
+
+const globeCanvasRef = ref<HTMLCanvasElement>()
 const phi = ref(0)
-const locations = ref<Array<{ latitude: number, longitude: number }>>([])
+const width = ref(0)
+const pointerInteracting = ref()
+const pointerInteractionMovement = ref()
 
-const { data, open } = useWebSocket(`/visitors?latitude=${myLocation.value.latitude}&longitude=${myLocation.value.longitude}`, { immediate: true })
-watch(data, async (newData) => {
-  locations.value = JSON.parse(typeof newData === 'string' ? newData : await newData.text())
-})
+let globe: ReturnType<typeof createGlobe> | null = null
+
+const spring = useSpring(
+  {
+    r: 0,
+  },
+  {
+    mass: props.mass,
+    tension: props.tension,
+    friction: props.friction,
+    precision: props.precision,
+  },
+)
+
+function updatePointerInteraction(clientX: number | null) {
+  if (clientX !== null) {
+    pointerInteracting.value = clientX - (pointerInteractionMovement.value ?? clientX)
+  }
+  else {
+    pointerInteracting.value = null
+  }
+
+  if (globeCanvasRef.value) {
+    globeCanvasRef.value.style.cursor = clientX ? 'grabbing' : 'grab'
+  }
+}
+
+function updateMovement(clientX: number) {
+  if (pointerInteracting.value !== null) {
+    const delta = clientX - (pointerInteracting.value ?? clientX)
+    pointerInteractionMovement.value = delta
+    spring.r = delta / 200
+  }
+}
+
+function onRender(state: Record<string, unknown>) {
+  if (!pointerInteracting.value) {
+    phi.value += 0.005
+  }
+
+  state.phi = phi.value + spring.r
+  state.width = width.value * 2
+  state.height = width.value * 2
+  state.markers = props.locations?.map(location => ({
+    location: [location.latitude, location.longitude],
+    // Set the size of the marker to 0.1 if it's the user's location, otherwise 0.05
+    size: props.myLocation?.latitude === location.latitude && props.myLocation?.longitude === location.longitude ? 0.1 : 0.05,
+  }))
+}
+
+function onResize() {
+  if (globeCanvasRef.value) {
+    width.value = globeCanvasRef.value.offsetWidth
+  }
+}
+
+function createGlobeOnMounted() {
+  const config = { ...DEFAULT_CONFIG, ...props.config }
+
+  globe = createGlobe(globeCanvasRef.value!, {
+    ...config,
+    width: width.value,
+    height: width.value,
+    onRender,
+  })
+}
 
 onMounted(() => {
-  open()
-  createGlobe(globe.value!, {
-    devicePixelRatio: 2,
-    width: 400 * 2,
-    height: 400 * 2,
-    phi: 0,
-    theta: 0,
-    dark: 1,
-    diffuse: 1.2,
-    scale: 1,
-    mapSamples: 20000,
-    mapBrightness: 6,
-    baseColor: [0.3, 0.3, 0.3],
-    markerColor: [0.1, 0.8, 0.1],
-    glowColor: [0.2, 0.2, 0.2],
-    markers: [],
-    opacity: 0.3,
-    onRender(state) {
-      state.markers = locations.value.map(location => ({
-        location: [location.latitude, location.longitude],
-        size: myLocation.value.latitude === location.latitude && myLocation.value.longitude === location.longitude ? 0.1 : 0.05,
-      }))
-      state.phi = phi.value
-      phi.value += 0.01
-    },
-  })
+  window.addEventListener('resize', onResize)
+  onResize()
+  createGlobeOnMounted()
+
+  setTimeout(() => (globeCanvasRef.value!.style.opacity = '1'))
+})
+
+onBeforeUnmount(() => {
+  globe?.destroy()
+  window.removeEventListener('resize', onResize)
 })
 </script>
 
 <template>
-  <section class="mt-12 not-prose w-full flex flex-col items-center justify-center">
-    <canvas ref="globe" />
-    <!-- <ClientOnly>
-      <div class="group text-[12px] flex items-center gap-1">
-        <UIcon
-          name="i-ph-map-pin-duotone"
-        />
-        <p>{{ t('globe') }}</p>
-      </div>
-    </ClientOnly> -->
-  </section>
+  <div :class="props.class">
+    <canvas
+      ref="globeCanvasRef"
+      class="size-full opacity-0 transition-opacity duration-1000 ease-in-out [contain:layout_paint_size]"
+      @pointerdown="(e) => updatePointerInteraction(e.clientX)"
+      @pointerup="updatePointerInteraction(null)"
+      @pointerout="updatePointerInteraction(null)"
+      @mousemove="(e) => updateMovement(e.clientX)"
+      @touchmove="(e) => e.touches[0] && updateMovement(e.touches[0].clientX)"
+    />
+  </div>
 </template>
-
-<style scoped>
-canvas {
-  width: 400px;
-  height: 400px;
-  max-width: 100%;
-  aspect-ratio: 1;
-}
-</style>
-
-<i18n>
-{
-  "en": {
-    "globe": "Each marker represents a visitor connected to my site."
-  },
-  "fr": {
-    "globe": "Chaque point représente un visiteur connecté sur mon site."
-  },
-  "es": {
-    "globe": "Cada marcador representa un visitante conectado a mi sitio."
-  }
-}
-</i18n>

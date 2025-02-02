@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="space-y-8">
-    <UDivider
+    <USeparator
       :label="title"
       size="xs"
     />

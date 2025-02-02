@@ -82,7 +82,7 @@ async function handleLike() {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <div class="border-l-2 pl-2 border-gray-300 dark:border-gray-700 rounded-sm flex gap-1 items-center">
+    <div class="border-l-2 pl-2 rounded-none border-gray-300 dark:border-neutral-700 flex gap-1 items-center">
       <UIcon name="i-ph-heart-duotone" size="16" />
       <p>{{ getDetails().likes }} </p>·
       <UIcon name="i-ph-eye-duotone" size="16" />
@@ -117,7 +117,7 @@ async function handleLike() {
         alt="Writing cover"
       />
     </div>
-    <UDivider
+    <USeparator
       class="mt-8"
       icon="i-ph-pencil-line-duotone"
     />
@@ -126,7 +126,7 @@ async function handleLike() {
         :value="post"
         class="!max-w-none prose dark:prose-invert"
       />
-      <UDivider
+      <USeparator
         class="my-16"
         icon="i-ph-hands-clapping-duotone"
       />
@@ -142,18 +142,18 @@ async function handleLike() {
         <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
-            :color="likeCookie ? 'red' : 'white'"
+            :color="likeCookie ? 'red' : 'neutral'"
             icon="i-ph-heart-duotone"
             size="lg"
-            variant="solid"
+            :variant="likeCookie ? 'solid' : 'outline'"
             @click.prevent="handleLike()"
           />
           <UButton
-            color="white"
+            color="neutral"
             icon="i-ph-arrow-fat-lines-up-duotone"
             :label="t('top')"
             size="lg"
-            variant="solid"
+            variant="outline"
             @click.prevent="top()"
           />
           <UButton
@@ -167,11 +167,11 @@ async function handleLike() {
           />
           <UButton
             v-else
-            color="white"
+            color="neutral"
             icon="i-ph-square-duotone"
             :label="t('link.copy')"
             size="lg"
-            variant="solid"
+            variant="outline"
             @click.prevent="copy()"
           />
         </div>

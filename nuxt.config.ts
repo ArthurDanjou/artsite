@@ -11,6 +11,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['~/assets/css/main.css'],
+
   // Nuxt Modules
   modules: [
     '@nuxthub/core',
@@ -51,18 +53,30 @@ export default defineNuxtConfig({
 
   // Nuxt UI
   ui: {
-    safelistColors: [
-      'gray',
-      'zinc',
-      'red',
-      'orange',
-      'amber',
-      'green',
-      'emerald',
-      'sky',
-      'blue',
-      'purple',
-    ],
+    theme: {
+      colors: [
+        'white',
+        'black',
+        'cyan',
+        'gray',
+        'zinc',
+        'red',
+        'orange',
+        'amber',
+        'green',
+        'emerald',
+        'sky',
+        'blue',
+        'purple',
+        'pink',
+        'neutral',
+      ],
+    },
+  },
+
+  // Nuxt Visitors
+  visitors: {
+    locations: true,
   },
 
   // Nuxt Color Mode
@@ -82,16 +96,19 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     locales: [
       {
+        label: 'English',
         code: 'en',
         language: 'en-EN',
         icon: 'i-twemoji-flag-united-kingdom',
       },
       {
+        label: 'Français',
         code: 'fr',
         language: 'fr-FR',
         icon: 'i-twemoji-flag-france',
       },
       {
+        label: 'Español',
         code: 'es',
         language: 'es-ES',
         icon: 'i-twemoji-flag-spain',
@@ -103,6 +120,9 @@ export default defineNuxtConfig({
   // Nuxt Icon
   icon: {
     serverBundle: 'remote',
+    clientBundle: {
+      scan: true,
+    },
   },
 
   // Nuxt Google Fonts
@@ -118,9 +138,9 @@ export default defineNuxtConfig({
 
   // Nitro
   nitro: {
-    preset: 'cloudflare_durable',
     experimental: {
       websocket: true,
+      openAPI: true,
     },
   },
 
