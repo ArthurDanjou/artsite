@@ -6,6 +6,8 @@ const { data: page } = await useAsyncData(`/home/${locale.value}`, () => {
 }, {
   watch: [locale],
 })
+
+const { myLocation, locations } = useVisitors()
 </script>
 
 <template>
@@ -15,6 +17,12 @@ const { data: page } = await useAsyncData(`/home/${locale.value}`, () => {
     <HomeActivity />
     <HomeQuote />
     <HomeCatchPhrase />
-    <HomeGlobe />
+    {{ locations }}
+    {{ myLocation }}
+    <HomeGlobe
+      :my-location
+      :locations
+      class="mt-8 mx-auto aspect-[1/1] duration-500 md:w-1/2"
+    />
   </main>
 </template>

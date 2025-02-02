@@ -66,6 +66,11 @@ export default defineNuxtConfig({
     ],
   },
 
+  // Nuxt Visitors
+  visitors: {
+    locations: true,
+  },
+
   // Nuxt Color Mode
   colorMode: {
     preference: 'system',
@@ -104,6 +109,9 @@ export default defineNuxtConfig({
   // Nuxt Icon
   icon: {
     serverBundle: 'remote',
+    clientBundle: {
+      scan: true,
+    },
   },
 
   // Nuxt Google Fonts
@@ -119,9 +127,9 @@ export default defineNuxtConfig({
 
   // Nitro
   nitro: {
-    preset: 'cloudflare_durable',
     experimental: {
       websocket: true,
+      openAPI: true,
     },
   },
 

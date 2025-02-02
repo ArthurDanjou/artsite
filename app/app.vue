@@ -44,7 +44,6 @@ const head = useLocaleHead({
         <AppBackground />
         <UContainer class="z-50 relative">
           <AppHeader />
-          <AppVisitors />
           <NuxtPage class="mt-12" />
           <AppFooter />
         </UContainer>
