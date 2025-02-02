@@ -54,7 +54,7 @@ export function useVisitors() {
   }
 
   const handleClose = (event: CloseEvent) => {
-    console.log('Visitors WebSocket closed:', event.code, event.reason)
+    console.warn('Visitors WebSocket closed:', event.code, event.reason)
     isConnected.value = false
     wsRef.value = null
 
@@ -80,7 +80,7 @@ export function useVisitors() {
           ws.close()
           return
         }
-        console.log('Stats WebSocket connected')
+        console.warn('Stats WebSocket connected')
         isConnected.value = true
         isLoading.value = false
         error.value = null

@@ -5,7 +5,7 @@ description: I'm Arthur, a Mathematics lover and IA enthusiast. I'm currently st
 
 Hola ! Soy Arthur Danjou, estudiante de matemáticas especializado en Estadística en la Universidad Paris-Dauphine, en Fracia.
 
-Con una :hover-text{hover="la tecnología avanza demasiado rápido 🤯" position="top" text="comprensión profunda"}, de las tecnologías emergentes, me sitúo en el centro de un ámbito en plena expansión. 
+Con una :hover-text{hover="la tecnología avanza demasiado rápido 🤯" position="top" text="comprensión profunda"}, de las tecnologías emergentes, me sitúo en el centro de un ámbito en plena expansión.
 Mi formación en :hover-text{hover="las matemáticas son mi mayor pasión Σ"
 position="right" text="matemáticas"}
 me permite comprender ampliamente los conceptos y las teorías que gobiernan las dichas
@@ -24,10 +24,10 @@ las diferentes necesidades de los proyectos matemáticos, y proponer las mejores
 :prose-icon[Docker]{icon="docker-icon" color="sky"},
 :prose-icon[Redis]{icon="redis" color="red"},
 :prose-icon[MySQL]{icon="mysql-icon" color="zinc"} and
-:prose-icon[Git]{icon="git-icon" color="orange"} que :hover-text{hover="odas estas tecnologías se complementan 📎" text="completan"} mis competencias. 
+:prose-icon[Git]{icon="git-icon" color="orange"} que :hover-text{hover="odas estas tecnologías se complementan 📎" text="completan"} mis competencias.
 
-Estoy :hover-text{hover="me gusta estar siempre al día 🖥️" position="top" text="constantemente"} aprendiendo cosas nuevas, desde la tecnología hasta las finanzas, pasando por el emprendimiento. 
-Me gusta :hover-text{hover="me encanta compartir y ayudar a los demás 🫂" text="compartir"} mis conocimientos y aprender nuevos teoremas y tecnologías. 
+Estoy :hover-text{hover="me gusta estar siempre al día 🖥️" position="top" text="constantemente"} aprendiendo cosas nuevas, desde la tecnología hasta las finanzas, pasando por el emprendimiento.
+Me gusta :hover-text{hover="me encanta compartir y ayudar a los demás 🫂" text="compartir"} mis conocimientos y aprender nuevos teoremas y tecnologías.
 Soy una persona :hover-text{hover="busco cosas nuevas que descubrir 🔍" text="curiosa"} y con el deseo de seguir aprendiendo y creciendo a lo largo de toda mi vida.
 
 A parte de la programación, me gusta el :hover-text{hover="el deporte me permite gastar mi energía 🏋️‍♂️" text="deporte"}
