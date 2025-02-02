@@ -74,10 +74,7 @@ export default defineNuxtConfig({
     },
   },
 
-  // Nuxt Visitors
-  visitors: {
-    locations: true,
-  },
+  plugins: ['~/plugins/location.server'],
 
   // Nuxt Color Mode
   colorMode: {

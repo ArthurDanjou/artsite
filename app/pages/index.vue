@@ -17,8 +17,6 @@ const { myLocation, locations } = useVisitors()
     <HomeActivity />
     <HomeQuote />
     <HomeCatchPhrase />
-    {{ locations }}
-    {{ myLocation }}
     <HomeGlobe
       :my-location
       :locations

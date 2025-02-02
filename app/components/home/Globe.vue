@@ -34,7 +34,7 @@ const DEFAULT_CONFIG: COBEOptions = {
   mapBrightness: 1,
   baseColor: [0.8, 0.8, 0.8],
   opacity: 0.7,
-  markerColor: [251 / 255, 100 / 255, 21 / 255],
+  markerColor: [160 / 255, 160 / 255, 160 / 255],
   glowColor: [1, 1, 1],
   markers: [],
 }
@@ -90,7 +90,6 @@ function onRender(state: Record<string, unknown>) {
   state.height = width.value * 2
   state.markers = props.locations?.map(location => ({
     location: [location.latitude, location.longitude],
-    // Set the size of the marker to 0.1 if it's the user's location, otherwise 0.05
     size: props.myLocation?.latitude === location.latitude && props.myLocation?.longitude === location.longitude ? 0.1 : 0.05,
   }))
 }

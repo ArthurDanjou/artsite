@@ -57,7 +57,7 @@ async function toggleTheme() {
 }
 
 const { locale, setLocale, locales, t } = useI18n()
-const currentLocale = computed(() => locales.filter(l => l.code === locale.value)[0])
+const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 const lang = ref(locale.value)
 watch(lang, () => changeLocale(lang.value))
 

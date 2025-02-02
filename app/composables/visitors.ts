@@ -1,25 +1,7 @@
 import { useState } from '#imports'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-/**
- * Composable for tracking real-time website visitors count via WebSocket
- *
- * Features:
- * - Real-time visitors count updates
- * - Automatic WebSocket connection management
- * - Connection status tracking
- * - Error handling
- * - Automatic cleanup on component unmount
- *
- * @returns {object} An object containing:
- *  - visitors: Ref<number> - Current number of visitors
- *  - isLoading: Ref<boolean> - Loading state indicator
- *  - error: Ref<string | null> - Error message if any
- *  - isConnected: Ref<boolean> - WebSocket connection status
- *  - reconnect: () => void - Function to manually reconnect
- */
 export function useVisitors() {
-  // State management
   const visitors = useState<number>('visitors', () => 0) // Added default value
   const locations = ref<Array<{ latitude: number, longitude: number }>>([])
   const myLocation = useState('location', () => ({
@@ -32,23 +14,15 @@ export function useVisitors() {
   const isConnected = ref(false)
   const isMounted = ref(true)
 
-  // Constants
   const RECONNECTION_DELAY = 5000 // 5 seconds delay for reconnection
   const WS_NORMAL_CLOSURE = 1000
 
-  /**
-   * Constructs the WebSocket URL based on the current protocol and host
-   * @returns {string} WebSocket URL
-   */
   const getWebSocketUrl = (): string => {
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
     const baseUrl = window.location.host.replace(/^(http|https):\/\//, '')
-    return `${protocol}//${baseUrl}/.nuxt-visitors/ws?latitude=${myLocation.value.latitude}&longitude=${myLocation.value.longitude}`
+    return `${protocol}//${baseUrl}/ws?latitude=${myLocation.value.latitude}&longitude=${myLocation.value.longitude}`
   }
 
-  /**
-   * Cleans up WebSocket connection and resets state
-   */
   const cleanup = () => {
     if (wsRef.value) {
       wsRef.value.close()
@@ -58,10 +32,6 @@ export function useVisitors() {
     isLoading.value = false
   }
 
-  /**
-   * Handles WebSocket messages
-   * @param {MessageEvent} event - WebSocket message event
-   */
   const handleMessage = async (event: MessageEvent) => {
     if (!isMounted.value)
       return
@@ -83,10 +53,6 @@ export function useVisitors() {
     }
   }
 
-  /**
-   * Handles WebSocket connection closure
-   * @param {CloseEvent} event - WebSocket close event
-   */
   const handleClose = (event: CloseEvent) => {
     console.log('Visitors WebSocket closed:', event.code, event.reason)
     isConnected.value = false
@@ -94,14 +60,11 @@ export function useVisitors() {
 
     if (isMounted.value && event.code !== WS_NORMAL_CLOSURE) {
       error.value = 'Connection lost'
-      // Attempt to reconnect after delay
-      setTimeout(() => reconnect(), RECONNECTION_DELAY)
+      // eslint-disable-next-line ts/no-use-before-define
+      setTimeout(reconnect, RECONNECTION_DELAY)
     }
   }
 
-  /**
-   * Initializes WebSocket connection
-   */
   const initWebSocket = () => {
     if (!isMounted.value)
       return
@@ -141,9 +104,6 @@ export function useVisitors() {
     }
   }
 
-  /**
-   * Manually triggers WebSocket reconnection
-   */
   const reconnect = () => {
     if (!isMounted.value)
       return
@@ -152,7 +112,6 @@ export function useVisitors() {
     initWebSocket()
   }
 
-  // Lifecycle hooks
   onMounted(() => {
     if (import.meta.client) {
       isMounted.value = true
