@@ -38,7 +38,7 @@ const stack = items.value!.filter(item => item.category === 'stack')
         />
       </UsesList>
       <ul class="space-y-8">
-        <UDivider
+        <USeparator
           :label="t('ide')"
           size="xs"
         />

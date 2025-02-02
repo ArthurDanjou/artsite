@@ -14,11 +14,6 @@ const navs = [
     },
     to: '/',
     icon: 'house-line-duotone',
-    shortcut: {
-      en: 'H',
-      fr: 'A',
-      es: 'I',
-    },
   },
   {
     label: {
@@ -28,11 +23,6 @@ const navs = [
     },
     to: '/uses',
     icon: 'backpack-duotone',
-    shortcut: {
-      en: 'U',
-      fr: 'U',
-      es: 'U',
-    },
   },
   {
     label: {
@@ -42,11 +32,6 @@ const navs = [
     },
     to: '/portfolio',
     icon: 'books-duotone',
-    shortcut: {
-      en: 'W',
-      fr: 'E',
-      es: 'E',
-    },
   },
   {
     label: {
@@ -57,11 +42,6 @@ const navs = [
     icon: 'address-book-duotone',
     to: '/Resume2024.pdf',
     target: '_blank',
-    shortcut: {
-      en: 'R',
-      fr: 'C',
-      es: 'C',
-    },
   },
 ]
 
@@ -76,33 +56,27 @@ async function toggleTheme() {
   document.body.style.animation = ''
 }
 
-const { locale, setLocale, locales, t, availableLocales } = useI18n()
-const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
+const { locale, setLocale, locales, t } = useI18n()
+const currentLocale = computed(() => locales.filter(l => l.code === locale.value)[0])
 const lang = ref(locale.value)
 watch(lang, () => changeLocale(lang.value))
 
-async function changeLocale(newLocale?: string) {
+async function changeLocale(newLocale: string) {
   document.body.style.animation = 'switch-on .2s'
   await new Promise(resolve => setTimeout(resolve, 200))
 
-  if (!newLocale) {
-    const currentLocaleIndex = availableLocales.findIndex(l => l === locale.value)
-    const nextLocaleIndex = (currentLocaleIndex + 1) % availableLocales.length
-    newLocale = availableLocales[nextLocaleIndex]
-    lang.value = newLocale!
-  }
-
-  await setLocale(newLocale ?? 'en')
+  await setLocale(newLocale as 'en' | 'fr' | 'es')
   document.body.style.animation = 'switch-off .2s'
 
   await new Promise(resolve => setTimeout(resolve, 200))
   document.body.style.animation = ''
 }
 
+const open = ref(false)
 const router = useRouter()
 defineShortcuts({
   t: () => toggleTheme(),
-  l: () => changeLocale(),
+  l: () => open.value = !open.value,
   backspace: () => router.back(),
 })
 </script>
@@ -110,7 +84,7 @@ defineShortcuts({
 <template>
   <header class="flex md:items-center justify-between my-8 gap-2">
     <NuxtLinkLocale
-      class="handwriting text-xl sm:text-3xl text-nowrap gap-2 font-bold duration-300 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+      class="handwriting text-xl sm:text-3xl text-nowrap gap-2 font-bold duration-300 text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white"
       to="/"
     >
       Arthur Danjou
@@ -126,52 +100,45 @@ defineShortcuts({
           :target="nav.target ? nav.target : '_self'"
           :to="nav.to"
           :aria-label="nav.label"
-          color="white"
+          color="neutral"
           size="sm"
-          variant="solid"
+          variant="outline"
         />
       </UTooltip>
       <ClientOnly>
         <UTooltip
-          :shortcuts="['T']"
+          :kbds="['T']"
           :text="t('theme')"
         >
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
-            color="white"
+            color="neutral"
             aria-label="switch theme"
             size="sm"
-            variant="solid"
+            variant="outline"
             @click="toggleTheme()"
           />
         </UTooltip>
         <UTooltip
-          :shortcuts="['L']"
+          :kbds="['L']"
           :text="t('language')"
-          :popper="{ placement: 'right' }"
+          :content="{
+            align: 'center',
+            side: 'right',
+            sideOffset: 8,
+          }"
         >
-          <USelectMenu
+          <USelect
             v-model="lang"
-            :options="locales"
+            v-model:open="open"
+            :items="locales"
             size="sm"
-            option-attribute="code"
-            value-attribute="code"
+            :leading-icon="currentLocale.icon"
+            label-key="label"
+            value-key="code"
             variant="outline"
-          >
-            <template #leading>
-              <UIcon
-                :name="currentLocale!.icon"
-                class="w-5 h-5"
-              />
-            </template>
-            <template #option="{ option: language }">
-              <UIcon
-                :name="language.icon"
-                class="w-5 h-5"
-              />
-              <span>{{ language.code }}</span>
-            </template>
-          </USelectMenu>
+            @update:model-value="changeLocale"
+          />
         </UTooltip>
       </ClientOnly>
     </nav>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type Tag, TAGS } from '~~/types'
+import type { Tag } from '~~/types'
+import { TAGS } from '~~/types'
 
 const { t, locale } = useI18n({
   useScope: 'local',
@@ -28,8 +29,8 @@ const tags: Array<{ label: string, icon: string } & Tag> = [
   ...TAGS.filter(tag => tag.title).sort((a, b) => a.label.localeCompare(b.label)),
 ]
 
-function updateTag(index: number) {
-  const tag = tags[index]
+function updateTag(payload: number | string) {
+  const tag = tags[Number(payload)]
   tagFilter.value = tag?.label.toLowerCase() === 'all' ? undefined : tag?.label.toLowerCase()
 }
 </script>
@@ -48,7 +49,7 @@ function updateTag(index: number) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" @change="updateTag">
+    <UTabs :items="tags" color="neutral" @update:model-value="updateTag">
       <template #default="{ item }">
         <span class="truncate">{{ t(item.translation) }}</span>
       </template>
@@ -60,7 +61,7 @@ function updateTag(index: number) {
         :to="writing.path"
       >
         <li
-          class=" h-full border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-700 dark:hover:border-neutral-500  duration-300"
+          class=" h-full border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-600  duration-300"
         >
           <article class="space-y-2">
             <h1
@@ -88,7 +89,7 @@ function updateTag(index: number) {
                 :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color"
                 variant="soft"
                 size="sm"
-                :ui="{ rounded: 'rounded-full' }"
+                class="rounded-full"
               >
                 <div class="flex gap-1 items-center">
                   <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon || ''" size="16" />

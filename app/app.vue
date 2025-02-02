@@ -39,7 +39,7 @@ const head = useLocaleHead({
       </template>
     </Head>
     <Body>
-      <div>
+      <UApp>
         <NuxtLoadingIndicator color="#808080" />
         <AppBackground />
         <UContainer class="z-50 relative">
@@ -47,7 +47,7 @@ const head = useLocaleHead({
           <NuxtPage class="mt-12" />
           <AppFooter />
         </UContainer>
-      </div>
+      </UApp>
     </Body>
   </Html>
 </template>
@@ -55,7 +55,6 @@ const head = useLocaleHead({
 <style>
 body {
   font-family: 'DM Sans', sans-serif;
-  @apply h-full w-full text-neutral-700 dark:text-neutral-300;
 }
 
 .sofia {

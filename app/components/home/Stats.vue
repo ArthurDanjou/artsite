@@ -2,7 +2,7 @@
 import type { Stats } from '~~/types'
 
 const { locale, locales } = useI18n()
-const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
+const currentLocale = computed(() => locales.find(l => l.code === locale.value))
 
 const { data: stats } = await useFetch<Stats>('/api/stats')
 const { t } = useI18n({
