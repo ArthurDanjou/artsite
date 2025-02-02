@@ -49,7 +49,7 @@ function updateTag(payload: number | string) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" color="neutral" @update:model-value="updateTag">
+    <UTabs :items="tags" color="neutral" size="md" variant="pill" @update:model-value="updateTag">
       <template #default="{ item }">
         <span class="truncate">{{ t(item.translation) }}</span>
       </template>
