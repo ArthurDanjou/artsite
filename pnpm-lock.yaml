@@ -69,6 +69,9 @@ importers:
       '@vueuse/core':
         specifier: ^12.5.0
         version: 12.5.0(typescript@5.7.3)
+      '@vueuse/math':
+        specifier: ^12.5.0
+        version: 12.5.0(typescript@5.7.3)
       '@vueuse/nuxt':
         specifier: ^12.5.0
         version: 12.5.0(magicast@0.3.5)(nuxt@3.15.4(@libsql/client@0.5.6(encoding@0.1.13))(@parcel/watcher@2.4.1)(@types/node@22.12.0)(better-sqlite3@11.8.1)(db0@0.2.3(@libsql/client@0.5.6(encoding@0.1.13))(better-sqlite3@11.8.1)(drizzle-orm@0.33.0(@cloudflare/workers-types@4.20250124.3)(@libsql/client@0.5.6(encoding@0.1.13))(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(pg@8.13.1)))(drizzle-orm@0.33.0(@cloudflare/workers-types@4.20250124.3)(@libsql/client@0.5.6(encoding@0.1.13))(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(pg@8.13.1))(encoding@0.1.13)(eslint@9.19.0(jiti@2.4.2))(ioredis@5.4.1)(lightningcss@1.29.1)(magicast@0.3.5)(meow@9.0.0)(optionator@0.9.4)(rollup@4.32.1)(sass@1.77.6)(terser@5.31.6)(typescript@5.7.3)(vite@6.0.11(@types/node@22.12.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.6)(terser@5.31.6)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(yaml@2.7.0))(rollup@4.32.1)(typescript@5.7.3)
@@ -2239,6 +2242,9 @@ packages:
         optional: true
       universal-cookie:
         optional: true
+
+  '@vueuse/math@12.5.0':
+    resolution: {integrity: sha512-7Mtq4ascSwNk8GVdHywAhMkjxR77+BJUxsjygTI5CwnwnRsTVC5w04QTL9AKfC7ivVua2+Vf2BgP8TR2Xmy4wg==}
 
   '@vueuse/metadata@10.11.1':
     resolution: {integrity: sha512-IGa5FXd003Ug1qAZmyE8wF3sJ81xGLSqTqtQ6jaVfkeZ4i5kS2mwQF61yhVqojRnenVew5PldLyRgvdl4YYuSw==}
@@ -9345,6 +9351,13 @@ snapshots:
       change-case: 5.4.4
       focus-trap: 7.5.4
       fuse.js: 7.0.0
+    transitivePeerDependencies:
+      - typescript
+
+  '@vueuse/math@12.5.0(typescript@5.7.3)':
+    dependencies:
+      '@vueuse/shared': 12.5.0(typescript@5.7.3)
+      vue: 3.5.13(typescript@5.7.3)
     transitivePeerDependencies:
       - typescript
 
