@@ -9,7 +9,9 @@ const { t } = useI18n({
   useScope: 'local',
 })
 
-const formatDate = (date: Date, format: string) => useDateFormat(date, format, { locales: currentLocale.value?.code ?? 'en' }).value
+const time = useTimeAgo(new Date(stats.value!.coding.data.range.start)).value.split(' ')[0]
+const date = useDateFormat(new Date(stats.value!.coding.data.range.start), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
+const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_including_other_language / 3600, 0, { math: 'ceil' })
 </script>
 
 <template>
@@ -20,18 +22,18 @@ const formatDate = (date: Date, format: string) => useDateFormat(date, format, {
       tag="p"
     >
       <template #time>
-        {{ useTimeAgo(new Date(stats.coding.data.range.start)).value.split(' ')[0] }}
+        {{ time }}
       </template>
       <template #date>
         <HoverText
           :hover="t('tooltip.date')"
-          :text="formatDate(new Date(stats.coding.data.range.start), 'DD MMMM YYYY')"
+          :text="date"
         />
       </template>
       <template #hours>
         <HoverText
           :hover="t('tooltip.hours')"
-          :text="usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0).value"
+          :text="hours"
         />
       </template>
       <template #editors>
