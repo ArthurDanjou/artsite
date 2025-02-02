@@ -49,7 +49,7 @@ export const IDEs = [
 export interface Tag {
   label: string
   icon: string
-  color: BadgeColor
+  color: string
   title?: string
   translation: string
 }
