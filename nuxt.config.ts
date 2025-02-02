@@ -36,7 +36,6 @@ export default defineNuxtConfig({
   content: {
     preview: {
       api: 'https://api.nuxt.studio',
-      dev: true,
     },
     build: {
       markdown: {
@@ -120,7 +119,9 @@ export default defineNuxtConfig({
 
   // Nuxt Icon
   icon: {
-    serverBundle: 'remote',
+    serverBundle: {
+      collections: ['twemoji', 'ph', 'logos', 'vscode-icons'],
+    },
     clientBundle: {
       scan: true,
     },
