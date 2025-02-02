@@ -38,9 +38,6 @@ importers:
       nuxt:
         specifier: ^3.15.3
         version: 3.15.3(@libsql/client@0.5.6(encoding@0.1.13))(@parcel/watcher@2.4.1)(@types/node@22.12.0)(better-sqlite3@11.8.1)(db0@0.2.3(@libsql/client@0.5.6(encoding@0.1.13))(better-sqlite3@11.8.1)(drizzle-orm@0.33.0(@cloudflare/workers-types@4.20250124.3)(@libsql/client@0.5.6(encoding@0.1.13))(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(pg@8.13.1)))(drizzle-orm@0.33.0(@cloudflare/workers-types@4.20250124.3)(@libsql/client@0.5.6(encoding@0.1.13))(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(pg@8.13.1))(encoding@0.1.13)(eslint@9.19.0(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(meow@9.0.0)(optionator@0.9.4)(rollup@4.32.1)(sass@1.77.6)(terser@5.31.6)(typescript@5.7.3)(vite@6.0.11(@types/node@22.12.0)(jiti@2.4.2)(sass@1.77.6)(terser@5.31.6)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(yaml@2.7.0)
-      nuxt-visitors:
-        specifier: ^1.1.2
-        version: 1.1.2(magicast@0.3.5)(rollup@4.32.1)
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1
@@ -4699,9 +4696,6 @@ packages:
   nuxt-component-meta@0.10.0:
     resolution: {integrity: sha512-iq7hbSnfp4Ff/PTMYBF8pYabTQuF3u7HVN66Kb3hOnrnaPEdXEn/q6HkAn5V8UjOVSgXYpvycM0wSnwyADYNVA==}
     hasBin: true
-
-  nuxt-visitors@1.1.2:
-    resolution: {integrity: sha512-gUSHTNhH0XDwo5/Op/+MrZe/inrLN++nuwLlMgwgciZmCQVrIbj8RXmtGAncVmeLKQim/n7gZlKWJbFASCq/rA==}
 
   nuxt@3.15.3:
     resolution: {integrity: sha512-96D5vPMeqIxceIMvWms3a75Usi63zan/BGJvseXJqYGoi08fDBBql1lFWEa9rQb8QiRevfcmJQ9LiEj3jVjnkg==}
@@ -12276,14 +12270,6 @@ snapshots:
       typescript: 5.7.3
       ufo: 1.5.4
       vue-component-meta: 2.2.0(typescript@5.7.3)
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
-
-  nuxt-visitors@1.1.2(magicast@0.3.5)(rollup@4.32.1):
-    dependencies:
-      '@nuxt/kit': 3.15.2(magicast@0.3.5)(rollup@4.32.1)
     transitivePeerDependencies:
       - magicast
       - rollup
