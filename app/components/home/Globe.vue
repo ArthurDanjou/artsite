@@ -31,11 +31,11 @@ const DEFAULT_CONFIG: COBEOptions = {
   dark: 0,
   diffuse: 0.4,
   mapSamples: 20000,
-  mapBrightness: 1,
-  baseColor: [0.8, 0.8, 0.8],
+  mapBrightness: 1.7,
+  baseColor: [0.5, 0.5, 0.5],
   opacity: 0.7,
   markerColor: [160 / 255, 160 / 255, 160 / 255],
-  glowColor: [1, 1, 1],
+  glowColor: [0.4, 0.4, 0.4],
   markers: [],
 }
 
