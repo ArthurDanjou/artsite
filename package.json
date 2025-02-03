@@ -14,7 +14,7 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
-    "@nuxt/content": "3.0.1",
+    "@nuxt/content": "3.1.0",
     "@nuxt/image": "^1.9.0",
     "@nuxt/ui": "3.0.0-alpha.12",
     "@nuxthub/core": "^0.8.15",
