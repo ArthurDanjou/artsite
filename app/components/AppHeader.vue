@@ -120,21 +120,20 @@ const socialsList = [
         />
       </UTooltip>
       <USeparator orientation="vertical" class="h-6" />
-
-      <UTooltip
-        :kbds="['C']"
-        :text="t('contact.button')"
-        :delay-duration="4"
-        class="cursor-pointer"
+      <UDropdownMenu
+        v-model:open="openContactDrawer"
+        :items="socialsList"
+        :content="{
+          align: 'center',
+          side: 'bottom',
+          sideOffset: 8,
+        }"
       >
-        <UDropdownMenu
-          v-model:open="openContactDrawer"
-          :items="socialsList"
-          :content="{
-            align: 'center',
-            side: 'bottom',
-            sideOffset: 8,
-          }"
+        <UTooltip
+          :kbds="['C']"
+          :text="t('contact.button')"
+          :delay-duration="4"
+          class="cursor-pointer"
         >
           <UButton
             icon="i-ph-mailbox-duotone"
@@ -143,8 +142,8 @@ const socialsList = [
             variant="ghost"
             @click="openContactDrawer = true"
           />
-        </UDropdownMenu>
-      </UTooltip>
+        </UTooltip>
+      </UDropdownMenu>
       <USeparator orientation="vertical" class="h-6" />
       <ClientOnly>
         <UTooltip
@@ -166,6 +165,7 @@ const socialsList = [
           :kbds="['L']"
           :text="t('language')"
           class="cursor-pointer"
+          :delay-duration="4"
           :content="{
             align: 'center',
             side: 'right',
