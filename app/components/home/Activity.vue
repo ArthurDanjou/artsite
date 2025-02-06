@@ -84,7 +84,7 @@ const { t } = useI18n({
           <strong>{{ getActivity.project }}</strong>
         </template>
         <template #state>
-          {{ getActivity.state }}
+          <i>{{ getActivity.state }}</i>
         </template>
         <template #editor>
           <span class="space-x-1">
