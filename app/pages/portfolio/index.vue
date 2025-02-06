@@ -10,28 +10,27 @@ useSeoMeta({
   description: t('description'),
 })
 
-const tagFilter = ref<string | undefined>(undefined)
+const tagFilter = ref<string[]>([])
 
-const { data: writings, refresh } = await useAsyncData('all-portfolio', () => queryCollection('portfolio')
-  .order('publishedAt', 'DESC')
-  .where('tags', 'LIKE', tagFilter.value ? `%${tagFilter.value}%` : '%')
-  .all())
+const { data: writings, refresh } = await useAsyncData('all-portfolio', async () => {
+  const writings = await queryCollection('portfolio')
+    .order('publishedAt', 'DESC')
+    .all()
+  return writings.filter((writing) => {
+    if (tagFilter.value.length === 0)
+      return true
+    return writing.tags.some(tag => tagFilter.value.includes(tag.toLowerCase()))
+  })
+})
 
 watch(tagFilter, async () => await refresh())
 
-const tags: Array<{ label: string, icon: string } & Tag> = [
-  {
-    label: 'All',
-    icon: 'i-ph-books-duotone',
-    color: 'black',
-    translation: 'tags.all',
-  },
-  ...TAGS.filter(tag => tag.title).sort((a, b) => a.label.localeCompare(b.label)),
+const tags: Array<Tag> = [
+  ...TAGS.sort((a, b) => a.label.localeCompare(b.label)),
 ]
 
-function updateTag(payload: number | string) {
-  const tag = tags[Number(payload)]
-  tagFilter.value = tag?.label.toLowerCase() === 'all' ? undefined : tag?.label.toLowerCase()
+function updateTag(payload: Tag[]) {
+  tagFilter.value = payload.map(tag => tag.label.toLowerCase())
 }
 </script>
 
@@ -49,11 +48,17 @@ function updateTag(payload: number | string) {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <UTabs :items="tags" color="neutral" size="md" variant="pill" @update:model-value="updateTag">
-      <template #default="{ item }">
-        <span class="truncate">{{ t(item.translation) }}</span>
-      </template>
-    </UTabs>
+    <div class="flex justify-end sticky top-4 z-50">
+      <USelectMenu
+        :placeholder="t('tags')"
+        :items="tags"
+        multiple
+        color="neutral"
+        :highlight-on-hover="true"
+        class="w-full md:w-1/3"
+        @update:model-value="updateTag"
+      />
+    </div>
     <ul class="grid grid-cols-1 gap-4">
       <NuxtLink
         v-for="(writing, id) in writings"
@@ -113,17 +118,7 @@ function updateTag(payload: number | string) {
       "title": "Translations alert!",
       "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
     },
-    "tags": {
-      "article": "Articles",
-      "all": "Library",
-      "project": "Projects",
-      "r": "R",
-      "python": "Python",
-      "data": "Data",
-      "ai": "AI",
-      "maths": "Maths",
-      "web": "Web"
-    }
+    "tags": "Select tags to filter"
   },
   "fr": {
     "title": "Écrits sur ma vie, le développement, mes projets et mes passions.",
@@ -132,17 +127,7 @@ function updateTag(payload: number | string) {
       "title": "Attentions aux traductions!",
       "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
     },
-    "tags": {
-      "article": "Articles",
-      "all": "Bibliothèque",
-      "project": "Projets",
-      "r": "R",
-      "python": "Python",
-      "data": "Data",
-      "ai": "AI",
-      "maths": "Maths",
-      "web": "Web"
-    }
+    "tags": "Sélectionner des tags pour filtrer"
   },
   "es": {
     "title": "Escritos sobre mi vida, el desarrollo, mis proyectos y mis pasiones.",
@@ -151,17 +136,7 @@ function updateTag(payload: number | string) {
       "title": "Cuidado con las traducciones !",
       "description": "Por problema de tiempo, los artículos están solo disponibles en ingles. Gracias por vuestra comprensión."
     },
-    "tags": {
-      "article": "Artículos",
-      "all": "Biblioteca",
-      "project": "Proyectos",
-      "r": "R",
-      "python": "Python",
-      "data": "Datos",
-      "ai": "IA",
-      "maths": "Mates",
-      "web": "Web"
-    }
+    "tags": "Seleccionar etiquetas para filtrar"
   }
 }
 </i18n>

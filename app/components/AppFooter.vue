@@ -1,26 +1,5 @@
 <script setup lang="ts">
-const socials = [
-  {
-    icon: 'x-logo-duotone',
-    label: 'Twitter',
-    link: 'https://twitter.com/ArthurDanj',
-  },
-  {
-    icon: 'github-logo-duotone',
-    label: 'GitHub',
-    link: 'https://github.com/ArthurDanjou',
-  },
-  {
-    icon: 'linkedin-logo-duotone',
-    label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/arthurdanjou/',
-  },
-  {
-    icon: 'discord-logo-duotone',
-    label: 'Discord',
-    link: 'https://discordapp.com/users/179635349100691456',
-  },
-]
+import { socials } from '~~/types'
 
 const { t } = useI18n({
   useScope: 'local',
@@ -43,8 +22,8 @@ const { t } = useI18n({
           <HomeLink
             v-for="social in socials.sort((a, b) => a.label.localeCompare(b.label))"
             :key="social.label"
-            :href="social.link"
-            :icon="`i-ph:${social.icon}`"
+            :to="social.to"
+            :icon="social.icon"
             :label="social.label"
             target="_blank"
           />

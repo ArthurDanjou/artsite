@@ -108,19 +108,19 @@ async function handleLike() {
         {{ post.description }}
       </p>
     </div>
-    <div class="flex justify-end sticky top-0">
+    <div v-if="post.body.toc && post.body.toc.links.length > 0" class="flex justify-end sticky top-0 z-50">
       <UPopover
         mode="hover"
         :content="{
-          align: 'start',
-          side: 'right',
+          align: 'end',
+          side: 'bottom',
           sideOffset: 8,
         }"
       >
         <UButton
           :label="t('toc')"
           color="neutral"
-          variant="soft"
+          variant="solid"
           class="mt-2"
         />
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { socials } from '~~/types'
+
 const colorMode = useColorMode()
 const isDark = ref(colorMode.value === 'dark')
 watch(isDark, () => {
@@ -40,7 +42,7 @@ const navs = [
       es: 'currículum',
     },
     icon: 'address-book-duotone',
-    to: '/Resume2024.pdf',
+    to: '/Resume2025.pdf',
     target: '_blank',
   },
 ]
@@ -81,6 +83,15 @@ defineShortcuts({
   c: () => openContactDrawer.value = !openContactDrawer.value,
   backspace: () => router.back(),
 })
+
+const socialsList = [
+  {
+    label: 'Email',
+    icon: 'i-ph:envelope-duotone',
+    to: 'mailto:arthurdanjou@outlook.fr',
+  },
+  ...socials,
+]
 </script>
 
 <template>
@@ -110,16 +121,20 @@ defineShortcuts({
       </UTooltip>
       <USeparator orientation="vertical" class="h-6" />
 
-      <UDrawer
-        v-model:open="openContactDrawer"
-        should-scale-background
-        :title="t('contact.title')"
+      <UTooltip
+        :kbds="['C']"
+        :text="t('contact.button')"
+        :delay-duration="4"
+        class="cursor-pointer"
       >
-        <UTooltip
-          :kbds="['C']"
-          :text="t('contact.button')"
-          :delay-duration="4"
-          class="cursor-pointer"
+        <UDropdownMenu
+          v-model:open="openContactDrawer"
+          :items="socialsList"
+          :content="{
+            align: 'center',
+            side: 'bottom',
+            sideOffset: 8,
+          }"
         >
           <UButton
             icon="i-ph-mailbox-duotone"
@@ -128,16 +143,8 @@ defineShortcuts({
             variant="ghost"
             @click="openContactDrawer = true"
           />
-        </UTooltip>
-
-        <template #body>
-          <div class="w-full flex my-16">
-            <div>
-              Hey
-            </div>
-          </div>
-        </template>
-      </UDrawer>
+        </UDropdownMenu>
+      </UTooltip>
       <USeparator orientation="vertical" class="h-6" />
       <ClientOnly>
         <UTooltip

@@ -7,16 +7,18 @@ const { t } = useI18n({
 <template>
   <div class="flex items-center gap-2 mt-4">
     <div class="flex items-center">
-      <UTooltip text="It's me 👋">
-        <div class="flex items-center w-12 h-12">
-          <UAvatar
-            alt="Avatar"
-            class="hover:rotate-[360deg] duration-500 transform-gpu"
-            size="md"
-            src="/favicon.png"
-          />
-        </div>
-      </UTooltip>
+      <ClientOnly>
+        <UTooltip text="It's me 👋">
+          <div class="flex items-center w-12 h-12">
+            <UAvatar
+              alt="Avatar"
+              class="hover:rotate-[360deg] duration-500 transform-gpu"
+              size="md"
+              src="/favicon.png"
+            />
+          </div>
+        </UTooltip>
+      </ClientOnly>
     </div>
     <p class="not-prose">
       {{ t('quote') }}
