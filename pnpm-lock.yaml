@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@iconify-json/logos':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@iconify-json/ph':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@iconify-json/vscode-icons':
+        specifier: ^1.2.11
+        version: 1.2.11
       '@nuxt/content':
         specifier: 3.1.0
         version: 3.1.0(@libsql/client@0.5.6(encoding@0.1.13))(drizzle-orm@0.33.0(@cloudflare/workers-types@4.20250124.3)(@libsql/client@0.5.6(encoding@0.1.13))(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(pg@8.13.1))(magicast@0.3.5)(rollup@4.32.1)(typescript@5.7.3)
@@ -1105,6 +1114,15 @@ packages:
   '@humanwhocodes/retry@0.4.1':
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/logos@1.2.4':
+    resolution: {integrity: sha512-XC4If5D/hbaZvUkTV8iaZuGlQCyG6CNOlaAaJaGa13V5QMYwYjgtKk3vPP8wz3wtTVNVEVk3LRx1fOJz+YnSMw==}
+
+  '@iconify-json/ph@1.2.2':
+    resolution: {integrity: sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw==}
+
+  '@iconify-json/vscode-icons@1.2.11':
+    resolution: {integrity: sha512-V0ldtWPUKe7ZB3CV/TjgDW1Gbz74AxjGPS2NBWDTSn/y25gTwFycI1YcrluDhuVSoQpDEIYmm3JQJkhtSefh7A==}
 
   '@iconify/collections@1.0.511':
     resolution: {integrity: sha512-Ilp9gg6HYu9oGZUCNGCEsblATFagC7AmvsUMi4mxfPbh48ygKQ4vIfzJetE9AAu2qwqaYt/dRQjTXvt5Ex8HwQ==}
@@ -7521,6 +7539,18 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
+  '@iconify-json/logos@1.2.4':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/ph@1.2.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/vscode-icons@1.2.11':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify/collections@1.0.511':
     dependencies:
       '@iconify/types': 2.0.0
@@ -11839,13 +11869,13 @@ snapshots:
 
   mdast-util-gfm@3.0.0:
     dependencies:
-      mdast-util-from-markdown: 2.0.1
+      mdast-util-from-markdown: 2.0.2
       mdast-util-gfm-autolink-literal: 2.0.1
       mdast-util-gfm-footnote: 2.0.0
       mdast-util-gfm-strikethrough: 2.0.0
       mdast-util-gfm-table: 2.0.0
       mdast-util-gfm-task-list-item: 2.0.0
-      mdast-util-to-markdown: 2.1.0
+      mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
 
@@ -12006,7 +12036,7 @@ snapshots:
       micromark-extension-gfm-tagfilter: 2.0.0
       micromark-extension-gfm-task-list-item: 2.1.0
       micromark-util-combine-extensions: 2.0.0
-      micromark-util-types: 2.0.0
+      micromark-util-types: 2.0.1
 
   micromark-extension-math@3.1.0:
     dependencies:

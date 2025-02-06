@@ -54,14 +54,14 @@ function updateTag(payload: number | string) {
         <span class="truncate">{{ t(item.translation) }}</span>
       </template>
     </UTabs>
-    <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <ul class="grid grid-cols-1 gap-4">
       <NuxtLink
         v-for="(writing, id) in writings"
         :key="id"
         :to="writing.path"
       >
         <li
-          class=" h-full border p-4 shadow-sm border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-600  duration-300"
+          class=" h-full border p-4 border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-600  duration-300"
         >
           <article class="space-y-2">
             <h1
@@ -165,3 +165,9 @@ function updateTag(payload: number | string) {
   }
 }
 </i18n>
+
+<style scoped>
+.tablist > button {
+  cursor: pointer !important;
+}
+</style>

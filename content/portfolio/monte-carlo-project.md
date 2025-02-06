@@ -1,7 +1,7 @@
 ---
 slug: monte-carlo-project
 title: Monte Carlo Methods Project
-description: ⚠️ Still in progress - A project to demonstrate the use of Monte Carlo methods in R.
+description: A project to demonstrate the use of Monte Carlo methods in R.
 publishedAt: 2024/11/24
 readingTime: 3
 tags:

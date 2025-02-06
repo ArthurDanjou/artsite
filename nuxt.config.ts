@@ -9,6 +9,10 @@ export default defineNuxtConfig({
         separator: '•',
       },
     },
+    rootAttrs: {
+      'vaul-drawer-wrapper': '',
+      'class': 'bg-[var(--ui-bg)]',
+    },
   },
 
   css: ['~/assets/css/main.css'],
@@ -35,7 +39,7 @@ export default defineNuxtConfig({
   // Nuxt Content
   content: {
     preview: {
-      api: 'https://api.nuxt.studio',
+      // todo: api: 'https://api.nuxt.studio',
     },
     build: {
       markdown: {
@@ -115,16 +119,6 @@ export default defineNuxtConfig({
       },
     ],
     defaultLocale: 'en',
-  },
-
-  // Nuxt Icon
-  icon: {
-    serverBundle: {
-      collections: ['twemoji', 'ph', 'logos', 'vscode-icons'],
-    },
-    clientBundle: {
-      scan: true,
-    },
   },
 
   // Nuxt Google Fonts

@@ -9,7 +9,6 @@ tags:
   - data
   - ai
   - python
-  - r
 ---
 
 [Python Data & ML](https://github.com/ArthurDanjou/Python-Data-Machine-Learning) is a repository dedicated to learning and practicing Python libraries for machine learning. It includes a variety of projects and exercises that cover the following topics.

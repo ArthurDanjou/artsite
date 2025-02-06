@@ -72,11 +72,13 @@ async function changeLocale(newLocale: string) {
   document.body.style.animation = ''
 }
 
-const open = ref(false)
+const openSelectMenu = ref(false)
+const openContactDrawer = ref(false)
 const router = useRouter()
 defineShortcuts({
   t: () => toggleTheme(),
-  l: () => open.value = !open.value,
+  l: () => openSelectMenu.value = !openSelectMenu.value,
+  c: () => openContactDrawer.value = !openContactDrawer.value,
   backspace: () => router.back(),
 })
 </script>
@@ -94,6 +96,7 @@ defineShortcuts({
         v-for="nav in navs"
         :key="nav.label.en"
         :text="nav.label[locale]"
+        :delay-duration="4"
       >
         <UButton
           :icon="`i-ph:${nav.icon}`"
@@ -102,26 +105,56 @@ defineShortcuts({
           :aria-label="nav.label"
           color="neutral"
           size="sm"
-          variant="outline"
+          variant="ghost"
         />
       </UTooltip>
+      <USeparator orientation="vertical" class="h-6" />
+
+      <UDrawer
+        v-model:open="openContactDrawer"
+        should-scale-background
+        :title="t('contact.title')"
+      >
+        <UTooltip
+          :kbds="['C']"
+          :text="t('contact.button')"
+          :delay-duration="4"
+          class="cursor-pointer"
+        >
+          <UButton
+            icon="i-ph-mailbox-duotone"
+            color="neutral"
+            size="sm"
+            variant="ghost"
+            @click="openContactDrawer = true"
+          />
+        </UTooltip>
+
+        <template #body>
+          <div>Hey</div>
+        </template>
+      </UDrawer>
+      <USeparator orientation="vertical" class="h-6" />
       <ClientOnly>
         <UTooltip
           :kbds="['T']"
           :text="t('theme')"
+          class="cursor-pointer"
+          :delay-duration="4"
         >
           <UButton
             :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
             color="neutral"
             aria-label="switch theme"
             size="sm"
-            variant="outline"
+            variant="ghost"
             @click="toggleTheme()"
           />
         </UTooltip>
         <UTooltip
           :kbds="['L']"
           :text="t('language')"
+          class="cursor-pointer"
           :content="{
             align: 'center',
             side: 'right',
@@ -130,13 +163,13 @@ defineShortcuts({
         >
           <USelect
             v-model="lang"
-            v-model:open="open"
+            v-model:open="openSelectMenu"
             :items="locales"
             size="sm"
             :leading-icon="currentLocale.icon"
             label-key="label"
             value-key="code"
-            variant="outline"
+            variant="soft"
             @update:model-value="changeLocale"
           />
         </UTooltip>
@@ -177,15 +210,27 @@ defineShortcuts({
 {
   "en": {
     "theme": "switch theme",
-    "language": "change language"
+    "language": "change language",
+    "contact": {
+      "button": "contact me",
+      "title": "Contact me"
+    }
   },
   "fr": {
     "theme": "changer de thème",
-    "language": "changer de langue"
+    "language": "changer de langue",
+    "contact": {
+      "button": "me contacter",
+      "title": "Me contacter"
+    }
   },
   "es": {
     "theme": "cambiar tema",
-    "language": "cambiar idioma"
+    "language": "cambiar idioma",
+    "contact": {
+       "button": "contactame",
+       "title": "Contactame"
+     }
   }
 }
 </i18n>
