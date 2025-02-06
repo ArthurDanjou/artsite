@@ -15,5 +15,5 @@ The project was done as part of the course `Generalised Linear Model` at the Par
 
 You can find the code here: [GLM Bikes Code](https://github.com/ArthurDanjou/Studies/blob/master/M1/General%20Linear%20Models/Projet/GLM%20Code%20-%20DANJOU%20%26%20DUROUSSEAU.rmd)
 
-<iframe src="/portfolio/bikes-glm/GLM Final report.pdf" width="100%" height="1000px">
+<iframe src="/portfolio/bikes-glm/Report.pdf" width="100%" height="1000px">
 </iframe>
