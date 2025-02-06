@@ -104,13 +104,62 @@ async function handleLike() {
           <p>{{ post.readingTime }}min long</p>
         </div>
       </div>
-      <p class="mt-4 text-base">
+      <p class="my-4 text-base">
         {{ post.description }}
       </p>
     </div>
+    <div class="flex justify-end sticky top-0">
+      <UPopover
+        mode="hover"
+        :content="{
+          align: 'start',
+          side: 'right',
+          sideOffset: 8,
+        }"
+      >
+        <UButton
+          :label="t('toc')"
+          color="neutral"
+          variant="soft"
+          class="mt-2"
+        />
+
+        <template #content>
+          <div class="text-neutral-500 p-2">
+            <div
+              v-for="link in post!.body!.toc!.links"
+              :key="link.id"
+              class="inline"
+            >
+              <UButton
+                size="lg"
+                :label="link.text"
+                :to="`#${link.id}`"
+                variant="link"
+                color="neutral"
+                :block="true"
+                class="flex justify-start items-start"
+              />
+              <ol class="flex flex-col ml-2 list-decimal list-inside">
+                <UButton
+                  v-for="child in link.children" :key="child.id"
+                  size="sm"
+                  :label="child.text"
+                  :to="`#${child.id}`"
+                  variant="link"
+                  color="neutral"
+                  :block="true"
+                  class="px-4 flex justify-start items-start"
+                />
+              </ol>
+            </div>
+          </div>
+        </template>
+      </UPopover>
+    </div>
     <div
       v-if="post.cover"
-      class="w-full rounded-md my-8"
+      class="w-full rounded-md mb-8"
     >
       <NuxtImg
         :src="`/portfolio/${post.cover}`"
@@ -118,7 +167,7 @@ async function handleLike() {
       />
     </div>
     <USeparator
-      class="mt-8"
+      class="mt-4"
       icon="i-ph-pencil-line-duotone"
     />
     <article class="mt-8">
@@ -214,7 +263,8 @@ async function handleLike() {
       "copy": "Copy link"
     },
     "top": "Go to top",
-    "back": "Go back"
+    "back": "Go back",
+    "toc": "Table of contents"
   },
   "fr": {
     "likes": {
@@ -236,7 +286,8 @@ async function handleLike() {
       "copy": "Copier le lien"
     },
     "top": "Remonter en haut",
-    "back": "Retourner en arrière"
+    "back": "Retourner en arrière",
+    "toc": "Table des matières"
   },
   "es": {
     "likes": {
@@ -258,7 +309,8 @@ async function handleLike() {
       "copy": "Copiar link"
     },
     "top": "Ir arribaarr",
-    "back": "Volver atrás"
+    "back": "Volver atrás",
+    "toc": "Tabla de contenidos"
   }
 }
 </i18n>
