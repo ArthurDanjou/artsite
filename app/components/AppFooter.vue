@@ -22,7 +22,7 @@ const { t } = useI18n({
           <HomeLink
             v-for="social in socials.sort((a, b) => a.label.localeCompare(b.label))"
             :key="social.label"
-            :to="social.to"
+            :href="social.to"
             :icon="social.icon"
             :label="social.label"
             target="_blank"

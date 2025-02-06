@@ -112,7 +112,7 @@ const socialsList = [
         <UButton
           :icon="`i-ph:${nav.icon}`"
           :target="nav.target ? nav.target : '_self'"
-          :to="nav.to"
+          :href="nav.to"
           :aria-label="nav.label"
           color="neutral"
           size="sm"
