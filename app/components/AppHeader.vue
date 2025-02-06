@@ -131,7 +131,11 @@ defineShortcuts({
         </UTooltip>
 
         <template #body>
-          <div>Hey</div>
+          <div class="w-full flex my-16">
+            <div>
+              Hey
+            </div>
+          </div>
         </template>
       </UDrawer>
       <USeparator orientation="vertical" class="h-6" />
