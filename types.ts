@@ -44,6 +44,7 @@ export const IDEs = [
   { name: 'Visual Studio Code', icon: 'visual-studio-code' },
   { name: 'IntelliJ IDEA Ultimate', icon: 'intellij-idea' },
   { name: 'WebStorm', icon: 'webstorm' },
+  { name: 'PyCharm Professional', icon: 'pycharm' },
 ]
 
 export interface Tag {
