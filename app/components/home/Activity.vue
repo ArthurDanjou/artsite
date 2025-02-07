@@ -1,6 +1,7 @@
 <script lang="ts" setup>
+import type { UseTimeAgoMessages } from '@vueuse/core'
 import type { Activity } from '~~/types'
-import { IDEs } from '~~/types'
+import { activityMessages, IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
 useIntervalFn(async () => await refresh(), 5000)
@@ -9,14 +10,23 @@ const codingActivity = computed(() => activity.value!.data.activities.find(activ
 const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
+const isActive = computed(() => {
+  if (!codingActivity.value)
+    return
+
+  const { name, details, state } = codingActivity.value
+
+  return name === 'Visual Studio Code'
+    ? !details.includes('Idling')
+    : state.toLowerCase().includes('editing')
+})
+
 const getActivity = computed(() => {
   if (!codingActivity.value)
     return
 
   const { name, details, state, timestamps } = codingActivity.value
-  const isActive = name === 'Visual Studio Code'
-    ? !details.includes('Idling')
-    : state.toLowerCase().includes('editing')
+
   const project = details
     ? details
       .charAt(0)
@@ -27,26 +37,20 @@ const getActivity = computed(() => {
         .trim()
     : ''
   const stateWord = state.split(' ')[1]
-  const timeAgo = useTimeAgo(timestamps.start).value
+  const ago = useTimeAgo(timestamps.start, {
+    messages: activityMessages[locale.value] as UseTimeAgoMessages,
+  }).value
   const formatDate = (date: number, format: string) => useDateFormat(date, format, { locales: currentLocale.value?.code ?? 'en' }).value
 
   return {
-    active: isActive,
     name,
     project,
     state: stateWord,
     start: {
-      ago: locale.value === 'en'
-        ? timeAgo
-        : timeAgo
-            .replace('ago', '')
-            .replace('hours', 'heures')
-            .replace('minutes', 'minutes')
-            .replace('seconds', 'secondes')
-            .trim(),
+      ago,
       formated: {
         date: formatDate(timestamps.start, 'DD MMM YYYY'),
-        time: formatDate(timestamps.start, 'HH:mm:ss'),
+        time: formatDate(timestamps.start, 'HH:mm'),
       },
     },
   }
@@ -63,20 +67,20 @@ const { t } = useI18n({
       v-if="getActivity"
       class="flex items-start gap-2"
     >
-      <UTooltip :text="getActivity.active ? t('tooltip.online') : t('tooltip.idling')">
+      <UTooltip :text="isActive ? t('tooltip.online') : t('tooltip.idling')">
         <div class="relative flex h-3 w-3 mt-2">
           <div
-            v-if="getActivity.active"
+            v-if="isActive"
             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
           />
           <div
-            :class="getActivity.active ? 'bg-green-500' : 'bg-amber-500'"
+            :class="isActive ? 'bg-green-500' : 'bg-amber-500'"
             class="relative inline-flex rounded-full h-3 w-3"
           />
         </div>
       </UTooltip>
       <i18n-t
-        v-if="getActivity.active"
+        v-if="isActive"
         keypath="working"
         tag="div"
       >
@@ -89,7 +93,7 @@ const { t } = useI18n({
         <template #editor>
           <span class="space-x-1">
             <UIcon
-              :name="`i-logos:${IDEs.find(ide => ide.name === getActivity!.name)!.icon}`"
+              :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
               size="16"
             />
             <strong>{{ getActivity.name }}</strong></span>
@@ -109,11 +113,13 @@ const { t } = useI18n({
         class="space-x-1"
       >
         <template #editor>
-          <UIcon
-            :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
-            size="16"
-          />
-          <strong>{{ getActivity.name }}</strong>
+          <span class="space-x-1">
+            <UIcon
+              :name="IDEs.find(ide => ide.name === getActivity!.name)!.icon"
+              size="16"
+            />
+            <strong>{{ getActivity.name }}</strong>
+          </span>
         </template>
       </i18n-t>
     </div>
@@ -131,7 +137,6 @@ const { t } = useI18n({
   </ClientOnly>
 </template>
 
-//todo: translate
 <i18n lang="json">
 {
   "en": {
@@ -147,7 +152,7 @@ const { t } = useI18n({
   },
   "fr": {
     "offline": "Je suis actuellement hors ligne. Revenez plus tard pour voir sur quoi je travaille.",
-    "working": "Je travaille actuellement sur {project}, éditant {state}, en utilisant {editor}. J'ai commencé il y a {start}, le {format}.",
+    "working": "Je travaille actuellement sur {project}, éditant {state}, en utilisant {editor}. J'ai commencé {start}, le {format}.",
     "idling": "Je suis en veille sur mon ordinateur avec {editor} en arrière-plan.",
     "tooltip": {
       "online": "Je suis connecté 👋",
@@ -158,7 +163,7 @@ const { t } = useI18n({
   },
   "es": {
     "offline": "Ahora mismo estoy desconectado. Vuelve más tarde para ver en lo que estoy trabajando.",
-    "working": "Estoy trabajando en {project}, editando {state}, y utilizando {editor}. He empezado hace {start}, el {format}.",
+    "working": "Estoy trabajando en {project}, editando {state}, y utilizando {editor}. He empezado {start}, el {format}.",
     "idling": "Estoy en reposo en mi ordenador con {editor} en segundo plano.",
     "tooltip": {
       "online": "Estoy conectado 👋",
