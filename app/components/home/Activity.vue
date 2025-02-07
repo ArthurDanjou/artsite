@@ -5,7 +5,14 @@ import { activityMessages, IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
 useIntervalFn(async () => await refresh(), 5000)
-const codingActivity = computed(() => activity.value!.data.activities.find(activity => IDEs.some(ide => ide.name === activity.name)))
+const codingActivity = computed(() => {
+  const activities = activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name))
+  if (activities.length > 1) {
+    const randomIndex = Math.floor(Math.random() * activities.length)
+    return activities[randomIndex]
+  }
+  return activities[0]
+})
 
 const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
