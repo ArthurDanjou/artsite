@@ -119,6 +119,19 @@ const socialsList = [
           variant="ghost"
         />
       </UTooltip>
+      <UTooltip
+        :delay-duration="4"
+        :text="t('status')"
+      >
+        <UButton
+          icon="i-ph-warning-duotone"
+          target="_blank"
+          href="https://status.arthurdanjou.fr"
+          color="neutral"
+          size="sm"
+          variant="ghost"
+        />
+      </UTooltip>
       <USeparator orientation="vertical" class="h-6" />
       <UDropdownMenu
         v-model:open="openContactDrawer"
@@ -222,6 +235,7 @@ const socialsList = [
   "en": {
     "theme": "switch theme",
     "language": "change language",
+    "status": "status page",
     "contact": {
       "button": "contact me",
       "title": "Contact me"
@@ -230,6 +244,7 @@ const socialsList = [
   "fr": {
     "theme": "changer de thème",
     "language": "changer de langue",
+    "status": "page de statut",
     "contact": {
       "button": "me contacter",
       "title": "Me contacter"
@@ -238,10 +253,11 @@ const socialsList = [
   "es": {
     "theme": "cambiar tema",
     "language": "cambiar idioma",
+    "status": "página de estado",
     "contact": {
-       "button": "contactame",
-       "title": "Contactame"
-     }
+      "button": "contactame",
+      "title": "Contactame"
+    }
   }
 }
 </i18n>
