@@ -11,7 +11,6 @@ useHead({
     <UContainer class="z-50 relative">
       <AppHeader />
       <NuxtPage class="mt-12" />
-
       <AppFooter />
     </UContainer>
   </UApp>
