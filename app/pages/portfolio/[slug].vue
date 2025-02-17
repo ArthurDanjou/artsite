@@ -110,7 +110,7 @@ async function handleLike() {
     </div>
     <div v-if="post.body.toc && post.body.toc.links.length > 0" class="flex justify-end sticky top-0 z-50">
       <UPopover
-        mode="hover"
+        mode="click"
         :content="{
           align: 'end',
           side: 'bottom',
