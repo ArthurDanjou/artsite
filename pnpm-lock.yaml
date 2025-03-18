@@ -23,6 +23,9 @@ importers:
       '@iconify-json/vscode-icons':
         specifier: ^1.2.16
         version: 1.2.16
+      '@intlify/message-compiler':
+        specifier: ^11.1.2
+        version: 11.1.2
       '@nuxt/content':
         specifier: 3.3.0
         version: 3.3.0(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1))(magicast@0.3.5)(rollup@4.36.0)(typescript@5.8.2)
@@ -50,6 +53,9 @@ importers:
       h3-zod:
         specifier: ^0.5.3
         version: 0.5.3(h3@1.15.1)(zod@3.24.2)
+      message-compiler.mjs:
+        specifier: link:@intlify/message-compiler/dist/message-compiler.mjs
+        version: link:@intlify/message-compiler/dist/message-compiler.mjs
       nuxt:
         specifier: ^3.16.0
         version: 3.16.0(@parcel/watcher@2.4.1)(@types/node@22.13.10)(better-sqlite3@11.8.1)(db0@0.3.1(better-sqlite3@11.8.1)(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1)))(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1))(encoding@0.1.13)(eslint@9.22.0(jiti@2.4.2))(ioredis@5.6.0)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.36.0)(sass@1.77.6)(terser@5.31.6)(typescript@5.8.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(sass@1.77.6)(terser@5.31.6)(yaml@2.7.0))(vue-tsc@2.2.8(typescript@5.8.2))(yaml@2.7.0)
@@ -1307,6 +1313,10 @@ packages:
 
   '@intlify/message-compiler@10.0.5':
     resolution: {integrity: sha512-6GT1BJ852gZ0gItNZN2krX5QAmea+cmdjMvsWohArAZ3GmHdnNANEcF9JjPXAMRtQ6Ux5E269ymamg/+WU6tQA==}
+    engines: {node: '>= 16'}
+
+  '@intlify/message-compiler@11.1.2':
+    resolution: {integrity: sha512-T/xbNDzi+Yv0Qn2Dfz2CWCAJiwNgU5d95EhhAEf4YmOgjCKktpfpiUSmLcBvK1CtLpPQ85AMMQk/2NCcXnNj1g==}
     engines: {node: '>= 16'}
 
   '@intlify/message-compiler@12.0.0-alpha.1':
@@ -8016,6 +8026,11 @@ snapshots:
   '@intlify/message-compiler@10.0.5':
     dependencies:
       '@intlify/shared': 10.0.5
+      source-map-js: 1.2.1
+
+  '@intlify/message-compiler@11.1.2':
+    dependencies:
+      '@intlify/shared': 11.1.2
       source-map-js: 1.2.1
 
   '@intlify/message-compiler@12.0.0-alpha.1':
