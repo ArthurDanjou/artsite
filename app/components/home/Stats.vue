@@ -18,7 +18,7 @@ const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_in
 <template>
   <ClientOnly>
     <i18n-t
-      v-if="stats && stats.coding"
+      v-if="stats && stats.coding && stats.editors && stats.os && stats.languages"
       keypath="stats"
       tag="p"
     >
