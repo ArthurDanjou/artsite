@@ -6,16 +6,54 @@ const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const { data: stats } = await useFetch<Stats>('/api/stats')
-console.log(stats.value)
 const { t } = useI18n({
   useScope: 'local',
 })
 
+const time = useTimeAgo(new Date(stats.value!.coding.data.range.start) ?? new Date()).value.split(' ')[0]
+const date = useDateFormat(new Date(stats.value!.coding.data.range.start ?? new Date()), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
+const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_including_other_language / 3600, 0)
 </script>
 
 <template>
   <ClientOnly>
     <div>{{ stats }}</div>
+    <div>{{ time }}</div>
+    <i18n-t
+      v-if="stats && stats.coding && stats.editors && stats.os && stats.languages && time && date && hours"
+      keypath="stats"
+      tag="p"
+    >
+      <template #time>
+        {{ time }}
+      </template>
+      <template #date>
+        <HoverText
+          :hover="t('tooltip.date')"
+          :text="date"
+        />
+      </template>
+      <template #hours>
+        <HoverText
+          :hover="t('tooltip.hours')"
+          :text="hours"
+        />
+      </template>
+      <template #editors>
+        {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(t('separator')) }}
+      </template>
+      <template
+        v-if="stats.os.data[0]"
+        #os
+      >
+        {{ stats.os.data[0].name }} ({{ stats.os.data[0].percent }}%)
+      </template>
+      <template #languages>
+        {{
+          stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(t('separator'))
+        }}
+      </template>
+    </i18n-t>
   </ClientOnly>
 </template>
 
