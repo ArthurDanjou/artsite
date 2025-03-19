@@ -17,8 +17,10 @@ const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_in
 
 <template>
   <ClientOnly>
-    <div>{{ stats.coding.data }}</div>
+    <div>{{ stats }}</div>
     <div>{{ time }}</div>
+    <div>{{ date }}</div>
+    <div>{{ hours }}</div>
     <i18n-t
       v-if="stats && stats.coding && stats.editors && stats.os && stats.languages && time && date && hours"
       keypath="stats"
