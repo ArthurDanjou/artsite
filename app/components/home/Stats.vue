@@ -28,13 +28,13 @@ const hours = usePrecision(stats.value!.coding?.data.grand_total.total_seconds_i
       <template #date>
         <HoverText
           :hover="t('tooltip.date')"
-          <!-- :text="date" -->
+          text="date"
         />
       </template>
       <template #hours>
         <HoverText
           :hover="t('tooltip.hours')"
-          <!-- :text="hours" -->
+          text="hours"
         />
       </template>
       <template #editors>
