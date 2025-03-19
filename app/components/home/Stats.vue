@@ -12,7 +12,7 @@ const { t } = useI18n({
 
 const time = useTimeAgo(new Date(stats.value!.coding?.data.range.start) ?? new Date()).value.split(' ')[0]
 const date = useDateFormat(new Date(stats.value!.coding?.data.range.start ?? new Date()), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
-const hours = usePrecision(stats.value!.coding?.data.grand_total.total_seconds_including_other_language / 3600 ?? 0, 0)
+const hours = usePrecision(stats.value!.coding?.data.grand_total.total_seconds_including_other_language / 3600, 0)
 </script>
 
 <template>
@@ -23,18 +23,18 @@ const hours = usePrecision(stats.value!.coding?.data.grand_total.total_seconds_i
       tag="p"
     >
       <template #time>
-        {{ time }}
+        time<!-- {{ time }} -->
       </template>
       <template #date>
         <HoverText
           :hover="t('tooltip.date')"
-          :text="date"
+          <!-- :text="date" -->
         />
       </template>
       <template #hours>
         <HoverText
           :hover="t('tooltip.hours')"
-          :text="hours"
+          <!-- :text="hours" -->
         />
       </template>
       <template #editors>
