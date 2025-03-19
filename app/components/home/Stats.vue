@@ -6,6 +6,7 @@ const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const { data: stats } = await useFetch<Stats>('/api/stats')
+console.log(stats.value)
 const { t } = useI18n({
   useScope: 'local',
 })
