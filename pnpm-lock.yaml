@@ -56,6 +56,9 @@ importers:
       nuxt:
         specifier: ^3.16.0
         version: 3.16.0(@parcel/watcher@2.4.1)(@types/node@22.13.10)(better-sqlite3@11.8.1)(db0@0.3.1(better-sqlite3@11.8.1)(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1)))(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1))(encoding@0.1.13)(eslint@9.22.0(jiti@2.4.2))(ioredis@5.6.0)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.36.0)(sass@1.77.6)(terser@5.31.6)(typescript@5.8.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(sass@1.77.6)(terser@5.31.6)(yaml@2.7.0))(vue-tsc@2.2.8(typescript@5.8.2))(yaml@2.7.0)
+      nuxt-umami:
+        specifier: 3.2.0
+        version: 3.2.0(magicast@0.3.5)
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1
@@ -5087,6 +5090,9 @@ packages:
     resolution: {integrity: sha512-iq7hbSnfp4Ff/PTMYBF8pYabTQuF3u7HVN66Kb3hOnrnaPEdXEn/q6HkAn5V8UjOVSgXYpvycM0wSnwyADYNVA==}
     hasBin: true
 
+  nuxt-umami@3.2.0:
+    resolution: {integrity: sha512-fqX5tX+2P/5J0fES3C7ykJP6H4bcP8fJzYZP7UcIW0ibwuLRbBzTRDdCd7gEkaXB0nABpSfKlCVInhMcIs07GA==}
+
   nuxt@3.16.0:
     resolution: {integrity: sha512-4j2tuHo+kcComQ1WrCD+i1w3UFOHrcnNH30cwiEY/WZZlBZOlC6DtUm6aBjhfpBFaMYsF4PbyKsNW+7FHwckHA==}
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0.0}
@@ -5735,6 +5741,9 @@ packages:
 
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
+
+  request-ip@3.3.0:
+    resolution: {integrity: sha512-cA6Xh6e0fDBBBwH77SLJaJPBmD3nWVAcF9/XAcsrIHdjhFzFiB5aNQFytdjCGPezU3ROwrR11IddKAM08vohxA==}
 
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
@@ -12907,6 +12916,13 @@ snapshots:
       - rollup
       - supports-color
 
+  nuxt-umami@3.2.0(magicast@0.3.5):
+    dependencies:
+      '@nuxt/kit': 3.16.0(magicast@0.3.5)
+      request-ip: 3.3.0
+    transitivePeerDependencies:
+      - magicast
+
   nuxt@3.16.0(@parcel/watcher@2.4.1)(@types/node@22.13.10)(better-sqlite3@11.8.1)(db0@0.3.1(better-sqlite3@11.8.1)(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1)))(drizzle-orm@0.40.1(@cloudflare/workers-types@4.20250317.0)(@opentelemetry/api@1.9.0)(better-sqlite3@11.8.1)(gel@2.0.1)(pg@8.13.1))(encoding@0.1.13)(eslint@9.22.0(jiti@2.4.2))(ioredis@5.6.0)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.36.0)(sass@1.77.6)(terser@5.31.6)(typescript@5.8.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(sass@1.77.6)(terser@5.31.6)(yaml@2.7.0))(vue-tsc@2.2.8(typescript@5.8.2))(yaml@2.7.0):
     dependencies:
       '@nuxt/cli': 3.23.0(magicast@0.3.5)
@@ -13821,6 +13837,8 @@ snapshots:
       '@types/mdast': 4.0.4
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
+
+  request-ip@3.3.0: {}
 
   require-directory@2.1.1: {}
 

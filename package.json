@@ -29,6 +29,7 @@
     "drizzle-orm": "^0.40.1",
     "h3-zod": "^0.5.3",
     "nuxt": "^3.16.0",
+    "nuxt-umami": "3.2.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "remark-parse": "^11.0.0",

@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/i18n',
+    'nuxt-umami',
   ],
 
   // Nuxt Hub
@@ -140,6 +141,10 @@ export default defineNuxtConfig({
     },
   },
 
+  // Nuxt Umami
+  umami: {
+  },
+
   // Nuxt Env
   runtimeConfig: {
     discord: {
@@ -153,6 +158,10 @@ export default defineNuxtConfig({
       editors: '',
       languages: '',
       os: '',
+    },
+    umami: {
+      websiteId: '',
+      host: '',
     },
     public: {
       i18n: {
