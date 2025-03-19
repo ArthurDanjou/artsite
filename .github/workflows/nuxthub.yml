@@ -34,7 +34,7 @@ jobs:
         run: pnpm build
         env:
           NUXT_UMAMI_HOST: ${{ vars.NUXT_UMAMI_HOST }}
-          NUXT_UMAMI_ID: ${{ secrets.NUXT_UMAMI_ID }}
+          NUXT_UMAMI_ID: ${{ vars.NUXT_UMAMI_ID }}
 
       - name: Deploy to NuxtHub 
         uses: nuxt-hub/action@v1
