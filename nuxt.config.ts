@@ -141,10 +141,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // Nuxt Umami
-  umami: {
-  },
-
   // Nuxt Env
   runtimeConfig: {
     discord: {
@@ -160,7 +156,7 @@ export default defineNuxtConfig({
       os: '',
     },
     umami: {
-      websiteId: '',
+      id: '',
       host: '',
     },
     public: {
@@ -168,6 +164,12 @@ export default defineNuxtConfig({
         baseUrl: '',
       },
     },
+  },
+
+  // Nuxt Umami
+  umami: {
+    id: process.env.NUXT_UMAMI_ID,
+    host: process.env.NUXT_UMAMI_HOST,
   },
 
   compatibilityDate: '2025-01-28',
