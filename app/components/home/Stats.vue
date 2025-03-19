@@ -10,9 +10,9 @@ const { t } = useI18n({
   useScope: 'local',
 })
 
-const time = useTimeAgo(new Date(stats.value!.coding.data.range.start) ?? new Date()).value.split(' ')[0]
-const date = useDateFormat(new Date(stats.value!.coding.data.range.start ?? new Date()), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
-const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_including_other_language / 3600 ?? 0, 0)
+const time = useTimeAgo(new Date(stats.value!.coding?.data.range.start) ?? new Date()).value.split(' ')[0]
+const date = useDateFormat(new Date(stats.value!.coding?.data.range.start ?? new Date()), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
+const hours = usePrecision(stats.value!.coding?.data.grand_total.total_seconds_including_other_language / 3600 ?? 0, 0)
 </script>
 
 <template>
