@@ -13,7 +13,7 @@ const { myLocation, locations } = useVisitors()
 <template>
   <main class="!max-w-none prose dark:prose-invert">
     <ContentRenderer v-if="page" :value="page" />
-    <!-- todo: fix <HomeStats /> -->
+    <HomeStats />
     <HomeActivity />
     <HomeQuote />
     <HomeCatchPhrase />

@@ -6,6 +6,7 @@ const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const { data: stats } = await useFetch<Stats>('/api/stats')
+console.log(stats.value)
 const { t } = useI18n({
   useScope: 'local',
 })
@@ -17,6 +18,7 @@ const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_in
 
 <template>
   <ClientOnly>
+    <div>{{ stats }}</div>
     <i18n-t
       v-if="stats && stats.coding && stats.editors && stats.os && stats.languages"
       keypath="stats"
