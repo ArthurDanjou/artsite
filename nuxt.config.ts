@@ -26,7 +26,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    'nuxt-umami',
   ],
 
   // Nuxt Hub
@@ -40,11 +39,12 @@ export default defineNuxtConfig({
   // Nuxt Content
   content: {
     preview: {
-      // todo: api: 'https://api.nuxt.studio',
+      // TODO: api: 'https://api.nuxt.studio',
     },
     build: {
       markdown: {
         highlight: {
+          langs: ['json', 'js', 'ts', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml', 'python', 'ts', 'javascript', 'r'],
           theme: 'github-dark',
         },
         remarkPlugins: {
@@ -164,12 +164,6 @@ export default defineNuxtConfig({
         baseUrl: '',
       },
     },
-  },
-
-  // Nuxt Umami
-  umami: {
-    id: process.env.NUXT_UMAMI_ID,
-    host: process.env.NUXT_UMAMI_HOST,
   },
 
   compatibilityDate: '2025-01-28',
