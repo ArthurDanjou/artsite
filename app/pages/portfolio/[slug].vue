@@ -56,6 +56,13 @@ async function handleLike() {
   await refresh()
   likeCookie.value = true
 }
+
+function scrollToSection(id: string) {
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <template>
@@ -134,24 +141,12 @@ async function handleLike() {
               <UButton
                 size="lg"
                 :label="link.text"
-                :to="`#${link.id}`"
                 variant="link"
                 color="neutral"
                 :block="true"
                 class="flex justify-start items-start"
+                @click="scrollToSection(link.id)"
               />
-              <ol class="flex flex-col ml-2 list-decimal list-inside">
-                <UButton
-                  v-for="child in link.children" :key="child.id"
-                  size="sm"
-                  :label="child.text"
-                  :to="`#${child.id}`"
-                  variant="link"
-                  color="neutral"
-                  :block="true"
-                  class="px-4 flex justify-start items-start"
-                />
-              </ol>
             </div>
           </div>
         </template>
@@ -236,8 +231,16 @@ async function handleLike() {
   @apply no-underline;
 }
 
+.prose img {
+  margin: 0;
+}
+
 .katex-html {
   display: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 </style>
 
