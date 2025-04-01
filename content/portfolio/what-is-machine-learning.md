@@ -10,15 +10,6 @@ tags:
   - maths
 ---
 
-::UAlert
----
-icon: i-ph-warning-duotone
-color: amber
-variant: soft
-title: The Latex format may be not well rendered in the article, please refresh the page if you encounter any issue.
----
-::
-
 ## Introduction
 
 Machine Learning (ML) is a key discipline in artificial intelligence (AI), enabling systems to learn from data to make predictions or discover patterns. It is the driving force behind many modern innovations, from personalised recommendations to autonomous vehicles.
@@ -45,7 +36,13 @@ To start, it is important to understand the three main categories of machine lea
 
 3. **Reinforcement Learning** This learning type involves an agent interacting with an environment. The agent learns by trial and error to maximize cumulative rewards, as seen in robotics and gaming.
 
-![ML Model Types.png](/portfolio/ML/types.png)
+::prose-img
+---
+src: /portfolio/ML/types.png
+label: ML Model Types
+caption: The different types of machine learning models
+---
+::
 
 With this overview of ML types, let’s now focus on supervised learning, the most widely used approach, and explore how to choose the right model.
 
@@ -81,7 +78,13 @@ A machine learning project generally follows these steps:
    - Making predictions on unseen data: `model.predict(X)`.
    - Comparing predictions ($$\hat{y}$$) with actual values ($$y$$).
 
-![Modelization in Prog.png](/portfolio/ML/model.png)
+::prose-img
+---
+src: /portfolio/ML/model.png
+label: Modelization in Progress
+caption: Modelization in Progress
+---
+::
 
 Evaluation is a crucial step to verify the performance of a model. For regression problems, the R² score is a key indicator.
 
@@ -89,14 +92,20 @@ Evaluation is a crucial step to verify the performance of a model. For regressio
 
 For regression problems, the **R² score** measures the proportion of the target’s variance explained by the model:
 
-$$R2 = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}}$$ where:
+$$R^2 = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}}$$ where:
 
 - $$\text{SS}_{\text{residual}}$$ : Sum of squared residuals between actual and predicted values.
 - $$\text{SS}_{\text{total}}$$ : Total sum of squares relative to the target’s mean.
 
 A $$R^2$$ close to 1 indicates a good fit.
 
-![R2 Score.png](/portfolio/ML/r2.png)
+::prose-img
+---
+src: /portfolio/ML/r2.png
+label: R² Score
+caption: R² Score
+---
+::
 
 With these concepts in mind, you are better equipped to understand and apply ML models in your projects.
 
