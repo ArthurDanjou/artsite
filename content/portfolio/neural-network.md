@@ -8,6 +8,7 @@ tags:
   - article
   - ai
   - maths
+  - python
 ---
 
 Neural networks are a class of machine learning algorithms inspired by the functioning of biological neurons. They are widely used in artificial intelligence for image recognition, natural language processing, time series forecasting, and many other fields. Thanks to their ability to model complex relationships in data, they have become one of the pillars of **deep learning**.
