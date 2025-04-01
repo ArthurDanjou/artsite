@@ -98,6 +98,9 @@ export default defineNuxtConfig({
 
   // Nuxt I18N
   i18n: {
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     strategy: 'no_prefix',
     locales: [
       {
