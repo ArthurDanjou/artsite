@@ -49,6 +49,11 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 - **Styling** → [Sass](https://sass-lang.com/) & [Tailwind CSS](https://tailwindcss.com/)
 - **Package Manager** → [pnpm](https://pnpm.io/)
 - **Internationalization** → [Nuxt i18n](https://i18n.nuxtjs.org/)
+- **Database ORM** → [Drizzle](https://orm.drizzle.team/)
+- **Composables** → [VueUse](https://vueuse.org/)
+- **Validation** → [Zod](https://zod.dev/)
+- **Globe Visualization** → [Cobe](https://github.com/shuding/cobe)
+- **Icons** → [Iconify](https://iconify.design/)
 
 ## 📂 Project Structure
 
