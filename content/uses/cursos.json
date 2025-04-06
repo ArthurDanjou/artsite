@@ -1,0 +1,9 @@
+{
+  "name": "Cursor",
+  "description": {
+    "en": "Built to make me extraordinarily productive, Cursor is the best way to code with AI. It's an excellent IDE for Python, JavaScript, SQL, and more. I heavily use the AI features to boost my productivity.",
+    "fr": "Construit pour me rendre extrêmement productif, Cursor est la meilleure façon de coder avec l'IA. C'est un excellent IDE pour Python, JavaScript, SQL et plus encore. J'utilise énormément les fonctionnalités IA pour augmenter ma productivité.",
+    "es": "Construido para hacerme extraordinariamente productivo, Cursor es la mejor manera de programar con IA. Es un excelente IDE para Python, JavaScript, SQL y más. Utilizo mucho las funciones de IA para aumentar mi productividad."
+  },
+  "category": "ide"
+}

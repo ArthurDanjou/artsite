@@ -14,6 +14,25 @@ const hardware = items.value!.filter(item => item.category === 'hardware')
 const software = items.value!.filter(item => item.category === 'software')
 const ide = items.value!.filter(item => item.category === 'ide')
 const stack = items.value!.filter(item => item.category === 'stack')
+
+const photos = [
+  {
+    src: '/uses/jetbrains.webp',
+    caption: 'caption.jetbrains',
+  },
+  {
+    src: '/uses/cursor.webp',
+    caption: 'caption.cursor',
+  },
+  {
+    src: '/uses/pycharm.webp',
+    caption: 'caption.pycharm',
+  },
+  {
+    src: '/uses/datagrip.webp',
+    caption: 'caption.datagrip',
+  },
+]
 </script>
 
 <template>
@@ -22,7 +41,7 @@ const stack = items.value!.filter(item => item.category === 'stack')
       :description="t('description')"
       :title="t('title')"
     />
-    <div class="mt-12 space-y-24">
+    <div class="mt-12 space-y-12">
       <UsesList :title="t('hardware')">
         <UsesItem
           v-for="(item, id) in hardware"
@@ -42,16 +61,25 @@ const stack = items.value!.filter(item => item.category === 'stack')
           :label="t('ide')"
           size="xs"
         />
-        <li class="relative">
-          <NuxtImg
-            alt="My IntelliJ IDE"
-            src="/uses/jetbrains.png"
-            class="mx-auto md:w-4/5"
-          />
-          <p class="mt-2 text-sm italic flex gap-2 justify-center items-center">
-            {{ t('intellij') }}
-          </p>
-        </li>
+        <div class="relative">
+          <UCarousel
+            v-slot="{ item }"
+            arrows
+            loop
+            class="rounded-lg"
+            :autoplay="{ delay: 4000 }"
+            :items="photos"
+            prev-icon="i-lucide-chevron-left"
+            next-icon="i-lucide-chevron-right"
+          >
+            <ProseImg
+              rounded
+              :src="item.src"
+              :label="t(item.caption)"
+              :caption="t(item.caption)"
+            />
+          </UCarousel>
+        </div>
         <UsesItem
           v-for="(item, id) in ide"
           :key="id"
@@ -78,7 +106,12 @@ const stack = items.value!.filter(item => item.category === 'stack')
     "software": "Software",
     "ide": "IDE & Font",
     "stack": "Stack",
-    "intellij": "My IntelliJ Idea Ultimate IDE"
+    "caption": {
+      "jetbrains": "My IntelliJ IDE",
+      "cursor": "My Cursor IDE",
+      "pycharm": "My PyCharm IDE",
+      "datagrip": "My DataGrip IDE"
+    }
   },
   "fr": {
     "title": "Mes usages",
@@ -87,7 +120,12 @@ const stack = items.value!.filter(item => item.category === 'stack')
     "software": "Logiciel",
     "ide": "IDE & Police",
     "stack": "Stack",
-    "intellij": "Mon IDE IntelliJ Idea Ultimate"
+    "caption": {
+      "jetbrains": "Mon IDE IntelliJ Idea Ultimate",
+      "cursor": "Mon IDE Cursor",
+      "pycharm": "Mon IDE PyCharm",
+      "datagrip": "Mon IDE DataGrip"
+    }
   },
   "es": {
     "title": "Mis aplicaciones.",
@@ -96,7 +134,12 @@ const stack = items.value!.filter(item => item.category === 'stack')
     "software": "Programas",
     "ide": "IDE y Fuente",
     "stack": "Stack",
-    "intellij": "Mi IDE IntelliJ Idea Ultimate"
+    "caption": {
+      "jetbrains": "Mi IDE IntelliJ Idea Ultimate",
+      "cursor": "Mi IDE Cursor",
+      "pycharm": "Mi IDE PyCharm",
+      "datagrip": "Mi IDE DataGrip"
+    }
   }
 }
 </i18n>

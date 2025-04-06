@@ -95,7 +95,7 @@ const getActivity = computed(() => {
         tag="div"
       >
         <template #state>
-          <strong>{{ getActivity.state.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') }}</strong>
+          <strong>{{ getActivity.state!.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') }}</strong>
         </template>
         <template #project>
           <i>{{ getActivity.project.replaceAll('Editing', '') }}</i>
