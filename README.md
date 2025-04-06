@@ -18,14 +18,9 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 - [Features](#-features)
 - [Tech Stack](#️-tech-stack)
 - [Project Structure](#-project-structure)
-- [Development](#-development)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-  - [Running Locally](#running-locally)
-  - [Deployment](#deployment)
 - [Adding Content](#-adding-content)
-  - [Portfolio Projects](#portfolio-projects)
+  - [Projects](#projects)
+  - [Writings](#writings)
   - [Uses Page](#uses-page)
 - [Integrations](#-integrations)
 - [License](#-license)
@@ -61,12 +56,14 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 ├── assets/              # Static assets like global styles
 ├── components/          # Vue components
 ├── content/             # Markdown content for the portfolio
-│   ├── portfolio/       # Portfolio projects
+│   ├── projects/        # Portfolio projects
+│   ├── writings/        # Writings
 │   └── uses/            # Uses page items
 ├── layouts/             # Page layouts
 ├── pages/               # Application pages
 ├── public/              # Public static files
-│   └── portfolio/       # Portfolio images
+│   ├── projects/        # Projects images
+│   └── writings/        # Writings images
 ├── server/              # Server API routes
 ├── utils/               # Utility functions
 ├── .env.example         # Example environment variables
@@ -75,88 +72,24 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 └── README.md            # Project documentation
 ```
 
-## 🚀 Development
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v16 or later)
-- [pnpm](https://pnpm.io/) (v7 or later)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/portfolio-2024.git
-cd portfolio-2024
-
-# Install dependencies (with hoisting for Nuxt 3 compatibility)
-pnpm i --shamefully-hoist
-```
-
-### Configuration
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-# WakaTime Integration
-NUXT_WAKATIME_USER_ID=your_wakatime_user_id
-NUXT_WAKATIME_CODING=your_wakatime_coding_endpoint
-NUXT_WAKATIME_LANGUAGES=your_wakatime_languages_endpoint
-NUXT_WAKATIME_OS=your_wakatime_os_endpoint
-NUXT_WAKATIME_EDITORS=your_wakatime_editors_endpoint
-
-# SEO
-NUXT_PUBLIC_SITE_URL=https://your-domain.com
-
-# Nuxt Hub Deployment
-NUXT_HUB_PROJECT_KEY=your_nuxt_hub_project_key
-
-# Discord Integration
-NUXT_DISCORD_ID=your_discord_app_id
-NUXT_DISCORD_TOKEN=your_discord_token
-NUXT_DISCORD_USER_ID=your_discord_user_id
-
-# Cloud Files
-NUXT_PUBLIC_CLOUD_RESUME=https://link-to-your-resume.pdf
-
-# Internationalization
-NUXT_PUBLIC_I18N_BASE_URL=https://your-domain.com
-```
-
-### Running Locally
-
-```bash
-# Start development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
-```
-
-### Deployment
-
-The portfolio is configured to deploy automatically using NuxtHub. Push changes to your main branch to trigger a deployment.
-
 ## 🍱 Adding Content
 
-### Portfolio Projects
+### Projects
 
-1. Create a new `.md` file in the `/content/portfolio/` directory
+1. Create a new `.md` file in the `/content/projects/` directory
 2. Follow the structure of existing projects:
 
 ```md
 ---
+---
+slug: project-slug
 title: Project Title
-description: Brief description of the project
-date: 2023-01-01
-img: /portfolio/project-image.png
-tags: [tag1, tag2, tag3]
-links:
-  website: https://project-url.com
-  github: https://github.com/user/repo
+description: A brief description of the project
+publishedAt: YYYY/MM/DD
+readingTime: 1
+cover: project-slug/cover.png
+tags:
+  - web
 ---
 
 ## Project content goes here
@@ -164,20 +97,48 @@ links:
 Detailed description and information about the project.
 ```
 
-3. Add related project images to `/public/portfolio/`
+3. Add related project images to `/public/projects/project-slug/`
+
+### Writings
+
+1. Create a new `.md` file in the `/content/writings/` directory
+2. Follow the structure of existing projects:
+
+```md
+---
+slug: article-slug
+title: The title of the article
+description: A brief description of the article
+readingTime: 1
+publishedAt: YYYY/MM/DD
+cover: article-slug/cover.png
+tags:
+  - tag1
+  - tag2
+  - tag3
+---
+
+## Writing content goes here
+
+Detailed description and information about the article.
+```
+
+3. Add related writing images to `/public/writings/article-slug/`
 
 ### Uses Page
 
 Add new items to the `/content/uses/` directory following the existing pattern:
 
-```md
----
-category: Category Name
-items:
-  - name: Item Name
-    description: Item description
-    link: https://item-url.com
----
+```json
+{
+  "name": "Name of the item",
+  "description": {
+    "en": "Item description in English",
+    "fr": "Item description in French",
+    "es": "Item description in Spanish"
+  },
+  "category": "Item category name"
+}
 ```
 
 ## 🔌 Integrations

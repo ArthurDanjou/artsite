@@ -5,12 +5,11 @@ description: An introduction to machine learning, exploring its main types, key 
 readingTime: 3
 publishedAt: 2024/11/26
 tags:
-  - article
   - ai
   - maths
 ---
 
-## Introduction
+## 1 - Introduction
 
 Machine Learning (ML) is a key discipline in artificial intelligence (AI), enabling systems to learn from data to make predictions or discover patterns. It is the driving force behind many modern innovations, from personalised recommendations to autonomous vehicles.
 
@@ -21,7 +20,7 @@ In this article, we will cover:
 3. **The typical ML workflow**, exploring the essential steps for developing a model.
 4. **Model evaluation through the R² score**, an important metric for regression problems.
 
-## The Types of Machine Learning
+## 2 - The Types of Machine Learning
 
 To start, it is important to understand the three main categories of machine learning:
 
@@ -46,7 +45,7 @@ caption: The different types of machine learning models
 
 With this overview of ML types, let’s now focus on supervised learning, the most widely used approach, and explore how to choose the right model.
 
-## Three Considerations for Choosing a Supervised Learning Model
+## 3 - Three Considerations for Choosing a Supervised Learning Model
 
 Selecting the right supervised learning model is critical and depends on several factors:
 
@@ -64,7 +63,7 @@ Selecting the right supervised learning model is critical and depends on several
 
 Once the model type is defined, the next step is to delve into the full workflow of developing an ML model.
 
-## The Typical Workflow in Machine Learning
+## 4 - The Typical Workflow in Machine Learning
 
 A machine learning project generally follows these steps:
 
@@ -88,7 +87,7 @@ caption: Modelization in Progress
 
 Evaluation is a crucial step to verify the performance of a model. For regression problems, the R² score is a key indicator.
 
-## Evaluating Models: The R² Score
+## 5 - Evaluating Models: The R² Score
 
 For regression problems, the **R² score** measures the proportion of the target’s variance explained by the model:
 
@@ -109,6 +108,6 @@ caption: R² Score
 
 With these concepts in mind, you are better equipped to understand and apply ML models in your projects.
 
-## Conclusion
+## 6 - Conclusion
 
 Machine learning is revolutionising how we solve complex problems using data. Supervised, unsupervised, and reinforcement learning approaches allow us to tackle a wide variety of use cases. In supervised learning, the model choice depends on the problem type, its complexity, and the appropriate algorithmic approach. Finally, a structured workflow and metrics like the R² score ensure the quality of predictions and analyses.

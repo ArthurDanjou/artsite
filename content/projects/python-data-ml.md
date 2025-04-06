@@ -1,11 +1,10 @@
 ---
 slug: python-data-ml
-title: Python Data & ML
-description: 🧠 A repository dedicated to learning and practicing Python libraries for machine learning.
+title: 🐍 Python Data & ML
+description: A repository dedicated to learning and practicing Python libraries for machine learning.
 publishedAt: 2024/11/01
 readingTime: 1
 tags:
-  - project
   - data
   - ai
   - python

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { data: post } = await useAsyncData(`portfolio/${route.params.slug}`, () =>
-  queryCollection('portfolio').path(`/portfolio/${route.params.slug}`).first())
+const { data: post } = await useAsyncData(`writings/${route.params.slug}`, () =>
+  queryCollection('writings').path(`/writings/${route.params.slug}`).first())
 
 const {
   data: postDB,
   refresh,
-} = await useAsyncData(`portfolio/${route.params.slug}/db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
+} = await useAsyncData(`writings/${route.params.slug}/db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
 const { locale } = useI18n()
 const { t } = useI18n({
@@ -22,7 +22,7 @@ function top() {
 }
 
 const { copy, copied } = useClipboard({
-  source: `https://arthurdanjou.fr/portfolio/${route.params.slug}`,
+  source: `https://arthurdanjou.fr/writings/${route.params.slug}`,
   copiedDuring: 4000,
 })
 
@@ -70,7 +70,7 @@ function scrollToSection(id: string) {
     <div class="flex">
       <NuxtLinkLocale
         class="flex items-center gap-2 mb-8 group text-sm hover:text-black dark:hover:text-white duration-300"
-        to="/portfolio"
+        to="/writings"
       >
         <UIcon
           class="group-hover:-translate-x-1 transform duration-300"
@@ -115,7 +115,7 @@ function scrollToSection(id: string) {
         {{ post.description }}
       </p>
     </div>
-    <div v-if="post.body.toc && post.body.toc.links.length > 0" class="flex justify-end sticky top-0 z-50">
+    <div v-if="post.body.toc && post.body.toc.links.length > 0" class="flex justify-end sticky top-0 z-50 !cursor-pointer">
       <UPopover
         mode="click"
         :content="{
@@ -128,11 +128,10 @@ function scrollToSection(id: string) {
           :label="t('toc')"
           color="neutral"
           variant="solid"
-          class="mt-2"
         />
 
         <template #content>
-          <div class="text-neutral-500 p-2">
+          <div class="text-neutral-500">
             <div
               v-for="link in post!.body!.toc!.links"
               :key="link.id"
@@ -156,9 +155,9 @@ function scrollToSection(id: string) {
       v-if="post.cover"
       class="w-full rounded-md mb-8"
     >
-      <NuxtImg
-        :src="`/portfolio/${post.cover}`"
-        alt="Writing cover"
+      <ProseImg
+        :src="`/writings/${post.cover}`"
+        label="Writing cover"
       />
     </div>
     <USeparator
@@ -185,7 +184,7 @@ function scrollToSection(id: string) {
         </i18n-t>
         <div class="flex gap-4 items-center flex-wrap">
           <UButton
-            :label="postDB?.likes > 1 ? `${postDB?.likes} likes` : `${postDB?.likes} like`"
+            :label="(postDB?.likes ?? 0) > 1 ? `${postDB?.likes ?? 0} likes` : `${postDB?.likes ?? 0} like`"
             :color="likeCookie ? 'red' : 'neutral'"
             icon="i-ph-heart-duotone"
             size="lg"

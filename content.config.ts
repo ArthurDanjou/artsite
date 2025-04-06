@@ -5,9 +5,21 @@ export const collections = {
     type: 'page',
     source: 'home/*.md',
   }),
-  portfolio: defineCollection({
+  projects: defineCollection({
     type: 'page',
-    source: 'portfolio/*.md',
+    source: 'projects/*.md',
+    schema: z.object({
+      slug: z.string(),
+      title: z.string(),
+      description: z.string(),
+      publishedAt: z.date(),
+      tags: z.array(z.string()),
+      cover: z.string(),
+    }),
+  }),
+  writings: defineCollection({
+    type: 'page',
+    source: 'writings/*.md',
     schema: z.object({
       slug: z.string(),
       title: z.string(),

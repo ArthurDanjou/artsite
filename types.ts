@@ -111,18 +111,6 @@ export interface Tag {
 
 export const TAGS: Array<Tag> = [
   {
-    label: 'Article',
-    icon: 'i-ph-pencil-line-duotone',
-    color: 'red',
-    translation: 'tags.article',
-  },
-  {
-    label: 'Project',
-    icon: 'i-ph-briefcase-duotone',
-    color: 'blue',
-    translation: 'tags.project',
-  },
-  {
     label: 'R',
     icon: 'i-vscode-icons-file-type-r',
     color: 'orange',

@@ -1,12 +1,11 @@
 ---
 slug: arthome
-title: ArtHome
-description: 🏡 Your personalised home page in your browser
+title: 🏡 ArtHome
+description: Your personalised home page in your browser
 publishedAt: 2024/09/04
 readingTime: 1
 cover: arthome/cover.png
 tags:
-  - project
   - web
 ---
 
