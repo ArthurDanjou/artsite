@@ -11,19 +11,19 @@ defineProps({
 })
 
 const colorVariants = {
-  gray: 'text-gray-500 decoration-gray-400',
-  red: 'text-red-500 decoration-red-400',
-  yellow: 'text-yellow-500 decoration-yellow-400',
-  green: 'text-green-500 decoration-green-400',
-  blue: 'text-blue-500 decoration-blue-400',
-  indigo: 'text-indigo-500 decoration-indigo-400',
-  purple: 'text-purple-500 decoration-purple-400',
-  pink: 'text-pink-500 decoration-pink-400',
-  sky: 'text-sky-500 decoration-sky-400',
-  zinc: 'text-zinc-500 decoration-zinc-400',
-  orange: 'text-orange-500 decoration-orange-400',
-  amber: 'text-amber-500 decoration-amber-400',
-  emerald: 'text-emerald-500 decoration-emerald-400',
+  gray: 'text-gray-500/60 decoration-gray-400/60',
+  red: 'text-red-500/60 decoration-red-400/60',
+  yellow: 'text-yellow-500/60 decoration-yellow-400/60',
+  green: 'text-green-500/60 decoration-green-400/60',
+  blue: 'text-blue-500/60 decoration-blue-400/60',
+  indigo: 'text-indigo-500/60 decoration-indigo-400/60',
+  purple: 'text-purple-500/60 decoration-purple-400/60',
+  pink: 'text-pink-500/60 decoration-pink-400/60',
+  sky: 'text-sky-500/60 decoration-sky-400/60',
+  zinc: 'text-zinc-500/60 decoration-zinc-400/60',
+  orange: 'text-orange-500/60 decoration-orange-400/60',
+  amber: 'text-amber-500/60 decoration-amber-400/60',
+  emerald: 'text-emerald-500/60 decoration-emerald-400/60',
 }
 </script>
 
@@ -34,7 +34,7 @@ const colorVariants = {
       :name="`i-logos:${icon}`"
     />
     <span
-      :class="colorVariants[color]"
+      :class="colorVariants[color as keyof typeof colorVariants]"
       class="sofia font-medium underline-offset-2 underline"
     >
       <slot />
