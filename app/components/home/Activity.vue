@@ -3,15 +3,22 @@ import type { UseTimeAgoMessages } from '@vueuse/core'
 import type { Activity } from '~~/types'
 import { activityMessages, IDEs } from '~~/types'
 
-const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
+const { t } = useI18n({
+  useScope: 'local',
+})
+
+const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch<Activity>('/api/activity'))
+
 useIntervalFn(async () => await refresh(), 5000)
 const codingActivity = computed(() => {
-  const activities = activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name))
-  if (activities.length > 1) {
-    const randomIndex = Math.floor(Math.random() * activities.length)
-    return activities[randomIndex]
-  }
-  return activities[0]
+  const activities = activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name)).map(activity => ({
+    ...activity,
+    name: activity.assets?.small_text === 'Cursor' ? 'Cursor' : activity.name,
+  }))
+
+  return activities.length > 1
+    ? activities[Math.floor(Math.random() * activities.length)]
+    : activities[0]
 })
 
 const { locale, locales } = useI18n()
@@ -23,7 +30,7 @@ const isActive = computed(() => {
 
   const { name, details, state } = codingActivity.value
 
-  return name === 'Visual Studio Code'
+  return name === 'Visual Studio Code' || name === 'Cursor'
     ? !details.includes('Idling')
     : state.toLowerCase().includes('editing')
 })
@@ -43,7 +50,7 @@ const getActivity = computed(() => {
         .replace('Workspace:', '')
         .trim()
     : ''
-  const stateWord = state.split(' ')[1]
+  const stateWord = state.split(' ')[1] || t('secret')
   const ago = useTimeAgo(timestamps.start, {
     messages: activityMessages[locale.value] as UseTimeAgoMessages,
   }).value
@@ -61,10 +68,6 @@ const getActivity = computed(() => {
       },
     },
   }
-})
-
-const { t } = useI18n({
-  useScope: 'local',
 })
 </script>
 
@@ -91,11 +94,11 @@ const { t } = useI18n({
         keypath="working"
         tag="div"
       >
-        <template #project>
-          <strong>{{ getActivity.project }}</strong>
-        </template>
         <template #state>
-          <i>{{ getActivity.state }}</i>
+          <strong>{{ getActivity.state.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') }}</strong>
+        </template>
+        <template #project>
+          <i>{{ getActivity.project.replaceAll('Editing', '') }}</i>
         </template>
         <template #editor>
           <span class="space-x-1">
@@ -148,36 +151,39 @@ const { t } = useI18n({
 {
   "en": {
     "offline": "I'm currently offline. Come back later to see what I'm working on.",
-    "working": "I'm actually working on {project}, editing {state}, using {editor}. I've started {start}, the {format}.",
+    "working": "I'm actually working on {state}, editing {project}, using {editor}. I've started {start}, the {format}.",
     "idling": "I'm idling on my computer with {editor} running in background.",
     "tooltip": {
       "online": "I'm online 👋",
       "offline": "I'm offline 🫥",
       "idling": "I'm sleeping 😴"
     },
-    "separator": "at"
+    "separator": "at",
+    "secret": "Secret Project"
   },
   "fr": {
     "offline": "Je suis actuellement hors ligne. Revenez plus tard pour voir sur quoi je travaille.",
-    "working": "Je travaille actuellement sur {project}, éditant {state}, en utilisant {editor}. J'ai commencé {start}, le {format}.",
+    "working": "Je travaille actuellement sur {state}, éditant {project}, en utilisant {editor}. J'ai commencé {start}, le {format}.",
     "idling": "Je suis en veille sur mon ordinateur avec {editor} en arrière-plan.",
     "tooltip": {
       "online": "Je suis connecté 👋",
       "offline": "Je suis déconnecté 🫥",
       "idling": "Je dors 😴"
     },
-    "separator": "à"
+    "separator": "à",
+    "secret": "Projet Secret"
   },
   "es": {
     "offline": "Ahora mismo estoy desconectado. Vuelve más tarde para ver en lo que estoy trabajando.",
-    "working": "Estoy trabajando en {project}, editando {state}, y utilizando {editor}. He empezado {start}, el {format}.",
+    "working": "Estoy trabajando en {state}, editando {project}, y utilizando {editor}. He empezado {start}, el {format}.",
     "idling": "Estoy en reposo en mi ordenador con {editor} en segundo plano.",
     "tooltip": {
       "online": "Estoy conectado 👋",
       "offline": "Estoy desconectado 🫥",
       "idling": "Estoy durmiendo 😴"
     },
-    "separator": "a"
+    "separator": "a",
+    "secret": "Proyecto Secreto"
   }
 }
 </i18n>

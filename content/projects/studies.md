@@ -1,11 +1,10 @@
 ---
 slug: studies
-title: Studies projects
-description: 🎓 Studies projects - a collection of projects done during my studies.
+title: 🎓 Studies projects
+description:  A collection of projects done during my studies.
 publishedAt: 2023/09/01
 readingTime: 1
 tags:
-  - project
   - data
   - python
   - r

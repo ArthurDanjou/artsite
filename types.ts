@@ -32,6 +32,9 @@ interface LanyardActivity {
   timestamps: {
     start: number
   }
+  assets?: {
+    small_text: string
+  }
 }
 
 export interface Activity {
@@ -45,6 +48,7 @@ export const IDEs = [
   { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos:intellij-idea' },
   { name: 'WebStorm', icon: 'i-logos:webstorm' },
   { name: 'PyCharm Professional', icon: 'i-logos:pycharm' },
+  { name: 'Cursor', icon: 'i-vscode-icons-file-type-cursorrules' },
 ]
 
 export const activityMessages = {
@@ -66,13 +70,13 @@ export const activityMessages = {
     invalid: '',
   },
   fr: {
-    justNow: 'à l’instant',
+    justNow: 'à l\'instant',
     past: (n: string) => (n.match(/\d/) ? `il y a ${n}` : n),
     future: (n: string) => (n.match(/\d/) ? `dans ${n}` : n),
     month: (n: number, past: boolean) =>
       n === 1 ? (past ? 'le mois dernier' : 'le mois prochain') : `${n} mois`,
     year: (n: number, past: boolean) =>
-      n === 1 ? (past ? 'l’année dernière' : 'l’année prochaine') : `${n} ans`,
+      n === 1 ? (past ? 'l\'année dernière' : 'l\'année prochaine') : `${n} ans`,
     day: (n: number, past: boolean) =>
       n === 1 ? (past ? 'hier' : 'demain') : `${n} jours`,
     week: (n: number, past: boolean) =>
@@ -110,18 +114,6 @@ export interface Tag {
 }
 
 export const TAGS: Array<Tag> = [
-  {
-    label: 'Article',
-    icon: 'i-ph-pencil-line-duotone',
-    color: 'red',
-    translation: 'tags.article',
-  },
-  {
-    label: 'Project',
-    icon: 'i-ph-briefcase-duotone',
-    color: 'blue',
-    translation: 'tags.project',
-  },
   {
     label: 'R',
     icon: 'i-vscode-icons-file-type-r',

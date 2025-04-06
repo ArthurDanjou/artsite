@@ -28,12 +28,21 @@ const navs = [
   },
   {
     label: {
-      en: 'portfolio',
-      fr: 'portfolio',
+      en: 'writings',
+      fr: 'écrits',
       es: 'escritos',
     },
-    to: '/portfolio',
+    to: '/writings',
     icon: 'books-duotone',
+  },
+  {
+    label: {
+      en: 'projects',
+      fr: 'projets',
+      es: 'proyectos',
+    },
+    to: '/projects',
+    icon: 'code-duotone',
   },
   {
     label: {

@@ -1,12 +1,11 @@
 ---
 slug: artsite
-title: ArtSite
-description: 🌍 My personal website, my portfolio, and my blog. 🚀
+title: 🌍 ArtSite
+description: My personal website, my portfolio, and my blog.
 publishedAt: 2024/06/01
 readingTime: 1
 cover: artsite/cover.png
 tags:
-  - project
   - web
 ---
 

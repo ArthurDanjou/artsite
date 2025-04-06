@@ -5,7 +5,6 @@ description: My new website is using a fantastical stack and I am explaining how
 publishedAt: 2024/06/21
 readingTime: 5
 tags:
-  - article
   - web
 ---
 
@@ -13,37 +12,43 @@ My personal website is an overengineered playground where I tinker, explore new 
 
 While it's still fresh in my mind, I wanted to document how this version of the site works, the tools I used to build it, and the challenges I overcame to bring it to its current state.
 
-![Website](/portfolio/website-work/website.png)
+::prose-img
+---
+src: /writings/website-work/website.png
+label: Website
+caption: Website screenshot
+---
+::
 
-## Ideas and Goals
+## 1 - Ideas and Goals
 
 Most of the time, I work on my site for fun and without any profit motive. However, while building this latest version, I managed to keep a few key ideas and goals in mind:
 
-### Reduce writing friction
+### 1.1 -  Reduce writing friction
 
 This new version of my website was built with the idea that I should be able to add, edit, and delete content directly from the front-end. This means that everything needs to be backed by a database or CMS, which quickly adds complexity. But at the end of the day, adding a bookmark should be a matter of pasting a URL and clicking save. Writing a blog post should be a matter of typing some Markdown and clicking publication.
 
 Extra friction on these processes would make me less likely to keep things up to date or share new things.
 
-### A playground for ideas
+### 1.2 - A playground for ideas
 
 I want my website to be a playground where I can safely experiment with new technologies and packages, including testing frameworks (like the new Nuxt 3 stack), improving CSS styles with Tailwind, and discovering new technologies and frameworks, in a way that allows for easy isolation and deletion. This requirement made Nuxt.js an obvious choice, thanks to its support for hybrid page rendering strategies—static, server-rendered, or client-rendered. More on this below.
 
-### Fast
+### 1.3 - Fast
 
 The new version of my website is faster than the old one, thanks to the latest version of Nuxt. This improvement enhances the overall user experience and ensures that the site remains responsive and efficient.
 
-## FrontEnd & BackEnd with Nuxt 3
+## 2 - FrontEnd & BackEnd with Nuxt 3
 
 I wanted this version of my site to reflect my personality, especially because it seemed like a fun project! What would a 'personal application' look like, showcasing everything I've created? I aimed for a clean, monochrome design with plenty of 'Easter eggs' to keep things interesting.
 
-### Nuxt 3
+### 2.1 - Nuxt 3
 
 Nuxt.js is my front-end framework of choice. I particularly appreciate it for its comprehensive and complementary Vue and Nuxt ecosystem. The filesystem-based router provides an intuitive and powerful abstraction for building the route hierarchy. Nuxt.js also benefits from a large community that has thoroughly tested the framework, addressing edge cases and developing creative solutions for common Vue, data recovery, and performance issues. Whenever I encounter a problem, I turn to the Nuxt.js discussions on [GitHub](https://github.com/nuxt) or their [Discord server](https://go.nuxt.com/discord). Almost every time, I find that others have already come up with innovative solutions to similar challenges.
 
 Nuxt.js is also fast. It optimizes performance by speeding up local builds, automatically compressing static assets, and ensuring quick deployment times. The regular project updates mean my site continually gets faster over time—at no extra cost!
 
-### Styling
+### 2.2 - Styling
 
 #### Tailwind CSS
 
@@ -59,11 +64,17 @@ Nuxt UI is a new tool I've been using since its release to enhance and streamlin
 
 Nuxt UI aims to provide everything you need for the UI when building a Nuxt app, including components, icons, colors, dark mode, and keyboard shortcuts. It's an excellent tool for both beginners and experienced developers.
 
-### Database & Deployment
+### 2.3 - Database & Deployment
 
 #### NuxtHub & Cloudflare workers
 
-![NuxtHub](/portfolio/website-work/nuxt-hub.png)
+::prose-img
+---
+src: /writings/website-work/nuxt-hub.png
+label: NuxtHub
+caption: NuxtHub screenshot
+---
+::
 
 NuxtHub is an innovative deployment and management platform tailored for Nuxt, leveraging the power of Cloudflare. Deploy your application effortlessly with database, key-value, and blob storage—all configured seamlessly within your Cloudflare account.
 
@@ -77,11 +88,17 @@ Drizzle isn't just a library; it's an exceptional journey 🤩. It empowers you 
 
 One word : `If you know SQL — you know Drizzle.`
 
-### Writing
+### 2.4 - Writing
 
 #### Nuxt Studio
 
-![Nuxt Studio](/portfolio/website-work/nuxt-studio.png)
+::prose-img
+---
+src: /writings/website-work/nuxt-studio.png
+label: Nuxt Studio
+caption: Nuxt Studio screenshot
+---
+::
 
 Nuxt Studio introduces a fresh editing experience for your Nuxt Content website, providing limitless customization and a user-friendly interface. Edit your website effortlessly with our editor reminiscent of Notion, fostering seamless collaboration between developers and copywriters. It offers a rich text editor, markdown support, and a live preview, enabling you to create and edit content with ease.
 
@@ -93,7 +110,7 @@ The article you're currently reading is plain text stored in MySQL, rendered usi
 
 Compromises are inevitable! I've chosen to sacrifice some features for simplicity and speed. I'm content with my decision, as it aligns with my goal of reducing friction in the writing process.
 
-## How much everything costs
+## 3 - How much everything costs
 
 I'm often asked how much it costs to run my website. Here's a breakdown of the costs:
 
@@ -103,6 +120,6 @@ I'm often asked how much it costs to run my website. Here's a breakdown of the c
 
 Total: 0€ thanks to nuxt free plan and cloudflare free plan
 
-## Thanks
+## 4 - Thanks
 
 I want to thank the Nuxt team for their hard work and dedication to the project. I also want to thank the community for their support and for providing me with the tools I needed to build this site. I want to add a special thanks to [Estéban](https://x.com/soubiran_) for solving `All` my problems and for inspiring me to rewrite my website.

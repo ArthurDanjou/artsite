@@ -9,12 +9,12 @@ const { t } = useI18n({
     <div class="flex items-center">
       <ClientOnly>
         <UTooltip text="It's me 👋">
-          <div class="flex items-center w-12 h-12">
+          <div class="flex items-center6">
             <UAvatar
               alt="Avatar"
-              class="hover:rotate-[360deg] duration-500 transform-gpu"
-              size="md"
-              src="/favicon.png"
+              class="hover:rotate-[360deg] duration-500 transform-gpu rounded-full"
+              size="xl"
+              src="/favicon.webp"
             />
           </div>
         </UTooltip>
