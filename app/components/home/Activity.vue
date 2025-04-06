@@ -50,7 +50,7 @@ const getActivity = computed(() => {
         .replace('Workspace:', '')
         .trim()
     : ''
-  const stateWord = state.split(' ')[1] || t('secret')
+  const stateWord = state.split(' ').length >= 2 ? state.split(' ')[1] : t('secret')
   const ago = useTimeAgo(timestamps.start, {
     messages: activityMessages[locale.value] as UseTimeAgoMessages,
   }).value
