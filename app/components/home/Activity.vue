@@ -3,7 +3,8 @@ import type { UseTimeAgoMessages } from '@vueuse/core'
 import type { Activity } from '~~/types'
 import { activityMessages, IDEs } from '~~/types'
 
-const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
+const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch<Activity>('/api/activity'))
+
 useIntervalFn(async () => await refresh(), 5000)
 const codingActivity = computed(() => {
   const activities = activity.value!.data.activities.filter(activity => IDEs.some(ide => ide.name === activity.name))

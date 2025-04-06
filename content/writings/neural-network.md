@@ -36,7 +36,7 @@ $$
 
 ::prose-img
 ---
-src: /portfolio/neural-network/neural-network-viz.png
+src: /writings/neural-network/neural-network-viz.png
 label: Neural Network Structure
 caption: Neural Network Structure
 ---
@@ -102,7 +102,7 @@ The gradient of a function is the vector whose elements are its partial derivati
 
 ::prose-img
 ---
-src: /portfolio/neural-network/gradient-descent.png
+src: /writings/neural-network/gradient-descent.png
 label: Gradient Descent
 caption: Gradient Descent
 ---
