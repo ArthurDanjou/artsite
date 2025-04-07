@@ -40,12 +40,21 @@ const { data: projects } = await useAsyncData('all-projects', () => {
                 <h1 class="font-bold text-lg text-black dark:text-white">
                   {{ project.title }}
                 </h1>
-                <UIcon
-                  v-if="project.favorite"
-                  name="i-ph-star-duotone"
-                  size="16"
-                  class="text-amber-500"
-                />
+                <UTooltip
+                  :text="t('tooltip.favorite')" :content="{
+                    align: 'center',
+                    side: 'right',
+                    sideOffset: 8,
+                  }"
+                  arrow
+                >
+                  <UIcon
+                    v-if="project.favorite"
+                    name="i-ph-star-duotone"
+                    size="16"
+                    class="text-amber-500"
+                  />
+                </UTooltip>
               </div>
               <h3 class="text-md text-neutral-500 dark:text-neutral-400">
                 {{ project.description }}
@@ -87,15 +96,24 @@ const { data: projects } = await useAsyncData('all-projects', () => {
 {
   "en": {
     "title": "All my projects I have worked on, both academic and personal",
-    "description": "A collection of my projects using R, Python, or web development technologies. These projects span various domains, including data analysis, machine learning, and web applications, showcasing my skills in coding, problem-solving, and project development."
+    "description": "A collection of my projects using R, Python, or web development technologies. These projects span various domains, including data analysis, machine learning, and web applications, showcasing my skills in coding, problem-solving, and project development.",
+    "tooltip": {
+      "favorite": "This project is one of my favorites"
+    }
   },
   "fr": {
     "title": "Tous mes projets auxquels j'ai travaillé, académiques et personnels",
-    "description": "Une collection de mes projets réalisés en R, Python, ou en développement web. Ces projets couvrent divers domaines, y compris l'analyse de données, l'apprentissage automatique et les applications web, mettant en avant mes compétences en codage, résolution de problèmes et développement de projets."
+    "description": "Une collection de mes projets réalisés en R, Python, ou en développement web. Ces projets couvrent divers domaines, y compris l'analyse de données, l'apprentissage automatique et les applications web, mettant en avant mes compétences en codage, résolution de problèmes et développement de projets.",
+    "tooltip": {
+      "favorite": "Ce projet est l'un de mes favoris"
+    }
   },
   "es": {
     "title": "Todos mis proyectos en los que he trabajado, académicos y personales",
-    "description": "Una colección de mis proyectos realizados en R, Python o tecnologías de desarrollo web. Estos proyectos abarcan diversos campos, como análisis de datos, aprendizaje automático y aplicaciones web, mostrando mis habilidades en programación, resolución de problemas y desarrollo de proyectos."
+    "description": "Una colección de mis proyectos realizados en R, Python o tecnologías de desarrollo web. Estos proyectos abarcan diversos campos, como análisis de datos, aprendizaje automático y aplicaciones web, mostrando mis habilidades en programación, resolución de problemas y desarrollo de proyectos.",
+    "tooltip": {
+      "favorite": "Este proyecto es uno de mis favoritos"
+    }
   }
 }
 </i18n>
