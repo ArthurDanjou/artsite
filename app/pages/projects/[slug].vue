@@ -87,7 +87,7 @@ useSeoMeta({
       >
         <template #linkedin>
           <HomeLink
-            href="https://www.linkedin.com/in/arthur-danjou/"
+            href="https://www.linkedin.com/in/arthurdanjou/"
             icon="i-ph-linkedin-logo-duotone"
             label="LinkedIn"
             target="_blank"
