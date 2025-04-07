@@ -141,9 +141,15 @@ const getActivity = computed(() => {
       <UTooltip :text="t('tooltip.offline')">
         <span class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-2" />
       </UTooltip>
-      <p class="not-prose">
-        {{ t('offline') }}
-      </p>
+      <i18n-t
+        keypath="offline"
+        tag="p"
+        class="not-prose"
+      >
+        <template #maths>
+          <i>{{ t('maths') }}</i>
+        </template>
+      </i18n-t>
     </div>
   </ClientOnly>
 </template>
@@ -151,9 +157,10 @@ const getActivity = computed(() => {
 <i18n lang="json">
 {
   "en": {
-    "offline": "I'm currently offline. Come back later to see what I'm working on.",
+    "offline": "I'm currently offline. Come back later to see what I'm working on. {maths}",
     "working": "I'm actually working on {state}, editing {project}, using {editor}. I've started {start}, the {format}.",
     "idling": "I'm idling on my computer with {editor} running in background.",
+    "maths": "I am probably doing some maths or sleeping.",
     "tooltip": {
       "online": "I'm online 👋",
       "offline": "I'm offline 🫥",
@@ -163,9 +170,10 @@ const getActivity = computed(() => {
     "secret": "Secret Project"
   },
   "fr": {
-    "offline": "Je suis actuellement hors ligne. Revenez plus tard pour voir sur quoi je travaille.",
+    "offline": "Je suis actuellement hors ligne. Revenez plus tard pour voir sur quoi je travaille. {maths}",
     "working": "Je travaille actuellement sur {state}, éditant {project}, en utilisant {editor}. J'ai commencé {start}, le {format}.",
     "idling": "Je suis en veille sur mon ordinateur avec {editor} en arrière-plan.",
+    "maths": "Je suis probablement en train de faire des maths ou en train de dormir.",
     "tooltip": {
       "online": "Je suis connecté 👋",
       "offline": "Je suis déconnecté 🫥",
@@ -175,9 +183,10 @@ const getActivity = computed(() => {
     "secret": "Projet Secret"
   },
   "es": {
-    "offline": "Ahora mismo estoy desconectado. Vuelve más tarde para ver en lo que estoy trabajando.",
+    "offline": "Ahora mismo estoy desconectado. Vuelve más tarde para ver en lo que estoy trabajando. {maths}",
     "working": "Estoy trabajando en {state}, editando {project}, y utilizando {editor}. He empezado {start}, el {format}.",
     "idling": "Estoy en reposo en mi ordenador con {editor} en segundo plano.",
+    "maths": "Estoy probablemente haciendo matemáticas o durmiendo.",
     "tooltip": {
       "online": "Estoy conectado 👋",
       "offline": "Estoy desconectado 🫥",
