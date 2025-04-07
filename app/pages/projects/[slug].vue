@@ -32,11 +32,28 @@ useSeoMeta({
     </div>
     <div class="mt-2">
       <div class="flex items-end justify-between gap-2 flex-wrap">
-        <h1
-          class="font-bold text-3xl text-black dark:text-white"
-        >
-          {{ project.title }}
-        </h1>
+        <div class="flex items-center gap-2">
+          <h1
+            class="font-bold text-3xl text-black dark:text-white"
+          >
+            {{ project.title }}
+          </h1>
+          <UTooltip
+            :text="t('tooltip.favorite')" :content="{
+              align: 'center',
+              side: 'right',
+              sideOffset: 8,
+            }"
+            arrow
+          >
+            <UIcon
+              v-if="project.favorite"
+              name="i-ph-star-duotone"
+              size="24"
+              class="text-amber-500"
+            />
+          </UTooltip>
+        </div>
         <div
           class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
         >
