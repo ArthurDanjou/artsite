@@ -4,6 +4,7 @@ title: 🎓 Studies projects
 description:  A collection of projects done during my studies.
 publishedAt: 2023/09/01
 readingTime: 1
+favorite: true
 tags:
   - data
   - python

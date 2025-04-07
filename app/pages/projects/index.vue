@@ -11,6 +11,7 @@ useSeoMeta({
 
 const { data: projects } = await useAsyncData('all-projects', () => {
   return queryCollection('projects')
+    .order('favorite', 'DESC')
     .order('publishedAt', 'DESC')
     .all()
 })
@@ -35,9 +36,17 @@ const { data: projects } = await useAsyncData('all-projects', () => {
             <div
               class="flex flex-col gap-2"
             >
-              <h1 class="font-bold text-lg text-black dark:text-white">
-                {{ project.title }}
-              </h1>
+              <div class="flex items-center gap-2">
+                <h1 class="font-bold text-lg text-black dark:text-white">
+                  {{ project.title }}
+                </h1>
+                <UIcon
+                  v-if="project.favorite"
+                  name="i-ph-star-duotone"
+                  size="16"
+                  class="text-amber-500"
+                />
+              </div>
               <h3 class="text-md text-neutral-500 dark:text-neutral-400">
                 {{ project.description }}
               </h3>

@@ -15,6 +15,7 @@ export const collections = {
       publishedAt: z.date(),
       tags: z.array(z.string()),
       cover: z.string(),
+      favorite: z.boolean().optional(),
     }),
   }),
   writings: defineCollection({
