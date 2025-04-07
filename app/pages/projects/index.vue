@@ -61,7 +61,7 @@ const { data: projects } = await useAsyncData('all-projects', () => {
               </h3>
             </div>
           </article>
-          <div class="flex items-center justify-between gap-2 mt-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-2">
             <div
               class="text-sm text-neutral-500 flex items-center gap-1"
             >

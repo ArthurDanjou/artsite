@@ -49,7 +49,7 @@ const { data: writings } = await useAsyncData('all-writings', () => {
               {{ writing.description }}
             </h3>
           </article>
-          <div class="flex justify-between items-center mt-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-2">
             <div
               class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
             >
