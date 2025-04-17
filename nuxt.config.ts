@@ -10,8 +10,8 @@ export default defineNuxtConfig({
       },
     },
     rootAttrs: {
-      'vaul-drawer-wrapper': '',
-      'class': 'bg-[var(--ui-bg)]',
+      // 'vaul-drawer-wrapper': '',
+      class: 'bg-[var(--ui-bg)]',
     },
   },
 
@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/i18n',
+    'nuxt-visitors',
   ],
 
   // Nuxt Hub
@@ -82,8 +83,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  plugins: ['~/plugins/location.server'],
 
   // Nuxt Color Mode
   colorMode: {
@@ -168,6 +167,12 @@ export default defineNuxtConfig({
         baseUrl: '',
       },
     },
+  },
+
+  // Nuxt Visitors
+  visitors: {
+    // Set to true to enable tracking of visitor locations
+    locations: true,
   },
 
   compatibilityDate: '2025-01-28',
