@@ -1,7 +1,7 @@
 ---
 slug: arthome
 title: 🏡 ArtHome
-description: Your personalised home page in your browser
+description: Your personalized browser homepage
 publishedAt: 2024/09/04
 readingTime: 1
 cover: arthome/cover.png
@@ -9,16 +9,16 @@ tags:
   - web
 ---
 
-[ArtHome](https://home.arthurdanjou.fr) is a personalised page where you can create categories and tabs to have a one page with all your shortcuts on all browsers.
+[ArtHome](https://home.arthurdanjou.fr) is a customizable browser homepage that lets you organize all your favorite links in one place.
 
-You can customize your tabs and categories with different colors and icons. Feel free to set your page in private if you want to keep secret your tabs.
+Create categories and tabs to group your shortcuts, personalize them with icons and colors, and make the page private if you want to keep your links just for yourself. The interface is clean, responsive, and works across all modern browsers.
 
-Made with:
+### 🛠️ Built with
 
-- [Nuxt](https://nuxt.com): Nuxt is an **open source framework** that makes web development intuitive and powerful.Create performant and production-grade full-stack web apps and websites with confidence.
-- [NuxtHub](https://hub.nuxt.com): Deploy and scale your Nuxt applications worldwide with NuxtHub, the Cloudflare-powered platform that ensures lightning-fast performance at low cost and with full-stack capabilities.
-- [NuxtUI](https://ui.nuxt.com): Nuxt UI simplifies the creation of stunning and responsive web applications with itscomprehensive collections of fully styled and customizable UI components designed for Nuxt.
-- [Eslint](https://eslint.org): ESLint is an open source project that helps you find and fix problems with your JavaScript code.
-- [Drizzle](https://orm.drizzle.team/): Drizzle ORM is a headless TypeScript ORM with a head
-- [Zod](https://zod.dev/): TypeScript-first schema validation with static type inference
-- and ❤️
+- [Nuxt](https://nuxt.com): An open-source framework for building performant, full-stack web applications with Vue.
+- [NuxtHub](https://hub.nuxt.com): A Cloudflare-powered platform to deploy and scale Nuxt apps globally with minimal latency and full-stack capabilities.
+- [NuxtUI](https://ui.nuxt.com): A sleek and flexible component library that helps create beautiful, responsive UIs for Nuxt applications.
+- [ESLint](https://eslint.org): A linter that identifies and fixes problems in your JavaScript/TypeScript code.
+- [Drizzle ORM](https://orm.drizzle.team/): A lightweight, type-safe ORM built for TypeScript, designed for simplicity and performance.
+- [Zod](https://zod.dev/): A TypeScript-first schema declaration and validation library with full static type inference.
+- and a lot of ❤️
