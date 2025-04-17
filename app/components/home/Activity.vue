@@ -139,7 +139,11 @@ const getActivity = computed(() => {
       class="my-5 flex md:items-start gap-2"
     >
       <UTooltip :text="t('tooltip.offline')">
-        <span class="cursor-not-allowed h-3 w-3 inline-flex rounded-full bg-red-500 mt-2" />
+        <div class="relative flex h-3 w-3 mt-2">
+          <div
+            class="relative cursor-not-allowed inline-flex rounded-full h-3 w-3 bg-red-500"
+          />
+        </div>
       </UTooltip>
       <i18n-t
         keypath="offline"
