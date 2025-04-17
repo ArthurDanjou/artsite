@@ -15,7 +15,7 @@ const navs = [
       es: 'inicio',
     },
     to: '/',
-    icon: 'house-line-duotone',
+    icon: 'house-duotone',
   },
   {
     label: {
@@ -199,7 +199,7 @@ const socialsList = [
             v-model:open="openSelectMenu"
             :items="locales"
             size="sm"
-            :leading-icon="currentLocale.icon"
+            :leading-icon="currentLocale!.icon as string"
             label-key="label"
             value-key="code"
             variant="soft"
