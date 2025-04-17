@@ -11,19 +11,19 @@ defineProps({
 })
 
 const colorVariants = {
-  gray: 'text-gray-500/80 decoration-gray-400/80',
-  red: 'text-red-500/80 decoration-red-400/80',
-  yellow: 'text-yellow-500/80 decoration-yellow-400/80',
-  green: 'text-green-500/80 decoration-green-400/80',
-  blue: 'text-blue-500/80 decoration-blue-400/80',
-  indigo: 'text-indigo-500/80 decoration-indigo-400/80',
-  purple: 'text-purple-500/80 decoration-purple-400/80',
-  pink: 'text-pink-500/80 decoration-pink-400/80',
-  sky: 'text-sky-500/80 decoration-sky-400/80',
-  zinc: 'text-zinc-500/80 decoration-zinc-400/80',
-  orange: 'text-orange-500/80 decoration-orange-400/80',
-  amber: 'text-amber-500/80 decoration-amber-400/80',
-  emerald: 'text-emerald-500/80 decoration-emerald-400/80',
+  gray: 'text-gray-500/80 decoration-gray-400/40',
+  red: 'text-red-500/80 decoration-red-400/40',
+  yellow: 'text-yellow-500/80 decoration-yellow-400/40',
+  green: 'text-green-500/80 decoration-green-400/40',
+  blue: 'text-blue-500/80 decoration-blue-400/40',
+  indigo: 'text-indigo-500/80 decoration-indigo-400/40',
+  purple: 'text-purple-500/80 decoration-purple-400/40',
+  pink: 'text-pink-500/80 decoration-pink-400/40',
+  sky: 'text-sky-500/80 decoration-sky-400/40',
+  zinc: 'text-zinc-500/80 decoration-zinc-400/40',
+  orange: 'text-orange-500/80 decoration-orange-400/40',
+  amber: 'text-amber-500/80 decoration-amber-400/40',
+  emerald: 'text-emerald-500/80 decoration-emerald-400/40',
 }
 </script>
 
