@@ -28,14 +28,11 @@ const colorVariants = {
 </script>
 
 <template>
-  <span class="inline-flex items-center">
-    <UIcon
-      class="mr-1"
-      :name="`i-logos:${icon}`"
-    />
+  <span class="inline-flex items-center transform translate-y-1 gap-1">
+    <UIcon :name="icon" />
     <span
       :class="colorVariants[color as keyof typeof colorVariants]"
-      class="sofia font-medium underline-offset-2 underline"
+      class="sofia font-bold underline-offset-2 underline"
     >
       <slot />
     </span>
