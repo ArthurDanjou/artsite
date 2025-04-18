@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/i18n',
-    // 'nuxt-visitors', TODO: remove when module is fixed
+    // 'nuxt-visitors', FIXME: remove when module is fixed
   ],
 
   // Nuxt Hub
@@ -169,7 +169,7 @@ export default defineNuxtConfig({
     },
   },
 
-  /* TODO: remove when module is fixed
+  /* FIXME: remove when module is fixed
   // Nuxt Visitors
   visitors: {
     // Set to true to enable tracking of visitor locations
