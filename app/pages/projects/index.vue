@@ -52,7 +52,7 @@ const { data: projects } = await useAsyncData('all-projects', () => {
                     v-if="project.favorite"
                     name="i-ph-star-duotone"
                     size="16"
-                    class="text-amber-500"
+                    class="text-amber-500 hover:rotate-360 duration-300"
                   />
                 </UTooltip>
               </div>

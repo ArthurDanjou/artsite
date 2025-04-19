@@ -168,7 +168,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   /* FIXME: remove when module is fixed
   // Nuxt Visitors
   visitors: {
@@ -177,5 +176,5 @@ export default defineNuxtConfig({
   },
   */
 
-  compatibilityDate: '2025-01-28',
+  compatibilityDate: '2025-04-19',
 })
