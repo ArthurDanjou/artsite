@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     kv: true,
     database: true,
     analytics: true,
-    // FIXME: workers: true,
+    workers: true,
   },
 
   // Nuxt Content
