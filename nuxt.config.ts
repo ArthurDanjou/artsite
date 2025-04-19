@@ -139,7 +139,6 @@ export default defineNuxtConfig({
 
   // Nitro
   nitro: {
-    preset: 'cloudflare-durable',
     experimental: {
       websocket: true,
       openAPI: true,
