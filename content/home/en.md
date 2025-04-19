@@ -19,7 +19,7 @@ I use tools like
 :prose-icon[scikit-learn]{icon="devicon-scikitlearn" color="orange"} for supervised learning,
 :prose-icon[pandas]{icon="i-logos:pandas-icon" color="blue"} for efficient data manipulation,
 :prose-icon[NumPy]{icon="i-logos:numpy" color="indigo"} for scientific computation, and
-:prose-icon[TensorFlow]{icon="i-logos:tensorflow" color="orange"} to build and train deep learning models.  
+:prose-icon[TensorFlow]{icon="i-logos:tensorflow" color="orange"} to build and train deep learning models.
 I also learned other important technologies, such as
 :prose-icon[Docker]{icon="i-logos:docker-icon" color="sky"},
 :prose-icon[Redis]{icon="i-logos:redis" color="red"},

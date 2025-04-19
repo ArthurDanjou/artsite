@@ -34,7 +34,7 @@ However, LLMs have their limitations. They can sometimes generate **hallucinatio
 When interacting with LLMs or agents, information is transmitted through **messages** and **tokens**.
 
 - **Messages** are the pieces of communication sent between the user and the system (or between different components of the AI system). These can be user queries, responses, or commands.
-  
+
 - **Tokens** are the basic units of text that an LLM processes. A token could be a word, part of a word, or even punctuation. In GPT models, a single token can represent a word like "dog" or even part of a word like "re-" in "reliable."
 
 Managing tokens is essential because LLMs have a **token limit**, meaning they can only handle a fixed number of tokens in a single input/output sequence. This limit impacts performance and context retention. Long conversations or documents might require careful handling of token counts to maintain coherence.
@@ -99,7 +99,7 @@ Here's how it works:
 1. The LLM retrieves relevant data or documents using a search engine or database query.
 2. The LLM then generates a response based on the retrieved information.
 
-RAG solves a major problem with LLMs: the **outdated or incomplete information** they may have. By pulling in real-time data, RAG ensures that the generated content is relevant and grounded in current knowledge. 
+RAG solves a major problem with LLMs: the **outdated or incomplete information** they may have. By pulling in real-time data, RAG ensures that the generated content is relevant and grounded in current knowledge.
 
 A classic example of RAG is when you ask an AI to summarize the latest research on a particular topic. Instead of relying on the model’s static knowledge base, the model can retrieve relevant papers or articles and generate an accurate summary.
 

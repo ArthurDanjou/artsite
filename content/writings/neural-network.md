@@ -1,7 +1,7 @@
 ---
 slug: neural-network
 title: What is a Neural Network?
-description: This article introduces neural networks, explaining their structure, training, and key concepts like activation functions and backpropagation. It includes an example with a neural network featuring two hidden layers using TensorFlow. 
+description: This article introduces neural networks, explaining their structure, training, and key concepts like activation functions and backpropagation. It includes an example with a neural network featuring two hidden layers using TensorFlow.
 readingTime: 3
 publishedAt: 2025/03/30
 tags:

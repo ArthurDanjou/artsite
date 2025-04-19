@@ -2,7 +2,7 @@
   "name": "artsite",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@10.8.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --host",
@@ -44,7 +44,7 @@
     "@vueuse/math": "^13.1.0",
     "@vueuse/nuxt": "^13.1.0",
     "drizzle-kit": "^0.31.0",
-    "eslint": "^9.24.0",
+    "eslint": "^9.25.0",
     "typescript": "^5.8.3",
     "vue-tsc": "^2.2.8",
     "wrangler": "^4.12.0"
