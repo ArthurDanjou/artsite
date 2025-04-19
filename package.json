@@ -1,6 +1,5 @@
 {
   "name": "artsite",
-  "type": "module",
   "private": true,
   "packageManager": "pnpm@10.8.1",
   "scripts": {
