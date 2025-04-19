@@ -10,7 +10,6 @@ export default defineNuxtConfig({
       },
     },
     rootAttrs: {
-      // 'vaul-drawer-wrapper': '',
       class: 'bg-[var(--ui-bg)]',
     },
   },
