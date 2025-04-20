@@ -8,7 +8,7 @@ useHead({
   <UApp>
     <NuxtLoadingIndicator color="#808080" />
     <AppBackground />
-    <!-- <AppVisitors /> FIXME: remove when module is fixed -->
+    <AppVisitors />
     <UContainer class="z-50 relative">
       <AppHeader />
       <NuxtPage class="mt-12" />

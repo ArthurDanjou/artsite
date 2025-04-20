@@ -57,8 +57,8 @@ importers:
         specifier: ^3.16.2
         version: 3.16.2(@netlify/blobs@8.2.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1)(drizzle-orm@0.42.0(@cloudflare/workers-types@4.20250419.0)(better-sqlite3@11.9.1)))(drizzle-orm@0.42.0(@cloudflare/workers-types@4.20250419.0)(better-sqlite3@11.9.1))(eslint@9.25.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.2(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(vue-tsc@2.2.8(typescript@5.8.3))(yaml@2.7.1)
       nuxt-visitors:
-        specifier: 1.2.1
-        version: 1.2.1(magicast@0.3.5)
+        specifier: 1.2.2
+        version: 1.2.2(magicast@0.3.5)
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1
@@ -4916,8 +4916,8 @@ packages:
     resolution: {integrity: sha512-+e01YjZ9hojroO88dvqiOs/Yh4ff/kbXYcfj70l8KhMpmXITz2GBffT9HqwzFdcTm7iE2C422alG42p7yir2nA==}
     hasBin: true
 
-  nuxt-visitors@1.2.1:
-    resolution: {integrity: sha512-hDWC7SPjXTKty5J1EDKU4dUUUtivU2zb7MBwcqf8voYnl69jNH1/TtVYm1UTpvvgxaplkzPDE+xGCz97ydAQMA==}
+  nuxt-visitors@1.2.2:
+    resolution: {integrity: sha512-vzJp36KItm/e2FkqD9k5r0sll4t9FY517VV9rGlChujLrBWmjtGTcBDxsluOsDIkdXFduUg/2GuWGIk9pxtSDA==}
 
   nuxt@3.16.2:
     resolution: {integrity: sha512-yjIC/C4HW8Pd+m0ACGliEF0HnimXYGYvUzjOsTiLQKkDDt2T+djyZ+pCl9BfhQBA8rYmnsym2jUI+ubjv1iClw==}
@@ -12238,7 +12238,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  nuxt-visitors@1.2.1(magicast@0.3.5):
+  nuxt-visitors@1.2.2(magicast@0.3.5):
     dependencies:
       '@nuxt/kit': 3.16.2(magicast@0.3.5)
       ufo: 1.6.1

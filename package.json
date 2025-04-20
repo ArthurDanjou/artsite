@@ -28,7 +28,7 @@
     "drizzle-orm": "^0.42.0",
     "h3-zod": "^0.5.3",
     "nuxt": "^3.16.2",
-    "nuxt-visitors": "1.2.1",
+    "nuxt-visitors": "1.2.2",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "remark-parse": "^11.0.0",
