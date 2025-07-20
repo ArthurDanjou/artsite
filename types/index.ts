@@ -107,8 +107,6 @@ export const activityMessages = {
 
 export interface Tag {
   label: string
-  icon: string
-  color: string
   title?: string
   translation: string
 }
@@ -116,38 +114,26 @@ export interface Tag {
 export const TAGS: Array<Tag> = [
   {
     label: 'R',
-    icon: 'i-vscode-icons-file-type-r',
-    color: 'orange',
     translation: 'tags.r',
   },
   {
     label: 'AI',
-    icon: 'i-ph-brain-duotone',
-    color: 'green',
     translation: 'tags.ai',
   },
   {
     label: 'Data',
-    icon: 'i-ph-database-duotone',
-    color: 'purple',
     translation: 'tags.data',
   },
   {
     label: 'Web',
-    icon: 'i-ph-globe-duotone',
-    color: 'cyan',
     translation: 'tags.web',
   },
   {
     label: 'Python',
-    icon: 'i-vscode-icons-file-type-python',
-    color: 'amber',
     translation: 'tags.python',
   },
   {
     label: 'Maths',
-    icon: 'i-ph-calculator-duotone',
-    color: 'pink',
     translation: 'tags.maths',
   },
 ]

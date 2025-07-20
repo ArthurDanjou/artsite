@@ -73,15 +73,10 @@ const { data: projects } = await useAsyncData('all-projects', () => {
                 <UBadge
                   v-for="tag in project.tags.sort((a: any, b: any) => a.localeCompare(b))"
                   :key="tag"
-                  :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color as any"
                   variant="soft"
                   size="sm"
-                  class="rounded-full"
                 >
-                  <div class="flex gap-1 items-center">
-                    <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon || ''" size="16" />
-                    <p>{{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}</p>
-                  </div>
+                  {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
                 </UBadge>
               </ClientOnly>
             </div>

@@ -14,10 +14,23 @@ const { data: writings } = await useAsyncData('all-writings', () => {
     .order('publishedAt', 'DESC')
     .all()
 })
+
+// Group writings by year
+const groupedWritings = computed(() => {
+  const grouped: Record<string, any[]> = {}
+  writings.value!.forEach((writing: any) => {
+    const year = new Date(writing.publishedAt).getFullYear().toString()
+    if (!grouped[year]) {
+      grouped[year] = []
+    }
+    grouped[year].push(writing)
+  })
+  return Object.entries(grouped).reverse()
+})
 </script>
 
 <template>
-  <main class="space-y-12">
+  <main class="space-y-12 mb-12 relative">
     <AppTitle
       :description="t('description')"
       :title="t('title')"
@@ -30,55 +43,55 @@ const { data: writings } = await useAsyncData('all-writings', () => {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <ul class="grid grid-cols-1 gap-4">
-      <NuxtLink
-        v-for="(writing, id) in writings"
-        :key="id"
-        :to="writing.path"
-      >
-        <li
-          class=" h-full border p-4 border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-600  duration-300"
-        >
-          <article class="space-y-2">
-            <h1
-              class="font-bold text-lg duration-300 text-black dark:text-white"
+    <div class="space-y-24">
+      <div v-for="year in groupedWritings" :key="year[0]" class="space-y-6 relative">
+        <h2 class="text-3xl absolute -left-16 font-bold text-white opacity-10 select-none pointer-events-none [writing-mode:vertical-rl] [text-orientation:upright]">
+          {{ year[0] }}
+        </h2>
+        <ul class="relative grid grid-cols-1 gap-8">
+          <NuxtLink
+            v-for="(writing, id) in year[1]"
+            :key="id"
+            :to="writing.path"
+          >
+            <li
+              class="h-full group"
             >
-              {{ writing.title }}
-            </h1>
-            <h3>
-              {{ writing.description }}
-            </h3>
-          </article>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-2">
-            <div
-              class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
-            >
-              <UIcon name="ph:calendar-duotone" size="16" />
-              <p>{{ useDateFormat(writing.publishedAt, 'DD MMMM YYYY').value }} </p>·
-              <UIcon name="ph:timer-duotone" size="16" />
-              <p>{{ writing.readingTime }}min long</p>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <ClientOnly>
-                <UBadge
-                  v-for="tag in writing.tags.sort((a: any, b: any) => a.localeCompare(b))"
-                  :key="tag"
-                  :color="TAGS.find(color => color.label.toLowerCase() === tag)?.color as any"
-                  variant="soft"
-                  size="sm"
-                  class="rounded-full"
+              <h1
+                class="font-bold text-lg duration-300 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
+              >
+                {{ writing.title }}
+              </h1>
+              <h3 class="text-neutral-600 dark:text-neutral-400 italic">
+                {{ writing.description }}
+              </h3>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between mt-2">
+                <div
+                  class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
                 >
-                  <div class="flex gap-1 items-center">
-                    <UIcon :name="TAGS.find(icon => icon.label.toLowerCase() === tag)?.icon || ''" size="16" />
-                    <p>{{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}</p>
+                  <p>{{ useDateFormat(writing.publishedAt, 'DD MMM').value }} </p>
+                  <span>·</span>
+                  <p>{{ writing.readingTime }}min</p>
+                  <span class="w-2" />
+                  <div class="flex gap-2 flex-wrap">
+                    <ClientOnly>
+                      <UBadge
+                        v-for="tag in writing.tags.sort((a: any, b: any) => a.localeCompare(b))"
+                        :key="tag"
+                        variant="soft"
+                        size="sm"
+                      >
+                        {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
+                      </UBadge>
+                    </ClientOnly>
                   </div>
-                </UBadge>
-              </ClientOnly>
-            </div>
-          </div>
-        </li>
-      </NuxtLink>
-    </ul>
+                </div>
+              </div>
+            </li>
+          </NuxtLink>
+        </ul>
+      </div>
+    </div>
   </main>
 </template>
 
