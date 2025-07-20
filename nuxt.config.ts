@@ -97,9 +97,6 @@ export default defineNuxtConfig({
 
   // Nuxt I18N
   i18n: {
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     strategy: 'no_prefix',
     locales: [
       {
@@ -173,6 +170,4 @@ export default defineNuxtConfig({
     // Set to true to enable tracking of visitor locations
     locations: true,
   },
-
-  compatibilityDate: '2025-04-19',
 })
