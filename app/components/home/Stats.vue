@@ -2,13 +2,12 @@
 import type { Stats } from '~~/types'
 import { usePrecision } from '@vueuse/math'
 
-const { locale, locales } = useI18n()
+const { locale, locales, t } = useI18n({
+  useScope: 'local',
+})
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
-const { t } = useI18n({
-  useScope: 'local',
-})
 
 const time = useTimeAgo(new Date(stats.value!.coding.data.range.start) ?? new Date()).value.split(' ')[0]
 const date = useDateFormat(new Date(stats.value!.coding.data.range.start ?? new Date()), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })

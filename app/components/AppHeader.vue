@@ -51,7 +51,7 @@ const navs = [
       es: 'currículum',
     },
     icon: 'address-book-duotone',
-    href: 'https://files.arthurdanjou.fr/resume',
+    to: 'https://files.arthurdanjou.fr/s/resume',
     target: '_blank',
   },
 ]

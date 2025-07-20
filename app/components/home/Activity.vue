@@ -3,7 +3,7 @@ import type { UseTimeAgoMessages } from '@vueuse/core'
 import type { Activity } from '~~/types'
 import { activityMessages, IDEs } from '~~/types'
 
-const { t } = useI18n({
+const { locale, locales, t } = useI18n({
   useScope: 'local',
 })
 
@@ -21,7 +21,6 @@ const codingActivity = computed(() => {
     : activities[0]
 })
 
-const { locale, locales } = useI18n()
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
 const isActive = computed(() => {
