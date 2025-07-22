@@ -43,9 +43,9 @@ const groupedWritings = computed(() => {
       icon="i-ph-warning-duotone"
       variant="outline"
     />
-    <div class="space-y-24">
-      <div v-for="year in groupedWritings" :key="year[0]" class="space-y-6 relative">
-        <h2 class="text-3xl absolute -left-16 font-bold text-white opacity-10 select-none pointer-events-none [writing-mode:vertical-rl] [text-orientation:upright]">
+    <div class="space-y-8">
+      <div v-for="year in groupedWritings" :key="year[0]" class="lg:space-y-6 relative">
+        <h2 class="text-4xl lg:absolute top-2 -left-16 font-bold text-white opacity-10 select-none pointer-events-none lg:[writing-mode:vertical-rl] lg:[text-orientation:upright]">
           {{ year[0] }}
         </h2>
         <ul class="relative grid grid-cols-1 gap-2">
@@ -55,7 +55,7 @@ const groupedWritings = computed(() => {
             :to="writing.path"
           >
             <li
-              class="h-full group hover:bg-gray-100/60 duration-300 p-2 rounded-lg dark:hover:bg-neutral-800/30 transition-colors"
+              class="h-full group hover:bg-gray-100/60 duration-300 p-1 lg:p-2 rounded-lg dark:hover:bg-neutral-800/30 transition-colors"
             >
               <h1
                 class="font-bold text-lg duration-300 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
