@@ -3,8 +3,7 @@ const route = useRoute()
 const { data: project } = await useAsyncData(`projects/${route.params.slug}`, () =>
   queryCollection('projects').path(`/projects/${route.params.slug}`).first())
 
-const { locale } = useI18n()
-const { t } = useI18n({
+const { t, locale } = useI18n({
   useScope: 'local',
 })
 

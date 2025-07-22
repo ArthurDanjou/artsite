@@ -23,21 +23,21 @@ const { data: projects } = await useAsyncData('all-projects', () => {
       :description="t('description')"
       :title="t('title')"
     />
-    <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <NuxtLink
         v-for="(project, id) in projects"
         :key="id"
         :to="project.path"
       >
         <li
-          class="flex flex-col justify-between h-full border p-4 border-neutral-200 rounded-md hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-600 duration-300"
+          class="flex flex-col h-full group hover:bg-gray-100/60 duration-300 p-2 rounded-lg dark:hover:bg-neutral-800/30 transition-colors justify-center"
         >
           <article class="space-y-2">
             <div
-              class="flex flex-col gap-2"
+              class="flex flex-col"
             >
               <div class="flex items-center gap-2">
-                <h1 class="font-bold text-lg text-black dark:text-white">
+                <h1 class="font-bold duration-300 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white">
                   {{ project.title }}
                 </h1>
                 <UTooltip
@@ -56,29 +56,29 @@ const { data: projects } = await useAsyncData('all-projects', () => {
                   />
                 </UTooltip>
               </div>
-              <h3 class="text-md text-neutral-500 dark:text-neutral-400">
+              <h3 class="text-md text-neutral-500 dark:text-neutral-400 italic">
                 {{ project.description }}
               </h3>
             </div>
           </article>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-2">
+          <div class="flex flex-col sm:flex-row sm:items-center mt-1">
             <div
-              class="text-sm text-neutral-500 flex items-center gap-1"
+              class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
             >
-              <UIcon name="ph:calendar-duotone" size="16" />
-              <p>{{ useDateFormat(project.publishedAt, 'DD MMMM YYYY').value }} </p>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-              <ClientOnly>
-                <UBadge
-                  v-for="tag in project.tags.sort((a: any, b: any) => a.localeCompare(b))"
-                  :key="tag"
-                  variant="soft"
-                  size="sm"
-                >
-                  {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
-                </UBadge>
-              </ClientOnly>
+              <p>{{ useDateFormat(project.publishedAt, 'DD MMM YYYY').value }} </p>
+              <span class="w-2" />
+              <div class="flex gap-2 flex-wrap">
+                <ClientOnly>
+                  <UBadge
+                    v-for="tag in project.tags.sort((a: any, b: any) => a.localeCompare(b))"
+                    :key="tag"
+                    variant="soft"
+                    size="sm"
+                  >
+                    {{ TAGS.find(color => color.label.toLowerCase() === tag)?.label }}
+                  </UBadge>
+                </ClientOnly>
+              </div>
             </div>
           </div>
         </li>

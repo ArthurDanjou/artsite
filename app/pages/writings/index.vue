@@ -48,14 +48,14 @@ const groupedWritings = computed(() => {
         <h2 class="text-3xl absolute -left-16 font-bold text-white opacity-10 select-none pointer-events-none [writing-mode:vertical-rl] [text-orientation:upright]">
           {{ year[0] }}
         </h2>
-        <ul class="relative grid grid-cols-1 gap-8">
+        <ul class="relative grid grid-cols-1 gap-2">
           <NuxtLink
             v-for="(writing, id) in year[1]"
             :key="id"
             :to="writing.path"
           >
             <li
-              class="h-full group"
+              class="h-full group hover:bg-gray-100/60 duration-300 p-2 rounded-lg dark:hover:bg-neutral-800/30 transition-colors"
             >
               <h1
                 class="font-bold text-lg duration-300 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
@@ -65,7 +65,7 @@ const groupedWritings = computed(() => {
               <h3 class="text-neutral-600 dark:text-neutral-400 italic">
                 {{ writing.description }}
               </h3>
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between mt-2">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between mt-1">
                 <div
                   class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
                 >
