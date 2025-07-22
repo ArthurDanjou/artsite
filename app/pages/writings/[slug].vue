@@ -8,8 +8,7 @@ const {
   refresh,
 } = await useAsyncData(`writings/${route.params.slug}/db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
-const { locale } = useI18n()
-const { t } = useI18n({
+const { t, locale } = useI18n({
   useScope: 'local',
 })
 

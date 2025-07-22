@@ -17,7 +17,7 @@ useHead({
   </UApp>
 </template>
 
-<style>
+<style scoped>
 body {
   font-family: 'DM Sans', sans-serif;
 }
