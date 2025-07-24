@@ -14,6 +14,7 @@ const hardware = items.value!.filter(item => item.category === 'hardware')
 const software = items.value!.filter(item => item.category === 'software')
 const ide = items.value!.filter(item => item.category === 'ide')
 const stack = items.value!.filter(item => item.category === 'stack')
+const homelab = items.value!.filter(item => item.category === 'homelab')
 
 const photos = [
   {
@@ -93,6 +94,13 @@ const photos = [
           :item="item"
         />
       </UsesList>
+      <UsesList :title="t('homelab')">
+        <UsesItem
+          v-for="(item, id) in homelab"
+          :key="id"
+          :item="item"
+        />
+      </UsesList>
     </div>
   </main>
 </template>
@@ -105,6 +113,7 @@ const photos = [
     "hardware": "Hardware",
     "software": "Software",
     "ide": "IDE & Font",
+    "homelab": "My personal HomeLab",
     "stack": "Stack",
     "caption": {
       "jetbrains": "My IntelliJ IDE",
@@ -119,6 +128,7 @@ const photos = [
     "hardware": "Matériel",
     "software": "Logiciel",
     "ide": "IDE & Police",
+    "homelab": "Mon HomeLab personnel",
     "stack": "Stack",
     "caption": {
       "jetbrains": "Mon IDE IntelliJ Idea Ultimate",
@@ -133,6 +143,7 @@ const photos = [
     "hardware": "Material",
     "software": "Programas",
     "ide": "IDE y Fuente",
+    "homelab": "Mi HomeLab personal",
     "stack": "Stack",
     "caption": {
       "jetbrains": "Mi IDE IntelliJ Idea Ultimate",
