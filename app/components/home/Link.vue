@@ -30,7 +30,7 @@ defineProps({
       size="20"
     />
     <span
-      class="duration-300 underline-offset-2 text-md text-black dark:text-white underline decoration-gray-300 dark:decoration-neutral-700 group-hover:decoration-black dark:group-hover:decoration-white"
+      class="duration-300 underline-offset-2 font-bold text-md text-black dark:text-white underline decoration-gray-300 dark:decoration-neutral-700 group-hover:decoration-black dark:group-hover:decoration-white"
     >
       {{ label }}
     </span>
