@@ -116,7 +116,7 @@ function scrollToSection(id: string) {
     </div>
     <div v-if="post.body.toc && post.body.toc.links.length > 0" class="pt-4 top-0 flex justify-end sticky z-50">
       <UPopover
-        mode="hover"
+        mode="click"
         :content="{
           align: 'end',
           side: 'bottom',
