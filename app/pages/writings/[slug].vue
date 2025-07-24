@@ -169,7 +169,7 @@ function scrollToSection(id: string) {
         :value="post"
         class="!max-w-none prose dark:prose-invert"
       />
-      <div class="space-y-8 mt-16">
+      <div class="space-y-4 mt-16">
         <div class="flex gap-8 items-start p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
           <NuxtImg
             src="/arthur.webp"
@@ -210,7 +210,7 @@ function scrollToSection(id: string) {
             </template>
           </i18n-t>
         </div>
-        <div class="flex gap-8 items-center flex-wrap">
+        <div class="flex gap-4 items-center flex-wrap">
           <UButton
             :label="(postDB?.likes ?? 0) > 1 ? `${postDB?.likes ?? 0} likes` : `${postDB?.likes ?? 0} like`"
             :color="likeCookie ? 'red' : 'neutral'"
