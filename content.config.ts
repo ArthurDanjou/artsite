@@ -31,6 +31,18 @@ export const collections = {
       tags: z.array(z.string()),
     }),
   }),
+  categories: defineCollection({
+    type: 'data',
+    source: 'uses/categories/*.json',
+    schema: z.object({
+      id: z.string(),
+      name: z.object({
+        en: z.string(),
+        fr: z.string(),
+        es: z.string(),
+      }),
+    }),
+  }),
   uses: defineCollection({
     type: 'data',
     source: 'uses/*.json',

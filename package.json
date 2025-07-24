@@ -24,12 +24,12 @@
     "@nuxt/ui": "3.2.0",
     "@nuxthub/core": "^0.9.0",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/i18n": "10.0.0",
+    "@nuxtjs/i18n": "10.0.1",
     "@vueuse/core": "^13.5.0",
     "better-sqlite3": "^12.2.0",
     "drizzle-orm": "^0.44.3",
     "h3-zod": "^0.5.3",
-    "nuxt": "^4.0.0",
+    "nuxt": "^4.0.1",
     "nuxt-visitors": "1.2.2",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
@@ -42,13 +42,13 @@
     "@antfu/eslint-config": "^4.17.0",
     "@iconify-json/devicon": "^1.2.32",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^24.0.15",
+    "@types/node": "^24.1.0",
     "@vueuse/math": "^13.5.0",
     "@vueuse/nuxt": "^13.5.0",
     "drizzle-kit": "^0.31.4",
     "eslint": "^9.31.0",
     "typescript": "^5.8.3",
     "vue-tsc": "^3.0.3",
-    "wrangler": "^4.25.0"
+    "wrangler": "^4.25.1"
   }
 }

@@ -1,9 +1,0 @@
-{
-  "name": "FrontEnd & BackEnd",
-  "description": {
-    "en": "I use TypeScript, Vue 3 with Nuxt 3, Nuxt Stack (UI, Hub, Content, Studio) & TailwindCss for FrontEnd. Nuxt (powered by Nitro) and AdonisJs are used for BackEnd depending on project complexity. PostgreSQL are used for database, Redis for caching. Docker is used for containerization. Apps are deployed on NuxtHub (powered by CloudFlare) or Vercel.",
-    "fr": "J'utilise TypeScript, Vue 3 avec Nuxt 3, Nuxt Stack (UI, Hub, Content, Studio) & TailwindCss pour le FrontEnd. Nuxt (alimenté par Nitro) et AdonisJs sont utilisés pour le BackEnd en fonction de la complexité du projet. PostgreSQL est utilisé pour la base de données, Redis pour le caching. Docker est utilisé pour la conteneurisation. Les applications sont déployées sur NuxtHub (alimenté par CloudFlare) ou Vercel.",
-    "es": "Uso TypeScript, Vue 3 con Nuxt 3, Nuxt Stack (UI, Hub, Content, Studio) & TailwindCss para el FrontEnd. Nuxt (alimentado por Nitro) y AdonisJs se utilizan para el BackEnd dependiendo de la complejidad del proyecto. PostgreSQL se utiliza para la base de datos, Redis para el caching. Docker se utiliza para la contenerización. Las aplicaciones se despliegan en NuxtHub (alimentado por CloudFlare) o Vercel."
-  },
-  "category": "stack"
-}

@@ -1,0 +1,9 @@
+{
+  "name": "DevOps",
+  "description": {
+    "en": "Docker, Git, GitHub, Traefik.",
+    "fr": "Docker, Git, GitHub, Traefik.",
+    "es": "Docker, Git, GitHub, Traefik."
+  },
+  "category": "stack"
+}

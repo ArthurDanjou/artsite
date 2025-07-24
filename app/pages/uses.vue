@@ -9,12 +9,7 @@ useSeoMeta({
 })
 
 const { data: items } = await useAsyncData('uses', async () => await queryCollection('uses').all())
-
-const hardware = items.value!.filter(item => item.category === 'hardware')
-const software = items.value!.filter(item => item.category === 'software')
-const ide = items.value!.filter(item => item.category === 'ide')
-const stack = items.value!.filter(item => item.category === 'stack')
-const homelab = items.value!.filter(item => item.category === 'homelab')
+const { data: categories } = await useAsyncData('categories', async () => await queryCollection('categories').all())
 
 const photos = [
   {
@@ -22,16 +17,8 @@ const photos = [
     caption: 'caption.jetbrains',
   },
   {
-    src: '/uses/cursor.webp',
-    caption: 'caption.cursor',
-  },
-  {
     src: '/uses/pycharm.webp',
     caption: 'caption.pycharm',
-  },
-  {
-    src: '/uses/datagrip.webp',
-    caption: 'caption.datagrip',
   },
 ]
 </script>
@@ -42,27 +29,15 @@ const photos = [
       :description="t('description')"
       :title="t('title')"
     />
-    <div class="mt-12 space-y-12">
-      <UsesList :title="t('hardware')">
+    <div v-if="items" class="mt-12 space-y-12">
+      <UsesList v-for="category in categories" :title="category.name" :key="category.id">
         <UsesItem
-          v-for="(item, id) in hardware"
+          v-for="(item, id) in items.filter(item => item.category === String(category.meta.title).toLowerCase())"
           :key="id"
           :item="item"
         />
       </UsesList>
-      <UsesList :title="t('software')">
-        <UsesItem
-          v-for="(item, id) in software"
-          :key="id"
-          :item="item"
-        />
-      </UsesList>
-      <ul class="space-y-8">
-        <USeparator
-          :label="t('ide')"
-          size="xs"
-        />
-        <div class="relative">
+      <div class="relative">
           <UCarousel
             v-slot="{ item }"
             arrows
@@ -81,26 +56,6 @@ const photos = [
             />
           </UCarousel>
         </div>
-        <UsesItem
-          v-for="(item, id) in ide"
-          :key="id"
-          :item="item"
-        />
-      </ul>
-      <UsesList :title="t('stack')">
-        <UsesItem
-          v-for="(item, id) in stack"
-          :key="id"
-          :item="item"
-        />
-      </UsesList>
-      <UsesList :title="t('homelab')">
-        <UsesItem
-          v-for="(item, id) in homelab"
-          :key="id"
-          :item="item"
-        />
-      </UsesList>
     </div>
   </main>
 </template>

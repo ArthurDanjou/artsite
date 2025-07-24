@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { UsesItem } from '#components'
-import type { PropType } from 'vue'
 
 defineProps({
   item: {

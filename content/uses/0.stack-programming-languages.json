@@ -1,0 +1,9 @@
+{
+  "name": "Programming",
+  "description": {
+    "en": "Java, Python, Html, Css, JavaScript, TypeScript, SQL.",
+    "fr": "Java, Python, Html, Css, JavaScript, TypeScript, SQL.",
+    "es": "Java, Python, Html, Css, JavaScript, TypeScript, SQL."
+  },
+  "category": "stack"
+}

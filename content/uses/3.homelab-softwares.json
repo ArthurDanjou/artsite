@@ -1,0 +1,9 @@
+{
+  "name": "Self-Hosted Software",
+  "description": {
+    "en": "Uptime Kuma, Beszel, Traefik, Cloudflare, MySpeed, AdGuard Home, Portainer, Home Assistant, Minio, Immich, Vaultwarden, Tailscale, Palmr and Cap.so",
+    "fr": "Uptime Kuma, Beszel, Traefik, Cloudflare, MySpeed, AdGuard Home, Portainer, Home Assistant, Minio, Immich, Vaultwarden, Tailscale, Palmr et Cap.so",
+    "es": "Uptime Kuma, Beszel, Traefik, Cloudflare, MySpeed, AdGuard Home, Portainer, Home Assistant, Minio, Immich, Vaultwarden, Tailscale, Palmr y Cap.so"
+  },
+  "category": "homelab"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "BackEnd",
+  "description": {
+    "en": "AdonisJs, Nuxt (powered by Nitro), PostgreSQL, Redis, MariaDB.",
+    "fr": "AdonisJs, Nuxt (powered by Nitro), PostgreSQL, Redis, MariaDB.",
+    "es": "AdonisJs, Nuxt (powered by Nitro), PostgreSQL, Redis, MariaDB."
+  },
+  "category": "stack"
+}
