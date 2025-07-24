@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const points = useState(() => Array.from({ length: 45 }).fill(0).map(() => [Math.random(), Math.random()]))
-const poly = computed(() => points.value.map(([x, y]) => `${x * 100}% ${y * 100}%`).join(', '))
+const poly = computed(() => points.value.map(([x, y]) => `${x! * 100}% ${y! * 100}%`).join(', '))
 
 function jumpVal(val: number) {
   return Math.random() > 0.5 ? val + (Math.random() - 0.5) / 2 : Math.random()

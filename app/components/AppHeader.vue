@@ -2,10 +2,46 @@
 import { socials } from '~~/types'
 
 const colorMode = useColorMode()
-const isDark = ref(colorMode.value === 'dark')
-watch(isDark, () => {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-})
+const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
+
+function switchTheme() {
+  colorMode.preference = nextTheme.value
+}
+
+function startViewTransition(event: MouseEvent | { clientX: number, clientY: number }) {
+  if (!document.startViewTransition) {
+    switchTheme()
+    return
+  }
+
+  const x = event.clientX
+  const y = event.clientY
+  const endRadius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y),
+  )
+
+  const transition = document.startViewTransition(() => {
+    switchTheme()
+  })
+
+  transition.ready.then(() => {
+    const duration = 500
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ],
+      },
+      {
+        duration,
+        easing: 'cubic-bezier(.76,.32,.29,.66)',
+        pseudoElement: '::view-transition-new(root)',
+      },
+    )
+  })
+}
 
 const navs = [
   {
@@ -56,17 +92,6 @@ const navs = [
   },
 ]
 
-async function toggleTheme() {
-  document.body.style.animation = 'switch-on .5s'
-  await new Promise(resolve => setTimeout(resolve, 500))
-
-  isDark.value = !isDark.value
-  document.body.style.animation = 'switch-off .5s'
-
-  await new Promise(resolve => setTimeout(resolve, 500))
-  document.body.style.animation = ''
-}
-
 const { locale, setLocale, locales, t } = useI18n()
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
 const lang = ref(locale.value)
@@ -87,7 +112,7 @@ const openSelectMenu = ref(false)
 const openContactDrawer = ref(false)
 const router = useRouter()
 defineShortcuts({
-  t: () => toggleTheme(),
+  t: () => startViewTransition({ clientX: window.innerWidth, clientY: 0 }),
   l: () => openSelectMenu.value = !openSelectMenu.value,
   c: () => openContactDrawer.value = !openContactDrawer.value,
   backspace: () => router.back(),
@@ -175,12 +200,12 @@ const socialsList = [
           :delay-duration="4"
         >
           <UButton
-            :icon="isDark ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
+            :icon="nextTheme === 'dark' ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
             color="neutral"
             aria-label="switch theme"
             size="sm"
             variant="ghost"
-            @click="toggleTheme()"
+            @click="startViewTransition"
           />
         </UTooltip>
         <UTooltip

@@ -3,12 +3,32 @@
 
 @plugin "@tailwindcss/typography";
 
+@theme static {
+  --animate-wave: wave 3s infinite
+}
+
 :root {
     --ui-white: #ffffff;
+    --ui-bg-white: #f8f8f8;
     --ui-black: #000000;
+    --ui-bg-black: #1a1a1a;
 }
 
 .dark {
     --ui-white: #ffffff;
     --ui-black: #000000;
+    --ui-bg-white: #f8f8f8;
+    --ui-bg-black: #1a1a1a;
 }
+
+@keyframes wave {
+    0%,
+    50%,
+    100% {
+      transform: rotate(-12deg);
+    }
+    25%, 75% {
+      transform: rotate(3deg) scale(1.5);
+    }
+  }
+

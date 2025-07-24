@@ -18,8 +18,11 @@ useHead({
 </template>
 
 <style scoped>
+@reference "@/assets/css/main.css";
+
 body {
   font-family: 'DM Sans', sans-serif;
+  @apply text-red-200;
 }
 
 .sofia {

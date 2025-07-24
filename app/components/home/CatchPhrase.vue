@@ -33,15 +33,3 @@ const { t } = useI18n({
   }
 }
 </i18n>
-
-<style scoped>
-@keyframes wave {
-    0%,
-    100% {
-      transform: rotate(-3deg) scale(1);
-    }
-    50% {
-      transform: rotate(3deg) scale(1.1);
-    }
-  }
-</style>
