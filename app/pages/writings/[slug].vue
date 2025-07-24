@@ -114,27 +114,29 @@ function scrollToSection(id: string) {
         {{ post.description }}
       </p>
     </div>
-    <div v-if="post.body.toc && post.body.toc.links.length > 0" class="flex justify-end sticky top-0 z-50 !cursor-pointer">
+    <div v-if="post.body.toc && post.body.toc.links.length > 0" class="pt-4 top-0 flex justify-end sticky z-50">
       <UPopover
-        mode="click"
+        mode="hover"
         :content="{
           align: 'end',
           side: 'bottom',
           sideOffset: 8,
         }"
+        :ui="{ content: 'cursor-pointer z-50 bg-[#fff] dark:bg-neutral-900 shadow-lg rounded-md ring ring-gray-100 dark:ring-neutral-800 data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-popover-content-transform-origin) focus:outline-none pointer-events-auto' }"
       >
         <UButton
           :label="t('toc')"
+          variant="subtle"
           color="neutral"
-          variant="solid"
+          class="cursor-pointer text-white"
         />
 
         <template #content>
-          <div class="text-neutral-500 p-2">
+          <div class="p-2 z-50 bg-white flex flex-col gap-y-2">
             <div
               v-for="link in post!.body!.toc!.links"
               :key="link.id"
-              class="inline"
+              class="inline bg-white"
             >
               <UButton
                 size="lg"
@@ -142,7 +144,7 @@ function scrollToSection(id: string) {
                 variant="ghost"
                 color="neutral"
                 :block="true"
-                class="flex justify-start items-start p-1"
+                class="flex justify-start items-start p-1 cursor-pointer"
                 @click="scrollToSection(link.id)"
               />
             </div>
@@ -254,7 +256,7 @@ function scrollToSection(id: string) {
 .prose h2 a,
 .prose h3 a,
 .prose h4 a {
-  @apply no-underline;
+  text-decoration: none;
 }
 
 .prose img {

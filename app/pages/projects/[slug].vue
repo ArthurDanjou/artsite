@@ -134,7 +134,7 @@ useSeoMeta({
 .prose h2 a,
 .prose h3 a,
 .prose h4 a {
-  @apply no-underline;
+  text-decoration: none;
 }
 
 .prose img {
