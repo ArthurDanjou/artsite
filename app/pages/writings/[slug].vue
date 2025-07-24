@@ -122,21 +122,20 @@ function scrollToSection(id: string) {
           side: 'bottom',
           sideOffset: 8,
         }"
-        :ui="{ content: 'cursor-pointer z-50 bg-[#fff] dark:bg-neutral-900 shadow-lg rounded-md ring ring-gray-100 dark:ring-neutral-800 data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-popover-content-transform-origin) focus:outline-none pointer-events-auto' }"
       >
         <UButton
           :label="t('toc')"
-          variant="subtle"
+          variant="solid"
           color="neutral"
-          class="cursor-pointer text-white"
+          class="cursor-pointer"
         />
 
         <template #content>
-          <div class="p-2 z-50 bg-white flex flex-col gap-y-2">
+          <div class="p-2 z-50 flex flex-col gap-y-2">
             <div
               v-for="link in post!.body!.toc!.links"
               :key="link.id"
-              class="inline bg-white"
+              class="inline"
             >
               <UButton
                 size="lg"

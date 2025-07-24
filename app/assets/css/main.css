@@ -3,6 +3,12 @@
 
 @plugin "@tailwindcss/typography";
 
-body {
-    @apply bg-white dark:bg-neutral-950;
+:root {
+    --ui-white: #ffffff;
+    --ui-black: #000000;
+}
+
+.dark {
+    --ui-white: #ffffff;
+    --ui-black: #000000;
 }
