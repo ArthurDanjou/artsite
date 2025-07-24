@@ -130,7 +130,7 @@ function scrollToSection(id: string) {
         />
 
         <template #content>
-          <div class="text-neutral-500 p-2">
+          <div class="text-neutral-500 p-2 bg-default">
             <div
               v-for="link in post!.body!.toc!.links"
               :key="link.id"
