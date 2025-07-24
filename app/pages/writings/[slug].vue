@@ -130,7 +130,7 @@ function scrollToSection(id: string) {
         />
 
         <template #content>
-          <div class="text-neutral-500 p-2 bg-default">
+          <div class="text-neutral-500 p-2">
             <div
               v-for="link in post!.body!.toc!.links"
               :key="link.id"
@@ -139,7 +139,7 @@ function scrollToSection(id: string) {
               <UButton
                 size="lg"
                 :label="link.text"
-                variant="link"
+                variant="ghost"
                 color="neutral"
                 :block="true"
                 class="flex justify-start items-start p-1"
