@@ -48,6 +48,8 @@ const photos = [
             class="rounded-lg"
             :autoplay="{ delay: 4000 }"
             :items="photos"
+            :prev="{ variant: 'ghost' }"
+            :next="{ variant: 'ghost' }"
             prev-icon="i-lucide-chevron-left"
             next-icon="i-lucide-chevron-right"
           >
