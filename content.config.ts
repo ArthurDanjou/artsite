@@ -41,6 +41,7 @@ export const collections = {
         fr: z.string(),
         es: z.string(),
       }),
+      carousel: z.string().optional(),
     }),
   }),
   uses: defineCollection({

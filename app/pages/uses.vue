@@ -20,6 +20,10 @@ const photos = [
     src: '/uses/pycharm.webp',
     caption: 'caption.pycharm',
   },
+  {
+    src: '/uses/vscode.webp',
+    caption: 'caption.vscode',
+  },
 ]
 </script>
 
@@ -36,8 +40,7 @@ const photos = [
           :key="id"
           :item="item"
         />
-      </UsesList>
-      <div class="relative">
+        <div v-if="category.carousel && category.carousel == 'ides'" class="relative">
           <UCarousel
             v-slot="{ item }"
             arrows
@@ -56,6 +59,8 @@ const photos = [
             />
           </UCarousel>
         </div>
+      </UsesList>
+
     </div>
   </main>
 </template>
@@ -72,9 +77,8 @@ const photos = [
     "stack": "Stack",
     "caption": {
       "jetbrains": "My IntelliJ IDE",
-      "cursor": "My Cursor IDE",
-      "pycharm": "My PyCharm IDE",
-      "datagrip": "My DataGrip IDE"
+      "vscode": "My Visual Studio Code IDE",
+      "pycharm": "My PyCharm IDE"
     }
   },
   "fr": {
@@ -87,9 +91,8 @@ const photos = [
     "stack": "Stack",
     "caption": {
       "jetbrains": "Mon IDE IntelliJ Idea Ultimate",
-      "cursor": "Mon IDE Cursor",
-      "pycharm": "Mon IDE PyCharm",
-      "datagrip": "Mon IDE DataGrip"
+      "vscode": "Mon IDE Visual Studio Code",
+      "pycharm": "Mon IDE PyCharm"
     }
   },
   "es": {
@@ -102,9 +105,8 @@ const photos = [
     "stack": "Stack",
     "caption": {
       "jetbrains": "Mi IDE IntelliJ Idea Ultimate",
-      "cursor": "Mi IDE Cursor",
-      "pycharm": "Mi IDE PyCharm",
-      "datagrip": "Mi IDE DataGrip"
+      "vscode": "Mi IDE Visual Studio Code",
+      "pycharm": "Mi IDE PyCharm"
     }
   }
 }
