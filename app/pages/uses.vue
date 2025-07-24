@@ -34,13 +34,13 @@ const photos = [
       :title="t('title')"
     />
     <div v-if="items" class="mt-12 space-y-12">
-      <UsesList v-for="category in categories" :title="category.name" :key="category.id">
+      <UsesList v-for="category in categories" :key="category.id" :title="category.name">
         <UsesItem
           v-for="(item, id) in items.filter(item => item.category === String(category.meta.title).toLowerCase())"
           :key="id"
           :item="item"
         />
-        <div v-if="category.carousel && category.carousel == 'ides'" class="relative">
+        <div v-if="category.carousel && category.carousel === 'ides'" class="relative">
           <UCarousel
             v-slot="{ item }"
             arrows
@@ -60,7 +60,6 @@ const photos = [
           </UCarousel>
         </div>
       </UsesList>
-
     </div>
   </main>
 </template>
@@ -70,11 +69,6 @@ const photos = [
   "en": {
     "title": "My uses",
     "description": "Software I use, gadgets I love, and other things I recommend. Here’s a big list of all of my favorite stuff.",
-    "hardware": "Hardware",
-    "software": "Software",
-    "ide": "IDE & Font",
-    "homelab": "My personal HomeLab",
-    "stack": "Stack",
     "caption": {
       "jetbrains": "My IntelliJ IDE",
       "vscode": "My Visual Studio Code IDE",
@@ -84,11 +78,6 @@ const photos = [
   "fr": {
     "title": "Mes usages",
     "description": "Logiciels que j'utilise, gadgets que j'adore et autres choses que je recommande. Voici une grande liste de toutes mes choses préférées.",
-    "hardware": "Matériel",
-    "software": "Logiciel",
-    "ide": "IDE & Police",
-    "homelab": "Mon HomeLab personnel",
-    "stack": "Stack",
     "caption": {
       "jetbrains": "Mon IDE IntelliJ Idea Ultimate",
       "vscode": "Mon IDE Visual Studio Code",
@@ -98,11 +87,6 @@ const photos = [
   "es": {
     "title": "Mis aplicaciones.",
     "description": "Los programas que utilizo, los gadgets que adoro y otras cosas que recomiendo. Aquí te hago una lista de todas mis cosas preferidas. ",
-    "hardware": "Material",
-    "software": "Programas",
-    "ide": "IDE y Fuente",
-    "homelab": "Mi HomeLab personal",
-    "stack": "Stack",
     "caption": {
       "jetbrains": "Mi IDE IntelliJ Idea Ultimate",
       "vscode": "Mi IDE Visual Studio Code",
