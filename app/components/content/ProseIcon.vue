@@ -29,7 +29,7 @@ const colorVariants = {
 
 <template>
   <span class="inline-flex items-center transform translate-y-1 gap-1">
-    <UIcon :name="icon" size="24" />
+    <UIcon :name="icon" size="16" />
     <span
       :class="colorVariants[color as keyof typeof colorVariants]"
       class="sofia underline-offset-2 underline"
