@@ -97,12 +97,18 @@ const currentLocale = computed(() => locales.value.filter(l => l.code === locale
 const lang = ref(locale.value)
 watch(lang, () => changeLocale(lang.value))
 
-async function changeLocale(newLocale: string) {
+async function changeLocale(newLocale?: string) {
   document.body.style.animation = 'switch-on .2s'
   await new Promise(resolve => setTimeout(resolve, 200))
 
-  await setLocale(newLocale as 'en' | 'fr' | 'es')
-  document.body.style.animation = 'switch-off .2s'
+  if (newLocale) {
+    await setLocale(newLocale as 'en' | 'fr' | 'es')
+  }
+  else {
+    newLocale = currentLocale.value!.code === 'en' ? 'fr' : currentLocale.value!.code === 'fr' ? 'es' : 'en'
+    await setLocale(newLocale as 'en' | 'fr' | 'es')
+  }
+  document.body.style.animation = 'switch-off .5s'
 
   await new Promise(resolve => setTimeout(resolve, 200))
   document.body.style.animation = ''
@@ -113,7 +119,7 @@ const openContactDrawer = ref(false)
 const router = useRouter()
 defineShortcuts({
   t: () => startViewTransition({ clientX: window.innerWidth, clientY: 0 }),
-  l: () => openSelectMenu.value = !openSelectMenu.value,
+  l: () => changeLocale(),
   c: () => openContactDrawer.value = !openContactDrawer.value,
   backspace: () => router.back(),
 })
