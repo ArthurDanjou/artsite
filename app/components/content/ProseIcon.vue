@@ -32,7 +32,7 @@ const colorVariants = {
     <UIcon :name="icon" />
     <span
       :class="colorVariants[color as keyof typeof colorVariants]"
-      class="sofia font-bold underline-offset-2 underline"
+      class="sofia underline-offset-2 underline"
     >
       <slot />
     </span>
