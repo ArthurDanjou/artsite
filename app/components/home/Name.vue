@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const styleVars = {
-  '--animated-speed': '40s',
+  '--animated-speed': '50s',
 }
 </script>
 
 <template>
   <span
-    class="text-xl inline-block font-bold animate-gradient"
+    class="inline-block font-bold animate-gradient"
     :style="styleVars"
   >
     <slot>Arthur Danjou</slot>
