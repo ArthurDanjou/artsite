@@ -45,7 +45,7 @@ const groupedWritings = computed(() => {
     />
     <div class="space-y-8">
       <div v-for="year in groupedWritings" :key="year[0]" class="lg:space-y-6 relative">
-        <h2 class="text-4xl lg:absolute top-2 -left-16 font-bold text-white opacity-10 select-none pointer-events-none lg:[writing-mode:vertical-rl] lg:[text-orientation:upright]">
+        <h2 class="text-4xl lg:absolute top-2 -left-16 font-bold opacity-10 select-none pointer-events-none lg:[writing-mode:vertical-rl] lg:[text-orientation:upright]">
           {{ year[0] }}
         </h2>
         <ul class="relative grid grid-cols-1 gap-2">
