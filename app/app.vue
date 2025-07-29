@@ -20,10 +20,6 @@ useHead({
 <style scoped>
 @reference "@/assets/css/main.css";
 
-body {
-  font-family: 'DM Sans', sans-serif;
-}
-
 .sofia {
   font-family: 'Sofia Sans', sans-serif;
 }

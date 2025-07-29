@@ -7,8 +7,12 @@ function switchTheme() {
   colorMode.preference = nextTheme.value
 }
 
-function startViewTransition(event: MouseEvent | { clientX: number, clientY: number }) {
-  if (!document.startViewTransition) {
+function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
+  // @ts-expect-error experimental API
+  const isAppearanceTransition = document.startViewTransition
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!isAppearanceTransition) {
     switchTheme()
     return
   }
@@ -16,39 +20,38 @@ function startViewTransition(event: MouseEvent | { clientX: number, clientY: num
   const x = event.clientX
   const y = event.clientY
   const endRadius = Math.hypot(
-    Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y),
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
   )
-
   const transition = document.startViewTransition(async () => {
     switchTheme()
     await nextTick()
   })
-
-  transition.ready.then(() => {
-    const clipPath = [
-      `circle(0px at ${x}px ${y}px)`,
-      `circle(${endRadius}px at ${x}px ${y}px)`,
-    ]
-    document.documentElement.animate(
-      {
-        clipPath: colorMode.value === 'dark'
-          ? [...clipPath].reverse()
-          : clipPath,
-      },
-      {
-        duration: 500,
-        easing: 'ease-out',
-        pseudoElement: colorMode.value === 'dark'
-          ? '::view-transition-old(root)'
-          : '::view-transition-new(root)',
-      },
-    )
-  })
+  transition.ready
+    .then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ]
+      document.documentElement.animate(
+        {
+          clipPath: colorMode.value === 'dark'
+            ? [...clipPath].reverse()
+            : clipPath,
+        },
+        {
+          duration: 400,
+          easing: 'ease-out',
+          pseudoElement: colorMode.value === 'dark'
+            ? '::view-transition-old(root)'
+            : '::view-transition-new(root)',
+        },
+      )
+    })
 }
 
 defineShortcuts({
-  t: () => startViewTransition({ clientX: window.innerWidth, clientY: 0 }),
+  t: () => toggleDark({ clientX: window.innerWidth, clientY: 0 }),
 })
 </script>
 
@@ -65,7 +68,7 @@ defineShortcuts({
       aria-label="switch theme"
       size="sm"
       variant="ghost"
-      @click="startViewTransition"
+      @click="toggleDark"
     />
   </UTooltip>
 </template>
@@ -80,6 +83,6 @@ defineShortcuts({
   },
   "es": {
     "theme": "cambiar tema"
-  },
+  }
 }
 </i18n>

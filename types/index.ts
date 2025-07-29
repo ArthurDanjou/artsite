@@ -154,18 +154,6 @@ interface Nav {
   target?: string
 }
 
-export interface NavColor {
-  color: string
-  x: number
-  y: number
-  radius: number
-}
-
-interface NavColorGroup {
-  name: string
-  colors: NavColor[]
-}
-
 export const navs: readonly Nav[] = [
   { label: { en: 'home', fr: 'accueil', es: 'inicio' }, to: '/', icon: 'house-duotone' },
   { label: { en: 'uses', fr: 'usages', es: 'usos' }, to: '/uses', icon: 'backpack-duotone' },
@@ -177,11 +165,4 @@ export const navs: readonly Nav[] = [
     to: 'https://files.arthurdanjou.fr/s/resume',
     target: '_blank',
   },
-] as const
-
-export const navColors: readonly NavColorGroup[] = [
-  { name: 'index', colors: [{ color: '#ffa1ad', x: 20, y: 70, radius: 250 }, { color: '#e7000b', x: 80, y: 20, radius: 500 }] },
-  { name: 'uses', colors: [{ color: '#00d492', x: 60, y: 25, radius: 500 }, { color: '#bbf451', x: 40, y: 80, radius: 300 }] },
-  { name: 'writings', colors: [{ color: '#3b82f6', x: 20, y: 20, radius: 600 }, { color: '#ec4899', x: 80, y: 80, radius: 200 }] },
-  { name: 'projects', colors: [{ color: '#ffd230', x: 20, y: 50, radius: 400 }, { color: '#fb64b6', x: 80, y: 50, radius: 400 }] },
 ] as const
