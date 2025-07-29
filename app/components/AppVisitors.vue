@@ -7,7 +7,7 @@ const { visitors } = useVisitors()
     <UBadge
       color="green"
       variant="outline"
-      class="shadow-xl fixed bottom-4 right-4 rounded-full px-1.5 py-0.5 bg-white ring ring-green-400 dark:bg-neutral-950 dark:ring-green-600"
+      class="shadow-xl fixed z-50  bottom-4 right-4 rounded-full px-1.5 py-0.5 bg-white ring ring-green-400 dark:bg-neutral-950 dark:ring-green-600"
     >
       <div class="flex items-center gap-1">
         <p class="text-neutral-500">
