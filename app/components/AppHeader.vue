@@ -21,23 +21,28 @@ function startViewTransition(event: MouseEvent | { clientX: number, clientY: num
     Math.max(y, window.innerHeight - y),
   )
 
-  const transition = document.startViewTransition(() => {
+  const transition = document.startViewTransition(async () => {
     switchTheme()
+    await nextTick()
   })
 
   transition.ready.then(() => {
-    const duration = 500
+    const clipPath = [
+      `circle(0px at ${x}px ${y}px)`,
+      `circle(${endRadius}px at ${x}px ${y}px)`,
+    ]
     document.documentElement.animate(
       {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${endRadius}px at ${x}px ${y}px)`,
-        ],
+        clipPath: colorMode.value === 'dark'
+          ? [...clipPath].reverse()
+          : clipPath,
       },
       {
-        duration,
-        easing: 'cubic-bezier(.76,.32,.29,.66)',
-        pseudoElement: '::view-transition-new(root)',
+        duration: 500,
+        easing: 'ease-out',
+        pseudoElement: colorMode.value === 'dark'
+          ? '::view-transition-old(root)'
+          : '::view-transition-new(root)',
       },
     )
   })
