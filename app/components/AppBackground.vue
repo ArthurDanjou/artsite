@@ -20,7 +20,9 @@ const backgroundStyle = computed(() => ({
 </script>
 
 <template>
-  <div class="min-h-screen w-full absolute inset-0">
-    <div class="absolute inset-0 z-0" :style="backgroundStyle" />
-  </div>
+  <ClientOnly>
+    <div class="min-h-screen w-full absolute inset-0">
+      <div class="absolute inset-0 z-0" :style="backgroundStyle" />
+    </div>
+  </ClientOnly>
 </template>
