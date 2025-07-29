@@ -170,12 +170,14 @@ function scrollToSection(id: string) {
         class="!max-w-none prose dark:prose-invert"
       />
       <div class="space-y-4 mt-16">
-        <div class="flex gap-8 items-start p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
-          <NuxtImg
-            src="/arthur.webp"
-            alt="Arthur Danjou"
-            class="w-24 h-24 rounded-full"
-          />
+        <div class="flex flex=col md:flex-row gap-8 items-start p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
+          <div class="md:w-full md:flex md:justify-center">
+            <NuxtImg
+              src="/arthur.webp"
+              alt="Arthur Danjou"
+              class="w-24 h-24 rounded-full"
+            />
+          </div>
           <i18n-t
             keypath="thanks"
             tag="p"
