@@ -5,18 +5,16 @@ const { t } = useI18n({
 </script>
 
 <template>
-  <div class="flex items-center gap-2 mt-4">
-    <div class="flex items-center">
+  <div class="mt-4">
+    <div class="float-left flex items-center mt-2 mr-2">
       <ClientOnly>
         <UTooltip text="It's me 👋">
-          <div class="flex items-center6">
-            <UAvatar
-              alt="Avatar"
-              class="hover:rotate-[360deg] duration-500 transform-gpu rounded-full"
-              size="xl"
-              src="/favicon.webp"
-            />
-          </div>
+          <UAvatar
+            alt="Avatar"
+            class="hover:rotate-[360deg] duration-500 transform-gpu rounded-full"
+            size="xl"
+            src="/favicon.webp"
+          />
         </UTooltip>
       </ClientOnly>
     </div>
