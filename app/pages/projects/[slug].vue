@@ -22,7 +22,7 @@ function top() {
 }
 
 const { copy, copied } = useClipboard({
-  source: `https://arthurdanjou.fr/writings/${route.params.slug}`,
+  source: `https://arthurdanjou.fr/projects/${route.params.slug}`,
   copiedDuring: 4000,
 })
 
