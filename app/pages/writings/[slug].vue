@@ -79,7 +79,7 @@ function scrollToSection(id: string) {
         {{ t('back') }}
       </NuxtLinkLocale>
     </div>
-    <PostAlert />
+    <PostAlert class="mb-8" />
     <div class="border-l-2 pl-2 rounded-none border-gray-300 dark:border-neutral-700 flex gap-1 items-center">
       <UIcon name="i-ph-heart-duotone" size="16" />
       <p>{{ getDetails().likes }} </p>·

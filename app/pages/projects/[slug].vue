@@ -42,7 +42,8 @@ const { copy, copied } = useClipboard({
         {{ t('back') }}
       </NuxtLinkLocale>
     </div>
-    <div class="mt-2">
+    <PostAlert class="mb-8" />
+    <div>
       <div class="flex items-end justify-between gap-2 flex-wrap">
         <div class="flex items-center gap-2">
           <h1
@@ -90,7 +91,6 @@ const { copy, copied } = useClipboard({
       class="my-4"
       icon="i-ph-pencil-line-duotone"
     />
-    <PostAlert />
     <ContentRenderer
       :value="project"
       class="!max-w-none prose dark:prose-invert"
