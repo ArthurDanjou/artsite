@@ -160,3 +160,125 @@ export const socials = [
     to: 'https://discordapp.com/users/179635349100691456',
   },
 ]
+
+interface Nav {
+  label: {
+    en: string
+    fr: string
+    es: string
+  }
+  to: string
+  icon?: string
+  target?: string
+}
+
+interface NavColor {
+  color: string
+  x: number
+  y: number
+}
+
+interface NavColorGroup {
+  name: string
+  colors: Array<NavColor>
+}
+
+export const navs: Array<Nav> = [
+  {
+    label: {
+      en: 'home',
+      fr: 'accueil',
+      es: 'inicio',
+    },
+    to: '/',
+    icon: 'house-duotone',
+  },
+  {
+    label: {
+      en: 'uses',
+      fr: 'usages',
+      es: 'usos',
+    },
+    to: '/uses',
+    icon: 'backpack-duotone',
+  },
+  {
+    label: {
+      en: 'writings',
+      fr: 'écrits',
+      es: 'escritos',
+    },
+    to: '/writings',
+    icon: 'books-duotone',
+  },
+  {
+    label: {
+      en: 'projects',
+      fr: 'projets',
+      es: 'proyectos',
+    },
+    to: '/projects',
+    icon: 'code-duotone',
+  },
+  {
+    label: {
+      en: 'resume',
+      fr: 'cv',
+      es: 'currículum',
+    },
+    icon: 'address-book-duotone',
+    to: 'https://files.arthurdanjou.fr/s/resume',
+    target: '_blank',
+  },
+]
+
+export const navColors: Array<NavColorGroup> = [
+  {
+    name: 'uses',
+    colors: [{
+      color: '#00d492',
+      x: 60,
+      y: 25,
+    }, {
+      color: '#bbf451',
+      x: 40,
+      y: 75,
+    }],
+  },
+  {
+    name: 'writings',
+    colors: [{
+      color: '#3b82f6',
+      x: 20,
+      y: 20,
+    }, {
+      color: '#ec4899',
+      x: 80,
+      y: 80,
+    }],
+  },
+  {
+    name: 'projects',
+    colors: [{
+      color: '#ffd230',
+      x: 20,
+      y: 50,
+    }, {
+      color: '#fb64b6',
+      x: 80,
+      y: 50,
+    }],
+  },
+  {
+    name: 'index',
+    colors: [{
+      color: '#ffa1ad',
+      x: 20,
+      y: 80,
+    }, {
+      color: '#e7000b',
+      x: 80,
+      y: 20,
+    }],
+  },
+]
