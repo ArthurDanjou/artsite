@@ -157,13 +157,15 @@ function scrollToSection(id: string) {
       icon="i-ph-pencil-line-duotone"
     />
     <article class="mt-8">
-      <ContentRenderer
+      <ClientOnly>
+        <ContentRenderer
         :value="post"
         class="!max-w-none prose dark:prose-invert"
       />
+      </ClientOnly>
       <div class="space-y-4 mt-8">
         <PostFooter />
-        <div class="flex gap-4 items-center flex-wrap">
+        <div class="flex gap-4 items-center flex-wrap justify-between sm:justify-start">
           <UButton
             :label="(postDB?.likes ?? 0) > 1 ? `${postDB?.likes ?? 0} likes` : `${postDB?.likes ?? 0} like`"
             :color="likeCookie ? 'red' : 'neutral'"

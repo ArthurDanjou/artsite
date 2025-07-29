@@ -91,10 +91,12 @@ const { copy, copied } = useClipboard({
       class="my-4"
       icon="i-ph-pencil-line-duotone"
     />
-    <ContentRenderer
+    <ClientOnly>
+      <ContentRenderer
       :value="project"
       class="!max-w-none prose dark:prose-invert"
     />
+    </ClientOnly>
     <div class="space-y-4 mt-8">
       <PostFooter />
       <div class="flex gap-4 items-center flex-wrap">
