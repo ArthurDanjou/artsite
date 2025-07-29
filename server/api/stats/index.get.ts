@@ -1,18 +1,57 @@
-export default defineCachedEventHandler(async (event) => {
-  const { wakatime } = useRuntimeConfig(event)
+import { H3Event } from 'h3'
 
-  const coding = await $fetch(`https://wakatime.com/share/${wakatime.userId}/${wakatime.coding}.json`)
-  const editors = await $fetch(`https://wakatime.com/share/${wakatime.userId}/${wakatime.editors}.json`)
-  const os = await $fetch(`https://wakatime.com/share/${wakatime.userId}/${wakatime.os}.json`)
-  const languages = await $fetch(`https://wakatime.com/share/${wakatime.userId}/${wakatime.languages}.json`)
+export default defineEventHandler(async (event) => {
+  const [coding, editors, os, languages] = await Promise.all([
+    cachedWakatimeCoding(event),
+    cachedWakatimeEditors(event),
+    cachedWakatimeOs(event),
+    cachedWakatimeLanguages(event)
+  ])
 
   return {
     coding,
     editors,
     os,
-    languages,
+    languages
   }
+})
+
+const cachedWakatimeCoding = defineCachedFunction(async (event: H3Event) => {
+  const config = useRuntimeConfig(event)
+
+  return await $fetch(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.coding}.json`)
 }, {
   maxAge: 24 * 60 * 60,
   name: 'wakatime',
+  getKey: () => 'coding'
+})
+
+const cachedWakatimeEditors = defineCachedFunction(async (event: H3Event) => {
+  const config = useRuntimeConfig(event)
+
+  return await $fetch(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.editors}.json`)
+}, {
+  maxAge: 24 * 60 * 60,
+  name: 'wakatime',
+  getKey: () => 'editors'
+})
+
+const cachedWakatimeOs = defineCachedFunction(async (event: H3Event) => {
+  const config = useRuntimeConfig(event)
+
+  return await $fetch(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.os}.json`)
+}, {
+  maxAge: 24 * 60 * 60,
+  name: 'wakatime',
+  getKey: () => 'os'
+})
+
+const cachedWakatimeLanguages = defineCachedFunction(async (event: H3Event) => {
+  const config = useRuntimeConfig(event)
+
+  return await $fetch(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.languages}.json`)
+}, {
+  maxAge: 24 * 60 * 60,
+  name: 'wakatime',
+  getKey: () => 'languages'
 })
