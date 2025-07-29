@@ -179,7 +179,7 @@ interface NavColor {
 }
 
 interface NavColorGroup {
-  label: string
+  path: string
   colors: Array<NavColor>
 }
 
@@ -234,49 +234,49 @@ export const navs: Array<Nav> = [
 
 export const navColors: Array<NavColorGroup> = [
   {
-    label: '/',
+    path: 'uses',
     colors: [{
-      color: '#f59e0b',
-      x: 20,
-      y: 80,
+      color: '#10b981',
+      x: 50,
+      y: 25,
     }, {
-      color: '#ec4899',
-      x: 80,
-      y: 20,
+      color: '#10b981',
+      x: 50,
+      y: 75,
     }],
   },
   {
-    label: '/uses',
-    colors: [{
-      color: '#ec4899',
-      x: 20,
-      y: 80,
-    }, {
-      color: '#f59e0b',
-      x: 80,
-      y: 20,
-    }],
-  },
-  {
-    label: '/writings',
+    path: 'writings',
     colors: [{
       color: '#3b82f6',
       x: 20,
-      y: 80,
+      y: 20,
     }, {
       color: '#ec4899',
       x: 80,
-      y: 20,
+      y: 80,
     }],
   },
   {
-    label: '/projects',
+    path: 'projects',
     colors: [{
       color: '#8b5cf6',
       x: 20,
-      y: 80,
+      y: 50,
     }, {
       color: '#3b82f6',
+      x: 80,
+      y: 50,
+    }],
+  },
+  {
+    path: '',
+    colors: [{
+      color: '#f59e0b',
+      x: 20,
+      y: 80,
+    }, {
+      color: '#ec4899',
       x: 80,
       y: 20,
     }],
