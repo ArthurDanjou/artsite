@@ -25,7 +25,6 @@ const { copy, copied } = useClipboard({
   source: `https://arthurdanjou.fr/projects/${route.params.slug}`,
   copiedDuring: 4000,
 })
-
 </script>
 
 <template>
@@ -104,37 +103,37 @@ const { copy, copied } = useClipboard({
       :value="project"
       class="!max-w-none prose dark:prose-invert"
     />
-    <div class="space-y-4 mt-16">
-        <PostFooter />
-        <div class="flex gap-4 items-center flex-wrap">
-          <UButton
-            color="neutral"
-            icon="i-ph-arrow-fat-lines-up-duotone"
-            :label="t('top')"
-            size="lg"
-            variant="outline"
-            @click.prevent="top()"
-          />
-          <UButton
-            v-if="copied"
-            color="green"
-            icon="i-ph-check-square-duotone"
-            :label="t('link.copied')"
-            size="lg"
-            variant="outline"
-            @click.prevent="copy()"
-          />
-          <UButton
-            v-else
-            color="neutral"
-            icon="i-ph-square-duotone"
-            :label="t('link.copy')"
-            size="lg"
-            variant="outline"
-            @click.prevent="copy()"
-          />
-        </div>
+    <div class="space-y-4 mt-8">
+      <PostFooter />
+      <div class="flex gap-4 items-center flex-wrap">
+        <UButton
+          color="neutral"
+          icon="i-ph-arrow-fat-lines-up-duotone"
+          :label="t('top')"
+          size="lg"
+          variant="outline"
+          @click.prevent="top()"
+        />
+        <UButton
+          v-if="copied"
+          color="green"
+          icon="i-ph-check-square-duotone"
+          :label="t('link.copied')"
+          size="lg"
+          variant="outline"
+          @click.prevent="copy()"
+        />
+        <UButton
+          v-else
+          color="neutral"
+          icon="i-ph-square-duotone"
+          :label="t('link.copy')"
+          size="lg"
+          variant="outline"
+          @click.prevent="copy()"
+        />
       </div>
+    </div>
   </main>
 </template>
 

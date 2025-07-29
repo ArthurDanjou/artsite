@@ -153,10 +153,6 @@ export default defineNuxtConfig({
       languages: '',
       os: '',
     },
-    umami: {
-      id: '',
-      host: '',
-    },
     public: {
       i18n: {
         baseUrl: '',
