@@ -172,10 +172,11 @@ interface Nav {
   target?: string
 }
 
-interface NavColor {
+export interface NavColor {
   color: string
   x: number
   y: number
+  radius: number
 }
 
 interface NavColorGroup {
@@ -234,15 +235,31 @@ export const navs: Array<Nav> = [
 
 export const navColors: Array<NavColorGroup> = [
   {
+    name: 'index',
+    colors: [{
+      color: '#ffa1ad',
+      x: 20,
+      y: 70,
+      radius: 250,
+    }, {
+      color: '#e7000b',
+      x: 80,
+      y: 20,
+      radius: 500,
+    }],
+  },
+  {
     name: 'uses',
     colors: [{
       color: '#00d492',
       x: 60,
       y: 25,
+      radius: 500,
     }, {
       color: '#bbf451',
       x: 40,
-      y: 75,
+      y: 80,
+      radius: 300,
     }],
   },
   {
@@ -251,10 +268,12 @@ export const navColors: Array<NavColorGroup> = [
       color: '#3b82f6',
       x: 20,
       y: 20,
+      radius: 600,
     }, {
       color: '#ec4899',
       x: 80,
       y: 80,
+      radius: 200,
     }],
   },
   {
@@ -263,22 +282,12 @@ export const navColors: Array<NavColorGroup> = [
       color: '#ffd230',
       x: 20,
       y: 50,
+      radius: 400,
     }, {
       color: '#fb64b6',
       x: 80,
       y: 50,
-    }],
-  },
-  {
-    name: 'index',
-    colors: [{
-      color: '#ffa1ad',
-      x: 20,
-      y: 80,
-    }, {
-      color: '#e7000b',
-      x: 80,
-      y: 20,
+      radius: 400,
     }],
   },
 ]
