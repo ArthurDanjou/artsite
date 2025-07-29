@@ -1,20 +1,4 @@
-import { H3Event } from 'h3'
-
-export default defineEventHandler(async (event) => {
-  const [coding, editors, os, languages] = await Promise.all([
-    cachedWakatimeCoding(event),
-    cachedWakatimeEditors(event),
-    cachedWakatimeOs(event),
-    cachedWakatimeLanguages(event)
-  ])
-
-  return {
-    coding,
-    editors,
-    os,
-    languages
-  }
-})
+import type { H3Event } from 'h3'
 
 const cachedWakatimeCoding = defineCachedFunction(async (event: H3Event) => {
   const config = useRuntimeConfig(event)
@@ -23,7 +7,7 @@ const cachedWakatimeCoding = defineCachedFunction(async (event: H3Event) => {
 }, {
   maxAge: 24 * 60 * 60,
   name: 'wakatime',
-  getKey: () => 'coding'
+  getKey: () => 'coding',
 })
 
 const cachedWakatimeEditors = defineCachedFunction(async (event: H3Event) => {
@@ -33,7 +17,7 @@ const cachedWakatimeEditors = defineCachedFunction(async (event: H3Event) => {
 }, {
   maxAge: 24 * 60 * 60,
   name: 'wakatime',
-  getKey: () => 'editors'
+  getKey: () => 'editors',
 })
 
 const cachedWakatimeOs = defineCachedFunction(async (event: H3Event) => {
@@ -43,7 +27,7 @@ const cachedWakatimeOs = defineCachedFunction(async (event: H3Event) => {
 }, {
   maxAge: 24 * 60 * 60,
   name: 'wakatime',
-  getKey: () => 'os'
+  getKey: () => 'os',
 })
 
 const cachedWakatimeLanguages = defineCachedFunction(async (event: H3Event) => {
@@ -53,5 +37,21 @@ const cachedWakatimeLanguages = defineCachedFunction(async (event: H3Event) => {
 }, {
   maxAge: 24 * 60 * 60,
   name: 'wakatime',
-  getKey: () => 'languages'
+  getKey: () => 'languages',
+})
+
+export default defineEventHandler(async (event) => {
+  const [coding, editors, os, languages] = await Promise.all([
+    cachedWakatimeCoding(event),
+    cachedWakatimeEditors(event),
+    cachedWakatimeOs(event),
+    cachedWakatimeLanguages(event),
+  ])
+
+  return {
+    coding,
+    editors,
+    os,
+    languages,
+  }
 })

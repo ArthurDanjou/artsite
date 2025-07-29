@@ -159,9 +159,9 @@ function scrollToSection(id: string) {
     <article class="mt-8">
       <ClientOnly>
         <ContentRenderer
-        :value="post"
-        class="!max-w-none prose dark:prose-invert"
-      />
+          :value="post"
+          class="!max-w-none prose dark:prose-invert"
+        />
       </ClientOnly>
       <div class="space-y-4 mt-8">
         <PostFooter />

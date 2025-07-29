@@ -93,9 +93,9 @@ const { copy, copied } = useClipboard({
     />
     <ClientOnly>
       <ContentRenderer
-      :value="project"
-      class="!max-w-none prose dark:prose-invert"
-    />
+        :value="project"
+        class="!max-w-none prose dark:prose-invert"
+      />
     </ClientOnly>
     <div class="space-y-4 mt-8">
       <PostFooter />

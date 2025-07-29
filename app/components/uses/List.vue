@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 defineProps({
   title: {
-    type: Object as PropType<{ en: string; fr: string; es: string }>,
+    type: Object as PropType<{ en: string, fr: string, es: string }>,
     required: true,
   },
 })
