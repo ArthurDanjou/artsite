@@ -6,13 +6,11 @@ const { t } = useI18n({
 
 <template>
     <div class="flex flex-col md:flex-row gap-8 items-start p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
-        <div class="w-full flex justify-center">
-            <NuxtImg
-              src="/arthur.webp"
-              alt="Arthur Danjou"
-              class="w-24 h-24 rounded-full"
-            />
-          </div>
+        <NuxtImg
+            src="/arthur.webp"
+            alt="Arthur Danjou"
+            class="w-24 h-24 rounded-full float-left"
+          />
         <i18n-t
             keypath="thanks"
             tag="p"
