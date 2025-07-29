@@ -8,7 +8,7 @@ const {
   refresh,
 } = await useAsyncData(`writings/${route.params.slug}/db`, () => $fetch(`/api/posts/${route.params.slug}`, { method: 'POST' }))
 
-const { t, locale } = useI18n({
+const { t } = useI18n({
   useScope: 'local',
 })
 
@@ -79,15 +79,7 @@ function scrollToSection(id: string) {
         {{ t('back') }}
       </NuxtLinkLocale>
     </div>
-    <UAlert
-      v-if="locale !== 'en'"
-      :description="t('alert.description')"
-      :title="t('alert.title')"
-      class="mb-8"
-      color="red"
-      icon="i-ph-warning-duotone"
-      variant="outline"
-    />
+    <PostAlert />
     <div class="border-l-2 pl-2 rounded-none border-gray-300 dark:border-neutral-700 flex gap-1 items-center">
       <UIcon name="i-ph-heart-duotone" size="16" />
       <p>{{ getDetails().likes }} </p>·
@@ -243,10 +235,6 @@ html {
       "one": "view",
       "many": "views"
     },
-    "alert": {
-      "title": "Translations alert!",
-      "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
-    },
     "link": {
       "copied": "Link copied",
       "copy": "Copy link"
@@ -264,10 +252,6 @@ html {
       "one": "vue",
       "many": "vues"
     },
-    "alert": {
-      "title": "Attentions aux traductions!",
-      "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
-    },
     "link": {
       "copied": "Lien copié",
       "copy": "Copier le lien"
@@ -284,10 +268,6 @@ html {
     "views": {
       "one": "view",
       "many": "views"
-    },
-    "alert": {
-      "title": "Cuidado con las traducciones!",
-      "description": "Por problemas de tiempo, los artículos solo están disponibles en inglés. Gracias por vuestra comprensión.ug ñeóicula."
     },
     "link": {
       "copied": "Link copiado",

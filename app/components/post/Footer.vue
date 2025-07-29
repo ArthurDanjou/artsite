@@ -5,46 +5,46 @@ const { t } = useI18n({
 </script>
 
 <template>
-    <div class="p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
-        <NuxtImg
-            src="/arthur.webp"
-            alt="Arthur Danjou"
-            class="w-24 h-24 rounded-full float-left mr-4 mb-4"
-          />
-        <i18n-t
-            keypath="thanks"
-            tag="p"
-            class="text-neutral-600 dark:text-neutral-400 text-justify"
-        >
-            <template #linkedin>
-              <HomeLink
-                href="https://www.linkedin.com/in/arthurdanjou/"
-                icon="i-ph-linkedin-logo-duotone"
-                label="LinkedIn"
-                target="_blank"
-                class="inline-flex items-start gap-1 transform translate-y-1"
-              />
-            </template>
-            <template #github>
-              <HomeLink
-                href="https://github.com/arthurdanjou"
-                icon="i-ph-github-logo-duotone"
-                label="GitHub"
-                target="_blank"
-                class="inline-flex items-start gap-1 transform translate-y-1"
-              />
-            </template>
-            <template #comment>
-              <strong class="text-neutral-800 dark:text-neutral-200">{{ t('comment') }}</strong>
-            </template>
-            <template #name>
-              <strong class="text-neutral-800 dark:text-neutral-200">{{ t('name') }}</strong>
-            </template>
-            <template #jump>
-              <br> <br>
-            </template>
-        </i18n-t>
-    </div>
+  <div class="p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
+    <NuxtImg
+      src="/arthur.webp"
+      alt="Arthur Danjou"
+      class="w-24 h-24 rounded-full float-left mr-4 mb-4"
+    />
+    <i18n-t
+      keypath="thanks"
+      tag="p"
+      class="text-neutral-600 dark:text-neutral-400 text-justify"
+    >
+      <template #linkedin>
+        <HomeLink
+          href="https://www.linkedin.com/in/arthurdanjou/"
+          icon="i-ph-linkedin-logo-duotone"
+          label="LinkedIn"
+          target="_blank"
+          class="inline-flex items-start gap-1 transform translate-y-1"
+        />
+      </template>
+      <template #github>
+        <HomeLink
+          href="https://github.com/arthurdanjou"
+          icon="i-ph-github-logo-duotone"
+          label="GitHub"
+          target="_blank"
+          class="inline-flex items-start gap-1 transform translate-y-1"
+        />
+      </template>
+      <template #comment>
+        <strong class="text-neutral-800 dark:text-neutral-200">{{ t('comment') }}</strong>
+      </template>
+      <template #name>
+        <strong class="text-neutral-800 dark:text-neutral-200">{{ t('name') }}</strong>
+      </template>
+      <template #jump>
+        <br> <br>
+      </template>
+    </i18n-t>
+  </div>
 </template>
 
 <i18n lang="json">

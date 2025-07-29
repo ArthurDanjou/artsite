@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TAGS } from '~~/types'
 
-const { t, locale } = useI18n({
+const { t } = useI18n({
   useScope: 'local',
 })
 useSeoMeta({
@@ -15,7 +15,6 @@ const { data: writings } = await useAsyncData('all-writings', () => {
     .all()
 })
 
-// Group writings by year
 const groupedWritings = computed(() => {
   const grouped: Record<string, any[]> = {}
   writings.value!.forEach((writing: any) => {
@@ -35,17 +34,10 @@ const groupedWritings = computed(() => {
       :description="t('description')"
       :title="t('title')"
     />
-    <UAlert
-      v-if="locale !== 'en'"
-      :description="t('alert.description')"
-      :title="t('alert.title')"
-      color="red"
-      icon="i-ph-warning-duotone"
-      variant="outline"
-    />
+    <PostAlert />
     <div class="space-y-8">
       <div v-for="year in groupedWritings" :key="year[0]" class="lg:space-y-6 relative">
-        <h2 class="text-4xl lg:absolute top-2 -left-16 font-bold opacity-10 select-none pointer-events-none lg:[writing-mode:vertical-rl] lg:[text-orientation:upright]">
+        <h2 class="text-4xl lg:absolute top-2 -left-16 font-bold opacity-10 select-none pointer-events-none lg:[writing-mode:vertical-rl] lg:[text-orientation:upright] pl-1 lg:pl-0">
           {{ year[0] }}
         </h2>
         <ul class="relative grid grid-cols-1 gap-2">
@@ -100,10 +92,6 @@ const groupedWritings = computed(() => {
   "en": {
     "title": "Writings on math, artificial intelligence, development, and my passions.",
     "description": "All my reflections on programming, mathematics, artificial intelligence design, etc., are organized chronologically.",
-    "alert": {
-      "title": "Attention to translations!",
-      "description": "For time reasons, all article translations will only be available in English. Thank you for your understanding."
-    }
   },
   "fr": {
     "title": "Écrits sur les maths, l'intelligence artificielle, le développement et mes passions.",
@@ -115,17 +103,7 @@ const groupedWritings = computed(() => {
   },
   "es": {
     "title": "Escritos sobre matemáticas, inteligencia artificial, desarrollo y mis pasiones.",
-    "description": "Todas mis reflexiones sobre programación, matemáticas, diseño de inteligencia artificial, etc., están organizadas cronológicamente.",
-    "alert": {
-      "title": "¡Atención a las traducciones!",
-      "description": "Por razones de tiempo, todas las traducciones de los artículos estarán disponibles solo en inglés. Gracias por su comprensión."
-    }
+    "description": "Todas mis reflexiones sobre programación, matemáticas, diseño de inteligencia artificial, etc., están organizadas cronológicamente."
   }
 }
 </i18n>
-
-<style scoped>
-.tablist > button {
-  cursor: pointer !important;
-}
-</style>

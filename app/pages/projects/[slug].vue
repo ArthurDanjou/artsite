@@ -3,7 +3,7 @@ const route = useRoute()
 const { data: project } = await useAsyncData(`projects/${route.params.slug}`, () =>
   queryCollection('projects').path(`/projects/${route.params.slug}`).first())
 
-const { t, locale } = useI18n({
+const { t } = useI18n({
   useScope: 'local',
 })
 
@@ -90,15 +90,7 @@ const { copy, copied } = useClipboard({
       class="my-4"
       icon="i-ph-pencil-line-duotone"
     />
-    <UAlert
-      v-if="locale !== 'en'"
-      :description="t('alert.description')"
-      :title="t('alert.title')"
-      class="mb-8"
-      color="red"
-      icon="i-ph-warning-duotone"
-      variant="outline"
-    />
+    <PostAlert />
     <ContentRenderer
       :value="project"
       class="!max-w-none prose dark:prose-invert"
@@ -160,10 +152,6 @@ html {
 <i18n lang="json">
 {
   "en": {
-    "alert": {
-      "title": "Translations alert!",
-      "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
-    },
     "back": "Go back",
     "link": {
       "copied": "Link copied",
@@ -173,10 +161,6 @@ html {
 
   },
   "fr": {
-    "alert": {
-      "title": "Attentions aux traductions!",
-      "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
-    },
     "back": "Retourner en arrière",
     "link": {
       "copied": "Lien copié",
@@ -185,10 +169,6 @@ html {
     "top": "Remonter en haut"
   },
   "es": {
-    "alert": {
-      "title": "Cuidado con las traducciones!",
-      "description": " Por problemas de tiempo, los artículos solo están disponibles en inglés. Gracias por vuestra comprensión.ug ñeóicula."
-    },
     "back": "Volver atrás",
         "link": {
       "copied": "Link copiado",

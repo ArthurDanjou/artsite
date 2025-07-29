@@ -23,6 +23,7 @@ const { data: projects } = await useAsyncData('all-projects', () => {
       :description="t('description')"
       :title="t('title')"
     />
+    <PostAlert />
     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <NuxtLink
         v-for="(project, id) in projects"
