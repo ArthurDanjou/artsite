@@ -61,7 +61,9 @@ const groupedWritings = computed(() => {
                 <div
                   class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
                 >
-                  <p>{{ useDateFormat(writing.publishedAt, 'DD MMM').value }} </p>
+                  <ClientOnly>
+                    <p>{{ useDateFormat(writing.publishedAt, 'DD MMM').value }} </p>
+                  </ClientOnly>
                   <span>·</span>
                   <p>{{ writing.readingTime }}min</p>
                   <span class="w-2" />

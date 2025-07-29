@@ -66,7 +66,9 @@ const { data: projects } = await useAsyncData('all-projects', () => {
             <div
               class="text-sm text-neutral-500 duration-300 flex items-center gap-1"
             >
-              <p>{{ useDateFormat(project.publishedAt, 'DD MMM YYYY').value }} </p>
+              <ClientOnly>
+                <p>{{ useDateFormat(project.publishedAt, 'DD MMM YYYY').value }} </p>
+              </ClientOnly>
               <span class="w-2" />
               <div class="flex gap-2 flex-wrap">
                 <ClientOnly>

@@ -2,16 +2,22 @@
 const { t, locale } = useI18n({
   useScope: 'local',
 })
+
+const closed = ref(false)
 </script>
 
 <template>
   <UAlert
-    v-if="locale !== 'en'"
+    v-if="locale !== 'en' && !closed"
     :description="t('alert.description')"
     :title="t('alert.title')"
     color="red"
     icon="i-ph-warning-duotone"
-    variant="outline"
+    variant="soft"
+    :close="{
+      color: 'red',
+    }"
+    @update:open="closed = true"
   />
 </template>
 
