@@ -31,7 +31,7 @@ const { data: projects } = await useAsyncData('all-projects', () => {
         :to="project.path"
       >
         <li
-          class="flex flex-col h-full group hover:bg-gray-100/60 duration-300 p-2 rounded-lg dark:hover:bg-neutral-800/30 transition-colors justify-center"
+          class="flex flex-col h-full group hover:bg-gray-100/50 duration-300 p-2 rounded-lg dark:hover:bg-neutral-800/50 transition-colors justify-center"
         >
           <article class="space-y-2">
             <div
@@ -53,7 +53,7 @@ const { data: projects } = await useAsyncData('all-projects', () => {
                     v-if="project.favorite"
                     name="i-ph-star-duotone"
                     size="16"
-                    class="text-amber-500 hover:rotate-360 duration-300"
+                    class="text-amber-500 hover:rotate-360 duration-500"
                   />
                 </UTooltip>
               </div>

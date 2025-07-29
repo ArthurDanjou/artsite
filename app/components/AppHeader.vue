@@ -1,101 +1,5 @@
 <script setup lang="ts">
-import { socials } from '~~/types'
-
-const colorMode = useColorMode()
-const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
-
-function switchTheme() {
-  colorMode.preference = nextTheme.value
-}
-
-function startViewTransition(event: MouseEvent | { clientX: number, clientY: number }) {
-  if (!document.startViewTransition) {
-    switchTheme()
-    return
-  }
-
-  const x = event.clientX
-  const y = event.clientY
-  const endRadius = Math.hypot(
-    Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y),
-  )
-
-  const transition = document.startViewTransition(async () => {
-    switchTheme()
-    await nextTick()
-  })
-
-  transition.ready.then(() => {
-    const clipPath = [
-      `circle(0px at ${x}px ${y}px)`,
-      `circle(${endRadius}px at ${x}px ${y}px)`,
-    ]
-    document.documentElement.animate(
-      {
-        clipPath: colorMode.value === 'dark'
-          ? [...clipPath].reverse()
-          : clipPath,
-      },
-      {
-        duration: 500,
-        easing: 'ease-out',
-        pseudoElement: colorMode.value === 'dark'
-          ? '::view-transition-old(root)'
-          : '::view-transition-new(root)',
-      },
-    )
-  })
-}
-
-const navs = [
-  {
-    label: {
-      en: 'home',
-      fr: 'accueil',
-      es: 'inicio',
-    },
-    to: '/',
-    icon: 'house-duotone',
-  },
-  {
-    label: {
-      en: 'uses',
-      fr: 'usages',
-      es: 'usos',
-    },
-    to: '/uses',
-    icon: 'backpack-duotone',
-  },
-  {
-    label: {
-      en: 'writings',
-      fr: 'écrits',
-      es: 'escritos',
-    },
-    to: '/writings',
-    icon: 'books-duotone',
-  },
-  {
-    label: {
-      en: 'projects',
-      fr: 'projets',
-      es: 'proyectos',
-    },
-    to: '/projects',
-    icon: 'code-duotone',
-  },
-  {
-    label: {
-      en: 'resume',
-      fr: 'cv',
-      es: 'currículum',
-    },
-    icon: 'address-book-duotone',
-    to: 'https://files.arthurdanjou.fr/s/resume',
-    target: '_blank',
-  },
-]
+import { navs, socials } from '~~/types'
 
 const { locale, setLocale, locales, t } = useI18n()
 const currentLocale = computed(() => locales.value.filter(l => l.code === locale.value)[0])
@@ -123,7 +27,6 @@ const openSelectMenu = ref(false)
 const openContactDrawer = ref(false)
 const router = useRouter()
 defineShortcuts({
-  t: () => startViewTransition({ clientX: window.innerWidth, clientY: 0 }),
   l: () => changeLocale(),
   c: () => openContactDrawer.value = !openContactDrawer.value,
   backspace: () => router.back(),
@@ -204,21 +107,7 @@ const socialsList = [
       </UDropdownMenu>
       <USeparator orientation="vertical" class="h-6" />
       <ClientOnly>
-        <UTooltip
-          :kbds="['T']"
-          :text="t('theme')"
-          class="cursor-pointer"
-          :delay-duration="4"
-        >
-          <UButton
-            :icon="nextTheme === 'dark' ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
-            color="neutral"
-            aria-label="switch theme"
-            size="sm"
-            variant="ghost"
-            @click="startViewTransition"
-          />
-        </UTooltip>
+        <ThemeSwitcher />
         <UTooltip
           :kbds="['L']"
           :text="t('language')"
@@ -278,7 +167,6 @@ const socialsList = [
 <i18n lang="json">
 {
   "en": {
-    "theme": "switch theme",
     "language": "change language",
     "status": "status page",
     "contact": {
@@ -287,7 +175,6 @@ const socialsList = [
     }
   },
   "fr": {
-    "theme": "changer de thème",
     "language": "changer de langue",
     "status": "page de statut",
     "contact": {
@@ -296,7 +183,6 @@ const socialsList = [
     }
   },
   "es": {
-    "theme": "cambiar tema",
     "language": "cambiar idioma",
     "status": "página de estado",
     "contact": {
