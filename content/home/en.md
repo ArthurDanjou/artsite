@@ -5,26 +5,26 @@ description: I'm Arthur, a Mathematics lover and IA enthusiast. I'm currently
   Computer Science, and Artificial Intelligence.
 ---
 
-Hey, I'm :home-name , a Mathematics student in Statistics at the Paris-Dauphine University in France.
+Hey, I'm :home-name, a Mathematics student in Statistics at the Paris-Dauphine University in France.
 
 With a :hover-text{hover="Technology is evolving far too quickly 🤯" position="top" text="deep understanding"} of emerging technologies, I'm at the heart of a rapidly expanding field. My background in :hover-text{hover="Maths is my main passion ∑" position="right" text="mathematics"} gives me a head start in understanding the concepts and theories behind these :hover-text{hover="My second passion 📱" text="technologies"} and in designing them effectively.
 
 As a software engineer and mathematics student, my :hover-text{hover="My bag of knowledge 🎒" text="expertise"} covers
-:prose-icon[TypeScript]{color="blue" icon="i-logos:typescript-icon"} ,
-:prose-icon[Vue]{color="green" icon="i-logos:vue"} ,
-:prose-icon[Nuxt]{color="emerald" icon="i-logos:nuxt-icon"} ,
-:prose-icon[Adonis]{color="purple" icon="i-logos:adonisjs-icon"} ,
-:prose-icon[Java]{color="red" icon="i-logos:java"} ,
-:prose-icon[Python]{color="amber" icon="i-logos:python"} ,
-:prose-icon[R]{color="blue" icon="i-logos:r-lang"} , which enables me to :hover-text{hover="Need to quickly understand the complexity of projects 🏎️" text="understand"} the different needs of mathematical projects and to propose the best solutions.
+:prose-icon[TypeScript]{color="blue" icon="i-logos:typescript-icon"},
+:prose-icon[Vue]{color="green" icon="i-logos:vue"},
+:prose-icon[Nuxt]{color="emerald" icon="i-logos:nuxt-icon"},
+:prose-icon[Adonis]{color="purple" icon="i-logos:adonisjs-icon"},
+:prose-icon[Java]{color="red" icon="i-logos:java"},
+:prose-icon[Python]{color="amber" icon="i-logos:python"},
+:prose-icon[R]{color="blue" icon="i-logos:r-lang"}, which enables me to :hover-text{hover="Need to quickly understand the complexity of projects 🏎️" text="understand"} the different needs of mathematical projects and to propose the best solutions.
 I use tools like
 :prose-icon[scikit-learn]{color="orange" icon="devicon-scikitlearn"} for supervised learning,
 :prose-icon[pandas]{color="blue" icon="i-logos:pandas-icon"} for efficient data manipulation,
 :prose-icon[NumPy]{color="indigo" icon="i-logos:numpy"} for scientific computation, and
 :prose-icon[TensorFlow]{color="orange" icon="i-logos:tensorflow"} as well as :prose-icon[PyTorch]{color="orange" icon="i-logos:pytorch-icon"} to build and train deep learning models.
 I also learned other important technologies, such as
-:prose-icon[Docker]{color="sky" icon="i-logos:docker-icon"} ,
-:prose-icon[Redis]{color="red" icon="i-logos:redis"} ,
+:prose-icon[Docker]{color="sky" icon="i-logos:docker-icon"},
+:prose-icon[Redis]{color="red" icon="i-logos:redis"},
 :prose-icon[MySQL]{color="zinc" icon="i-logos:mysql-icon"} and
 :prose-icon[Git]{color="orange" icon="i-logos:git-icon"} to :hover-text{hover="All these technologies complement each other 🔗" text="complete"} my knowledge.
 

@@ -5,25 +5,25 @@ description: I'm Arthur, a Mathematics lover and IA enthusiast. I'm currently
   Mathematics, Computer Science, and Artificial Intelligence.
 ---
 
-Hola ! Soy :home-name , estudiante de matemáticas especializado en Estadística en la Universidad Paris-Dauphine, en Francia.
+Hola ! Soy :home-name, estudiante de matemáticas especializado en Estadística en la Universidad Paris-Dauphine, en Francia.
 
 Con una :hover-text{hover="la tecnología avanza demasiado rápido 🤯" position="top" text="comprensión profunda"} de las tecnologías emergentes, me sitúo en el centro de un ámbito en plena expansión. Mi formación en :hover-text{hover="las matemáticas son mi mayor pasión Σ" position="right" text="matemáticas"} me permite comprender ampliamente los conceptos y las teorías que gobiernan las dichas :hover-text{hover="mi segunda pasión 📲" text="tecnologías"} y también poder concebirlas de manera eficaz.
 
 Como ingeniero de software y estudiante de matemáticas, mi :hover-text{hover="mi mochila de conocimientos 🎒" text="conocimientos"} cubre
-:prose-icon[TypeScript]{color="blue" icon="i-logos:typescript-icon"} ,
-:prose-icon[Vue]{color="green" icon="i-logos:vue"} ,
-:prose-icon[Nuxt]{color="emerald" icon="i-logos:nuxt-icon"} ,
-:prose-icon[Adonis]{color="purple" icon="i-logos:adonisjs-icon"} ,
-:prose-icon[Java]{color="red" icon="i-logos:java"} ,
-:prose-icon[Python]{color="amber" icon="i-logos:python"} ,
-:prose-icon[R]{color="blue" icon="i-logos:r-lang"} ,
+:prose-icon[TypeScript]{color="blue" icon="i-logos:typescript-icon"},
+:prose-icon[Vue]{color="green" icon="i-logos:vue"},
+:prose-icon[Nuxt]{color="emerald" icon="i-logos:nuxt-icon"},
+:prose-icon[Adonis]{color="purple" icon="i-logos:adonisjs-icon"},
+:prose-icon[Java]{color="red" icon="i-logos:java"},
+:prose-icon[Python]{color="amber" icon="i-logos:python"},
+:prose-icon[R]{color="blue" icon="i-logos:r-lang"},
 esto me permite :hover-text{hover="entender rápidamente la complejidad de los proyectos 🏎️" text="comprender"} las diferentes necesidades de los proyectos matemáticos, y proponer las mejores soluciones.
 Utilizo herramientas como
 :prose-icon[scikit-learn]{color="orange" icon="devicon-scikitlearn"} para el aprendizaje supervisado,
 :prose-icon[pandas]{color="blue" icon="i-logos:pandas-icon"} para la manipulación eficiente de datos,
 :prose-icon[NumPy]{color="indigo" icon="i-logos:numpy"} para el cálculo científico, y
-:prose-icon[TensorFlow]{color="orange" icon="i-logos:tensorflow"} así como :prose-icon[PyTorch]{color="orange" icon="i-logos:pytorch-icon"} para construir y entrenar modelos de aprendizaje profundo. También he aprendido otras tecnologías importantes como :prose-icon[Docker]{color="sky" icon="i-logos:docker-icon"} ,
-:prose-icon[Redis]{color="red" icon="i-logos:redis"} ,
+:prose-icon[TensorFlow]{color="orange" icon="i-logos:tensorflow"} así como :prose-icon[PyTorch]{color="orange" icon="i-logos:pytorch-icon"} para construir y entrenar modelos de aprendizaje profundo. También he aprendido otras tecnologías importantes como :prose-icon[Docker]{color="sky" icon="i-logos:docker-icon"},
+:prose-icon[Redis]{color="red" icon="i-logos:redis"},
 :prose-icon[MySQL]{color="zinc" icon="i-logos:mysql-icon"} y
 :prose-icon[Git]{color="orange" icon="i-logos:git-icon"} que :hover-text{hover="todas estas tecnologías se complementan 📎" text="completan"} mis competencias.
 
