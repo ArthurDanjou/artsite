@@ -12,6 +12,20 @@ useSeoMeta({
   description: project.value?.description,
   author: 'Arthur Danjou',
 })
+
+function top() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  })
+}
+
+const { copy, copied } = useClipboard({
+  source: `https://arthurdanjou.fr/writings/${route.params.slug}`,
+  copiedDuring: 4000,
+})
+
 </script>
 
 <template>
@@ -90,7 +104,37 @@ useSeoMeta({
       :value="project"
       class="!max-w-none prose dark:prose-invert"
     />
-    <PostFooter />
+    <div class="space-y-4 mt-16">
+        <PostFooter />
+        <div class="flex gap-4 items-center flex-wrap">
+          <UButton
+            color="neutral"
+            icon="i-ph-arrow-fat-lines-up-duotone"
+            :label="t('top')"
+            size="lg"
+            variant="outline"
+            @click.prevent="top()"
+          />
+          <UButton
+            v-if="copied"
+            color="green"
+            icon="i-ph-check-square-duotone"
+            :label="t('link.copied')"
+            size="lg"
+            variant="outline"
+            @click.prevent="copy()"
+          />
+          <UButton
+            v-else
+            color="neutral"
+            icon="i-ph-square-duotone"
+            :label="t('link.copy')"
+            size="lg"
+            variant="outline"
+            @click.prevent="copy()"
+          />
+        </div>
+      </div>
   </main>
 </template>
 
