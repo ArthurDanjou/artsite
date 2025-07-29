@@ -5,7 +5,7 @@ const { t } = useI18n({
 </script>
 
 <template>
-  <div class="p-8 border border-gray-200 dark:border-neutral-700 rounded-md">
+  <div class="p-8 border bg-white/70 dark:bg-black/70 border-gray-200 dark:border-neutral-700 rounded-md">
     <NuxtImg
       src="/arthur.webp"
       alt="Arthur Danjou"
