@@ -9,7 +9,9 @@
 
 :root {
     --ui-black: #000000;
+    --ui-white: #ffffff;
     --ui-bg-black: #0a0a0a;
+    --ui-bg-white: #f8f8f8;
     --ui-bg: #f8f8f8;
 
     --ui-font-family: 'DM Sans', sans-serif;
@@ -17,6 +19,8 @@
 }
 
 .dark {
+    --ui-black: #000000;
+    --ui-white: #ffffff;
     --ui-bg-white: #f8f8f8;
     --ui-bg-black: #0a0a0a;
     --ui-bg: #0a0a0a;
