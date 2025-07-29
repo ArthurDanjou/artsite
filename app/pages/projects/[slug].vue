@@ -165,7 +165,12 @@ html {
       "title": "Translations alert!",
       "description": "Due to time constraints, all article translations will be available only in English. Thank you for your understanding."
     },
-    "back": "Go back"
+    "back": "Go back",
+    "link": {
+      "copied": "Link copied",
+      "copy": "Copy link"
+    },
+    "top": "Go to top"
 
   },
   "fr": {
@@ -173,14 +178,24 @@ html {
       "title": "Attentions aux traductions!",
       "description": "Par soucis de temps, toutes les traductions des articles seront disponibles uniquement en anglais. Merci de votre compréhension."
     },
-    "back": "Retourner en arrière"
+    "back": "Retourner en arrière",
+    "link": {
+      "copied": "Lien copié",
+      "copy": "Copier le lien"
+    },
+    "top": "Remonter en haut"
   },
   "es": {
     "alert": {
       "title": "Cuidado con las traducciones!",
       "description": " Por problemas de tiempo, los artículos solo están disponibles en inglés. Gracias por vuestra comprensión.ug ñeóicula."
     },
-    "back": "Volver atrás"
+    "back": "Volver atrás",
+        "link": {
+      "copied": "Link copiado",
+      "copy": "Copiar link"
+    },
+    "top": "Ir arribaarr"
   }
 }
 </i18n>
