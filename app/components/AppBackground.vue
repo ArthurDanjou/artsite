@@ -4,29 +4,18 @@ import { navColors } from '~~/types'
 const route = useRoute()
 const colorMode = useColorMode()
 
-const currentColors = computed(() => {
-  const colors = navColors.find(nav => route.path.includes(nav.path))!.colors
-  const fallback = colorMode.value === 'dark'
-    ? {
-        color: '#000000',
-        x: 0,
-        y: 0,
-      }
-    : {
-        color: '#ffffff',
-        x: 0,
-        y: 0,
-      }
-
-  return colors || [fallback, fallback]
+const colors = computed(() => {
+  const navColor = navColors.find(nav => route.name === nav.name)
+  if (navColor?.colors) return navColor.colors
+  
+  const fallbackColor = colorMode.value === 'dark' ? '#000000' : '#ffffff'
+  return [{ color: fallbackColor, x: 0, y: 0 }, { color: fallbackColor, x: 0, y: 0 }]
 })
 
 const backgroundStyle = computed(() => ({
-  backgroundImage: `
-    radial-gradient(circle 500px at ${currentColors.value[0].x}% ${currentColors.value[0].y}%, ${currentColors.value[0].color}4D, transparent),
-    radial-gradient(circle 500px at ${currentColors.value[1].x}% ${currentColors.value[1].y}%, ${currentColors.value[1].color}4D, transparent)
-  `,
-  backgroundSize: '100% 100%',
+  backgroundImage: colors.value
+    .map(c => `radial-gradient(circle 500px at ${c.x}% ${c.y}%, ${c.color}4D, transparent)`)
+    .join(', ')
 }))
 </script>
 
