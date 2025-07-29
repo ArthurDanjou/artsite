@@ -29,7 +29,7 @@ const backgroundStyle = computed(() => {
 
 <template>
   <div
-    class="fixed inset-0 z-0"
+    class="fixed inset-0 z-0 hidden md:block"
     :style="backgroundStyle"
   />
 </template>
