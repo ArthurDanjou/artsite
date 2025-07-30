@@ -47,7 +47,7 @@ const groupedWritings = computed(() => {
             :to="writing.path"
           >
             <li
-              class="h-full group hover:bg-gray-100/30 duration-300 p-1 lg:p-2 rounded-lg dark:hover:bg-neutral-800/50 transition-colors"
+              class="h-full group hover:bg-neutral-200/50 duration-300 p-1 lg:p-2 rounded-lg dark:hover:bg-neutral-800/50 transition-colors"
             >
               <h1
                 class="font-bold text-lg duration-300 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"
@@ -93,7 +93,7 @@ const groupedWritings = computed(() => {
 {
   "en": {
     "title": "Writings on math, artificial intelligence, development, and my passions.",
-    "description": "All my reflections on programming, mathematics, artificial intelligence design, etc., are organized chronologically.",
+    "description": "All my reflections on programming, mathematics, artificial intelligence design, etc., are organized chronologically."
   },
   "fr": {
     "title": "Écrits sur les maths, l'intelligence artificielle, le développement et mes passions.",
