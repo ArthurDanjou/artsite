@@ -51,7 +51,7 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
 }
 
 defineShortcuts({
-  t: () => toggleDark({ clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 }),
+  t: () => toggleDark({ clientX: window.innerWidth, clientY: 0 }),
 })
 </script>
 
