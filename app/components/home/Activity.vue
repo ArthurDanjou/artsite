@@ -21,7 +21,7 @@ const codingActivity = computed(() => {
     : activities[0]
 })
 
-const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
+const currentLocale = computed(() => locales.value.find((l: { code: string }) => l.code === locale.value))
 
 const isActive = computed(() => {
   if (!codingActivity.value)
@@ -52,7 +52,7 @@ const getActivity = computed(() => {
 
   const stateWord = state && state.split(' ').length >= 2 ? state.split(' ')[1] : t('secret')
   const ago = useTimeAgo(timestamps.start, {
-    messages: activityMessages[locale.value] as UseTimeAgoMessages,
+    messages: activityMessages[locale.value as keyof typeof activityMessages] as UseTimeAgoMessages,
   }).value
   const formatDate = (date: number, format: string) => useDateFormat(date, format, { locales: currentLocale.value?.code ?? 'en' }).value
 
@@ -95,7 +95,7 @@ const getActivity = computed(() => {
         tag="div"
       >
         <template #state>
-          <strong>{{ getActivity.state!.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') }}</strong>
+          <strong>{{ getActivity.state!.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') }}</strong>
         </template>
         <template #project>
           <i>{{ getActivity.project.replaceAll('Editing', '') }}</i>
