@@ -3,11 +3,8 @@ on: push
 
 jobs:
   deploy:
-    name: Deploy to NuxtHub
+    name: "Deploy to NuxtHub"
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
-      url: ${{ steps.deploy.outputs.deployment-url }}
     permissions:
       contents: read
       id-token: write
@@ -15,21 +12,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
-      - name: Build application
-        run: pnpm run build
+      - name: Ensure NuxtHub module is installed
+        run: bunx nuxthub@latest ensure
 
-      - name: Deploy to NuxtHub
-        uses: nuxt-hub/action@v1
-        id: deploy
+      - name: Build & Deploy to NuxtHub
+        uses: nuxt-hub/action@v2
+        with:
+          project-key: artsite-v2-6mmw
