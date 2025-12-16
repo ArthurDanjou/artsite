@@ -1,9 +1,0 @@
-{
-  "name": "RayCast",
-  "description": {
-    "en": "Raycast is my extendable launcher replacing Apple Spotlight. It lets me complete tasks, calculate, share common links, and much more thanks to the extensions.",
-    "fr": "Raycast est mon lanceur extensible remplaçant Apple Spotlight. Il me permet d'accomplir des tâches, de calculer, de partager des liens communs et bien plus encore grâce aux extensions.",
-    "es": "RayCast es mi launcher extensible, que remplaza a Apple Spotlight. Me permite completar tareas, calcular, compartir links comunes y mucho más gracias a todas las extensiones"
-  },
-  "category": "software"
-}

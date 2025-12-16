@@ -1,9 +1,0 @@
-{
-  "name": "Visual Studio Code",
-  "description": {
-    "en": "Built for flexibility and performance, Visual Studio Code is my main development environment. Lightweight yet powerful, it supports Python, JavaScript, TypeScript, SQL, and more. I rely on its extensions and AI integrations to code faster, better, and with full control over my workspace.",
-    "fr": "Construit pour la flexibilité et la performance, Visual Studio Code est mon environnement de développement principal. Léger mais puissant, il prend en charge Python, JavaScript, TypeScript, SQL et bien d'autres langages. J'utilise ses extensions et ses intégrations IA pour coder plus vite, mieux, et avec une grande maîtrise de mon environnement.",
-    "es": "Diseñado para la flexibilidad y el rendimiento, Visual Studio Code es mi entorno de desarrollo principal. Ligero pero potente, admite Python, JavaScript, TypeScript, SQL y mucho más. Aprovecho sus extensiones e integraciones con IA para programar más rápido, mejor y con un control total de mi entorno."
-  },
-  "category": "ide"
-}

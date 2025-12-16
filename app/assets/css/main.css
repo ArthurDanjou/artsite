@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@plugin "@tailwindcss/typography";
-
 @theme static {
   --animate-wave: wave 3s infinite
 }

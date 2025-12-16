@@ -1,9 +1,0 @@
-{
-  "name": "Switch TP-Link 5 ports",
-  "description": {
-    "en": "I use my 5-port TP-Link switch to connect my various network devices to my main server and ensure fast, stable local communication.",
-    "fr": "J’utilise mon switch TP-Link 5 ports pour connecter mes différents appareils réseau à mon serveur principal et assurer une communication locale rapide et stable.",
-    "es": "Utilizo mi switch TP-Link de 5 puertos para conectar mis distintos dispositivos de red a mi servidor principal y garantizar una comunicación local rápida y estable."
-  },
-  "category": "homelab"
-}

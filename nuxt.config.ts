@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
-  // Nuxt App
+  compatibilityDate: '2025-12-13',
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -14,50 +15,28 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  // Nuxt Modules
   modules: [
+    '@nuxt/content',
     '@nuxthub/core',
     '@nuxt/ui',
-    '@nuxt/content',
+    '@nuxt/eslint',
     '@vueuse/nuxt',
-    '@nuxtjs/google-fonts',
-    '@nuxt/image',
     '@nuxtjs/i18n',
-    'nuxt-visitors',
+    'nuxt-studio'
   ],
 
-  // Nuxt Hub
   hub: {
     cache: true,
-    kv: true,
-    database: true,
-    analytics: true,
+    db: 'sqlite',
   },
 
-  // Nuxt Content
   content: {
-    preview: {
-      api: 'https://api.nuxt.studio',
-    },
-    build: {
-      markdown: {
-        highlight: {
-          langs: ['json', 'js', 'ts', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml', 'python', 'ts', 'javascript', 'r'],
-          theme: 'github-dark',
-        },
-        remarkPlugins: {
-          'remark-math': {},
-        },
-        rehypePlugins: {
-          'rehype-katex': {
-            output: 'mathml',
-          },
-        },
-      },
-    },
+    database: {
+      type: 'd1',
+      bindingName: 'artapi'
+    }
   },
 
-  // Nuxt UI
   ui: {
     theme: {
       colors: [
@@ -80,19 +59,25 @@ export default defineNuxtConfig({
     },
   },
 
-  // Nuxt Color Mode
+  studio: {
+    route: '/studio',
+    repository: {
+      provider: 'github',
+      owner: 'ArthurDanjou',
+      repo: 'artsite',
+      branch: 'master'
+    }
+  },
+
   colorMode: {
     preference: 'system',
     fallback: 'light',
   },
 
-  // Nuxt Devtools
   devtools: {
     enabled: true,
-    timeline: { enabled: true },
   },
 
-  // Nuxt I18N
   i18n: {
     strategy: 'no_prefix',
     locales: [
@@ -118,49 +103,26 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
 
-  // Nuxt Google Fonts
-  googleFonts: {
-    display: 'swap',
-    families: {
-      'Inter': [400, 500, 600, 700, 800, 900],
-      'Sofia Sans': [400],
-      'DM Sans': [400, 500, 600, 700, 800, 900],
-      'Dancing Script': [400, 700],
-    },
-  },
+  // fonts: {
+  //   display: 'swap',
+  //   families: {
+  //     'Inter': [400, 500, 600, 700, 800, 900],
+  //     'Sofia Sans': [400],
+  //     'DM Sans': [400, 500, 600, 700, 800, 900],
+  //     'Dancing Script': [400, 700],
+  //   },
+  // },
 
-  // Nitro
   nitro: {
-    experimental: {
-      websocket: true,
-      openAPI: true,
-    },
+    preset: 'cloudflare_module',
   },
 
-  // Nuxt Env
   runtimeConfig: {
-    discord: {
-      userId: '',
-      id: '',
-      token: '',
-    },
-    wakatime: {
-      userId: '',
-      coding: '',
-      editors: '',
-      languages: '',
-      os: '',
-    },
+    artapi: '',
     public: {
       i18n: {
         baseUrl: '',
       },
     },
-  },
-
-  // Nuxt Visitors
-  visitors: {
-    // Set to true to enable tracking of visitor locations
-    locations: true,
   },
 })

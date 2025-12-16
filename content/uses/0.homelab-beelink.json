@@ -1,9 +1,0 @@
-{
-  "name": "Beelink EQR6 AMD Ryzen",
-  "description": {
-    "en": "I use my Beelink as the main server in my homelab, running Proxmox, to host self-hosted services, run Docker containers, and test open-source tools.",
-    "fr": "J’utilise mon Beelink comme premier serveur de mon homelab, avec Proxmox, pour héberger mes services en auto-hébergement, faire tourner des conteneurs Docker et tester des services open-source.",
-    "es": "Utilizo mi Beelink como primer servidor de mi homelab, con Proxmox, para alojar servicios autogestionados, ejecutar contenedores Docker y probar herramientas de código abierto."
-  },
-  "category": "homelab"
-}

@@ -1,9 +1,0 @@
-{
-  "name": "Python Frameworks",
-  "description": {
-    "en": "Pytorch, Scikit-learn, Tensorflow, Numpy, Matplotlib, Pandas, Seaborn.",
-    "fr": "Pytorch, Scikit-learn, Tensorflow, Numpy, Matplotlib, Pandas, Seaborn.",
-    "es": "Pytorch, Scikit-learn, Tensorflow, Numpy, Matplotlib, Pandas, Seaborn."
-  },
-  "category": "stack"
-}

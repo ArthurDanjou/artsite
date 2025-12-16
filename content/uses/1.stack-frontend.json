@@ -1,9 +1,0 @@
-{
-  "name": "FrontEnd",
-  "description": {
-    "en": "Nuxt Stack (Framework, UI, Hub, Content, Studio), VueJS, TailwindCSS, Vite.",
-    "fr": "Nuxt Stack (Framework, UI, Hub, Content, Studio), VueJS, TailwindCSS, Vite.",
-    "es": "Nuxt Stack (Framework, UI, Hub, Content, Studio), VueJS, TailwindCSS, Vite."
-  },
-  "category": "stack"
-}

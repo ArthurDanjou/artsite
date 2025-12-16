@@ -156,13 +156,10 @@ interface Nav {
 
 export const navs: readonly Nav[] = [
   { label: { en: 'home', fr: 'accueil', es: 'inicio' }, to: '/', icon: 'house-duotone' },
-  { label: { en: 'uses', fr: 'usages', es: 'usos' }, to: '/uses', icon: 'backpack-duotone' },
-  { label: { en: 'writings', fr: 'écrits', es: 'escritos' }, to: '/writings', icon: 'books-duotone' },
-  { label: { en: 'projects', fr: 'projets', es: 'proyectos' }, to: '/projects', icon: 'code-duotone' },
   {
     label: { en: 'resume', fr: 'cv', es: 'currículum' },
     icon: 'address-book-duotone',
-    to: 'https://files.arthurdanjou.fr/s/resume',
+    to: 'https://api.arthurdanjou.fr/resumes/en',
     target: '_blank',
   },
 ] as const
