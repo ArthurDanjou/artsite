@@ -159,7 +159,7 @@ export const navs: readonly Nav[] = [
   {
     label: { en: 'resume', fr: 'cv', es: 'currículum' },
     icon: 'address-book-duotone',
-    to: 'https://api.arthurdanjou.fr/resumes/en',
+    to: 'https://api.arthurdanjou.fr/api/resumes/en',
     target: '_blank',
   },
 ] as const
