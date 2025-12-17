@@ -94,17 +94,7 @@ export default defineNuxtConfig({
       },
     ],
     defaultLocale: 'en',
-  },
-
-  // fonts: {
-  //   display: 'swap',
-  //   families: {
-  //     'Inter': [400, 500, 600, 700, 800, 900],
-  //     'Sofia Sans': [400],
-  //     'DM Sans': [400, 500, 600, 700, 800, 900],
-  //     'Dancing Script': [400, 700],
-  //   },
-  // },
+  }, 
 
   nitro: {
     preset: 'cloudflare_module',

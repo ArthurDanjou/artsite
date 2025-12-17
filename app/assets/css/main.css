@@ -1,40 +1,42 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme static {
-  --animate-wave: wave 3s infinite
-}
-
 :root {
-    --ui-black: #000000;
-    --ui-white: #ffffff;
-    --ui-bg-black: #0a0a0a;
-    --ui-bg-white: #f8f8f8;
-    --ui-bg: #f8f8f8;
+  --animate-wave: wave 3s infinite
 
-    --ui-font-family: 'DM Sans', sans-serif;
-    transition-duration: 0.7s;
+  --ui-black: #000000;
+  --ui-white: #ffffff;
+  --ui-bg-black: #0a0a0a;
+  --ui-bg-white: #f8f8f8;
+  --ui-bg: #f8f8f8;
+
+  --ui-font-family: 'DM Sans', sans-serif;
+  transition-duration: 0.7s;
 }
 
 .dark {
-    --ui-black: #000000;
-    --ui-white: #ffffff;
-    --ui-bg-white: #f8f8f8;
-    --ui-bg-black: #0a0a0a;
-    --ui-bg: #0a0a0a;
+  --animate-wave: wave 3s infinite --ui-black: #000000;
+  
+  --ui-white: #ffffff;
+  --ui-bg-white: #f8f8f8;
+  --ui-bg-black: #0a0a0a;
+  --ui-bg: #0a0a0a;
+  
+  --ui-font-family: 'DM Sans', sans-serif;
+  transition-duration: 0.7s;
+}
 
-    --ui-font-family: 'DM Sans', sans-serif;
-    transition-duration: 0.7s;
+.sofia {
+  --ui-font-family: 'Sofia Sans', sans-serif;
 }
 
 @keyframes wave {
-    0%,
-    50%,
-    100% {
-      transform: rotate(-12deg);
-    }
-    25%, 75% {
-      transform: rotate(3deg) scale(1.5);
-    }
+  0%,
+  50%,
+  100% {
+    transform: rotate(-12deg);
   }
-
+  25%, 75% {
+    transform: rotate(3deg) scale(1.5);
+  }
+}
