@@ -30,13 +30,6 @@ export default defineNuxtConfig({
     db: 'sqlite',
   },
 
-  content: {
-    database: {
-      type: 'd1',
-      bindingName: 'artapi'
-    }
-  },
-
   ui: {
     theme: {
       colors: [
