@@ -10,6 +10,7 @@ defineProps({
   },
   icon: {
     type: String,
+    default: ''
   },
   blanked: {
     type: Boolean,

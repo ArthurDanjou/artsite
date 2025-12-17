@@ -12,6 +12,7 @@ defineProps({
   },
   position: {
     type: String as PropType<'top' | 'right' | 'bottom' | 'left'>,
+    default: 'top',
   },
 })
 </script>
