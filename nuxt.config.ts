@@ -98,10 +98,6 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
-
-    cloudflare: {
-      deployConfig: true,
-    }
   },
 
   runtimeConfig: {
