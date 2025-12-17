@@ -7,10 +7,10 @@ const { locale, locales, t } = useI18n({
 })
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 
-const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch())
+const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
 
-const time = useTimeAgo(new Date(stats.value!.coding.data.range.start) ?? new Date()).value.split(' ')[0]
-const date = useDateFormat(new Date(stats.value!.coding.data.range.start ?? new Date()), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
+const time = useTimeAgo(new Date(stats.value!.coding.data.range.start)).value.split(' ')[0]
+const date = useDateFormat(new Date(stats.value!.coding.data.range.start), 'DD MMMM YYYY', { locales: currentLocale.value?.code ?? 'en' })
 const hours = usePrecision(stats.value!.coding.data.grand_total.total_seconds_including_other_language / 3600, 0)
 </script>
 

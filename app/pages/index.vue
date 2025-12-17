@@ -16,9 +16,9 @@ const { data: page } = await useAsyncData(`/home/${locale.value}`, () => {
 <template>
   <main class="max-w-none! prose dark:prose-invert">
     <ContentRenderer v-if="page" :value="page" class="mt-8 md:mt-16" />
-    <!-- <HomeStats />
-    <HomeActivity />
+    <HomeStats />
+    <HomeActivity /> 
     <HomeQuote />
-    <HomeCatchPhrase /> -->
+    <HomeCatchPhrase />
   </main>
 </template>

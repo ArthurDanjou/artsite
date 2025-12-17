@@ -7,7 +7,7 @@ const { locale, locales, t } = useI18n({
   useScope: 'local',
 })
 
-const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch<Activity>('/api/activity'))
+const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
 
 useIntervalFn(async () => await refresh(), 5000)
 const codingActivity = computed(() => {
@@ -75,7 +75,7 @@ const getActivity = computed(() => {
   <ClientOnly>
     <div
       v-if="getActivity"
-      class="flex items-start gap-2"
+      class="flex items-start gap-2 mt-4"
     >
       <UTooltip :text="isActive ? t('tooltip.online') : t('tooltip.idling')">
         <div class="relative flex h-3 w-3 mt-2">

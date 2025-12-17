@@ -101,7 +101,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    artapi: '',
+    api: {
+      url: ''
+    },
     public: {
       i18n: {
         baseUrl: '',

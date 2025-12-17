@@ -11,7 +11,7 @@ const { t } = useI18n({
         <UTooltip text="It's me 👋">
           <UAvatar
             alt="Avatar"
-            class="hover:rotate-[360deg] duration-500 transform-gpu rounded-full"
+            class="hover:rotate-360 duration-500 transform-gpu rounded-full"
             size="xl"
             src="/favicon.webp"
           />
