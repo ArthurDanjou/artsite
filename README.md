@@ -18,10 +18,6 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 - [Features](#-features)
 - [Tech Stack](#️-tech-stack)
 - [Project Structure](#-project-structure)
-- [Adding Content](#-adding-content)
-  - [Projects](#projects)
-  - [Writings](#writings)
-  - [Uses Page](#uses-page)
 - [Integrations](#-integrations)
 - [License](#-license)
 - [Contact](#-contact)
@@ -60,90 +56,14 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 ```
 ├── assets/              # Static assets like global styles
 ├── components/          # Vue components
-├── content/             # Markdown content for the portfolio
-│   ├── projects/        # Portfolio projects
-│   ├── writings/        # Writings
-│   └── uses/            # Uses page items
 ├── layouts/             # Page layouts
 ├── pages/               # Application pages
 ├── public/              # Public static files
-│   ├── projects/        # Projects images
-│   └── writings/        # Writings images
 ├── server/              # Server API routes
-├── utils/               # Utility functions
 ├── .env.example         # Example environment variables
 ├── nuxt.config.ts       # Nuxt configuration
 ├── package.json         # Dependencies and scripts
 └── README.md            # Project documentation
-```
-
-## 🍱 Adding Content
-
-### Projects
-
-1. Create a new `.md` file in the `/content/projects/` directory
-2. Follow the structure of existing projects:
-
-```md
----
----
-slug: project-slug
-title: Project Title
-description: A brief description of the project
-publishedAt: YYYY/MM/DD
-readingTime: 1
-cover: project-slug/cover.png
-tags:
-  - web
----
-
-## Project content goes here
-
-Detailed description and information about the project.
-```
-
-3. Add related project images to `/public/projects/project-slug/`
-
-### Writings
-
-1. Create a new `.md` file in the `/content/writings/` directory
-2. Follow the structure of existing projects:
-
-```md
----
-slug: article-slug
-title: The title of the article
-description: A brief description of the article
-readingTime: 1
-publishedAt: YYYY/MM/DD
-cover: article-slug/cover.png
-tags:
-  - tag1
-  - tag2
-  - tag3
----
-
-## Writing content goes here
-
-Detailed description and information about the article.
-```
-
-3. Add related writing images to `/public/writings/article-slug/`
-
-### Uses Page
-
-Add new items to the `/content/uses/` directory following the existing pattern:
-
-```json
-{
-  "name": "Name of the item",
-  "description": {
-    "en": "Item description in English",
-    "fr": "Item description in French",
-    "es": "Item description in Spanish"
-  },
-  "category": "Item category name"
-}
 ```
 
 ## 🔌 Integrations
@@ -152,6 +72,7 @@ Add new items to the `/content/uses/` directory following the existing pattern:
 - **Discord** - Display real-time Discord status
 - **Nuxt Studio** - Headless CMS for content management
 - **Nuxt i18n** - Internationalization support
+- **NuxtHub** - CI/CD and deployment
 
 ## 📄 License
 
