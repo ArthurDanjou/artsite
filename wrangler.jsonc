@@ -1,13 +1,11 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "artsite",
+    "name": "artsite-pages",
     "compatibility_date": "2025-12-13",
     "compatibility_flags": [
-        "nodejs_compat",
+        "nodejs_compat"
     ],
-    "preview_urls": true,
-    "workers_dev": true,
-    "main": "./.output/server/index.mjs",
+    "pages_build_output_dir": ".output/public",
     "routes": [
         {
             "pattern": "v2.arthurdanjou.fr",
@@ -15,13 +13,6 @@
             "custom_domain": true
         }
     ],
-    "placement": {
-        "mode": "smart",
-    },
-    "assets": {
-        "binding": "ASSETS",
-        "directory": "./.output/public/"
-    },
     "d1_databases": [
         {
             "binding": "DB",
@@ -31,7 +22,7 @@
     "kv_namespaces": [
         {
             "binding": "CACHE",
-            "id": "f0766ace1d24423ba6e5cac4fb8f2054",
+            "id": "f0766ace1d24423ba6e5cac4fb8f2054"
         }
     ],
     "observability": {
@@ -47,5 +38,5 @@
             "head_sampling_rate": 1,
             "persist": true
         }
-    },
+    }
 }
