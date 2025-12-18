@@ -13,7 +13,7 @@ defineShortcuts({
 const socialsList = [
   {
     label: 'Email',
-    icon: 'i-ph:envelope-duotone',
+    icon: 'i-ph-envelope-duotone',
     to: 'mailto:arthurdanjou@outlook.fr',
   },
   ...socials,
@@ -36,7 +36,7 @@ const socialsList = [
         :delay-duration="4"
       >
         <UButton
-          :icon="`i-ph:${nav.icon}`"
+          :icon="`i-ph-${nav.icon}`"
           :target="nav.target ? nav.target : '_self'"
           :href="nav.to"
           :aria-label="nav.label"

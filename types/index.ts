@@ -139,10 +139,10 @@ export const TAGS: readonly Tag[] = [
 ] as const
 
 export const socials = [
-  { icon: 'i-ph:x-logo-duotone', label: 'Twitter', to: 'https://twitter.com/ArthurDanj' },
-  { icon: 'i-ph:github-logo-duotone', label: 'GitHub', to: 'https://github.com/ArthurDanjou' },
-  { icon: 'i-ph:linkedin-logo-duotone', label: 'LinkedIn', to: 'https://www.linkedin.com/in/arthurdanjou/' },
-  { icon: 'i-ph:discord-logo-duotone', label: 'Discord', to: 'https://discordapp.com/users/179635349100691456' },
+  { icon: 'i-ph-x-logo-duotone', label: 'Twitter', to: 'https://twitter.com/ArthurDanj' },
+  { icon: 'i-ph-github-logo-duotone', label: 'GitHub', to: 'https://github.com/ArthurDanjou' },
+  { icon: 'i-ph-linkedin-logo-duotone', label: 'LinkedIn', to: 'https://www.linkedin.com/in/arthurdanjou/' },
+  { icon: 'i-ph-discord-logo-duotone', label: 'Discord', to: 'https://discordapp.com/users/179635349100691456' },
 ] as const
 
 type Locale = 'en' | 'fr' | 'es'

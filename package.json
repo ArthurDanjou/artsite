@@ -4,7 +4,7 @@
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",
-    "preview": "bun run build && wrangler dev",
+    "preview": "bun run build && wrangler pages dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "deploy": "bun run cf-typegen && bun run build && wrangler pages deploy .output/public",
