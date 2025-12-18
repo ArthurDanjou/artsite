@@ -16,11 +16,12 @@ export default defineEventHandler(async (event) => {
   let mcpTools: any[] = []
   
   try {
-    // Fetch MCP resources, prompts, and tools
+    // Fetch MCP resources, prompts, and tools with timeout
     const mcpResponse = await fetch('https://api.arthurdanjou.fr/mcp', {
       headers: {
         'Accept': 'application/json',
       },
+      signal: AbortSignal.timeout(5000), // 5 second timeout
     })
     
     if (mcpResponse.ok) {

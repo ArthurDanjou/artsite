@@ -24,7 +24,7 @@ const handleSubmit = async (e: Event) => {
   }
 
   const userMessage: Message = {
-    id: Date.now().toString(),
+    id: crypto.randomUUID(),
     role: 'user',
     content: input.value,
   }
@@ -59,7 +59,7 @@ const handleSubmit = async (e: Event) => {
     }
 
     const assistantMessage: Message = {
-      id: (Date.now() + 1).toString(),
+      id: crypto.randomUUID(),
       role: 'assistant',
       content: '',
     }
@@ -92,7 +92,7 @@ const handleSubmit = async (e: Event) => {
   } catch (error) {
     console.error('Error:', error)
     messages.value.push({
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: 'assistant',
       content: 'Sorry, I encountered an error. Please try again.',
     })
