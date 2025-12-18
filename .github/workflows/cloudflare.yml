@@ -3,7 +3,13 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - master
+      - '**' 
+  pull_request:
+
+permissions:
+  contents: read
+  deployments: write
+  pull-requests: write
 
 jobs:
   deploy:
@@ -40,7 +46,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy
+          command: pages deploy --branch=${{ env.BRANCH_NAME }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}

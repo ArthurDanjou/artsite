@@ -97,7 +97,12 @@ export default defineNuxtConfig({
   }, 
 
   routeRules: {
-    '/api/activity': { swr: 3 },
+    '/api/activity': { 
+      proxy: `${process.env.NUXT_API_URL}/api/activity`
+    },
+    '/api/stats': {
+      proxy: `${process.env.NUXT_API_URL}/api/stats`
+    }
   },
 
   nitro: {
