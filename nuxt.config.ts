@@ -101,17 +101,6 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
-    cloudflare: {
-      nodeCompat: true,
-      deployConfig: true
-    },
-    externals: {
-      external: ['better-sqlite3']
-    },
-    prerender: {
-      routes: ['/'],
-      crawlLinks: true
-    }
   },
 
   runtimeConfig: {
