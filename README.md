@@ -2,8 +2,6 @@
 
 # [Arthur Danjou | Portfolio 2024](https://arthurdanjou.fr/)
 
-![Portfolio Screenshot](public/projects/preview.png)
-
 My professional portfolio built with modern Nuxt.js technologies, showcasing projects, skills, and experience.
 
 [![Nuxt.js](https://img.shields.io/badge/Nuxt.js-00DC82?style=for-the-badge&logo=nuxt.js&logoColor=white)](https://nuxt.com/)
