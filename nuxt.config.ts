@@ -105,6 +105,9 @@ export default defineNuxtConfig({
       nodeCompat: true,
       deployConfig: true
     },
+    externals: {
+      external: ['better-sqlite3']
+    },
     prerender: {
       routes: ['/'],
       crawlLinks: true
