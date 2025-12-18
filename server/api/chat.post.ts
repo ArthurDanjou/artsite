@@ -1,5 +1,5 @@
 import { streamText } from 'ai'
-import { createGoogleGenerativeAI } from '@ai-sdk/google'
+import { createWorkersAI } from 'workers-ai-provider'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -36,30 +36,19 @@ export default defineEventHandler(async (event) => {
     // Continue without MCP tools if connection fails
   }
 
-  // Get environment variables from Cloudflare
+  // Get Cloudflare AI binding
   const env = event.context.cloudflare?.env
-  const googleApiKey = env?.GOOGLE_API_KEY || env?.GEMINI_API_KEY
-  const cfAccountId = env?.CF_ACCOUNT_ID
-  const cfGatewayId = env?.CF_GATEWAY_ID
+  const ai = env?.AI
 
-  if (!googleApiKey) {
+  if (!ai) {
     throw createError({
       statusCode: 500,
-      message: 'Google API key not configured. Please set GOOGLE_API_KEY or GEMINI_API_KEY environment variable.',
+      message: 'Cloudflare AI binding not available. Please ensure AI binding is configured in wrangler.jsonc.',
     })
   }
 
-  // Configure Google Gemini model
-  // If Cloudflare Gateway is configured, use it; otherwise use Google directly
-  let baseURL: string | undefined
-  if (cfAccountId && cfGatewayId) {
-    baseURL = `https://gateway.ai.cloudflare.com/v1/${cfAccountId}/${cfGatewayId}/google-ai-studio/v1beta`
-  }
-
-  const google = createGoogleGenerativeAI({
-    apiKey: googleApiKey,
-    baseURL,
-  })
+  // Create Cloudflare Workers AI provider
+  const workersai = createWorkersAI({ binding: ai })
 
   // System prompt to restrict responses to Arthur Danjou related topics
   const systemPrompt = `You are a helpful assistant that only answers questions related to Arthur Danjou, his projects, skills, experience, and professional work. 
@@ -103,9 +92,10 @@ You have access to information from Arthur Danjou's MCP server which provides re
     }
   }
 
-  // Stream the response using AI SDK with Google Gemini
+  // Stream the response using AI SDK with Cloudflare Workers AI
+  // Using @cf/meta/llama-3.1-8b-instruct model - fast and efficient
   const result = streamText({
-    model: google('gemini-1.5-flash'),
+    model: workersai('@cf/meta/llama-3.1-8b-instruct'),
     messages: messagesWithSystem,
     tools: Object.keys(tools).length > 0 ? tools : undefined,
   })

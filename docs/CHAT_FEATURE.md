@@ -22,44 +22,30 @@ The chat feature provides an AI-powered conversational interface that allows use
 ### Technology Stack
 
 - **AI SDK v6 (Beta)**: Vercel's AI SDK for LLM integration
-- **Google Gemini**: LLM model (gemini-1.5-flash)
+- **workers-ai-provider**: Cloudflare Workers AI provider for AI SDK
+- **Cloudflare Workers AI**: LLM runtime (@cf/meta/llama-3.1-8b-instruct)
 - **MCP (Model Context Protocol)**: Connection to Arthur's resource server
-- **Cloudflare Workers AI**: Runtime environment
-- **Cloudflare AI Gateway** (Optional): Request routing and analytics
 
 ## Configuration
 
-### Required Environment Variables
+### Cloudflare AI Binding
 
-```bash
-# Google Gemini API Key (Required)
-GOOGLE_API_KEY=your_google_api_key
-# OR
-GEMINI_API_KEY=your_gemini_api_key
+The chat feature uses Cloudflare Workers AI, which is already configured in `wrangler.jsonc`:
+
+```json
+{
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  }
+}
 ```
 
-### Optional Environment Variables
+**No API keys required!** The AI binding is automatically available when deployed to Cloudflare Pages.
 
-```bash
-# Cloudflare AI Gateway Configuration
-CF_ACCOUNT_ID=your_cloudflare_account_id
-CF_GATEWAY_ID=your_gateway_id
-```
+### Local Development
 
-### Setting Environment Variables
-
-For Cloudflare Pages:
-
-1. Go to your Cloudflare dashboard
-2. Navigate to Workers & Pages > Your site
-3. Go to Settings > Environment Variables
-4. Add the required environment variables
-
-For local development:
-
-1. Copy `.env.example` to `.env`
-2. Fill in your API keys
-3. Run `npm run dev`
+For local development, you can use `wrangler dev` with the `--remote` flag to connect to Cloudflare's AI services, or the AI binding will work automatically when running through Cloudflare's development environment.
 
 ## Features
 
@@ -131,9 +117,9 @@ npm run dev
 
 ### Testing
 
-The chat requires valid API keys to function. To test:
+The chat works automatically with Cloudflare's AI binding. To test:
 
-1. Ensure environment variables are set
+1. Deploy to Cloudflare Pages or use `wrangler dev --remote`
 2. Navigate to `/chat`
 3. Try example questions:
    - "What is Arthur studying?"
@@ -147,10 +133,7 @@ The chat requires valid API keys to function. To test:
 **"AI binding not available"**
 - Ensure Cloudflare AI binding is configured in `wrangler.jsonc`
 - Check that the deployment is on Cloudflare Pages
-
-**"Google API key not configured"**
-- Verify environment variables are set correctly
-- Check variable names (GOOGLE_API_KEY or GEMINI_API_KEY)
+- For local development, use `wrangler dev --remote`
 
 **MCP server connection fails**
 - The chat will continue without MCP tools
@@ -162,13 +145,18 @@ The chat requires valid API keys to function. To test:
 - Check for network connectivity issues
 - Verify API endpoint returns correct Content-Type
 
+**Local development issues**
+- Use `npm run preview` or `wrangler pages dev` for local testing
+- The AI binding requires Cloudflare's environment to function
+
 ## Security
 
-### API Key Protection
+### No API Keys Required
 
-- API keys are stored as environment variables
-- Never committed to version control
-- Only accessible server-side
+- Uses Cloudflare Workers AI binding
+- No external API keys to manage
+- Automatic authentication through Cloudflare platform
+- Reduced security surface area
 
 ### Content Filtering
 
