@@ -97,13 +97,17 @@ export default defineNuxtConfig({
       },
     ],
     defaultLocale: 'en',
-  },
+  }, 
 
   nitro: {
     preset: 'cloudflare_module',
-    prerender: {
-      routes: ['/'],
-    },
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
+    }
+    // prerender: {
+    //   routes: ['/'],
+    // },
   },
 
   runtimeConfig: {
