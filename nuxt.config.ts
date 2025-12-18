@@ -73,13 +73,6 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'no_prefix',
-    compilation: {
-      strictMessage: false,
-    },
-    bundle: {
-      fullInstall: false,
-      dropMessageCompiler: true,
-    },
     locales: [
       {
         label: 'English',

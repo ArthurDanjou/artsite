@@ -123,21 +123,6 @@ export const activityMessages: Record<'en' | 'fr' | 'es', ActivityMessages> = {
   },
 }
 
-export interface Tag {
-  label: string
-  title?: string
-  translation: string
-}
-
-export const TAGS: readonly Tag[] = [
-  { label: 'R', translation: 'tags.r' },
-  { label: 'AI', translation: 'tags.ai' },
-  { label: 'Data', translation: 'tags.data' },
-  { label: 'Web', translation: 'tags.web' },
-  { label: 'Python', translation: 'tags.python' },
-  { label: 'Maths', translation: 'tags.maths' },
-] as const
-
 export const socials = [
   { icon: 'i-ph-x-logo-duotone', label: 'Twitter', to: 'https://twitter.com/ArthurDanj' },
   { icon: 'i-ph-github-logo-duotone', label: 'GitHub', to: 'https://github.com/ArthurDanjou' },
@@ -156,6 +141,7 @@ interface Nav {
 
 export const navs: readonly Nav[] = [
   { label: { en: 'home', fr: 'accueil', es: 'inicio' }, to: '/', icon: 'house-duotone' },
+  { label: { en: 'chat', fr: 'chat', es: 'chat' }, to: '/', icon: 'chat-circle-dots-duotone' },
   {
     label: { en: 'resume', fr: 'cv', es: 'currículum' },
     icon: 'address-book-duotone',
