@@ -73,6 +73,9 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'no_prefix',
+    compilation: {
+      strictMessage: false,
+    },
     locales: [
       {
         label: 'English',
@@ -98,6 +101,10 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
+    prerender: {
+      routes: ['/'],
+      crawlLinks: true,
+    },
   },
 
   runtimeConfig: {

@@ -11,15 +11,19 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@iconify-json/devicon": "1.2.53",
+    "@iconify-json/logos": "^1.2.10",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/twemoji": "^1.2.4",
+    "@iconify-json/vscode-icons": "1.2.37",
     "@intlify/message-compiler": "11.2.2",
     "@nuxt/content": "3.9.0",
     "@nuxt/eslint": "1.12.1",
-    "@nuxt/ui": "4.2.1",
-    "@nuxthub/core": "0.10.2",
+    "@nuxt/ui": "4.3.0",
+    "@nuxthub/core": "0.10.3",
     "@nuxtjs/i18n": "10.2.1",
     "@vueuse/core": "^14.1.0",
     "@vueuse/math": "^14.1.0",
-    "better-sqlite3": "12.5.0",
     "drizzle-kit": "^0.31.8",
     "drizzle-orm": "^0.45.1",
     "nuxt": "4.2.2",
@@ -28,16 +32,11 @@
     "zod": "4.2.1"
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.2.10",
-    "@iconify-json/ph": "^1.2.2",
-    "@iconify-json/twemoji": "^1.2.4",
-    "@iconify-json/vscode-icons": "1.2.37",
-    "@iconify-json/devicon": "1.2.53",
     "@types/node": "25.0.3",
     "@vueuse/nuxt": "14.1.0",
+    "better-sqlite3": "12.5.0",
     "eslint": "9.39.2",
     "typescript": "^5.9.3",
-    "vue-tsc": "3.1.8",
     "wrangler": "4.55.0"
   }
 }

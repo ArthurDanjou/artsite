@@ -20,7 +20,7 @@ const { t } = useI18n({
         <h1>{{ t('find') }}</h1>
         <div class="flex gap-2 flex-wrap">
           <HomeLink
-            v-for="social in socials.sort((a, b) => a.label.localeCompare(b.label))"
+            v-for="social in [...socials].sort((a, b) => a.label.localeCompare(b.label))"
             :key="social.label"
             :href="social.to"
             :icon="social.icon"
