@@ -76,6 +76,10 @@ export default defineNuxtConfig({
     compilation: {
       strictMessage: false,
     },
+    bundle: {
+      fullInstall: false,
+      dropMessageCompiler: true,
+    },
     locales: [
       {
         label: 'English',
