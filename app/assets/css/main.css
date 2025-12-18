@@ -2,12 +2,10 @@
 @import "@nuxt/ui";
 
 :root {
-  --animate-wave: wave 3s infinite
+  --animate-wave: wave 3s infinite;
 
   --ui-black: #000000;
   --ui-white: #ffffff;
-  --ui-bg-black: #0a0a0a;
-  --ui-bg-white: #f8f8f8;
   --ui-bg: #f8f8f8;
 
   --ui-font-family: 'DM Sans', sans-serif;
@@ -15,13 +13,12 @@
 }
 
 .dark {
-  --animate-wave: wave 3s infinite --ui-black: #000000;
+  --animate-wave: wave 3s infinite;
   
+  --ui-black: #000000;
   --ui-white: #ffffff;
-  --ui-bg-white: #f8f8f8;
-  --ui-bg-black: #0a0a0a;
-  --ui-bg: #0a0a0a;
-  
+  --ui-bg: #141414;
+
   --ui-font-family: 'DM Sans', sans-serif;
   transition-duration: 0.7s;
 }
@@ -31,12 +28,15 @@
 }
 
 @keyframes wave {
+
   0%,
   50%,
   100% {
     transform: rotate(-12deg);
   }
-  25%, 75% {
+
+  25%,
+  75% {
     transform: rotate(3deg) scale(1.5);
   }
 }
