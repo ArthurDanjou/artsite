@@ -99,11 +99,26 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   }, 
 
+  routeRules: {
+    '/': { prerender: true },
+    '/**': { swr: 3600 },
+    '/studio/**': { ssr: false },
+    '/api/_content/**': { cors: true },
+  },
+
   nitro: {
     preset: 'cloudflare_module',
+    externals: {
+      external: ['better-sqlite3']
+    },
     prerender: {
       routes: ['/'],
       crawlLinks: true,
+      ignore: [
+        '/__nuxt_content',
+        '/api/_content',
+        '/studio'
+      ]
     },
   },
 
