@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
           STUDIO_GITHUB_CLIENT_ID: ${{ vars.STUDIO_GITHUB_CLIENT_ID }}
           STUDIO_GITHUB_CLIENT_SECRET: ${{ vars.STUDIO_GITHUB_CLIENT_SECRET }}
 
-      - name: Publish to Cloudflare Workers
+      - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

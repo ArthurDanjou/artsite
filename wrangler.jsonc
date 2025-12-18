@@ -2,12 +2,7 @@
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "artsite",
     "compatibility_date": "2025-12-13",
-    "compatibility_flags": [
-        "nodejs_compat"
-    ],
-    "placement": {
-        "mode": "smart"
-    },
+    "pages_build_output_dir": ".output/public",
     "d1_databases": [
         {
             "binding": "DB",
