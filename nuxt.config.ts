@@ -128,4 +128,13 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true
   },
+
+  eslint: {
+    config: {
+      stylistic: {
+        quotes: 'single',
+        commaDangle: 'never'
+      }
+    }
+  },
 })
