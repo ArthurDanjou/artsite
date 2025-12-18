@@ -3,7 +3,7 @@ import type { Stats } from '~~/types'
 import { usePrecision } from '@vueuse/math'
 
 const { locale, locales, t } = useI18n({
-  useScope: 'local',
+  useScope: 'local'
 })
 const currentLocale = computed(() => locales.value.find(l => l.code === locale.value))
 

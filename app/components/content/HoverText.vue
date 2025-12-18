@@ -4,16 +4,16 @@ import type { PropType } from 'vue'
 defineProps({
   text: {
     type: [String, Number],
-    required: true,
+    required: true
   },
   hover: {
     type: String,
-    required: true,
+    required: true
   },
   position: {
     type: String as PropType<'top' | 'right' | 'bottom' | 'left'>,
-    default: 'top',
-  },
+    default: 'top'
+  }
 })
 </script>
 
@@ -25,7 +25,7 @@ defineProps({
       :content="{
         align: 'center',
         side: position,
-        sideOffset: 8,
+        sideOffset: 8
       }"
       :text="hover"
     >

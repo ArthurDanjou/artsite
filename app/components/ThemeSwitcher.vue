@@ -21,7 +21,7 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
   const y = event.clientY
   const endRadius = Math.hypot(
     Math.max(x, innerWidth - x),
-    Math.max(y, innerHeight - y),
+    Math.max(y, innerHeight - y)
   )
   const transition = document.startViewTransition(async () => {
     switchTheme()
@@ -31,27 +31,27 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
     .then(() => {
       const clipPath = [
         `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`
       ]
       document.documentElement.animate(
         {
           clipPath: colorMode.value === 'dark'
             ? [...clipPath].reverse()
-            : clipPath,
+            : clipPath
         },
         {
           duration: 400,
           easing: 'ease-out',
           pseudoElement: colorMode.value === 'dark'
             ? '::view-transition-old(root)'
-            : '::view-transition-new(root)',
-        },
+            : '::view-transition-new(root)'
+        }
       )
     })
 }
 
 defineShortcuts({
-  t: () => toggleDark({ clientX: window.innerWidth, clientY: 0 }),
+  t: () => toggleDark({ clientX: window.innerWidth, clientY: 0 })
 })
 </script>
 

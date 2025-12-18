@@ -7,16 +7,16 @@ const openContactDrawer = ref(false)
 const router = useRouter()
 defineShortcuts({
   c: () => openContactDrawer.value = !openContactDrawer.value,
-  backspace: () => router.back(),
+  backspace: () => router.back()
 })
 
 const socialsList = [
   {
     label: 'Email',
     icon: 'i-ph-envelope-duotone',
-    to: 'mailto:arthurdanjou@outlook.fr',
+    to: 'mailto:arthurdanjou@outlook.fr'
   },
-  ...socials,
+  ...socials
 ]
 </script>
 
@@ -58,14 +58,17 @@ const socialsList = [
           variant="ghost"
         />
       </UTooltip>
-      <USeparator orientation="vertical" class="h-6" />
+      <USeparator
+        orientation="vertical"
+        class="h-6"
+      />
       <UDropdownMenu
         v-model:open="openContactDrawer"
         :items="socialsList"
         :content="{
           align: 'center',
           side: 'bottom',
-          sideOffset: 8,
+          sideOffset: 8
         }"
       >
         <UTooltip
@@ -83,7 +86,10 @@ const socialsList = [
           />
         </UTooltip>
       </UDropdownMenu>
-      <USeparator orientation="vertical" class="h-6" />
+      <USeparator
+        orientation="vertical"
+        class="h-6"
+      />
       <LangSwitcher />
     </nav>
   </header>

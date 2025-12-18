@@ -45,7 +45,7 @@ type FormattedActivity = {
   state: string
   start: {
     ago: string
-    formatted: { date: string; time: string }
+    formatted: { date: string, time: string }
   }
 } | null
 
@@ -61,7 +61,7 @@ const formattedActivity = computed<FormattedActivity>(() => {
 
   const stateWord = (state && state.split(' ').length >= 2 ? state.split(' ')[1] : t('secret')) as string
   const ago = useTimeAgo(timestamps.start, {
-    messages: activityMessages[locale.value as keyof typeof activityMessages] as UseTimeAgoMessages,
+    messages: activityMessages[locale.value as keyof typeof activityMessages] as UseTimeAgoMessages
   }).value
 
   const formatDate = (date: number, format: string) =>
@@ -75,9 +75,9 @@ const formattedActivity = computed<FormattedActivity>(() => {
       ago,
       formatted: {
         date: formatDate(timestamps.start, 'DD MMM YYYY'),
-        time: formatDate(timestamps.start, 'HH:mm'),
-      },
-    },
+        time: formatDate(timestamps.start, 'HH:mm')
+      }
+    }
   }
 })
 
@@ -89,15 +89,28 @@ const editorIcon = computed(() => {
 
 <template>
   <ClientOnly>
-    <div v-if="formattedActivity" class="flex items-start gap-2 mt-4">
+    <div
+      v-if="formattedActivity"
+      class="flex items-start gap-2 mt-4"
+    >
       <UTooltip :text="isActive ? t('tooltip.online') : t('tooltip.idling')">
         <div class="relative flex h-3 w-3 mt-2">
-          <div v-if="isActive" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
-          <div :class="isActive ? 'bg-green-500' : 'bg-amber-500'" class="relative inline-flex rounded-full h-3 w-3" />
+          <div
+            v-if="isActive"
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+          />
+          <div
+            :class="isActive ? 'bg-green-500' : 'bg-amber-500'"
+            class="relative inline-flex rounded-full h-3 w-3"
+          />
         </div>
       </UTooltip>
 
-      <i18n-t v-if="isActive" keypath="working" tag="div">
+      <i18n-t
+        v-if="isActive"
+        keypath="working"
+        tag="div"
+      >
         <template #state>
           <strong>{{ formattedActivity.state.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ') }}</strong>
         </template>
@@ -106,7 +119,10 @@ const editorIcon = computed(() => {
         </template>
         <template #editor>
           <span class="space-x-1">
-            <UIcon :name="editorIcon" size="16" />
+            <UIcon
+              :name="editorIcon"
+              size="16"
+            />
             <strong>{{ formattedActivity.name }}</strong>
           </span>
         </template>
@@ -119,24 +135,41 @@ const editorIcon = computed(() => {
         </template>
       </i18n-t>
 
-      <i18n-t v-else keypath="idling" tag="div" class="space-x-1">
+      <i18n-t
+        v-else
+        keypath="idling"
+        tag="div"
+        class="space-x-1"
+      >
         <template #editor>
           <span class="space-x-1">
-            <UIcon :name="editorIcon" size="16" />
+            <UIcon
+              :name="editorIcon"
+              size="16"
+            />
             <strong>{{ formattedActivity.name }}</strong>
           </span>
         </template>
       </i18n-t>
     </div>
 
-    <div v-else class="my-5 flex md:items-start gap-2">
+    <div
+      v-else
+      class="my-5 flex md:items-start gap-2"
+    >
       <UTooltip :text="t('tooltip.offline')">
         <div class="relative flex h-3 w-3 mt-2">
           <div class="relative cursor-not-allowed inline-flex rounded-full h-3 w-3 bg-red-500" />
         </div>
       </UTooltip>
-      <i18n-t keypath="offline" tag="p" class="not-prose">
-        <template #maths><i>{{ t('maths') }}</i></template>
+      <i18n-t
+        keypath="offline"
+        tag="p"
+        class="not-prose"
+      >
+        <template #maths>
+          <i>{{ t('maths') }}</i>
+        </template>
       </i18n-t>
     </div>
   </ClientOnly>

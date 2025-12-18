@@ -18,7 +18,7 @@ async function changeLocale(newLocale: string) {
 }
 
 defineShortcuts({
-  l: () => lang.value = currentLocale.value!.code === 'en' ? 'fr' : currentLocale.value!.code === 'fr' ? 'es' : 'en',
+  l: () => lang.value = currentLocale.value!.code === 'en' ? 'fr' : currentLocale.value!.code === 'fr' ? 'es' : 'en'
 })
 </script>
 
@@ -33,7 +33,7 @@ defineShortcuts({
       :content="{
         align: 'center',
         side: 'right',
-        sideOffset: 8,
+        sideOffset: 8
       }"
     >
       <USelect

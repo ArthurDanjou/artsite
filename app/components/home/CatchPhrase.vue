@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { width } = useWindowSize()
 const { t } = useI18n({
-  useScope: 'local',
+  useScope: 'local'
 })
 </script>
 

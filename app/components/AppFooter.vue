@@ -2,7 +2,7 @@
 import { socials } from '~~/types'
 
 const { t } = useI18n({
-  useScope: 'local',
+  useScope: 'local'
 })
 </script>
 
@@ -43,7 +43,7 @@ const { t } = useI18n({
     <div class="mt-8 w-full flex justify-center text-xs">
       {{
         t('copyright', {
-          date: new Date().getFullYear(),
+          date: new Date().getFullYear()
         })
       }}
     </div>

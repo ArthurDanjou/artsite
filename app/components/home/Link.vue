@@ -2,11 +2,11 @@
 defineProps({
   label: {
     type: String,
-    required: true,
+    required: true
   },
   href: {
     type: String,
-    required: true,
+    required: true
   },
   icon: {
     type: String,
@@ -14,8 +14,8 @@ defineProps({
   },
   blanked: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 })
 </script>
 

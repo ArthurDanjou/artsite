@@ -1,19 +1,4 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2025-12-13',
-
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      templateParams: {
-        separator: '•',
-      },
-    },
-    rootAttrs: {
-      class: 'bg-[var(--ui-bg)]',
-    },
-  },
-
-  css: ['~/assets/css/main.css'],
 
   modules: [
     '@nuxt/ui',
@@ -25,9 +10,27 @@ export default defineNuxtConfig({
     'nuxt-studio'
   ],
 
-  hub: {
-    cache: true,
-    db: 'sqlite',
+  devtools: {
+    enabled: true
+  },
+
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      templateParams: {
+        separator: '•'
+      }
+    },
+    rootAttrs: {
+      class: 'bg-[var(--ui-bg)]'
+    }
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light'
   },
 
   ui: {
@@ -47,70 +50,8 @@ export default defineNuxtConfig({
         'blue',
         'purple',
         'pink',
-        'neutral',
-      ],
-    },
-  },
-
-  studio: {
-    route: '/studio',
-    repository: {
-      provider: 'github',
-      owner: 'ArthurDanjou',
-      repo: 'artsite',
-      branch: 'master'
-    }
-  },
-
-  colorMode: {
-    preference: 'system',
-    fallback: 'light',
-  },
-
-  devtools: {
-    enabled: true,
-  },
-
-  i18n: {
-    strategy: 'no_prefix',
-    locales: [
-      {
-        label: 'English',
-        code: 'en',
-        language: 'en-EN',
-        icon: 'i-twemoji-flag-united-kingdom',
-      },
-      {
-        label: 'Français',
-        code: 'fr',
-        language: 'fr-FR',
-        icon: 'i-twemoji-flag-france',
-      },
-      {
-        label: 'Español',
-        code: 'es',
-        language: 'es-ES',
-        icon: 'i-twemoji-flag-spain',
-      },
-    ],
-    defaultLocale: 'en',
-  }, 
-
-  routeRules: {
-    '/api/activity': { 
-      proxy: `${process.env.NUXT_API_URL}/api/activity`
-    },
-    '/api/stats': {
-      proxy: `${process.env.NUXT_API_URL}/api/stats`
-    }
-  },
-
-  nitro: {
-    preset: 'cloudflare_pages',
-
-    prerender: {
-      routes: ['/'],
-      crawlLinks: true,
+        'neutral'
+      ]
     }
   },
 
@@ -120,13 +61,37 @@ export default defineNuxtConfig({
     },
     public: {
       i18n: {
-        baseUrl: '',
-      },
+        baseUrl: ''
+      }
+    }
+  },
+
+  routeRules: {
+    '/api/activity': {
+      proxy: `${process.env.NUXT_API_URL}/api/activity`
     },
+    '/api/stats': {
+      proxy: `${process.env.NUXT_API_URL}/api/stats`
+    }
   },
 
   experimental: {
     viewTransition: true
+  },
+  compatibilityDate: '2025-12-13',
+
+  nitro: {
+    preset: 'cloudflare_pages',
+
+    prerender: {
+      routes: ['/'],
+      crawlLinks: true
+    }
+  },
+
+  hub: {
+    cache: true,
+    db: 'sqlite'
   },
 
   eslint: {
@@ -137,4 +102,38 @@ export default defineNuxtConfig({
       }
     }
   },
+
+  i18n: {
+    strategy: 'no_prefix',
+    locales: [
+      {
+        label: 'English',
+        code: 'en',
+        language: 'en-EN',
+        icon: 'i-twemoji-flag-united-kingdom'
+      },
+      {
+        label: 'Français',
+        code: 'fr',
+        language: 'fr-FR',
+        icon: 'i-twemoji-flag-france'
+      },
+      {
+        label: 'Español',
+        code: 'es',
+        language: 'es-ES',
+        icon: 'i-twemoji-flag-spain'
+      }
+    ],
+    defaultLocale: 'en'
+  },
+  studio: {
+    route: '/studio',
+    repository: {
+      provider: 'github',
+      owner: 'ArthurDanjou',
+      repo: 'artsite',
+      branch: 'master'
+    }
+  }
 })

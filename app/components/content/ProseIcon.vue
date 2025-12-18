@@ -2,12 +2,12 @@
 defineProps({
   icon: {
     type: String,
-    required: true,
+    required: true
   },
   color: {
     type: String,
-    default: 'gray',
-  },
+    default: 'gray'
+  }
 })
 
 const colorVariants = {
@@ -23,13 +23,16 @@ const colorVariants = {
   zinc: 'text-zinc-500/80 decoration-zinc-400/40',
   orange: 'text-orange-500/80 decoration-orange-400/40',
   amber: 'text-amber-500/80 decoration-amber-400/40',
-  emerald: 'text-emerald-500/80 decoration-emerald-400/40',
+  emerald: 'text-emerald-500/80 decoration-emerald-400/40'
 }
 </script>
 
 <template>
   <span class="inline-flex items-center transform translate-y-1 gap-1">
-    <UIcon :name="icon" size="16" />
+    <UIcon
+      :name="icon"
+      size="16"
+    />
     <span
       :class="colorVariants[color as keyof typeof colorVariants]"
       class="sofia font-semibold underline-offset-2 underline"

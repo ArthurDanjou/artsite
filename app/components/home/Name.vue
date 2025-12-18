@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const styleVars = {
-  '--animated-speed': '50s',
+  '--animated-speed': '50s'
 }
 </script>
 

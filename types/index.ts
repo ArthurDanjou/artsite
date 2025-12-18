@@ -48,7 +48,7 @@ export const IDEs = [
   { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos:intellij-idea' },
   { name: 'WebStorm', icon: 'i-logos:webstorm' },
   { name: 'PyCharm Professional', icon: 'i-logos:pycharm' },
-  { name: 'Cursor', icon: 'i-vscode-icons-file-type-cursorrules' },
+  { name: 'Cursor', icon: 'i-vscode-icons-file-type-cursorrules' }
 ] as const
 
 type TimeUnit = (n: number, past?: boolean) => string
@@ -93,7 +93,7 @@ export const activityMessages: Record<'en' | 'fr' | 'es', ActivityMessages> = {
     hour: createSimpleTimeUnit('hour'),
     minute: createSimpleTimeUnit('minute'),
     second: createSimpleTimeUnit('second'),
-    invalid: '',
+    invalid: ''
   },
   fr: {
     justNow: 'à l\'instant',
@@ -106,7 +106,7 @@ export const activityMessages: Record<'en' | 'fr' | 'es', ActivityMessages> = {
     hour: createSimpleTimeUnit('heure'),
     minute: createSimpleTimeUnit('minute'),
     second: createSimpleTimeUnit('seconde'),
-    invalid: '',
+    invalid: ''
   },
   es: {
     justNow: 'justo ahora',
@@ -119,15 +119,15 @@ export const activityMessages: Record<'en' | 'fr' | 'es', ActivityMessages> = {
     hour: createSimpleTimeUnit('hora'),
     minute: createSimpleTimeUnit('minuto'),
     second: createSimpleTimeUnit('segundo'),
-    invalid: '',
-  },
+    invalid: ''
+  }
 }
 
 export const socials = [
   { icon: 'i-ph-x-logo-duotone', label: 'Twitter', to: 'https://twitter.com/ArthurDanj' },
   { icon: 'i-ph-github-logo-duotone', label: 'GitHub', to: 'https://github.com/ArthurDanjou' },
   { icon: 'i-ph-linkedin-logo-duotone', label: 'LinkedIn', to: 'https://www.linkedin.com/in/arthurdanjou/' },
-  { icon: 'i-ph-discord-logo-duotone', label: 'Discord', to: 'https://discordapp.com/users/179635349100691456' },
+  { icon: 'i-ph-discord-logo-duotone', label: 'Discord', to: 'https://discordapp.com/users/179635349100691456' }
 ] as const
 
 type Locale = 'en' | 'fr' | 'es'
@@ -146,6 +146,6 @@ export const navs: readonly Nav[] = [
     label: { en: 'resume', fr: 'cv', es: 'currículum' },
     icon: 'address-book-duotone',
     to: 'https://api.arthurdanjou.fr/api/resumes/en',
-    target: '_blank',
-  },
+    target: '_blank'
+  }
 ] as const
