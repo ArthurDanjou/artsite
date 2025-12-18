@@ -7,7 +7,7 @@
     "preview": "bun run build && wrangler pages dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "deploy": "bun run cf-typegen && bun run build && wrangler pages deploy .output/public",
+    "deploy": "bun run cf-typegen && bun run build && wrangler pages deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
