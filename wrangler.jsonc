@@ -14,5 +14,9 @@
             "binding": "CACHE",
             "id": "f0766ace1d24423ba6e5cac4fb8f2054"
         }
-    ]
+    ],
+    "ai": {
+        "binding": "AI",
+        "remote": true
+    }
 }

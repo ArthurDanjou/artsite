@@ -141,7 +141,7 @@ interface Nav {
 
 export const navs: readonly Nav[] = [
   { label: { en: 'home', fr: 'accueil', es: 'inicio' }, to: '/', icon: 'house-duotone' },
-  { label: { en: 'chat', fr: 'chat', es: 'chat' }, to: '/', icon: 'chat-circle-dots-duotone' },
+  { label: { en: 'chat', fr: 'chat', es: 'chat' }, to: '/chat', icon: 'chat-circle-dots-duotone' },
   {
     label: { en: 'resume', fr: 'cv', es: 'currículum' },
     icon: 'address-book-duotone',
