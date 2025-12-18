@@ -93,9 +93,9 @@ You have access to information from Arthur Danjou's MCP server which provides re
   }
 
   // Stream the response using AI SDK with Cloudflare Workers AI
-  // Using @cf/meta/llama-3.1-8b-instruct model - fast and efficient
+  // Using @hf/mistral/mistral-7b-instruct-v0.2 model
   const result = streamText({
-    model: workersai('@cf/meta/llama-3.1-8b-instruct'),
+    model: workersai('@hf/mistral/mistral-7b-instruct-v0.2'),
     messages: messagesWithSystem,
     tools: Object.keys(tools).length > 0 ? tools : undefined,
   })

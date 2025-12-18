@@ -23,7 +23,7 @@ The chat feature provides an AI-powered conversational interface that allows use
 
 - **AI SDK v6 (Beta)**: Vercel's AI SDK for LLM integration
 - **workers-ai-provider**: Cloudflare Workers AI provider for AI SDK
-- **Cloudflare Workers AI**: LLM runtime (@cf/meta/llama-3.1-8b-instruct)
+- **Cloudflare Workers AI**: LLM runtime (@hf/mistral/mistral-7b-instruct-v0.2)
 - **MCP (Model Context Protocol)**: Connection to Arthur's resource server
 
 ## Configuration
