@@ -2,12 +2,12 @@
   "name": "artsite",
   "private": true,
   "scripts": {
-    "build": "nuxi build --preset cloudflare_module",
+    "build": "nuxi build",
     "dev": "nuxi dev",
     "preview": "bun run build && wrangler dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "deploy": "bun run build && wrangler deploy",
+    "deploy": "bun run cf-typegen && bun run build && wrangler pages deploy .output/public",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
@@ -34,6 +34,6 @@
     "@vueuse/nuxt": "14.1.0",
     "eslint": "9.39.2",
     "typescript": "^5.9.3",
-    "wrangler": "4.55.0"
+    "wrangler": "4.56.0"
   }
 }

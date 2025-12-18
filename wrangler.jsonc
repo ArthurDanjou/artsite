@@ -5,14 +5,9 @@
     "compatibility_flags": [
         "nodejs_compat"
     ],
-    "pages_build_output_dir": ".output/public",
-    "routes": [
-        {
-            "pattern": "v2.arthurdanjou.fr",
-            "zone_name": "arthurdanjou.fr",
-            "custom_domain": true
-        }
-    ],
+    "placement": {
+        "mode": "smart"
+    },
     "d1_databases": [
         {
             "binding": "DB",
@@ -25,18 +20,4 @@
             "id": "f0766ace1d24423ba6e5cac4fb8f2054"
         }
     ],
-    "observability": {
-        "enabled": true,
-        "logs": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "persist": true,
-            "invocation_logs": true
-        },
-        "traces": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "persist": true
-        }
-    }
 }
