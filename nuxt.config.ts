@@ -96,6 +96,10 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   }, 
 
+  routeRules: {
+    '/api/activity': { swr: 3 },
+  },
+
   nitro: {
     preset: 'cloudflare_pages',
 

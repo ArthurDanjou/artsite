@@ -5,9 +5,11 @@ import { activityMessages, IDEs } from '~~/types'
 
 const { locale, locales, t } = useI18n({ useScope: 'local' })
 
-const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
+const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'),
+  { lazy: true }
+)
 
-useIntervalFn(refresh, 5000)
+useIntervalFn(refresh, 1000)
 
 const codingActivities = computed(() => {
   const list = activity.value?.data.activities ?? []
