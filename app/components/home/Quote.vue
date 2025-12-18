@@ -6,7 +6,7 @@ const { t } = useI18n({
 
 <template>
   <div class="mt-4">
-    <div class="float-left flex items-center mt-2 mr-2">
+    <div class="float-left flex items-center mr-2">
       <ClientOnly>
         <UTooltip text="It's me 👋">
           <UAvatar
