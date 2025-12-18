@@ -15,7 +15,7 @@ The chat feature provides an AI-powered conversational interface that allows use
 
 2. **Chat API** (`/server/api/chat.post.ts`)
    - Nuxt server endpoint handling chat requests
-   - Integration with Google Gemini via AI SDK v6
+   - Integration with Cloudflare Workers AI via AI SDK v6
    - MCP server connection for Arthur's specific context
    - Streaming text generation for better UX
 
