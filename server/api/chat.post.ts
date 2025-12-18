@@ -93,7 +93,7 @@ You have access to information from Arthur Danjou's MCP server which provides re
   }
 
   // Stream the response using AI SDK with Cloudflare Workers AI
-  // Using @hf/mistral/mistral-7b-instruct-v0.2 model
+  // Using @hf/mistral/mistral-7b-instruct-v0.2 model - excellent instruction-following
   const result = streamText({
     model: workersai('@hf/mistral/mistral-7b-instruct-v0.2'),
     messages: messagesWithSystem,
