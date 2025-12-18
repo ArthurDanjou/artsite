@@ -35,6 +35,7 @@
   "devDependencies": {
     "@types/node": "25.0.3",
     "@vueuse/nuxt": "14.1.0",
+    "better-sqlite3": "^12.5.0",
     "eslint": "9.39.2",
     "typescript": "^5.9.3",
     "wrangler": "4.56.0"

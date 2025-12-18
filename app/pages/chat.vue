@@ -1,15 +1,105 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useChat } from 'ai/vue'
 
 useSeoMeta({
   title: 'Chat - Arthur Danjou',
   description: 'Chat with AI about Arthur Danjou\'s work, projects, and expertise',
 })
 
-const { messages, input, handleSubmit, isLoading } = useChat({
-  api: '/api/chat',
-})
+interface Message {
+  id: string
+  role: 'user' | 'assistant'
+  content: string
+}
+
+const messages = ref<Message[]>([])
+const input = ref('')
+const isLoading = ref(false)
+
+const handleSubmit = async (e: Event) => {
+  e.preventDefault()
+  
+  if (!input.value.trim() || isLoading.value) {
+    return
+  }
+
+  const userMessage: Message = {
+    id: Date.now().toString(),
+    role: 'user',
+    content: input.value,
+  }
+
+  messages.value.push(userMessage)
+  input.value = ''
+  isLoading.value = true
+
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        messages: messages.value.map(m => ({
+          role: m.role,
+          content: m.content,
+        })),
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error('Failed to get response')
+    }
+
+    const reader = response.body?.getReader()
+    const decoder = new TextDecoder()
+    
+    if (!reader) {
+      throw new Error('No response body')
+    }
+
+    const assistantMessage: Message = {
+      id: (Date.now() + 1).toString(),
+      role: 'assistant',
+      content: '',
+    }
+
+    messages.value.push(assistantMessage)
+
+    while (true) {
+      const { done, value } = await reader.read()
+      
+      if (done) {
+        break
+      }
+
+      const chunk = decoder.decode(value, { stream: true })
+      const lines = chunk.split('\n')
+      
+      for (const line of lines) {
+        if (line.startsWith('0:')) {
+          try {
+            const data = JSON.parse(line.substring(2))
+            if (data.type === 'text-delta' && data.textDelta) {
+              assistantMessage.content += data.textDelta
+            }
+          } catch (e) {
+            // Ignore parsing errors for incomplete chunks
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Error:', error)
+    messages.value.push({
+      id: Date.now().toString(),
+      role: 'assistant',
+      content: 'Sorry, I encountered an error. Please try again.',
+    })
+  } finally {
+    isLoading.value = false
+  }
+}
 </script>
 
 <template>
