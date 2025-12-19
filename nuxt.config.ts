@@ -2,6 +2,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
+    '@nuxtjs/mdc',
     '@nuxt/content',
     '@nuxthub/core',
     '@nuxt/eslint',
@@ -31,6 +32,12 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'system',
     fallback: 'light'
+  },
+
+  mdc: {
+    headings: {
+      anchorLinks: false
+    }
   },
 
   ui: {
@@ -72,6 +79,12 @@ export default defineNuxtConfig({
     },
     '/api/stats': {
       proxy: `${process.env.NUXT_API_URL}/api/stats`
+    },
+    '/api/uses': {
+      proxy: `${process.env.NUXT_API_URL}/api/uses`
+    },
+    '/api/': {
+      proxy: `${process.env.NUXT_API_URL}/api/`
     }
   },
 

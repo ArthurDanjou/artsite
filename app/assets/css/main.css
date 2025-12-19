@@ -4,8 +4,6 @@
 :root {
   --animate-wave: wave 3s infinite;
 
-  --ui-black: #000000;
-  --ui-white: #ffffff;
   --ui-bg: #f8f8f8;
 
   --ui-font-family: 'DM Sans', sans-serif;
@@ -15,9 +13,7 @@
 .dark {
   --animate-wave: wave 3s infinite;
   
-  --ui-black: #000000;
-  --ui-white: #ffffff;
-  --ui-bg: #141414;
+  --ui-bg: #0f0f0f;
 
   --ui-font-family: 'DM Sans', sans-serif;
   transition-duration: 0.7s;
