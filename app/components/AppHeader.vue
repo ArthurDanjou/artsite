@@ -84,6 +84,7 @@ const socialsList = [
           />
         </UTooltip>
       </UDropdownMenu>
+      <ThemeSwitcher />
     </nav>
   </header>
 </template>

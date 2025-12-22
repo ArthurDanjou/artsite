@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  link: [{ rel: 'icon', type: 'image/webp', href: '/favicon.webp' }]
+  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
 })
 </script>
 

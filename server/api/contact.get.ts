@@ -5,6 +5,8 @@ export default defineCachedEventHandler(async (event) => {
     .where('extension', '=', 'json')
     .first()
 
+  console.log(await queryCollection(event, 'contact').all())
+
   if (!result) {
     throw createError({ statusCode: 404, statusMessage: 'Contact information not found' })
   }

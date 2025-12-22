@@ -33,6 +33,13 @@ export default defineNuxtConfig({
     fallback: 'light'
   },
 
+  content: {
+    database: {
+      type: 'd1',
+      bindingName: 'DB'
+    }
+  },
+
   mdc: {
     headings: {
       anchorLinks: false
@@ -83,9 +90,11 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
+    experimental: {
+      openAPI: true
+    },
 
     prerender: {
-      routes: ['/'],
       crawlLinks: true
     }
   },

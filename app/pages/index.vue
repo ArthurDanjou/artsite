@@ -16,6 +16,9 @@ const { data: page } = await useAsyncData('index', () => {
       :value="page"
       class="mt-8 md:mt-16"
     />
+    <HomeSkills />
+    <HomeEducation />
+    <HomeExperiences />
     <HomeStats />
     <HomeActivity />
     <HomeQuote />

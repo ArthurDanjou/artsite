@@ -33,6 +33,7 @@ This page documents all the tools, equipment and services I use daily for my wor
 ### IDEs
 
 - **Visual Studio Code** - My main development environment. Flexible, performant and lightweight. Supports Python, JavaScript, TypeScript, SQL and much more. I especially appreciate the extensions and AI integrations
+- **Cursor** - A VSCode fork with AI-powered code completions and suggestions to boost productivity
 - **JetBrains Suite** (IntelliJ IDEA Ultimate, PyCharm Professional, WebStorm, DataGrip) - Which I've been using for 7 years. The best IDEs for Java, Python, JavaScript, SQL and other languages
 
 ### Theme and Fonts
@@ -68,12 +69,11 @@ This page documents all the tools, equipment and services I use daily for my wor
 ### Self-Hosted Services
 
 I maintain several services:
+
 - **Monitoring & Infrastructure**: Uptime Kuma, Beszel, Traefik, Portainer
 - **Security & Privacy**: Cloudflare, AdGuard Home, Vaultwarden, Tailscale
 - **Storage & Media**: Minio, Immich
 - **Smart Home**: Home Assistant
 - **Other Utilities**: MySpeed, Palmr, Cap.so
-
----
 
 *This list is constantly updated as I experiment with new tools and equipment.*

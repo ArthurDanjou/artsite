@@ -1,6 +1,5 @@
 {
-  "description": "Master's student in Applied Mathematics (M280 - Paris Dauphine) specializing in Data Science and AI. My profile sits at the intersection of theoretical research and software engineering. I leverage my strong background in probability, statistics, and optimization to design robust Deep Learning architectures, while using my engineering skills (MLOps, Infrastructure) to deploy them efficiently. Currently looking for a research-oriented final year internship (April 2026) leading to a PhD.",
-  "skills": [
+  "body": [
     {
       "id": "scientific-computing",
       "name": "Scientific Computing & AI",
@@ -31,8 +30,12 @@
           "icon": "i-devicon-scikitlearn"
         },
         {
-          "name": "Pandas & Numpy",
+          "name": "Pandas",
           "icon": "i-devicon-pandas"
+        },
+        {
+          "name": "NumPy",
+          "icon": "i-logos-numpy"
         },
         {
           "name": "MatPlotLib",
@@ -76,6 +79,10 @@
         {
           "name": "Apache Spark (PySpark)",
           "icon": "i-logos-apache-spark"
+        },
+        {
+          "name": "Cloudflare",
+          "icon": "i-logos-cloudflare-icon"
         }
       ]
     },
@@ -103,6 +110,10 @@
         {
           "name": "AdonisJs",
           "icon": "i-logos-adonisjs-icon"
+        },
+        {
+          "name": "Gradio",
+          "icon": "i-logos-gradio-icon"
         }
       ]
     }

@@ -30,8 +30,7 @@ export const collections = {
     type: 'data',
     source: 'skills.json',
     schema: z.object({
-      description: z.string(),
-      skills: z.array(z.object({
+      body: z.array(z.object({
         id: z.string(),
         name: z.string(),
         description: z.string().optional(),
@@ -80,10 +79,9 @@ export const collections = {
     type: 'data',
     source: 'contact.json',
     schema: z.object({
-      contact: z.array(z.object({
+      body: z.array(z.object({
         id: z.string(),
         name: z.string(),
-        description: z.string().optional(),
         category: z.string().optional(),
         icon: z.string().optional(),
         value: z.string().url(),
@@ -100,7 +98,7 @@ export const collections = {
     type: 'data',
     source: 'languages.json',
     schema: z.object({
-      languages: z.array(z.object({
+      body: z.array(z.object({
         name: z.string(),
         level: z.string(),
         proficiency: z.string()

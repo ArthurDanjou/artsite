@@ -7,7 +7,7 @@
             alt="Avatar"
             class="hover:rotate-360 duration-500 transform-gpu rounded-full"
             size="xl"
-            src="/favicon.webp"
+            src="/arthur.webp"
           />
         </UTooltip>
       </ClientOnly>
