@@ -1,8 +1,5 @@
 <script lang="ts" setup>
 const { width } = useWindowSize()
-const { t } = useI18n({
-  useScope: 'local'
-})
 </script>
 
 <template>
@@ -15,21 +12,7 @@ const { t } = useI18n({
         class="transform -rotate-12 duration-300 animate-wave"
         name="i-ph-hand-pointing-duotone"
       />
-      <p>{{ t('quote') }}</p>
+      <p>Hover the bold texts to find out more about me.</p>
     </div>
   </ClientOnly>
 </template>
-
-<i18n lang="json">
-{
-  "en": {
-    "quote": "Hover the bold texts to find out more about me."
-  },
-  "fr": {
-    "quote": "Survolez les textes en gras pour en savoir plus sur moi."
-  },
-  "es": {
-    "quote": "Pase el cursor sobre los textos en negrita para obtener más información sobre mí."
-  }
-}
-</i18n>

@@ -1,9 +1,6 @@
 <script lang="ts" setup>
-import type { UseTimeAgoMessages } from '@vueuse/core'
 import type { Activity } from '~~/types'
-import { activityMessages, IDEs } from '~~/types'
-
-const { locale, locales, t } = useI18n({ useScope: 'local' })
+import { IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'),
   { lazy: true }
@@ -24,8 +21,6 @@ const codingActivity = computed(() => {
     ? codingActivities.value[Math.floor(Math.random() * codingActivities.value.length)]
     : codingActivities.value[0]
 })
-
-const currentLocale = computed(() => locales.value.find((l: { code: string }) => l.code === locale.value)?.code ?? 'en')
 
 const isActive = computed(() => {
   const act = codingActivity.value
@@ -59,13 +54,11 @@ const formattedActivity = computed<FormattedActivity>(() => {
     ? (details.charAt(0).toUpperCase() + details.slice(1).replace('Workspace:', '').trim())
     : ''
 
-  const stateWord = (state && state.split(' ').length >= 2 ? state.split(' ')[1] : t('secret')) as string
-  const ago = useTimeAgo(timestamps.start, {
-    messages: activityMessages[locale.value as keyof typeof activityMessages] as UseTimeAgoMessages
-  }).value
+  const stateWord = (state && state.split(' ').length >= 2 ? state.split(' ')[1] : 'Secret project') as string
+  const ago = useTimeAgo(timestamps.start).value
 
   const formatDate = (date: number, format: string) =>
-    useDateFormat(date, format, { locales: currentLocale.value }).value
+    useDateFormat(date, format).value
 
   return {
     name,
@@ -93,7 +86,7 @@ const editorIcon = computed(() => {
       v-if="formattedActivity"
       class="flex items-start gap-2 mt-4"
     >
-      <UTooltip :text="isActive ? t('tooltip.online') : t('tooltip.idling')">
+      <UTooltip :text="isActive ? 'I\'m online 👋' : 'I\'m sleeping 😴'">
         <div class="relative flex h-3 w-3 mt-2">
           <div
             v-if="isActive"
@@ -106,42 +99,33 @@ const editorIcon = computed(() => {
         </div>
       </UTooltip>
 
-      <i18n-t
+      <div
         v-if="isActive"
-        keypath="working"
-        tag="div"
-      >
-        <template #state>
-          <strong>{{ formattedActivity.state.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ') }}</strong>
-        </template>
-        <template #project>
-          <i>{{ formattedActivity.project.replace('Editing', '') }}</i>
-        </template>
-        <template #editor>
-          <span class="space-x-1">
-            <UIcon
-              :name="editorIcon"
-              size="16"
-            />
-            <strong>{{ formattedActivity.name }}</strong>
-          </span>
-        </template>
-        <template #start>
-          <strong>{{ formattedActivity.start.ago }}</strong>
-        </template>
-        <template #format>
-          <strong>{{ formattedActivity.start.formatted.date }}</strong> {{ t('separator') }}
-          <strong>{{ formattedActivity.start.formatted.time }}</strong>
-        </template>
-      </i18n-t>
-
-      <i18n-t
-        v-else
-        keypath="idling"
-        tag="div"
         class="space-x-1"
       >
-        <template #editor>
+        <span>
+          I'm actually working on
+          <strong>{{ formattedActivity.state.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ') }}</strong>,
+          editing <i>{{ formattedActivity.project.replace('Editing', '') }}</i>, using
+          <span class="space-x-1">
+            <UIcon
+              :name="editorIcon"
+              size="16"
+            />
+            <strong>{{ formattedActivity.name }}</strong>
+          </span>.
+          I've started <strong>{{ formattedActivity.start.ago }}</strong>, on
+          <strong>{{ formattedActivity.start.formatted.date }}</strong>
+          at <strong>{{ formattedActivity.start.formatted.time }}</strong>.
+        </span>
+      </div>
+
+      <div
+        v-else
+        class="space-x-1"
+      >
+        <span>
+          I'm idling on my computer with
           <span class="space-x-1">
             <UIcon
               :name="editorIcon"
@@ -149,72 +133,23 @@ const editorIcon = computed(() => {
             />
             <strong>{{ formattedActivity.name }}</strong>
           </span>
-        </template>
-      </i18n-t>
+          running in background.
+        </span>
+      </div>
     </div>
 
     <div
       v-else
       class="my-5 flex md:items-start gap-2"
     >
-      <UTooltip :text="t('tooltip.offline')">
+      <UTooltip text="I'm offline 🫥">
         <div class="relative flex h-3 w-3 mt-2">
           <div class="relative cursor-not-allowed inline-flex rounded-full h-3 w-3 bg-red-500" />
         </div>
       </UTooltip>
-      <i18n-t
-        keypath="offline"
-        tag="p"
-        class="not-prose"
-      >
-        <template #maths>
-          <i>{{ t('maths') }}</i>
-        </template>
-      </i18n-t>
+      <p class="not-prose">
+        I'm currently offline. Come back later to see what I'm working on. <i>I am probably doing some maths or sleeping.</i>
+      </p>
     </div>
   </ClientOnly>
 </template>
-
-<i18n lang="json">
-{
-  "en": {
-    "offline": "I'm currently offline. Come back later to see what I'm working on. {maths}",
-    "working": "I'm actually working on {state}, editing {project}, using {editor}. I've started {start}, the {format}.",
-    "idling": "I'm idling on my computer with {editor} running in background.",
-    "maths": "I am probably doing some maths or sleeping.",
-    "tooltip": {
-      "online": "I'm online 👋",
-      "offline": "I'm offline 🫥",
-      "idling": "I'm sleeping 😴"
-    },
-    "separator": "at",
-    "secret": "Secret Project"
-  },
-  "fr": {
-    "offline": "Je suis actuellement hors ligne. Revenez plus tard pour voir sur quoi je travaille. {maths}",
-    "working": "Je travaille actuellement sur {state}, éditant {project}, en utilisant {editor}. J'ai commencé {start}, le {format}.",
-    "idling": "Je suis en veille sur mon ordinateur avec {editor} en arrière-plan.",
-    "maths": "Je suis probablement en train de faire des maths ou en train de dormir.",
-    "tooltip": {
-      "online": "Je suis connecté 👋",
-      "offline": "Je suis déconnecté 🫥",
-      "idling": "Je dors 😴"
-    },
-    "separator": "à",
-    "secret": "Projet Secret"
-  },
-  "es": {
-    "offline": "Ahora mismo estoy desconectado. Vuelve más tarde para ver en lo que estoy trabajando. {maths}",
-    "working": "Estoy trabajando en {state}, editando {project}, y utilizando {editor}. He empezado {start}, el {format}.",
-    "idling": "Estoy en reposo en mi ordenador con {editor} en segundo plano.",
-    "maths": "Estoy probablemente haciendo matemáticas o durmiendo.",
-    "tooltip": {
-      "online": "Estoy conectado 👋",
-      "offline": "Estoy desconectado 🫥",
-      "idling": "Estoy durmiendo 😴"
-    },
-    "separator": "a",
-    "secret": "Proyecto Secreto"
-  }
-}
-</i18n>

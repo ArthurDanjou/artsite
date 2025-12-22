@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-const { t } = useI18n({
-  useScope: 'local'
-})
-</script>
-
 <template>
   <div class="mt-4">
     <div class="float-left flex items-center mr-2 mt-1">
@@ -19,21 +13,7 @@ const { t } = useI18n({
       </ClientOnly>
     </div>
     <p class="not-prose">
-      {{ t('quote') }}
+      Hello everyone! Thanks for visiting my portfolio. Please leave whatever you like to say, such as suggestions, appreciations, questions or anything!
     </p>
   </div>
 </template>
-
-<i18n lang="json">
-{
-  "en": {
-    "quote": "Hello everyone! Thanks for visiting my portfolio. Please leave whatever you like to say, such as suggestions, appreciations, questions or anything!"
-  },
-  "fr": {
-    "quote": "Bonjour tout le monde ! Merci de visiter mon portfolio. N'hésitez pas à laisser ce que vous avez à dire, comme des suggestions, des appréciations, des questions ou autre chose !"
-  },
-  "es": {
-    "quote": "Hola a todos ! Muchas gracias por visitar mi portfolio. No dudes en dejar cualquier comentario, como sugerencias, apreciaciones. preguntas, o cualquier cosa !"
-  }
-}
-</i18n>

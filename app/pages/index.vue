@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-const { locale } = useI18n()
-
 useSeoMeta({
   title: 'Arthur Danjou - AI enjoyer and Maths student',
   description: 'Developer enjoying Artificial Intelligence and Machine Learning. Mathematics Student at Paris Dauphine-PSL University specialised in Statistics'
 })
 
-const { data: page } = await useAsyncData(`/home/${locale.value}`, () => {
-  return queryCollection('main').path(`/home/${locale.value}`).first()
-}, {
-  watch: [locale]
+const { data: page } = await useAsyncData('index', () => {
+  return queryCollection('index').first()
 })
 </script>
 
