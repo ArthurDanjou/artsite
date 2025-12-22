@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { navs, socials } from '~~/types'
 
-const { locale, t } = useI18n()
-
 const openContactDrawer = ref(false)
 const router = useRouter()
 defineShortcuts({
@@ -22,17 +20,17 @@ const socialsList = [
 
 <template>
   <header class="flex md:items-center justify-between my-8 gap-2">
-    <NuxtLinkLocale
+    <NuxtLink
       class="handwriting text-xl sm:text-3xl text-nowrap gap-2 font-bold duration-300 text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white"
       to="/"
     >
       Arthur Danjou
-    </NuxtLinkLocale>
+    </NuxtLink>
     <nav class="flex gap-2 items-center justify-end flex-wrap">
       <UTooltip
         v-for="nav in navs"
-        :key="nav.label.en"
-        :text="nav.label[locale]"
+        :key="nav.label"
+        :text="nav.label"
         :delay-duration="4"
       >
         <UButton
@@ -47,7 +45,7 @@ const socialsList = [
       </UTooltip>
       <UTooltip
         :delay-duration="4"
-        :text="t('status')"
+        text="Status Page"
       >
         <UButton
           icon="i-ph-warning-duotone"
@@ -73,7 +71,7 @@ const socialsList = [
       >
         <UTooltip
           :kbds="['C']"
-          :text="t('contact.button')"
+          text="Contact Me"
           :delay-duration="4"
           class="cursor-pointer"
         >
@@ -86,11 +84,6 @@ const socialsList = [
           />
         </UTooltip>
       </UDropdownMenu>
-      <USeparator
-        orientation="vertical"
-        class="h-6"
-      />
-      <LangSwitcher />
     </nav>
   </header>
 </template>
@@ -122,29 +115,3 @@ const socialsList = [
   }
 }
 </style>
-
-<i18n lang="json">
-{
-  "en": {
-    "status": "status page",
-    "contact": {
-      "button": "contact me",
-      "title": "Contact me"
-    }
-  },
-  "fr": {
-    "status": "page de statut",
-    "contact": {
-      "button": "me contacter",
-      "title": "Me contacter"
-    }
-  },
-  "es": {
-    "status": "página de estado",
-    "contact": {
-      "button": "contactame",
-      "title": "Contactame"
-    }
-  }
-}
-</i18n>

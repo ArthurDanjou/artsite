@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { t } = useI18n()
 const colorMode = useColorMode()
 const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
 
@@ -58,7 +57,7 @@ defineShortcuts({
 <template>
   <UTooltip
     :kbds="['T']"
-    :text="t('theme')"
+    text="switch theme"
     class="cursor-pointer"
     :delay-duration="4"
   >
@@ -72,20 +71,6 @@ defineShortcuts({
     />
   </UTooltip>
 </template>
-
-<i18n lang="json">
-{
-  "en": {
-    "theme": "switch theme"
-  },
-  "fr": {
-    "theme": "changer de thème"
-  },
-  "es": {
-    "theme": "cambiar tema"
-  }
-}
-</i18n>
 
 <style>
 ::view-transition-old(root),
