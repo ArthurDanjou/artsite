@@ -1,0 +1,77 @@
+{
+    "contact": [
+        {
+            "id": "personal-email",
+            "name": "Email Personnel",
+            "description": "Contactez-moi pour des questions personnelles",
+            "category": "communication",
+            "icon": "i-ph-envelope-simple-duotone",
+            "value": "https://go.arthurdanjou.fr/mail-perso",
+            "priority": 1
+        },
+        {
+            "id": "professional-email",
+            "name": "Email Professionnel",
+            "description": "Pour les opportunités professionnelles et collaborations",
+            "category": "communication",
+            "icon": "i-ph-envelope-simple-duotone",
+            "value": "https://go.arthurdanjou.fr/mail-pro",
+            "priority": 1
+        },
+        {
+            "id": "linkedin",
+            "name": "LinkedIn",
+            "description": "Profil professionnel et réseau",
+            "category": "social",
+            "icon": "i-ph:linkedin-logo-duotone",
+            "value": "https://go.arthurdanjou.fr/linkedin",
+            "priority": 2
+        },
+        {
+            "id": "github",
+            "name": "GitHub",
+            "description": "Projets open-source et portefeuille technique",
+            "category": "social",
+            "icon": "i-ph:github-logo-duotone",
+            "value": "https://go.arthurdanjou.fr/github",
+            "username": "ArthurDanjou",
+            "priority": 1
+        },
+        {
+            "id": "twitter",
+            "name": "Twitter / X",
+            "description": "Actualités tech et partages d'idées",
+            "category": "social",
+            "icon": "i-ph:x-logo-duotone",
+            "value": "https://go.arthurdanjou.fr/twitter",
+            "priority": 3
+        },
+        {
+            "id": "discord",
+            "name": "Discord",
+            "description": "Discussions en temps réel et communauté",
+            "category": "communication",
+            "icon": "i-ph:discord-logo-duotone",
+            "value": "https://go.arthurdanjou.fr/discord",
+            "priority": 2
+        },
+        {
+            "id": "personal-website",
+            "name": "Site Personnel",
+            "description": "Accueil et portefeuille complet",
+            "category": "web",
+            "icon": "i-ph:globe-duotone",
+            "value": "https://arthurdanjou.fr",
+            "priority": 1
+        },
+        {
+            "id": "status-page",
+            "name": "Statut des Services",
+            "description": "État et disponibilité des services",
+            "category": "infrastructure",
+            "icon": "i-ph:fire-duotone",
+            "value": "https://go.arthurdanjou.fr/status",
+            "priority": 3
+        }
+    ]
+}

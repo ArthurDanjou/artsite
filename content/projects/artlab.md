@@ -1,0 +1,46 @@
+---
+slug: artlab
+title: ArtLab - Personal HomeLab
+type: Infrastructure Project
+description: A personal homelab environment where I deploy, test, and maintain self-hosted services with privacy-focused networking through VPN and Cloudflare Tunnels.
+publishedAt: 2025-09-04
+readingTime: 1
+cover: artlab/cover.png
+favorite: true
+status: Active
+tags:
+  - Docker
+  - Proxmox
+  - HomeLab
+  - Self-Hosted
+  - Infrastructure
+emoji: 🏡
+---
+
+[**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab, where I experiment with self-hosting and automation.
+
+My homelab is a self-hosted environment where I deploy, test, and maintain personal services. Everything is securely exposed **only through a private VPN** using [Tailscale](https://tailscale.com/), ensuring encrypted, access-controlled connections across all devices.
+For selected services, I also use **Cloudflare Tunnels** to enable secure external access without opening ports or exposing my public IP.
+
+## 🛠️ Running Services
+
+- **MinIO**: S3-compatible object storage for static files and backups.
+- **Immich**: Self-hosted photo management platform — a private alternative to Google Photos.
+- **Jellyfin**: Media server for streaming movies, shows, and music.
+- **Portainer & Docker**: Container orchestration and service management.
+- **Traefik**: Reverse proxy and automatic HTTPS with Let's Encrypt.
+- **Homepage**: A sleek dashboard to access and monitor all services.
+- **Proxmox**: Virtualization platform used to manage VMs and containers.
+- **Uptime Kuma**: Self-hosted uptime monitoring.
+- **Home Assistant**: Smart home automation and device integration.
+- **AdGuard Home**: Network-wide ad and tracker blocking via DNS.
+- **Beszel**: Self-hosted, lightweight alternative to Notion for notes and knowledge management.
+- **Palmr**: Personal logging and journaling tool.
+
+## 🖥️ Hardware
+
+- **Beelink EQR6**: AMD Ryzen mini PC, main server host.
+- **TP-Link 5-port Switch**: Network connectivity for all devices.
+- **UGREEN NASync DXP4800 Plus**: 4-bay NAS, currently populated with 2 × 8TB drives for storage and backups.
+
+This homelab is a sandbox for DevOps experimentation, infrastructure reliability, and privacy-respecting digital autonomy.

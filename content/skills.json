@@ -1,0 +1,110 @@
+{
+  "description": "Master's student in Applied Mathematics (M280 - Paris Dauphine) specializing in Data Science and AI. My profile sits at the intersection of theoretical research and software engineering. I leverage my strong background in probability, statistics, and optimization to design robust Deep Learning architectures, while using my engineering skills (MLOps, Infrastructure) to deploy them efficiently. Currently looking for a research-oriented final year internship (April 2026) leading to a PhD.",
+  "skills": [
+    {
+      "id": "scientific-computing",
+      "name": "Scientific Computing & AI",
+      "description": "Core expertise in mathematics, statistics, and machine learning. Building and training neural networks, statistical models, and data science solutions.",
+      "items": [
+        {
+          "name": "Python",
+          "icon": "i-logos-python"
+        },
+        {
+          "name": "PyTorch",
+          "icon": "i-logos-pytorch-icon"
+        },
+        {
+          "name": "R Lang",
+          "icon": "i-logos-r-lang"
+        },
+        {
+          "name": "LaTeX",
+          "icon": "i-file-icons-latex"
+        },
+        {
+          "name": "Tensorflow",
+          "icon": "i-logos-tensorflow"
+        },
+        {
+          "name": "Scikit-Learn",
+          "icon": "i-devicon-scikitlearn"
+        },
+        {
+          "name": "Pandas & Numpy",
+          "icon": "i-devicon-pandas"
+        },
+        {
+          "name": "MatPlotLib",
+          "icon": "i-devicon-matplotlib"
+        }
+      ]
+    },
+    {
+      "id": "data-engineering-mlops",
+      "name": "Data Engineering & MLOps",
+      "description": "Infrastructure, data pipelines, and production deployment. Managing databases, containerization, and scalable systems for ML models.",
+      "items": [
+        {
+          "name": "PostgreSQL",
+          "icon": "i-logos-postgresql"
+        },
+        {
+          "name": "MySQL",
+          "icon": "i-logos-mysql-icon"
+        },
+        {
+          "name": "Docker",
+          "icon": "i-logos-docker-icon"
+        },
+        {
+          "name": "Linux",
+          "icon": "i-logos-linux-tux"
+        },
+        {
+          "name": "Git",
+          "icon": "i-logos-git-icon"
+        },
+        {
+          "name": "Proxmox",
+          "icon": "i-devicon-proxmox-wordmark"
+        },
+        {
+          "name": "Redis",
+          "icon": "i-logos-redis"
+        },
+        {
+          "name": "Apache Spark (PySpark)",
+          "icon": "i-logos-apache-spark"
+        }
+      ]
+    },
+    {
+      "id": "software-development",
+      "name": "Fullstack Development",
+      "description": "Web and backend development with modern frameworks. Building responsive UIs and scalable server-side applications.",
+      "items": [
+        {
+          "name": "TypeScript",
+          "icon": "i-logos-typescript-icon"
+        },
+        {
+          "name": "Vue.js & Nuxt",
+          "icon": "i-logos-nuxt-icon"
+        },
+        {
+          "name": "Java",
+          "icon": "i-logos-java"
+        },
+        {
+          "name": "TailwindCSS",
+          "icon": "i-logos-tailwindcss-icon"
+        },
+        {
+          "name": "AdonisJs",
+          "icon": "i-logos-adonisjs-icon"
+        }
+      ]
+    }
+  ]
+}

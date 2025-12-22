@@ -1,0 +1,19 @@
+{
+  "languages": [
+    {
+      "name": "French",
+      "level": "Native",
+      "proficiency": "C2"
+    },
+    {
+      "name": "English",
+      "level": "Fluent",
+      "proficiency": "C1"
+    },
+    {
+      "name": "Spanish",
+      "level": "Intermediate",
+      "proficiency": "A2"
+    }
+  ]
+}
