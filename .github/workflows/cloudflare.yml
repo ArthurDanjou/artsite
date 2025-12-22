@@ -59,3 +59,18 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
+      - name: Discord Notification
+        uses: sarisia/actions-status-discord@v1
+        if: always() # S'exécute même si le build plante
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ job.status }}
+          title: "Déploiement Portfolio"
+          description: |
+            Build terminé sur la branche **${{ github.ref_name }}**.
+            Commit: `${{ github.sha }}` par ${{ github.actor }}.
+          nofail: false
+          nodetail: false
+          image: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+          username: "GitHub Actions"
