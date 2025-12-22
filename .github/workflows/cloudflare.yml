@@ -35,10 +35,18 @@ jobs:
       - name: Build
         run: bun run build
         env:
-          NUXT_PUBLIC_I18N_BASE_URL: ${{ vars.NUXT_PUBLIC_I18N_BASE_URL }}
-          NUXT_API_URL: ${{ vars.NUXT_API_URL }}
-          STUDIO_GITHUB_CLIENT_ID: ${{ vars.STUDIO_GITHUB_CLIENT_ID }}
-          STUDIO_GITHUB_CLIENT_SECRET: ${{ vars.STUDIO_GITHUB_CLIENT_SECRET }}
+          NUXT_DISCORD_USER_ID: ${{ secrets.NUXT_DISCORD_USER_ID }}
+
+          NUXT_WAKATIME_CODING: ${{ secrets.NUXT_WAKATIME_CODING }}
+          NUXT_WAKATIME_EDITORS: ${{ secrets.NUXT_WAKATIME_EDITORS }}
+          NUXT_WAKATIME_LANGUAGES: ${{ secrets.NUXT_WAKATIME_LANGUAGES }}
+          NUXT_WAKATIME_OS: ${{ secrets.NUXT_WAKATIME_OS }}
+          NUXT_WAKATIME_USER_ID: ${{ secrets.NUXT_WAKATIME_USER_ID }}
+          
+          NUXT_STATUS_PAGE: ${{ secrets.NUXT_STATUS_PAGE }}
+          
+          STUDIO_GITHUB_CLIENT_ID: ${{ secrets.STUDIO_GITHUB_CLIENT_ID }}
+          STUDIO_GITHUB_CLIENT_SECRET: ${{ secrets.STUDIO_GITHUB_CLIENT_SECRET }}
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
