@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    '@nuxtjs/i18n',
     'nuxt-studio'
   ],
 
@@ -63,28 +62,17 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    api: {
-      url: ''
+    discord: {
+      userId: '',
+      id: ''
     },
-    public: {
-      i18n: {
-        baseUrl: ''
-      }
-    }
-  },
-
-  routeRules: {
-    '/api/activity': {
-      proxy: `${process.env.NUXT_API_URL}/api/activity`
-    },
-    '/api/stats': {
-      proxy: `${process.env.NUXT_API_URL}/api/stats`
-    },
-    '/api/uses': {
-      proxy: `${process.env.NUXT_API_URL}/api/uses`
-    },
-    '/api/': {
-      proxy: `${process.env.NUXT_API_URL}/api/`
+    statusPage: '',
+    wakatime: {
+      userId: '',
+      coding: '',
+      editors: '',
+      languages: '',
+      os: ''
     }
   },
 
@@ -116,30 +104,6 @@ export default defineNuxtConfig({
     }
   },
 
-  i18n: {
-    strategy: 'no_prefix',
-    locales: [
-      {
-        label: 'English',
-        code: 'en',
-        language: 'en-EN',
-        icon: 'i-twemoji-flag-united-kingdom'
-      },
-      {
-        label: 'Français',
-        code: 'fr',
-        language: 'fr-FR',
-        icon: 'i-twemoji-flag-france'
-      },
-      {
-        label: 'Español',
-        code: 'es',
-        language: 'es-ES',
-        icon: 'i-twemoji-flag-spain'
-      }
-    ],
-    defaultLocale: 'en'
-  },
   studio: {
     route: '/studio',
     repository: {
