@@ -30,19 +30,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const statusColors: Record<string, string> = {
-  'active': 'green',
-  'completed': 'blue',
-  'archived': 'gray',
-  'in-progress': 'amber'
-}
-
-const typeColors: Record<string, string> = {
-  'Personal Project': 'purple',
-  'Academic Project': 'sky',
-  'Infrastructure Project': 'emerald',
-  'Internship Project': 'orange'
-}
+const { statusColors, typeColors } = useProjectColors()
 
 const formattedDate = computed(() => {
   if (!project.value?.publishedAt) return null

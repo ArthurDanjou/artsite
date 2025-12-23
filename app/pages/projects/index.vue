@@ -41,19 +41,7 @@ const filteredProjects = computed(() => {
   })
 })
 
-const statusColors: Record<string, string> = {
-  'active': 'green',
-  'completed': 'blue',
-  'archived': 'gray',
-  'in-progress': 'amber'
-}
-
-const typeColors: Record<string, string> = {
-  'Personal Project': 'purple',
-  'Academic Project': 'sky',
-  'Infrastructure Project': 'emerald',
-  'Internship Project': 'orange'
-}
+const { statusColors, typeColors } = useProjectColors()
 
 function toggleTag(tag: string) {
   const index = selectedTags.value.indexOf(tag)
