@@ -136,14 +136,14 @@ Create a `.env` file in the root directory with the following variables:
 
 ```env
 # Base URL for internationalization
-NUXT_PUBLIC_I18N_BASE_URL=https://arthurdanjou.fr
+NUXT_PUBLIC_I18N_BASE_URL=https://yourdomain.com
 
 # API URL (if applicable)
 NUXT_API_URL=
 
 # GitHub Studio Integration (for content management)
 STUDIO_GITHUB_CLIENT_ID=your_github_client_id
-STUDIO_GITHUB_CLIENT_SECRET=your_github_client_secret
+STUDIO_GITHUB_CLIENT_SECRET=your_github_client_secret  # Keep this secret! Never commit to version control
 
 # Discord Integration (runtime config)
 NUXT_DISCORD_USER_ID=your_discord_user_id
@@ -161,6 +161,8 @@ NUXT_STATUS_PAGE=your_status_page_url
 ```
 
 > **Note:** Not all variables are required for basic development. The site will work without integrations, but some features may be disabled.
+
+> **Security:** Never commit your `.env` file or expose sensitive credentials like `STUDIO_GITHUB_CLIENT_SECRET`. Keep all API keys and secrets secure.
 
 ## 📂 Project Structure
 
