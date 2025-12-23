@@ -16,9 +16,8 @@ export const collections = {
       publishedAt: z.string(),
       readingTime: z.number().optional(),
       tags: z.array(z.string()),
-      cover: z.string().optional(),
       favorite: z.boolean().optional(),
-      status: z.string().optional(),
+      status: z.enum(['active', 'completed', 'archived', 'in progress']),
       icon: z.string()
     })
   }),

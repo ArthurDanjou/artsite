@@ -5,7 +5,7 @@ type: Academic Project
 description: Predicting the number of bikes rented in a bike-sharing system using Generalized Linear Models and various statistical techniques.
 publishedAt: 2025-01-24
 readingTime: 1
-status: Completed
+status: completed
 tags:
   - R
   - Statistics

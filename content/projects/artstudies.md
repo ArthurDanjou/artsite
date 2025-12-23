@@ -6,7 +6,7 @@ description: A curated collection of mathematics and data science projects devel
 publishedAt: 2023-09-01
 readingTime: 1
 favorite: true
-status: Active
+status: in progress
 tags:
   - Python
   - R

@@ -5,9 +5,8 @@ type: Personal Project
 description: My personal space on the web — a portfolio, a blog, and a digital lab where I showcase my projects, write about topics I care about, and experiment with design and web technologies.
 publishedAt: 2024-06-01
 readingTime: 1
-cover: artchat/cover.png
 favorite: true
-status: Active
+status: active
 tags:
   - Vue.js
   - Nuxt

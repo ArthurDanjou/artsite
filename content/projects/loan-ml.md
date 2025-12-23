@@ -5,7 +5,7 @@ type: Academic Project
 description: Predicting loan approval and default risk using machine learning classification techniques.
 publishedAt: 2025-01-24
 readingTime: 2
-status: Completed
+status: completed
 tags:
   - Python
   - Machine Learning

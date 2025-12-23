@@ -5,7 +5,7 @@ type: Academic Project
 description: Prediction of breast cancer presence by comparing several supervised classification models using machine learning techniques.
 publishedAt: 2025-06-06
 readingTime: 2
-status: Completed
+status: completed
 tags:
   - Python
   - Machine Learning

@@ -5,9 +5,8 @@ type: Infrastructure Project
 description: A personal homelab environment where I deploy, test, and maintain self-hosted services with privacy-focused networking through VPN and Cloudflare Tunnels.
 publishedAt: 2025-09-04
 readingTime: 1
-cover: artlab/cover.png
 favorite: true
-status: Active
+status: active
 tags:
   - Docker
   - Proxmox
