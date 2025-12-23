@@ -43,13 +43,6 @@ export const IDEs = [
   { name: 'Cursor', icon: 'i-vscode-icons-file-type-cursorrules' }
 ] as const
 
-export const socials = [
-  { icon: 'i-ph-x-logo-duotone', label: 'Twitter', to: 'https://go.arthurdanjou.fr/twitter' },
-  { icon: 'i-ph-github-logo-duotone', label: 'GitHub', to: 'https://go.arthurdanjou.fr/github' },
-  { icon: 'i-ph-linkedin-logo-duotone', label: 'LinkedIn', to: 'https://go.arthurdanjou.fr/linkedin' },
-  { icon: 'i-ph-discord-logo-duotone', label: 'Discord', to: 'https://go.arthurdanjou.fr/discord' }
-] as const
-
 interface Nav {
   label: string
   to: string

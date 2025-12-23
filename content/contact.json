@@ -14,7 +14,7 @@
       "category": "communication",
       "icon": "i-ph-envelope-simple-duotone",
       "value": "https://go.arthurdanjou.fr/mail-pro",
-      "priority": 1
+      "priority": 2
     },
     {
       "id": "linkedin",
@@ -22,7 +22,7 @@
       "category": "social",
       "icon": "i-ph:linkedin-logo-duotone",
       "value": "https://go.arthurdanjou.fr/linkedin",
-      "priority": 2
+      "priority": 1
     },
     {
       "id": "github",
@@ -39,7 +39,7 @@
       "category": "social",
       "icon": "i-ph:x-logo-duotone",
       "value": "https://go.arthurdanjou.fr/twitter",
-      "priority": 3
+      "priority": 1
     },
     {
       "id": "discord",
@@ -47,7 +47,7 @@
       "category": "communication",
       "icon": "i-ph:discord-logo-duotone",
       "value": "https://go.arthurdanjou.fr/discord",
-      "priority": 2
+      "priority": 1
     },
     {
       "id": "personal-website",
@@ -55,7 +55,7 @@
       "category": "web",
       "icon": "i-ph:globe-duotone",
       "value": "https://arthurdanjou.fr",
-      "priority": 1
+      "priority": 2
     },
     {
       "id": "status-page",
@@ -63,7 +63,7 @@
       "category": "infrastructure",
       "icon": "i-ph:fire-duotone",
       "value": "https://go.arthurdanjou.fr/status",
-      "priority": 3
+      "priority": 2
     }
   ]
 }

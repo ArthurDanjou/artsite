@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { navs, socials } from '~~/types'
+import { navs } from '~~/types'
 
 const openContactDrawer = ref(false)
 const router = useRouter()
@@ -8,14 +8,7 @@ defineShortcuts({
   backspace: () => router.back()
 })
 
-const socialsList = [
-  {
-    label: 'Email',
-    icon: 'i-ph-envelope-duotone',
-    to: 'mailto:arthurdanjou@outlook.fr'
-  },
-  ...socials
-]
+const { contact } = await useContent()
 </script>
 
 <template>
@@ -61,8 +54,14 @@ const socialsList = [
         class="h-6"
       />
       <UDropdownMenu
+        v-if="contact"
         v-model:open="openContactDrawer"
-        :items="socialsList"
+        :items="contact.body.filter(item => item.priority === 1).map(item => ({
+          label: item.name,
+          icon: item.icon,
+          href: item.value,
+          target: '_blank'
+        }))"
         :content="{
           align: 'center',
           side: 'bottom',
