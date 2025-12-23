@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 useSeoMeta({
-  title: 'Arthur Danjou - AI enjoyer and Maths student',
-  description: 'Developer enjoying Artificial Intelligence and Machine Learning. Mathematics Student at Paris Dauphine-PSL University specialised in Statistics'
+  title: 'AI Safety & Applied Mathematics',
+  description: 'Research Engineer & Master 2 Student at Paris-Dauphine (ISF). Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
+  ogTitle: 'Arthur Danjou • AI Safety & Applied Mathematics',
+  ogDescription: 'Research Engineer & Master 2 Student at Paris-Dauphine (ISF). Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
+  twitterCard: 'summary_large_image'
 })
 
 const { data: page } = await useAsyncData('index', () => {

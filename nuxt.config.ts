@@ -16,11 +16,6 @@ export default defineNuxtConfig({
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      templateParams: {
-        separator: '•'
-      }
-    },
     rootAttrs: {
       class: 'bg-[var(--ui-bg)]'
     }

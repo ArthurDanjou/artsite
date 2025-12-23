@@ -2,6 +2,14 @@
 const { data: page } = await useAsyncData('hobbies', () => {
   return queryCollection('hobbies').first()
 })
+
+useSeoMeta({
+  title: 'Balance & Perspectives',
+  description: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.',
+  ogTitle: 'Balance & Perspectives • Arthur Danjou',
+  ogDescription: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.',
+  twitterCard: 'summary_large_image'
+})
 </script>
 
 <template>

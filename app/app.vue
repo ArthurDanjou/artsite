@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 useHead({
-  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} %separator %siteName` : 'Arthur Danjou %separator AI Safety & Applied Math'
+  },
+  templateParams: {
+    siteName: 'Arthur Danjou',
+    separator: '•'
+  }
 })
 </script>
 
