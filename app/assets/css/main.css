@@ -1,38 +1,51 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@theme {
+  --animate-wave: wave 2.5s infinite;
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    10% {
+      transform: rotate(14deg);
+    }
+
+    20% {
+      transform: rotate(-8deg);
+    }
+
+    30% {
+      transform: rotate(14deg);
+    }
+
+    40% {
+      transform: rotate(-4deg);
+    }
+
+    50% {
+      transform: rotate(10deg);
+    }
+
+    60%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
 :root {
-  --animate-wave: wave 3s infinite;
-
   --ui-bg: #f8f8f8;
-
   --ui-font-family: 'DM Sans', sans-serif;
   transition-duration: 0.7s;
 }
 
 .dark {
-  --animate-wave: wave 3s infinite;
-  
   --ui-bg: #0f0f0f;
-
-  --ui-font-family: 'DM Sans', sans-serif;
-  transition-duration: 0.7s;
 }
 
 .sofia {
   --ui-font-family: 'Sofia Sans', sans-serif;
-}
-
-@keyframes wave {
-
-  0%,
-  50%,
-  100% {
-    transform: rotate(-12deg);
-  }
-
-  25%,
-  75% {
-    transform: rotate(3deg) scale(1.5);
-  }
 }
