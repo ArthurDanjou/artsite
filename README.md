@@ -10,7 +10,7 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://cloudflare.com/)
 
-[🌐 Live Demo](https://arthurdanjou.fr/) | [📖 Documentation](https://nuxt.com/) | [🐛 Report Bug](https://github.com/ArthurDanjou/artsite/issues)
+[🌐 Live Demo](https://arthurdanjou.fr/) | [🐛 Report Bug](https://github.com/ArthurDanjou/artsite/issues)
 
 </div>
 
@@ -136,7 +136,7 @@ Create a `.env` file in the root directory with the following variables:
 
 ```env
 # Base URL for internationalization
-NUXT_PUBLIC_I18N_BASE_URL=https://yourdomain.com
+NUXT_PUBLIC_I18N_BASE_URL=https://your-domain.com
 
 # API URL (if applicable)
 NUXT_API_URL=
@@ -145,16 +145,16 @@ NUXT_API_URL=
 STUDIO_GITHUB_CLIENT_ID=your_github_client_id
 STUDIO_GITHUB_CLIENT_SECRET=your_github_client_secret  # Keep this secret! Never commit to version control
 
-# Discord Integration (runtime config)
-NUXT_DISCORD_USER_ID=your_discord_user_id
-NUXT_DISCORD_ID=your_discord_app_id
+# Discord Integration (runtime config - keep private)
+NUXT_DISCORD_USER_ID=your_discord_user_id  # Private
+NUXT_DISCORD_ID=your_discord_app_id  # Private
 
-# WakaTime Integration (for coding statistics)
-NUXT_WAKATIME_USER_ID=your_wakatime_user_id
-NUXT_WAKATIME_CODING=your_coding_stats_api
-NUXT_WAKATIME_EDITORS=your_editors_stats_api
-NUXT_WAKATIME_LANGUAGES=your_languages_stats_api
-NUXT_WAKATIME_OS=your_os_stats_api
+# WakaTime Integration (for coding statistics - keep private)
+NUXT_WAKATIME_USER_ID=your_wakatime_user_id  # Private
+NUXT_WAKATIME_CODING=your_coding_stats_api  # Private
+NUXT_WAKATIME_EDITORS=your_editors_stats_api  # Private
+NUXT_WAKATIME_LANGUAGES=your_languages_stats_api  # Private
+NUXT_WAKATIME_OS=your_os_stats_api  # Private
 
 # Status Page URL
 NUXT_STATUS_PAGE=your_status_page_url
