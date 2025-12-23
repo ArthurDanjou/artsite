@@ -14,5 +14,5 @@ tags:
   - HomeLab
   - Docker
   - Self-Hosted
-emoji: 💼
+icon: i-ph-briefcase-metal-duotone
 ---

@@ -12,7 +12,7 @@ tags:
   - Classification
   - Data Science
   - Finance
-emoji: 💰
+icon: i-ph-money-wavy-duotone
 ---
 
 # Machine Learning for Loan Prediction

@@ -12,7 +12,7 @@ tags:
   - Data Science
   - Classification
   - Healthcare
-emoji: 💉
+icon: i-ph-heart-half-duotone
 ---
 
 The project was carried out as part of the `Statistical Learning` course at Paris-Dauphine PSL University. Its objective is to identify the most effective model for predicting or explaining the presence of breast cancer based on a set of biological and clinical features.

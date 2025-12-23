@@ -14,7 +14,7 @@ tags:
   - TypeScript
   - Tailwind CSS
   - Web
-emoji: 🌍
+icon: i-ph-globe-hemisphere-west-duotone
 ---
 
 [**ArtChat**](https://go.arthurdanjou.fr/website) is my personal space on the web — a portfolio, a blog, and a digital lab where I showcase my projects, write about topics I care about, and experiment with design and web technologies.

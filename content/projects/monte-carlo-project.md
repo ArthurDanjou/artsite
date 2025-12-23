@@ -12,7 +12,7 @@ tags:
   - Statistics
   - Monte Carlo
   - Numerical Methods
-emoji: 💻
+icon: i-ph-dice-five-duotone
 ---
 
 This is the report for the Monte Carlo Methods Project. The project was done as part of the course `Monte Carlo Methods` at the Paris-Dauphine University. The goal was to implement different methods and algorithms using Monte Carlo methods in R.

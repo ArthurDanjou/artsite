@@ -14,7 +14,7 @@ tags:
   - HomeLab
   - Self-Hosted
   - Infrastructure
-emoji: 🏡
+icon: i-ph-flask-duotone
 ---
 
 [**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab, where I experiment with self-hosting and automation.

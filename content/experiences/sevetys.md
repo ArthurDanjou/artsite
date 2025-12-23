@@ -14,5 +14,5 @@ tags:
   - Microsoft Azure
   - Data Engineering
   - Data Quality
-emoji: 📊
+icon: i-ph-dog-duotone
 ---

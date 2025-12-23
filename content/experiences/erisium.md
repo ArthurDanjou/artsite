@@ -14,5 +14,5 @@ tags:
   - Minecraft
   - Backend
   - Game Development
-emoji: 🎮
+icon: i-ph-cube-duotone
 ---

@@ -13,7 +13,7 @@ tags:
   - Data Science
   - Machine Learning
   - Mathematics
-emoji: 🎓
+icon: i-ph-book-duotone
 ---
 
 # ArtStudies

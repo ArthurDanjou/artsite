@@ -12,7 +12,7 @@ tags:
   - Data Engineering
   - Azure
   - Big Data
-emoji: 🐶
+icon: i-ph-dog-duotone
 ---
 
 [Sevetys](https://sevetys.fr) is a leading French network of over 200 veterinary clinics, employing more than 1,300 professionals. Founded in 2017, the group provides comprehensive veterinary care for companion animals, exotic pets, and livestock, with services ranging from preventive medicine and surgery to cardiology, dermatology, and 24/7 emergency care.

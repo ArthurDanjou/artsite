@@ -1,7 +1,7 @@
 ---
 title: Hackathon CND - Machine Learning for Cybersecurity
 type: Hackathon
-company: Commissariat au numérique de défense (CND), French Armies ministry
+company: French Armies ministry
 companyUrl: https://www.defense.gouv.fr/cnd
 location: Fort du Mont-Valérien, Suresnes, France
 startDate: 2025-11
@@ -15,5 +15,5 @@ tags:
   - Cybersecurity
   - Streamlit
   - LLM
-emoji: 🔒
+icon: i-ph-shield-check-duotone
 ---

@@ -11,5 +11,5 @@ tags:
   - Mathematics
   - Physics
   - Computer Science
-emoji: 🎓
+icon: i-ph-math-operations-duotone
 ---

@@ -12,7 +12,7 @@ tags:
   - Machine Learning
   - Deep Learning
   - Research
-emoji: 🔬
+icon: i-ph-share-network-duotone
 ---
 
 📉 [Dropout Reduces Underfitting](https://github.com/arthurdanjou/dropoutreducesunderfitting): Reproduction & Analysis

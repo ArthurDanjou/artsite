@@ -12,7 +12,7 @@ tags:
   - Data Analysis
   - GLM
   - Mathematics
-emoji: 🚲
+icon: i-ph-bicycle-duotone
 ---
 
 # Generalized Linear Models for Bikes Prediction

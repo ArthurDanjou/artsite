@@ -12,7 +12,7 @@ tags:
   - Vue.js
   - Web
   - Productivity
-emoji: 🏡
+icon: i-ph-house-duotone
 ---
 
 [ArtHome](https://go.arthurdanjou.fr/arthome) is a customizable browser homepage that lets you organize all your favorite links in one place.

@@ -13,5 +13,5 @@ tags:
   - Customer Service
   - Retail
   - Team Work
-emoji: 🛒
+icon: i-ph-shopping-cart-duotone
 ---
