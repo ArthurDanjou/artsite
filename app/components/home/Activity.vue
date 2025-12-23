@@ -2,154 +2,124 @@
 import type { Activity } from '~~/types'
 import { IDEs } from '~~/types'
 
-const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'),
-  { lazy: true }
-)
+const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'), { lazy: true })
+useIntervalFn(refresh, 5000)
 
-useIntervalFn(refresh, 1000)
-
-const codingActivities = computed(() => {
+const currentSession = computed(() => {
   const list = activity.value?.data.activities ?? []
-  return list
-    .filter(a => IDEs.some(ide => ide.name === a.name))
-    .map(a => ({ ...a, name: a.assets?.small_text === 'Cursor' ? 'Cursor' : a.name }))
-})
+  const ideActivity = list.find(a => IDEs.some(ide => ide.name === a.name))
 
-const codingActivity = computed(() => {
-  if (!codingActivities.value.length) return null
-  return codingActivities.value.length > 1
-    ? codingActivities.value[Math.floor(Math.random() * codingActivities.value.length)]
-    : codingActivities.value[0]
-})
+  if (!ideActivity) return null
 
-const isActive = computed(() => {
-  const act = codingActivity.value
-  if (!act) return false
+  const name = ideActivity.assets?.small_text === 'Cursor' ? 'Cursor' : ideActivity.name
 
-  const { name, details = '', state = '' } = act
+  const isIdling = ideActivity.details?.includes('Idling') || (!ideActivity.state?.toLowerCase().includes('editing') && name !== 'Visual Studio Code')
 
-  if (name === 'Visual Studio Code' || name === 'Cursor')
-    return !details.includes('Idling')
-
-  return state.toLowerCase().includes('editing')
-})
-
-type FormattedActivity = {
-  name: string
-  project: string
-  state: string
-  start: {
-    ago: string
-    formatted: { date: string, time: string }
-  }
-} | null
-
-const formattedActivity = computed<FormattedActivity>(() => {
-  const act = codingActivity.value
-  if (!act) return null
-
-  const { name, details = '', state = '', timestamps } = act
-
-  const project = details
-    ? (details.charAt(0).toUpperCase() + details.slice(1).replace('Workspace:', '').trim())
-    : ''
-
-  const stateWord = (state && state.split(' ').length >= 2 ? state.split(' ')[1] : 'Secret project') as string
-  const ago = useTimeAgo(timestamps.start).value
-
-  const formatDate = (date: number, format: string) =>
-    useDateFormat(date, format).value
+  const rawProject = ideActivity.details ? ideActivity.details.replace('Workspace:', '').replace('Editing', '').trim() : 'Unknown Context'
+  const project = rawProject.charAt(0).toUpperCase() + rawProject.slice(1)
+  const file = ideActivity.state?.replace('Editing', '').trim() || 'No active file'
 
   return {
     name,
     project,
-    state: stateWord,
-    start: {
-      ago,
-      formatted: {
-        date: formatDate(timestamps.start, 'DD MMM YYYY'),
-        time: formatDate(timestamps.start, 'HH:mm')
-      }
-    }
+    file,
+    isIdling,
+    startTime: ideActivity.timestamps?.start,
+    icon: IDEs.find(ide => ide.name === name)?.icon ?? 'i-ph-code-duotone'
   }
 })
 
-const editorIcon = computed(() => {
-  const name = formattedActivity.value?.name ?? codingActivity.value?.name
-  return IDEs.find(ide => ide.name === name)?.icon ?? 'file'
+const timeAgo = useTimeAgo(computed(() => currentSession.value?.startTime ?? new Date()))
+
+const statusColor = computed(() => {
+  if (!currentSession.value) return 'red'
+  return currentSession.value.isIdling ? 'orange' : 'green'
+})
+
+const statusLabel = computed(() => {
+  if (!currentSession.value) return 'System Offline'
+  if (currentSession.value.isIdling) return 'System Idling'
+  return 'Active Development'
 })
 </script>
 
 <template>
   <ClientOnly>
-    <div
-      v-if="formattedActivity"
-      class="flex items-start gap-2 mt-4"
-    >
-      <UTooltip :text="isActive ? 'I\'m online 👋' : 'I\'m sleeping 😴'">
-        <div class="relative flex h-3 w-3 mt-2">
-          <div
-            v-if="isActive"
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+    <div class="w-full mb-4">
+      <UCard v-if="activity">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-3">
+            <div class="relative flex h-3 w-3">
+              <span
+                v-if="statusColor === 'green'"
+                class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-green-400"
+              />
+              <span
+                class="relative inline-flex rounded-full h-3 w-3 transition-colors duration-300"
+                :class="{
+                  'bg-green-500': statusColor === 'green',
+                  'bg-orange-500': statusColor === 'orange',
+                  'bg-red-500': statusColor === 'red'
+                }"
+              />
+            </div>
+
+            <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              {{ statusLabel }}
+            </span>
+          </div>
+
+          <UIcon
+            v-if="currentSession"
+            :name="currentSession.icon"
+            class="w-5 h-5 opacity-80"
           />
-          <div
-            :class="isActive ? 'bg-green-500' : 'bg-amber-500'"
-            class="relative inline-flex rounded-full h-3 w-3"
+          <UIcon
+            v-else
+            name="i-ph-power-duotone"
+            class="w-5 h-5 text-red-400 opacity-80"
           />
         </div>
-      </UTooltip>
 
-      <div
-        v-if="isActive"
-        class="space-x-1"
-      >
-        <span>
-          I'm actually working on
-          <strong>{{ formattedActivity.state.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ') }}</strong>,
-          editing <i>{{ formattedActivity.project.replace('Editing', '') }}</i>, using
-          <span class="space-x-1">
+        <div
+          v-if="currentSession"
+          class="space-y-1 pl-6 border-l-2 border-neutral-100 dark:border-neutral-800 ml-1.5"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+            <h3 class="font-semibold text-neutral-900 dark:text-white truncate">
+              {{ currentSession.project }}
+            </h3>
+            <span class="hidden sm:inline text-neutral-400 text-xs">•</span>
+            <span class="text-sm text-neutral-500 dark:text-neutral-400 truncate">
+              {{ currentSession.file }}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs text-neutral-400 mt-1">
             <UIcon
-              :name="editorIcon"
-              size="16"
+              name="i-ph-timer-duotone"
+              class="w-4 h-4"
             />
-            <strong>{{ formattedActivity.name }}</strong>
-          </span>.
-          I've started <strong>{{ formattedActivity.start.ago }}</strong>, on
-          <strong>{{ formattedActivity.start.formatted.date }}</strong>
-          at <strong>{{ formattedActivity.start.formatted.time }}</strong>.
-        </span>
-      </div>
-
-      <div
-        v-else
-        class="space-x-1"
-      >
-        <span>
-          I'm idling on my computer with
-          <span class="space-x-1">
-            <UIcon
-              :name="editorIcon"
-              size="16"
-            />
-            <strong>{{ formattedActivity.name }}</strong>
-          </span>
-          running in background.
-        </span>
-      </div>
-    </div>
-
-    <div
-      v-else
-      class="my-5 flex md:items-start gap-2"
-    >
-      <UTooltip text="I'm offline 🫥">
-        <div class="relative flex h-3 w-3 mt-2">
-          <div class="relative cursor-not-allowed inline-flex rounded-full h-3 w-3 bg-red-500" />
+            <span>Started {{ timeAgo }}</span>
+          </div>
         </div>
-      </UTooltip>
-      <p class="not-prose">
-        I'm currently offline. Come back later to see what I'm working on. <i>I am probably doing some maths or sleeping.</i>
-      </p>
+
+        <div
+          v-else
+          class="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-2 pl-6 border-l-2 border-red-100 dark:border-red-900/30 ml-1.5"
+        >
+          <p>Telemetry disconnected. Research in progress.</p>
+        </div>
+      </UCard>
+
+      <UCard v-else>
+        <div class="flex items-center gap-3">
+          <USkeleton class="h-3 w-3 rounded-full" /> <div class="space-y-2 flex-1">
+            <USkeleton class="h-4 w-1/3" />
+            <USkeleton class="h-3 w-2/3" />
+          </div>
+        </div>
+      </UCard>
     </div>
   </ClientOnly>
 </template>

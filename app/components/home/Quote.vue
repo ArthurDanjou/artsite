@@ -1,19 +1,32 @@
 <template>
-  <div class="mt-4">
-    <div class="float-left flex items-center mr-2 mt-1">
+  <UCard>
+    <div class="flex items-start sm:items-center gap-4">
       <ClientOnly>
-        <UTooltip text="It's me 👋">
+        <UTooltip
+          text="Arthur Danjou • Research & Engineering"
+          :popper="{ placement: 'top' }"
+        >
           <UAvatar
-            alt="Avatar"
-            class="hover:rotate-360 duration-500 transform-gpu rounded-full"
-            size="xl"
             src="/arthur.webp"
+            alt="Arthur Danjou"
+            size="xl"
+            class="ring-2 ring-primary-500/20 dark:ring-primary-400/20 transition-transform duration-700 ease-in-out hover:rotate-360 shadow-sm"
           />
         </UTooltip>
       </ClientOnly>
+
+      <div class="space-y-1">
+        <h3 class="font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
+          Let's start a discussion
+          <UIcon
+            name="i-ph-chat-circle-dots-duotone"
+            class="text-primary-500 w-5 h-5"
+          />
+        </h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          Thanks for stopping by my digital garden! Whether you have a question about a theorem, a suggestion for a project, or just want to say hi, I'd love to hear from you.
+        </p>
+      </div>
     </div>
-    <p class="not-prose">
-      Hello everyone! Thanks for visiting my portfolio. Please leave whatever you like to say, such as suggestions, appreciations, questions or anything!
-    </p>
-  </div>
+  </UCard>
 </template>

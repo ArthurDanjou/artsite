@@ -20,11 +20,13 @@ const { skills } = await useContent()
       :key="skill.id"
     >
       <div class>
-        <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-4">
+        <h3 class="text-xl md:text-2xl font-semibold tracking-tight">
           {{ skill.name }}
         </h3>
-
-        <div class="flex flex-wrap gap-2">
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {{ skill.description }}
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
           <UBadge
             v-for="item in skill.items"
             :key="item.name"
