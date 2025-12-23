@@ -6,12 +6,12 @@ defineProps({
   },
   color: {
     type: String,
-    default: 'gray'
+    default: 'neutral'
   }
 })
 
 const colorVariants = {
-  gray: 'text-gray-500/80 decoration-gray-400/40',
+  neutral: 'text-neutral-500/80 decoration-neutral-400/40',
   red: 'text-red-500/80 decoration-red-400/40',
   yellow: 'text-yellow-500/80 decoration-yellow-400/40',
   green: 'text-green-500/80 decoration-green-400/40',

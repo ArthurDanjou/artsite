@@ -1,28 +1,61 @@
 ---
-title: "Balance and Drive: Beyond the Data"
-description: Exploring my passions outside of data science and machine learning engineering that fuel my creativity and performance.
+title: Balance & Perspectives
+description: Exploring the passions—from competitive sports to high-velocity optimization—that fuel my creativity and resilience.
 ---
 
-While my passion for data science and machine learning engineering is at the core of what I do, I am convinced that personal balance is the key to performance and creativity. Outside of my technical projects, I nurture this balance through several key interests.
+# Beyond the Lab
 
-## ⚽ Sports & Team Dynamics
+Research demands deep focus, but breakthrough ideas often come from stepping back. I believe that **cognitive flexibility**—the ability to switch between intense analytical work and creative exploration—is key to sustaining long-term performance in AI.
 
-**Rugby and volleyball** are fundamental to my equilibrium. These team sports have taught me the importance of collective strategy, communication, and physical commitment. The dynamics of working under pressure with diverse personalities mirrors the collaborative nature of ML projects. 
+---
 
-As a long-time supporter of **PSG** in football, I appreciate the tactical analysis, performance management, and data-driven decision-making that occurs at the highest level of sport—much like optimizing complex systems.
+## ⚡ High-Velocity Interests
 
-## 🎵 Music & Creative Problem-Solving
+I am drawn to environments where strategy, speed, and precision intersect. These are not just pastimes, but exercises in optimization under constraints.
 
-**Music** is my creative outlet and a tool for different thinking patterns. Training my ear to recognize harmony and structure translates directly to identifying elegant solutions in system design, architecture, and mathematical modeling. It reinforces my belief that great engineering, like great music, requires both technical precision and artistic intuition.
+::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
-## 🌍 Travel & Cultural Adaptation
+::card{title="Motorsports Strategy" icon="i-ph-flag-checkered-duotone"}
+**Formula 1 Enthusiast**
+I am fascinated by F1 as the pinnacle of **real-time optimization**. Decisions are made in milliseconds based on :hover-text{text="telemetry data" hover="Tyre degradation, fuel load, weather"}, mirroring the constraints of deploying ML models in production.
+* **Focus:** The intersection of human instinct and data-driven strategy.
+::
 
-**Travel** provides essential perspective and adaptability. Having discovered highly diverse cultures since childhood—from Egypt and South Africa to Thailand and the United States—has profoundly shaped my curiosity and flexibility. This exposure to different ways of thinking and problem-solving is crucial in a constantly evolving field like AI, where understanding multiple perspectives can lead to breakthrough insights.
+::card{title="Competitive Sports" icon="i-ph-trophy-duotone"}
+**Rugby & Volleyball**
+Team sports are my foundation for resilience. As a :hover-text{text="former Rugby Team Captain" hover="School Championships Participant"}, I learned that leadership isn't about giving orders—it's about maintaining cohesion under pressure.
+* **Takeaway:** Collective intelligence always outperforms individual brilliance.
+::
 
-## 🏎️ Motorsports & Optimization
+::
 
-As a **Formula 1 enthusiast**, I'm fascinated by the pursuit of pure performance and optimization under constraints. F1 represents the pinnacle of real-time, data-driven strategy, where decisions are made in milliseconds based on telemetry, weather, and tactical considerations. This mirrors my approach to machine learning: extracting maximum value from available resources and constraints.
+---
 
-## 🎯 Balance as Performance
+## 🌍 Perspectives & Culture
 
-These passions are not escapes—they're integral to my professional success. They reinforce my commitment to continuous improvement, adaptability, and the drive to progress. It is this balance that allows me to approach every new challenge with motivation, energy, and fresh perspective.
+Curiosity is the fuel of a researcher. Expanding my horizon helps me approach problems with fresh angles.
+
+::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+
+::card{title="Global Exploration" icon="i-ph-airplane-tilt-duotone"}
+**Travel & Adaptation**
+Exposure to diverse systems fosters adaptability. From the history of **Egypt** and the landscapes of **South Africa** to the vibrancy of **Thailand** and the **USA**, every environment challenges my default way of thinking.
+* **Goal:** Understanding complex systems by observing different cultures.
+::
+
+::card{title="Tactical Analysis" icon="i-ph-soccer-ball-duotone"}
+**Paris Saint-Germain**
+As a long-time supporter of **PSG**, I appreciate the tactical analysis and performance management at the highest level. Football is a game of :hover-text{text="spatial optimization" hover="Controlling space & transitions"}, much like architecting a neural network.
+::
+
+::
+
+---
+
+## 🎵 Creative Patterns
+
+**Music** serves as my cognitive reset. Training my ear to recognize harmony and structure translates directly to identifying elegant solutions in system design. It reinforces my belief that great engineering, like great music, requires both **technical precision** and **artistic intuition**.
+
+::card{title="Philosophy" icon="i-ph-sparkle-duotone"}
+"Balance is not something you find, it's something you create."
+::

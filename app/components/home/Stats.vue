@@ -24,7 +24,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <UCard>
           <div class="flex items-center gap-4">
-            <div class="p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg text-primary-500">
+            <div class="p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg text-primary-500 flex items-center justify-center">
               <UIcon
                 name="i-ph-clock-duotone"
                 class="w-8 h-8"
@@ -43,7 +43,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
 
         <UCard>
           <div class="flex items-center gap-4">
-            <div class="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-emerald-500">
+            <div class="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-emerald-500 flex items-center justify-center">
               <UIcon
                 name="i-ph-calendar-check-duotone"
                 class="w-8 h-8"
@@ -60,7 +60,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
                 <UBadge
                   color="neutral"
                   variant="soft"
-                  size="xs"
+                  size="sm"
                 >
                   {{ yearsCollected }}
                 </UBadge>
