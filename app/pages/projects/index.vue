@@ -52,6 +52,11 @@ function toggleTag(tag: string) {
     selectedTags.value.push(tag)
   }
 }
+
+function clearFilters() {
+  selectedStatus.value = null
+  selectedTags.value = []
+}
 </script>
 
 <template>
@@ -208,7 +213,7 @@ function toggleTag(tag: string) {
       </p>
       <UButton
         class="mt-4"
-        @click="selectedStatus = null; selectedTags = []"
+        @click="clearFilters"
       >
         Clear Filters
       </UButton>
