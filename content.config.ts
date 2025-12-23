@@ -19,7 +19,7 @@ export const collections = {
       cover: z.string().optional(),
       favorite: z.boolean().optional(),
       status: z.string().optional(),
-      emoji: z.string().optional()
+      icon: z.string()
     })
   }),
   uses: defineCollection({
@@ -55,7 +55,7 @@ export const collections = {
       location: z.string(),
       description: z.string(),
       tags: z.array(z.string()).optional(),
-      emoji: z.string().optional()
+      icon: z.string()
     })
   }),
   education: defineCollection({
@@ -72,7 +72,7 @@ export const collections = {
       location: z.string(),
       description: z.string().optional(),
       tags: z.array(z.string()).optional(),
-      emoji: z.string().optional()
+      icon: z.string()
     })
   }),
   contact: defineCollection({
