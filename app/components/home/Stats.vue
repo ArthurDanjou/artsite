@@ -89,8 +89,8 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
                 <span>{{ lang.name }}</span>
                 <span>{{ lang.percent }}%</span>
               </div>
-              <UMeter
-                :value="lang.percent"
+              <UProgress
+                v-model="lang.percent"
                 color="primary"
                 size="sm"
               />
@@ -116,8 +116,8 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
                 <span>{{ editor.name }}</span>
                 <span>{{ editor.percent }}%</span>
               </div>
-              <UMeter
-                :value="editor.percent"
+              <UProgress
+                v-model="editor.percent"
                 color="orange"
                 size="sm"
               />
@@ -143,8 +143,8 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
                 <span>{{ osItem.name }}</span>
                 <span>{{ osItem.percent }}%</span>
               </div>
-              <UMeter
-                :value="osItem.percent"
+              <UProgress
+                v-model="osItem.percent"
                 color="blue"
                 size="sm"
               />
