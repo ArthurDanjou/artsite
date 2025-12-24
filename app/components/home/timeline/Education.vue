@@ -41,8 +41,8 @@ const items = computed<TimelineItem[]>(() => {
       <UTimeline
         :orientation="orientation"
         :items="items"
-        :default-value="items.length - 1"
-        active-color="primary"
+        :default-value="2"
+        size="lg"
         color="neutral"
         class="w-full max-w-5xl"
       />

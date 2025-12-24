@@ -126,7 +126,7 @@ const statusState = computed(() => {
               name="i-ph-check-circle-duotone"
               class="w-5 h-5"
             />
-            <span class="text-xl font-bold text-neutral-900 dark:text-white">{{ metrics.up }}</span>
+            <span class="text-xl font-bold">{{ metrics.up }}</span>
           </div>
           <USkeleton
             v-else
@@ -145,7 +145,7 @@ const statusState = computed(() => {
               name="i-ph-warning-circle-duotone"
               class="w-5 h-5"
             />
-            <span class="text-xl font-bold text-neutral-900 dark:text-white">{{ metrics.down }}</span>
+            <span class="text-xl font-bold">{{ metrics.down }}</span>
           </div>
           <USkeleton
             v-else
@@ -158,13 +158,13 @@ const statusState = computed(() => {
           <div
             v-if="!isLoading"
             class="flex items-center gap-1.5"
-            :class="metrics.maintenance > 0 ? 'text-amber-500' : 'text-neutral-400'"
+            :class="metrics.maintenance > 0 ? 'text-blue-500' : 'text-neutral-400'"
           >
             <UIcon
               name="i-ph-wrench-duotone"
               class="w-5 h-5"
             />
-            <span class="text-xl font-bold text-neutral-900 dark:text-white">{{ metrics.maintenance }}</span>
+            <span class="text-xl font-bold">{{ metrics.maintenance }}</span>
           </div>
           <USkeleton
             v-else

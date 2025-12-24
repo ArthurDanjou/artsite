@@ -17,6 +17,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
 
 <template>
   <ClientOnly>
+    {{ stats }}
     <div
       v-if="stats"
       class="space-y-6"

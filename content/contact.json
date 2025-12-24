@@ -2,7 +2,7 @@
   "body": [
     {
       "id": "personal-email",
-      "name": "Email Personnel",
+      "name": "Personal Email",
       "category": "communication",
       "icon": "i-ph-envelope-simple-duotone",
       "value": "https://go.arthurdanjou.fr/mail-perso",
@@ -10,7 +10,7 @@
     },
     {
       "id": "professional-email",
-      "name": "Email Professionnel",
+      "name": "Professional Email",
       "category": "communication",
       "icon": "i-ph-envelope-simple-duotone",
       "value": "https://go.arthurdanjou.fr/mail-pro",
@@ -51,7 +51,7 @@
     },
     {
       "id": "personal-website",
-      "name": "Site Personnel",
+      "name": "Portfolio",
       "category": "web",
       "icon": "i-ph:globe-duotone",
       "value": "https://arthurdanjou.fr",
@@ -59,7 +59,7 @@
     },
     {
       "id": "status-page",
-      "name": "Statut des Services",
+      "name": "Status Page",
       "category": "infrastructure",
       "icon": "i-ph:fire-duotone",
       "value": "https://go.arthurdanjou.fr/status",

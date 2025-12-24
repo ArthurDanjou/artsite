@@ -32,6 +32,7 @@ const { skills } = await useContent()
             :key="item.name"
             :icon="item.icon"
             variant="soft"
+            size="lg"
             color="primary"
             class="transition-colors duration-200 hover:opacity-80"
             :aria-label="item.name"

@@ -42,7 +42,7 @@ const items = computed<TimelineItem[]>(() => {
         :orientation="orientation"
         :items="items"
         :default-value="items.length"
-        active-color="primary"
+        size="lg"
         color="neutral"
         class="w-full max-w-5xl"
       />
