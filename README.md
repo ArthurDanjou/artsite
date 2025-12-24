@@ -53,10 +53,8 @@ My professional portfolio built with modern Nuxt.js technologies, showcasing pro
 - **Package Manager** → [Bun](https://bun.sh/)
 - **Internationalization** → [Nuxt i18n](https://i18n.nuxtjs.org/)
 - **Database** → [Cloudflare D1](https://developers.cloudflare.com/d1/) (SQLite)
-- **Database ORM** → [Drizzle](https://orm.drizzle.team/)
 - **Composables** → [VueUse](https://vueuse.org/)
 - **Validation** → [Zod](https://zod.dev/)
-- **Globe Visualization** → [Cobe](https://github.com/shuding/cobe)
 - **Icons** → [Iconify](https://iconify.design/)
 
 ## 📦 Prerequisites
