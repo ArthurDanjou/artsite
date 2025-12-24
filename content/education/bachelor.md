@@ -1,6 +1,6 @@
 ---
 title: Bachelor's Degree in Mathematics
-type: Bachelor
+degree: Bachelor
 institution: Paris-Saclay University
 location: Paris, France
 startDate: 2021-09

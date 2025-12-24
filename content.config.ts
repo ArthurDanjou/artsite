@@ -62,7 +62,6 @@ export const collections = {
     source: 'education/*.md',
     schema: z.object({
       title: z.string(),
-      type: z.string().optional(),
       degree: z.string().optional(),
       institution: z.string(),
       startDate: z.string(),

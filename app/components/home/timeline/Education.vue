@@ -30,7 +30,7 @@ const items = computed<TimelineItem[]>(() => {
       title: item.title || 'Degree',
       description: item.institution || '',
       date: formatDate(item.startDate, item.endDate, item.duration),
-      icon: item.icon || 'i-ph-graduation-cap-duotone' // Context-aware default icon
+      icon: item.icon || 'i-ph-graduation-cap-duotone'
     }))
 })
 </script>
@@ -41,7 +41,7 @@ const items = computed<TimelineItem[]>(() => {
       <UTimeline
         :orientation="orientation"
         :items="items"
-        :default-value="items.length"
+        :default-value="items.length - 1"
         active-color="primary"
         color="neutral"
         class="w-full max-w-5xl"

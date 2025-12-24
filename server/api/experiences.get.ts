@@ -3,6 +3,7 @@ import { queryCollection } from '@nuxt/content/server'
 export default defineCachedEventHandler(async (event) => {
   const result = await queryCollection(event, 'experiences')
     .where('extension', '=', 'md')
+    .order('startDate', 'DESC')
     .all()
 
   if (result.length === 0) {
@@ -10,16 +11,6 @@ export default defineCachedEventHandler(async (event) => {
   }
 
   return result
-    .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
-    .map(exp => ({
-      title: exp.title,
-      company: exp.company,
-      companyUrl: exp.companyUrl,
-      startDate: exp.startDate,
-      endDate: exp.endDate,
-      location: exp.location,
-      description: exp.description
-    }))
 },
 {
   maxAge: 60 * 60 * 24,
