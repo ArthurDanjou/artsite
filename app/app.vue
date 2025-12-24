@@ -8,7 +8,7 @@ useHead({
     separator: '•'
   },
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    { rel: 'icon', type: 'image/webp', href: '/favicon.webp' }
   ]
 })
 </script>
