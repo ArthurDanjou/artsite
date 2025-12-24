@@ -82,7 +82,7 @@ const statusLabel = computed(() => {
 
       <div
         v-if="currentSession"
-        class="space-y-1 pl-6 border-l-2 border-neutral-100 dark:border-neutral-800 ml-1.5"
+        class="space-y-1 pl-6 border-l-2 border-neutral-200 dark:border-neutral-800 ml-1.5"
       >
         <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
           <h3 class="font-semibold text-neutral-900 dark:text-white truncate">
