@@ -89,7 +89,7 @@ const educationNodes: Node[] = (education.value || []).map((item: EducationItem,
   data: {
     label: item.degree,
     subtitle: item.institution,
-    years: `${item.startDate?.substring(0, 4)}-${item.endDate?.substring(0, 4)}`
+    years: `${item.startDate?.substring(0, 4) || ''}-${item.endDate?.substring(0, 4) || ''}`
   },
   style: {
     background: '#3b82f6',
@@ -118,7 +118,7 @@ const experienceNodes: Node[] = (experiences.value || []).map((item: ExperienceI
   data: {
     label: item.title,
     subtitle: item.company,
-    years: `${item.startDate?.substring(0, 4)}-${item.endDate?.substring(0, 4)}`
+    years: `${item.startDate?.substring(0, 4) || ''}-${item.endDate?.substring(0, 4) || ''}`
   },
   style: {
     background: '#10b981',
