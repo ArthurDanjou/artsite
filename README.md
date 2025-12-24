@@ -167,7 +167,6 @@ artsite/
 │   │   ├── content/         # Content-specific components
 │   │   └── home/            # Home page components
 │   ├── composables/         # Vue composables
-│   ├── layouts/             # Page layouts
 │   ├── pages/               # Application pages (file-based routing)
 │   │   ├── index.vue        # Home page
 │   │   ├── projects/        # Projects section
