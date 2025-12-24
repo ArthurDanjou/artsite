@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
-    "@nuxt/content": "3.9.0",
+    "@nuxt/content": "3.10.0",
     "@nuxt/eslint": "1.12.1",
     "@nuxt/ui": "^4.3.0",
     "@nuxthub/core": "0.10.4",
