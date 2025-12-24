@@ -149,8 +149,7 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
       <UCard
         v-for="project in filteredProjects"
         :key="project.slug"
-        :to="`/projects/${project.slug}`"
-        class="hover:scale-[1.02] transition-transform cursor-pointer"
+        class="relative hover:scale-[1.02] transition-transform cursor-pointer"
       >
         <template #header>
           <div class="flex items-start justify-between gap-4">
@@ -228,6 +227,13 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
             </span>
           </div>
         </template>
+
+        <!-- Full-card link overlay for navigation -->
+        <NuxtLink
+          :to="`/projects/${project.slug}`"
+          :aria-label="`Open project: ${project.title}`"
+          class="absolute inset-0"
+        />
       </UCard>
     </div>
 
