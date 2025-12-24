@@ -11,7 +11,6 @@ tags:
   - Nuxt
   - NuxtHub
   - Cloudflare Workers
-  - Wrangler
   - TypeScript
 icon: i-ph-globe-hemisphere-west-duotone
 ---

@@ -9,9 +9,9 @@ status: Completed
 tags:
   - Python
   - Machine Learning
-  - Classification
-  - Data Science
+  - Regression
   - Finance
+  - Data Science
 icon: i-ph-money-wavy-duotone
 ---
 
@@ -50,5 +50,5 @@ The study employs various machine learning approaches:
 
 ## 📄 Detailed Report
 
-<iframe src="/projects/loan-ml/Report.pdf" width="100%" height="1000px">
+<iframe src="/projects/loan-ml.pdf" width="100%" height="1000px">
 </iframe>

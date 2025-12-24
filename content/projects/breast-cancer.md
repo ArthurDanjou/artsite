@@ -9,7 +9,6 @@ status: Completed
 tags:
   - Python
   - Machine Learning
-  - Data Science
   - Classification
   - Healthcare
 icon: i-ph-heart-half-duotone
@@ -43,5 +42,5 @@ This project illustrates a concrete application of data science techniques to a 
 
 You can find the code here: [Breast Cancer Detection](https://go.arthurdanjou.fr/breast-cancer-detection-code)
 
-<iframe src="/projects/breast-cancer/report.pdf" width="100%" height="1000px">
+<iframe src="/projects/breast-cancer.pdf" width="100%" height="1000px">
 </iframe>

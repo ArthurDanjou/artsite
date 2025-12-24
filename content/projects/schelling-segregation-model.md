@@ -19,5 +19,5 @@ This is the French version of the report for the Schelling Segregation Model pro
 
 You can find the code here: [Schelling Segregation Model Code](https://go.arthurdanjou.fr/schelling-code)
 
-<iframe src="/projects/schelling/Projet.pdf" width="100%" height="1000px">
+<iframe src="/projects/schelling.pdf" width="100%" height="1000px">
 </iframe>

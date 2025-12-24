@@ -11,7 +11,6 @@ tags:
   - Python
   - R
   - Data Science
-  - Machine Learning
   - Mathematics
 icon: i-ph-book-duotone
 ---

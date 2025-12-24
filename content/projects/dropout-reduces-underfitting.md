@@ -4,22 +4,15 @@ title: Dropout Reduces Underfitting
 type: Research Project
 description: TensorFlow/Keras implementation and reproduction of "Dropout Reduces Underfitting" (Liu et al., 2023). A comparative study of Early and Late Dropout strategies to optimize model convergence.
 publishedAt: 2024-12-10
-readingTime: 4
+readingTime: 6
 status: Completed
 tags:
   - Python
   - TensorFlow
-  - Machine Learning
   - Deep Learning
   - Research
 icon: i-ph-share-network-duotone
 ---
-
-📉 [Dropout Reduces Underfitting](https://github.com/arthurdanjou/dropoutreducesunderfitting): Reproduction & Analysis
-
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 > **Study and reproduction of the paper:** Liu, Z., et al. (2023). *Dropout Reduces Underfitting*. arXiv:2303.01500.
 
@@ -79,7 +72,8 @@ pip install tensorflow numpy matplotlib seaborn scikit-learn
 ## 📊 Usage
 
 The main notebook pipeline.ipynb contains all necessary code. Here is how to run a typical experiment via the pipeline API.
-1. Initialization
+
+### 1. Initialization
 
 Choose your dataset (cifar10, fashion_mnist, mnist) and architecture (cnn, dense).
 ```python
@@ -89,7 +83,7 @@ from pipeline import ExperimentPipeline
 exp = ExperimentPipeline(dataset_name="fashion_mnist", model_type="cnn")
 ```
 
-2. Learning Curves Comparison
+### 2. Learning Curves Comparison
 
 Compare training dynamics (Loss & Accuracy) of the three strategies.
 
@@ -102,7 +96,7 @@ exp.compare_learning_curves(
 )
 ```
 
-3. Ablation Studies
+### 3. Ablation Studies
 
 Study the impact of the "Early" phase duration or Dropout intensity.
 
@@ -124,7 +118,7 @@ exp.compare_drop_rates(
 )
 ```
 
-4. Data Regimes (Data Scarcity)
+### 4. Data Regimes (Data Scarcity)
 
 Verify the paper's hypothesis that Early Dropout shines on large datasets (or limited models) while Standard Dropout protects small datasets.
 
@@ -155,3 +149,8 @@ According to the paper, you should observe:
 M.Sc. Statistical and Financial Engineering (ISF) - Data Science Track at Université Paris-Dauphine PSL
 
 Based on the work of Liu, Z., et al. (2023). Dropout Reduces Underfitting.
+
+## 📄 Detailed Report
+
+<iframe src="/projects/dropout-reduces-underfitting.pdf" width="100%" height="1000px">
+</iframe>

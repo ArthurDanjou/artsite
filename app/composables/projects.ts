@@ -3,7 +3,7 @@ export function useProjectColors() {
     'Active': 'blue',
     'Completed': 'green',
     'Archived': 'neutral',
-    'In Progress': 'amber'
+    'In progress': 'amber'
   }
 
   const typeColors: Record<string, string> = {

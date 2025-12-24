@@ -9,7 +9,6 @@ status: Completed
 tags:
   - R
   - Statistics
-  - Data Analysis
   - GLM
   - Mathematics
 icon: i-ph-bicycle-duotone
@@ -53,5 +52,5 @@ The analysis identified critical factors influencing bike-sharing demand:
 
 ## 📄 Detailed Report
 
-<iframe src="/projects/bikes-glm/Report.pdf" width="100%" height="1000px">
+<iframe src="/projects/bikes-glm.pdf" width="100%" height="1000px">
 </iframe>

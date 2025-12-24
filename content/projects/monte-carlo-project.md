@@ -12,6 +12,7 @@ tags:
   - Statistics
   - Monte Carlo
   - Numerical Methods
+  - Estimation
 icon: i-ph-dice-five-duotone
 ---
 
@@ -27,5 +28,5 @@ Methods and algorithms implemented:
 
 You can find the code here: [Monte Carlo Project Code](https://go.arthurdanjou.fr/monte-carlo-code)
 
-<iframe src="/projects/monte-carlo-project/Report.pdf" width="100%" height="1000px">
+<iframe src="/projects/monte-carlo.pdf" width="100%" height="1000px">
 </iframe>
