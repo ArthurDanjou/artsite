@@ -15,9 +15,13 @@ tags:
 icon: i-ph-city-duotone
 ---
 
-This is the French version of the report for the Schelling Segregation Model project. The project was done as part of the course `Projet Numérique` at the Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.
+This report presents the Schelling Segregation Model project completed as part of the **Projet Numérique** course at Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.
+
+## 📚 Resources
 
 You can find the code here: [Schelling Segregation Model Code](https://go.arthurdanjou.fr/schelling-code)
+
+## 📄 Detailed Report
 
 <iframe src="/projects/schelling.pdf" width="100%" height="1000px">
 </iframe>

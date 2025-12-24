@@ -14,10 +14,6 @@ tags:
 icon: i-ph-bicycle-duotone
 ---
 
-# Generalized Linear Models for Bikes Prediction
-
-## Overview
-
 This project was completed as part of the **Generalized Linear Models** course at Paris-Dauphine PSL University. The objective was to develop and compare statistical models to predict the number of bicycle rentals in a bike-sharing system based on various environmental and temporal characteristics.
 
 ## 📊 Project Objectives
@@ -47,8 +43,7 @@ The analysis identified critical factors influencing bike-sharing demand:
 
 ## 📚 Resources
 
-- **Code Repository**: [GLM Bikes Code](https://go.arthurdanjou.fr/glm-bikes-code)
-- **Full Report**: See embedded PDF below
+You can find the code here: [GLM Bikes Code](https://go.arthurdanjou.fr/glm-bikes-code)
 
 ## 📄 Detailed Report
 

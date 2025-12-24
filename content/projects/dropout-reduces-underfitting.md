@@ -139,6 +139,11 @@ According to the paper, you should observe:
 - Early Dropout: Higher initial Loss, followed by a sharp drop after the switch_epoch, often reaching a lower minimum than Standard Dropout (reduction of underfitting).
 - Late Dropout: Rapid rise in accuracy at the start (potential overfitting), then stabilized by the activation of dropout.
 
+## 📄 Detailed Report
+
+<iframe src="/projects/dropout-reduces-underfitting.pdf" width="100%" height="1000px">
+</iframe>
+
 ## 📝 Authors
 
 - [Arthur Danjou](https://github.com/ArthurDanjou)
@@ -149,8 +154,3 @@ According to the paper, you should observe:
 M.Sc. Statistical and Financial Engineering (ISF) - Data Science Track at Université Paris-Dauphine PSL
 
 Based on the work of Liu, Z., et al. (2023). Dropout Reduces Underfitting.
-
-## 📄 Detailed Report
-
-<iframe src="/projects/dropout-reduces-underfitting.pdf" width="100%" height="1000px">
-</iframe>
