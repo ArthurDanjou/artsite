@@ -5,7 +5,7 @@ type: Personal Project
 description: A customizable browser homepage that lets you organize all your favorite links in one place with categories, tabs, icons and colors.
 publishedAt: 2024-09-04
 readingTime: 1
-status: archived
+status: Archived
 tags:
   - Nuxt
   - Vue.js

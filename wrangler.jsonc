@@ -25,7 +25,9 @@
     "d1_databases": [
         {
             "binding": "DB",
-            "database_id": "d6e8c2ff-399a-4bec-b1b3-4bfe57d50ea8"
+            "database_id": "d6e8c2ff-399a-4bec-b1b3-4bfe57d50ea8",
+            "migrations_table": "_hub_migrations",
+            "migrations_dir": ".output/server/db/migrations/"
         }
     ],
     "kv_namespaces": [
@@ -46,6 +48,31 @@
             "enabled": true,
             "head_sampling_rate": 1,
             "persist": true
+        }
+    },
+    "env": {
+        "preview": {
+            "routes": [
+                {
+                    "pattern": "preview.arthurdanjou.fr",
+                    "zone_name": "arthurdanjou.fr",
+                    "custom_domain": true
+                }
+            ],
+            "d1_databases": [
+                {
+                    "binding": "DB",
+                    "database_id": "d6e8c2ff-399a-4bec-b1b3-4bfe57d50ea8",
+                    "migrations_table": "_hub_migrations",
+                    "migrations_dir": ".output/server/db/migrations/"
+                }
+            ],
+            "kv_namespaces": [
+                {
+                    "binding": "CACHE",
+                    "id": "f0766ace1d24423ba6e5cac4fb8f2054"
+                }
+            ]
         }
     }
 }

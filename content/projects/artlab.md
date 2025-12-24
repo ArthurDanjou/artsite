@@ -6,7 +6,7 @@ description: A personal homelab environment where I deploy, test, and maintain s
 publishedAt: 2025-09-04
 readingTime: 1
 favorite: true
-status: active
+status: Active
 tags:
   - Docker
   - Proxmox

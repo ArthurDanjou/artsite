@@ -5,7 +5,7 @@ type: Internship Project
 description: Summary of my internship as a Data Engineer at Sevetys, focusing on data quality, cleaning, standardization, and comprehensive data quality metrics.
 publishedAt: 2025-07-31
 readingTime: 2
-status: completed
+status: Completed
 tags:
   - Python
   - PySpark

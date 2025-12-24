@@ -5,7 +5,7 @@ type: Research Project
 description: TensorFlow/Keras implementation and reproduction of "Dropout Reduces Underfitting" (Liu et al., 2023). A comparative study of Early and Late Dropout strategies to optimize model convergence.
 publishedAt: 2024-12-10
 readingTime: 4
-status: completed
+status: Completed
 tags:
   - Python
   - TensorFlow
