@@ -5,7 +5,7 @@ type: Academic Project
 description: An implementation of different Monte Carlo methods and algorithms in R, including inverse CDF simulation, accept-reject methods, and stratification techniques.
 publishedAt: 2024-11-24
 readingTime: 3
-status: completed
+status: Completed
 tags:
   - R
   - Mathematics

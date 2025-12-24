@@ -6,7 +6,7 @@ description: My personal space on the web — a portfolio, a blog, and a digital
 publishedAt: 2024-06-01
 readingTime: 1
 favorite: true
-status: active
+status: Active
 tags:
   - Vue.js
   - Nuxt

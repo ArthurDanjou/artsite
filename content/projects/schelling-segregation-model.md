@@ -5,7 +5,7 @@ type: Academic Project
 description: A Python implementation of the Schelling Segregation Model using statistics and data visualization to analyze spatial segregation patterns.
 publishedAt: 2024-05-03
 readingTime: 4
-status: completed
+status: Completed
 tags:
   - Python
   - Data Visualization
