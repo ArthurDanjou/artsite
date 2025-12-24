@@ -13,7 +13,6 @@ if (!project.value) {
   })
 }
 
-// Flatten the structure for ContentRenderer
 const projectWithBody = computed(() => {
   if (!project.value) return null
   return {
@@ -66,7 +65,7 @@ const formattedDate = computed(() => {
         <UIcon
           v-if="project.icon"
           :name="project.icon"
-          class="text-5xl text-neutral-700 dark:text-neutral-300 flex-shrink-0"
+          class="text-5xl text-neutral-700 dark:text-neutral-300 shrink-0"
         />
         <div class="flex-1">
           <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white mb-3">
@@ -76,14 +75,14 @@ const formattedDate = computed(() => {
           <div class="flex flex-wrap items-center gap-2 mb-4">
             <UBadge
               v-if="project.type"
-              :color="typeColors[project.type] || 'neutral'"
+              :color="(typeColors[project.type] || 'neutral') as any"
               variant="subtle"
             >
               {{ project.type }}
             </UBadge>
             <UBadge
               v-if="project.status"
-              :color="statusColors[project.status] || 'neutral'"
+              :color="(statusColors[project.status] || 'neutral') as any"
               variant="subtle"
             >
               {{ project.status }}
@@ -128,8 +127,8 @@ const formattedDate = computed(() => {
         <UBadge
           v-for="tag in project.tags"
           :key="tag"
-          color="gray"
-          variant="outline"
+          color="neutral"
+          variant="subtle"
         >
           {{ tag }}
         </UBadge>

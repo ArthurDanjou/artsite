@@ -11,7 +11,6 @@ tags:
   - Vue.js
   - Nuxt
   - TypeScript
-  - Tailwind CSS
   - Web
 icon: i-ph-globe-hemisphere-west-duotone
 ---

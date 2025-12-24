@@ -2,8 +2,9 @@ export function useProjectColors() {
   const statusColors: Record<string, string> = {
     'active': 'green',
     'completed': 'blue',
-    'archived': 'gray',
-    'in-progress': 'amber'
+    'archived': 'neutral',
+    'in-progress': 'amber',
+    'in progress': 'amber'
   }
 
   const typeColors: Record<string, string> = {

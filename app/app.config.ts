@@ -5,8 +5,21 @@ export default defineAppConfig({
     },
     colors: {
       primary: 'neutral',
+      white: 'white',
+      black: 'black',
+      cyan: 'cyan',
+      gray: 'gray',
+      zinc: 'zinc',
       neutral: 'neutral',
-      red: 'red'
+      red: 'red',
+      amber: 'amber',
+      green: 'green',
+      emerald: 'emerald',
+      sky: 'sky',
+      blue: 'blue',
+      purple: 'purple',
+      pink: 'pink',
+      orange: 'orange'
     }
   }
 })

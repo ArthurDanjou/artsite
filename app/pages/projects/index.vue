@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const { data: projects } = await useAsyncData('projects', () => {
-  return queryCollection('projects').where('extension', '=', 'md').order('publishedAt', 'DESC').all()
+  return queryCollection('projects').where('extension', '=', 'md').order('favorite', 'DESC').order('publishedAt', 'DESC').all()
 })
 
 useSeoMeta({
@@ -57,6 +57,9 @@ function clearFilters() {
   selectedStatus.value = null
   selectedTags.value = []
 }
+
+const hasActiveFilters = computed(() => !!selectedStatus.value || selectedTags.value.length > 0)
+const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + selectedTags.value.length)
 </script>
 
 <template>
@@ -71,7 +74,7 @@ function clearFilters() {
     </div>
 
     <!-- Filters -->
-    <div class="flex flex-wrap gap-4 items-center">
+    <div class="flex items-center gap-4 overflow-x-auto flex-nowrap md:flex-wrap w-full whitespace-nowrap">
       <div class="flex gap-2 items-center">
         <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Status:</span>
         <UButton
@@ -86,11 +89,26 @@ function clearFilters() {
           v-for="status in statuses"
           :key="status"
           :variant="selectedStatus === status ? 'solid' : 'ghost'"
-          :color="statusColors[status] || 'neutral'"
+          :color="(statusColors[status] || 'neutral') as any"
           size="sm"
           @click="selectedStatus = selectedStatus === status ? null : status"
         >
           {{ status }}
+        </UButton>
+      </div>
+
+      <!-- Ajout: bouton Clear à droite -->
+      <div class="ml-auto">
+        <UButton
+          v-if="hasActiveFilters"
+          variant="ghost"
+          color="neutral"
+          size="sm"
+          icon="i-ph-x-circle-duotone"
+          aria-label="Clear filters"
+          @click="clearFilters"
+        >
+          Clear filters ({{ activeFilterCount }})
         </UButton>
       </div>
     </div>
@@ -98,18 +116,32 @@ function clearFilters() {
     <!-- Tags Filter -->
     <div
       v-if="allTags.length > 0"
-      class="flex flex-wrap gap-2"
+      class="grid grid-flow-col grid-rows-3 auto-cols-max gap-2 overflow-x-auto w-full snap-x snap-mandatory md:flex md:flex-wrap md:overflow-visible"
     >
       <UBadge
         v-for="tag in allTags"
         :key="tag"
-        :color="selectedTags.includes(tag) ? 'primary' : 'gray'"
-        :variant="selectedTags.includes(tag) ? 'solid' : 'outline'"
-        class="cursor-pointer hover:scale-105 transition-transform"
+        :color="selectedTags.includes(tag) ? 'primary' : 'neutral'"
+        :variant="selectedTags.includes(tag) ? 'solid' : 'subtle'"
+        class="inline-flex items-center justify-center text-center cursor-pointer hover:scale-105 transition-transform shrink-0 snap-start"
         @click="toggleTag(tag)"
       >
         {{ tag }}
       </UBadge>
+
+      <!-- Lien Clear mobile -->
+      <UButton
+        v-if="hasActiveFilters"
+        class="md:hidden justify-self-end"
+        variant="ghost"
+        color="neutral"
+        size="xs"
+        icon="i-ph-x-circle-duotone"
+        aria-label="Clear filters"
+        @click="clearFilters"
+      >
+        Clear
+      </UButton>
     </div>
 
     <!-- Projects Grid -->
@@ -126,7 +158,7 @@ function clearFilters() {
               <UIcon
                 v-if="project.icon"
                 :name="project.icon"
-                class="text-3xl text-neutral-700 dark:text-neutral-300 flex-shrink-0"
+                class="text-3xl text-neutral-700 dark:text-neutral-300 shrink-0"
               />
               <div class="flex-1 min-w-0">
                 <h3 class="text-lg font-semibold text-neutral-900 dark:text-white truncate">
@@ -135,7 +167,7 @@ function clearFilters() {
                 <div class="flex items-center gap-2 mt-1 flex-wrap">
                   <UBadge
                     v-if="project.type"
-                    :color="typeColors[project.type] || 'neutral'"
+                    :color="(typeColors[project.type] || 'neutral') as any"
                     variant="subtle"
                     size="xs"
                   >
@@ -143,7 +175,7 @@ function clearFilters() {
                   </UBadge>
                   <UBadge
                     v-if="project.status"
-                    :color="statusColors[project.status] || 'neutral'"
+                    :color="(statusColors[project.status] || 'neutral') as any"
                     variant="subtle"
                     size="xs"
                   >
@@ -173,7 +205,7 @@ function clearFilters() {
               <UBadge
                 v-for="tag in project.tags?.slice(0, 3)"
                 :key="tag"
-                color="gray"
+                color="neutral"
                 variant="outline"
                 size="xs"
               >
@@ -181,7 +213,7 @@ function clearFilters() {
               </UBadge>
               <UBadge
                 v-if="project.tags && project.tags.length > 3"
-                color="gray"
+                color="neutral"
                 variant="outline"
                 size="xs"
               >
