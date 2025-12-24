@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     }
   },
 
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/vue-flow.css'],
 
   colorMode: {
     preference: 'system',
