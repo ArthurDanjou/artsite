@@ -176,10 +176,35 @@ artsite/
 │   ├── app.config.ts        # App configuration
 │   ├── app.vue              # Root app component
 │   └── error.vue            # Error page
-├── content/                 # Content files (Markdown)
+├── content/                 # Content files (Markdown & JSON)
 │   ├── education/           # Education content
-│   ├── experiences/         # Experience content
-│   └── projects/            # Project content
+│   │   ├── bachelor.md      # Bachelor's degree information
+│   │   ├── m1.md            # Master's 1st year information
+│   │   └── m2.md            # Master's 2nd year information
+│   ├── experiences/         # Professional experience content
+│   │   ├── artdanjproduction.md
+│   │   ├── erisium.md
+│   │   ├── hackathon-cnd.md
+│   │   ├── picard.md
+│   │   └── sevetys.md
+│   ├── projects/            # Project portfolio content
+│   │   ├── artchat.md
+│   │   ├── arthome.md
+│   │   ├── artlab.md
+│   │   ├── artstudies.md
+│   │   ├── bikes-glm.md
+│   │   ├── breast-cancer.md
+│   │   ├── dropout-reduces-underfitting.md
+│   │   ├── loan-ml.md
+│   │   ├── monte-carlo-project.md
+│   │   ├── schelling-segregation-model.md
+│   │   └── sevetys.md
+│   ├── contact.json         # Contact information data
+│   ├── hobbies.md           # Hobbies page content
+│   ├── index.md             # Home page content
+│   ├── languages.json       # Programming languages data
+│   ├── skills.json          # Skills and expertise data
+│   └── uses.md              # Tools and software used
 ├── public/                  # Public static files
 ├── server/                  # Server API routes and middleware
 │   ├── api/                 # API endpoints
