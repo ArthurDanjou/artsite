@@ -46,7 +46,6 @@ const formattedDate = computed(() => {
     v-if="project"
     class="space-y-8"
   >
-    <!-- Back Button -->
     <div>
       <UButton
         to="/projects"
@@ -59,7 +58,6 @@ const formattedDate = computed(() => {
       </UButton>
     </div>
 
-    <!-- Project Header -->
     <div class="space-y-4">
       <div class="flex items-start gap-4">
         <UIcon
@@ -119,7 +117,6 @@ const formattedDate = computed(() => {
         </div>
       </div>
 
-      <!-- Tags -->
       <div
         v-if="project.tags && project.tags.length > 0"
         class="flex flex-wrap gap-2 pt-2"
@@ -137,7 +134,6 @@ const formattedDate = computed(() => {
 
     <USeparator />
 
-    <!-- Project Content -->
     <ContentRenderer
       v-if="projectWithBody"
       :value="projectWithBody"

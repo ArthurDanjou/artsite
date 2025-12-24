@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 const { data: projects } = await useAsyncData('projects', () => {
-  return queryCollection('projects').where('extension', '=', 'md').order('favorite', 'DESC').order('publishedAt', 'DESC').all()
+  return queryCollection('projects')
+    .where('extension', '=', 'md')
+    .order('favorite', 'DESC')
+    .order('publishedAt', 'DESC')
+    .all()
 })
 
 useSeoMeta({
@@ -45,12 +49,8 @@ const { statusColors, typeColors } = useProjectColors()
 
 function toggleTag(tag: string) {
   const index = selectedTags.value.indexOf(tag)
-  if (index > -1) {
-    selectedTags.value.splice(index, 1)
-  }
-  else {
-    selectedTags.value.push(tag)
-  }
+  if (index > -1) selectedTags.value.splice(index, 1)
+  else selectedTags.value.push(tag)
 }
 
 function clearFilters() {
@@ -63,18 +63,17 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
 </script>
 
 <template>
-  <main class="space-y-8">
+  <main class="space-y-8 py-8">
     <div class="space-y-4">
-      <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white">
-        Engineering & Research Labs
+      <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white font-mono tracking-tight">
+        <span class="text-primary-500">/</span> projects
       </h1>
-      <p class="text-lg text-neutral-600 dark:text-neutral-400">
+      <p class="max-w-3xl leading-relaxed">
         Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.
       </p>
     </div>
 
-    <!-- Filters -->
-    <div class="flex items-center gap-4 overflow-x-auto flex-nowrap md:flex-wrap w-full whitespace-nowrap">
+    <div class="flex items-center gap-4 overflow-x-auto flex-nowrap md:flex-wrap w-full whitespace-nowrap pb-2">
       <div class="flex gap-2 items-center">
         <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Status:</span>
         <UButton
@@ -97,7 +96,6 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
         </UButton>
       </div>
 
-      <!-- Ajout: bouton Clear à droite -->
       <div class="ml-auto">
         <UButton
           v-if="hasActiveFilters"
@@ -113,10 +111,9 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
       </div>
     </div>
 
-    <!-- Tags Filter -->
     <div
       v-if="allTags.length > 0"
-      class="grid grid-flow-col grid-rows-3 auto-cols-max gap-2 overflow-x-auto w-full snap-x snap-mandatory md:flex md:flex-wrap md:overflow-visible"
+      class="grid grid-flow-col grid-rows-3 auto-cols-max gap-2 overflow-x-auto w-full snap-x snap-mandatory md:flex md:flex-wrap md:overflow-visible pb-2"
     >
       <UBadge
         v-for="tag in allTags"
@@ -128,73 +125,70 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
       >
         {{ tag }}
       </UBadge>
-
-      <!-- Lien Clear mobile -->
-      <UButton
-        v-if="hasActiveFilters"
-        class="md:hidden justify-self-end"
-        variant="ghost"
-        color="neutral"
-        size="xs"
-        icon="i-ph-x-circle-duotone"
-        aria-label="Clear filters"
-        @click="clearFilters"
-      >
-        Clear
-      </UButton>
     </div>
 
-    <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <UCard
         v-for="project in filteredProjects"
         :key="project.slug"
-        class="relative hover:scale-[1.02] transition-transform cursor-pointer"
+        class="relative hover:scale-102 transition-all duration-300 group"
       >
         <template #header>
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex items-start gap-3 flex-1">
+          <div class="flex items-start gap-4">
+            <div class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-neutral-700 dark:text-neutral-300 shrink-0">
               <UIcon
-                v-if="project.icon"
-                :name="project.icon"
-                class="text-3xl text-neutral-700 dark:text-neutral-300 shrink-0"
+                :name="project.icon || 'i-ph-code-duotone'"
+                class="w-6 h-6"
               />
-              <div class="flex-1 min-w-0">
-                <h3 class="text-lg font-semibold text-neutral-900 dark:text-white truncate">
-                  {{ project.title }}
-                </h3>
-                <div class="flex items-center gap-2 mt-1 flex-wrap">
-                  <UBadge
-                    v-if="project.type"
-                    :color="(typeColors[project.type] || 'neutral') as any"
-                    variant="subtle"
-                    size="xs"
-                  >
-                    {{ project.type }}
-                  </UBadge>
-                  <UBadge
-                    v-if="project.status"
-                    :color="(statusColors[project.status] || 'neutral') as any"
-                    variant="subtle"
-                    size="xs"
-                  >
-                    {{ project.status }}
-                  </UBadge>
-                  <UBadge
-                    v-if="project.favorite"
-                    color="amber"
-                    variant="subtle"
-                    size="xs"
-                  >
-                    ⭐ Favorite
-                  </UBadge>
-                </div>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <UTooltip
+                :text="project.title"
+                :popper="{ placement: 'top-start' }"
+                class="w-full relative z-10"
+              >
+                <NuxtLink
+                  :to="`/projects/${project.slug}`"
+                  class="block focus:outline-none"
+                >
+                  <h3 class="text-lg font-bold truncate group-hover:text-neutral-900 text-neutral-500 dark:group-hover:text-white transition-colors duration-200">
+                    {{ project.title }}
+                  </h3>
+                </NuxtLink>
+              </UTooltip>
+
+              <div class="flex items-center gap-2 mt-2 flex-wrap relative z-10">
+                <UBadge
+                  v-if="project.type"
+                  :color="(typeColors[project.type] || 'neutral') as any"
+                  variant="subtle"
+                  size="xs"
+                >
+                  {{ project.type }}
+                </UBadge>
+                <UBadge
+                  v-if="project.status"
+                  :color="(statusColors[project.status] || 'neutral') as any"
+                  variant="subtle"
+                  size="xs"
+                >
+                  {{ project.status }}
+                </UBadge>
+                <UBadge
+                  v-if="project.favorite"
+                  color="amber"
+                  variant="subtle"
+                  size="xs"
+                >
+                  ⭐
+                </UBadge>
               </div>
             </div>
           </div>
         </template>
 
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3 leading-relaxed">
           {{ project.description }}
         </p>
 
@@ -207,50 +201,55 @@ const activeFilterCount = computed(() => (selectedStatus.value ? 1 : 0) + select
                 color="neutral"
                 variant="outline"
                 size="xs"
+                class="opacity-75"
               >
                 {{ tag }}
               </UBadge>
-              <UBadge
+              <span
                 v-if="project.tags && project.tags.length > 3"
-                color="neutral"
-                variant="outline"
-                size="xs"
+                class="text-xs text-neutral-400 font-mono ml-1 self-center"
               >
                 +{{ project.tags.length - 3 }}
-              </UBadge>
+              </span>
             </div>
             <span
               v-if="project.readingTime"
-              class="text-xs text-neutral-500 dark:text-neutral-400"
+              class="text-xs text-neutral-400 font-mono flex items-center gap-1 shrink-0 ml-2"
             >
-              {{ project.readingTime }} min read
+              <UIcon
+                name="i-ph-hourglass-medium-duotone"
+                class="w-3 h-3"
+              />
+              {{ project.readingTime }}m
             </span>
           </div>
         </template>
 
-        <!-- Full-card link overlay for navigation -->
         <NuxtLink
           :to="`/projects/${project.slug}`"
           :aria-label="`Open project: ${project.title}`"
-          class="absolute inset-0"
+          class="absolute inset-0 z-0"
         />
       </UCard>
     </div>
 
-    <!-- Empty State -->
     <div
       v-if="filteredProjects.length === 0"
-      class="text-center py-12"
+      class="text-center py-20 border border-dashed border-gray-200 dark:border-gray-800 rounded-xl"
     >
       <UIcon
-        name="i-ph-folder-open-duotone"
-        class="text-6xl text-neutral-400 dark:text-neutral-600 mb-4"
+        name="i-ph-flask-duotone"
+        class="text-6xl text-neutral-300 dark:text-neutral-700 mb-4"
       />
-      <p class="text-lg text-neutral-600 dark:text-neutral-400">
-        No projects found with the selected filters.
+      <h3 class="text-lg font-medium text-neutral-900 dark:text-white">
+        No experiments found
+      </h3>
+      <p class="text-neutral-500 dark:text-neutral-400 mb-6">
+        No projects match the selected filters.
       </p>
       <UButton
-        class="mt-4"
+        color="primary"
+        variant="soft"
         @click="clearFilters"
       >
         Clear Filters
