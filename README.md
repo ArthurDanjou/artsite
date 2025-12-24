@@ -135,19 +135,12 @@ The project uses:
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-# Base URL for internationalization
-NUXT_PUBLIC_I18N_BASE_URL=https://your-domain.com
-
-# API URL (if applicable)
-NUXT_API_URL=
-
 # GitHub Studio Integration (for content management)
 STUDIO_GITHUB_CLIENT_ID=your_github_client_id
 STUDIO_GITHUB_CLIENT_SECRET=your_github_client_secret  # Keep this secret! Never commit to version control
 
 # Discord Integration (runtime config - keep private)
 NUXT_DISCORD_USER_ID=your_discord_user_id  # Private
-NUXT_DISCORD_ID=your_discord_app_id  # Private
 
 # WakaTime Integration (for coding statistics - keep private)
 NUXT_WAKATIME_USER_ID=your_wakatime_user_id  # Private
