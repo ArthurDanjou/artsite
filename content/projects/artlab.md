@@ -18,8 +18,7 @@ icon: i-ph-flask-duotone
 
 [**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab, where I experiment with self-hosting and automation.
 
-My homelab is a self-hosted environment where I deploy, test, and maintain personal services. Everything is securely exposed **only through a private VPN** using [Tailscale](https://tailscale.com/), ensuring encrypted, access-controlled connections across all devices.
-For selected services, I also use **Cloudflare Tunnels** to enable secure external access without opening ports or exposing my public IP.
+My homelab is a self-hosted environment where I deploy, test, and maintain personal services. Everything is securely exposed **only through a private VPN** using [Tailscale](https://tailscale.com/), ensuring encrypted, access-controlled connections across all devices. For selected services, I also use **Cloudflare Tunnels** to enable secure external access without opening ports or exposing my public IP.
 
 ## 🛠️ Running Services
 
@@ -36,7 +35,7 @@ For selected services, I also use **Cloudflare Tunnels** to enable secure extern
 - **Beszel**: Self-hosted, lightweight alternative to Notion for notes and knowledge management.
 - **Palmr**: Personal logging and journaling tool.
 
-## 🖥️ Hardware
+## 🖥️ Hardware Specifications
 
 - **Beelink EQR6**: AMD Ryzen mini PC, main server host.
 - **TP-Link 5-port Switch**: Network connectivity for all devices.
