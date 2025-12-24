@@ -11,11 +11,36 @@ useSeoMeta({
   ogDescription: 'Explore my educational background, professional experiences, projects, and technical skills in an interactive visual flow.'
 })
 
+// Types for the data
+interface EducationItem {
+  degree: string
+  institution: string
+  startDate: string
+  endDate: string
+}
+
+interface ExperienceItem {
+  title: string
+  company: string
+  startDate: string
+  endDate: string
+}
+
+interface ProjectItem {
+  title: string
+  type: string
+}
+
+interface SkillCategory {
+  name: string
+  items: Array<{ name: string, icon: string }>
+}
+
 // Fetch data from APIs
-const { data: education } = await useFetch('/api/education')
-const { data: experiences } = await useFetch('/api/experiences')
-const { data: projects } = await useFetch('/api/projects')
-const { data: skills } = await useFetch('/api/skills')
+const { data: education } = await useFetch<EducationItem[]>('/api/education')
+const { data: experiences } = await useFetch<ExperienceItem[]>('/api/experiences')
+const { data: projects } = await useFetch<ProjectItem[]>('/api/projects')
+const { data: skills } = await useFetch<SkillCategory[]>('/api/skills')
 
 // Helper function to generate node positions
 const generatePosition = (index: number, total: number, column: number, offset = 400) => {
@@ -56,12 +81,12 @@ const centerNode: Node = {
 }
 
 // Create education nodes
-const educationNodes: Node[] = (education.value || []).map((item: any, index: number) => ({
+const educationNodes: Node[] = (education.value || []).map((item: EducationItem, index: number) => ({
   id: `education-${index}`,
   type: 'default',
   position: generatePosition(index, education.value?.length || 0, 0),
   label: `${item.degree}`,
-  data: { 
+  data: {
     label: item.degree,
     subtitle: item.institution,
     years: `${item.startDate?.substring(0, 4)}-${item.endDate?.substring(0, 4)}`
@@ -85,12 +110,12 @@ const educationNodes: Node[] = (education.value || []).map((item: any, index: nu
 }))
 
 // Create experience nodes
-const experienceNodes: Node[] = (experiences.value || []).map((item: any, index: number) => ({
+const experienceNodes: Node[] = (experiences.value || []).map((item: ExperienceItem, index: number) => ({
   id: `experience-${index}`,
   type: 'default',
   position: generatePosition(index, experiences.value?.length || 0, 1),
   label: item.title,
-  data: { 
+  data: {
     label: item.title,
     subtitle: item.company,
     years: `${item.startDate?.substring(0, 4)}-${item.endDate?.substring(0, 4)}`
@@ -114,12 +139,12 @@ const experienceNodes: Node[] = (experiences.value || []).map((item: any, index:
 }))
 
 // Create project nodes
-const projectNodes: Node[] = (projects.value || []).slice(0, 8).map((item: any, index: number) => ({
+const projectNodes: Node[] = (projects.value || []).slice(0, 8).map((item: ProjectItem, index: number) => ({
   id: `project-${index}`,
   type: 'default',
   position: generatePosition(index, Math.min(8, projects.value?.length || 0), 3),
   label: item.title,
-  data: { 
+  data: {
     label: item.title,
     subtitle: item.type
   },
@@ -142,12 +167,12 @@ const projectNodes: Node[] = (projects.value || []).slice(0, 8).map((item: any, 
 }))
 
 // Create skill category nodes
-const skillNodes: Node[] = (skills.value || []).map((category: any, index: number) => ({
+const skillNodes: Node[] = (skills.value || []).map((category: SkillCategory, index: number) => ({
   id: `skill-${index}`,
   type: 'default',
   position: generatePosition(index, skills.value?.length || 0, 4),
   label: category.name,
-  data: { 
+  data: {
     label: category.name,
     count: `${category.items?.length || 0} skills`
   },
