@@ -55,6 +55,13 @@ const generatePosition = (index: number, total: number, column: number, offset =
   }
 }
 
+// Helper function to format date range
+const formatYearRange = (startDate?: string, endDate?: string): string => {
+  const start = startDate?.substring(0, 4) || '?'
+  const end = endDate?.substring(0, 4) || 'Present'
+  return `${start}-${end}`
+}
+
 // Create center node
 const centerNode: Node = {
   id: 'center',
@@ -89,7 +96,7 @@ const educationNodes: Node[] = (education.value || []).map((item: EducationItem,
   data: {
     label: item.degree,
     subtitle: item.institution,
-    years: `${item.startDate?.substring(0, 4) || ''}-${item.endDate?.substring(0, 4) || ''}`
+    years: formatYearRange(item.startDate, item.endDate)
   },
   style: {
     background: '#3b82f6',
@@ -118,7 +125,7 @@ const experienceNodes: Node[] = (experiences.value || []).map((item: ExperienceI
   data: {
     label: item.title,
     subtitle: item.company,
-    years: `${item.startDate?.substring(0, 4) || ''}-${item.endDate?.substring(0, 4) || ''}`
+    years: formatYearRange(item.startDate, item.endDate)
   },
   style: {
     background: '#10b981',
@@ -246,11 +253,14 @@ const edges = ref<Edge[]>([
 // Initialize VueFlow
 const { fitView } = useVueFlow()
 
+// Delay for DOM readiness before fitting view
+const FIT_VIEW_DELAY_MS = 100
+
 onMounted(() => {
   nextTick(() => {
     setTimeout(() => {
       fitView({ padding: 0.15, duration: 800 })
-    }, 100)
+    }, FIT_VIEW_DELAY_MS)
   })
 })
 </script>
