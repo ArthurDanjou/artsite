@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Workers
 on:
   push:
     branches:
-      - '**' 
+      - '**'
 
 permissions:
   contents: read
@@ -36,24 +36,32 @@ jobs:
         run: bun run build
         env:
           NUXT_DISCORD_USER_ID: ${{ secrets.NUXT_DISCORD_USER_ID }}
-
           NUXT_WAKATIME_CODING: ${{ secrets.NUXT_WAKATIME_CODING }}
           NUXT_WAKATIME_EDITORS: ${{ secrets.NUXT_WAKATIME_EDITORS }}
           NUXT_WAKATIME_LANGUAGES: ${{ secrets.NUXT_WAKATIME_LANGUAGES }}
           NUXT_WAKATIME_OS: ${{ secrets.NUXT_WAKATIME_OS }}
           NUXT_WAKATIME_USER_ID: ${{ secrets.NUXT_WAKATIME_USER_ID }}
-          
           NUXT_STATUS_PAGE: ${{ secrets.NUXT_STATUS_PAGE }}
-          
           STUDIO_GITHUB_CLIENT_ID: ${{ secrets.STUDIO_GITHUB_CLIENT_ID }}
           STUDIO_GITHUB_CLIENT_SECRET: ${{ secrets.STUDIO_GITHUB_CLIENT_SECRET }}
+
+      - name: Determine Deployment Target
+        id: target
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "env_flag=" >> $GITHUB_OUTPUT
+            echo "env_name=Production" >> $GITHUB_OUTPUT
+          else
+            echo "env_flag=--env preview" >> $GITHUB_OUTPUT
+            echo "env_name=Preview" >> $GITHUB_OUTPUT
+          fi
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
+          command: deploy ${{ steps.target.outputs.env_flag }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -62,13 +70,14 @@ jobs:
 
       - name: Discord Notification
         uses: sarisia/actions-status-discord@v1
-        if: always() # S'exécute même si le build plante
+        if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
-          title: "Déploiement Portfolio"
+          title: "Déploiement Portfolio (${{ steps.target.outputs.env_name }})"
           description: |
             Build terminé sur la branche **${{ github.ref_name }}**.
+            Environnement cible : **${{ steps.target.outputs.env_name }}**.
             Commit: `${{ github.sha }}` par ${{ github.actor }}.
           nofail: false
           nodetail: false
