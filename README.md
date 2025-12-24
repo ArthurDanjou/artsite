@@ -183,7 +183,6 @@ artsite/
 ├── public/                  # Public static files
 ├── server/                  # Server API routes and middleware
 │   ├── api/                 # API endpoints
-│   └── database/            # Database schemas and migrations
 ├── types/                   # TypeScript type definitions
 ├── .env.example             # Example environment variables
 ├── app.config.ts            # App configuration
