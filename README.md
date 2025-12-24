@@ -173,6 +173,7 @@ artsite/
 │   │   ├── hobbies.vue      # Hobbies page
 │   │   ├── uses.vue         # Uses page
 │   │   └── ecosystem.vue    # Ecosystem page
+│   ├── app.config.ts        # App configuration
 │   ├── app.vue              # Root app component
 │   └── error.vue            # Error page
 ├── content/                 # Content files (Markdown)
@@ -182,9 +183,9 @@ artsite/
 ├── public/                  # Public static files
 ├── server/                  # Server API routes and middleware
 │   ├── api/                 # API endpoints
+│   └── routes/              # Server routes
 ├── types/                   # TypeScript type definitions
 ├── .env.example             # Example environment variables
-├── app.config.ts            # App configuration
 ├── content.config.ts        # Content module configuration
 ├── nuxt.config.ts           # Nuxt configuration
 ├── package.json             # Dependencies and scripts
