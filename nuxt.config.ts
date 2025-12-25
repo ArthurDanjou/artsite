@@ -29,6 +29,17 @@ export default defineNuxtConfig({
   },
 
   content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['python'],
+          theme: {
+            default: 'catppuccin-latte',
+            dark: 'catppuccin-macchiato'
+          }
+        }
+      }
+    },
     database: {
       type: 'd1',
       bindingName: 'DB'

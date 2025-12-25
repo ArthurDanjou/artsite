@@ -3,6 +3,9 @@
 
 @theme {
   --animate-wave: wave 2.5s infinite;
+  --font-mono: 'Monaspace Neon', 'ui monaspace', monospace;
+  --font-sofia: 'Sofia Sans', 'ui sans-serif', sans-serif;
+  --font-sans: 'DM Sans', 'ui sans-serif', sans-serif;
 
   @keyframes wave {
     0% {

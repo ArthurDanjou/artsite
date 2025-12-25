@@ -51,12 +51,19 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 ::card{title="IDEs & Editors" icon="i-ph-code-duotone"}
 * :prose-icon[VS Code]{color="blue" icon="i-logos:visual-studio-code"} — For general-purpose scripting and remote SSH development.
 * :prose-icon[JetBrains]{color="purple" icon="i-logos:jetbrains"} — *PyCharm* & *DataGrip* are unrivaled for complex refactoring and database management.
-* **Theme:** Catppuccin Macchiato.
-* **Font:** JetBrains Mono.
+* **Theme:** Catppuccin Latte (Light) / Macchiato (Dark).
+* **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
+
+ ```python [main.py]
+  def main():
+      print("Hello, Research Lab!")
+  ```
 ::
 
 ::card{title="Terminal & System" icon="i-ph-terminal-window-duotone"}
-* :prose-icon[Warp]{color="black" icon="i-simple-icons-warp"} — A Rust-based terminal with AI command suggestion and block-based output.
+* :prose-icon[Ghostty]{color="gray" icon="i-ph-ghost-duotone"} — A fast, native, and GPU-accelerated terminal emulator.
+* :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"} — My default shell, optimized for speed and interactivity.
+* :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"} — The minimal, blazing-fast, and infinitely customizable prompt.
 * :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"} — Replaces Spotlight. I use it for script commands, window management, and quick calculations.
 * :prose-icon[Firefox]{color="orange" icon="i-logos:firefox"} — Chosen for its privacy features and robust DevTools.
 ::
