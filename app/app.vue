@@ -9,7 +9,10 @@ useHead({
   },
   link: [
     { rel: 'icon', type: 'image/webp', href: '/favicon.webp' }
-  ]
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  }
 })
 </script>
 
