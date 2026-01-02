@@ -10,7 +10,12 @@
     "main": "./.output/server/index.mjs",
     "routes": [
         {
-            "pattern": "v2.arthurdanjou.fr",
+            "pattern": "arthurdanjou.fr",
+            "zone_name": "arthurdanjou.fr",
+            "custom_domain": true
+        },
+        {
+            "pattern": "www.arthurdanjou.fr",
             "zone_name": "arthurdanjou.fr",
             "custom_domain": true
         }
