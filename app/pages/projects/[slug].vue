@@ -26,7 +26,9 @@ useSeoMeta({
   description: project.value.description,
   ogTitle: `${project.value.title} • Arthur Danjou`,
   ogDescription: project.value.description,
-  twitterCard: 'summary_large_image'
+  twitterCard: 'summary_large_image',
+  twitterTitle: project.value.title,
+  twitterDescription: project.value.description
 })
 
 defineOgImageComponent('NuxtSeo', {
