@@ -19,10 +19,28 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     rootAttrs: {
       class: 'bg-[var(--ui-bg)]'
+    },
+    head: {
+      templateParams: {
+        separator: '•'
+      },
+      titleTemplate: '%s %separator %siteName',
+      link: [
+        { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
+        { rel: 'apple-touch-icon', href: '/favicon.webp' }
+      ]
     }
   },
 
   css: ['~/assets/css/main.css'],
+
+  site: {
+    url: 'https://arthurdanjou.fr',
+    name: 'Arthur Danjou',
+    description: 'Research Engineer & Applied Mathematics Student. Focusing on AI Safety, Robustness, and Statistical Learning.',
+    defaultLocale: 'en',
+    indexable: true
+  },
 
   colorMode: {
     preference: 'system',
@@ -118,6 +136,10 @@ export default defineNuxtConfig({
         commaDangle: 'never'
       }
     }
+  },
+
+  seo: {
+    redirectToCanonicalSiteUrl: true
   },
 
   studio: {

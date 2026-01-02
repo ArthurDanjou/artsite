@@ -5,22 +5,23 @@ export const collections = {
     type: 'page',
     source: 'index.md'
   }),
-  projects: defineCollection({
-    type: 'data',
-    source: 'projects/*.md',
-    schema: z.object({
-      slug: z.string(),
-      title: z.string(),
-      type: z.string().optional(),
-      description: z.string(),
-      publishedAt: z.string(),
-      readingTime: z.number().optional(),
-      tags: z.array(z.string()),
-      favorite: z.boolean().optional(),
-      status: z.enum(['active', 'completed', 'archived', 'in progress']),
-      icon: z.string()
-    })
-  }),
+  projects: defineCollection(
+    asSeoCollection({
+      type: 'data',
+      source: 'projects/*.md',
+      schema: z.object({
+        slug: z.string(),
+        title: z.string(),
+        type: z.string().optional(),
+        description: z.string(),
+        publishedAt: z.string(),
+        readingTime: z.number().optional(),
+        tags: z.array(z.string()),
+        favorite: z.boolean().optional(),
+        status: z.enum(['active', 'completed', 'archived', 'in progress']),
+        icon: z.string()
+      })
+    })),
   uses: defineCollection({
     type: 'page',
     source: 'uses.md'

@@ -2,17 +2,6 @@
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} %separator %siteName` : 'Arthur Danjou %separator AI Safety & Applied Math'
-  },
-  templateParams: {
-    siteName: 'Arthur Danjou',
-    separator: '•'
-  },
-  link: [
-    { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
-    { rel: 'apple-touch-icon', href: '/favicon.webp' }
-  ],
-  htmlAttrs: {
-    lang: 'en'
   }
 })
 </script>
