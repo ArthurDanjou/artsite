@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    'nuxt-studio'
+    'nuxt-studio',
+    '@nuxtjs/seo'
   ],
 
   devtools: {
