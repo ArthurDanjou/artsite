@@ -3,12 +3,25 @@ const { data: page } = await useAsyncData('hobbies', () => {
   return queryCollection('hobbies').first()
 })
 
-useSeoMeta({
+const head = {
   title: 'Balance & Perspectives',
   description: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.',
-  ogTitle: 'Balance & Perspectives • Arthur Danjou',
-  ogDescription: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.',
+  subtitle: ''
+}
+
+useSeoMeta({
+  title: head.title,
+  description: head.description,
+  ogTitle: `${head.title} • Arthur Danjou`,
+  ogDescription: head.description,
   twitterCard: 'summary_large_image'
+})
+
+defineOgImageComponent('NuxtSeo', {
+  title: head.title,
+  description: head.description,
+  subtitle: head.subtitle,
+  theme: '#F43F5E'
 })
 </script>
 

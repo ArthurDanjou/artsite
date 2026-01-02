@@ -7,12 +7,23 @@ const { data: projects } = await useAsyncData('projects', () => {
     .all()
 })
 
-useSeoMeta({
+const head = {
   title: 'Engineering & Research Labs',
-  description: 'Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.',
-  ogTitle: 'Engineering & Research Labs • Arthur Danjou',
-  ogDescription: 'Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.',
+  description: 'Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.'
+}
+
+useSeoMeta({
+  title: head.title,
+  description: head.description,
+  ogTitle: `${head.title} • Arthur Danjou`,
+  ogDescription: head.description,
   twitterCard: 'summary_large_image'
+})
+
+defineOgImageComponent('NuxtSeo', {
+  title: head.title,
+  description: head.description,
+  theme: '#F43F5E'
 })
 
 const { statusColors, typeColors } = useProjectColors()

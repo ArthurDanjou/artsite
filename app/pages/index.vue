@@ -1,10 +1,23 @@
 <script lang="ts" setup>
-useSeoMeta({
+const head = {
   title: 'AI Safety & Applied Mathematics',
   description: 'Research Engineer & Master 2 Student at Paris-Dauphine (ISF). Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
-  ogTitle: 'Arthur Danjou • AI Safety & Applied Mathematics',
-  ogDescription: 'Research Engineer & Master 2 Student at Paris-Dauphine (ISF). Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
+  subtitle: ''
+}
+
+useSeoMeta({
+  title: head.title,
+  description: head.description,
+  ogTitle: `Arthur Danjou • ${head.title}`,
+  ogDescription: head.description,
   twitterCard: 'summary_large_image'
+})
+
+defineOgImageComponent('NuxtSeo', {
+  title: head.title,
+  description: head.description,
+  subtitle: head.subtitle,
+  theme: '#F43F5E'
 })
 
 const { data: page } = await useAsyncData('index', () => {

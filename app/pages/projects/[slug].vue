@@ -29,6 +29,13 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
+defineOgImageComponent('NuxtSeo', {
+  title: project.value.title,
+  description: project.value.description,
+  subtitle: project.value.type ? `Project Type: ${project.value.type}` : '',
+  theme: '#F43F5E'
+})
+
 const { statusColors, typeColors } = useProjectColors()
 
 const formattedDate = computed(() => {
