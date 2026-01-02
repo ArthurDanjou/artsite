@@ -155,7 +155,13 @@ export default defineNuxtConfig({
         'https://twitter.com/arthurdanj',
         'https://github.com/arthurdanjou',
         'https://linkedin.com/in/arthurdanjou'
-      ]
+      ],
+
+      worksFor: {
+        '@type': 'Organization',
+        'name': 'Arthur Danjou',
+        'url': 'https://arthurdanjou.fr'
+      }
     })
   },
 
