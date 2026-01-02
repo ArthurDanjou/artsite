@@ -1,5 +1,5 @@
 import { defineCollection, z } from '@nuxt/content'
-import { asSeoCollection } from '@nuxt/seo/content'
+import { asSeoCollection } from '@nuxtjs/seo/content'
 
 export const collections = {
   index: defineCollection({
