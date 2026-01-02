@@ -25,3 +25,6 @@ logs
 !.env.example
 
 .wrangler
+
+# Localflare generated files
+.localflare/
