@@ -1,14 +1,14 @@
 export default defineNuxtConfig({
 
   modules: [
+    '@nuxtjs/seo',
     '@nuxt/ui',
     '@nuxtjs/mdc',
     '@nuxt/content',
     '@nuxthub/core',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    'nuxt-studio',
-    '@nuxtjs/seo'
+    'nuxt-studio'
   ],
 
   devtools: {

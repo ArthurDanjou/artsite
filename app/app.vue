@@ -8,7 +8,8 @@ useHead({
     separator: '•'
   },
   link: [
-    { rel: 'icon', type: 'image/webp', href: '/favicon.webp' }
+    { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
+    { rel: 'apple-touch-icon', href: '/favicon.webp' }
   ],
   htmlAttrs: {
     lang: 'en'
