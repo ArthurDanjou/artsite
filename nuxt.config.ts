@@ -1,3 +1,5 @@
+import { definePerson } from 'nuxt-schema-org/schema'
+
 export default defineNuxtConfig({
 
   modules: [
@@ -136,6 +138,25 @@ export default defineNuxtConfig({
         commaDangle: 'never'
       }
     }
+  },
+
+  schemaOrg: {
+    identity: definePerson({
+      name: 'Arthur Danjou',
+      givenName: 'Arthur',
+      familyName: 'Danjou',
+      image: '/arthur.webp',
+      description: 'Research Engineer & Applied Mathematics Student. Focusing on AI Safety, Robustness, and Statistical Learning.',
+      jobTitle: 'Research Engineer & Applied Mathematics Student',
+
+      email: 'arthurdanjou@outlook.fr',
+      url: 'https://arthurdanjou.fr',
+      sameAs: [
+        'https://twitter.com/arthurdanj',
+        'https://github.com/arthurdanjou',
+        'https://linkedin.com/in/arthurdanjou'
+      ]
+    })
   },
 
   seo: {
