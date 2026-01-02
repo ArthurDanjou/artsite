@@ -50,6 +50,7 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
 ::card{title="IDEs & Editors" icon="i-ph-code-duotone"}
 * :prose-icon[VS Code]{color="blue" icon="i-logos:visual-studio-code"} — For general-purpose scripting and remote SSH development.
+* :prose-icon[Positron]{color="teal" icon="i-devicon:positron"} — Lightweight IDE for R and statistical analysis, offering superior performance to RStudio while maintaining VS Code familiarity.
 * :prose-icon[JetBrains]{color="purple" icon="i-logos:jetbrains"} — *PyCharm* & *DataGrip* are unrivaled for complex refactoring and database management.
 * **Theme:** Catppuccin Latte (Light) / Macchiato (Dark).
 * **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
