@@ -11,7 +11,7 @@ const currentSession = computed(() => {
 
   if (!ideActivity) return null
 
-  const name = ideActivity.assets?.small_text === 'Cursor' ? 'Cursor' : ideActivity.name
+  const name = ideActivity.assets?.small_text === 'Cursor' ? 'Cursor' : ideActivity.assets?.small_text === 'Positron' ? 'Positron' : ideActivity.name
 
   const isIdling = ideActivity.details?.includes('Idling') || (!ideActivity.state?.toLowerCase().includes('editing') && name !== 'Visual Studio Code')
 
