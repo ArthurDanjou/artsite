@@ -28,8 +28,8 @@ export default defineNuxtConfig({
       },
       titleTemplate: '%s %separator %siteName',
       link: [
-        { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
-        { rel: 'apple-touch-icon', href: '/favicon.webp' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', href: '/favicon.ico' }
       ]
     }
   },
