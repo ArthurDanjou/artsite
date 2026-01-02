@@ -23,7 +23,11 @@ const colorVariants = {
   zinc: 'text-zinc-500/80 decoration-zinc-400/40',
   orange: 'text-orange-500/80 decoration-orange-400/40',
   amber: 'text-amber-500/80 decoration-amber-400/40',
-  emerald: 'text-emerald-500/80 decoration-emerald-400/40'
+  emerald: 'text-emerald-500/80 decoration-emerald-400/40',
+  white: 'text-white/80 decoration-white/40',
+  black: 'text-black/80 decoration-black/40',
+  cyan: 'text-cyan-500/80 decoration-cyan-400/40',
+  gray: 'text-gray-500/80 decoration-gray-400/40'
 }
 </script>
 
