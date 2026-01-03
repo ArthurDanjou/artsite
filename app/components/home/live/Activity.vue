@@ -11,9 +11,13 @@ const currentSession = computed(() => {
 
   if (!ideActivity) return null
 
-  const name = ideActivity.assets?.small_text === 'Cursor' ? 'Cursor' : ideActivity.assets?.small_text === 'Positron' ? 'Positron' : ideActivity.name
+  const name = ideActivity.assets?.small_text === 'Cursor'
+    ? 'Cursor'
+    : ideActivity.assets?.small_text === 'Positron'
+      ? 'Positron'
+      : ideActivity.name
 
-  const isIdling = ideActivity.details?.includes('Idling') || (!ideActivity.state?.toLowerCase().includes('editing') && name !== 'Visual Studio Code')
+  const isIdling = ideActivity.details?.toLowerCase().includes('idling')
 
   const rawProject = ideActivity.details ? ideActivity.details.replace('Workspace:', '').replace('Editing', '').trim() : 'Unknown Context'
   const project = rawProject.charAt(0).toUpperCase() + rawProject.slice(1)
@@ -71,12 +75,12 @@ const statusLabel = computed(() => {
         <UIcon
           v-if="currentSession"
           :name="currentSession.icon"
-          class="w-5 h-5 opacity-80"
+          class="w-8 h-8 opacity-80"
         />
         <UIcon
           v-else
           name="i-ph-power-duotone"
-          class="w-5 h-5 text-red-400 opacity-80"
+          class="w-8 h-8 text-red-400 opacity-80"
         />
       </div>
 
