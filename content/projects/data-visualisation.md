@@ -5,7 +5,7 @@ type: Academic Project
 description: An interactive data visualization project built with R, R Shiny, and ggplot2 for creating dynamic, explorable visualizations.
 publishedAt: 2026-01-05
 readingTime: 1
-status: In progress
+status: Completed
 tags:
   - R
   - R Shiny
