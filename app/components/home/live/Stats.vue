@@ -21,9 +21,6 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
       v-if="stats"
       class="space-y-6"
     >
-      {{ topLanguages }}
-      {{ topEditors }}
-      {{ topOS }}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <UCard>
           <div class="flex items-center gap-4">
@@ -78,7 +75,7 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
           <h4 class="text-sm font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
             <UIcon
               name="i-ph-code-block-duotone"
-              class="text-primary-500 w-5 h-5"
+              class="text-pink-500 w-5 h-5"
             />
             Top Languages
           </h4>
@@ -94,7 +91,7 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
               </div>
               <UProgress
                 v-model="lang.percent"
-                color="primary"
+                color="pink"
                 size="sm"
               />
             </div>
