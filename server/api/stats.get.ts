@@ -5,7 +5,7 @@ const cachedWakatimeCoding = defineCachedFunction(async (event: H3Event) => {
 
   return await $fetch<{ data: unknown[] }>(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.coding}.json`)
 }, {
-  maxAge: 24 * 60 * 60,
+  maxAge: 60 * 60,
   name: 'wakatime',
   getKey: () => 'coding'
 })
@@ -15,7 +15,7 @@ const cachedWakatimeEditors = defineCachedFunction(async (event: H3Event) => {
 
   return await $fetch<{ data: unknown[] }>(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.editors}.json`)
 }, {
-  maxAge: 24 * 60 * 60,
+  maxAge: 60 * 60,
   name: 'wakatime',
   getKey: () => 'editors'
 })
@@ -25,7 +25,7 @@ const cachedWakatimeOs = defineCachedFunction(async (event: H3Event) => {
 
   return await $fetch<{ data: unknown[] }>(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.os}.json`)
 }, {
-  maxAge: 24 * 60 * 60,
+  maxAge: 60 * 60,
   name: 'wakatime',
   getKey: () => 'os'
 })
@@ -35,7 +35,7 @@ const cachedWakatimeLanguages = defineCachedFunction(async (event: H3Event) => {
 
   return await $fetch<{ data: unknown[] }>(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.languages}.json`)
 }, {
-  maxAge: 24 * 60 * 60,
+  maxAge: 60 * 60,
   name: 'wakatime',
   getKey: () => 'languages'
 })
