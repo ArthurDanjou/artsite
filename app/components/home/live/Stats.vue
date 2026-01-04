@@ -75,7 +75,7 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
           <h4 class="text-sm font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
             <UIcon
               name="i-ph-code-block-duotone"
-              class="text-pink-500 w-5 h-5"
+              class="text-red-500 w-5 h-5"
             />
             Top Languages
           </h4>
@@ -91,7 +91,7 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
               </div>
               <UProgress
                 v-model="lang.percent"
-                color="pink"
+                color="red"
                 size="sm"
               />
             </div>
@@ -102,7 +102,7 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
           <h4 class="text-sm font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
             <UIcon
               name="i-ph-terminal-window-duotone"
-              class="text-orange-500 w-5 h-5"
+              class="text-green-500 w-5 h-5"
             />
             Preferred Editors
           </h4>
@@ -118,7 +118,7 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
               </div>
               <UProgress
                 v-model="editor.percent"
-                color="orange"
+                color="green"
                 size="sm"
               />
             </div>
