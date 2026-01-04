@@ -4,15 +4,15 @@ import { usePrecision } from '@vueuse/math'
 
 const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
 
-const startDate = computed(() => stats.value?.coding.range.start ? new Date(stats.value.coding.range.start) : new Date())
+const startDate = computed(() => new Date(stats.value!.coding.range.start))
 const yearsCollected = useTimeAgo(startDate).value
 const formattedDate = useDateFormat(startDate, 'MMM DD, YYYY').value
 
-const totalHours = usePrecision((stats.value?.coding.grand_total.total_seconds_including_other_language ?? 0) / 3600, 0)
+const totalHours = usePrecision((stats.value!.coding.grand_total.total_seconds_including_other_language ?? 0) / 3600, 0)
 
-const topLanguages = computed(() => stats.value?.languages.slice(0, 4) || [])
-const topEditors = computed(() => stats.value?.editors.slice(0, 3) || [])
-const topOS = computed(() => stats.value?.os.slice(0, 2) || [])
+const topLanguages = computed(() => stats.value!.languages.slice(0, 4))
+const topEditors = computed(() => stats.value!.editors.slice(0, 3))
+const topOS = computed(() => stats.value!.os.slice(0, 2))
 </script>
 
 <template>
