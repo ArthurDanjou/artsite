@@ -4,7 +4,7 @@ import { usePrecision } from '@vueuse/math'
 
 const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
 
-const startDate = computed(() => new Date(stats.value?.coding.range.start || ''))
+const startDate = computed(() => new Date(stats.value?.coding?.range?.start ?? new Date()))
 const yearsCollected = useTimeAgo(startDate)
 const formattedDate = useDateFormat(startDate, 'MMM DD, YYYY')
 
@@ -21,6 +21,8 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
       v-if="stats"
       class="space-y-6"
     >
+      {{ stats.coding.range.start }}
+      {{ startDate }}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <UCard>
           <div class="flex items-center gap-4">
