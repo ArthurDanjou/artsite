@@ -5,8 +5,8 @@ import { usePrecision } from '@vueuse/math'
 const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
 
 const startDate = computed(() => new Date(stats.value?.coding.range.start || ''))
-const yearsCollected = useTimeAgo(startDate).value
-const formattedDate = useDateFormat(startDate, 'MMM DD, YYYY').value
+const yearsCollected = useTimeAgo(startDate)
+const formattedDate = useDateFormat(startDate, 'MMM DD, YYYY')
 
 const totalHours = usePrecision((stats.value?.coding.grand_total.total_seconds_including_other_language ?? 0) / 3600, 0)
 
