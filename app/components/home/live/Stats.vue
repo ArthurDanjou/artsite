@@ -10,7 +10,7 @@ const rawHours = computed(() => {
   return seconds / 3600
 })
 
-const totalHours = usePrecision(rawHours.value, 0)
+const totalHours = usePrecision(rawHours, 0)
 const yearsCollected = useTimeAgo(startDate)
 const formattedDate = useDateFormat(startDate, 'MMM DD, YYYY')
 
@@ -25,6 +25,10 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
       v-if="stats"
       class="space-y-6"
     >
+      {{ rawHours }}
+      {{ totalHours }}
+      {{ usePrecision(rawHours, 0) }}
+      {{ usePrecision(rawHours, 0) }}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <UCard v-if="totalHours">
           <div class="flex items-center gap-4">
