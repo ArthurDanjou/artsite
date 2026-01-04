@@ -21,7 +21,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
       class="space-y-6"
     >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <UCard>
+        <UCard v-if="totalHours">
           <div class="flex items-center gap-4">
             <div class="p-3 bg-primary-200 dark:bg-primary-900 rounded-lg text-primary-500 flex items-center justify-center">
               <UIcon
@@ -40,7 +40,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
           </div>
         </UCard>
 
-        <UCard>
+        <UCard v-if="formattedDate && yearsCollected">
           <div class="flex items-center gap-4">
             <div class="p-3 bg-emerald-100 dark:bg-emerald-900/20 rounded-lg text-emerald-500 flex items-center justify-center">
               <UIcon
@@ -70,7 +70,10 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="col-span-1 lg:col-span-1 space-y-4">
+        <div
+          v-if="topLanguages.length"
+          class="col-span-1 lg:col-span-1 space-y-4"
+        >
           <h4 class="text-sm font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
             <UIcon
               name="i-ph-code-block-duotone"
@@ -97,7 +100,10 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
           </div>
         </div>
 
-        <div class="col-span-1 lg:col-span-1 space-y-4">
+        <div
+          v-if="topEditors.length"
+          class="col-span-1 lg:col-span-1 space-y-4"
+        >
           <h4 class="text-sm font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
             <UIcon
               name="i-ph-terminal-window-duotone"
@@ -124,7 +130,10 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
           </div>
         </div>
 
-        <div class="col-span-1 lg:col-span-1 space-y-4">
+        <div
+          v-if="topOS.length"
+          class="col-span-1 lg:col-span-1 space-y-4"
+        >
           <h4 class="text-sm font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
             <UIcon
               name="i-ph-desktop-duotone"
