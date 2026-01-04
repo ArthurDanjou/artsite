@@ -44,9 +44,11 @@ This project involves creating an interactive data visualization application usi
 
 ## 📚 Resources
 
-You can find the code here: [Data Visualisation](https://go.arthurdanjou.fr/dataviz)
+You can find the code here: [Data Visualisation Code](https://go.arthurdanjou.fr/datavis-code)  
+
+And the online application here: [Data Visualisation App](https://go.arthurdanjou.fr/datavis-app)
 
 ## 📄 Detailed Report
 
-<iframe src="/projects/dataviz.pdf" width="100%" height="1000px">
+<iframe src="/projects/datavis.pdf" width="100%" height="1000px">
 </iframe>
