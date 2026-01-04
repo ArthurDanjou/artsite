@@ -2,9 +2,7 @@
 import type { Stats } from '~~/types'
 import { usePrecision } from '@vueuse/math'
 
-const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'), {
-  lazy: true
-})
+const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
 
 const startDate = computed(() => new Date(stats.value!.coding.range.start))
 const yearsCollected = useTimeAgo(startDate).value
