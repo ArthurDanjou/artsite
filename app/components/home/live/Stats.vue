@@ -21,6 +21,9 @@ const topOS = computed(() => stats.value!.os.slice(0, 2))
       v-if="stats"
       class="space-y-6"
     >
+      {{ topLanguages }}
+      {{ topEditors }}
+      {{ topOS }}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <UCard>
           <div class="flex items-center gap-4">
