@@ -48,22 +48,15 @@ jobs:
       - name: Determine Deployment Target
         id: target
         run: |
-          # J'utilise des quotes pour éviter les erreurs si la branche contient des espaces
           if [ "${{ github.ref_name }}" = "main" ] || [ "${{ github.ref_name }}" = "master" ]; then
-            echo "Current branch is Production: ${{ github.ref_name }}"
+            # Production : Aucun flag, on utilise la config racine par défaut
             echo "env_flag=" >> $GITHUB_OUTPUT
             echo "env_name=Production" >> $GITHUB_OUTPUT
           else
-            echo "Current branch is Preview: ${{ github.ref_name }}"
+            # Preview : On surcharge avec l'environnement preview
             echo "env_flag=--env preview" >> $GITHUB_OUTPUT
             echo "env_name=Preview" >> $GITHUB_OUTPUT
           fi
-
-      - name: 🔍 Debug Info
-        run: |
-          echo "Branche détectée : ${{ github.ref_name }}"
-          echo "Flag Wrangler calculé : '${{ steps.target.outputs.env_flag }}'"
-          echo "Nom Environnement : ${{ steps.target.outputs.env_name }}"
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
