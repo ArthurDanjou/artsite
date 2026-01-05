@@ -48,7 +48,7 @@ jobs:
       - name: Determine Deployment Target
         id: target
         run: |
-          if [ "${{ github.ref_name }}" = "main" ]; then
+          if [ "${{ github.ref_name }}" = "main" ] || [ "${{ github.ref_name }}" = "master" ]; then
             echo "env_flag=" >> $GITHUB_OUTPUT
             echo "env_name=Production" >> $GITHUB_OUTPUT
           else
