@@ -31,6 +31,8 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           command: types
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Build
         run: bun run build
@@ -44,26 +46,25 @@ jobs:
           NUXT_STATUS_PAGE: ${{ secrets.NUXT_STATUS_PAGE }}
           STUDIO_GITHUB_CLIENT_ID: ${{ secrets.STUDIO_GITHUB_CLIENT_ID }}
           STUDIO_GITHUB_CLIENT_SECRET: ${{ secrets.STUDIO_GITHUB_CLIENT_SECRET }}
+          STUDIO_GITHUB_MODERATORS: ${{ secrets.STUDIO_GITHUB_MODERATORS }}
 
-      - name: Determine Deployment Target
+      - name: Determine Deployment Command
         id: target
         run: |
           if [ "${{ github.ref_name }}" = "main" ] || [ "${{ github.ref_name }}" = "master" ]; then
-            # Production : Aucun flag, on utilise la config racine par défaut
-            echo "env_flag=" >> $GITHUB_OUTPUT
+            echo "wrangler_command=deploy" >> $GITHUB_OUTPUT
             echo "env_name=Production" >> $GITHUB_OUTPUT
           else
-            # Preview : On surcharge avec l'environnement preview
-            echo "env_flag=--env preview" >> $GITHUB_OUTPUT
+            echo "wrangler_command=versions upload" >> $GITHUB_OUTPUT
             echo "env_name=Preview" >> $GITHUB_OUTPUT
           fi
 
-      - name: Publish to Cloudflare Workers
+      - name: Run Cloudflare Wrangler
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy ${{ steps.target.outputs.env_flag }}
+          command: ${{ steps.target.outputs.wrangler_command }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
