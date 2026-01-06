@@ -10,7 +10,7 @@ useSeoMeta({
   <main class="min-h-[60vh] flex flex-col items-center justify-center p-4">
     <div class="max-w-2xl text-center space-y-8">
       <h1 class="p-2 text-4xl md:text-6xl font-bold bg-linear-to-r from-inverted/40 to-inverted/75 to-70% bg-clip-text text-transparent duration-200 my-12 md:my-24">
-        Coming Soon... Very soon...
+        Coming Soon... Very Soon...
       </h1>
 
       <p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
