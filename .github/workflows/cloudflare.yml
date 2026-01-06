@@ -31,6 +31,8 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           command: types
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Build
         run: bun run build
