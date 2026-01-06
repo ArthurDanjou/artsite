@@ -57,13 +57,6 @@
     },
     "env": {
         "preview": {
-            "routes": [
-                {
-                    "pattern": "preview.arthurdanjou.fr",
-                    "zone_name": "arthurdanjou.fr",
-                    "custom_domain": true
-                }
-            ],
             "d1_databases": [
                 {
                     "binding": "DB",
