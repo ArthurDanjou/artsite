@@ -75,14 +75,14 @@ const grouped_projects = computed(() => {
 
     <div class="flex flex-col gap-16">
       <div
-        v-for="(projects, group) in grouped_projects"
+        v-for="(projects_group, group) in grouped_projects"
         :key="group"
         class="relative"
       >
         <BackgroundTitle :title="group" />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">
           <NuxtLink
-            v-for="project in projects"
+            v-for="project in projects_group"
             :key="project.slug"
             :to="`/projects/${project.slug}`"
             :aria-label="`Open project: ${project.title}`"

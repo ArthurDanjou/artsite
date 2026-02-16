@@ -10,7 +10,9 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    'nuxt-studio'
+    'nuxt-studio',
+    'evlog/nuxt',
+    'evlog/nuxthub'
   ],
 
   devtools: {
@@ -138,6 +140,12 @@ export default defineNuxtConfig({
         quotes: 'single',
         commaDangle: 'never'
       }
+    }
+  },
+
+  evlog: {
+    env: {
+      service: 'artsite'
     }
   },
 

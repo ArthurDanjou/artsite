@@ -1,6 +1,7 @@
 import { queryCollection } from '@nuxt/content/server'
 
 export default defineCachedEventHandler(async (event) => {
+  const log = useLogger(event)
   const result = await queryCollection(event, 'experiences')
     .where('extension', '=', 'md')
     .order('startDate', 'DESC')
@@ -10,6 +11,7 @@ export default defineCachedEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: 'Experience records not found' })
   }
 
+  log.set({ experiences: { count: result.length } })
   return result
 },
 {
