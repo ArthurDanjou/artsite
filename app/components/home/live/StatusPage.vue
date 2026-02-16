@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { StatusPageData } from '~~/types'
 
-const { data, status } = await useAsyncData<StatusPageData>('home-status', () =>
+const { data, status, error } = await useAsyncData<StatusPageData>('home-status', () =>
   $fetch('/api/status-page'),
 { lazy: true }
 )
@@ -49,7 +49,7 @@ const statusState = computed(() => {
 
 <template>
   <ClientOnly>
-    <UCard class="h-full flex flex-col overflow-hidden">
+    <UCard v-if="!error" class="h-full flex flex-col overflow-hidden">
       <div class="p-5 border-b border-neutral-200 dark:border-neutral-800">
         <div class="flex items-center justify-between mb-2">
           <h3 class="font-bold text-neutral-900 dark:text-white text-sm">

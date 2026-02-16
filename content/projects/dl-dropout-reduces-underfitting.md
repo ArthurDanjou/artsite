@@ -1,5 +1,5 @@
 ---
-slug: dropout-reduces-underfitting
+slug: dl-dropout-reduces-underfitting
 title: Dropout Reduces Underfitting
 type: Research Project
 description: TensorFlow/Keras implementation and reproduction of "Dropout Reduces Underfitting" (Liu et al., 2023). A comparative study of Early and Late Dropout strategies to optimize model convergence.

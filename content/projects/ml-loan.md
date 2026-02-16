@@ -1,5 +1,5 @@
 ---
-slug: loan-ml
+slug: ml-loan
 title: Machine Learning for Loan Prediction
 type: Academic Project
 description: Predicting loan approval and default risk using machine learning classification techniques.
