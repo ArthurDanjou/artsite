@@ -12,6 +12,14 @@
   --font-mono: 'Monaspace Neon', 'ui monaspace', monospace;
   --font-sofia: 'Sofia Sans', 'ui sans-serif', sans-serif;
   --font-sans: 'DM Sans', 'ui sans-serif', sans-serif;
+  --font-geist: 'Geist', 'Inter', 'ui sans-serif', sans-serif;
+
+  --color-artlab-primary: #f2a272;
+  --color-artlab-primary-dark: #f5b89b;
+  --color-artlab-bg: #ffffff;
+  --color-artlab-bg-dark: #121212;
+  --color-artlab-text: #393a34;
+  --color-artlab-text-dark: #dbd7caee;
 
   @keyframes wave {
     0% {
@@ -46,13 +54,22 @@
 }
 
 :root {
-  --ui-bg: #f8f8f8;
-  --ui-font-family: 'DM Sans', sans-serif;
+  --ui-bg: #ffffff;
+  --ui-text: #393a34;
+  --ui-border: #f0f0f0;
+  --ui-muted: #7c7f93;
+
+  --ui-font-family: 'Geist', sans-serif;
   transition-duration: 0.7s;
 }
 
 .dark {
-  --ui-bg: #0f0f0f;
+  --ui-bg: #121212;
+  --ui-text: #dbd7caee;
+  --ui-border: #191919;
+  --ui-muted: #9399b2;
+
+  --input-bg: #181818;
 }
 
 .sofia {
