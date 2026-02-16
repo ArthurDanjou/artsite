@@ -79,9 +79,7 @@ const grouped_projects = computed(() => {
         :key="group"
         class="relative"
       >
-        <h1 class="mb-2 font-bold text-7xl text-transparent opacity-15 text-stroke-neutral-400 dark:text-stroke-neutral-500 text-stroke-2 -translate-x-8">
-          {{ group }}
-        </h1>
+        <BackgroundTitle :title="group" />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">
           <NuxtLink
             v-for="project in projects"

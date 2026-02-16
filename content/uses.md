@@ -9,11 +9,12 @@ Research requires a reliable environment. This page documents the hardware infra
 
 ---
 
-## 🖥️ Workstations & Compute
+::BackgroundTitle{title="Workstations & Compute"}
+::
 
 My setup is split between mobile efficiency for academic writing and a fixed station for heavier computation.
 
-::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
 ::card{title="Daily Driver" icon="i-ph-laptop-duotone"}
 **Apple MacBook Pro 13"**
@@ -30,7 +31,7 @@ My setup is split between mobile efficiency for academic writing and a fixed sta
 * **Usage:** Local Deep Learning training, gaming, and heavy compilation tasks.
 ::
 
-::
+:::
 
 ### Peripherals
 I rely on a specific set of tools to maintain flow during deep work sessions.
@@ -42,17 +43,18 @@ I rely on a specific set of tools to maintain flow during deep work sessions.
 
 ---
 
-## 🛠️ Development Ecosystem
+::BackgroundTitle{title="Development Ecosystem"}
+::
 
 I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
-::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
 ::card{title="IDEs & Editors" icon="i-ph-code-duotone"}
 * :prose-icon[VS Code]{color="blue" icon="i-logos:visual-studio-code"} — For general-purpose scripting and remote SSH development.
 * :prose-icon[Positron]{color="cyan" icon="i-devicon:positron"} — Lightweight IDE for R and statistical analysis, offering superior performance to RStudio while maintaining VS Code familiarity.
 * :prose-icon[JetBrains]{color="purple" icon="i-logos:jetbrains"} — *PyCharm* & *DataGrip* are unrivaled for complex refactoring and database management.
-* **Theme:** Catppuccin Latte (Light) / Macchiato (Dark).
+* **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
 * **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
  ```python [main.py]
@@ -69,17 +71,18 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 * :prose-icon[Firefox]{color="orange" icon="i-logos:firefox"} — Chosen for its privacy features and robust DevTools.
 ::
 
-::
+:::
 
 ---
 
-## 🏠 Infrastructure & Homelab
+::BackgroundTitle{title="Infrastructure & Homelab"}
+::
 
 To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**. This allows me to experiment with distributed systems, data pipelines, and network security in a controlled environment.
 
 ### Hardware Infrastructure
 
-::div{class="grid grid-cols-1 md:grid-cols-3 gap-4"}
+:::div{class="grid grid-cols-1 md:grid-cols-3 gap-4"}
 
 ::card{title="Compute Node" icon="i-ph-cpu-duotone"}
 **Beelink EQR6** *:hover-text{text="AMD Ryzen" hover="Proxmox Host"}*
@@ -99,7 +102,7 @@ Centralized Data Lake for datasets and backups.
 Ensures fast, stable local communication.
 ::
 
-::
+:::
 
 ### Service Stack
 I run these services using **Docker** and **Portainer**, strictly behind a **Traefik** reverse proxy.
