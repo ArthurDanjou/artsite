@@ -57,10 +57,10 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 * **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
 * **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
- ```python [main.py]
-  def main():
-      print("Hello, Research Lab!")
-  ```
+```python [main.py]
+def main():
+    print("Hello, Research Lab!")
+```
 ::
 
 ::card{title="Terminal & System" icon="i-ph-terminal-window-duotone"}
