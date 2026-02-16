@@ -16,6 +16,31 @@ tags:
 icon: i-ph-shield-check-duotone
 ---
 
+## Header
+
+- **Projet :** "CND Hackathon: Defense-Grade Log Intelligence"
+- **Date / période estimée :** 2025-10-28
+- **Tags / technos :** Python, Streamlit, Cybersecurity, Machine Learning, Scikit-learn
+
+## Context & Goal
+
+Hackathon cybersécurité du Ministère des Armées, avec un objectif opérationnel : détecter des menaces dans des logs firewall bruités en minimisant les attaques non détectées.
+
+## Methodology/Stack
+
+Prétraitement orienté logs, extraction de features, classification supervisée (Random Forest/XGBoost) optimisée pour le recall, puis exposition des résultats via interface Streamlit.
+
+## Key Results
+
+Le prototype a réduit les faux négatifs face aux baselines initiales et permis une exploitation rapide en mode ligne-à-ligne ou traitement batch CSV.
+
+## Status & Evolution
+
+**État actuel : completed.** Des améliorations futures peuvent cibler la robustesse en production (drift, explicabilité, pipelines MLOps sécurisés).
+
+
+## Notes additionnelles
+
 ## The Setting: Fort de Mont-Valérien
 
 This wasn't your typical university hackathon. Organized by the **Commissariat au Numérique de Défense (CND)**, the event took place over three intense days within the walls of the **Fort de Mont-Valérien**—a highly secured military fortress. 

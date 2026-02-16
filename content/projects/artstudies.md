@@ -16,6 +16,31 @@ tags:
 icon: i-ph-book-duotone
 ---
 
+## Header
+
+- **Projet :** ArtStudies - Academic Projects Collection
+- **Date / période estimée :** 2023-09-01
+- **Tags / technos :** Python, R, Data Science, Mathematics
+
+## Context & Goal
+
+ArtStudies regroupe les projets académiques produits au fil du cursus de mathématiques (L3, M1, M2) pour conserver une trace structurée des travaux.
+
+## Methodology/Stack
+
+Approche multi-projets en Python/R : modélisation statistique, calcul numérique, machine learning et visualisation, avec notebooks et outils scientifiques standards.
+
+## Key Results
+
+La collection centralise les acquis académiques et facilite la réutilisation des méthodes entre disciplines (statistiques, optimisation, IA, finance).
+
+## Status & Evolution
+
+**État actuel : In progress.** Le dépôt est enrichi progressivement avec de nouveaux livrables et consolidations de travaux passés.
+
+
+## Notes additionnelles
+
 [**ArtStudies Projects**](https://github.com/ArthurDanjou/artstudies) is a curated collection of academic projects completed throughout my mathematics studies. The repository showcases work in both _Python_ and _R_, focusing on mathematical modeling, data analysis, and numerical methods.
 
 The projects are organized into three main sections:

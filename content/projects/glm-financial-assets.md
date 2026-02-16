@@ -15,6 +15,31 @@ tags:
 icon: i-ph-graph-duotone
 ---
 
+## Header
+
+- **Projet :** Implied Volatility Surface Modeling
+- **Date / période estimée :** 2026-02-28
+- **Tags / technos :** R, GLM, Finance, Machine Learning
+
+## Context & Goal
+
+Ce projet de finance quantitative cherche à calibrer la surface de volatilité implicite SPX avec un compromis explicite entre précision prédictive et interprétabilité.
+
+## Methodology/Stack
+
+Pipeline statistique à grande échelle en R : GLM (liens/distributions adaptés), features financières (moneyness K/S, maturité transformée), benchmark RMSE contre modèles black-box.
+
+## Key Results
+
+Une base expérimentale reproductible a été posée sur 1.2M+ observations, permettant des comparaisons contrôlées entre modèles transparents et architectures plus complexes.
+
+## Status & Evolution
+
+**État actuel : in progress.** Les prochaines itérations peuvent intégrer des variables de dynamique de marché (vol historique, skew) et des analyses par régime.
+
+
+## Notes additionnelles
+
 This project targets high-precision calibration of the **Implied Volatility Surface** using a large-scale dataset of S&P 500 (SPX) European options.
 
 The core objective is to stress-test classic statistical models against modern predictive algorithms. **Generalized Linear Models (GLMs)** provide a transparent baseline, while more complex "black-box" architectures are evaluated on whether their accuracy gains justify the loss of interpretability in a risk management setting.

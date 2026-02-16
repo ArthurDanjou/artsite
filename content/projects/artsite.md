@@ -16,6 +16,31 @@ tags:
 icon: i-ph-globe-hemisphere-west-duotone
 ---
 
+## Header
+
+- **Projet :** ArtSite - Personal Research Hub
+- **Date / période estimée :** 2024-06-01
+- **Tags / technos :** Nuxt, NuxtHub, Cloudflare Workers, TypeScript
+
+## Context & Goal
+
+ArtSite est conçu comme hub personnel mêlant portfolio en production et terrain d'expérimentation autour du web moderne et de l'Edge.
+
+## Methodology/Stack
+
+Stack full Nuxt (Nuxt/Nitro/Content/UI), déploiement Cloudflare Workers via Wrangler/NuxtHub, avec TypeScript et Zod pour la robustesse des interfaces et des APIs.
+
+## Key Results
+
+Le site sert à la fois de vitrine et de laboratoire technique, avec un socle orienté performance, accessibilité et itérations rapides.
+
+## Status & Evolution
+
+**État actuel : Active.** Le projet continue d'évoluer avec de nouveaux modules Nuxt et des expérimentations Edge en conditions réelles.
+
+
+## Notes additionnelles
+
 [**ArtSite**](https://go.arthurdanjou.fr/website) is my digital headquarters—a unified platform serving as my engineering portfolio and experimental lab. 
 
 More than just a static site, it is a modern **Portfolio** designed to be fast, accessible, and type-safe. It serves as a live production environment where I experiment with the latest frontend technologies and Edge computing paradigms.

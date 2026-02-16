@@ -16,6 +16,31 @@ tags:
 icon: i-ph-lightning-duotone
 ---
 
+## Header
+
+- **Projet :** Reinforcement Learning for Tennis Strategy Optimization
+- **Date / période estimée :** 2026-03-13
+- **Tags / technos :** Reinforcement Learning, Python, Gymnasium, Atari, ALE
+
+## Context & Goal
+
+Le projet transpose des concepts de RL à un environnement compétitif (Atari Tennis) pour analyser la qualité stratégique d'agents appris.
+
+## Methodology/Stack
+
+Implémentation et comparaison DQN/Double-DQN/Dueling/PPO sous Gymnasium-ALE, avec évaluation en self-play type tournoi et benchmark contre baselines Atari.
+
+## Key Results
+
+Une architecture expérimentale complète est en place pour mesurer robustesse, adaptation et stabilité de politique entre approches RL.
+
+## Status & Evolution
+
+**État actuel : in progress.** Les prochaines étapes ciblent l'ajustement de la reward function et la stabilisation de l'entraînement long-horizon.
+
+
+## Notes additionnelles
+
 ## Overview
 
 This project serves as a practical application of theoretical Reinforcement Learning (RL) principles. The goal is to develop and train autonomous agents capable of mastering the complex dynamics of **Atari Tennis**, using the **Arcade Learning Environment (ALE)** via Farama Foundation's Gymnasium.

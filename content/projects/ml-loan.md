@@ -16,6 +16,31 @@ tags:
 icon: i-ph-money-wavy-duotone
 ---
 
+## Header
+
+- **Projet :** Machine Learning for Loan Prediction
+- **Date / période estimée :** 2025-01-24
+- **Tags / technos :** Python, Machine Learning, Regression, Finance, Data Science
+
+## Context & Goal
+
+Projet académique visant à estimer la solvabilité d'emprunteurs et à anticiper le risque de défaut à partir de données de profil.
+
+## Methodology/Stack
+
+Pipeline ML de classification : EDA, feature engineering, comparaison d'algorithmes (régression logistique, forêts, boosting), tuning et validation croisée.
+
+## Key Results
+
+Le projet a permis d'identifier des variables influentes et de comparer des compromis performance/interprétabilité selon les modèles testés.
+
+## Status & Evolution
+
+**État actuel : Completed.** Une évolution possible serait de renforcer l'explicabilité (SHAP/LIME) et le suivi de biais décisionnels.
+
+
+## Notes additionnelles
+
 This project focuses on building machine learning models to predict loan approval outcomes and assess default risk. The objective is to develop robust classification models that can effectively identify creditworthy applicants.
 
 ## 📊 Project Objectives

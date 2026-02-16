@@ -17,6 +17,31 @@ tags:
 icon: i-ph-flask-duotone
 ---
 
+## Header
+
+- **Projet :** ArtLab - Personal HomeLab
+- **Date / période estimée :** 2025-09-04
+- **Tags / technos :** Docker, Proxmox, HomeLab, Self-Hosted, Infrastructure
+
+## Context & Goal
+
+ArtLab a été lancé comme environnement personnel pour expérimenter l'auto-hébergement, sécuriser les services domestiques et consolider un socle DevOps concret.
+
+## Methodology/Stack
+
+Infrastructure HomeLab sur Proxmox et Docker, exposition contrôlée via Tailscale/Cloudflare Tunnel, et supervision des services (Traefik, Uptime Kuma, Homepage).
+
+## Key Results
+
+Un environnement self-hosted stable est opérationnel, avec stockage, média, monitoring et automatisation centralisés dans un même labo personnel.
+
+## Status & Evolution
+
+**État actuel : Active.** Poursuite de l'extension des services et de la fiabilisation de l'infrastructure (sécurité, observabilité, sauvegardes).
+
+
+## Notes additionnelles
+
 [**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab, where I experiment with self-hosting and automation.
 
 My homelab is a self-hosted environment where I deploy, test, and maintain personal services. Everything is securely exposed **only through a private VPN** using [Tailscale](https://tailscale.com/), ensuring encrypted, access-controlled connections across all devices. For selected services, I also use **Cloudflare Tunnels** to enable secure external access without opening ports or exposing my public IP.

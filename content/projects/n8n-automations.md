@@ -17,6 +17,31 @@ tags:
 icon: i-ph-plugs-connected-duotone
 ---
 
+## Header
+
+- **Projet :** n8n Automations
+- **Date / période estimée :** 2026-03-15
+- **Tags / technos :** n8n, Gemini, Self-Hosted, Automation, RAG, Productivity
+
+## Context & Goal
+
+Projet orienté productivité et veille scientifique pour orchestrer des workflows GenAI privés depuis une infrastructure auto-hébergée.
+
+## Methodology/Stack
+
+Automatisations n8n connectant Notion, Calendar, Todoist, Gmail/Discord et flux RSS, avec couche LLM (Gemini/Ollama) pour filtrage sémantique et logique RAG.
+
+## Key Results
+
+Un hub automatisé centralise agenda/tâches et alimente un agent de recherche contextuel pour accélérer la veille académique.
+
+## Status & Evolution
+
+**État actuel : in progress.** Les itérations à venir portent sur le raffinement des prompts de filtrage et la qualité de récupération du RAG.
+
+
+## Notes additionnelles
+
 ## Overview
 
 This project focuses on designing and implementing autonomous workflows that leverage Large Language Models (LLMs) to streamline productivity and academic research. By orchestrating Generative AI through a self-hosted infrastructure on my **[ArtLab](/projects/artlab)**, I have built a private ecosystem that acts as both a personal assistant and a specialized research agent.

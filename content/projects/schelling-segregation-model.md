@@ -16,6 +16,31 @@ tags:
 icon: i-ph-city-duotone
 ---
 
+## Header
+
+- **Projet :** Schelling Segregation Model
+- **Date / période estimée :** 2024-05-03
+- **Tags / technos :** Python, Data Visualization, Statistics, Modeling, Mathematics
+
+## Context & Goal
+
+Projet de modélisation mené pour étudier l'émergence de la ségrégation spatiale à partir de règles locales simples (modèle de Schelling).
+
+## Methodology/Stack
+
+Implémentation Python du modèle agent-based, puis analyse statistique et visualisation des configurations obtenues selon différents paramètres.
+
+## Key Results
+
+Le projet illustre comment des préférences individuelles modestes peuvent produire des structures globales fortement ségréguées.
+
+## Status & Evolution
+
+**État actuel : Completed.** Une évolution possible est l'exploration de variantes multi-groupes et de métriques d'inégalité spatiale supplémentaires.
+
+
+## Notes additionnelles
+
 This report presents the Schelling Segregation Model project completed as part of the **Projet Numérique** course at Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.
 
 ## 📚 Resources

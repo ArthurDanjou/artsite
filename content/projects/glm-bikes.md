@@ -15,6 +15,31 @@ tags:
 icon: i-ph-bicycle-duotone
 ---
 
+## Header
+
+- **Projet :** Generalized Linear Models for Bikes Prediction
+- **Date / période estimée :** 2025-01-24
+- **Tags / technos :** R, Statistics, GLM, Mathematics
+
+## Context & Goal
+
+Projet réalisé en cours de GLM pour modéliser les comptes de locations de vélos et comprendre les facteurs explicatifs de la demande.
+
+## Methodology/Stack
+
+Comparaison de familles GLM (Poisson, Binomiale négative, Gaussienne), diagnostics de résidus, sélection de variables et validation croisée. Accent sur la structure probabiliste des comptages et les hypothèses de dispersion.
+
+## Key Results
+
+Le travail met en évidence l'impact de la saisonnalité et des variables météo, tout en identifiant des compromis robustesse/interprétabilité entre spécifications de modèles.
+
+## Status & Evolution
+
+**État actuel : Completed.** Une évolution naturelle serait d'intégrer des effets non linéaires/mixtes pour capturer des dynamiques temporelles plus fines.
+
+
+## Notes additionnelles
+
 This project was completed as part of the **Generalized Linear Models** course at Paris-Dauphine PSL University. The objective was to develop and compare statistical models to predict the number of bicycle rentals in a bike-sharing system based on various environmental and temporal characteristics.
 
 ## 📊 Project Objectives

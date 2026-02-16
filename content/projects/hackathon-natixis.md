@@ -16,6 +16,31 @@ tags:
 icon: i-ph-database-duotone
 ---
 
+## Header
+
+- **Projet :** "Natixis Hackathon: Generative SQL Analytics"
+- **Date / période estimée :** 2026-03-07
+- **Tags / technos :** Nuxt, Ollama, Vercel AI SDK, PostgreSQL, ETL
+
+## Context & Goal
+
+Hackathon Natixis centré sur la démocratisation de l'accès aux données financières via un agent conversationnel capable de générer et expliquer des requêtes SQL.
+
+## Methodology/Stack
+
+Chaîne NL-to-SQL avec Nuxt, Vercel AI SDK et Ollama, adossée à une phase ETL (xlsx/csv vers PostgreSQL) et à des mécanismes d'auto-correction de requêtes.
+
+## Key Results
+
+Un prototype fonctionnel a été livré : génération SQL multi-tables, visualisations dynamiques et synthèses textuelles pour les utilisateurs non techniques.
+
+## Status & Evolution
+
+**État actuel : completed.** Les suites possibles incluent le durcissement des garde-fous SQL et l'amélioration de la précision des prompts métier.
+
+
+## Notes additionnelles
+
 ## The Challenge
 
 Organized by **Natixis**, this hackathon followed a unique high-intensity format: **three consecutive Saturdays** of on-site development, bridged by two full weeks of remote collaboration. 

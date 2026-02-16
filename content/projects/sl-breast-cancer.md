@@ -15,6 +15,31 @@ tags:
 icon: i-ph-heart-half-duotone
 ---
 
+## Header
+
+- **Projet :** Breast Cancer Detection
+- **Date / période estimée :** 2025-06-06
+- **Tags / technos :** Python, Machine Learning, Classification, Healthcare
+
+## Context & Goal
+
+Projet de Statistical Learning focalisé sur la détection du cancer du sein à partir de variables cliniques, avec enjeu fort de rappel et de robustesse en contexte médical.
+
+## Methodology/Stack
+
+Comparaison de classifieurs supervisés (régression logistique, k-NN, Naive Bayes, MLP), validation croisée stratifiée, gestion du déséquilibre et régularisation.
+
+## Key Results
+
+L'étude met en évidence les compromis entre modèles et confirme la pertinence d'une évaluation centrée F1-score pour limiter les erreurs critiques.
+
+## Status & Evolution
+
+**État actuel : Completed.** Une piste d'évolution serait d'ajouter calibration des probabilités et interprétabilité clinique des décisions.
+
+
+## Notes additionnelles
+
 This project was carried out as part of the **Statistical Learning** course at Paris-Dauphine PSL University. The objective is to identify the most effective model for predicting or explaining the presence of breast cancer based on a set of biological and clinical features.
 
 ## 📊 Project Objectives

@@ -15,6 +15,31 @@ tags:
 icon: i-ph-chart-bar-duotone
 ---
 
+## Header
+
+- **Projet :** Data Visualisation Project
+- **Date / période estimée :** 2026-01-05
+- **Tags / technos :** R, R Shiny, Data Visualization, ggplot2
+
+## Context & Goal
+
+Ce projet vise à rendre l'exploration de données plus accessible via une application interactive développée dans un cadre académique.
+
+## Methodology/Stack
+
+Développement sous R Shiny avec ggplot2/tidyverse et briques cartographiques (sf, leaflet, rnaturalearth) pour produire des vues dynamiques et explorables.
+
+## Key Results
+
+Une base applicative et un rapport détaillé ont été produits, avec une orientation forte sur l'interactivité et la lisibilité des résultats.
+
+## Status & Evolution
+
+**État actuel : Completed (historique indique aussi une phase en cours).** Une mise à jour de cohérence documentaire peut préciser les fonctionnalités finalisées.
+
+
+## Notes additionnelles
+
 ::warning
 The project is currently in progress, and more details will be added as development continues.
 ::

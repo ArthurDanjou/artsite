@@ -15,6 +15,31 @@ tags:
 icon: i-ph-share-network-duotone
 ---
 
+## Header
+
+- **Projet :** Dropout Reduces Underfitting
+- **Date / période estimée :** 2024-12-10
+- **Tags / technos :** Python, TensorFlow, Deep Learning, Research
+
+## Context & Goal
+
+Le projet a été mené pour reproduire rigoureusement l'article Dropout Reduces Underfitting et vérifier empiriquement ses hypothèses sur différents jeux de données.
+
+## Methodology/Stack
+
+Implémentation TensorFlow/Keras de stratégies Early/Late/Standard Dropout via couche dynamique et scheduler piloté par variable partagée, avec pipeline d'expérimentation comparatif.
+
+## Key Results
+
+La reproduction fournit un cadre modulaire réutilisable, des protocoles d'ablation et des observations cohérentes avec la littérature sur les régimes d'underfitting/overfitting.
+
+## Status & Evolution
+
+**État actuel : Completed.** Les évolutions pertinentes portent sur l'extension à d'autres architectures et datasets pour renforcer la généralisation.
+
+
+## Notes additionnelles
+
 > **Study and reproduction of the paper:** Liu, Z., et al. (2023). *Dropout Reduces Underfitting*. arXiv:2303.01500.
 
 The paper is available at: [https://arxiv.org/abs/2303.01500](https://arxiv.org/abs/2303.01500)
