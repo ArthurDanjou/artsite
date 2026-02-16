@@ -20,7 +20,7 @@ export const collections = {
         readingTime: z.number(),
         tags: z.array(z.string()),
         favorite: z.boolean().optional(),
-        status: z.enum(['active', 'completed', 'archived', 'in progress']),
+        status: z.enum(['Active', 'Completed', 'Archived', 'In progress']),
         icon: z.string()
       })
     })),

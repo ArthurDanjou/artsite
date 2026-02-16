@@ -16,7 +16,7 @@ tags:
 icon: i-ph-city-duotone
 ---
 
-This report presents the Schelling Segregation Model project completed as part of the **Projet Numérique** course at Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.
+This report presents the Schelling Segregation Model project completed as part of the **Projet Numerique** course at Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.
 
 ## 📚 Resources
 

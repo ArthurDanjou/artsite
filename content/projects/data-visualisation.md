@@ -16,10 +16,10 @@ icon: i-ph-chart-bar-duotone
 ---
 
 ::warning
-The project is currently in progress, and more details will be added as development continues.
+The project is complete, but the documentation is still being expanded with more details.
 ::
 
-This project involves creating an interactive data visualization application using R and R Shiny. The goal is to develop dynamic and explorable visualizations that allow users to interact with the data in meaningful ways.
+This project involves building an interactive data visualization application using R and R Shiny. The goal is to deliver dynamic, explorable visualizations that let users interact with the data in meaningful ways.
 
 ## 🛠️ Technologies & Tools
 
@@ -45,7 +45,7 @@ This project involves creating an interactive data visualization application usi
 
 ## 📚 Resources
 
-You can find the code here: [Data Visualisation Code](https://go.arthurdanjou.fr/datavis-code)  
+You can find the code here: [Data Visualisation Code](https://go.arthurdanjou.fr/datavis-code)
 
 And the online application here: [Data Visualisation App](https://go.arthurdanjou.fr/datavis-app)
 

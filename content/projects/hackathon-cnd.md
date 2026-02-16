@@ -6,7 +6,7 @@ description: A high-stakes cybersecurity challenge organized by the French Minis
 shortDescription: Cybersecurity threat detection within a high-security military environment.
 publishedAt: 2025-10-28
 readingTime: 4
-status: completed
+status: Completed
 tags:
   - Python
   - Streamlit
@@ -18,9 +18,9 @@ icon: i-ph-shield-check-duotone
 
 ## The Setting: Fort de Mont-Valérien
 
-This wasn't your typical university hackathon. Organized by the **Commissariat au Numérique de Défense (CND)**, the event took place over three intense days within the walls of the **Fort de Mont-Valérien**—a highly secured military fortress. 
+This was not a typical university hackathon. Organized by the **Commissariat au Numerique de Defense (CND)**, the event took place over three intense days within the walls of the **Fort de Mont-Valerien**, a highly secured military fortress.
 
-Working in this environment underscored the real-world stakes of the mission. Our **team of six**, representing **Université Paris-Dauphine**, competed against several elite engineering schools to solve critical defense-related data challenges.
+Working in this environment underscored the real-world stakes of the mission. Our **team of six**, representing **Universite Paris-Dauphine**, competed against several elite engineering schools to solve critical defense-related data challenges.
 
 ## The Mission: Classifying the "Invisible"
 
@@ -32,11 +32,11 @@ Firewall logs are often cryptic and inconsistent. We developed a preprocessing p
 * **Contextual Labeling:** Distinguish between routine system "bugs" (non-malicious failures) and actual "attacks" (malicious intent).
 
 ### 2. Strategic Goal: Recalling the Threat
-In military cybersecurity, the cost of a **False Negative** (an undetected attack) is catastrophic. 
+In military cybersecurity, the cost of a **False Negative** (an undetected attack) is catastrophic.
 * **Model Priority:** We optimized our classifiers specifically for **Recall**. We would rather investigate a few system bugs (False Positives) than let a single attack slip through the net.
 * **Techniques:** We used ensemble methods (XGBoost/Random Forest) combined with advanced resampling to handle the heavy class imbalance typical of network traffic.
 
-> **Key Achievement:** Our model significantly reduced the rate of undetected threats compared to standard baseline configurations provided at the start of the challenge.
+> **Key Achievement:** Our model significantly reduced the rate of undetected threats compared to the baseline configurations provided at the start of the challenge.
 
 ## Deployment & Interaction
 
@@ -52,4 +52,4 @@ To make our findings operational, we built a **Streamlit-based command center**:
 
 ---
 
-Representing Dauphine in such a specialized environment was a highlight of my academic year. Would you like me to elaborate on the specific feature engineering techniques we used to "clean" the raw military logs?
+Representing Dauphine in such a specialized environment was a highlight of my academic year. I can share more details on the feature engineering techniques we used to clean the raw military logs.

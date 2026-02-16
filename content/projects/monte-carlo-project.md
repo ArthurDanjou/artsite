@@ -17,16 +17,16 @@ tags:
 icon: i-ph-dice-five-duotone
 ---
 
-This report presents the Monte Carlo Methods Project completed as part of the **Monte Carlo Methods** course at Paris-Dauphine University. The goal was to implement different methods and algorithms using Monte Carlo methods in R.
+This report presents the Monte Carlo Methods Project completed as part of the **Monte Carlo Methods** course at Paris-Dauphine University. The goal was to implement a range of Monte Carlo methods and algorithms in R.
 
 ## 🛠️ Methods and Algorithms
 
 - Plotting graphs of functions
-- Inverse c.d.f. Random Variation simulation
-- Accept-Reject Random Variation simulation
-- Random Variable simulation with stratification
+- Inverse CDF random variation simulation
+- Accept-Reject random variation simulation
+- Random variable simulation with stratification
 - Cumulative density function
-- Empirical Quantile Function
+- Empirical quantile function
 
 ## 📚 Resources
 

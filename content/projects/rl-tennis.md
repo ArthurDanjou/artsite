@@ -6,7 +6,7 @@ description: An academic project exploring the application of reinforcement lear
 shortDescription: Reinforcement learning algorithms applied to Atari tennis matches for strategy optimization and competitive benchmarking.
 publishedAt: 2026-03-13
 readingTime: 3
-status: in progress
+status: In progress
 tags:
   - Reinforcement Learning
   - Python
@@ -30,7 +30,7 @@ The project is divided into three core phases:
 I am implementing several key RL algorithms covered during my academic curriculum to observe their behavioral differences in a high-dimensional state space:
 * **Value-Based Methods:** Deep Q-Networks (DQN) and its variants (Double DQN, Dueling DQN).
 * **Policy Gradient Methods:** Proximal Policy Optimization (PPO) for more stable continuous action control.
-* **Exploration Strategies:** Implementing Epsilon-greedy and Entropy-based exploration to handle the sparse reward signals in tennis rallies.
+* **Exploration Strategies:** Implementing epsilon-greedy and entropy-based exploration to handle the sparse reward signals in tennis rallies.
 
 ### 2. The "Grand Slam" Tournament (Self-Play)
 To determine the most robust strategy, I developed a competitive framework:
@@ -49,4 +49,4 @@ The final "Boss Level" involves taking my best-performing trained agent and test
 
 ---
 
-*This project is currently in the training phase. I am currently fine-tuning the reward function to discourage "passive" play and reward aggressive net approaches.*
+*This project is currently in the training phase. I am fine-tuning the reward function to discourage "passive" play and reward aggressive net approaches.*

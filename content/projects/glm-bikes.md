@@ -15,18 +15,18 @@ tags:
 icon: i-ph-bicycle-duotone
 ---
 
-This project was completed as part of the **Generalized Linear Models** course at Paris-Dauphine PSL University. The objective was to develop and compare statistical models to predict the number of bicycle rentals in a bike-sharing system based on various environmental and temporal characteristics.
+This project was completed as part of the **Generalized Linear Models** course at Paris-Dauphine PSL University. The objective was to develop and compare statistical models that predict bicycle rentals in a bike-sharing system using environmental and temporal features.
 
 ## 📊 Project Objectives
 
 - Determine the best predictive model for bicycle rental counts
-- Analyze the impact of various features (temperature, humidity, wind speed, seasonality, etc.)
+- Analyze the impact of key features (temperature, humidity, wind speed, seasonality, etc.)
 - Apply and evaluate different generalized linear modeling techniques
 - Validate model assumptions and performance metrics
 
 ## 🔍 Methodology
 
-The study employs rigorous statistical approaches including:
+The study uses a rigorous statistical workflow, including:
 
 - **Exploratory Data Analysis (EDA)** - Understanding feature distributions and relationships
 - **Model Comparison** - Testing multiple GLM families (Poisson, Negative Binomial, Gaussian)

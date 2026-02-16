@@ -119,7 +119,7 @@ const grouped_projects = computed(() => {
                     :delay-duration="4"
                   >
                     <UBadge
-                      v-if="project.status === 'in progress'"
+                      v-if="project.status === 'In progress'"
                       color="blue"
                       variant="soft"
                       size="sm"
@@ -131,7 +131,7 @@ const grouped_projects = computed(() => {
                     :delay-duration="4"
                   >
                     <UBadge
-                      v-if="project.status === 'archived'"
+                      v-if="project.status === 'Archived'"
                       color="gray"
                       variant="soft"
                       size="sm"

@@ -6,7 +6,7 @@ description: A large-scale statistical study comparing Generalized Linear Models
 shortDescription: Predicting the SPX volatility surface using GLMs and black-box models on 1.2 million observations.
 publishedAt: 2026-02-28
 readingTime: 3
-status: in progress
+status: In progress
 tags:
   - R
   - GLM
@@ -17,7 +17,7 @@ icon: i-ph-graph-duotone
 
 This project targets high-precision calibration of the **Implied Volatility Surface** using a large-scale dataset of S&P 500 (SPX) European options.
 
-The core objective is to stress-test classic statistical models against modern predictive algorithms. **Generalized Linear Models (GLMs)** provide a transparent baseline, while more complex "black-box" architectures are evaluated on whether their accuracy gains justify the loss of interpretability in a risk management setting.
+The core objective is to stress-test classic statistical models against modern predictive algorithms. **Generalized Linear Models (GLMs)** provide a transparent baseline, while more complex "black-box" architectures are evaluated on whether their accuracy gains justify reduced interpretability in a risk management context.
 
 ## 📊 Dataset & Scale
 
@@ -44,7 +44,7 @@ Key financial indicators are derived from the raw data:
 
 ## 📈 Evaluation & Reproducibility
 
-Performance is measured strictly via RMSE on the original scale of the target variable. To ensure reproducibility and precise comparisons across model iterations, a fixed random seed is maintained throughout the entire workflow.
+Performance is measured strictly via RMSE on the original scale of the target variable. To ensure reproducibility and precise comparisons across model iterations, a fixed random seed is maintained throughout the workflow.
 
 ```r
 set.seed(2025)

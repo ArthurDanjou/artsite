@@ -19,20 +19,20 @@ icon: i-ph-share-network-duotone
 
 The paper is available at: [https://arxiv.org/abs/2303.01500](https://arxiv.org/abs/2303.01500)
 
-This repository contains a robust and modular implementation in **TensorFlow/Keras** of **Early Dropout** and **Late Dropout** strategies. The goal is to verify the hypothesis that dropout, traditionally used to reduce overfitting, can also combat underfitting when applied solely during the initial training phase.
+This repository contains a robust, modular **TensorFlow/Keras** implementation of **Early Dropout** and **Late Dropout** strategies. The goal is to verify the hypothesis that dropout, traditionally used to reduce overfitting, can also combat underfitting when applied only during the initial training phase.
 
 ## 🎯 Scientific Objectives
 
-The study aims to validate the three operating regimes of Dropout described in the paper:
+The study aims to validate the operating regimes of Dropout described in the paper:
 
-1.  **Early Dropout** (Targeting Underfitting): Active only during the initial phase to reduce gradient variance and align their direction, allowing for better final optimization.
-2.  **Late Dropout** (Targeting Overfitting): Disabled at the start to allow rapid learning, then activated to regularize final convergence.
-3.  **Standard Dropout**: Constant rate throughout training (Baseline).
-4.  **No Dropout**: Control experiment without dropout.
+1. **Early Dropout** (Targeting Underfitting): Active only during the initial phase to reduce gradient variance and align their direction, enabling better final optimization.
+2. **Late Dropout** (Targeting Overfitting): Disabled at the start to allow rapid learning, then activated to regularize final convergence.
+3. **Standard Dropout**: Constant rate throughout training (baseline).
+4. **No Dropout**: Control experiment without dropout.
 
 ## 🛠️ Technical Architecture
 
-Unlike naive Keras callback implementations, this project uses a **dynamic approach via the TensorFlow graph** to ensure the dropout rate is properly updated on the GPU without model recompilation.
+Unlike naive Keras callback implementations, this project uses a **dynamic approach via the TensorFlow graph** to ensure the dropout rate updates on the GPU without model recompilation.
 
 ### Key Components
 
@@ -65,7 +65,7 @@ git clone https://github.com/arthurdanjou/dropoutreducesunderfitting.git
 cd dropoutreducesunderfitting
 ```
 
-##  Install dependencies
+## Install dependencies
 ```bash
 pip install tensorflow numpy matplotlib seaborn scikit-learn
 ```
@@ -86,7 +86,7 @@ exp = ExperimentPipeline(dataset_name="fashion_mnist", model_type="cnn")
 
 ### 2. Learning Curves Comparison
 
-Compare training dynamics (Loss & Accuracy) of the three strategies.
+Compare training dynamics (loss and accuracy) of the three strategies.
 
 ```python
 exp.compare_learning_curves(
@@ -137,7 +137,7 @@ exp.run_dataset_size_comparison(
 
 According to the paper, you should observe:
 
-- Early Dropout: Higher initial Loss, followed by a sharp drop after the switch_epoch, often reaching a lower minimum than Standard Dropout (reduction of underfitting).
+- Early Dropout: Higher initial loss, followed by a sharp drop after the switch_epoch, often reaching a lower minimum than Standard Dropout (reduction of underfitting).
 - Late Dropout: Rapid rise in accuracy at the start (potential overfitting), then stabilized by the activation of dropout.
 
 ## 📄 Detailed Report
