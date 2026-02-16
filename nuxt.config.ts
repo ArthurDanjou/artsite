@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-studio',
     'evlog/nuxt',
-    'evlog/nuxthub'
+    '@evlog/nuxthub'
   ],
 
   devtools: {
@@ -146,7 +146,8 @@ export default defineNuxtConfig({
   evlog: {
     env: {
       service: 'artsite'
-    }
+    },
+    retention: '7d',
   },
 
   schemaOrg: {
