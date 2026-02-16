@@ -9,7 +9,7 @@
         "@nuxt/content": "3.11.2",
         "@nuxt/eslint": "1.15.1",
         "@nuxt/ui": "^4.4.0",
-        "@nuxthub/core": "0.10.6",
+        "@nuxthub/core": "^0.10.6",
         "@nuxtjs/mdc": "0.20.1",
         "@nuxtjs/seo": "3.4.0",
         "@vueuse/core": "^14.2.1",
