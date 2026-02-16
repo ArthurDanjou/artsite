@@ -9,11 +9,12 @@ Research demands deep focus, but breakthrough ideas often come from stepping bac
 
 ---
 
-## ⚡ High-Velocity Interests
+::BackgroundTitle{title="High-Velocity Interests"}
+::
 
 I am drawn to environments where strategy, speed, and precision intersect. These are not just pastimes, but exercises in optimization under constraints.
 
-::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
 ::card{title="Motorsports Strategy" icon="i-ph-flag-checkered-duotone"}
 **Formula 1 Enthusiast**
@@ -27,15 +28,16 @@ Team sports are my foundation for resilience. As a :hover-text{text="former Rugb
 * **Takeaway:** Collective intelligence always outperforms individual brilliance.
 ::
 
-::
+:::
 
 ---
 
-## 🌍 Perspectives & Culture
+::BackgroundTitle{title="Perspectives & Culture"}
+::
 
 Curiosity is the fuel of a researcher. Expanding my horizon helps me approach problems with fresh angles.
 
-::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
 ::card{title="Global Exploration" icon="i-ph-airplane-tilt-duotone"}
 **Travel & Adaptation**
@@ -48,11 +50,12 @@ Exposure to diverse systems fosters adaptability. From the history of **Egypt** 
 As a long-time supporter of **PSG**, I appreciate the tactical analysis and performance management at the highest level. Football is a game of :hover-text{text="spatial optimization" hover="Controlling space & transitions"}, much like architecting a neural network.
 ::
 
-::
+:::
 
 ---
 
-## 🎵 Creative Patterns
+::BackgroundTitle{title="Creative Patterns"}
+::
 
 **Music** serves as my cognitive reset. Training my ear to recognize harmony and structure translates directly to identifying elegant solutions in system design. It reinforces my belief that great engineering, like great music, requires both **technical precision** and **artistic intuition**.
 
