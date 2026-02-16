@@ -35,7 +35,7 @@ Une base applicative et un rapport détaillé ont été produits, avec une orien
 
 ## Status & Evolution
 
-**État actuel : Completed (historique indique aussi une phase en cours).** Une mise à jour de cohérence documentaire peut préciser les fonctionnalités finalisées.
+**État actuel : Completed.** Une mise à jour de cohérence documentaire peut préciser les fonctionnalités finalisées.
 
 
 ## Notes additionnelles
