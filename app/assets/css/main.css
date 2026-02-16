@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@utility text-stroke-* {
+  -webkit-text-stroke-width: calc(--value(integer) * 1px);
+  -webkit-text-stroke-color: --value(--color-*);
+  -webkit-text-stroke-color: --value([*]);
+}
+
 @theme {
   --animate-wave: wave 2.5s infinite;
   --font-mono: 'Monaspace Neon', 'ui monaspace', monospace;
