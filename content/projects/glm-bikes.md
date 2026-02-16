@@ -3,6 +3,7 @@ slug: glm-bikes
 title: Generalized Linear Models for Bikes Prediction
 type: Academic Project
 description: Predicting the number of bikes rented in a bike-sharing system using Generalized Linear Models and various statistical techniques.
+shortDescription: A project applying Generalized Linear Models to predict bike rentals based on environmental and temporal features.
 publishedAt: 2025-01-24
 readingTime: 1
 status: Completed

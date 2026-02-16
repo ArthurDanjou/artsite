@@ -3,6 +3,7 @@ slug: data-visualisation
 title: Data Visualisation Project
 type: Academic Project
 description: An interactive data visualization project built with R, R Shiny, and ggplot2 for creating dynamic, explorable visualizations.
+shortDescription: An interactive data visualization project using R and R Shiny.
 publishedAt: 2026-01-05
 readingTime: 1
 status: Completed

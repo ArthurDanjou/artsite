@@ -3,6 +3,7 @@ slug: artsite
 title: ArtSite - Personal Research Hub
 type: Personal Project
 description: My digital headquarters. A high-performance portfolio built on the Edge using the full Nuxt ecosystem, deployed to Cloudflare Workers via Wrangler.
+shortDescription: A modern portfolio and experimental lab built on the Nuxt ecosystem and deployed to Cloudflare Workers.
 publishedAt: 2024-06-01
 readingTime: 2
 favorite: true

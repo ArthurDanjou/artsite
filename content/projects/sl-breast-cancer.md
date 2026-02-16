@@ -3,6 +3,7 @@ slug: sl-breast-cancer
 title: Breast Cancer Detection
 type: Academic Project
 description: Prediction of breast cancer presence by comparing several supervised classification models using machine learning techniques.
+shortDescription: A project comparing supervised classification models to predict breast cancer presence using machine learning.
 publishedAt: 2025-06-06
 readingTime: 2
 status: Completed

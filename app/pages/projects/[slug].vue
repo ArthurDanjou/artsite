@@ -38,8 +38,6 @@ defineOgImageComponent('NuxtSeo', {
   theme: '#F43F5E'
 })
 
-const { statusColors, typeColors } = useProjectColors()
-
 const formattedDate = computed(() => {
   if (!project.value?.publishedAt) return null
   return new Date(project.value.publishedAt).toLocaleDateString('en-US', {
@@ -82,14 +80,12 @@ const formattedDate = computed(() => {
           <div class="flex flex-wrap items-center gap-2 mb-4">
             <UBadge
               v-if="project.type"
-              :color="(typeColors[project.type] || 'neutral') as any"
               variant="subtle"
             >
               {{ project.type }}
             </UBadge>
             <UBadge
               v-if="project.status"
-              :color="(statusColors[project.status] || 'neutral') as any"
               variant="subtle"
             >
               {{ project.status }}

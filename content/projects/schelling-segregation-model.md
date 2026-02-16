@@ -3,6 +3,7 @@ slug: schelling-segregation-model
 title: Schelling Segregation Model
 type: Academic Project
 description: A Python implementation of the Schelling Segregation Model using statistics and data visualization to analyze spatial segregation patterns.
+shortDescription: A project implementing the Schelling Segregation Model in Python.
 publishedAt: 2024-05-03
 readingTime: 4
 status: Completed

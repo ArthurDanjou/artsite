@@ -3,6 +3,7 @@ slug: monte-carlo-project
 title: Monte Carlo Methods Project
 type: Academic Project
 description: An implementation of different Monte Carlo methods and algorithms in R, including inverse CDF simulation, accept-reject methods, and stratification techniques.
+shortDescription: A project implementing various Monte Carlo methods and algorithms in R.
 publishedAt: 2024-11-24
 readingTime: 3
 status: Completed

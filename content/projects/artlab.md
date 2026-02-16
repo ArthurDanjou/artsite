@@ -1,8 +1,9 @@
 ---
 slug: artlab
 title: ArtLab - Personal HomeLab
-type: Infrastructure Project
+type: Personal Project
 description: A personal homelab environment where I deploy, test, and maintain self-hosted services with privacy-focused networking through VPN and Cloudflare Tunnels.
+shortDescription: A personal homelab environment for self-hosting and automation.
 publishedAt: 2025-09-04
 readingTime: 1
 favorite: true
@@ -39,6 +40,6 @@ My homelab is a self-hosted environment where I deploy, test, and maintain perso
 
 - **Beelink EQR6**: AMD Ryzen mini PC, main server host.
 - **TP-Link 5-port Switch**: Network connectivity for all devices.
-- **UGREEN NASync DXP4800 Plus**: 4-bay NAS, currently populated with 2 × 8TB drives for storage and backups.
+- **UGREEN NASync DXP4800 Plus**: 4-bay NAS, currently populated with 2 x 8TB drives for storage and backups.
 
 This homelab is a sandbox for DevOps experimentation, infrastructure reliability, and privacy-respecting digital autonomy.

@@ -3,6 +3,7 @@ slug: artstudies
 title: ArtStudies - Academic Projects Collection
 type: Academic Project
 description: A curated collection of mathematics and data science projects developed during my academic journey, spanning Bachelor's and Master's studies.
+shortDescription: A collection of academic projects in mathematics and data science from my university studies.
 publishedAt: 2023-09-01
 readingTime: 1
 favorite: true

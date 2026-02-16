@@ -13,10 +13,11 @@ export const collections = {
       schema: z.object({
         slug: z.string(),
         title: z.string(),
-        type: z.string().optional(),
+        type: z.enum(['Personal Project', 'Academic Project', 'Hackathon', 'Research Project', 'Internship Project']),
         description: z.string(),
+        shortDescription: z.string(),
         publishedAt: z.string(),
-        readingTime: z.number().optional(),
+        readingTime: z.number(),
         tags: z.array(z.string()),
         favorite: z.boolean().optional(),
         status: z.enum(['active', 'completed', 'archived', 'in progress']),

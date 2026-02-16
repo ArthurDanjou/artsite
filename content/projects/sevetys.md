@@ -3,6 +3,7 @@ slug: sevetys
 title: Data Engineer Internship at Sevetys
 type: Internship Project
 description: Summary of my internship as a Data Engineer at Sevetys, focusing on data quality, cleaning, standardization, and comprehensive data quality metrics.
+shortDescription: A summary of my Data Engineer internship at Sevetys, focusing on data quality and cleaning processes.
 publishedAt: 2025-07-31
 readingTime: 2
 status: Completed
