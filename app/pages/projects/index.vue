@@ -142,6 +142,20 @@ const grouped_projects = computed(() => {
                 <p class="italic text-xs text-muted">
                   {{ project.shortDescription }}
                 </p>
+                <div
+                  v-if="project.tags?.length"
+                  class="flex flex-wrap gap-1.5"
+                >
+                  <UBadge
+                    v-for="tag in project.tags"
+                    :key="tag"
+                    color="neutral"
+                    variant="outline"
+                    size="xs"
+                  >
+                    {{ tag }}
+                  </UBadge>
+                </div>
               </div>
             </div>
           </nuxtlink>
