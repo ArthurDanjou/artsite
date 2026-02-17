@@ -41,12 +41,12 @@
     "@iconify-json/logos": "^1.2.10",
     "@iconify-json/ph": "^1.2.2",
     "@iconify-json/twemoji": "1.2.5",
-    "@iconify-json/vscode-icons": "1.2.42",
+    "@iconify-json/vscode-icons": "1.2.43",
     "@types/node": "25.2.3",
     "@vueuse/nuxt": "14.2.1",
     "eslint": "10.0.0",
     "typescript": "^5.9.3",
     "vue-tsc": "3.2.4",
-    "wrangler": "4.65.0"
+    "wrangler": "4.66.0"
   }
 }
