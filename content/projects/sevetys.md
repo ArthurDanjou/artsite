@@ -20,13 +20,15 @@ icon: i-ph-dog-duotone
 
 Committed to digital innovation, Sevetys leverages centralized data systems to optimize clinic operations, improve patient data management, and enhance the overall client experience. This combination of medical excellence and operational efficiency supports veterinarians in delivering high-quality care nationwide.
 
-## 🎯 Internship Objectives
+::BackgroundTitle{title="Internship Objectives"}
+::
 
 During my two-month internship as a Data Engineer, I focused primarily on cleaning and standardizing customer and patient data, a critical task because this data is extensively used by clinics, Marketing, and Performance teams. Ensuring data quality was essential to the company's operations.
 
 Additionally, I revised and enhanced an existing data quality report designed to evaluate the effectiveness of my cleaning processes. The report covered 47 detailed metrics assessing data completeness and consistency, providing valuable insights that helped maintain high standards across the organization.
 
-## ⚙️ Technology Stack
+::BackgroundTitle{title="Technology Stack"}
+::
 
 - **[Microsoft Azure Cloud](https://azure.microsoft.com/)**: Cloud infrastructure platform
 - **[PySpark](https://spark.apache.org/docs/latest/api/python/)**: Distributed data processing framework

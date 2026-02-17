@@ -17,11 +17,13 @@ tags:
 icon: i-ph-wind-duotone
 ---
 
-## Overview
+::BackgroundTitle{title="Overview"}
+::
 
 This project is a detailed study of **wind risk assessment and modeling** in the context of natural disasters, using the **December 1999 Martin Storm** as a case study. The analysis combines statistical methods, meteorological data, and spatial analysis techniques to understand and quantify the impacts of extreme wind events.
 
-## 🎯 Objectives
+::BackgroundTitle{title="Objectives"}
+::
 
 The primary objectives of this research were:
 
@@ -31,7 +33,8 @@ The primary objectives of this research were:
 4. **Quantify economic and environmental impacts** of the storm
 5. **Develop predictive models** for future risk assessment and disaster preparedness
 
-## 📊 Methodology
+::BackgroundTitle{title="Methodology"}
+::
 
 ### Data Sources
 - Historical meteorological records from the 1999 Martin Storm
@@ -52,7 +55,8 @@ The primary objectives of this research were:
 - Peak-over-threshold (POT) methods
 - Spatial correlation analysis
 
-## 🌍 Key Findings
+::BackgroundTitle{title="Key Findings"}
+::
 
 The analysis revealed:
 - Wind speeds exceeding 100 km/h across multiple regions
@@ -61,7 +65,8 @@ The analysis revealed:
 - Seasonal and geographical risk variations
 - Return period estimations for comparable extreme events
 
-## 💡 Applications
+::BackgroundTitle{title="Applications"}
+::
 
 The methodologies developed in this project have applications in:
 - **Disaster risk reduction and preparedness** planning
@@ -70,7 +75,8 @@ The methodologies developed in this project have applications in:
 - **Climate adaptation** strategies
 - **Early warning systems** for extreme weather events
 
-## 📄 Detailed Report
+::BackgroundTitle{title="Detailed Report"}
+::
 
 <iframe src="/projects/climate-issues.pdf" width="100%" height="1000px">
 </iframe>

@@ -20,7 +20,8 @@ icon: i-ph-globe-hemisphere-west-duotone
 
 More than a static site, it is a modern **Portfolio** designed to be fast, accessible, and type-safe. It also acts as a live production environment where I test the latest frontend technologies and Edge computing paradigms.
 
-## ⚡ The Nuxt Stack Architecture
+::BackgroundTitle{title="The Nuxt Stack Architecture"}
+::
 
 This project is built entirely on the **Nuxt ecosystem**, leveraging module synergy for strong developer experience and performance.
 

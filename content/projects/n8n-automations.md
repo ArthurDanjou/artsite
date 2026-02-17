@@ -17,11 +17,13 @@ tags:
 icon: i-ph-plugs-connected-duotone
 ---
 
-## Overview
+::BackgroundTitle{title="Overview"}
+::
 
 This project focuses on designing and implementing autonomous workflows that leverage Large Language Models (LLMs) to streamline productivity and academic research. By orchestrating Generative AI through a self-hosted infrastructure on my **[ArtLab](/projects/artlab)**, I built a private ecosystem that acts as both a personal assistant and a specialized research agent.
 
-## Key Workflows
+::BackgroundTitle{title="Key Workflows"}
+::
 
 ### 1. Centralized Productivity Hub
 I developed a synchronization engine that bridges **Notion**, **Google Calendar**, and **Todoist**. 
@@ -35,7 +37,8 @@ To stay at the forefront of AI research, I built an automated pipeline for acade
 * **Knowledge Base:** Relevant papers and posts are automatically stored in a structured Notion database.
 * **Interactive Research Agent:** I integrated a chat interface within n8n that allows me to query this collected data. I can request summaries, ask specific technical questions about a paper, or extract the most relevant insights for my current thesis work.
 
-## Technical Architecture
+::BackgroundTitle{title="Technical Architecture"}
+::
 
 The environment is built to handle complex multi-step chains, moving beyond simple API calls to create context-aware agents.
 
@@ -44,7 +47,8 @@ The environment is built to handle complex multi-step chains, moving beyond simp
 * **Data Sources:** RSS feeds and Notion databases.
 * **Notifications & UI:** Gmail for briefings and Discord for real-time system alerts.
 
-## Key Objectives
+::BackgroundTitle{title="Key Objectives"}
+::
 
 1. **Privacy-Centric AI:** Ensuring that sensitive academic data and personal schedules remain within a self-hosted or controlled environment.
 2. **Academic Efficiency:** Reducing the "noise" of information overload by using AI to surface only the most relevant research papers.

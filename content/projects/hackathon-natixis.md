@@ -16,13 +16,15 @@ tags:
 icon: i-ph-database-duotone
 ---
 
-## The Challenge
+::BackgroundTitle{title="The Challenge"}
+::
 
 Organized by **Natixis**, this hackathon followed a high-intensity format: **three consecutive Saturdays** of on-site development, bridged by two full weeks of remote collaboration.
 
 Working in a **team of four**, our goal was to bridge the gap between non-technical stakeholders and complex financial databases by creating an autonomous "Data Talk" agent.
 
-## Core Features
+::BackgroundTitle{title="Core Features"}
+::
 
 ### 1. Data Engineering & Schema Design
 Before building the AI layer, we handled a significant data migration task. I led the effort to:
@@ -39,14 +41,16 @@ Data is only useful if it’s readable. Our Nuxt application goes beyond raw tab
 * **Dynamic Charts:** The agent automatically determines the best visualization type (Bar, Line, Pie) based on the query result and renders it using interactive components.
 * **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English, highlighting anomalies or key trends.
 
-## Technical Stack
+::BackgroundTitle{title="Technical Stack"}
+::
 
 * **Frontend/API:** **Nuxt 3** for a seamless, reactive user interface.
 * **Orchestration:** **Vercel AI SDK** to manage streams and tool-calling logic.
 * **Inference:** **Ollama** for running LLMs locally, ensuring data privacy during development.
 * **Storage:** **PostgreSQL** for the converted data warehouse.
 
-## Impact & Results
+::BackgroundTitle{title="Impact & Results"}
+::
 
 This project demonstrated that a modern stack (Nuxt + local LLMs) can drastically reduce the time needed for data discovery. By the final Saturday, our team presented a working prototype capable of handling multi-table joins and generating real-time financial dashboards from simple chat prompts.
 

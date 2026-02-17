@@ -21,7 +21,8 @@ The project is complete, but the documentation is still being expanded with more
 
 This project involves building an interactive data visualization application using R and R Shiny. The goal is to deliver dynamic, explorable visualizations that let users interact with the data in meaningful ways.
 
-## 🛠️ Technologies & Tools
+::BackgroundTitle{title="Technologies & Tools"}
+::
 
 - **[R](https://www.r-project.org)**: A statistical computing environment, perfect for data analysis and visualization.
 - **[R Shiny](https://shiny.rstudio.com)**: A web application framework for R that enables the creation of interactive web applications directly from R.
@@ -43,13 +44,15 @@ This project involves building an interactive data visualization application usi
 - **[RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/)**: An R package providing color palettes for maps and other graphics.
 - **[DT](https://rstudio.github.io/DT/)**: An R package for creating interactive data tables.
 
-## 📚 Resources
+::BackgroundTitle{title="Resources"}
+::
 
 You can find the code here: [Data Visualisation Code](https://go.arthurdanjou.fr/datavis-code)
 
 And the online application here: [Data Visualisation App](https://go.arthurdanjou.fr/datavis-app)
 
-## 📄 Detailed Report
+::BackgroundTitle{title="Detailed Report"}
+::
 
 <iframe src="/projects/datavis.pdf" width="100%" height="1000px">
 </iframe>

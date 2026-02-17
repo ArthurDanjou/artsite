@@ -19,7 +19,8 @@ This project targets high-precision calibration of the **Implied Volatility Surf
 
 The core objective is to stress-test classic statistical models against modern predictive algorithms. **Generalized Linear Models (GLMs)** provide a transparent baseline, while more complex "black-box" architectures are evaluated on whether their accuracy gains justify reduced interpretability in a risk management context.
 
-## 📊 Dataset & Scale
+::BackgroundTitle{title="Dataset & Scale"}
+::
 
 The modeling is performed on a high-dimensional dataset with over **1.2 million observations**.
 
@@ -27,7 +28,8 @@ The modeling is performed on a high-dimensional dataset with over **1.2 million 
 - **Features**: Option strike price ($K$), underlying asset price ($S$), and time to maturity ($\tau$).
 - **Volume**: A training set of $1,251,307$ rows and a test set of identical size.
 
-## 🛠️ Modeling Methodology
+::BackgroundTitle{title="Modeling Methodology"}
+::
 
 The project follows a rigorous statistical pipeline to compare two modeling philosophies:
 
@@ -42,7 +44,8 @@ Key financial indicators are derived from the raw data:
 - **Moneyness**: Calculated as the ratio $K/S$.
 - **Temporal Dynamics**: Transformations of time to maturity to linearize the term structure.
 
-## 📈 Evaluation & Reproducibility
+::BackgroundTitle{title="Evaluation & Reproducibility"}
+::
 
 Performance is measured strictly via RMSE on the original scale of the target variable. To ensure reproducibility and precise comparisons across model iterations, a fixed random seed is maintained throughout the workflow.
 
@@ -58,7 +61,8 @@ rmse_eval <- function(actual, predicted) {
 
 ```
 
-## 🔍 Critical Analysis
+::BackgroundTitle{title="Critical Analysis"}
+::
 
 Beyond pure prediction, the project addresses:
 
