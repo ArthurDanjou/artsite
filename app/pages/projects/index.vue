@@ -96,63 +96,65 @@ const grouped_projects = computed(() => {
                 />
               </div>
               <div class="space-y-2">
-                <div class="flex items-center gap-2">
-                  <h1 class="font-bold">
-                    {{ project.title }}
-                  </h1>
-                  <UTooltip
-                    text="Favorite"
-                    :delay-duration="4"
-                  >
-                    <UBadge
-                      v-if="project.favorite"
-                      color="amber"
-                      variant="subtle"
-                      size="sm"
-                      icon="i-ph-star-four-duotone"
-                    />
-                  </UTooltip>
-                  <UTooltip
-                    text="In Progress"
-                    :delay-duration="4"
-                  >
-                    <UBadge
-                      v-if="project.status === 'In progress'"
-                      color="blue"
-                      variant="soft"
-                      size="sm"
-                      icon="i-ph-hourglass-duotone"
-                    />
-                  </UTooltip>
-                  <UTooltip
-                    text="Archived"
-                    :delay-duration="4"
-                  >
-                    <UBadge
-                      v-if="project.status === 'Archived'"
-                      color="gray"
-                      variant="soft"
-                      size="sm"
-                      icon="i-ph-archive-duotone"
-                    />
-                  </UTooltip>
-                </div>
+                <h1 class="font-bold">
+                  {{ project.title }}
+                </h1>
                 <p class="italic text-xs text-muted">
                   {{ project.shortDescription }}
                 </p>
-                <div
-                  v-if="project.tags?.length"
-                  class="flex flex-wrap gap-1.5"
-                >
-                  <UBadge
-                    v-for="tag in project.tags"
-                    :key="tag"
-                    color="neutral"
-                    variant="outline"
-                    size="xs"
+                <div class="flex items-center justify-between">
+                  <div
+                    v-if="project.tags?.length"
+                    class="flex flex-wrap gap-1.5"
                   >
-                    {{ tag }}
-                  </UBadge>
+                    <UBadge
+                      v-for="tag in project.tags"
+                      :key="tag"
+                      color="neutral"
+                      variant="outline"
+                      size="xs"
+                    >
+                      {{ tag }}
+                    </UBadge>
+                  </div>
+                  <div class="flex gap-2 items-center justify-center">
+                    <UTooltip
+                      text="Favorite"
+                      :delay-duration="4"
+                    >
+                      <UBadge
+                        v-if="project.favorite"
+                        color="amber"
+                        variant="subtle"
+                        size="sm"
+                        icon="i-ph-star-four-duotone"
+                      />
+                    </UTooltip>
+                    <UTooltip
+                      text="In Progress"
+                      :delay-duration="4"
+                    >
+                      <UBadge
+                        v-if="project.status === 'In progress'"
+                        color="blue"
+                        variant="soft"
+                        size="sm"
+                        icon="i-ph-hourglass-duotone"
+                      />
+                    </UTooltip>
+                    <UTooltip
+                      text="Archived"
+                      :delay-duration="4"
+                    >
+                      <UBadge
+                        v-if="project.status === 'Archived'"
+                        color="gray"
+                        variant="soft"
+                        size="sm"
+                        icon="i-ph-archive-duotone"
+                      />
+                    </UTooltip>
+                  </div>
                 </div>
               </div>
             </div>
