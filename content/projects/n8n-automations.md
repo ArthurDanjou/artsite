@@ -6,7 +6,7 @@ description: An academic project exploring the automation of GenAI workflows usi
 shortDescription: Automating GenAI workflows with n8n and Ollama in a self-hosted environment.
 publishedAt: 2026-03-15
 readingTime: 2
-status: In progress
+status: Completed
 tags:
   - n8n
   - Gemini

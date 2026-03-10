@@ -15,10 +15,6 @@ tags:
 icon: i-ph-chart-bar-duotone
 ---
 
-::warning
-The project is complete, but the documentation is still being expanded with more details.
-::
-
 This project involves building an interactive data visualization application using R and R Shiny. The goal is to deliver dynamic, explorable visualizations that let users interact with the data in meaningful ways.
 
 ::BackgroundTitle{title="Technologies & Tools"}
