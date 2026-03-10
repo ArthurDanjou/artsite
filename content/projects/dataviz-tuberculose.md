@@ -17,6 +17,9 @@ icon: i-ph-chart-bar-duotone
 
 Interactive Shiny dashboard for WHO tuberculosis data analysis and clustering.
 
+- **GitHub Repository:** [Tuberculose-Visualisation](https://github.com/ArthurDanjou/Tuberculose-Visualisation)
+- **Live Application:** [Tuberculose Data Visualization](https://go.arthurdanjou.fr/datavis-app)
+
 ::BackgroundTitle{title="Overview"}
 ::
 
@@ -74,12 +77,6 @@ This project provides an interactive visualization tool for monitoring and segme
    ```r
    shiny::runApp("app.R")
    ```
-
-::BackgroundTitle{title="Live Demo"}
-::
-
-- **Application:** https://go.arthurdanjou.fr/datavis-app
-- **Source Code:** https://go.arthurdanjou.fr/datavis-code
 
 ::BackgroundTitle{title="Detailed Report"}
 ::
