@@ -166,6 +166,10 @@ export default defineNuxtConfig({
     })
   },
 
+  sitemap: {
+    zeroRuntime: true
+  },
+
   seo: {
     redirectToCanonicalSiteUrl: true
   },

@@ -44,6 +44,7 @@
     "@iconify-json/vscode-icons": "1.2.45",
     "@types/node": "25.4.0",
     "@vueuse/nuxt": "14.2.1",
+    "baseline-browser-mapping": "^2.10.0",
     "eslint": "10.0.3",
     "typescript": "^5.9.3",
     "vue-tsc": "3.2.5",
