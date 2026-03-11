@@ -1,7 +1,7 @@
 ---
 slug: nlp-hr-onboarding
 title: Intelligent HR Onboarding Assistant
-type: Personal Project
+type: Academic Project
 description: Intelligent HR onboarding assistant using RAG, LangChain agents, and MistralAI embeddings to help new employees navigate company policies, employee directory, and administrative tasks. 
 shortDescription: An AI-powered assistant for streamlining HR onboarding processes and improving new hire experience.
 publishedAt: 2026-03-13
