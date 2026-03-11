@@ -34,13 +34,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      - name: Debug env
-        run: |
-          echo "STATUS_PAGE defined: ${{ secrets.NUXT_STATUS_PAGE != '' }}"
-          echo "STATUS_PAGE length: ${#NUXT_STATUS_PAGE}"
-        env:
-          NUXT_STATUS_PAGE: ${{ secrets.NUXT_STATUS_PAGE }}
-
       - name: Build
         run: bun run build
         env:
