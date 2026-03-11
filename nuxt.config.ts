@@ -113,7 +113,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true
   },
-  compatibilityDate: '2025-12-13',
+  compatibilityDate: '2026-02-24',
 
   nitro: {
     preset: 'cloudflare_module',
