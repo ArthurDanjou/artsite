@@ -31,12 +31,6 @@ useSeoMeta({
   twitterDescription: project.value.description
 })
 
-defineOgImage('Pergel.satori', {
-  title: project.value.title,
-  description: project.value.description,
-  colorMode: 'dark'
-})
-
 const formattedDate = computed(() => {
   if (!project.value?.publishedAt) return null
   return new Date(project.value.publishedAt).toLocaleDateString('en-US', {

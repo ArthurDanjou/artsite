@@ -113,7 +113,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true
   },
-  compatibilityDate: '2026-02-24',
+  compatibilityDate: 'latest',
 
   nitro: {
     preset: 'cloudflare_module',
@@ -130,6 +130,16 @@ export default defineNuxtConfig({
   hub: {
     cache: true,
     db: 'sqlite'
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        '@unhead/schema-org/vue',
+      ]
+    }
   },
 
   eslint: {
@@ -166,12 +176,12 @@ export default defineNuxtConfig({
     })
   },
 
-  sitemap: {
-    zeroRuntime: true
-  },
-
   seo: {
     redirectToCanonicalSiteUrl: true
+  },
+
+  sitemap: {
+    zeroRuntime: true
   },
 
   studio: {

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const head = {
   title: 'AI Safety & Applied Mathematics',
-  description: 'Research Engineer & Master 2 Student at Paris-Dauphine (ISF). Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
+  description: 'AI Research Engineer at CMAP, Ecole Polytechnique. Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
   subtitle: ''
 }
 
@@ -13,12 +13,6 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: head.title,
   twitterDescription: head.description
-})
-
-defineOgImage('Pergel.satori', {
-  title: head.title,
-  description: head.description,
-  colorMode: 'dark',
 })
 
 const { data: page } = await useAsyncData('index', () => {

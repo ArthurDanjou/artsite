@@ -16,12 +16,6 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImage('Pergel.satori', {
-  title: head.title,
-  description: head.description,
-  colorMode: 'dark'
-})
-
 const { data: projects } = await useAsyncData('projects', () => {
   return queryCollection('projects')
     .where('extension', '=', 'md')

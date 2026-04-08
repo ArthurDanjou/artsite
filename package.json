@@ -25,8 +25,6 @@
     "@nuxthub/core": "0.10.7",
     "@nuxtjs/mdc": "0.21.1",
     "@nuxtjs/seo": "5.1.2",
-    "@resvg/resvg-js": "^2.6.2",
-    "@takumi-rs/core": "^0.73.1",
     "@vueuse/core": "^14.2.1",
     "@vueuse/math": "^14.2.1",
     "better-sqlite3": "12.8.0",
@@ -47,13 +45,10 @@
     "@iconify-json/simple-icons": "^1.2.77",
     "@iconify-json/twemoji": "1.2.5",
     "@iconify-json/vscode-icons": "1.2.45",
-    "@resvg/resvg-wasm": "^2.6.2",
-    "@takumi-rs/wasm": "^0.73.1",
     "@types/node": "25.5.2",
     "@vueuse/nuxt": "14.2.1",
-    "baseline-browser-mapping": "2.10.16",
+    "baseline-browser-mapping": "^2.10.16",
     "eslint": "10.2.0",
-    "satori": "^0.26.0",
     "vue-tsc": "3.2.6",
     "wrangler": "4.81.0"
   }
