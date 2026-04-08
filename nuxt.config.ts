@@ -147,8 +147,8 @@ export default defineNuxtConfig({
       givenName: 'Arthur',
       familyName: 'Danjou',
       image: '/arthur.webp',
-      description: 'Research Engineer & Applied Mathematics Student. Focusing on AI Safety, Robustness, and Statistical Learning.',
-      jobTitle: 'Research Engineer & Applied Mathematics Student',
+      description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
+      jobTitle: 'AI Research Engineer',
 
       email: 'arthurdanjou@outlook.fr',
       url: 'https://arthurdanjou.fr',

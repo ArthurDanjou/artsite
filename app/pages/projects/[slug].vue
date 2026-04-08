@@ -31,7 +31,7 @@ useSeoMeta({
   twitterDescription: project.value.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeo', {
   title: project.value.title,
   description: project.value.description,
   subtitle: project.value.type ? `Project Type: ${project.value.type}` : '',

@@ -1,32 +1,46 @@
 import { defineCollection, z } from '@nuxt/content'
-import { asSeoCollection } from '@nuxtjs/seo/content'
+import { defineRobotsSchema } from '@nuxtjs/robots/content'
+import { defineSitemapSchema } from '@nuxtjs/sitemap/content'
+import { defineOgImageSchema } from 'nuxt-og-image/content'
+import { defineSchemaOrgSchema } from 'nuxt-schema-org/content'
 
 export const collections = {
   index: defineCollection({
     type: 'page',
-    source: 'index.md'
+    source: 'index.md',
+    robots: defineRobotsSchema(),
+    sitemap: defineSitemapSchema(),
+    ogImage: defineOgImageSchema(),
+    schemaOrg: defineSchemaOrgSchema(),
   }),
-  projects: defineCollection(
-    asSeoCollection({
-      type: 'data',
-      source: 'projects/*.md',
-      schema: z.object({
-        slug: z.string(),
-        title: z.string(),
-        type: z.enum(['Personal Project', 'Academic Project', 'Hackathon', 'Research Project', 'Internship Project']),
-        description: z.string(),
-        shortDescription: z.string(),
-        publishedAt: z.string(),
-        readingTime: z.number(),
-        tags: z.array(z.string()),
-        favorite: z.boolean().optional(),
-        status: z.enum(['Active', 'Completed', 'Archived', 'In progress']),
-        icon: z.string()
-      })
-    })),
+  projects: defineCollection({
+    type: 'data',
+    source: 'projects/*.md',
+    schema: z.object({
+      slug: z.string(),
+      title: z.string(),
+      type: z.enum(['Personal Project', 'Academic Project', 'Hackathon', 'Research Project', 'Internship Project']),
+      description: z.string(),
+      shortDescription: z.string(),
+      publishedAt: z.string(),
+      readingTime: z.number(),
+      tags: z.array(z.string()),
+      favorite: z.boolean().optional(),
+      status: z.enum(['Active', 'Completed', 'Archived', 'In progress']),
+      icon: z.string(),
+      robots: defineRobotsSchema(),
+      sitemap: defineSitemapSchema(),
+      ogImage: defineOgImageSchema(),
+      schemaOrg: defineSchemaOrgSchema(),
+    })
+  }),
   uses: defineCollection({
     type: 'page',
-    source: 'uses.md'
+    source: 'uses.md',
+    robots: defineRobotsSchema(),
+    sitemap: defineSitemapSchema(),
+    ogImage: defineOgImageSchema(),
+    schemaOrg: defineSchemaOrgSchema(),
   }),
   skills: defineCollection({
     type: 'data',
@@ -40,7 +54,7 @@ export const collections = {
           name: z.string(),
           icon: z.string().optional()
         }))
-      }))
+      })),
     })
   }),
   experiences: defineCollection({
@@ -93,7 +107,11 @@ export const collections = {
   }),
   hobbies: defineCollection({
     type: 'page',
-    source: 'hobbies.md'
+    source: 'hobbies.md',
+    robots: defineRobotsSchema(),
+    sitemap: defineSitemapSchema(),
+    ogImage: defineOgImageSchema(),
+    schemaOrg: defineSchemaOrgSchema(),
   }),
   languages: defineCollection({
     type: 'data',
@@ -108,6 +126,10 @@ export const collections = {
   }),
   profile: defineCollection({
     type: 'page',
-    source: 'profile.md'
+    source: 'profile.md',
+    robots: defineRobotsSchema(),
+    sitemap: defineSitemapSchema(),
+    ogImage: defineOgImageSchema(),
+    schemaOrg: defineSchemaOrgSchema(),
   })
 }

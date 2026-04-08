@@ -116,6 +116,45 @@
           "icon": "i-logos-gradio-icon"
         }
       ]
+    },
+    {
+      "id": "mathematical-foundation",
+      "name": "Mathematical Foundation",
+      "description": "Rigorous mathematical training applied to machine learning: from gradient-based optimization and statistical inference to numerical stability and learning guarantees.",
+      "items": [
+        {
+          "name": "Calculus",
+          "icon": "i-mdi-function-variant"
+        },
+        {
+          "name": "Linear Algebra",
+          "icon": "i-mdi-matrix"
+        },
+        {
+          "name": "Probability & Statistics",
+          "icon": "i-mdi-chart-histogram"
+        },
+        {
+          "name": "Optimization",
+          "icon": "i-mdi-chart-bell-curve-cumulative"
+        },
+        {
+          "name": "Numerical Analysis",
+          "icon": "i-mdi-calculator-variant-outline"
+        },
+        {
+          "name": "Stochastic Processes",
+          "icon": "i-mdi-chart-timeline-variant"
+        },
+        {
+          "name": "Information Theory",
+          "icon": "i-mdi-information-outline"
+        },
+        {
+          "name": "Statistical Learning Theory",
+          "icon": "i-mdi-school-outline"
+        }
+      ]
     }
   ]
 }

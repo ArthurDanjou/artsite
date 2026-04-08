@@ -19,7 +19,7 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeo', {
   title: head.title,
   description: head.description,
   subtitle: head.subtitle,

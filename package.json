@@ -1,6 +1,7 @@
 {
   "name": "artsite",
   "private": true,
+  "type": "module",
   "author": {
     "email": "arthurdanjou@outlook.fr",
     "name": "Arthur Danjou",
@@ -39,14 +40,15 @@
     "@iconify-json/devicon": "1.2.62",
     "@iconify-json/file-icons": "^1.2.2",
     "@iconify-json/logos": "1.2.11",
+    "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.77",
     "@iconify-json/twemoji": "1.2.5",
     "@iconify-json/vscode-icons": "1.2.45",
     "@types/node": "25.5.2",
     "@vueuse/nuxt": "14.2.1",
     "baseline-browser-mapping": "2.10.16",
     "eslint": "10.2.0",
-    "typescript": "6.0.2",
     "vue-tsc": "3.2.6",
     "wrangler": "4.81.0"
   }
