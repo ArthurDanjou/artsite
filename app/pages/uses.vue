@@ -19,7 +19,7 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImage('NuxtSeo.takumi', {
+defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
   colorMode: 'dark'

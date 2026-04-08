@@ -31,7 +31,7 @@ useSeoMeta({
   twitterDescription: project.value.description
 })
 
-defineOgImage('NuxtSeo.takumi', {
+defineOgImage('Pergel.satori', {
   title: project.value.title,
   description: project.value.description,
   colorMode: 'dark'
