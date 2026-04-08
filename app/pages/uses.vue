@@ -19,11 +19,10 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeo.takumi', {
   title: head.title,
-  subtitle: head.subtitle,
   description: head.description,
-  theme: '#F43F5E'
+  colorMode: 'dark'
 })
 </script>
 

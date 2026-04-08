@@ -16,10 +16,10 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeo.takumi', {
   title: head.title,
   description: head.description,
-  theme: '#F43F5E'
+  colorMode: 'dark'
 })
 
 const { data: projects } = await useAsyncData('projects', () => {

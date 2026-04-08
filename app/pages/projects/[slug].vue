@@ -31,11 +31,10 @@ useSeoMeta({
   twitterDescription: project.value.description
 })
 
-defineOgImage('NuxtSeo', {
+defineOgImage('NuxtSeo.takumi', {
   title: project.value.title,
   description: project.value.description,
-  subtitle: project.value.type ? `Project Type: ${project.value.type}` : '',
-  theme: '#F43F5E'
+  colorMode: 'dark'
 })
 
 const formattedDate = computed(() => {
