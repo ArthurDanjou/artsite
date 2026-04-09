@@ -4,7 +4,7 @@ import type { ProjectsCollectionItem } from '@nuxt/content'
 const head = {
   title: 'Engineering & Research Labs',
   description: 'Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.',
-  subtitle: 'A curated selection of my open-source projects, research labs, and engineering work.'
+  headline: 'Arthur Danjou’s Projects: A Journey of Engineering & Research Labs',
 }
 
 useSeoMeta({
@@ -17,11 +17,10 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
-  subtitle: head.subtitle,
-  theme: '#F43F5E'
+  headline: head.headline
 })
 
 const { data: projects } = await useAsyncData('projects', () => {

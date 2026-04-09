@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 const head = {
   title: 'AI Safety & Applied Mathematics',
-  description: 'AI Research Engineer at CMAP, Ecole Polytechnique. Focusing on AI Alignment, Robustness, and Safe Deep Learning.',
-  subtitle: ''
+  description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
+  headline: 'Arthur Danjou’s Research: A Journey of AI Safety & Applied Mathematics',
 }
 
 useSeoMeta({
@@ -15,11 +15,10 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
-  subtitle: head.subtitle,
-  theme: '#F43F5E'
+  headline: head.headline
 })
 
 const { data: page } = await useAsyncData('index', () => {
