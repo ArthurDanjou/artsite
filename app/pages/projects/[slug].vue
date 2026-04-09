@@ -31,6 +31,13 @@ useSeoMeta({
   twitterDescription: project.value.description
 })
 
+defineOgImageComponent('NuxtSeo', {
+  title: project.value.title,
+  description: project.value.description,
+  subtitle: project.value.type ? `Project Type: ${project.value.type}` : '',
+  theme: '#F43F5E'
+})
+
 const formattedDate = computed(() => {
   if (!project.value?.publishedAt) return null
   return new Date(project.value.publishedAt).toLocaleDateString('en-US', {

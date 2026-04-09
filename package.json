@@ -24,7 +24,7 @@
     "@nuxt/ui": "4.6.1",
     "@nuxthub/core": "0.10.7",
     "@nuxtjs/mdc": "0.21.1",
-    "@nuxtjs/seo": "5.1.2",
+    "@nuxtjs/seo": "3.4.0",
     "@vueuse/core": "^14.2.1",
     "@vueuse/math": "^14.2.1",
     "better-sqlite3": "12.8.0",

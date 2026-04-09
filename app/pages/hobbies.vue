@@ -5,7 +5,8 @@ const { data: page } = await useAsyncData('hobbies', () => {
 
 const head = {
   title: 'Balance & Perspectives',
-  description: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.'
+  description: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.',
+  subtitle: 'The hobbies and interests that keep me balanced and inspired outside of research.'
 }
 
 useSeoMeta({
@@ -16,6 +17,13 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: head.title,
   twitterDescription: head.description
+})
+
+defineOgImageComponent('NuxtSeo', {
+  title: head.title,
+  description: head.description,
+  subtitle: head.subtitle,
+  theme: '#F43F5E'
 })
 </script>
 

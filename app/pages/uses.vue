@@ -18,6 +18,13 @@ useSeoMeta({
   twitterTitle: head.title,
   twitterDescription: head.description
 })
+
+defineOgImageComponent('NuxtSeo', {
+  title: head.title,
+  description: head.description,
+  subtitle: head.subtitle,
+  theme: '#F43F5E'
+})
 </script>
 
 <template>

@@ -15,6 +15,13 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
+defineOgImageComponent('NuxtSeo', {
+  title: head.title,
+  description: head.description,
+  subtitle: head.subtitle,
+  theme: '#F43F5E'
+})
+
 const { data: page } = await useAsyncData('index', () => {
   return queryCollection('index').first()
 })

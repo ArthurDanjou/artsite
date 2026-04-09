@@ -124,6 +124,10 @@ export default defineNuxtConfig({
     prerender: {
       routes: ['/'],
       crawlLinks: true
+    },
+
+    externals: {
+      inline: ['sharp']
     }
   },
 
@@ -177,11 +181,7 @@ export default defineNuxtConfig({
   },
 
   seo: {
-    redirectToCanonicalSiteUrl: true
-  },
-
-  sitemap: {
-    zeroRuntime: true
+    redirectToCanonicalSiteUrl: true,
   },
 
   studio: {
