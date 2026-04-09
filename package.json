@@ -29,8 +29,8 @@
     "better-sqlite3": "^12.6.2",
     "drizzle-kit": "^0.31.9",
     "drizzle-orm": "^0.45.1",
-    "nuxt": "4.4.2",
-    "nuxt-studio": "1.5.1",
+    "nuxt": "4.3.1",
+    "nuxt-studio": "1.4.0",
     "vue": "3.5.32",
     "vue-router": "5.0.4",
     "zod": "^4.3.6"
