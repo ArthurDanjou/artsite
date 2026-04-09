@@ -6,6 +6,7 @@ const { data: page } = await useAsyncData('uses', () => {
 const head = {
   title: 'Research Lab & Technical Setup',
   description: 'A curated list of the hardware, software, and self-hosted infrastructure that powers my mathematical modeling and AI research workflows.',
+  headline: 'Arthur Danjou’s Research Lab & Technical Setup: A Journey of Tools and Infrastructure',
 }
 
 useSeoMeta({
@@ -21,6 +22,7 @@ useSeoMeta({
 defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
+  headline: head.headline
 })
 </script>
 
