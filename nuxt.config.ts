@@ -156,7 +156,7 @@ export default defineNuxtConfig({
   },
 
   ogImage: {
-    buildCache: true,
+    buildCache: true
   },
 
   schemaOrg: {

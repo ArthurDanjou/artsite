@@ -2,7 +2,7 @@
 const head = {
   title: 'AI Safety & Applied Mathematics',
   description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
-  headline: 'Arthur Danjou’s Research',
+  headline: 'Arthur Danjou’s Research'
 }
 
 useSeoMeta({

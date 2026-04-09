@@ -11,7 +11,7 @@ export const collections = {
     robots: defineRobotsSchema(),
     sitemap: defineSitemapSchema(),
     ogImage: defineOgImageSchema(),
-    schemaOrg: defineSchemaOrgSchema(),
+    schemaOrg: defineSchemaOrgSchema()
   }),
   projects: defineCollection({
     type: 'data',
@@ -36,7 +36,7 @@ export const collections = {
     robots: defineRobotsSchema(),
     sitemap: defineSitemapSchema(),
     ogImage: defineOgImageSchema(),
-    schemaOrg: defineSchemaOrgSchema(),
+    schemaOrg: defineSchemaOrgSchema()
   }),
   skills: defineCollection({
     type: 'data',
@@ -107,7 +107,7 @@ export const collections = {
     robots: defineRobotsSchema(),
     sitemap: defineSitemapSchema(),
     ogImage: defineOgImageSchema(),
-    schemaOrg: defineSchemaOrgSchema(),
+    schemaOrg: defineSchemaOrgSchema()
   }),
   languages: defineCollection({
     type: 'data',
@@ -126,6 +126,6 @@ export const collections = {
     robots: defineRobotsSchema(),
     sitemap: defineSitemapSchema(),
     ogImage: defineOgImageSchema(),
-    schemaOrg: defineSchemaOrgSchema(),
+    schemaOrg: defineSchemaOrgSchema()
   })
 }
