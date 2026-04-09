@@ -1,6 +1,7 @@
 {
   "name": "artsite",
   "private": true,
+  "type": "module",
   "author": {
     "email": "arthurdanjou@outlook.fr",
     "name": "Arthur Danjou",
@@ -23,7 +24,8 @@
     "@nuxt/ui": "4.6.1",
     "@nuxthub/core": "0.10.7",
     "@nuxtjs/mdc": "0.21.1",
-    "@nuxtjs/seo": "3.4.0",
+    "@nuxtjs/seo": "5.1.2",
+    "@resvg/resvg-js": "^2.6.2",
     "@vueuse/core": "^14.2.1",
     "@vueuse/math": "^14.2.1",
     "better-sqlite3": "^12.6.2",
@@ -31,6 +33,7 @@
     "drizzle-orm": "^0.45.1",
     "nuxt": "4.4.2",
     "nuxt-studio": "1.4.0",
+    "satori": "^0.26.0",
     "vue": "3.5.32",
     "vue-router": "5.0.4",
     "zod": "^4.3.6"
@@ -44,6 +47,7 @@
     "@iconify-json/simple-icons": "^1.2.77",
     "@iconify-json/twemoji": "1.2.5",
     "@iconify-json/vscode-icons": "1.2.45",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@types/node": "25.5.2",
     "@vueuse/nuxt": "14.2.1",
     "baseline-browser-mapping": "^2.10.0",

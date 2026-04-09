@@ -6,7 +6,6 @@ const { data: page } = await useAsyncData('uses', () => {
 const head = {
   title: 'Research Lab & Technical Setup',
   description: 'A curated list of the hardware, software, and self-hosted infrastructure that powers my mathematical modeling and AI research workflows.',
-  subtitle: 'The gear powering my research & development workflow.'
 }
 
 useSeoMeta({
@@ -19,11 +18,9 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
-  subtitle: head.subtitle,
-  theme: '#F43F5E'
 })
 </script>
 

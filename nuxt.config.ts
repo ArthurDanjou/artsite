@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://arthurdanjou.fr',
     name: 'Arthur Danjou',
-    description: 'Research Engineer & Applied Mathematics Student. Focusing on AI Safety, Robustness, and Statistical Learning.',
+    description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
     defaultLocale: 'en',
     indexable: true
   },
@@ -155,6 +155,10 @@ export default defineNuxtConfig({
     }
   },
 
+  ogImage: {
+    buildCache: true,
+  },
+
   schemaOrg: {
     identity: definePerson({
       name: 'Arthur Danjou',
@@ -162,7 +166,7 @@ export default defineNuxtConfig({
       familyName: 'Danjou',
       image: '/arthur.webp',
       description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
-      jobTitle: 'AI Research Engineer',
+      jobTitle: 'AI Research Intern',
 
       email: 'arthurdanjou@outlook.fr',
       url: 'https://arthurdanjou.fr',
