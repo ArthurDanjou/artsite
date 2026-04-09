@@ -23,7 +23,7 @@ defineOgImage('Pergel.satori', {
   headline: head.headline
 })
 
-const { data: projects } = await useAsyncData('projects', () => {
+const { data: projectsData } = await useAsyncData('projects', () => {
   return queryCollection('projects')
     .where('extension', '=', 'md')
     .order('favorite', 'DESC')
@@ -33,7 +33,7 @@ const { data: projects } = await useAsyncData('projects', () => {
 
 const grouped_projects = computed(() => {
   const groups: Record<string, ProjectsCollectionItem[]> = {}
-  projects.value?.forEach((project) => {
+  projectsData.value?.forEach((project) => {
     const group = project.type || 'Other'
     if (!groups[group]) {
       groups[group] = []
