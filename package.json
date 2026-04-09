@@ -29,26 +29,27 @@
     "better-sqlite3": "^12.6.2",
     "drizzle-kit": "^0.31.9",
     "drizzle-orm": "^0.45.1",
-    "nuxt": "4.3.1",
-    "nuxt-studio": "1.4.0",
-    "vue": "3.5.30",
-    "vue-router": "5.0.3",
+    "nuxt": "4.4.2",
+    "nuxt-studio": "1.5.1",
+    "vue": "3.5.32",
+    "vue-router": "5.0.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@iconify-json/devicon": "1.2.59",
+    "@iconify-json/devicon": "1.2.62",
     "@iconify-json/file-icons": "^1.2.2",
     "@iconify-json/logos": "^1.2.10",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.77",
     "@iconify-json/twemoji": "1.2.5",
     "@iconify-json/vscode-icons": "1.2.45",
-    "@types/node": "25.4.0",
+    "@types/node": "25.5.2",
     "@vueuse/nuxt": "14.2.1",
     "baseline-browser-mapping": "^2.10.0",
-    "eslint": "10.0.3",
-    "typescript": "^5.9.3",
-    "vue-tsc": "3.2.5",
-    "wrangler": "4.71.0"
+    "eslint": "10.2.0",
+    "typescript": "6.0.2",
+    "vue-tsc": "3.2.6",
+    "wrangler": "4.81.0"
   }
 }

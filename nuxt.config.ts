@@ -136,15 +136,15 @@ export default defineNuxtConfig({
     db: 'sqlite'
   },
 
-  // vite: {
-  //   optimizeDeps: {
-  //     include: [
-  //       '@vue/devtools-core',
-  //       '@vue/devtools-kit',
-  //       '@unhead/schema-org/vue'
-  //     ]
-  //   }
-  // },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        '@unhead/schema-org/vue'
+      ]
+    }
+  },
 
   eslint: {
     config: {
