@@ -55,8 +55,8 @@ Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{t
 
 Research requires discipline and transparency. Here is a real-time overview of my :hover-text{text="current environment" hover="OS, Editor, Activity"} and historical data.
 
-<!-- ::home-live-status-page{class="mb-4"}
-:: -->
+::home-live-status-page{class="mb-4"}
+::
 
 ::home-live-activity{class="mb-4"}
 ::
