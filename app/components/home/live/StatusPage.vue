@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import type { StatusPageData } from '~~/types'
 
-const { data, status } = await useAsyncData<StatusPageData>('home-status', () =>
-  $fetch('/api/status-page'),
-{ lazy: true }
+const { data, status } = await useAsyncData<StatusPageData>(
+  'home-status',
+  () => $fetch('/api/status-page'),
+  { lazy: true, dedupe: 'defer' }
 )
 
 const isLoading = computed(() => status.value === 'pending')
@@ -14,7 +15,6 @@ const metrics = computed(() => {
   }
 
   let upCount = 0
-  let downCount = 0
   let totalCount = 0
 
   data.value.publicGroupList.forEach((group) => {
@@ -22,18 +22,12 @@ const metrics = computed(() => {
       totalCount++
       const isUp = (monitor as unknown as { status: number }).status !== 0
       if (isUp) upCount++
-      else downCount++
     })
   })
-
-  const activeMaintenances = data.value.maintenanceList?.filter(m => m.active).length || 0
 
   const uptimePercent = totalCount > 0 ? ((upCount / totalCount) * 100).toFixed(1) : '0.0'
 
   return {
-    up: upCount,
-    down: downCount,
-    maintenance: activeMaintenances,
     total: totalCount,
     uptime: Number(uptimePercent)
   }
@@ -41,8 +35,6 @@ const metrics = computed(() => {
 
 const statusState = computed(() => {
   if (isLoading.value) return { color: 'neutral' as const, label: 'Checking status...' }
-  if (metrics.value.down > 0) return { color: 'red' as const, label: 'Service Disruption' }
-  if (metrics.value.maintenance > 0) return { color: 'blue' as const, label: 'Maintenance Mode' }
   return { color: 'emerald' as const, label: 'All Systems Operational' }
 })
 </script>
@@ -105,6 +97,18 @@ const statusState = computed(() => {
             />
           </div>
 
+          <div class="flex justify-between text-xs mb-2">
+            <span class="text-neutral-500">Monitors</span>
+            <span
+              v-if="!isLoading"
+              class="font-mono font-medium text-neutral-700 dark:text-neutral-300"
+            >{{ metrics.total }}</span>
+            <USkeleton
+              v-else
+              class="h-4 w-6"
+            />
+          </div>
+
           <UProgress
             v-if="!isLoading"
             v-model="metrics.uptime"
@@ -114,64 +118,6 @@ const statusState = computed(() => {
           <USkeleton
             v-else
             class="h-2 w-full rounded-full"
-          />
-        </div>
-      </div>
-
-      <div class="grid grid-cols-3 divide-x divide-neutral-200 dark:divide-neutral-800 flex-1">
-        <div class="p-4 flex flex-col items-center justify-center text-center group">
-          <span class="text-[10px] text-neutral-400 font-bold uppercase tracking-wider mb-1">Operational</span>
-          <div
-            v-if="!isLoading"
-            class="flex items-center gap-1.5 text-emerald-500"
-          >
-            <UIcon
-              name="i-ph-check-circle-duotone"
-              class="w-5 h-5"
-            />
-            <span class="text-xl font-bold">{{ metrics.up }}</span>
-          </div>
-          <USkeleton
-            v-else
-            class="h-6 w-8 mt-1"
-          />
-        </div>
-
-        <div class="p-4 flex flex-col items-center justify-center text-center">
-          <span class="text-[10px] text-neutral-400 font-bold uppercase tracking-wider mb-1">Down</span>
-          <div
-            v-if="!isLoading"
-            class="flex items-center gap-1.5"
-            :class="metrics.down > 0 ? 'text-red-500' : 'text-neutral-400'"
-          >
-            <UIcon
-              name="i-ph-warning-circle-duotone"
-              class="w-5 h-5"
-            />
-            <span class="text-xl font-bold">{{ metrics.down }}</span>
-          </div>
-          <USkeleton
-            v-else
-            class="h-6 w-8 mt-1"
-          />
-        </div>
-
-        <div class="p-4 flex flex-col items-center justify-center text-center">
-          <span class="text-[10px] text-neutral-400 font-bold uppercase tracking-wider mb-1">Maint.</span>
-          <div
-            v-if="!isLoading"
-            class="flex items-center gap-1.5"
-            :class="metrics.maintenance > 0 ? 'text-blue-500' : 'text-neutral-400'"
-          >
-            <UIcon
-              name="i-ph-wrench-duotone"
-              class="w-5 h-5"
-            />
-            <span class="text-xl font-bold">{{ metrics.maintenance }}</span>
-          </div>
-          <USkeleton
-            v-else
-            class="h-6 w-8 mt-1"
           />
         </div>
       </div>

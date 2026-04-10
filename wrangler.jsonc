@@ -42,18 +42,18 @@
         }
     ],
     "observability": {
-        "enabled": true,
-        "logs": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "persist": true,
-            "invocation_logs": true
-        },
-        "traces": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "persist": true
-        }
+        "enabled": false,
+        // "logs": {
+        //     "enabled": true,
+        //     "head_sampling_rate": 1,
+        //     "persist": true,
+        //     "invocation_logs": true
+        // },
+        // "traces": {
+        //     "enabled": true,
+        //     "head_sampling_rate": 1,
+        //     "persist": true
+        // }
     },
     "env": {
         "preview": {

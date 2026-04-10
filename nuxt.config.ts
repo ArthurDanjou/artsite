@@ -10,8 +10,20 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    'nuxt-studio'
+    'nuxt-studio',
+    'evlog/nuxt',
+    '@evlog/nuxthub'
   ],
+
+  $production: {
+    evlog: {
+      console: false,
+      sampling: {
+        rates: { info: 10, warn: 50, debug: 0 },
+        keep: [{ duration: 1000 }, { status: 400 }]
+      }
+    }
+  },
 
   devtools: {
     enabled: true
@@ -118,7 +130,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'cloudflare_module',
     experimental: {
-      openAPI: true
+      openAPI: true,
+      tasks: true
     },
 
     prerender: {
@@ -153,6 +166,13 @@ export default defineNuxtConfig({
         commaDangle: 'never'
       }
     }
+  },
+
+  evlog: {
+    env: {
+      service: 'artsite'
+    },
+    retention: '7d'
   },
 
   ogImage: {

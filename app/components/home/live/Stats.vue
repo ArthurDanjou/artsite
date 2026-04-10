@@ -2,11 +2,11 @@
 import type { Stats } from '~~/types'
 import { usePrecision } from '@vueuse/math'
 
-const { data: stats } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
+const { data: stats } = await useAsyncData<{ data: Stats}>('stats', () => $fetch('/api/stats'))
 
-const startDate = computed(() => new Date(stats.value?.coding?.range?.start ?? new Date()))
+const startDate = computed(() => new Date(stats.value?.data.coding?.range?.start ?? new Date()))
 const rawHours = computed(() => {
-  const seconds = stats.value?.coding?.grand_total?.total_seconds_including_other_language ?? 0
+  const seconds = stats.value?.data.coding?.grand_total?.total_seconds_including_other_language ?? 0
   return seconds / 3600
 })
 
@@ -14,9 +14,9 @@ const totalHours = usePrecision(rawHours, 0)
 const yearsCollected = useTimeAgo(startDate)
 const formattedDate = useDateFormat(startDate, 'MMM DD, YYYY')
 
-const topLanguages = computed(() => stats.value?.languages.slice(0, 4) ?? [])
-const topEditors = computed(() => stats.value?.editors.slice(0, 3) ?? [])
-const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
+const topLanguages = computed(() => stats.value?.data.languages.slice(0, 4) ?? [])
+const topEditors = computed(() => stats.value?.data.editors.slice(0, 3) ?? [])
+const topOS = computed(() => stats.value?.data.os.slice(0, 2) ?? [])
 </script>
 
 <template>

@@ -5,7 +5,7 @@ const WAKATIME_HEADERS = {
   'Accept': 'application/json'
 }
 
-const fetchWakatime = async (url: string) => {
+const fetchWakatime = async (url: string, log: ReturnType<typeof useLogger>) => {
   try {
     return await $fetch<{ data: unknown[] }>(url, {
       headers: WAKATIME_HEADERS,
@@ -13,14 +13,21 @@ const fetchWakatime = async (url: string) => {
     })
   }
   catch (err) {
-    console.error(`[Wakatime Error] Failed to fetch ${url}`, err)
+    log.error(err)
+    log.set({
+      wakatime: {
+        request: url,
+        fallback: true
+      }
+    })
     return { data: [] }
   }
 }
 
 const cachedWakatimeCoding = defineCachedFunction(async (event: H3Event) => {
+  const log = useLogger(event)
   const config = useRuntimeConfig(event)
-  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.coding}.json`)
+  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.coding}.json`, log)
 }, {
   maxAge: 60 * 50,
   name: 'stats',
@@ -28,8 +35,9 @@ const cachedWakatimeCoding = defineCachedFunction(async (event: H3Event) => {
 })
 
 const cachedWakatimeEditors = defineCachedFunction(async (event: H3Event) => {
+  const log = useLogger(event)
   const config = useRuntimeConfig(event)
-  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.editors}.json`)
+  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.editors}.json`, log)
 }, {
   maxAge: 60 * 60,
   name: 'stats',
@@ -37,8 +45,9 @@ const cachedWakatimeEditors = defineCachedFunction(async (event: H3Event) => {
 })
 
 const cachedWakatimeOs = defineCachedFunction(async (event: H3Event) => {
+  const log = useLogger(event)
   const config = useRuntimeConfig(event)
-  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.os}.json`)
+  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.os}.json`, log)
 }, {
   maxAge: 60 * 60,
   name: 'stats',
@@ -46,8 +55,9 @@ const cachedWakatimeOs = defineCachedFunction(async (event: H3Event) => {
 })
 
 const cachedWakatimeLanguages = defineCachedFunction(async (event: H3Event) => {
+  const log = useLogger(event)
   const config = useRuntimeConfig(event)
-  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.languages}.json`)
+  return await fetchWakatime(`https://wakatime.com/share/${config.wakatime.userId}/${config.wakatime.languages}.json`, log)
 }, {
   maxAge: 60 * 60,
   name: 'stats',
@@ -55,6 +65,7 @@ const cachedWakatimeLanguages = defineCachedFunction(async (event: H3Event) => {
 })
 
 export default defineEventHandler(async (event) => {
+  const log = useLogger(event)
   const [coding, editors, os, languages] = await Promise.all([
     cachedWakatimeCoding(event),
     cachedWakatimeEditors(event),
@@ -62,10 +73,22 @@ export default defineEventHandler(async (event) => {
     cachedWakatimeLanguages(event)
   ])
 
+  log.set({
+    wakatime: {
+      codingPoints: coding.data.length,
+      editorPoints: editors.data.length,
+      osPoints: os.data.length,
+      languagePoints: languages.data.length
+    }
+  })
+
   return {
-    coding: coding.data,
-    editors: editors.data,
-    os: os.data,
-    languages: languages.data
+    success: true,
+    data: {
+      coding: coding.data,
+      editors: editors.data,
+      os: os.data,
+      languages: languages.data
+    }
   }
 })
