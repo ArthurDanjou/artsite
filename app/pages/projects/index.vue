@@ -17,7 +17,7 @@ useSeoMeta({
   twitterDescription: head.description
 })
 
-defineOgImage('ImagePergel.satori', {
+defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
   headline: head.headline
