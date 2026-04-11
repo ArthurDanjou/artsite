@@ -29,7 +29,11 @@ export default defineNuxtConfig({
       titleTemplate: '%s %separator %siteName',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'apple-touch-icon', href: '/favicon.ico' }
+        { rel: 'apple-touch-icon', href: '/favicon.ico' },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css'
+        }
       ]
     }
   },
@@ -58,6 +62,12 @@ export default defineNuxtConfig({
             default: 'catppuccin-latte',
             dark: 'catppuccin-macchiato'
           }
+        },
+        remarkPlugins: {
+          'remark-math': {}
+        },
+        rehypePlugins: {
+          'rehype-katex': { output: 'html' }
         }
       }
     },

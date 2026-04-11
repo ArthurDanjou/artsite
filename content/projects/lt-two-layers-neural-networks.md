@@ -33,18 +33,13 @@ where $\sigma(\cdot)$ is the ReLU activation function and parameters are bounded
 
 ## Part A: Naive Width-Dependent Bound
 
-Starting with standard empirical Rademacher complexity analysis:
-
-$$\mathcal{R}_{S_n}(\mathcal{H}) \leq 2 B_w B_u C \sqrt{\frac{m}{n}}$$
+Starting with standard empirical Rademacher complexity analysis: $\mathcal{R}_{S_n}(\mathcal{H}) \leq 2 B_w B_u C \sqrt{\frac{m}{n}}$
 
 This bound demonstrates the fundamental problem: it depends linearly on network width $m$, making it vacuous for overparameterized networks where $m \gg n$. This gap between theory and practice motivated the subsequent refinements.
 
 ## Part B: Symmetrization Inequality for ReLU
 
-Key insight exploiting ReLU structure:
-
-$$\mathbb{E}\left[\sup |\mathcal{Z}|\right] \leq 2 \cdot \mathbb{E}\left[\sup \phi(\mathcal{Z})\right]$$
-
+Key insight exploiting ReLU structure: $$\mathbb{E}\left[\sup |\mathcal{Z}|\right] \leq 2 \cdot \mathbb{E}\left[\sup \phi(\mathcal{Z})\right]$$
 Derivation uses:
 - ReLU decomposition: $|z| = \phi(z) + \phi(-z)$  
 - Distributional symmetry: $\sigma$ and $-\sigma$ are identically distributed
@@ -54,13 +49,9 @@ This establishes tighter bounds by leveraging the activation function's inherent
 
 ## Part C: Scale-Invariant Complexity Measure
 
-Leveraging the **positive homogeneity** of ReLU ($\sigma(\lambda z) = \lambda \sigma(z)$ for $\lambda > 0$), we introduce scale-invariant parameterization:
+Leveraging the **positive homogeneity** of ReLU ($\sigma(\lambda z) = \lambda \sigma(z)$ for $\lambda > 0$), we introduce scale-invariant parameterization: $\hat{u}_j = \frac{u_j}{\|w_j\|}, \quad \hat{w}_j = \frac{w_j}{\|w_j\|}$
 
-$$\hat{u}_j = \frac{u_j}{\|w_j\|}, \quad \hat{w}_j = \frac{w_j}{\|w_j\|}$$
-
-This transformation yields a width-independent bound:
-
-$$\mathcal{R}(\mathcal{H}) \leq C \cdot B \sqrt{\frac{\log m}{n}}$$
+This transformation yields a width-independent bound: $\mathcal{R}(\mathcal{H}) \leq C \cdot B \sqrt{\frac{\log m}{n}}$
 
 where the complexity no longer scales linearly with $m$, making it meaningful for overparameterized networks.
 

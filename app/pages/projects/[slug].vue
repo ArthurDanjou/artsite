@@ -157,3 +157,9 @@ const formattedDate = computed(() => {
     </ContentRenderer>
   </main>
 </template>
+
+<style scoped>
+.katex-html {
+  display: none !important;
+}
+</style>
