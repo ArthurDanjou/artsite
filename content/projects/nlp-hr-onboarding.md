@@ -17,17 +17,15 @@ icon: i-ph-robot-duotone
 ---
 
 **NLP Project — Master M2**  
-*Authors: Arthur DANJOU, Aksscel Meh-Rik, Moritz von SIEMENS*
+*Authors: Arthur DANJOU, Axelle MERIC, Moritz von SIEMENS*
 
-::BackgroundTitle{title="Project Overview"}
-::
+## Project Overview
 
 The **Intelligent HR Onboarding Assistant** is a conversational AI system designed to guide new employees during their first week at **TechCorp**. It combines retrieval-augmented generation, tool-using agents, and conversational memory to provide accurate and actionable HR support.
 
 The assistant can answer policy questions, retrieve employee information, schedule internal meetings, and prepare leave requests from natural-language prompts.
 
-::BackgroundTitle{title="Key Features"}
-::
+## Key Features
 
 - **Semantic HR policy search** powered by a RAG pipeline.
 - **Employee directory lookup** from structured JSON records.
@@ -36,8 +34,7 @@ The assistant can answer policy questions, retrieve employee information, schedu
 - **Sliding-window memory** to keep multi-turn context coherent.
 - **Interactive Gradio UI** with visible agent actions and tool calls.
 
-::BackgroundTitle{title="Architecture"}
-::
+## Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -56,14 +53,12 @@ The assistant can answer policy questions, retrieve employee information, schedu
 └──────────────────────────────────────────────────────────┘
 ```
 
-::BackgroundTitle{title="Prerequisites"}
-::
+## Prerequisites
 
 - Python ≥ 3.13
 - MistralAI API key
 
-::BackgroundTitle{title="Installation"}
-::
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -83,8 +78,7 @@ The assistant can answer policy questions, retrieve employee information, schedu
    export MISTRAL_API_KEY="your_api_key"
    ```
 
-::BackgroundTitle{title="Usage"}
-::
+## Usage
 
 ### Run the Jupyter notebook
 
@@ -107,8 +101,7 @@ data/
 └── employés.json    # TechCorp employee directory
 ```
 
-::BackgroundTitle{title="Learning Modules"}
-::
+## Learning Modules
 
 | TP | Concept | Usage |
 |:---|:--------|:------|
@@ -118,8 +111,7 @@ data/
 | **TP4** | Agents + Memory | `@tool` usage, ReAct orchestration, sliding-window memory |
 | **TP5** | RAG + Gradio | Qdrant indexing, semantic retrieval, interactive UI |
 
-::BackgroundTitle{title="Technologies"}
-::
+## Technologies
 
 - **LangChain**: LLM orchestration framework
 - **MistralAI**: LLM inference and embeddings (`mistral-embed`)
@@ -128,8 +120,7 @@ data/
 - **tiktoken**: BPE tokenization analysis
 - **pandas**: Employee data manipulation
 
-::BackgroundTitle{title="Main Dependencies"}
-::
+## Main Dependencies
 
 ```
 langchain>=1.2.11
@@ -140,8 +131,7 @@ tiktoken>=0.12.0
 pandas>=3.0.1
 ```
 
-::BackgroundTitle{title="Example Prompts"}
-::
+## Example Prompts
 
 - "How many days of annual leave do I have?"
 - "What is the remote work policy?"
@@ -149,8 +139,7 @@ pandas>=3.0.1
 - "Schedule a meeting with the Data Science team tomorrow at 2pm"
 - "I want to request leave from January 15th to 20th"
 
-::BackgroundTitle{title="Authors"}
-::
+## Authors
 
 - **Arthur DANJOU**
 - **Axelle MERIC**

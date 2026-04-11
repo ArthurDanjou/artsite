@@ -9,8 +9,7 @@ Research requires a reliable environment. This page documents the hardware infra
 
 ---
 
-::BackgroundTitle{title="Workstations & Compute"}
-::
+## Workstations & Compute
 
 My setup is split between mobile efficiency for academic writing and a fixed station for heavier computation.
 
@@ -43,7 +42,7 @@ I rely on a specific set of tools to maintain flow during deep work sessions.
 
 ---
 
-::BackgroundTitle{title="Development Ecosystem"}
+## Development Ecosystem
 ::
 
 I prioritize tools that offer **AI-integration** and **strong type-checking**.
@@ -75,8 +74,7 @@ def main():
 
 ---
 
-::BackgroundTitle{title="Infrastructure & Homelab"}
-::
+## Infrastructure & Homelab
 
 To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**. This allows me to experiment with distributed systems, data pipelines, and network security in a controlled environment.
 

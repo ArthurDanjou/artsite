@@ -20,13 +20,11 @@ icon: i-ph-flask-duotone
 
 [**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab: a controlled environment for experimenting with DevOps, distributed systems, and private cloud architecture.
 
-::BackgroundTitle{title="Architectural Philosophy"}
-::
+## Architectural Philosophy
 
 The infrastructure follows a **Zero Trust** model. Access is restricted to a private mesh VPN using **Tailscale (WireGuard)**, removing the need for open ports. For select public endpoints, **Cloudflare Tunnels** provide a hardened entry point, keeping my public IP hidden while preserving end-to-end encryption from the edge to the origin.
 
-::BackgroundTitle{title="Service Stack"}
-::
+## Service Stack
 
 Services are grouped by functional domain to keep orchestration clean and scalable:
 
@@ -53,8 +51,7 @@ Services are grouped by functional domain to keep orchestration clean and scalab
 * **MQTT Broker**: Low-latency message bus for device-to-service communication.
 * **Zigbee2MQTT**: Bridge for local Zigbee device control without cloud dependencies.
 
-::BackgroundTitle{title="Hardware Specifications"}
-::
+## Hardware Specifications
 
 | Component | Hardware | Role |
 | :--- | :--- | :--- |

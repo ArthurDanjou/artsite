@@ -20,13 +20,11 @@ Comparison of Reinforcement Learning algorithms on Atari Tennis (`ALE/Tennis-v5`
 
 - **GitHub Repository:** [Tennis-Atari-Game](https://github.com/ArthurDanjou/Tennis-Atari-Game)
 
-::BackgroundTitle{title="Overview"}
-::
+## Overview
 
 This project implements and compares five RL agents playing Atari Tennis against the built-in AI and in head-to-head tournaments.
 
-::BackgroundTitle{title="Algorithms"}
-::
+## Algorithms
 
 | Agent | Type | Policy | Update Rule |
 |-------|------|--------|-------------|
@@ -36,22 +34,19 @@ This project implements and compares five RL agents playing Atari Tennis against
 | **Monte Carlo** | First-visit MC | ε-greedy | $W_a \leftarrow W_a + \alpha \cdot (G_t - \hat{q}(s, a)) \cdot \phi(s)$ |
 | **DQN** | Deep Q-Network | ε-greedy | MLP (256→256) with experience replay & target network |
 
-::BackgroundTitle{title="Architecture"}
-::
+## Architecture
 
 - **Linear agents** (SARSA, Q-Learning, Monte Carlo): $\hat{q}(s, a; \mathbf{W}) = \mathbf{W}_a^\top \phi(s)$ with $\phi(s) \in \mathbb{R}^{128}$ (RAM observation)
 - **DQN**: MLP network (128 → 128 → 64 → 18) trained with Adam optimizer, Huber loss, and periodic target network sync
 
-::BackgroundTitle{title="Environment"}
-::
+## Environment
 
 - **Game**: Atari Tennis via PettingZoo (`tennis_v3`)
 - **Observation**: RAM state (128 features)
 - **Action Space**: 18 discrete actions
 - **Agents**: 2 players (`first_0` and `second_0`)
 
-::BackgroundTitle{title="Project Structure"}
-::
+## Project Structure
 
 ```
 .
@@ -71,8 +66,7 @@ This project implements and compares five RL agents playing Atari Tennis against
     └── championship_matrix.png
 ```
 
-::BackgroundTitle{title="Key Results"}
-::
+## Key Results
 
 ### Win Rate vs Random Baseline
 
@@ -87,8 +81,7 @@ This project implements and compares five RL agents playing Atari Tennis against
 
 Full round-robin tournament where each agent faces every other agent in both positions (first_0/second_0).
 
-::BackgroundTitle{title="Notebook Sections"}
-::
+## Notebook Sections
 
 1. **Configuration & Checkpoints** — Incremental training workflow with pickle serialization
 2. **Utility Functions** — Observation normalization, ε-greedy policy
@@ -97,13 +90,11 @@ Full round-robin tournament where each agent faces every other agent in both pos
 5. **Evaluation** — Match system, random baseline, round-robin tournament
 6. **Results & Visualization** — Win rate plots, matchup matrix heatmap
 
-::BackgroundTitle{title="Known Issues"}
-::
+## Known Issues
 
 - **Monte Carlo & DQN**: Checkpoint loading issues — saved weights may not restore properly during evaluation (training works correctly)
 
-::BackgroundTitle{title="Dependencies"}
-::
+## Dependencies
 
 - Python 3.13+
 - `numpy`, `matplotlib`
@@ -112,8 +103,7 @@ Full round-robin tournament where each agent faces every other agent in both pos
 - `pettingzoo`
 - `tqdm`
 
-::BackgroundTitle{title="Authors"}
-::
+## Authors
 
 - Arthur DANJOU
 - Moritz VON SIEMENS

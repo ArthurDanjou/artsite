@@ -20,8 +20,7 @@ Interactive Shiny dashboard for WHO tuberculosis data analysis and clustering.
 - **GitHub Repository:** [Tuberculose-Visualisation](https://github.com/ArthurDanjou/Tuberculose-Visualisation)
 - **Live Application:** [Tuberculose Data Visualization](https://go.arthurdanjou.fr/datavis-app)
 
-::BackgroundTitle{title="Overview"}
-::
+## Overview
 
 This project provides an interactive visualization tool for monitoring and segmenting global tuberculosis data from the World Health Organization (WHO). It applies multivariate analysis to reveal operational typologies of global health risks.
 
@@ -29,8 +28,7 @@ This project provides an interactive visualization tool for monitoring and segme
 **Program:** M2 ISF - Dauphine PSL  
 **Course:** Data Visualisation (2025-2026)
 
-::BackgroundTitle{title="Features"}
-::
+## Features
 
 - Interactive world map with cluster visualization
 - K-means clustering for country segmentation (Low/Moderate/Critical Impact)
@@ -39,8 +37,7 @@ This project provides an interactive visualization tool for monitoring and segme
 - Key Performance Indicators (KPIs) dashboard
 - Raw data exploration with data tables
 
-::BackgroundTitle{title="Project Structure"}
-::
+## Project Structure
 
 ```
 ├── app.R                    # Shiny application
@@ -52,8 +49,7 @@ This project provides an interactive visualization tool for monitoring and segme
 └── renv/                    # R package management
 ```
 
-::BackgroundTitle{title="Requirements"}
-::
+## Requirements
 
 - R (>= 4.0.0)
 - R packages (see `renv.lock`):
@@ -67,8 +63,7 @@ This project provides an interactive visualization tool for monitoring and segme
   - DT
   - rnaturalearth
 
-::BackgroundTitle{title="Installation"}
-::
+## Installation
 
 1. Clone this repository
 2. Open R/RStudio in the project directory
@@ -78,19 +73,16 @@ This project provides an interactive visualization tool for monitoring and segme
    shiny::runApp("app.R")
    ```
 
-::BackgroundTitle{title="Detailed Report"}
-::
+## Detailed Report
 
 <iframe src="/projects/datavis.pdf" width="100%" height="1000px">
 </iframe>
 
-::BackgroundTitle{title="License"}
-::
+## License
 
 © 2026 Arthur Danjou. All rights reserved.
 
-::BackgroundTitle{title="Resources"}
-::
+## Resources
 
 You can find the code here: [Data Visualisation Code](https://go.arthurdanjou.fr/datavis-code)
 

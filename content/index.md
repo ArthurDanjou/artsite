@@ -20,8 +20,7 @@ When I'm not debugging training dynamics or refining research pipelines, I enjoy
 
 ---
 
-::BackgroundTitle{title="Scientific & Technical Arsenal"}
-::
+## Scientific & Technical Arsenal
 
 My research capabilities rely on a :hover-text{text="dual expertise" hover="The Scientist & The Builder"}: :hover-text{text="advanced mathematical modeling" hover="Stochastic Calculus, Optimization, Probability"} for conception, and :hover-text{text="robust engineering" hover="CI/CD, Docker, Kubernetes"} for execution.
 
@@ -30,8 +29,7 @@ My research capabilities rely on a :hover-text{text="dual expertise" hover="The 
 
 ---
 
-::BackgroundTitle{title="Research & Engineering Path"}
-::
+## Research & Engineering Path
 
 Theoretical knowledge is nothing without concrete application. From :hover-text{text="building distributed systems" hover="High-availability architectures"} to designing :hover-text{text="defensive ML pipelines" hover="Adversarial Robustness"}, my path reflects a constant shift toward high-impact and safety-critical challenges.
 
@@ -40,8 +38,7 @@ Theoretical knowledge is nothing without concrete application. From :hover-text{
 
 ---
 
-::BackgroundTitle{title="Academic Foundation"}
-::
+## Academic Foundation
 
 Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{text="Statistics, Probability, and Optimization" hover="The M280 Trinity 📐"} provides the foundations to analyze, stress-test, and secure modern deep learning architectures.
 
@@ -50,8 +47,7 @@ Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{t
 
 ---
 
-::BackgroundTitle{title="Live Telemetry"}
-::
+## Live Telemetry
 
 Research requires discipline and transparency. Here is a real-time overview of my :hover-text{text="current environment" hover="OS, Editor, Activity"} and historical data.
 

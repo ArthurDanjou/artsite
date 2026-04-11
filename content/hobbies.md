@@ -9,8 +9,7 @@ Research demands deep focus, but breakthrough ideas often come from stepping bac
 
 ---
 
-::BackgroundTitle{title="High-Velocity Interests"}
-::
+## High-Velocity Interests
 
 I am drawn to environments where strategy, speed, and precision intersect. These are not just pastimes, but exercises in optimization under constraints.
 
@@ -32,8 +31,7 @@ Team sports are my foundation for resilience. As a :hover-text{text="former Rugb
 
 ---
 
-::BackgroundTitle{title="Perspectives & Culture"}
-::
+## Perspectives & Culture
 
 Curiosity is the fuel of a researcher. Expanding my horizon helps me approach problems with fresh angles.
 
@@ -54,8 +52,7 @@ As a long-time supporter of **PSG**, I appreciate the tactical analysis and perf
 
 ---
 
-::BackgroundTitle{title="Creative Patterns"}
-::
+## Creative Patterns
 
 **Music** serves as my cognitive reset. Training my ear to recognize harmony and structure translates directly to identifying elegant solutions in system design. It reinforces my belief that great engineering, like great music, requires both **technical precision** and **artistic intuition**.
 

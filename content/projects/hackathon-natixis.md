@@ -16,15 +16,17 @@ tags:
 icon: i-ph-database-duotone
 ---
 
-::BackgroundTitle{title="The Challenge"}
+::note
+Our team and I won the hackathon, taking first place among 13 teams.
 ::
+
+## The Challenge
 
 Organized by **Natixis**, this hackathon followed a high-intensity format: **three consecutive Saturdays** of on-site development, bridged by two full weeks of remote collaboration.
 
 Working in a **team of four**, our goal was to bridge the gap between non-technical stakeholders and complex financial databases by creating an autonomous "Data Talk" agent.
 
-::BackgroundTitle{title="How We Built It"}
-::
+## How We Built It
 
 ### Data Engineering & Schema Design
 
@@ -47,13 +49,11 @@ Data is only useful if it's readable. Our Nuxt application goes beyond raw table
 * **Dynamic Charts:** The agent automatically determines the best visualization type (Bar, Line, Pie) based on the query result and renders it using interactive components.
 * **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English, highlighting anomalies or key trends.
 
-::BackgroundTitle{title="Impact & Results"}
-::
+## Impact & Results
 
 This project demonstrated that a modern stack (Nuxt + local LLMs) can drastically reduce the time needed for data discovery. By the final Saturday, our team presented a working prototype capable of handling multi-table joins and generating real-time financial dashboards from simple chat prompts.
 
-::BackgroundTitle{title="Features"}
-::
+## Features
 
 - **Natural Language Queries**: Ask questions about anomalies in plain French or English
 - **SQL Execution**: Automatic SQL query generation and execution against MySQL database
@@ -62,16 +62,14 @@ This project demonstrated that a modern stack (Nuxt + local LLMs) can drasticall
 - **AI-Powered**: Uses Ollama models with tool calling capabilities
 - **Dark Mode**: Full light/dark theme support
 
-::BackgroundTitle{title="Technical Stack"}
-::
+## Technical Stack
 
 * **Frontend/API:** **Nuxt 3** for a seamless, reactive user interface.
 * **Orchestration:** **Vercel AI SDK** to manage streams and tool-calling logic.
 * **Inference:** **Ollama** for running LLMs locally, ensuring data privacy during development.
 * **Storage:** **PostgreSQL** for the converted data warehouse.
 
-::BackgroundTitle{title="Quick Start"}
-::
+## Quick Start
 
 ### Prerequisites
 
@@ -131,8 +129,7 @@ bun run dev --host
 
 The app will be available at `http://localhost:3000`
 
-::BackgroundTitle{title="Project Structure"}
-::
+## Project Structure
 
 ```
 .
@@ -150,8 +147,7 @@ The app will be available at `http://localhost:3000`
     └── nuxt.config.ts        # Nuxt configuration
 ```
 
-::BackgroundTitle{title="Database Schema"}
-::
+## Database Schema
 
 The database contains the following main tables:
 
@@ -178,8 +174,7 @@ The database contains the following main tables:
 - `object_identification_fields` - JSON with contract/object context
 - `error_fields` - JSON with error details and resolution status
 
-::BackgroundTitle{title="Chat Application Architecture"}
-::
+## Chat Application Architecture
 
 ```
 chat/
@@ -230,8 +225,7 @@ Component Selection
 Rendered Message
 ```
 
-::BackgroundTitle{title="Available Tools"}
-::
+## Available Tools
 
 ### 1. `executeSqlTool`
 
@@ -319,8 +313,7 @@ Displays KPI cards with metrics.
 
 **UI Component**: `app/components/tool/KPI.vue`
 
-::BackgroundTitle{title="Adding a New Tool"}
-::
+## Adding a New Tool
 
 To add a new tool, implement both server-side and client-side layers:
 
@@ -433,8 +426,7 @@ Update `app/pages/chat.vue`:
 />
 ```
 
-::BackgroundTitle{title="System Prompt Guidelines"}
-::
+## System Prompt Guidelines
 
 The system prompt (`server/api/chat.ts`) controls AI behavior:
 
@@ -453,8 +445,7 @@ The system prompt (`server/api/chat.ts`) controls AI behavior:
 - **Open/Unresolved**: Check `error_fields.resolved_value_txt` for resolution status
 - **Owner**: Use `functional_controls.responsible_login_id` as default owner
 
-::BackgroundTitle{title="Development"}
-::
+## Development
 
 ### Scripts
 
@@ -481,8 +472,7 @@ bun run typecheck  # Type check with vue-tsc
 - **Charts**: nuxt-charts
 - **Utilities**: VueUse, Zod
 
-::BackgroundTitle{title="Deployment"}
-::
+## Deployment
 
 ### NuxtHub (Recommended)
 
@@ -502,8 +492,7 @@ bun run preview
 
 Set production environment variables for database connection.
 
-::BackgroundTitle{title="Troubleshooting"}
-::
+## Troubleshooting
 
 ### Common Issues
 

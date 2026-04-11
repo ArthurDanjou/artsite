@@ -23,8 +23,7 @@ The projects are organized into three main sections:
 - **M1** – First year of the Master's degree in Mathematics
 - **M2** – Second year of the Master's degree in Mathematics
 
-::BackgroundTitle{title="File Structure"}
-::
+## File Structure
 
 - `L3`
   - `Analyse Matricielle`
@@ -53,8 +52,7 @@ The projects are organized into three main sections:
   - `VBA`
   - `SQL`
 
-::BackgroundTitle{title="Technologies & Tools"}
-::
+## Technologies & Tools
 
 - **[Python](https://www.python.org)**: A high-level, interpreted programming language, widely used for data science, machine learning, and scientific computing.
 - **[R](https://www.r-project.org)**: A statistical computing environment, perfect for data analysis and visualization.

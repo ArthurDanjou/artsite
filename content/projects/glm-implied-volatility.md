@@ -24,8 +24,7 @@ This project explores the prediction of **implied volatility** from options mark
 
 ---
 
-::BackgroundTitle{title="Project Overview"}
-::
+## Project Overview
 
 ### Problem Statement
 
@@ -57,8 +56,7 @@ The project uses a comprehensive panel dataset tracking **3,887 assets** across 
 
 ---
 
-::BackgroundTitle{title="Methodology"}
-::
+## Methodology
 
 ### Data Pipeline
 
@@ -108,8 +106,7 @@ New financial indicators created to capture market dynamics:
 
 ---
 
-::BackgroundTitle{title="Models Implemented"}
-::
+## Models Implemented
 
 ### Linear Models
 
@@ -151,8 +148,7 @@ Advanced panel data models accounting for asset-specific effects:
 
 ---
 
-::BackgroundTitle{title="Results Summary"}
-::
+## Results Summary
 
 ### Model Comparison
 
@@ -191,8 +187,7 @@ PLS                            12.79 █████████
 
 ---
 
-::BackgroundTitle{title="Repository Structure"}
-::
+## Repository Structure
 
 ```
 PROJECT/
@@ -210,8 +205,7 @@ PROJECT/
 
 ---
 
-::BackgroundTitle{title="Getting Started"}
-::
+## Getting Started
 
 
 ### Prerequisites
@@ -253,8 +247,7 @@ install.packages(c(
 
 ---
 
-::BackgroundTitle{title="Technical Details"}
-::
+## Technical Details
 
 ### Data Split Strategy
 
@@ -281,8 +274,7 @@ Models trained on log-transformed target for variance stabilization.
 
 ---
 
-::BackgroundTitle{title="Key Concepts"}
-::
+## Key Concepts
 
 ### Financial Theories Applied
 
@@ -301,8 +293,7 @@ Models trained on log-transformed target for variance stabilization.
 
 ---
 
-::BackgroundTitle{title="Authors"}
-::
+## Authors
 
 **Team:**
 - Arthur DANJOU
@@ -315,8 +306,7 @@ Models trained on log-transformed target for variance stabilization.
 
 ---
 
-::BackgroundTitle{title="Notes"}
-::
+## Notes
 
 - **Computational Constraints:** Some models (Random Forest, MLP) failed due to hardware limitations (16GB RAM, CPU-only)
 - **Reproducibility:** Set `seed = 2025` for consistent results
@@ -324,8 +314,7 @@ Models trained on log-transformed target for variance stabilization.
 
 ---
 
-::BackgroundTitle{title="References"}
-::
+## References
 
 Key R packages used:
 - `tidymodels` – Modern modeling framework

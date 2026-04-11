@@ -21,8 +21,7 @@ The paper is available at: [https://arxiv.org/abs/2303.01500](https://arxiv.org/
 
 This repository contains a robust, modular **TensorFlow/Keras** implementation of **Early Dropout** and **Late Dropout** strategies. The goal is to verify the hypothesis that dropout, traditionally used to reduce overfitting, can also combat underfitting when applied only during the initial training phase.
 
-::BackgroundTitle{title="Scientific Objectives"}
-::
+## Scientific Objectives
 
 The study aims to validate the operating regimes of Dropout described in the paper:
 
@@ -31,8 +30,7 @@ The study aims to validate the operating regimes of Dropout described in the pap
 3. **Standard Dropout**: Constant rate throughout training (baseline).
 4. **No Dropout**: Control experiment without dropout.
 
-::BackgroundTitle{title="Technical Architecture"}
-::
+## Technical Architecture
 
 Unlike naive Keras callback implementations, this project uses a **dynamic approach via the TensorFlow graph** to ensure the dropout rate updates on the GPU without model recompilation.
 
@@ -42,8 +40,7 @@ Unlike naive Keras callback implementations, this project uses a **dynamic appro
 * **`DropoutScheduler`**: A Keras `Callback` that drives the rate variable based on the current epoch and the chosen strategy (`early`, `late`, `standard`).
 * **`ExperimentPipeline`**: An orchestrator class that handles data loading (MNIST, CIFAR-10, Fashion MNIST), model creation (Dense or CNN), and execution of comparative benchmarks.
 
-::BackgroundTitle{title="File Structure"}
-::
+## File Structure
 
 ```
 .
@@ -60,8 +57,7 @@ Unlike naive Keras callback implementations, this project uses a **dynamic appro
 └── uv.lock                           # Dependency lock file
 ```
 
-::BackgroundTitle{title="Installation"}
-::
+## Installation
 
 ```bash
 # Clone the repository
@@ -69,14 +65,13 @@ git clone https://github.com/arthurdanjou/dropoutreducesunderfitting.git
 cd dropoutreducesunderfitting
 ```
 
-::BackgroundTitle{title="Install dependencies"}
-::
+## Install dependencies
+
 ```bash
 pip install tensorflow numpy matplotlib seaborn scikit-learn
 ```
 
-::BackgroundTitle{title="Usage"}
-::
+## Usage
 
 The main notebook pipeline.ipynb contains all necessary code. Here is how to run a typical experiment via the pipeline API.
 
@@ -139,22 +134,19 @@ exp.run_dataset_size_comparison(
 )
 ```
 
-::BackgroundTitle{title="Expected Results"}
-::
+## Expected Results
 
 According to the paper, you should observe:
 
 - Early Dropout: Higher initial loss, followed by a sharp drop after the switch_epoch, often reaching a lower minimum than Standard Dropout (reduction of underfitting).
 - Late Dropout: Rapid rise in accuracy at the start (potential overfitting), then stabilized by the activation of dropout.
 
-::BackgroundTitle{title="Detailed Report"}
-::
+## Detailed Report
 
 <iframe src="/projects/dropout-reduces-underfitting.pdf" width="100%" height="1000px">
 </iframe>
 
-::BackgroundTitle{title="Authors"}
-::
+## Authors
 
 - [Arthur Danjou](https://github.com/ArthurDanjou)
 - [Alexis Mathieu](https://github.com/Alex6535)
