@@ -3,7 +3,7 @@ title: Arthur Danjou • AI Safety & Applied Mathematics
 description: AI Research Intern at CMAP (Ecole Polytechnique) and Master 2 ISF student at Paris-Dauphine. Working on robust distributed learning, AI alignment, and secure deep learning.
 ---
 
-Hey, I'm :home-name, an :hover-text{text="AI Research Intern at CMAP, Ecole Polytechnique" hover="Robust Distributed Learning with Adversaries" position="bottom"} and a :hover-text{text="Master 2 student in Statistical & Financial Engineering (ISF)" hover="Université Paris-Dauphine - PSL" position="bottom"}.
+Hey, I'm :home-name, an :hover-text{hover="Robust Distributed Learning with Adversaries" position="bottom" text="AI Research Intern at CMAP, Ecole Polytechnique"} and a :hover-text{hover="Université Paris-Dauphine - PSL" position="bottom" text="Master 2 student in Statistical & Financial Engineering (ISF)"}.
 
 I work at the intersection of :hover-text{hover="Learning Theory, Robust Optimization & Advanced ML 🧠" position="top" text="theoretical research"} and :hover-text{hover="From MLOps to production-grade systems 🚀" position="right" text="software engineering"}. Unlike a pure theorist, I ship what I model. Unlike a pure developer, I understand the math behind the code.
 
@@ -20,50 +20,42 @@ When I'm not debugging training dynamics or refining research pipelines, I enjoy
 
 ---
 
-## Scientific & Technical Arsenal
+:background-title{title="Scientific & Technical Arsenal"}
 
-My research capabilities rely on a :hover-text{text="dual expertise" hover="The Scientist & The Builder"}: :hover-text{text="advanced mathematical modeling" hover="Stochastic Calculus, Optimization, Probability"} for conception, and :hover-text{text="robust engineering" hover="CI/CD, Docker, Kubernetes"} for execution.
+My research capabilities rely on a :hover-text{hover="The Scientist & The Builder" text="dual expertise"} : :hover-text{hover="Stochastic Calculus, Optimization, Probability" text="advanced mathematical modeling"} for conception, and :hover-text{hover="CI/CD, Docker, Kubernetes" text="robust engineering"} for execution.
 
-::home-skills
-::
-
----
-
-## Research & Engineering Path
-
-Theoretical knowledge is nothing without concrete application. From :hover-text{text="building distributed systems" hover="High-availability architectures"} to designing :hover-text{text="defensive ML pipelines" hover="Adversarial Robustness"}, my path reflects a constant shift toward high-impact and safety-critical challenges.
-
-::home-timeline-experiences{class="mb-8"}
-::
+:home-skills
 
 ---
 
-## Academic Foundation
+:background-title{title="Research & Engineering Path"}
 
-Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{text="Statistics, Probability, and Optimization" hover="The M280 Trinity 📐"} provides the foundations to analyze, stress-test, and secure modern deep learning architectures.
+Theoretical knowledge is nothing without concrete application. From :hover-text{hover="High-availability architectures" text="building distributed systems"} to designing :hover-text{hover="Adversarial Robustness" text="defensive ML pipelines"}, my path reflects a constant shift toward high-impact and safety-critical challenges.
 
-::home-timeline-education{class="mb-8"}
-::
-
----
-
-## Live Telemetry
-
-Research requires discipline and transparency. Here is a real-time overview of my :hover-text{text="current environment" hover="OS, Editor, Activity"} and historical data.
-
-<!-- ::home-live-status-page{class="mb-4"}
-:: -->
-
-::home-live-activity{class="mb-4"}
-::
-
-::home-live-stats
-::
+:home-timeline-experiences{.mb-8}
 
 ---
 
-::home-quote
-::
+:background-title{title="Academic Foundation"}
 
-::home-catch-phrase
-::
+Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{hover="The M280 Trinity 📐" text="Statistics, Probability, and Optimization"} provides the foundations to analyze, stress-test, and secure modern deep learning architectures.
+
+:home-timeline-education{.mb-8}
+
+---
+
+:background-title{title="Live Telemetry"}
+
+Research requires discipline and transparency. Here is a real-time overview of my :hover-text{hover="OS, Editor, Activity" text="current environment"} and historical data.
+
+:home-live-status-page{.mb-4}
+
+:home-live-activity{.mb-4}
+
+:home-live-stats
+
+---
+
+:home-quote
+
+:home-catch-phrase
