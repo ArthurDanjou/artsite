@@ -4,8 +4,16 @@ import { computed, useRuntimeConfig } from '#imports'
 const props = defineProps<{ id?: string }>()
 
 const { headings } = useRuntimeConfig().public.mdc
-const generate = computed(() => props.id && ((typeof headings?.anchorLinks === 'boolean' && headings?.anchorLinks === true) || (typeof headings?.anchorLinks?.h1)))
-</script>
+
+const generate = computed(() => {
+  if (!props.id) return false
+
+  const anchorLinks = headings?.anchorLinks
+  if (anchorLinks === true) return true
+  if (typeof anchorLinks === 'boolean') return false
+
+  return !!anchorLinks?.h1
+})
 
 <template>
   <h1
