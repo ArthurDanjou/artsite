@@ -4,13 +4,13 @@ import type { ProjectsCollectionItem } from '@nuxt/content'
 const head = {
   title: 'Engineering & Research Labs',
   description: 'Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.',
-  headline: 'Arthur Danjou’s Projects'
+  headline: 'Arthur Danjou\u2019s Projects'
 }
 
 useSeoMeta({
   title: head.title,
   description: head.description,
-  ogTitle: `${head.title} • Arthur Danjou`,
+  ogTitle: `${head.title} \u2022 Arthur Danjou`,
   ogDescription: head.description,
   twitterCard: 'summary_large_image',
   twitterTitle: head.title,
