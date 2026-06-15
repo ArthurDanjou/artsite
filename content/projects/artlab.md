@@ -55,7 +55,7 @@ Services are grouped by functional domain to keep orchestration clean and scalab
 * **MQTT Broker**: Low-latency message bus for device-to-service communication.
 * **Zigbee2MQTT**: Bridge for local Zigbee device control without cloud dependencies.
 * **Matter Server**: WebSocket bridge for Matter-compatible smart home devices.
-* **LLM Vision**: AI-powered security camera analysis with timeline-based event logging (integrated with Gemini).
+* **LLM Vision**: AI-powered security camera analysis with timeline-based event logging, powered by open-weight models.
 * **Alarmo**: Advanced alarm system with presence-based arming/disarming.
 * **Voice Pipeline**: Local voice assistant stack combining openWakeWord (wake word), Piper (TTS), and Speech-to-Phrase (STT) for privacy-preserving voice control.
 

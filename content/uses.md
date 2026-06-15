@@ -108,12 +108,35 @@ I run these services using **Docker** and **Portainer**, strictly behind a **Tra
 - :prose-icon[DevOps & Infra]{icon="i-ph-washing-machine-duotone"} — Traefik, Portainer, Gitea.
 - :prose-icon[Music & Audio]{icon="i-ph-music-notes-duotone"} — Music Assistant, Jellyfin.
 - :prose-icon[Databases]{icon="i-ph-database-duotone"} — PostgreSQL, Redis.
-- :prose-icon[Storage & Media]{icon="i-ph-hard-drives-duotone"} — Minio (S3), Immich.
+- :prose-icon[Storage & Media]{icon="i-ph-hard-drives-duotone"} — Garage (S3), Immich.
 - :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"} — Home Assistant (27+ automations), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
-- :prose-icon[AI & Voice]{icon="i-ph-magic-wand-duotone"} — LLM Vision (Gemini), openWakeWord, Piper TTS, Speech-to-Phrase.
+- :prose-icon[AI & Voice]{icon="i-ph-magic-wand-duotone"} — LLM Vision (Qwen, DeepSeek, Mistral), openWakeWord, Piper TTS, Speech-to-Phrase.
 - :prose-icon[Security]{icon="i-ph-shield-check-duotone"} — Cloudflare Tunnels, AdGuard Home, Vaultwarden.
 - :prose-icon[Observability]{icon="i-ph-activity-duotone"} — Uptime Kuma, Beszel.
-- :prose-icon[Utilities]{icon="i-ph-wrench-duotone"} — BentoPDF, Palmr, HA MCP Server.
+- :prose-icon[Utilities]{icon="i-ph-wrench-duotone"} — BentoPDF, HA MCP Server.
 ::
+
+---
+
+## AI & Model Strategy
+
+All AI inference in ArtHome runs on **open-weight models** — no proprietary APIs, no data leaving the homelab, no per-token costs.
+
+### Vision Analysis
+
+**LLM Vision** powers security camera analysis with timeline-based event logging. Every frame is processed locally through open-weight vision models, enabling object detection, person recognition, and activity classification without sending video feeds to external services.
+
+### Assistant & Automation
+
+The conversation agent and automation logic layer run on a mix of open-weight models selected per task: **Qwen** and **DeepSeek** for general reasoning and instruction following, **Kimi** and **GLM** for long-context understanding (research paper analysis, conversation history), and **Mistral** for latency-sensitive tasks like quick classification and intent parsing.
+
+### Why Open Weights
+
+Open-weight models are a strategic choice, not just an ideological one:
+
+- **Privacy** — Data never leaves the homelab. Camera feeds, daily schedules, and voice commands stay on local hardware. No API calls means no third-party data exposure.
+- **Autonomy** — No vendor lock-in, no deprecation risk, no API pricing changes. Models can be swapped, fine-tuned, or quantized without permission.
+- **Reproducibility** — The same model can be run today and in five years. Closed APIs change versions, behaviors, and availability unilaterally.
+- **Cost** — Inference on local GPUs eliminates per-token costs. For a home automation system that processes thousands of events daily, this makes AI economically feasible at home scale.
 
 > *This list is constantly updated as I experiment with new tools and equipment.*

@@ -49,7 +49,7 @@ The instance runs **11 add-ons** that extend core capabilities:
 
 Beyond built-in integrations, **52 HACS repositories** extend the platform. Notable ones include:
 
-**Integrations** — **Alarmo** (advanced alarm panel with presence-based arming), **LLM Vision** (AI-powered camera analysis with Gemini), **Better Thermostat** (adaptive TRV control with external temperature sensors), **Bubble Card Tools** (backend for the Bubble Card UI system), **Beszel API** (homelab metric ingestion).
+**Integrations** — **Alarmo** (advanced alarm panel with presence-based arming), **LLM Vision** (AI-powered camera analysis with open-weight models), **Better Thermostat** (adaptive TRV control with external temperature sensors), **Bubble Card Tools** (backend for the Bubble Card UI system), **Beszel API** (homelab metric ingestion).
 
 **User Interface** — **Bubble Card** (minimalist card collection with pop-up touch interactions), **button-card** (swiss-army-knife custom card), **auto-entities** (dynamic entity list auto-population), **Big Slider Card** (expanded light intensity sliders), **Alarmo Card** (security panel frontend).
 
