@@ -51,7 +51,7 @@ const grouped = computed(() => {
       </p>
       <UButton
         size="md"
-        label="See my talks on Github"
+        label="See my talks on GitHub"
         variant="soft"
         color="neutral"
         icon="i-ph-github-logo"
