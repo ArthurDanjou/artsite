@@ -83,84 +83,17 @@ const grouped_projects = computed(() => {
           {{ group }}
         </h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">
-          <NuxtLink
+          <ProjectCard
             v-for="project in projects"
             :key="project.slug"
             :to="`/projects/${project.slug}`"
-            :aria-label="`Open project: ${project.title}`"
-            class="hover:bg-[#8881] dark:hover:bg-neutral-700/20 duration-500 rounded-lg transition-colors p-4"
-          >
-            <div class="flex justify-center items-center gap-4 z-50">
-              <div>
-                <UIcon
-                  :name="project.icon"
-                  size="40"
-                />
-              </div>
-              <div class="space-y-2">
-                <h1 class="font-bold">
-                  {{ project.title }}
-                </h1>
-                <p class="italic text-xs text-muted">
-                  {{ project.shortDescription }}
-                </p>
-                <div class="flex items-center justify-between">
-                  <div
-                    v-if="project.tags?.length"
-                    class="flex flex-wrap gap-1.5"
-                  >
-                    <UBadge
-                      v-for="tag in project.tags"
-                      :key="tag"
-                      color="neutral"
-                      variant="outline"
-                      size="xs"
-                    >
-                      {{ tag }}
-                    </UBadge>
-                  </div>
-                  <div class="flex gap-2 items-center justify-center">
-                    <UTooltip
-                      text="Favorite"
-                      :delay-duration="4"
-                    >
-                      <UBadge
-                        v-if="project.favorite"
-                        color="amber"
-                        variant="subtle"
-                        size="sm"
-                        icon="i-ph-star-four-duotone"
-                      />
-                    </UTooltip>
-                    <UTooltip
-                      text="In Progress"
-                      :delay-duration="4"
-                    >
-                      <UBadge
-                        v-if="project.status === 'In progress'"
-                        color="blue"
-                        variant="soft"
-                        size="sm"
-                        icon="i-ph-hourglass-duotone"
-                      />
-                    </UTooltip>
-                    <UTooltip
-                      text="Archived"
-                      :delay-duration="4"
-                    >
-                      <UBadge
-                        v-if="project.status === 'Archived'"
-                        color="gray"
-                        variant="soft"
-                        size="sm"
-                        icon="i-ph-archive-duotone"
-                      />
-                    </UTooltip>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nuxtlink>
+            :title="project.title"
+            :description="project.shortDescription"
+            :icon="project.icon"
+            :tags="project.tags"
+            :favorite="project.favorite"
+            :status="project.status"
+          />
         </div>
       </div>
     </div>

@@ -139,6 +139,9 @@ export default defineContentConfig({
           venue: z.string(),
           description: z.string(),
           icon: z.string().optional(),
+          tags: z.array(z.string()).optional(),
+          lang: z.enum(['fr', 'en']).optional(),
+          upcoming: z.boolean().optional(),
           slides: z.string().url().nullable().optional()
         }))
       })
