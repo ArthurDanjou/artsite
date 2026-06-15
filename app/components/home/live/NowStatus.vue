@@ -3,7 +3,8 @@ const now = useNow()
 const timeStr = computed(() => useDateFormat(now, 'HH:mm:ss').value)
 const dateStr = computed(() => useDateFormat(now, 'dddd, MMMM D, YYYY').value)
 
-const { data: ha } = useFetch('/api/ha/status')
+const { data: ha, refresh } = useFetch('/api/ha/status')
+useIntervalFn(refresh, 60_000)
 
 const weatherText = computed(() => {
   const w = ha.value?.weather

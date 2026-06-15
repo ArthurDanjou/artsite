@@ -6,12 +6,12 @@ const { data, status } = await useAsyncData(
 )
 
 const isLoading = computed(() => status.value === 'pending')
+const hasNoData = computed(() => !isLoading.value && (!data.value || data.value.total === 0))
 
 const metrics = computed(() => {
   if (!data.value) {
-    return { up: 0, down: 0, total: 0, uptime: 0 }
+    return { total: 0, uptime: 0 }
   }
-
   return {
     total: data.value.total,
     uptime: Number(data.value.uptime)
@@ -23,16 +23,47 @@ const hasDown = computed(() => {
 })
 
 const statusState = computed(() => {
-  if (isLoading.value) return { color: 'neutral' as const, label: 'Checking status...' }
-  if (hasDown.value) return { color: 'orange' as const, label: `${data.value.down} service(s) degraded` }
-  return { color: 'emerald' as const, label: 'All Systems Operational' }
+  if (isLoading.value) return { color: 'neutral', label: 'Checking status...' }
+  if (hasNoData.value) return { color: 'neutral', label: 'Status unavailable' }
+  if (hasDown.value) return { color: 'orange', label: `${data.value.down} service(s) degraded` }
+  return { color: 'emerald', label: 'All Systems Operational' }
+})
+
+const pingClass = computed(() => {
+  return {
+    'bg-neutral-400': statusState.value.color === 'neutral',
+    'bg-orange-400': statusState.value.color === 'orange',
+    'bg-emerald-400': statusState.value.color === 'emerald'
+  }
+})
+
+const dotClass = computed(() => {
+  return {
+    'bg-neutral-500': statusState.value.color === 'neutral',
+    'bg-orange-500': statusState.value.color === 'orange',
+    'bg-emerald-500': statusState.value.color === 'emerald'
+  }
+})
+
+const labelClass = computed(() => {
+  return {
+    'text-neutral-600 dark:text-neutral-400': statusState.value.color === 'neutral',
+    'text-orange-600 dark:text-orange-400': statusState.value.color === 'orange',
+    'text-emerald-600 dark:text-emerald-400': statusState.value.color === 'emerald'
+  }
+})
+
+const progressColor = computed((): 'emerald' | 'orange' | 'neutral' => {
+  if (statusState.value.color === 'emerald') return 'emerald'
+  if (statusState.value.color === 'orange') return 'orange'
+  return 'neutral'
 })
 </script>
 
 <template>
   <ClientOnly>
     <UCard
-      v-if="data"
+      v-if="data && !hasNoData"
       class="h-full flex flex-col overflow-hidden"
     >
       <div class="p-5 border-b border-neutral-200 dark:border-neutral-800">
@@ -48,11 +79,11 @@ const statusState = computed(() => {
             >
               <span
                 class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                :class="`bg-${statusState.color}-400`"
+                :class="pingClass"
               />
               <span
                 class="relative inline-flex rounded-full h-2.5 w-2.5"
-                :class="`bg-${statusState.color}-500`"
+                :class="dotClass"
               />
             </span>
             <USkeleton
@@ -63,7 +94,7 @@ const statusState = computed(() => {
             <span
               v-if="!isLoading"
               class="text-xs font-mono font-medium"
-              :class="`text-${statusState.color}-600 dark:text-${statusState.color}-400`"
+              :class="labelClass"
             >
               {{ statusState.label }}
             </span>
@@ -101,8 +132,8 @@ const statusState = computed(() => {
 
           <UProgress
             v-if="!isLoading"
-            v-model="metrics.uptime"
-            :color="statusState.color"
+            :model-value="metrics.uptime"
+            :color="progressColor"
             size="sm"
           />
         </div>
