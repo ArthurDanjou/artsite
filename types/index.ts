@@ -111,13 +111,38 @@ interface Nav {
 export const navs: readonly Nav[] = [
   { label: 'home', to: '/', icon: 'house-duotone' },
   { label: 'uses', to: '/uses', icon: 'tree-evergreen-duotone' },
+  { label: 'talks', to: '/talks', icon: 'microphone-stage-duotone' },
   { label: 'projects', to: '/projects', icon: 'folder-duotone' },
   { label: 'hobbies', to: '/hobbies', icon: 'game-controller-duotone' },
-  { label: 'ecosystem', to: '/ecosystem', icon: 'graph-duotone' },
   {
     label: 'resume',
     icon: 'address-book-duotone',
-    to: 'resumes/en',
+    to: '/resumes/en',
     target: '_blank'
   }
 ] as const
+
+export interface HAStatus {
+  weather?: { condition: string, temperature: number }
+  isHoliday?: boolean
+  totalLights?: number
+  totalAutomations?: number
+  totalScenes?: number
+  totalDomains?: number
+  totalEntities?: number
+  immichPhotos?: number
+  immichVideos?: number
+  lxcContainers?: number
+  virtualMachines?: number
+  dnsRequests?: number
+  dnsBlocked?: number
+  totalMediaPlayers?: number
+  activeMediaPlayers?: number
+}
+
+export interface StatsCard {
+  label: string
+  value: string
+  icon: string
+  color: string
+}

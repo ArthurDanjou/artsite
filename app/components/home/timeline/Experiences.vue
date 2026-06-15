@@ -40,8 +40,8 @@ const items = computed<TimelineItem[]>(() => {
     <div class="w-full flex justify-center">
       <UTimeline
         :orientation="orientation"
-        :items="items"
-        :default-value="items.length"
+        :items="items ?? []"
+        :default-value="items.length || 0"
         size="lg"
         color="neutral"
         class="w-full max-w-5xl"

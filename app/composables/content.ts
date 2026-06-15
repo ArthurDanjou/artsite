@@ -4,6 +4,7 @@ export async function useContent() {
   const education = await queryCollection('education').where('extension', '=', 'md').order('startDate', 'DESC').all()
   const experiences = await queryCollection('experiences').where('extension', '=', 'md').order('startDate', 'DESC').all()
   const contact = await queryCollection('contact').where('extension', '=', 'json').first()
+  const talks = await queryCollection('talks_entries').where('extension', '=', 'json').first()
 
-  return { skills, projects, education, experiences, contact }
+  return { skills, projects, education, experiences, contact, talks }
 }

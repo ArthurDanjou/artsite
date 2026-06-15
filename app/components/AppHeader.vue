@@ -53,36 +53,52 @@ const { contact } = await useContent()
         orientation="vertical"
         class="h-6"
       />
-      <UDropdownMenu
-        v-if="contact"
-        v-model:open="openContactDrawer"
-        :items="contact.body.filter(item => item.priority === 1).map(item => ({
-          label: item.name,
-          icon: item.icon,
-          href: item.value,
-          target: '_blank'
-        }))"
-        :content="{
-          align: 'center',
-          side: 'bottom',
-          sideOffset: 8
-        }"
-      >
-        <UTooltip
-          :kbds="['C']"
-          text="Contact Me"
-          :delay-duration="4"
-          class="cursor-pointer"
+      <ClientOnly>
+        <UDropdownMenu
+          v-if="contact"
+          v-model:open="openContactDrawer"
+          :items="contact.body.filter(item => item.priority === 1).map(item => ({
+            label: item.name,
+            icon: item.icon,
+            href: item.value,
+            target: '_blank'
+          }))"
+          :content="{
+            align: 'center',
+            side: 'bottom',
+            sideOffset: 8
+          }"
         >
-          <UButton
-            icon="i-ph-mailbox-duotone"
-            color="neutral"
-            size="sm"
-            variant="ghost"
-            @click="openContactDrawer = true"
-          />
-        </UTooltip>
-      </UDropdownMenu>
+          <UTooltip
+            :kbds="['C']"
+            text="Contact Me"
+            :delay-duration="4"
+            class="cursor-pointer"
+          >
+            <UButton
+              icon="i-ph-mailbox-duotone"
+              color="neutral"
+              size="sm"
+              variant="ghost"
+              @click="openContactDrawer = true"
+            />
+          </UTooltip>
+        </UDropdownMenu>
+        <template #fallback>
+          <UTooltip
+            :kbds="['C']"
+            text="Contact Me"
+            :delay-duration="4"
+          >
+            <UButton
+              icon="i-ph-mailbox-duotone"
+              color="neutral"
+              size="sm"
+              variant="ghost"
+            />
+          </UTooltip>
+        </template>
+      </ClientOnly>
       <ThemeSwitcher />
     </nav>
   </header>

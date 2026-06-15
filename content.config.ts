@@ -128,6 +128,24 @@ export default defineContentConfig({
         }))
       })
     }),
+    talks_entries: defineCollection({
+      type: 'data',
+      source: 'talks.json',
+      schema: z.object({
+        body: z.array(z.object({
+          id: z.string(),
+          title: z.string(),
+          date: z.string(),
+          venue: z.string(),
+          description: z.string(),
+          icon: z.string().optional(),
+          tags: z.array(z.string()).optional(),
+          lang: z.enum(['fr', 'en']).optional(),
+          upcoming: z.boolean().optional(),
+          slides: z.string().url().nullable().optional()
+        }))
+      })
+    }),
     profile: defineCollection({
       type: 'page',
       source: 'profile.md',
