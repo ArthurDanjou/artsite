@@ -23,20 +23,19 @@ defineOgImage('Pergel.satori', {
   headline: head.headline
 })
 
-const grouped = computed(() => {
-  const groups: Record<string, typeof talks.value.body> = {}
-  talks?.body?.forEach((talk) => {
+type Talk = NonNullable<typeof talks>['body'][number]
+
+const grouped = computed<Record<string, Talk[]>>(() => {
+  const groups: Record<string, Talk[]> = {}
+  ;(talks?.body ?? []).forEach((talk) => {
     const yearMatch = talk.date.match(/\d{4}/)
     const key = yearMatch ? yearMatch[0] : 'TBA'
-    if (!groups[key]) groups[key] = []
-    groups[key].push(talk)
+    ;(groups[key] ||= []).push(talk)
   })
-  return Object.entries(groups)
-    .sort(([a], [b]) => Number(b) - Number(a))
-    .reduce<Record<string, typeof talks.value.body>>((acc, [k, v]) => {
-      acc[k] = v as typeof talks.value.body
-      return acc
-    }, {})
+
+  return Object.fromEntries(
+    Object.entries(groups).sort(([a], [b]) => Number(b) - Number(a))
+  )
 })
 </script>
 
