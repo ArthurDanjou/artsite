@@ -58,7 +58,7 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
   ```python [main.py]
   def main():
-    print("Hello, Research Lab!")
+      print("Hello, Research Lab!")
   ```
   :::
 
