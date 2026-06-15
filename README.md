@@ -53,7 +53,6 @@ Copy `.env.example` to `.env` and configure:
 ```env
 NUXT_HA_URL=           # Home Assistant instance URL
 NUXT_HA_TOKEN=         # Home Assistant long-lived access token
-NUXT_STATUS_PAGE=      # Uptime Kuma status page URL
 NUXT_DISCORD_USER_ID=  # Discord user ID for activity
 NUXT_WAKATIME_*        # WakaTime API keys (optional)
 ```
