@@ -10,9 +10,12 @@ const hasNoData = computed(() => !isLoading.value && (!data.value || data.value.
 
 const metrics = computed(() => {
   if (!data.value) {
-    return { total: 0, uptime: 0 }
+    return { up: 0, down: 0, total: 0, uptime: 0 }
   }
+
   return {
+    up: data.value.up,
+    down: data.value.down,
     total: data.value.total,
     uptime: Number(data.value.uptime)
   }
