@@ -78,7 +78,7 @@
         },
         {
           "name": "Traefik",
-          "icon": "i-logos-traefik"
+          "icon": "i-devicon-traefikproxy"
         },
         {
           "name": "Tailscale",
