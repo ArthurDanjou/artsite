@@ -26,12 +26,20 @@ export default defineCachedEventHandler(async (event) => {
   ])
 
   let domains: Record<string, number> | null = null
+  let totalMediaPlayers: number | null = null
+  let activeMediaPlayers: number | null = null
   try {
     const states = await $fetch<HaState[]>(`${base}/api/states`, { headers, timeout: 5000 })
     domains = {}
+    totalMediaPlayers = 0
+    activeMediaPlayers = 0
     for (const s of states) {
       const domain = s.entity_id.split('.')[0]
       domains[domain] = (domains[domain] || 0) + 1
+      if (domain === 'media_player') {
+        totalMediaPlayers++
+        if (s.state === 'playing') activeMediaPlayers++
+      }
     }
   }
   catch {
@@ -91,7 +99,9 @@ export default defineCachedEventHandler(async (event) => {
     lxcContainers: lxc,
     virtualMachines: vm,
     dnsRequests: dnsTotal,
-    dnsBlocked: dnsBlockedCount
+    dnsBlocked: dnsBlockedCount,
+    totalMediaPlayers,
+    activeMediaPlayers
   }
 }, {
   maxAge: 120,

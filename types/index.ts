@@ -121,3 +121,21 @@ export const navs: readonly Nav[] = [
     target: '_blank'
   }
 ] as const
+
+export interface HAStatus {
+  weather?: { condition: string, temperature: number }
+  isHoliday?: boolean
+  totalLights?: number
+  totalAutomations?: number
+  totalScenes?: number
+  totalDomains?: number
+  totalEntities?: number
+  immichPhotos?: number
+  immichVideos?: number
+  lxcContainers?: number
+  virtualMachines?: number
+  dnsRequests?: number
+  dnsBlocked?: number
+  totalMediaPlayers?: number
+  activeMediaPlayers?: number
+}
