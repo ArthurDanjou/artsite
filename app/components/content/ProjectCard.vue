@@ -23,7 +23,7 @@ const flags: Record<string, string> = {
   >
     <UCard
       variant="subtle"
-      class="hover:bg-[#8881] dark:hover:bg-neutral-700/20 transition-colors duration-500"
+      class="h-full hover:bg-default transition-colors duration-500"
     >
       <div class="flex items-start gap-4">
         <div class="mt-0.5 shrink-0">
@@ -34,7 +34,7 @@ const flags: Record<string, string> = {
         </div>
         <div class="min-w-0">
           <div class="flex items-center gap-2">
-            <h3 class="font-semibold text-neutral-900 dark:text-white">
+            <h3 class="font-semibold text-neutral-900 dark:text-white line-clamp-1">
               {{ title }}
             </h3>
             <span
@@ -42,7 +42,7 @@ const flags: Record<string, string> = {
               class="text-sm shrink-0"
             >{{ flags[lang] }}</span>
           </div>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5">
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5 line-clamp-3">
             {{ description }}
           </p>
           <div class="flex flex-wrap items-center gap-2 mt-3">
