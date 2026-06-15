@@ -43,16 +43,14 @@ I rely on a specific set of tools to maintain flow during deep work sessions.
 ---
 
 ## Development Ecosystem
-::
 
 I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
 :::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
 ::card{title="IDEs & Editors" icon="i-ph-code-duotone"}
-* :prose-icon[VS Code]{color="blue" icon="i-logos:visual-studio-code"} — For general-purpose scripting and remote SSH development.
-* :prose-icon[Positron]{color="cyan" icon="i-devicon:positron"} — Lightweight IDE for R and statistical analysis, offering superior performance to RStudio while maintaining VS Code familiarity.
-* :prose-icon[JetBrains]{color="purple" icon="i-logos:jetbrains"} — *PyCharm* & *DataGrip* are unrivaled for complex refactoring and database management.
+* :prose-icon[Zed]{color="blue" icon="i-devicon-zed"} — For general-purpose scripting and remote SSH development.
+* :prose-icon[OpenCode Go]{color="green" icon="i-material-symbols-deployed-code-account"} — IA Agent open source.
 * **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
 * **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
@@ -68,6 +66,7 @@ def main():
 * :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"} — The minimal, blazing-fast, and infinitely customizable prompt.
 * :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"} — Replaces Spotlight. I use it for script commands, window management, and quick calculations.
 * :prose-icon[Firefox]{color="orange" icon="i-logos:firefox"} — Chosen for its privacy features and robust DevTools.
+* :prose-icon[Brave]{color="blue" icon="i-logos:brave"} — A privacy-focused browser with built-in ad blocking and tracking protection.
 ::
 
 :::

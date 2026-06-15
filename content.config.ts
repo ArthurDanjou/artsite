@@ -107,6 +107,26 @@ export default defineContentConfig({
         }))
       })
     }),
+    now: defineCollection({
+      type: 'page',
+      source: 'now.md',
+      schema: z.object({
+        robots: defineRobotsSchema(),
+        sitemap: defineSitemapSchema(),
+        ogImage: defineOgImageSchema(),
+        schemaOrg: defineSchemaOrgSchema()
+      })
+    }),
+    talks: defineCollection({
+      type: 'page',
+      source: 'talks.md',
+      schema: z.object({
+        robots: defineRobotsSchema(),
+        sitemap: defineSitemapSchema(),
+        ogImage: defineOgImageSchema(),
+        schemaOrg: defineSchemaOrgSchema()
+      })
+    }),
     hobbies: defineCollection({
       type: 'page',
       source: 'hobbies.md',
