@@ -139,3 +139,10 @@ export interface HAStatus {
   totalMediaPlayers?: number
   activeMediaPlayers?: number
 }
+
+export interface StatsCard {
+  label: string
+  value: string
+  icon: string
+  color: string
+}

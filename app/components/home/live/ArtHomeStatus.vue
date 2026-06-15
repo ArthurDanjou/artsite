@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { HAStatus } from '~~/types'
+import type { HAStatus, StatsCard } from '~~/types'
 
 const { data: ha, refresh, pending } = useFetch<HAStatus>('/api/ha/status')
 useIntervalFn(refresh, 120_000)
@@ -18,7 +18,7 @@ const weatherIcons: Record<string, { icon: string, color: string }> = {
   'windy': { icon: 'i-ph-wind-duotone', color: 'text-teal-500' }
 }
 
-const statsCards = computed(() => {
+const statsCards = computed<StatsCard[]>(() => {
   if (!ha.value) return []
 
   const weather = ha.value.weather
@@ -149,7 +149,7 @@ const statsCards = computed(() => {
       : null
   ]
 
-  return cards.filter(Boolean)
+  return cards.filter((c): c is StatsCard => c !== null)
 })
 </script>
 
@@ -164,7 +164,7 @@ const statsCards = computed(() => {
         v-for="card in statsCards"
         :key="card.label"
         :ui="{
-          body: { padding: 'p-3' },
+          body: { padding: 'p-2' },
           ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
           shadow: 'shadow-sm'
         }"
