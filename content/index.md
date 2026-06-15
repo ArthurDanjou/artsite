@@ -49,7 +49,9 @@ Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{t
 
 ## Live Telemetry
 
-Research requires discipline and transparency. Here is a real-time overview of my :hover-text{text="current environment" hover="OS, Editor, Activity"} and historical data.
+Here is a real-time overview of my current environment and activity.
+
+:now-status{class="mb-4"}
 
 ::home-live-status-page{class="mb-4"}
 ::

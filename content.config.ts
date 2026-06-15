@@ -107,16 +107,6 @@ export default defineContentConfig({
         }))
       })
     }),
-    now: defineCollection({
-      type: 'page',
-      source: 'now.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
-      })
-    }),
     talks: defineCollection({
       type: 'page',
       source: 'talks.md',
@@ -145,6 +135,21 @@ export default defineContentConfig({
           name: z.string(),
           level: z.string(),
           proficiency: z.string()
+        }))
+      })
+    }),
+    talks_entries: defineCollection({
+      type: 'data',
+      source: 'talks.json',
+      schema: z.object({
+        body: z.array(z.object({
+          id: z.string(),
+          title: z.string(),
+          date: z.string(),
+          venue: z.string(),
+          description: z.string(),
+          icon: z.string().optional(),
+          slides: z.string().url().nullable().optional()
         }))
       })
     }),

@@ -1,15 +1,36 @@
 <script lang="ts" setup>
 const now = useNow()
-const timeStr = computed(() => {
-  return useDateFormat(now, 'HH:mm:ss').value
-})
-const dateStr = computed(() => {
-  return useDateFormat(now, 'dddd, MMMM D, YYYY').value
+const timeStr = computed(() => useDateFormat(now, 'HH:mm:ss').value)
+const dateStr = computed(() => useDateFormat(now, 'dddd, MMMM D, YYYY').value)
+
+const { data: ha } = useFetch('/api/ha/status')
+
+const weatherText = computed(() => {
+  const w = ha.value?.weather
+  if (!w) return null
+  const icons: Record<string, string> = {
+    'sunny': '☀️',
+    'clear-night': '🌙',
+    'partlycloudy': '⛅',
+    'cloudy': '☁️',
+    'rainy': '🌧️',
+    'pouring': '🌧️',
+    'lightning': '⛈️',
+    'snowy': '❄️',
+    'snowy-rainy': '🌨️',
+    'fog': '🌫️',
+    'windy': '💨'
+  }
+  const icon = icons[w.condition] ?? ''
+  return `${icon} ${Math.round(w.temperature)}°C`
 })
 
-const isNight = computed(() => {
-  const h = now.value.getHours()
-  return h < 7 || h >= 21
+const locationText = computed(() => {
+  const loc = ha.value?.location
+  if (loc === 'Polytechnique') return '📍 Polytechnique, Palaiseau'
+  if (loc === 'Dauphine') return '📍 Dauphine, Paris'
+  if (loc === 'Maison Boulogne') return '🏠 Boulogne-Billancourt'
+  return '📍 Palaiseau'
 })
 </script>
 
@@ -28,10 +49,12 @@ const isNight = computed(() => {
             </p>
             <p class="text-sm text-neutral-700 dark:text-neutral-300">
               <span class="font-mono">{{ timeStr }}</span>
+              <template v-if="weatherText">
+                <span class="mx-1.5 text-neutral-400">•</span>
+                <span>{{ weatherText }}</span>
+              </template>
               <span class="mx-1.5 text-neutral-400">•</span>
-              <span>{{ isNight ? '🌙 Night mode' : '☀️ Daytime' }}</span>
-              <span class="mx-1.5 text-neutral-400">•</span>
-              <span>📍 Polytechnique, Palaiseau</span>
+              <span>{{ locationText }}</span>
             </p>
           </div>
         </div>

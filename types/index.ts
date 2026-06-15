@@ -109,7 +109,6 @@ interface Nav {
 
 export const navs: readonly Nav[] = [
   { label: 'home', to: '/', icon: 'house-duotone' },
-  { label: 'now', to: '/now', icon: 'clock-duotone' },
   { label: 'uses', to: '/uses', icon: 'tree-evergreen-duotone' },
   { label: 'talks', to: '/talks', icon: 'microphone-stage-duotone' },
   { label: 'projects', to: '/projects', icon: 'folder-duotone' },
