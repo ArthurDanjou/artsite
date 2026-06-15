@@ -56,6 +56,12 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
   - **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
   - **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
+  ```python [main.py]
+  def main():
+    print("Hello, Research Lab!")
+  ```
+  :::
+
   :::card{icon="i-ph-terminal-window-duotone" title="Terminal & System"}
   - :prose-icon[Ghostty]{color="gray" icon="i-ph-ghost-duotone"} — A fast, native, and GPU-accelerated terminal emulator.
   - :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"} — My default shell, optimized for speed and interactivity.
