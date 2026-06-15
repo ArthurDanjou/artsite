@@ -34,7 +34,17 @@ const grouped = computed<Record<string, Talk[]>>(() => {
   })
 
   return Object.fromEntries(
-    Object.entries(groups).sort(([a], [b]) => Number(b) - Number(a))
+    Object.entries(groups).sort(([a], [b]) => {
+      const aNum = Number(a)
+      const bNum = Number(b)
+      const aIsYear = Number.isFinite(aNum)
+      const bIsYear = Number.isFinite(bNum)
+
+      if (aIsYear && bIsYear) return bNum - aNum
+      if (aIsYear) return -1
+      if (bIsYear) return 1
+      return a.localeCompare(b)
+    })
   )
 })
 </script>
