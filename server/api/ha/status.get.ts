@@ -13,11 +13,16 @@ export default defineCachedEventHandler(async (event) => {
   const headers = { Authorization: `Bearer ${config.ha.token}` }
   const base = config.ha.url
 
-  const [lights, totalLights, weather, holidays] = await Promise.allSettled([
-    $fetch<HaState>(`${base}/api/states/sensor.current_lights_on`, { headers }).catch(() => null),
+  const [totalLights, weather, holidays, immichPhotos, immichVideos, lxcContainers, virtualMachines, dnsRequests, dnsBlocked] = await Promise.allSettled([
     $fetch<HaState>(`${base}/api/states/sensor.total_lumieres`, { headers }).catch(() => null),
     $fetch<HaState>(`${base}/api/states/weather.palaiseau`, { headers }).catch(() => null),
-    $fetch<HaState>(`${base}/api/states/todo.vacances_scolaires_france_zone_c`, { headers }).catch(() => null)
+    $fetch<HaState>(`${base}/api/states/todo.vacances_scolaires_france_zone_c`, { headers }).catch(() => null),
+    $fetch<HaState>(`${base}/api/states/sensor.immich_nombre_de_photos`, { headers }).catch(() => null),
+    $fetch<HaState>(`${base}/api/states/sensor.immich_nombre_de_videos`, { headers }).catch(() => null),
+    $fetch<HaState>(`${base}/api/states/sensor.node_beelink00_containers_running`, { headers }).catch(() => null),
+    $fetch<HaState>(`${base}/api/states/sensor.node_beelink00_virtual_machines_running`, { headers }).catch(() => null),
+    $fetch<HaState>(`${base}/api/states/sensor.adguard_home_requetes_dns`, { headers }).catch(() => null),
+    $fetch<HaState>(`${base}/api/states/sensor.adguard_home_requetes_dns_bloquees`, { headers }).catch(() => null)
   ])
 
   let domains: Record<string, number> | null = null
@@ -33,10 +38,6 @@ export default defineCachedEventHandler(async (event) => {
     // fallback — counts unavailable
   }
 
-  const currentLights = lights.status === 'fulfilled' && lights.value
-    ? Number.parseInt(lights.value.state, 10) || 0
-    : null
-
   const weatherData = weather.status === 'fulfilled' && weather.value
     ? {
         condition: weather.value.state,
@@ -50,9 +51,32 @@ export default defineCachedEventHandler(async (event) => {
         .some(item => item.due && item.due.slice(0, 10) === today)
     : null
 
+  const photos = immichPhotos.status === 'fulfilled' && immichPhotos.value
+    ? Number.parseInt(immichPhotos.value.state, 10) || null
+    : null
+
+  const videos = immichVideos.status === 'fulfilled' && immichVideos.value
+    ? Number.parseInt(immichVideos.value.state, 10) || null
+    : null
+
+  const lxc = lxcContainers.status === 'fulfilled' && lxcContainers.value
+    ? Number.parseInt(lxcContainers.value.state, 10) || null
+    : null
+
+  const vm = virtualMachines.status === 'fulfilled' && virtualMachines.value
+    ? Number.parseInt(virtualMachines.value.state, 10) || null
+    : null
+
+  const dnsTotal = dnsRequests.status === 'fulfilled' && dnsRequests.value
+    ? Number.parseInt(dnsRequests.value.state, 10) || null
+    : null
+
+  const dnsBlockedCount = dnsBlocked.status === 'fulfilled' && dnsBlocked.value
+    ? Number.parseInt(dnsBlocked.value.state, 10) || null
+    : null
+
   return {
     updatedAt: new Date().toISOString(),
-    currentLights,
     weather: weatherData,
     isHoliday,
     totalLights: totalLights.status === 'fulfilled' && totalLights.value
@@ -61,7 +85,13 @@ export default defineCachedEventHandler(async (event) => {
     totalDomains: domains ? Object.keys(domains).length : null,
     totalAutomations: domains?.automation ?? null,
     totalScenes: domains?.scene ?? null,
-    totalEntities: domains ? Object.values(domains).reduce((a, b) => a + b, 0) : null
+    totalEntities: domains ? Object.values(domains).reduce((a, b) => a + b, 0) : null,
+    immichPhotos: photos,
+    immichVideos: videos,
+    lxcContainers: lxc,
+    virtualMachines: vm,
+    dnsRequests: dnsTotal,
+    dnsBlocked: dnsBlockedCount
   }
 }, {
   maxAge: 120,

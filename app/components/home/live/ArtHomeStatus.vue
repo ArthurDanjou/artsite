@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-const { data: ha, refresh } = useFetch('/api/ha/status')
-useIntervalFn(refresh, 120_000)
+const { data: ha, reenesh } = useFetch('/api/ha/status')
+useIntervalFn(reenesh, 120_000)
 
 const weatherIcons: Record<string, string> = {
   'sunny': 'i-ph-sun-duotone',
@@ -27,14 +27,14 @@ const weatherIcon = computed(() => {
     <UCard class="mt-4 mb-2">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
         <div
-          v-if="ha?.currentLights != null"
+          v-if="ha?.totalLights != null"
           class="flex items-center gap-1.5 text-neutral-500"
         >
           <UIcon
             name="i-ph-lightbulb-duotone"
             class="size-4"
           />
-          <span>{{ ha.currentLights }} / {{ ha.totalLights ?? '—' }} allumée(s)</span>
+          <span>{{ ha.totalLights }} lights</span>
         </div>
 
         <div
@@ -57,7 +57,7 @@ const weatherIcon = computed(() => {
             name="i-ph-palms-duotone"
             class="size-4"
           />
-          <span>Vacances</span>
+          <span>Holiday</span>
         </div>
 
         <div
@@ -79,7 +79,7 @@ const weatherIcon = computed(() => {
             name="i-ph-palette-duotone"
             class="size-4"
           />
-          <span>{{ ha.totalScenes }} scènes</span>
+          <span>{{ ha.totalScenes }} scenes</span>
         </div>
 
         <div
@@ -90,7 +90,7 @@ const weatherIcon = computed(() => {
             name="i-ph-devices-duotone"
             class="size-4"
           />
-          <span>{{ ha.totalDomains }} domaines</span>
+          <span>{{ ha.totalDomains }} domains</span>
         </div>
 
         <div
@@ -101,7 +101,40 @@ const weatherIcon = computed(() => {
             name="i-ph-database-duotone"
             class="size-4"
           />
-          <span>{{ ha.totalEntities }} entités</span>
+          <span>{{ ha.totalEntities }} entities</span>
+        </div>
+
+        <div
+          v-if="ha?.immichPhotos != null && ha?.immichVideos != null"
+          class="flex items-center gap-1.5 text-neutral-500"
+        >
+          <UIcon
+            name="i-ph-camera-duotone"
+            class="size-4"
+          />
+          <span>{{ ha.immichPhotos.toLocaleString('en') }} · {{ ha.immichVideos.toLocaleString('en') }}</span>
+        </div>
+
+        <div
+          v-if="ha?.lxcContainers != null && ha?.virtualMachines != null"
+          class="flex items-center gap-1.5 text-neutral-500"
+        >
+          <UIcon
+            name="i-ph-server-duotone"
+            class="size-4"
+          />
+          <span>{{ ha.lxcContainers }} LXC · {{ ha.virtualMachines }} VM</span>
+        </div>
+
+        <div
+          v-if="ha?.dnsRequests != null"
+          class="flex items-center gap-1.5 text-neutral-500"
+        >
+          <UIcon
+            name="i-ph-shield-duotone"
+            class="size-4"
+          />
+          <span>{{ ha.dnsRequests.toLocaleString('en') }} · {{ ha.dnsBlocked?.toLocaleString('en') ?? '—' }} blocked</span>
         </div>
       </div>
     </UCard>
