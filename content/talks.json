@@ -2,9 +2,9 @@
   "body": [
     {
       "id": "seminar-cmap-2026",
-      "title": "Robustesse Byzantine dans l'Apprentissage Distribué",
+      "title": "Byzantine Robustness in Distributed Learning",
       "date": "September 2026",
-      "venue": "Séminaire interne CMAP, Ecole Polytechnique",
+      "venue": "Internal Seminar, CMAP — Ecole Polytechnique",
       "description": "Introducing the Krum framework and our adaptive threshold mechanisms for Byzantine-resilient aggregation. My first seminar talk.",
       "icon": "i-ph-presentation-duotone",
       "slides": null

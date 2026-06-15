@@ -29,11 +29,11 @@ const past = computed(() => talks?.body?.filter(t => t.slides) ?? [])
 
 <template>
   <main class="space-y-8">
-    <div class="flex flex-col items-center justify-center gap-4">
+    <div class="space-y-4">
       <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white font-mono tracking-tight">
         Speaking
       </h1>
-      <p class="max-w-3xl leading-relaxed text-center text-neutral-600 dark:text-neutral-400">
+      <p class="max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-400">
         My first academic talk is scheduled for September 2026. I am open to presenting at seminars, workshops, and reading groups.
       </p>
       <UButton
@@ -46,7 +46,6 @@ const past = computed(() => talks?.body?.filter(t => t.slides) ?? [])
         target="_blank"
       />
     </div>
-
     <div
       v-if="talks?.body?.length"
       class="space-y-6"
