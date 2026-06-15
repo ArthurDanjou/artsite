@@ -16,7 +16,7 @@ const flags: Record<string, string> = {
 </script>
 
 <template>
-  <UCard variant="subtle">
+  <UCard>
     <div class="flex items-start gap-4">
       <div class="mt-0.5 shrink-0">
         <UIcon
