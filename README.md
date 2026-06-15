@@ -16,7 +16,7 @@ AI Research Intern at CMAP, Ecole Polytechnique. Personal portfolio built with N
 
 ## Tech Stack
 
-- **Framework** — [Nuxt 3](https://nuxt.com/) with Cloudflare Workers preset
+- **Framework** — [Nuxt 4](https://nuxt.com/) with Cloudflare Workers preset
 - **UI** — [Nuxt UI v4](https://ui.nuxt.com/) + Tailwind CSS
 - **Content** — [Nuxt Content](https://content.nuxtjs.org/) with D1 database
 - **Database** — Cloudflare D1 (SQLite)
