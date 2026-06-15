@@ -1,40 +1,30 @@
 <script lang="ts" setup>
-import type { StatusPageData } from '~~/types'
-
-const { data, status } = await useAsyncData<StatusPageData>(
+const { data, status } = await useAsyncData(
   'home-status',
-  () => $fetch('/api/status-page'),
+  () => $fetch('/api/ha/monitors'),
   { lazy: true, dedupe: 'defer' }
 )
 
 const isLoading = computed(() => status.value === 'pending')
 
 const metrics = computed(() => {
-  if (!data.value || !data.value.publicGroupList) {
-    return { up: 0, down: 0, maintenance: 0, total: 0, uptime: 0 }
+  if (!data.value) {
+    return { up: 0, down: 0, total: 0, uptime: 0 }
   }
-
-  let upCount = 0
-  let totalCount = 0
-
-  data.value.publicGroupList.forEach((group) => {
-    group.monitorList.forEach((monitor) => {
-      totalCount++
-      const isUp = (monitor as unknown as { status: number }).status !== 0
-      if (isUp) upCount++
-    })
-  })
-
-  const uptimePercent = totalCount > 0 ? ((upCount / totalCount) * 100).toFixed(1) : '0.0'
 
   return {
-    total: totalCount,
-    uptime: Number(uptimePercent)
+    total: data.value.total,
+    uptime: Number(data.value.uptime)
   }
+})
+
+const hasDown = computed(() => {
+  return data.value ? data.value.down > 0 : false
 })
 
 const statusState = computed(() => {
   if (isLoading.value) return { color: 'neutral' as const, label: 'Checking status...' }
+  if (hasDown.value) return { color: 'orange' as const, label: `${data.value.down} service(s) degraded` }
   return { color: 'emerald' as const, label: 'All Systems Operational' }
 })
 </script>
@@ -115,26 +105,7 @@ const statusState = computed(() => {
             :color="statusState.color"
             size="sm"
           />
-          <USkeleton
-            v-else
-            class="h-2 w-full rounded-full"
-          />
         </div>
-      </div>
-
-      <div class="p-2 text-center border-t border-neutral-200 dark:border-neutral-800 mt-auto">
-        <UButton
-          to="https://go.arthurdanjou.fr/status"
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="link"
-          color="neutral"
-          size="xs"
-          :padded="false"
-          class="text-xs hover:text-primary-500"
-        >
-          View detailed report →
-        </UButton>
       </div>
     </UCard>
   </ClientOnly>
