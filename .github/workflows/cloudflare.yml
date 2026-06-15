@@ -37,6 +37,8 @@ jobs:
       - name: Build
         run: bun run build
         env:
+          NUXT_HA_URL: ${{ secrets.NUXT_HA_URL }}
+          NUXT_HA_TOKEN: ${{ secrets.NUXT_HA_TOKEN }}
           NUXT_DISCORD_USER_ID: ${{ secrets.NUXT_DISCORD_USER_ID }}
           NUXT_WAKATIME_CODING: ${{ secrets.NUXT_WAKATIME_CODING }}
           NUXT_WAKATIME_EDITORS: ${{ secrets.NUXT_WAKATIME_EDITORS }}
@@ -44,9 +46,6 @@ jobs:
           NUXT_WAKATIME_OS: ${{ secrets.NUXT_WAKATIME_OS }}
           NUXT_WAKATIME_USER_ID: ${{ secrets.NUXT_WAKATIME_USER_ID }}
           NUXT_STATUS_PAGE: ${{ secrets.NUXT_STATUS_PAGE }}
-          STUDIO_GITHUB_CLIENT_ID: ${{ secrets.STUDIO_GITHUB_CLIENT_ID }}
-          STUDIO_GITHUB_CLIENT_SECRET: ${{ secrets.STUDIO_GITHUB_CLIENT_SECRET }}
-          STUDIO_GITHUB_MODERATORS: ${{ secrets.STUDIO_GITHUB_MODERATORS }}
 
       - name: Determine Deployment Command
         id: target
