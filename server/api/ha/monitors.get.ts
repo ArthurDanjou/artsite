@@ -45,8 +45,7 @@ export default defineCachedEventHandler(async (event) => {
     total,
     up,
     down: total - up,
-    uptime: total > 0 ? ((up / total) * 100).toFixed(1) : '0.0',
-    monitors
+    uptime: total > 0 ? ((up / total) * 100).toFixed(1) : '0.0'
   }
 }, {
   maxAge: 120,
