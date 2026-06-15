@@ -20,10 +20,8 @@ const { skills } = await useContent()
         v-for="skill in skills.body"
         :key="skill.id"
       >
-        <div class>
+        <div>
           <h3 class="text-xl md:text-2xl font-semibold tracking-tight">
-            {{ skill.name }}
-          </h3>
           <p class="text-sm text-neutral-600 dark:text-neutral-400">
             {{ skill.description }}
           </p>
