@@ -31,7 +31,9 @@
         "@iconify-json/devicon": "1.2.62",
         "@iconify-json/file-icons": "^1.2.2",
         "@iconify-json/logos": "^1.2.11",
+        "@iconify-json/material-symbols": "^1.2.78",
         "@iconify-json/mdi": "^1.2.3",
+        "@iconify-json/pajamas": "^1.2.15",
         "@iconify-json/ph": "^1.2.2",
         "@iconify-json/simple-icons": "^1.2.86",
         "@iconify-json/twemoji": "1.2.5",
@@ -266,7 +268,11 @@
 
     "@iconify-json/lucide": ["@iconify-json/lucide@1.2.112", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-B4sYH2Sm/UPNJYrhh4i+GFHeHfrYPQF9evX2QduJv08iSWw9Mfn1VvF28iIh6pBtZpYlMnuB8/P51mDYlYBYWg=="],
 
+    "@iconify-json/material-symbols": ["@iconify-json/material-symbols@1.2.78", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-ITcvZUeHGRowyVc5SGWlAR6eW7r4Ywj/cXT3FUd3lnUHT47GIyaWL93zFOflq9Fwz+3AZ8UCzU8k/jBie+BDqQ=="],
+
     "@iconify-json/mdi": ["@iconify-json/mdi@1.2.3", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg=="],
+
+    "@iconify-json/pajamas": ["@iconify-json/pajamas@1.2.15", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-utUwcOZLNQQEmyY38lBw2VzAKIHg6sI+PuY42o73P67iEou2eafuZ4UQxHvRdcqf8h7sPm0JlsX2cWm/JkT06Q=="],
 
     "@iconify-json/ph": ["@iconify-json/ph@1.2.2", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw=="],
 

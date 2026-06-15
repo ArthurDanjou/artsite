@@ -51,9 +51,8 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
 ::div{.grid.grid-cols-1.md:grid-cols-2.gap-6}
   :::card{icon="i-ph-code-duotone" title="IDEs & Editors"}
-  - :prose-icon[VS Code]{color="blue" icon="i-logos:visual-studio-code"} — For general-purpose scripting and remote SSH development.
-  - :prose-icon[Positron]{color="cyan" icon="i-devicon:positron"} — Lightweight IDE for R and statistical analysis, offering superior performance to RStudio while maintaining VS Code familiarity.
-  - :prose-icon[JetBrains]{color="purple" icon="i-logos:jetbrains"} — *PyCharm* & *DataGrip* are unrivaled for complex refactoring and database management.
+  - :prose-icon[Zed]{color="blue" icon="i-devicon-zed"} — For general-purpose scripting and remote SSH development.
+  - :prose-icon[OpenCode AI]{color="purple" icon="i-material-symbols-deployed-code"} — An open-source AI coding agent with multi-provider support, dual build/plan agents, and native LSP integration.
   - **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
   - **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
@@ -63,8 +62,10 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
   - :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"} — The minimal, blazing-fast, and infinitely customizable prompt.
   - :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"} — Replaces Spotlight. I use it for script commands, window management, and quick calculations.
   - :prose-icon[Firefox]{color="orange" icon="i-logos:firefox"} — Chosen for its privacy features and robust DevTools.
+  - :prose-icon[Brave]{color="blue" icon="i-logos:brave"} — A privacy-focused browser with built-in ad blocking and tracking protection.
   :::
 ::
+
 ---
 
 ## Infrastructure & Homelab
