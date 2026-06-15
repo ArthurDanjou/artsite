@@ -28,7 +28,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Setup Wrangler Types
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           command: types
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
