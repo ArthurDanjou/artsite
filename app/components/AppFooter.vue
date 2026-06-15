@@ -34,8 +34,8 @@ const { contact } = await useContent()
           <div class="flex">
             <HomeLink
               blanked
-              href="mailto:arthurdanjou@outlook.fr"
-              label="arthurdanjou@outlook.fr"
+              href="mailto:contact@arthurdanjoufr"
+              label="contact@arthurdanjou.fr"
             />
           </div>
         </div>

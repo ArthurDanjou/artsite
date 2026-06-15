@@ -53,7 +53,7 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
   :::card{icon="i-ph-code-duotone" title="IDEs & Editors"}
   - :prose-icon[Zed]{color="blue" icon="i-devicon-zed"} — For general-purpose scripting and remote SSH development.
   - :prose-icon[OpenCode AI]{color="purple" icon="i-material-symbols-deployed-code"} — An open-source AI coding agent with multi-provider support, dual build/plan agents, and native LSP integration.
-  - **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
+  - **Theme:** :prose-icon[ArtLab Theme]{color="indigo" icon="i-ph-palette-duotone"} — A custom cross-platform theme blending Vitesse clarity with Catppuccin palettes, available for VS Code, Home Assistant, Zed, and Ghostty.
   - **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
   ```python [main.py]

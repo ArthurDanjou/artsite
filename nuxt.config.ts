@@ -181,7 +181,7 @@ export default defineNuxtConfig({
       description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
       jobTitle: 'AI Research Intern',
 
-      email: 'arthurdanjou@outlook.fr',
+      email: 'contact@arthurdanjou.fr',
       url: 'https://arthurdanjou.fr',
       sameAs: [
         'https://twitter.com/arthurdanj',

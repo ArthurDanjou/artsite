@@ -41,15 +41,23 @@ Services are grouped by functional domain to keep orchestration clean and scalab
 * **Redis**: In-memory data structure store for caching and session management.
 
 ### Automation & Observability
-* **n8n**: Workflow automation platform for orchestrating complex service interactions.
 * **Uptime Kuma**: Real-time status monitoring and incident alerting.
 * **Beszel**: Lightweight agent-based resource monitoring for CPU/RAM/Disk metrics.
 * **AdGuard Home**: Network-wide DNS sinkhole for ad-blocking and privacy.
+* **Home Assistant MCP Server**: AI agent gateway exposing Home Assistant via the Model Context Protocol for LLM-driven home control.
+
+### Media & Entertainment
+* **Jellyfin**: Media server for hardware-accelerated streaming.
+* **Music Assistant**: Self-hosted music library manager unifying streaming services and local files with multi-room audio sync.
 
 ### Home Intelligence
-* **Home Assistant**: Centralized hub for IoT integration and automation logic.
+* **Home Assistant**: Centralized hub for IoT integration, 27+ automations, and voice control.
 * **MQTT Broker**: Low-latency message bus for device-to-service communication.
 * **Zigbee2MQTT**: Bridge for local Zigbee device control without cloud dependencies.
+* **Matter Server**: WebSocket bridge for Matter-compatible smart home devices.
+* **LLM Vision**: AI-powered security camera analysis with timeline-based event logging (integrated with Gemini).
+* **Alarmo**: Advanced alarm system with presence-based arming/disarming.
+* **Voice Pipeline**: Local voice assistant stack combining openWakeWord (wake word), Piper (TTS), and Speech-to-Phrase (STT) for privacy-preserving voice control.
 
 ## Hardware Specifications
 

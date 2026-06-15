@@ -73,6 +73,18 @@
           "icon": "i-devicon-proxmox-wordmark"
         },
         {
+          "name": "Home Assistant",
+          "icon": "i-simple-icons-homeassistant"
+        },
+        {
+          "name": "Traefik",
+          "icon": "i-logos-traefik"
+        },
+        {
+          "name": "Tailscale",
+          "icon": "i-simple-icons-tailscale"
+        },
+        {
           "name": "Redis",
           "icon": "i-logos-redis"
         },
