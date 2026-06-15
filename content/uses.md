@@ -102,17 +102,18 @@ To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**
 
 ### Service Stack
 
-I run these services using **Docker** and **Portainer**, strictly behind a **Traefik** reverse proxy.
+I run these services using **Docker** and **Portainer**, strictly behind a **Traefik** reverse proxy, inside a **Tailscale** VPN mesh.
 
 ::div{.grid.grid-cols-1.gap-4}
 - :prose-icon[DevOps & Infra]{icon="i-ph-washing-machine-duotone"} — Traefik, Portainer, Gitea.
 - :prose-icon[Music & Audio]{icon="i-ph-music-notes-duotone"} — Music Assistant, Jellyfin.
+- :prose-icon[Knowledge & Notes]{icon="i-ph-notebook-duotone"} — Obsidian, Obsidian Sync, Mealie.
 - :prose-icon[Databases]{icon="i-ph-database-duotone"} — PostgreSQL, Redis.
 - :prose-icon[Storage & Media]{icon="i-ph-hard-drives-duotone"} — Garage (S3), Immich.
 - :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"} — Home Assistant (27+ automations), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
 - :prose-icon[AI & Voice]{icon="i-ph-magic-wand-duotone"} — LLM Vision (Qwen, DeepSeek, Mistral), openWakeWord, Piper TTS, Speech-to-Phrase.
 - :prose-icon[Security]{icon="i-ph-shield-check-duotone"} — Cloudflare Tunnels, AdGuard Home, Vaultwarden.
-- :prose-icon[Observability]{icon="i-ph-activity-duotone"} — Uptime Kuma, Beszel.
+- :prose-icon[Observability]{icon="i-ph-activity-duotone"} — Uptime Kuma, Beszel, Speedtest Tracker.
 - :prose-icon[Utilities]{icon="i-ph-wrench-duotone"} — BentoPDF, HA MCP Server.
 ::
 

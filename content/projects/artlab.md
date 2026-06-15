@@ -59,6 +59,28 @@ Services are grouped by functional domain to keep orchestration clean and scalab
 * **Alarmo**: Advanced alarm system with presence-based arming/disarming.
 * **Voice Pipeline**: Local voice assistant stack combining openWakeWord (wake word), Piper (TTS), and Speech-to-Phrase (STT) for privacy-preserving voice control.
 
+## Backup Strategy
+
+Data integrity follows a **3-2-1 rule** with a layered pipeline:
+
+### Proxmox Backup Server (Primary Layer)
+**PBS** runs as a dedicated LXC container on the Beelink, providing agentless, incremental backups of every VM and LXC container. The client handles deduplication, compression, and integrity verification. Backups are stored on a dedicated ZFS dataset with periodic verification tasks.
+
+### NAS (Local Aggregation)
+All PBS backup datastores are pushed to the **UGREEN NASync DXP4800** — the 16TB ZFS pool acts as the local backup aggregation point. Shared folders (Immich photos, Docker volumes, configuration directories) are also backed up here via real-time rsync.
+
+### Google Drive (Off-Site, Encrypted)
+The NAS synchronizes its entire backup dataset to **Google Drive** via **rclone** with client-side AES-256 encryption. The encryption keys never leave the homelab — Google sees only opaque blobs. This covers PBS backups, Immich photos, shared folders, and configuration files.
+
+Two sync flows run in parallel:
+- **PBS datastores** → NAS → Google Drive (daily incremental)
+- **Shared folders** (photos, documents) → NAS → Google Drive (near real-time, uni-directional)
+
+### Recovery Testing
+Backups are periodically restored to isolated containers to verify integrity and RTO (recovery time objective). This practice has caught misconfigured backup paths before actual data was at risk.
+
+---
+
 ## Hardware Specifications
 
 | Component | Hardware | Role |
