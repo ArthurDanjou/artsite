@@ -57,11 +57,11 @@ const grouped_projects = computed(() => {
 
 <template>
   <main class="space-y-8 py-4">
-    <div class="flex flex-col items-center justify-center gap-4">
+    <div class="space-y-4">
       <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white font-mono tracking-tight">
         Engineering & Research Labs
       </h1>
-      <p class="max-w-3xl leading-relaxed">
+      <p class="max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-400">
         Bridging the gap between theoretical models and production systems. <br>Explore my experimental labs, open-source contributions, and engineering work.
       </p>
       <UButton
@@ -73,7 +73,6 @@ const grouped_projects = computed(() => {
         to="https://go.arthurdanjou.fr/github"
       />
     </div>
-
     <div class="flex flex-col gap-16">
       <div
         v-for="(projects, group) in grouped_projects"
