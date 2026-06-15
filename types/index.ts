@@ -97,7 +97,8 @@ export const IDEs = [
   { name: 'WebStorm', icon: 'i-logos:webstorm' },
   { name: 'PyCharm Professional', icon: 'i-logos:pycharm' },
   { name: 'Cursor', icon: 'i-vscode-icons-file-type-cursorrules' },
-  { name: 'Positron', icon: 'i-devicon-positron' }
+  { name: 'Positron', icon: 'i-devicon-positron' },
+  { name: 'Zed', icon: 'i-simple-icons:zedindustries' }
 ] as const
 
 interface Nav {
