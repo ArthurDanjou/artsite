@@ -7,6 +7,9 @@
       "venue": "Internal Seminar, CMAP — Ecole Polytechnique",
       "description": "Introducing the Krum framework and our adaptive threshold mechanisms for Byzantine-resilient aggregation. My first seminar talk.",
       "icon": "i-ph-presentation-duotone",
+      "tags": ["Byzantine Robustness", "Distributed Learning", "Krum"],
+      "lang": "fr",
+      "upcoming": true,
       "slides": null
     }
   ]

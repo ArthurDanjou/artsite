@@ -7,7 +7,7 @@ shortDescription: A collection of academic projects in mathematics and data scie
 publishedAt: 2023-09-01
 readingTime: 1
 favorite: true
-status: In progress
+status: Completed
 tags:
   - Python
   - R
