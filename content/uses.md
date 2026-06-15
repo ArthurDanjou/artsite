@@ -57,11 +57,11 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
   - **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
   - **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
-  ```python [main.py]
-  def main():
-      print("Hello, Research Lab!")
-  ```
-  :::
+::card{title="IDEs & Editors" icon="i-ph-code-duotone"}
+* :prose-icon[Zed]{color="blue" icon="i-devicon-zed"} — For general-purpose scripting and remote SSH development.
+* :prose-icon[OpenCode Go]{color="green" icon="i-material-symbols-deployed-code-account"} — IA Agent open source.
+* **Theme:** :prose-icon[ArtLab]{color="indigo" icon="i-ph-palette-duotone"} — A custom VS Code theme with optimized contrast for extended coding sessions, supporting both light and dark modes.
+* **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
   :::card{icon="i-ph-terminal-window-duotone" title="Terminal & System"}
   - :prose-icon[Ghostty]{color="gray" icon="i-ph-ghost-duotone"} — A fast, native, and GPU-accelerated terminal emulator.
@@ -72,6 +72,16 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
   :::
 ::
 
+::card{title="Terminal & System" icon="i-ph-terminal-window-duotone"}
+* :prose-icon[Ghostty]{color="gray" icon="i-ph-ghost-duotone"} — A fast, native, and GPU-accelerated terminal emulator.
+* :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"} — My default shell, optimized for speed and interactivity.
+* :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"} — The minimal, blazing-fast, and infinitely customizable prompt.
+* :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"} — Replaces Spotlight. I use it for script commands, window management, and quick calculations.
+* :prose-icon[Firefox]{color="orange" icon="i-logos:firefox"} — Chosen for its privacy features and robust DevTools.
+* :prose-icon[Brave]{color="blue" icon="i-logos:brave"} — A privacy-focused browser with built-in ad blocking and tracking protection.
+::
+
+:::
 ---
 
 ## Infrastructure & Homelab

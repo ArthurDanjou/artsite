@@ -110,13 +110,16 @@ export default defineNuxtConfig({
       userId: '',
       id: ''
     },
-    statusPage: '',
     wakatime: {
       userId: '',
       coding: '',
       editors: '',
       languages: '',
       os: ''
+    },
+    ha: {
+      url: '',
+      token: ''
     }
   },
 
