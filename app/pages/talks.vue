@@ -5,7 +5,7 @@ const { data: page } = await useAsyncData('talks', () => {
 
 const head = {
   title: 'Speaking & Academic Presentations',
-  description: 'Conference talks, seminars, and academic presentations on AI Safety, Byzantine-robust distributed learning, and statistical learning theory.',
+  description: 'My first academic talk — a seminar on Byzantine-resilient aggregation rules at CMAP, Ecole Polytechnique. Open to invitations.',
   headline: 'Arthur Danjou\u2019s Talks'
 }
 
