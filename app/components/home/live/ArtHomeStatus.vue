@@ -101,7 +101,7 @@ const statsCards = computed<StatsCard[]>(() => {
       : null,
     ha.value.totalMediaPlayers != null
       ? {
-          label: 'Media Players',
+          label: 'Players',
           value: `${ha.value.totalMediaPlayers}`,
           icon: 'i-ph-speaker-high-duotone',
           color: 'text-violet-500'
