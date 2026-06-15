@@ -6,7 +6,7 @@ description: A fully self-hosted Home Assistant instance orchestrating 27+ autom
 shortDescription: A comprehensive Home Assistant deployment with 27 automations, 12 scenes, and 20 dashboard views.
 publishedAt: 2026-03-15
 readingTime: 5
-status: Active
+status: In progress
 favorite: true
 tags:
   - Home Assistant
