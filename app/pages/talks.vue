@@ -51,7 +51,7 @@ const past = computed(() => talks?.body?.filter(t => t.slides) ?? [])
       class="space-y-6"
     >
       <section v-if="upcoming.length">
-        <h2 class="text-lg font-semibold text-neutral-700 dark:text-neutral-300 mb-4">
+        <h2 class="w-full md:w-[110%] mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 text-stroke-neutral-500 text-stroke-2 md:-translate-x-16">
           Upcoming
         </h2>
         <div class="space-y-4">
@@ -69,7 +69,7 @@ const past = computed(() => talks?.body?.filter(t => t.slides) ?? [])
       </section>
 
       <section v-if="past.length">
-        <h2 class="text-lg font-semibold text-neutral-700 dark:text-neutral-300 mb-4">
+        <h2 class="w-full md:w-[110%] mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 text-stroke-neutral-500 text-stroke-2 md:-translate-x-16">
           Past Talks
         </h2>
         <div class="space-y-4">
