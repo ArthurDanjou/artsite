@@ -14,6 +14,7 @@ const generate = computed(() => {
 
   return !!anchorLinks?.h1
 })
+</script>
 
 <template>
   <h1
