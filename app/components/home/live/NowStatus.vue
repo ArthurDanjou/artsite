@@ -9,6 +9,7 @@ useIntervalFn(refresh, 60_000)
 const weatherText = computed(() => {
   const w = ha.value?.weather
   if (!w) return null
+
   const icons: Record<string, string> = {
     'sunny': '☀️',
     'clear-night': '🌙',
@@ -22,8 +23,11 @@ const weatherText = computed(() => {
     'fog': '🌫️',
     'windy': '💨'
   }
+
   const icon = icons[w.condition] ?? ''
-  return `${icon} ${Math.round(w.temperature)}°C`
+  if (typeof w.temperature !== 'number') return icon || null
+
+  return `${icon} ${Math.round(w.temperature)}°C`.trim()
 })
 
 const locationText = computed(() => {
