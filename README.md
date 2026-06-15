@@ -2,7 +2,7 @@
 
 # [Arthur Danjou | Portfolio](https://arthurdanjou.fr/)
 
-AI Research Intern at CMAP, Ecole Polytechnique. Personal portfolio built with Nuxt 3 and deployed to Cloudflare Workers.
+AI Research Intern at CMAP, Ecole Polytechnique. Personal portfolio built with Nuxt 4 and deployed to Cloudflare Workers.
 
 [![Nuxt.js](https://img.shields.io/badge/Nuxt.js-00DC82?style=for-the-badge&logo=nuxt.js&logoColor=white)](https://nuxt.com/)
 [![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
