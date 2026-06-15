@@ -66,7 +66,7 @@ Only `NUXT_HA_URL` + `NUXT_HA_TOKEN` are needed for the live status widget. The 
 artsite/
 ├── app/
 │   ├── components/
-│   │   ├── content/           # MDC components (NowStatus, TalkCard, TalksList, HoverText…)
+│   │   ├── content/           # MDC components (NowStatus, TalkCard, HoverText…)
 │   │   └── home/              # Homepage sections (Skills, Timeline, Live widgets)
 │   ├── composables/           # useContent()
 │   ├── pages/                 # File-based routing
@@ -78,7 +78,6 @@ artsite/
 │   └── app.vue
 ├── content/
 │   ├── index.md               # Homepage content
-│   ├── talks.md               # Talks page intro
 │   ├── talks.json             # Talks data (upcoming/past)
 │   ├── uses.md                # Hardware & software setup
 │   ├── hobbies.md             # Hobbies
@@ -105,7 +104,7 @@ artsite/
 | `/` | Home — research focus, skills, experience timeline, live telemetry |
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
-| `/talks` | Academic presentations (upcoming + past) |
+| `/talks` | Academic presentations — upcoming & past |
 | `/uses` | Hardware, software, and homelab infrastructure |
 | `/hobbies` | Personal interests |
 | `/resumes/en` | English resume (PDF) |
