@@ -21,6 +21,8 @@ icon: i-ph-lightbulb-duotone
 
 **ArtHome** is the brain of my living space — a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1500+ entities** across **33 domains**, orchestrates **27 automations**, and presents everything through **3 dashboards** spanning **20 views** and **300+ cards**.
 
+:home-live-art-home-status
+
 ---
 
 ## Architecture
