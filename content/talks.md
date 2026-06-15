@@ -7,11 +7,11 @@ description: My first academic talk — a seminar on Byzantine-resilient aggrega
 
 My first academic talk is scheduled for September 2026. I am open to presenting at seminars, workshops, and reading groups.
 
+::u-button{size="md" label="See my talks on Github" variant="soft" color="neutral" icon="i-ph-github-logo" to="https://go.arthurdanjou.fr/talks"}::
+
 ---
 
 :talks-list
-
----
 
 ---
 
