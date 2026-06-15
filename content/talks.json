@@ -7,7 +7,7 @@
       "venue": "Séminaire interne CMAP, Ecole Polytechnique",
       "description": "Introducing the Krum framework and our adaptive threshold mechanisms for Byzantine-resilient aggregation. My first seminar talk.",
       "icon": "i-ph-presentation-duotone",
-      "slides": "https://arthurdanjou.fr"
+      "slides": null
     }
   ]
 }

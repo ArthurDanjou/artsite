@@ -35,8 +35,9 @@ defineProps<{
             size="xs"
             icon="i-ph-slideshow-duotone"
             class="shrink-0"
+            :rel="slides ? 'noopener noreferrer' : undefined"
           >
-            Slides
+            See Slides
           </UButton>
         </div>
         <p class="text-sm text-neutral-500 italic">
