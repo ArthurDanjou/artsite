@@ -116,7 +116,7 @@ export const navs: readonly Nav[] = [
   {
     label: 'resume',
     icon: 'address-book-duotone',
-    to: 'resumes/en',
+    to: '/resumes/en',
     target: '_blank'
   }
 ] as const
