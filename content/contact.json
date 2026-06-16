@@ -1,20 +1,12 @@
 {
   "body": [
     {
-      "id": "personal-email",
-      "name": "Personal Email",
-      "category": "communication",
-      "icon": "i-ph-envelope-simple-duotone",
-      "value": "https://go.arthurdanjou.fr/mail-perso",
-      "priority": 1
-    },
-    {
-      "id": "professional-email",
-      "name": "Professional Email",
+      "id": "email",
+      "name": "Email",
       "category": "communication",
       "icon": "i-ph-envelope-simple-duotone",
       "value": "https://go.arthurdanjou.fr/mail-pro",
-      "priority": 2
+      "priority": 1
     },
     {
       "id": "linkedin",

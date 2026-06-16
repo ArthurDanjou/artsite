@@ -20,7 +20,9 @@ const { contact } = await useContent()
           <h1>Find me on:</h1>
           <div class="flex gap-2 flex-wrap">
             <HomeLink
-              v-for="social in contact.body.filter(item => item.priority === 1)"
+              v-for="social in contact.body
+                .filter((item) => item.priority === 1)
+                .filter((item) => item.id !== 'email')"
               :key="social.name"
               :href="social.value"
               :icon="social.icon"
