@@ -187,17 +187,20 @@ const ringColorMap: Record<string, string> = {
       <UCard
         v-for="card in statsCards"
         :key="card.label"
-        :class="['transition-all duration-200 hover:ring-2', ringColorMap[card.color]]"
+        :class="[
+          'transition-all duration-200 hover:ring-2',
+          ringColorMap[card.color]
+        ]"
         :ui="{
           body: { padding: 'p-2' },
-          ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
+          ring: 'ring-2 ring-gray-200 dark:ring-gray-800',
           shadow: 'shadow-sm'
         }"
       >
         <div class="flex flex-col items-center text-center gap-1">
           <UIcon
             :name="card.icon"
-            :class="['size-6 mb-1', card.color]"
+            :class="['size-8', card.color]"
           />
           <span
             class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400 font-bold"

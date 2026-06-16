@@ -21,7 +21,7 @@ const flags: Record<string, string> = {
     :to="to"
     :aria-label="`Open project: ${title}`"
   >
-    <UCard class="h-full hover:bg-accented/20 transition-colors duration-500">
+    <UCard class="h-full transition-all duration-300 hover:ring-2 hover:shadow-md hover:ring-neutral-300/50 dark:hover:ring-neutral-700/50">
       <div class="flex items-start gap-4">
         <div class="mt-0.5 shrink-0">
           <UIcon

@@ -38,7 +38,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
 
     <UCard
       v-else-if="stats"
-      class="relative overflow-hidden transition-all duration-300 hover:shadow-md hover:ring-2 hover:ring-primary-500/50 group"
+      class="relative overflow-hidden transition-all duration-300 hover:shadow-md hover:ring-2 hover:ring-neutral-300/50 dark:hover:ring-neutral-700/50 group"
       :ui="{
         body: { padding: 'sm:p-6' },
         header: { padding: 'sm:px-6 sm:py-4' },
@@ -193,7 +193,7 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
               color="emerald"
               variant="subtle"
               size="xs"
-              class="font-medium shadow-sm ring-1 ring-inset ring-emerald-500/20"
+              class="font-mediumt"
             >
               {{ yearsCollected }}
             </UBadge>

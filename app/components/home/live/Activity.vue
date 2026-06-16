@@ -2,7 +2,11 @@
 import type { Activity } from '~~/types'
 import { IDEs } from '~~/types'
 
-const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'), { lazy: true })
+const { data: activity, refresh } = await useAsyncData<Activity>(
+  'activity',
+  () => $fetch('/api/activity'),
+  { lazy: true }
+)
 useIntervalFn(refresh, 5000)
 
 const currentSession = computed(() => {
@@ -11,17 +15,24 @@ const currentSession = computed(() => {
 
   if (!ideActivity) return null
 
-  const name = ideActivity.assets?.small_text === 'Cursor'
-    ? 'Cursor'
-    : ideActivity.assets?.small_text === 'Positron'
-      ? 'Positron'
-      : ideActivity.name
+  const name
+    = ideActivity.assets?.small_text === 'Cursor'
+      ? 'Cursor'
+      : ideActivity.assets?.small_text === 'Positron'
+        ? 'Positron'
+        : ideActivity.name
 
   const isIdling = ideActivity.details?.toLowerCase().includes('idling')
 
-  const rawProject = ideActivity.details ? ideActivity.details.replace('Workspace:', '').replace('Editing', '').trim() : 'Unknown Context'
+  const rawProject = ideActivity.details
+    ? ideActivity.details
+        .replace('Workspace:', '')
+        .replace('Editing', '')
+        .trim()
+    : 'Unknown Context'
   const project = rawProject.charAt(0).toUpperCase() + rawProject.slice(1)
-  const file = ideActivity.state?.replace('Editing', '').trim() || 'No active file'
+  const file
+    = ideActivity.state?.replace('Editing', '').trim() || 'No active file'
 
   return {
     name,
@@ -33,7 +44,9 @@ const currentSession = computed(() => {
   }
 })
 
-const timeAgo = useTimeAgo(computed(() => currentSession.value?.startTime ?? new Date()))
+const timeAgo = useTimeAgo(
+  computed(() => currentSession.value?.startTime ?? new Date())
+)
 
 const statusColor = computed(() => {
   if (!currentSession.value) return 'red'
@@ -57,9 +70,12 @@ const hoverRingClass = computed(() => ({
   <ClientOnly>
     <UCard
       v-if="activity"
-      :class="[{ 'transition-all duration-200 hover:ring-2': currentSession }, hoverRingClass]"
+      :class="[
+        { 'transition-all duration-200 hover:ring-2': currentSession },
+        hoverRingClass
+      ]"
     >
-      <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="relative flex h-3 w-3">
             <span
@@ -76,26 +92,31 @@ const hoverRingClass = computed(() => ({
             />
           </div>
 
-          <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+          >
             {{ statusLabel }}
           </span>
         </div>
-
-        <UIcon
-          v-if="currentSession"
-          :name="currentSession.icon"
-          class="w-8 h-8 opacity-80"
-        />
-        <UIcon
-          v-else
-          name="i-ph-power-duotone"
-          class="w-8 h-8 text-red-400 opacity-80"
-        />
+        <div
+          class="p-2 rounded-lg bg-primary-50 dark:bg-primary-900/30 text-primary-500 flex items-center justify-center"
+        >
+          <UIcon
+            v-if="currentSession"
+            :name="currentSession.icon"
+            class="w-8 h-8 opacity-80"
+          />
+          <UIcon
+            v-else
+            name="i-ph-power-duotone"
+            class="w-8 h-8 text-red-400 opacity-80"
+          />
+        </div>
       </div>
 
       <div
         v-if="currentSession"
-        class="space-y-1 pl-6 border-l-2 border-neutral-200 dark:border-neutral-800 ml-1.5"
+        class="space-y-1 py-2 pl-6 border-l-2 border-neutral-200 dark:border-neutral-800 ml-1.5"
       >
         <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
           <h3 class="font-semibold text-neutral-900 dark:text-white truncate">
@@ -126,7 +147,8 @@ const hoverRingClass = computed(() => ({
 
     <UCard v-else>
       <div class="flex items-center gap-3">
-        <USkeleton class="h-3 w-3 rounded-full" /> <div class="space-y-2 flex-1">
+        <USkeleton class="h-3 w-3 rounded-full" />
+        <div class="space-y-2 flex-1">
           <USkeleton class="h-4 w-1/3" />
           <USkeleton class="h-3 w-2/3" />
         </div>

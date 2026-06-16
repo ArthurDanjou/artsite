@@ -83,9 +83,19 @@ const hoverRingClass = computed(() => ({
       :class="hoverRingClass"
     >
       <div class="flex items-center justify-between mb-2">
-        <h3 class="font-bold text-neutral-900 dark:text-white text-sm">
-          System Status
-        </h3>
+        <div class="flex items-center gap-3">
+          <div
+            class="p-2 rounded-lg bg-primary-50 dark:bg-primary-900/30 text-primary-500 flex items-center justify-center"
+          >
+            <UIcon
+              name="i-heroicons-check-circle"
+              class="size-6"
+            />
+          </div>
+          <h3 class="font-bold text-neutral-900 dark:text-white text-sm">
+            System Status
+          </h3>
+        </div>
 
         <div class="flex items-center gap-2">
           <span
