@@ -151,6 +151,30 @@ const statsCards = computed<StatsCard[]>(() => {
 
   return cards.filter((c): c is StatsCard => c !== null)
 })
+
+const ringColorMap: Record<string, string> = {
+  'text-yellow-500': 'hover:ring-yellow-500/50',
+  'text-indigo-400': 'hover:ring-indigo-400/50',
+  'text-indigo-500': 'hover:ring-indigo-500/50',
+  'text-gray-400': 'hover:ring-gray-400/50',
+  'text-gray-500': 'hover:ring-gray-500/50',
+  'text-blue-500': 'hover:ring-blue-500/50',
+  'text-blue-600': 'hover:ring-blue-600/50',
+  'text-purple-500': 'hover:ring-purple-500/50',
+  'text-sky-300': 'hover:ring-sky-300/50',
+  'text-sky-400': 'hover:ring-sky-400/50',
+  'text-slate-400': 'hover:ring-slate-400/50',
+  'text-teal-500': 'hover:ring-teal-500/50',
+  'text-amber-500': 'hover:ring-amber-500/50',
+  'text-pink-500': 'hover:ring-pink-500/50',
+  'text-emerald-500': 'hover:ring-emerald-500/50',
+  'text-orange-500': 'hover:ring-orange-500/50',
+  'text-orange-600': 'hover:ring-orange-600/50',
+  'text-violet-500': 'hover:ring-violet-500/50',
+  'text-rose-500': 'hover:ring-rose-500/50',
+  'text-fuchsia-500': 'hover:ring-fuchsia-500/50',
+  'text-cyan-500': 'hover:ring-cyan-500/50'
+}
 </script>
 
 <template>
@@ -163,6 +187,7 @@ const statsCards = computed<StatsCard[]>(() => {
       <UCard
         v-for="card in statsCards"
         :key="card.label"
+        :class="['transition-all duration-200 hover:ring-2', ringColorMap[card.color]]"
         :ui="{
           body: { padding: 'p-2' },
           ring: 'ring-1 ring-gray-200 dark:ring-gray-800',

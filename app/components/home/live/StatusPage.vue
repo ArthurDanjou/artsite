@@ -67,13 +67,20 @@ const progressColor = computed((): 'emerald' | 'orange' | 'neutral' => {
   if (statusState.value.color === 'orange') return 'orange'
   return 'neutral'
 })
+
+const hoverRingClass = computed(() => ({
+  'hover:ring-emerald-500/50': statusState.value.color === 'emerald',
+  'hover:ring-orange-500/50': statusState.value.color === 'orange',
+  'hover:ring-neutral-500/50': statusState.value.color === 'neutral'
+}))
 </script>
 
 <template>
   <ClientOnly>
     <UCard
       v-if="data && !hasNoData"
-      class="h-full flex flex-col overflow-hidden"
+      class="h-full flex flex-col overflow-hidden transition-all duration-200 hover:ring-2"
+      :class="hoverRingClass"
     >
       <div class="flex items-center justify-between mb-2">
         <h3 class="font-bold text-neutral-900 dark:text-white text-sm">

@@ -45,11 +45,17 @@ const statusLabel = computed(() => {
   if (currentSession.value.isIdling) return 'System Idling'
   return 'Active Development'
 })
+
+const hoverRingClass = computed(() => ({
+  'hover:ring-green-500/50': statusColor.value === 'green',
+  'hover:ring-orange-500/50': statusColor.value === 'orange',
+  'hover:ring-red-500/50': statusColor.value === 'red'
+}))
 </script>
 
 <template>
   <ClientOnly>
-    <UCard v-if="activity">
+    <UCard v-if="activity" :class="[{ 'transition-all duration-200 hover:ring-2': currentSession }, hoverRingClass]">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-3">
           <div class="relative flex h-3 w-3">
