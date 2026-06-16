@@ -55,7 +55,10 @@ const hoverRingClass = computed(() => ({
 
 <template>
   <ClientOnly>
-    <UCard v-if="activity" :class="[{ 'transition-all duration-200 hover:ring-2': currentSession }, hoverRingClass]">
+    <UCard
+      v-if="activity"
+      :class="[{ 'transition-all duration-200 hover:ring-2': currentSession }, hoverRingClass]"
+    >
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-3">
           <div class="relative flex h-3 w-3">
