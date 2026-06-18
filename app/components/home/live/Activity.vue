@@ -4,8 +4,7 @@ import { IDEs } from '~~/types'
 
 const { data: activity, refresh } = await useAsyncData<Activity>(
   'activity',
-  () => $fetch('/api/activity'),
-  { lazy: true }
+  () => $fetch('/api/activity')
 )
 useIntervalFn(refresh, 5000)
 

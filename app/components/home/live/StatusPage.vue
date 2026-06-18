@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 const { data, status } = await useAsyncData(
   'home-status',
-  () => $fetch('/api/ha/monitors'),
-  { lazy: true, dedupe: 'defer' }
+  () => $fetch('/api/ha/monitors')
 )
 
 const isLoading = computed(() => status.value === 'pending')
