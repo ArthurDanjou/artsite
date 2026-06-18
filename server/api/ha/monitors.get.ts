@@ -34,16 +34,21 @@ export default defineCachedEventHandler(async (event) => {
     }))
 
   const up = monitors.filter(m => m.state === 'up').length
+  const down = monitors.filter(m => m.state === 'down').length
+  const maintenance = monitors.filter(m => m.state === 'maintenance').length
   const total = monitors.length
+  const operational = up + maintenance
 
   return {
     updatedAt: new Date().toISOString(),
     total,
     up,
-    down: total - up,
-    uptime: total > 0 ? ((up / total) * 100).toFixed(1) : '0.0'
+    down,
+    maintenance,
+    degraded: down,
+    uptime: total > 0 ? ((operational / total) * 100).toFixed(1) : '0.0'
   }
 }, {
-  maxAge: 120,
+  maxAge: 30,
   name: 'ha-monitors'
 })
