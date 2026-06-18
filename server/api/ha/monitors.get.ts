@@ -6,36 +6,32 @@ export default defineCachedEventHandler(async (event) => {
 
   const headers = { Authorization: `Bearer ${config.ha.token}` }
 
-  const entityIds = [
-    'adguard_home', 'artspeed_speedtest_tracker_ui', 'bazarr',
-    'bentopdf', 'data', 'dns_server', 'docker_server',
-    'flaresolverr', 'garage_stockage_s3', 'garage_webui',
-    'homeassistant', 'immich_kiosk', 'immich_server',
-    'jellyfin', 'jellyseerr', 'media_server', 'media',
-    'nas_server', 'portainer', 'portfolio', 'prowlarr',
-    'proxmox_backup_server', 'proxmox_host', 'qbittorrent',
-    'radarr', 'servers', 'sonarr', 'storage',
-    'traefik_proxy', 'vault', 'web', 'wizarr'
-  ]
-
-  const results = await Promise.allSettled(
-    entityIds.map(id =>
-      $fetch(`${config.ha.url}/api/states/sensor.${id}_statut`, { headers })
-        .then(r => ({
-          service: id,
-          state: r.state,
-          friendly_name: r.attributes?.friendly_name ?? id
-        }))
-        .catch(() => null)
-    )
-  )
-
-  const monitors = []
-  for (const r of results) {
-    if (r.status === 'fulfilled' && r.value) {
-      monitors.push(r.value)
-    }
+  interface UptimeKumaAttrs {
+    device_class: string
+    options: string[]
+    friendly_name?: string
   }
+
+  const isUptimeKuma = (attrs: unknown): attrs is UptimeKumaAttrs => {
+    if (typeof attrs !== 'object' || attrs === null) return false
+    const a = attrs as Record<string, unknown>
+    return a.device_class === 'enum'
+      && Array.isArray(a.options)
+      && a.options.includes('down')
+      && a.options.includes('up')
+  }
+
+  const states = await $fetch<Array<{ entity_id: string, state: string, attributes: unknown }>>(
+    `${config.ha.url}/api/states`, { headers }
+  ).catch(() => [])
+
+  const monitors = states
+    .filter(s => s.entity_id.startsWith('sensor.') && s.entity_id.endsWith('_statut') && isUptimeKuma(s.attributes))
+    .map(s => ({
+      service: s.entity_id.replace(/^sensor\./, '').replace(/_statut$/, ''),
+      state: s.state,
+      friendly_name: (s.attributes as UptimeKumaAttrs).friendly_name ?? s.entity_id
+    }))
 
   const up = monitors.filter(m => m.state === 'up').length
   const total = monitors.length
