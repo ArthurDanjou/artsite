@@ -2,10 +2,10 @@
 import type { Activity } from '~~/types'
 import { IDEs } from '~~/types'
 
-const { data: activity, refresh } = await useAsyncData<Activity>(
-  'activity',
-  () => $fetch('/api/activity')
-)
+const { data: activity, refresh } = useFetch<Activity>('/api/activity', {
+  server: false,
+  lazy: true
+})
 useIntervalFn(refresh, 5000)
 
 const currentSession = computed(() => {

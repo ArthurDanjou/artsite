@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const { data, status } = await useAsyncData(
-  'home-status',
-  () => $fetch('/api/ha/monitors')
-)
+const { data, status, error } = useFetch('/api/ha/monitors', {
+  server: false,
+  lazy: true
+})
 
-const isLoading = computed(() => status.value === 'pending')
+const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
 const hasNoData = computed(
   () => !isLoading.value && (!data.value || data.value.total === 0)
 )
@@ -184,5 +184,28 @@ const hoverRingClass = computed(() => ({
         />
       </div>
     </UCard>
+
+    <UAlert
+      v-else-if="error"
+      color="red"
+      variant="soft"
+      icon="i-ph-warning-circle-duotone"
+      title="Status monitor unreachable"
+      description="The status API returned an error. Check the worker logs for details."
+    />
+
+    <UAlert
+      v-else-if="hasNoData"
+      color="neutral"
+      variant="soft"
+      icon="i-ph-info-duotone"
+      title="No status data"
+      description="No monitors were returned by Home Assistant."
+    />
+
+    <USkeleton
+      v-else-if="isLoading"
+      class="h-40 w-full rounded-xl"
+    />
   </ClientOnly>
 </template>

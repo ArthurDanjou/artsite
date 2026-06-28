@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 import type { HAStatus, StatsCard } from '~~/types'
 
-const { data: ha, refresh, pending } = useAsyncData<HAStatus>('ha-status', () => $fetch('/api/ha/status'))
+const { data: ha, refresh, pending, error } = useFetch<HAStatus>('/api/ha/status', {
+  server: false,
+  lazy: true
+})
 useIntervalFn(refresh, 120_000)
 
 const weatherIcons: Record<string, { icon: string, color: string }> = {
@@ -180,6 +183,7 @@ const ringColorMap: Record<string, string> = {
 <template>
   <ClientOnly>
     <div
+      v-if="statsCards.length"
       class="grid gap-3 mt-4 mb-2 transition-opacity"
       :class="{ 'opacity-50 pointer-events-none': pending }"
       style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))"
@@ -213,6 +217,26 @@ const ringColorMap: Record<string, string> = {
         </div>
       </UCard>
     </div>
+
+    <UAlert
+      v-else-if="error"
+      color="red"
+      variant="soft"
+      icon="i-ph-warning-circle-duotone"
+      title="Home Assistant unreachable"
+      description="The telemetry API returned an error. Check the worker logs for details."
+      class="mt-4 mb-2"
+    />
+
+    <UAlert
+      v-else-if="!pending"
+      color="neutral"
+      variant="soft"
+      icon="i-ph-info-duotone"
+      title="No telemetry data"
+      description="Home Assistant responded but returned no metrics."
+      class="mt-4 mb-2"
+    />
 
     <template #fallback>
       <div
