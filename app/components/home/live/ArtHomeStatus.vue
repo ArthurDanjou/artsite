@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { HAStatus, StatsCard } from '~~/types'
 
-const { data: ha, refresh, pending } = useAsyncData<HAStatus>('ha-status', async () => $fetch('/api/ha/status'))
+const { data: ha, refresh, pending } = useAsyncData<HAStatus>('ha-status', () => $fetch('/api/ha/status'))
 useIntervalFn(refresh, 120_000)
 
 const weatherIcons: Record<string, { icon: string, color: string }> = {

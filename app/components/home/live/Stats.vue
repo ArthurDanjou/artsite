@@ -3,9 +3,7 @@ import type { Stats } from '~~/types'
 import { usePrecision } from '@vueuse/math'
 import { computed } from 'vue'
 
-const { data: stats, pending } = await useAsyncData<Stats>('stats', () =>
-  $fetch('/api/stats')
-)
+const { data: stats, pending } = await useAsyncData<Stats>('stats', () => $fetch('/api/stats'))
 
 const startDate = computed(
   () => new Date(stats.value?.coding?.range?.start ?? new Date())
