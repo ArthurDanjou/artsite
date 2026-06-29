@@ -28,7 +28,7 @@ const currentSession = computed(() => {
         .replace('Workspace:', '')
         .replace('Editing', '')
         .trim()
-    : 'Unknown Context'
+    : 'Building something great...'
   const project = rawProject.charAt(0).toUpperCase() + rawProject.slice(1)
   const file
     = ideActivity.state?.replace('Editing', '').trim() || 'No active file'
