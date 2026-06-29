@@ -19,6 +19,8 @@ export default defineCachedEventHandler(async (event) => {
       && Array.isArray(a.options)
       && a.options.includes('down')
       && a.options.includes('up')
+      && a.options.includes('pending')
+      && a.options.includes('maintenance')
   }
 
   const states = await $fetch<Array<{ entity_id: string, state: string, attributes: unknown }>>(
@@ -26,7 +28,8 @@ export default defineCachedEventHandler(async (event) => {
   ).catch(() => [])
 
   const monitors = states
-    .filter(s => s.entity_id.startsWith('sensor.') && s.entity_id.endsWith('_statut') && isUptimeKuma(s.attributes))
+    .filter(s => s.entity_id.startsWith('sensor.') && s.entity_id.endsWith('_statut'))
+    .filter(s => isUptimeKuma(s.attributes))
     .map(s => ({
       service: s.entity_id.replace(/^sensor\./, '').replace(/_statut$/, ''),
       state: s.state,
@@ -34,7 +37,7 @@ export default defineCachedEventHandler(async (event) => {
     }))
 
   const up = monitors.filter(m => m.state === 'up').length
-  const down = monitors.filter(m => m.state === 'down').length
+  const down = monitors.filter(m => m.state === 'down' || m.state === 'pending').length
   const maintenance = monitors.filter(m => m.state === 'maintenance').length
   const total = monitors.length
   const operational = up + maintenance
