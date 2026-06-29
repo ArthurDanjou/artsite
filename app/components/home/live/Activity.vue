@@ -69,8 +69,8 @@ const hoverRingClass = computed(() => ({
   <ClientOnly>
     <UCard
       v-if="activity"
+      class="transition-all duration-200 hover:ring-2"
       :class="[
-        { 'transition-all duration-200 hover:ring-4': currentSession },
         hoverRingClass
       ]"
     >
