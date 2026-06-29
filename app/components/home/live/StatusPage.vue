@@ -97,93 +97,98 @@ const hoverRingClass = computed(() => ({
 
 <template>
   <ClientOnly>
-    <UCard
+    <NuxtLink
       v-if="data && !hasNoData"
-      class="h-full flex flex-col overflow-hidden transition-all duration-200 hover:ring-2"
-      :class="hoverRingClass"
+      to="https://go.arthurdanjou.fr/status"
+      target="_blank"
     >
-      <div class="flex items-center justify-between mb-2">
-        <div class="flex items-center gap-3">
-          <div
-            class="p-2 rounded-lg flex items-center justify-center"
-            :class="iconBgClass"
-          >
-            <UIcon
-              :name="iconName"
-              class="size-6"
+      <UCard
+        class="h-full flex flex-col overflow-hidden transition-all duration-200 hover:ring-2"
+        :class="hoverRingClass"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-3">
+            <div
+              class="p-2 rounded-lg flex items-center justify-center"
+              :class="iconBgClass"
+            >
+              <UIcon
+                :name="iconName"
+                class="size-6"
+              />
+            </div>
+            <h3 class="font-bold text-neutral-900 dark:text-white text-sm">
+              System Status
+            </h3>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span
+              v-if="!isLoading"
+              class="relative flex h-2.5 w-2.5"
+            >
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                :class="pingClass"
+              />
+              <span
+                class="relative inline-flex rounded-full h-2.5 w-2.5"
+                :class="dotClass"
+              />
+            </span>
+            <USkeleton
+              v-else
+              class="h-2.5 w-2.5 rounded-full"
+            />
+
+            <span
+              v-if="!isLoading"
+              class="text-xs font-mono font-medium"
+              :class="labelClass"
+            >
+              {{ statusState.label }}
+            </span>
+            <USkeleton
+              v-else
+              class="h-4 w-24"
             />
           </div>
-          <h3 class="font-bold text-neutral-900 dark:text-white text-sm">
-            System Status
-          </h3>
         </div>
 
-        <div class="flex items-center gap-2">
-          <span
-            v-if="!isLoading"
-            class="relative flex h-2.5 w-2.5"
-          >
+        <div class="mt-4 space-y-3">
+          <div class="flex justify-between text-xs">
+            <span class="text-neutral-500">Monitored Services</span>
             <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-              :class="pingClass"
+              v-if="!isLoading"
+              class="font-mono font-bold text-neutral-900 dark:text-white"
+            >{{ metrics.total }}</span>
+            <USkeleton
+              v-else
+              class="h-4 w-6"
             />
+          </div>
+
+          <div class="flex justify-between text-xs mb-4">
+            <span class="text-neutral-500">Global Uptime</span>
             <span
-              class="relative inline-flex rounded-full h-2.5 w-2.5"
-              :class="dotClass"
+              v-if="!isLoading"
+              class="font-mono font-bold text-neutral-900 dark:text-white"
+            >{{ metrics.uptime }}%</span>
+            <USkeleton
+              v-else
+              class="h-4 w-8"
             />
-          </span>
-          <USkeleton
-            v-else
-            class="h-2.5 w-2.5 rounded-full"
-          />
+          </div>
 
-          <span
+          <UProgress
             v-if="!isLoading"
-            class="text-xs font-mono font-medium"
-            :class="labelClass"
-          >
-            {{ statusState.label }}
-          </span>
-          <USkeleton
-            v-else
-            class="h-4 w-24"
+            :model-value="metrics.uptime"
+            :color="progressColor"
+            size="sm"
           />
         </div>
-      </div>
-
-      <div class="mt-4 space-y-3">
-        <div class="flex justify-between text-xs">
-          <span class="text-neutral-500">Monitored Services</span>
-          <span
-            v-if="!isLoading"
-            class="font-mono font-bold text-neutral-900 dark:text-white"
-          >{{ metrics.total }}</span>
-          <USkeleton
-            v-else
-            class="h-4 w-6"
-          />
-        </div>
-
-        <div class="flex justify-between text-xs mb-4">
-          <span class="text-neutral-500">Global Uptime</span>
-          <span
-            v-if="!isLoading"
-            class="font-mono font-bold text-neutral-900 dark:text-white"
-          >{{ metrics.uptime }}%</span>
-          <USkeleton
-            v-else
-            class="h-4 w-8"
-          />
-        </div>
-
-        <UProgress
-          v-if="!isLoading"
-          :model-value="metrics.uptime"
-          :color="progressColor"
-          size="sm"
-        />
-      </div>
-    </UCard>
+      </UCard>
+    </NuxtLink>
 
     <UAlert
       v-else-if="error"
