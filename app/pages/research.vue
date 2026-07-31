@@ -3,9 +3,12 @@ const { data: page } = await useAsyncData('research', () => {
   return queryCollection('research').first()
 })
 
+const title = page.value?.title ?? 'Research'
+const description = page.value?.description ?? 'My research interests in AI Safety, adversarial robustness, and distributed learning, along with my ongoing work at CMAP, Ecole Polytechnique.'
+
 const head = {
-  title: 'Research',
-  description: 'AI Safety, adversarial robustness, and distributed learning — my research interests and ongoing work at CMAP, Ecole Polytechnique.',
+  title,
+  description,
   headline: 'Arthur Danjou\u2019s Research'
 }
 

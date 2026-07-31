@@ -1,5 +1,5 @@
 ---
-title: Arthur Danjou • AI Safety & Applied Mathematics
+title: AI Safety & Applied Mathematics
 description: AI Research Intern at CMAP (Ecole Polytechnique) and Master 2 ISF student at Paris-Dauphine. Working on robust distributed learning, AI alignment, and secure deep learning.
 ---
 

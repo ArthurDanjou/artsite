@@ -80,16 +80,16 @@ Full round-robin tournament where each agent faces every other agent in both pos
 
 ## Notebook Sections
 
-1. **Configuration & Checkpoints** — Incremental training workflow with pickle serialization
-2. **Utility Functions** — Observation normalization, ε-greedy policy
-3. **Agent Definitions** — `RandomAgent`, `SarsaAgent`, `QLearningAgent`, `MonteCarloAgent`, `DQNAgent`
-4. **Training Infrastructure** — `train_agent()`, `plot_training_curves()`
-5. **Evaluation** — Match system, random baseline, round-robin tournament
-6. **Results & Visualization** — Win rate plots, matchup matrix heatmap
+1. **Configuration & Checkpoints**: incremental training workflow with pickle serialization
+2. **Utility Functions**: observation normalization and ε-greedy policy
+3. **Agent Definitions**: `RandomAgent`, `SarsaAgent`, `QLearningAgent`, `MonteCarloAgent`, `DQNAgent`
+4. **Training Infrastructure**: `train_agent()` and `plot_training_curves()`
+5. **Evaluation**: match system, random baseline, and round-robin tournament
+6. **Results & Visualization**: win rate plots and matchup matrix heatmap
 
 ## Known Issues
 
-- **Monte Carlo & DQN**: Checkpoint loading issues — saved weights may not restore properly during evaluation (training works correctly)
+- **Monte Carlo & DQN**: checkpoint loading issues. Saved weights may not restore properly during evaluation, although training works correctly
 
 ## Dependencies
 

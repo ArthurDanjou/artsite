@@ -1,7 +1,14 @@
 <script lang="ts" setup>
+const { data: page } = await useAsyncData('index', () => {
+  return queryCollection('index').first()
+})
+
+const title = page.value?.title ?? 'AI Safety & Applied Mathematics'
+const description = page.value?.description ?? 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.'
+
 const head = {
-  title: 'AI Safety & Applied Mathematics',
-  description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
+  title,
+  description,
   headline: 'Arthur Danjou’s Research'
 }
 
@@ -19,10 +26,6 @@ defineOgImage('Pergel.satori', {
   title: head.title,
   description: head.description,
   headline: head.headline
-})
-
-const { data: page } = await useAsyncData('index', () => {
-  return queryCollection('index').first()
 })
 </script>
 

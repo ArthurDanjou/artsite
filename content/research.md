@@ -24,7 +24,7 @@ Building on my internship, I aim to contribute to **mathematically grounded safe
 ::
 
 ::card{title="Secure & Reproducible ML Engineering" icon="i-ph-flask-duotone"}
-Research tooling matters as much as theory. I build **open-source, reproducible frameworks** — documented, tested, and packaged — so that robustness results can be re-run, attacked, and extended by anyone.
+Research tooling matters as much as theory. I build **open-source, reproducible frameworks** that are documented, tested, and packaged, so that robustness results can be re-run, attacked, and extended by anyone.
 ::
 
 ::card{title="Learning Theory" icon="i-ph-function-duotone"}
@@ -37,10 +37,10 @@ From generalization bounds for two-layer ReLU networks to stochastic optimizatio
 
 ## Ongoing Work
 
-::card{title="M2 Research Internship — CMAP, Ecole Polytechnique" icon="i-ph-brain-duotone"}
+::card{title="M2 Research Internship at CMAP, Ecole Polytechnique" icon="i-ph-brain-duotone"}
 From **April to October 2026**, I work under [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/) on robust distributed learning with adversaries: gradient manipulation attacks, open-source research tooling, and improvements to existing aggregation frameworks.
 
-The experimental backbone is **[Krum](/projects/krum)** — an open-source framework for Byzantine-resilient aggregation, installable via `pip install krum`.
+The experimental backbone is **[Krum](/projects/krum)**, an open-source framework for Byzantine-resilient aggregation, installable via `pip install krum`.
 ::
 
 ---
@@ -49,18 +49,18 @@ The experimental backbone is **[Krum](/projects/krum)** — an open-source frame
 
 My PhD at **CMAP, Ecole Polytechnique** starts in **November 2026**, continuing this line of work. I plan to explore:
 
-- **Byzantine robustness at scale** — aggregation rules that stay provably safe as clusters grow and decentralization increases.
-- **Formal verification for ML pipelines** — bridging worst-case guarantees and practical training.
-- **Safety-critical applications** — from federated learning to autonomous decision systems.
+- **Byzantine robustness at scale**: aggregation rules that stay provably safe as clusters grow and decentralization increases.
+- **Formal verification for ML pipelines**: bridging worst-case guarantees and practical training.
+- **Safety-critical applications**: from federated learning to autonomous decision systems.
 
 ---
 
 ## Talks
 
-I present my work whenever I get the chance — slides are linked when available.
+I present my work whenever I get the chance, and slides are linked when available.
 
 ::card{title="Byzantine Robustness in Distributed Learning" icon="i-ph-presentation-duotone"}
-**September 2026** — Internal Seminar, CMAP, Ecole Polytechnique. Introducing the Krum framework and our adaptive threshold mechanisms for Byzantine-resilient aggregation.
+**September 2026**: Internal Seminar, CMAP, Ecole Polytechnique. Introducing the Krum framework and our adaptive threshold mechanisms for Byzantine-resilient aggregation.
 ::
 
 More talks and publications will appear here as my research progresses.

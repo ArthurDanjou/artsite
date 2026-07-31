@@ -3,7 +3,7 @@
 
 <template>
   <p class="mb-4">
-    Live telemetry from my homelab — my
+    Live telemetry from my homelab: my
     <HoverText
       hover="OS, Editor, Activity"
       text="current environment"

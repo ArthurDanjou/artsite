@@ -4,7 +4,7 @@ const { data: page } = await useAsyncData('hobbies', () => {
 })
 
 const title = page.value?.title ?? 'Balance & Perspectives'
-const description = page.value?.description ?? 'Beyond the code — rugby, motorsports, music, and travel.'
+const description = page.value?.description ?? 'Beyond the code: rugby, motorsports, music, and travel.'
 
 const head = {
   title,

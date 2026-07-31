@@ -1,6 +1,6 @@
 ---
 slug: krum
-title: Krum — Byzantine-Resilient Distributed Learning
+title: Krum - Byzantine-Resilient Distributed Learning
 type: Research Project
 description: My M2 research internship at CMAP, Ecole Polytechnique. An open-source library implementing and evaluating Byzantine-robust Gradient Aggregation Rules (GARs) for secure distributed machine learning under adversarial attacks.
 shortDescription: Open-source framework for Byzantine-resilient aggregation in distributed learning, developed during my M2 internship at CMAP.
@@ -25,11 +25,11 @@ The library is the subject of a **JMLR MLOSS** publication in preparation, with 
 
 Distributed learning scales training across multiple workers, but a single malicious worker can collapse the model by sending arbitrary gradients. Krum implements aggregation rules that are provably robust to Byzantine failures, guaranteeing convergence even when a fraction of workers are adversarial.
 
-As the field matures, the number of experimental parameters grows — model architecture, dataset, number of workers and Byzantine workers, communication topology, attack strategy, aggregation rule, learning rate schedule, initialization scheme. Each paper makes distinct implementation choices that are rarely isolated in reusable components. Krum organizes its functionality into **three layers** to address this:
+As the field matures, the number of experimental parameters grows: model architecture, dataset, number of workers and Byzantine workers, communication topology, attack strategy, aggregation rule, learning rate schedule, and initialization scheme. Each paper makes distinct implementation choices that are rarely isolated in reusable components. Krum organizes its functionality into **three layers** to address this:
 
-1. **Primitives** — aggregation rules, attacks, and a zero-copy model wrapper.
-2. **Simulations** — faithful reproductions of experimental protocols from seminal papers.
-3. **Orchestration** — a programmatic API for reproducible parameter sweeps over thousands of experiments.
+1. **Primitives**: aggregation rules, attacks, and a zero-copy model wrapper.
+2. **Simulations**: faithful reproductions of experimental protocols from seminal papers.
+3. **Orchestration**: a programmatic API for reproducible parameter sweeps over thousands of experiments.
 
 ## Primitives
 
@@ -50,7 +50,7 @@ Gradient aggregation rules that take one gradient per worker and produce a singl
 | **Aksel** | $f < n/2$ | Linear-time median-pivot aggregator, $O(nd)$ complexity |
 | **Nearest Neighbor Average** | $f < n/2$ | Averages the $n - 2f$ closest gradients, used in MoNNA (Farhadkhani et al., 2023) |
 
-Each rule is a **stateless classmethod** — no instance state, no hidden parameters. Specialized hyperparameters ($f$, $n$, $m$) are keyword-only:
+Each rule is a **stateless classmethod** with no instance state and no hidden parameters. Specialized hyperparameters ($f$, $n$, $m$) are keyword-only:
 
 ```python
 from krum.primitives.aggregators import Krum
@@ -81,9 +81,9 @@ Both `Aggregator` and `Attack` are abstract base classes with a single required 
 
 Faithful reproductions of experimental protocols from seminal papers, in both **centralised** (parameter server) and **decentralised** (peer-to-peer) topologies:
 
-- **NIPS 2017 — Krum protocol** (Blanchard et al.): fixed learning rate, no scheduler, reports misclassification error and cross-entropy loss.
-- **ICML 2018 — Hidden Vulnerability** (El Mhamdi et al.): Robbins-Monro schedule $\eta(t) = r_\eta \cdot \eta_0 / (t + r_\eta)$, L2 regularization, Xavier initialization as in Section 5.1 of the original paper.
-- **ICML 2023 — MoNNA** (Farhadkhani et al.): decentralized peer-to-peer protocol with one local momentum SGD step per honest worker, then replacement by a nearest-neighbor average over the $n - 2f$ closest models among $n - f$ neighbors. Supports two Byzantine reach modes: *all* (worst case) and *sampled* (gossip style).
+- **NIPS 2017 Krum protocol** (Blanchard et al.): fixed learning rate, no scheduler, reports misclassification error and cross-entropy loss.
+- **ICML 2018 Hidden Vulnerability** (El Mhamdi et al.): Robbins-Monro schedule $\eta(t) = r_\eta \cdot \eta_0 / (t + r_\eta)$, L2 regularization, Xavier initialization as in Section 5.1 of the original paper.
+- **ICML 2023 MoNNA** (Farhadkhani et al.): decentralized peer-to-peer protocol with one local momentum SGD step per honest worker, then replacement by a nearest-neighbor average over the $n - 2f$ closest models among $n - f$ neighbors. Supports two Byzantine reach modes: *all* (worst case) and *sampled* (gossip style).
 
 ## Orchestration
 
@@ -109,14 +109,14 @@ for n in [10, 20]:
 loss_df = orch.get("loss")  # pandas DataFrame with all run parameters merged
 ```
 
-The orchestrator automatically tracks all run parameters and merges them with collected metrics, enabling filtering and aggregation with standard pandas operations — a programmatic approach that contrasts with configuration-file-based alternatives (JSON configs in ByzFL, CLI in FL-Byz-Lib).
+The orchestrator automatically tracks all run parameters and merges them with collected metrics, enabling filtering and aggregation with standard pandas operations, a programmatic approach that contrasts with configuration-file-based alternatives (JSON configs in ByzFL, CLI in FL-Byz-Lib).
 
 ## Engineering
 
 - **Datasets**: auto-download, provided list (MNIST, CIFAR-10, Spambase, etc.)
 - **Checkpointing**: one-liner to save/load model state
 - **Plotting**: matplotlib/seaborn for manual visualization
-- **Documentation**: ADRs, tutorials, explicit references to papers — hosted at [calicarpa.github.io/krum](https://calicarpa.github.io/krum/)
+- **Documentation**: ADRs, tutorials, and explicit references to papers, hosted at [calicarpa.github.io/krum](https://calicarpa.github.io/krum/)
 - **Tests**: comprehensive suite covering edge cases ($f = 0$, $n = f$, minimal configs), run on GitHub Actions across Python 3.10–3.14
 - **CI/CD**: Ruff for linting and formatting, `ty` for type checking, pre-commit hooks
 
@@ -136,7 +136,7 @@ uv add krum
 
 ## Status
 
-Active development — the paper is in preparation, and new aggregation rules, attack models, and protocol reproductions are continuously added as my research progresses.
+Active development: the paper is in preparation, and new aggregation rules, attack models, and protocol reproductions are continuously added as my research progresses.
 
 ## Repository
 
