@@ -11,9 +11,16 @@ const statusPage = computed(() => contact?.body.find(item => item.id === 'status
 </script>
 
 <template>
-  <footer v-if="contact?.body?.length" class="relative my-16">
+  <footer
+    v-if="contact?.body?.length"
+    class="relative my-16"
+  >
     <div class="flex justify-center mb-12">
-      <USeparator class="md:w-2/3" size="xs" type="solid" />
+      <USeparator
+        class="md:w-2/3"
+        size="xs"
+        type="solid"
+      />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
