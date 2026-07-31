@@ -1,11 +1,13 @@
 ---
 title: Now
-description: What I am working on right now — a snapshot of my current focus, updated occasionally.
+description: A snapshot of what I am working on right now — research internship at CMAP, PhD starting November 2026, and homelab projects.
 sitemap:
   loc: /now
 ---
 
 # Now
+
+This page is a snapshot of what I am currently focused on, following the [/now page movement](https://nownownow.com/about). It is updated a few times a year — if you want my real-time activity, check my [GitHub](https://go.arthurdanjou.fr/github) or the live telemetry on the [homepage](/).
 
 *Last updated: July 2026.*
 

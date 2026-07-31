@@ -3,9 +3,12 @@ const { data: page } = await useAsyncData('hobbies', () => {
   return queryCollection('hobbies').first()
 })
 
+const title = page.value?.title ?? 'Balance & Perspectives'
+const description = page.value?.description ?? 'Beyond the code — rugby, motorsports, music, and travel.'
+
 const head = {
-  title: 'Balance & Perspectives',
-  description: 'Beyond the code. Exploring how competitive sports, motorsports strategy, and cultural experiences fuel my research resilience and cognitive flexibility.',
+  title,
+  description,
   headline: 'Arthur Danjou’s Hobbies'
 }
 

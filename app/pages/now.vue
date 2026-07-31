@@ -3,9 +3,12 @@ const { data: page } = await useAsyncData('now', () => {
   return queryCollection('now').first()
 })
 
+const title = page.value?.title ?? 'Now'
+const description = page.value?.description ?? 'A snapshot of what I am working on right now.'
+
 const head = {
-  title: 'Now',
-  description: 'What I am currently working on — research internship at CMAP, incoming PhD, and homelab projects.',
+  title,
+  description,
   headline: 'Arthur Danjou\u2019s Now'
 }
 
