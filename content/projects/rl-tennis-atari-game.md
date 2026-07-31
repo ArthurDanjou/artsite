@@ -9,10 +9,7 @@ readingTime: 3
 status: Completed
 tags:
   - Reinforcement Learning
-  - Python
-  - Gymnasium
-  - Atari
-  - ALE
+  - Machine Learning
 icon: i-ph-lightning-duotone
 ---
 

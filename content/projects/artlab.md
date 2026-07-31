@@ -9,12 +9,9 @@ readingTime: 2
 favorite: true
 status: Active
 tags:
-  - Docker
-  - Proxmox
-  - HomeLab
   - Self-Hosted
+  - Docker
   - Infrastructure
-  - Networking
 icon: i-ph-flask-duotone
 ---
 

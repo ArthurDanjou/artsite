@@ -9,10 +9,8 @@ readingTime: 1
 favorite: true
 status: Completed
 tags:
-  - Python
-  - R
-  - Data Science
   - Mathematics
+  - Statistics
 icon: i-ph-book-duotone
 ---
 

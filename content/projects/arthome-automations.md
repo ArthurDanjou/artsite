@@ -9,12 +9,8 @@ readingTime: 5
 status: In progress
 favorite: true
 tags:
-  - Home Assistant
-  - Zigbee2MQTT
   - Home Automation
-  - Dashboards
   - Self-Hosted
-  - Matter
   - Voice Assistant
 icon: i-ph-lightbulb-duotone
 ---

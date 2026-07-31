@@ -8,10 +8,8 @@ publishedAt: 2026-01-05
 readingTime: 1
 status: Completed
 tags:
-  - R
-  - R Shiny
   - Data Visualization
-  - ggplot2
+  - Statistics
 icon: i-ph-chart-bar-duotone
 ---
 

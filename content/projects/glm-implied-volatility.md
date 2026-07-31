@@ -8,11 +8,9 @@ publishedAt: 2026-02-28
 readingTime: 3
 status: Completed
 tags:
-  - R
-  - GLM
   - Finance
   - Machine Learning
-  - Statistical Modeling
+  - Statistics
 icon: i-ph-graph-duotone
 ---
 

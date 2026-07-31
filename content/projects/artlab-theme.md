@@ -9,12 +9,8 @@ readingTime: 2
 status: Active
 favorite: false
 tags:
-  - Theme
-  - VS Code
-  - Home Assistant
-  - Zed
-  - Ghostty
   - Design
+  - TypeScript
 icon: i-ph-palette-duotone
 ---
 

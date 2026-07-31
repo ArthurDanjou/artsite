@@ -8,11 +8,8 @@ publishedAt: 2025-10-28
 readingTime: 4
 status: Completed
 tags:
-  - Python
-  - Streamlit
   - Cybersecurity
   - Machine Learning
-  - Scikit-learn
 icon: i-ph-shield-check-duotone
 ---
 

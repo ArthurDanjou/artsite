@@ -10,9 +10,7 @@ favorite: true
 status: In progress
 tags:
   - Distributed Learning
-  - Byzantine Robustness
-  - Python
-  - PyTorch
+  - AI Safety
   - Research
 icon: i-ph-shield-check-duotone
 ---

@@ -8,12 +8,8 @@ publishedAt: 2024-11-24
 readingTime: 3
 status: Completed
 tags:
-  - R
   - Mathematics
   - Statistics
-  - Monte Carlo
-  - Numerical Methods
-  - Estimation
 icon: i-ph-dice-five-duotone
 ---
 

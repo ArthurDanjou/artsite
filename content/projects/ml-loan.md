@@ -8,11 +8,8 @@ publishedAt: 2025-01-24
 readingTime: 2
 status: Completed
 tags:
-  - Python
   - Machine Learning
-  - Regression
   - Finance
-  - Data Science
 icon: i-ph-money-wavy-duotone
 ---
 

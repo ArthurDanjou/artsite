@@ -44,6 +44,26 @@ export default defineContentConfig({
         schemaOrg: defineSchemaOrgSchema()
       })
     }),
+    now: defineCollection({
+      type: 'page',
+      source: 'now.md',
+      schema: z.object({
+        robots: defineRobotsSchema(),
+        sitemap: defineSitemapSchema(),
+        ogImage: defineOgImageSchema(),
+        schemaOrg: defineSchemaOrgSchema()
+      })
+    }),
+    research: defineCollection({
+      type: 'page',
+      source: 'research.md',
+      schema: z.object({
+        robots: defineRobotsSchema(),
+        sitemap: defineSitemapSchema(),
+        ogImage: defineOgImageSchema(),
+        schemaOrg: defineSchemaOrgSchema()
+      })
+    }),
     skills: defineCollection({
       type: 'data',
       source: 'skills.json',

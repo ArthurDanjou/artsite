@@ -8,8 +8,6 @@ publishedAt: 2024-12-10
 readingTime: 6
 status: Completed
 tags:
-  - Python
-  - TensorFlow
   - Deep Learning
   - Research
 icon: i-ph-share-network-duotone

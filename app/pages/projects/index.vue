@@ -31,9 +31,39 @@ const { data: projectsData } = await useAsyncData('projects', () => {
     .all()
 })
 
+const query = ref('')
+const selectedTags = ref<string[]>([])
+
+const allTags = computed(() => {
+  const counts = new Map<string, number>()
+  projectsData.value?.forEach((project) => {
+    project.tags?.forEach(tag => counts.set(tag, (counts.get(tag) ?? 0) + 1))
+  })
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([tag]) => tag)
+})
+
+const filteredProjects = computed(() => {
+  const q = query.value.trim().toLowerCase()
+  return (projectsData.value ?? []).filter((project) => {
+    if (selectedTags.value.length && !selectedTags.value.every(tag => project.tags?.includes(tag)))
+      return false
+    if (!q)
+      return true
+    return [project.title, project.shortDescription, ...(project.tags ?? [])]
+      .some(field => field?.toLowerCase().includes(q))
+  })
+})
+
+function resetFilters() {
+  query.value = ''
+  selectedTags.value = []
+}
+
 const grouped_projects = computed(() => {
   const groups: Record<string, ProjectsCollectionItem[]> = {}
-  projectsData.value?.forEach((project) => {
+  filteredProjects.value.forEach((project) => {
     const group = project.type || 'Other'
     if (!groups[group]) {
       groups[group] = []
@@ -73,29 +103,74 @@ const grouped_projects = computed(() => {
         to="https://go.arthurdanjou.fr/github"
       />
     </div>
-    <div class="flex flex-col gap-16">
-      <div
-        v-for="(projects, group) in grouped_projects"
-        :key="group"
-        class="relative"
-      >
-        <h1 class="w-full md:w-[110%] mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 text-stroke-neutral-500 text-stroke-2 md:-translate-x-16">
-          {{ group }}
-        </h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">
-          <ProjectCard
-            v-for="project in projects"
-            :key="project.slug"
-            :to="`/projects/${project.slug}`"
-            :title="project.title"
-            :description="project.shortDescription"
-            :icon="project.icon"
-            :tags="project.tags"
-            :favorite="project.favorite"
-            :status="project.status"
-          />
-        </div>
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-col md:flex-row gap-3">
+        <UInput
+          v-model="query"
+          class="w-full md:flex-1"
+          size="lg"
+          color="neutral"
+          placeholder="Search by title, description or tag..."
+          leading-icon="i-ph-magnifying-glass-duotone"
+        />
+        <USelectMenu
+          v-model="selectedTags"
+          :items="allTags"
+          multiple
+          searchable
+          size="lg"
+          color="neutral"
+          placeholder="Filter by tags"
+          leading-icon="i-ph-funnel-duotone"
+          class="w-full md:w-72"
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          {{ filteredProjects.length }} project{{ filteredProjects.length === 1 ? '' : 's' }} found
+        </p>
+        <UButton
+          v-if="query || selectedTags.length"
+          label="Reset"
+          size="sm"
+          variant="ghost"
+          color="neutral"
+          icon="i-ph-arrow-counter-clockwise-duotone"
+          @click="resetFilters"
+        />
       </div>
     </div>
+    <template v-if="filteredProjects.length">
+      <div class="flex flex-col gap-16">
+        <div
+          v-for="(projects, group) in grouped_projects"
+          :key="group"
+          class="relative"
+        >
+          <h1 class="w-full md:w-[110%] mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 text-stroke-neutral-500 text-stroke-2 md:-translate-x-16">
+            {{ group }}
+          </h1>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">
+            <ProjectCard
+              v-for="project in projects"
+              :key="project.slug"
+              :to="`/projects/${project.slug}`"
+              :title="project.title"
+              :description="project.shortDescription"
+              :icon="project.icon"
+              :tags="project.tags"
+              :favorite="project.favorite"
+              :status="project.status"
+            />
+          </div>
+        </div>
+      </div>
+    </template>
+    <p
+      v-else
+      class="text-center text-neutral-500 dark:text-neutral-400 py-16"
+    >
+      No projects match your search.
+    </p>
   </main>
 </template>

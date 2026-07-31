@@ -8,10 +8,9 @@ publishedAt: 2026-04-12
 readingTime: 4
 status: Completed
 tags:
-  - Neural Networks
-  - Generalization Bounds
-  - ReLU Activation
-  - Rademacher Complexity
+  - Mathematics
+  - Deep Learning
+  - Research
 icon: i-ph-function-duotone
 ---
 

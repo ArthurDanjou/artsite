@@ -19,7 +19,7 @@ const { contact } = await useContent()
     >
       Arthur Danjou
     </NuxtLink>
-    <nav class="flex gap-2 items-center justify-end flex-wrap">
+    <nav class="flex gap-1 items-center justify-end flex-wrap">
       <UTooltip
         v-for="nav in navs"
         :key="nav.label"

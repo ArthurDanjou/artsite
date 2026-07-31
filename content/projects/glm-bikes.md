@@ -8,9 +8,7 @@ publishedAt: 2025-01-24
 readingTime: 1
 status: Completed
 tags:
-  - R
   - Statistics
-  - GLM
   - Mathematics
 icon: i-ph-bicycle-duotone
 ---

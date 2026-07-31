@@ -9,10 +9,8 @@ readingTime: 2
 favorite: true
 status: Active
 tags:
-  - Nuxt
-  - NuxtHub
-  - Cloudflare Workers
   - TypeScript
+  - Nuxt
 icon: i-ph-globe-hemisphere-west-duotone
 ---
 

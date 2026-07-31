@@ -9,10 +9,8 @@ readingTime: 3
 favorite: false
 status: Completed
 tags:
-  - Python
   - NLP
-  - LangChain
-  - RAG
+  - Machine Learning
 icon: i-ph-robot-duotone
 ---
 
