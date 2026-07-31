@@ -169,7 +169,14 @@ export default defineNuxtConfig({
   },
 
   ogImage: {
-    buildCache: true
+    buildCache: true,
+    security: {
+      renderTimeout: 60000
+    }
+  },
+
+  robots: {
+    disallow: ['/api', '/studio']
   },
 
   schemaOrg: {

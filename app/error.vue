@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+useSeoMeta({
+  title: '404 - Page Not Found',
+  robots: 'noindex, nofollow'
+})
+</script>
+
 <template>
   <UApp class="relative flex h-screen flex-col items-center justify-center">
     <div class="flex flex-col items-center justify-center min-h-screen">

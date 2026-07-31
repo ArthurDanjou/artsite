@@ -21,14 +21,40 @@ const projectWithBody = computed(() => {
   }
 })
 
+const title = project.value.title
+const description = project.value.description
+
+const [ogImageUrl] = defineOgImage('Pergel.satori', {
+  title,
+  description,
+  headline: 'Arthur Danjou\u2019s Projects'
+})
+
 useSeoMeta({
-  title: project.value.title,
-  description: project.value.description,
-  ogTitle: `${project.value.title} • Arthur Danjou`,
-  ogDescription: project.value.description,
+  title,
+  description,
+  ogTitle: `${title} • Arthur Danjou`,
+  ogDescription: description,
   twitterCard: 'summary_large_image',
-  twitterTitle: project.value.title,
-  twitterDescription: project.value.description
+  twitterTitle: title,
+  twitterDescription: description
+})
+
+useSchemaOrg([
+  defineArticle({
+    headline: title,
+    description,
+    datePublished: project.value.publishedAt,
+    image: ogImageUrl
+  })
+])
+
+useBreadcrumbItems({
+  items: [
+    { label: 'Home', to: '/' },
+    { label: 'Projects', to: '/projects' },
+    { label: title, to: `/projects/${slug}` }
+  ]
 })
 
 const formattedDate = computed(() => {
