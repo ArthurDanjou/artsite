@@ -8,15 +8,13 @@ publishedAt: 2026-02-28
 readingTime: 3
 status: Completed
 tags:
-  - R
-  - GLM
   - Finance
   - Machine Learning
-  - Statistical Modeling
+  - Statistics
 icon: i-ph-graph-duotone
 ---
 
-> **M2 Master's Project** – Predicting implied volatility using advanced regression techniques and machine learning models on financial options data.
+> **M2 Master's Project**: predicting implied volatility using advanced regression techniques and machine learning models on financial options data.
 
 This project explores the prediction of **implied volatility** from options market data, combining classical statistical methods with modern machine learning approaches. The analysis covers data preprocessing, feature engineering, model benchmarking, and interpretability analysis using real-world financial panel data.
 
@@ -46,7 +44,7 @@ The project uses a comprehensive panel dataset tracking **3,887 assets** across 
 ### Key Variables
 
 **Target Variable:**
-- `implied_vol_ref` – The implied volatility to predict
+- `implied_vol_ref`: the implied volatility to predict
 
 **Feature Categories:**
 - **Identifiers:** `asset_id`, `obs_date`
@@ -278,11 +276,11 @@ Models trained on log-transformed target for variance stabilization.
 
 ### Financial Theories Applied
 
-1. **Volatility Clustering** – Past volatility predicts future volatility
-2. **Variance Risk Premium** – Spread between implied and realized volatility
-3. **Fear Gauge** – Put-call ratio as sentiment indicator
-4. **Mean Reversion** – Volatility tends to return to long-term average
-5. **Liquidity Premium** – Illiquid assets command higher volatility
+1. **Volatility Clustering**: past volatility predicts future volatility
+2. **Variance Risk Premium**: the spread between implied and realized volatility
+3. **Fear Gauge**: put-call ratio as a sentiment indicator
+4. **Mean Reversion**: volatility tends to return to its long-term average
+5. **Liquidity Premium**: illiquid assets command higher volatility
 
 ### Statistical Methods
 
@@ -317,9 +315,9 @@ Models trained on log-transformed target for variance stabilization.
 ## References
 
 Key R packages used:
-- `tidymodels` – Modern modeling framework
-- `glmnet` – Regularized regression
-- `lme4` / `lmerTest` – Mixed-effects models
-- `xgboost` / `lightgbm` – Gradient boosting
-- `shapviz` – Model interpretability
-- `rBayesianOptimization` – Hyperparameter tuning
+- `tidymodels`: modern modeling framework
+- `glmnet`: regularized regression
+- `lme4` / `lmerTest`: mixed-effects models
+- `xgboost` / `lightgbm`: gradient boosting
+- `shapviz`: model interpretability
+- `rBayesianOptimization`: hyperparameter tuning

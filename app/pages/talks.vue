@@ -3,7 +3,7 @@ const { talks } = await useContent()
 
 const head = {
   title: 'Speaking & Academic Presentations',
-  description: 'My first academic talk — a seminar on Byzantine-resilient aggregation rules at CMAP, Ecole Polytechnique. Open to invitations.',
+  description: 'My first academic talk, a seminar on Byzantine-resilient aggregation rules at CMAP, Ecole Polytechnique. Open to invitations.',
   headline: 'Arthur Danjou\u2019s Talks'
 }
 

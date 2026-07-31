@@ -8,11 +8,7 @@ publishedAt: 2025-07-31
 readingTime: 2
 status: Completed
 tags:
-  - Python
-  - PySpark
   - Data Engineering
-  - Azure
-  - Big Data
 icon: i-ph-dog-duotone
 ---
 

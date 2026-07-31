@@ -9,14 +9,12 @@ readingTime: 3
 favorite: false
 status: Completed
 tags:
-  - Python
   - NLP
-  - LangChain
-  - RAG
+  - Machine Learning
 icon: i-ph-robot-duotone
 ---
 
-**NLP Project — Master M2**  
+**NLP Project, Master M2**  
 *Authors: Arthur DANJOU, Axelle MERIC, Moritz von SIEMENS*
 
 ## Project Overview
@@ -38,7 +36,7 @@ The assistant can answer policy questions, retrieve employee information, schedu
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│           HR Onboarding Assistant — TechCorp            │
+│           HR Onboarding Assistant - TechCorp            │
 │                                                         │
 │  📝 System prompts (LangChain LCEL)                     │
 │  🧠 Sliding window conversational memory                │
@@ -145,4 +143,4 @@ pandas>=3.0.1
 - **Axelle MERIC**
 - **Moritz von SIEMENS**
 
-*Project completed as part of the Natural Language Processing course — Master M2*
+*Project completed as part of the Natural Language Processing course, Master M2*

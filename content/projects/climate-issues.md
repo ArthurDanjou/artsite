@@ -8,12 +8,9 @@ publishedAt: 2026-02-17
 readingTime: 5
 status: Completed
 tags:
-  - Meteorology
-  - Risk Assessment
-  - Data Analysis
-  - Climate Science
-  - GIS
   - Statistics
+  - Data Visualization
+  - Climate Science
 icon: i-ph-wind-duotone
 ---
 

@@ -8,9 +8,8 @@ publishedAt: 2025-06-06
 readingTime: 2
 status: Completed
 tags:
-  - Python
   - Machine Learning
-  - Classification
+  - Statistics
   - Healthcare
 icon: i-ph-heart-half-duotone
 ---

@@ -8,10 +8,8 @@ publishedAt: 2024-05-03
 readingTime: 4
 status: Completed
 tags:
-  - Python
-  - Data Visualization
   - Statistics
-  - Modeling
+  - Data Visualization
   - Mathematics
 icon: i-ph-city-duotone
 ---

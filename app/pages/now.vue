@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-const { data: page } = await useAsyncData('index', () => {
-  return queryCollection('index').first()
+const { data: page } = await useAsyncData('now', () => {
+  return queryCollection('now').first()
 })
 
-const title = page.value?.title ?? 'AI Safety & Applied Mathematics'
-const description = page.value?.description ?? 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.'
+const title = page.value?.title ?? 'Now'
+const description = page.value?.description ?? 'A snapshot of what I am working on right now.'
 
 const head = {
   title,
   description,
-  headline: 'Arthur Danjou’s Research'
+  headline: 'Arthur Danjou\u2019s Now'
 }
 
 useSeoMeta({
   title: head.title,
   description: head.description,
-  ogTitle: `Arthur Danjou • ${head.title}`,
+  ogTitle: `${head.title} \u2022 Arthur Danjou`,
   ogDescription: head.description,
   twitterCard: 'summary_large_image',
   twitterTitle: head.title,
@@ -30,7 +30,7 @@ defineOgImage('Pergel.satori', {
 </script>
 
 <template>
-  <main class="max-w-none! prose dark:prose-invert">
+  <main>
     <ContentRenderer
       v-if="page"
       :value="page"

@@ -8,11 +8,8 @@ publishedAt: 2026-03-07
 readingTime: 15
 status: Completed
 tags:
-  - Nuxt
-  - Ollama
-  - Vercel AI SDK
-  - PostgreSQL
-  - ETL
+  - NLP
+  - Data Engineering
 icon: i-ph-database-duotone
 ---
 

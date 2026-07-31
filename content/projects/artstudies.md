@@ -9,19 +9,17 @@ readingTime: 1
 favorite: true
 status: Completed
 tags:
-  - Python
-  - R
-  - Data Science
   - Mathematics
+  - Statistics
 icon: i-ph-book-duotone
 ---
 
 [**ArtStudies Projects**](https://github.com/ArthurDanjou/artstudies) is a curated collection of academic projects completed throughout my mathematics studies. The repository showcases work in both _Python_ and _R_, with a focus on mathematical modeling, data analysis, and numerical methods.
 
 The projects are organized into three main sections:
-- **L3** – Third year of the Bachelor's degree in Mathematics
-- **M1** – First year of the Master's degree in Mathematics
-- **M2** – Second year of the Master's degree in Mathematics
+- **L3**: third year of the Bachelor's degree in Mathematics
+- **M1**: first year of the Master's degree in Mathematics
+- **M2**: second year of the Master's degree in Mathematics
 
 ## File Structure
 
