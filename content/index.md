@@ -1,6 +1,8 @@
 ---
 title: AI Safety & Applied Mathematics
 description: AI Research Intern at CMAP (Ecole Polytechnique) and Master 2 ISF student at Paris-Dauphine. Working on robust distributed learning, AI alignment, and secure deep learning.
+sitemap:
+  loc: /
 ---
 
 Hey, I'm :home-name, an :hover-text{hover="Robust Distributed Learning with Adversaries" position="bottom" text="AI Research Intern at CMAP, Ecole Polytechnique"} and a :hover-text{hover="Université Paris-Dauphine - PSL" position="bottom" text="Master 2 student in Statistical & Financial Engineering (ISF)"}.
