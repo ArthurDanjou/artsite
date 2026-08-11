@@ -1,3 +1,5 @@
+
+
 <div align="center">
 
 # [Arthur Danjou | Portfolio](https://arthurdanjou.fr/)
@@ -38,6 +40,9 @@ bun run dev
 
 # Build
 bun run build
+
+# Preview
+bun run preview
 
 # Lint
 bun run lint
