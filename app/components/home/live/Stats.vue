@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { Stats } from '~~/types'
+import type { ProgressGroupItem } from '@nuxt/ui'
 import { usePrecision } from '@vueuse/math'
 import { computed } from 'vue'
 
@@ -26,6 +27,65 @@ const formattedDate = useDateFormat(startDate, 'MMMM DD, YYYY', { locales: 'en-U
 const topLanguages = computed(() => stats.value?.languages.slice(0, 3) ?? [])
 const topEditors = computed(() => stats.value?.editors.slice(0, 3) ?? [])
 const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
+
+// Couleurs sémantiques par technologie — mapping par nom (pas par index)
+function getLanguageColor(name: string): string {
+  const n = name.toLowerCase()
+  if (n.includes('vue')) return 'var(--color-emerald-500)' // Vue.js — vert
+  if (n.includes('typescript') || n === 'ts') return 'var(--color-blue-500)' // TS — bleu
+  if (n.includes('python')) return 'var(--color-amber-500)' // Python — jaune/ambre
+  if (n.includes('javascript') || n === 'js') return 'var(--color-yellow-400)'
+  if (n.includes('php')) return 'var(--color-violet-500)'
+  if (n.includes('css')) return 'var(--color-pink-500)'
+  if (n.includes('html')) return 'var(--color-orange-500)'
+  if (n.includes('rust')) return 'var(--color-orange-600)'
+  if (n.includes('go')) return 'var(--color-cyan-500)'
+  return 'var(--color-red-500)'
+}
+
+function getEditorColor(name: string): string {
+  const n = name.toLowerCase()
+  if (n.includes('vs code') || n.includes('visual studio code') || n === 'vscode') return 'var(--color-blue-500)' // VS Code — bleu
+  if (n.includes('webstorm')) return 'var(--color-amber-500)' // WebStorm — jaune/ambre JetBrains
+  if (n.includes('intellij')) return 'var(--color-violet-500)' // IntelliJ — violet
+  if (n.includes('cursor')) return 'var(--color-neutral-800)'
+  if (n.includes('zed')) return 'var(--color-emerald-600)'
+  if (n.includes('positron')) return 'var(--color-teal-500)'
+  if (n.includes('pycharm')) return 'var(--color-green-600)'
+  return 'var(--color-sky-500)'
+}
+
+function getOSColor(name: string): string {
+  const n = name.toLowerCase()
+  if (n.includes('mac') || n.includes('darwin') || n.includes('macos')) return 'var(--color-neutral-700)' // Mac — gris Alu
+  if (n.includes('windows') || n.includes('win')) return 'var(--color-blue-500)' // Windows — bleu
+  if (n.includes('linux')) return 'var(--color-orange-500)'
+  return 'var(--color-sky-500)'
+}
+
+const languageItems = computed<ProgressGroupItem[]>(() =>
+  topLanguages.value.map(lang => ({
+    label: lang.name,
+    value: lang.percent,
+    color: getLanguageColor(lang.name)
+  }))
+)
+
+const editorItems = computed<ProgressGroupItem[]>(() =>
+  topEditors.value.map(editor => ({
+    label: editor.name,
+    value: editor.percent,
+    color: getEditorColor(editor.name)
+  }))
+)
+
+const osItems = computed<ProgressGroupItem[]>(() =>
+  topOS.value.map(os => ({
+    label: os.name,
+    value: os.percent,
+    color: getOSColor(os.name)
+  }))
+)
 </script>
 
 <template>
@@ -79,29 +139,19 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
           >
             <UIcon
               name="i-ph-code-block-duotone"
-              class="text-red-500 w-5 h-5"
+              class="text-emerald-500 w-5 h-5"
             />
             Top Languages
           </h4>
-          <div class="space-y-3">
-            <div
-              v-for="lang in topLanguages"
-              :key="lang.name"
-              class="space-y-1.5"
-            >
-              <div
-                class="flex justify-between text-sm font-medium text-neutral-700 dark:text-neutral-300"
-              >
-                <span>{{ lang.name }}</span>
-                <span class="text-neutral-500">{{ lang.percent }}%</span>
-              </div>
-              <UProgress
-                v-model="lang.percent"
-                color="red"
-                size="sm"
-              />
-            </div>
-          </div>
+          <UProgressGroup
+            :items="languageItems"
+            :max="100"
+            :ui="{ base: 'gap-px' }"
+          >
+            <template #item-trailing="{ item }">
+              <span class="font-medium">{{ item.value }}%</span>
+            </template>
+          </UProgressGroup>
         </div>
 
         <div
@@ -113,29 +163,19 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
           >
             <UIcon
               name="i-ph-terminal-window-duotone"
-              class="text-green-500 w-5 h-5"
+              class="text-blue-500 w-5 h-5"
             />
             Preferred Editors
           </h4>
-          <div class="space-y-3">
-            <div
-              v-for="editor in topEditors"
-              :key="editor.name"
-              class="space-y-1.5"
-            >
-              <div
-                class="flex justify-between text-sm font-medium text-neutral-700 dark:text-neutral-300"
-              >
-                <span>{{ editor.name }}</span>
-                <span class="text-neutral-500">{{ editor.percent }}%</span>
-              </div>
-              <UProgress
-                v-model="editor.percent"
-                color="green"
-                size="sm"
-              />
-            </div>
-          </div>
+          <UProgressGroup
+            :items="editorItems"
+            :max="100"
+            :ui="{ base: 'gap-px' }"
+          >
+            <template #item-trailing="{ item }">
+              <span class="font-medium">{{ item.value }}%</span>
+            </template>
+          </UProgressGroup>
         </div>
 
         <div
@@ -147,29 +187,19 @@ const topOS = computed(() => stats.value?.os.slice(0, 2) ?? [])
           >
             <UIcon
               name="i-ph-desktop-duotone"
-              class="text-blue-500 w-5 h-5"
+              class="text-neutral-700 dark:text-neutral-300 w-5 h-5"
             />
             Operating Systems
           </h4>
-          <div class="space-y-3">
-            <div
-              v-for="osItem in topOS"
-              :key="osItem.name"
-              class="space-y-1.5"
-            >
-              <div
-                class="flex justify-between text-sm font-medium text-neutral-700 dark:text-neutral-300"
-              >
-                <span>{{ osItem.name }}</span>
-                <span class="text-neutral-500">{{ osItem.percent }}%</span>
-              </div>
-              <UProgress
-                v-model="osItem.percent"
-                color="blue"
-                size="sm"
-              />
-            </div>
-          </div>
+          <UProgressGroup
+            :items="osItems"
+            :max="100"
+            :ui="{ base: 'gap-px' }"
+          >
+            <template #item-trailing="{ item }">
+              <span class="font-medium">{{ item.value }}%</span>
+            </template>
+          </UProgressGroup>
         </div>
       </div>
 
