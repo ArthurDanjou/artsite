@@ -81,7 +81,7 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
             {{ nowPlaying.title }}
           </h3>
           <p class="text-sm text-neutral-500 dark:text-neutral-400 truncate">
-            {{ nowPlaying.artist ?? 'Artiste inconnu' }}
+            {{ nowPlaying.artist ?? 'Unknown artist' }}
           </p>
           <p
             v-if="nowPlaying.album"
@@ -112,7 +112,7 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
           name="i-ph-pause-circle-duotone"
           class="w-4 h-4 shrink-0"
         />
-        <p>Aucune musique en cours.</p>
+        <p>No music playing.</p>
       </div>
     </UCard>
 
