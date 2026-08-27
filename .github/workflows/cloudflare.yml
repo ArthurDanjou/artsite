@@ -16,6 +16,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy
+    # Push (main/master) always runs. For PRs:
+    # - if actor is repo owner, run directly
+    # - otherwise requires approval via Environment 'preview'
+    environment: ${{ github.event_name == 'pull_request' && github.actor != 'ArthurDanjou' && 'preview' || '' }}
+    concurrency:
+      group: cloudflare-${{ github.ref }}
+      cancel-in-progress: true
     
     steps:
       - name: Checkout
@@ -79,6 +86,22 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
+      - name: Comment PR with preview URL
+        if: github.event_name == 'pull_request' && steps.wrangler.outputs.DEPLOY_URL != ''
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: cloudflare-preview
+          message: |
+            🚀 **Preview deployed** — `${{ steps.target.outputs.env_name }}`
+
+            | | |
+            |---|---|
+            | **Branch** | `${{ github.head_ref }}` |
+            | **Commit** | `${{ github.sha }}` |
+            | **URL** | ${{ steps.wrangler.outputs.DEPLOY_URL }} |
+
+            _Deployed via Cloudflare Workers `wrangler ${{ steps.target.outputs.wrangler_command }}`._
 
       - name: Discord Notification
         uses: sarisia/actions-status-discord@v1
