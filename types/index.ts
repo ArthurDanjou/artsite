@@ -148,3 +148,22 @@ export interface StatsCard {
   icon: string
   color: string
 }
+
+export interface HAMediaPlayer {
+  entity_id: string
+  state: string
+  friendly_name: string
+  title: string | null
+  artist: string | null
+  album: string | null
+  artwork: string | null
+  content_type: string | null
+  app_name: string | null
+  source: string | null
+}
+
+export interface HAMediaResponse {
+  updatedAt: string
+  players: HAMediaPlayer[]
+  nowPlaying: HAMediaPlayer | null
+}
