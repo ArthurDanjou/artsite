@@ -2,10 +2,10 @@
 slug: artlab
 title: ArtLab - Personal HomeLab
 type: Personal Project
-description: A private R&D sandbox and high-availability infrastructure for deploying MLOps pipelines, managing large-scale data, and experimenting with cloud-native automation.
+description: A multi-host homelab orchestrated by Dockhand and GitOps-deployed, running everything from media servers to a self-hosted S3 backend behind a single SSO.
 shortDescription: A professional-grade homelab for self-hosting, MLOps, and network security.
 publishedAt: 2025-09-04
-readingTime: 2
+readingTime: 3
 favorite: true
 status: Active
 tags:
@@ -17,75 +17,50 @@ icon: i-ph-flask-duotone
 
 [**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab: a controlled environment for experimenting with DevOps, distributed systems, and private cloud architecture.
 
-## Architectural Philosophy
+## Global Architecture
 
-The infrastructure follows a **Zero Trust** model. Access is restricted to a private mesh VPN using **Tailscale (WireGuard)**, removing the need for open ports. For select public endpoints, **Cloudflare Tunnels** provide a hardened entry point, keeping my public IP hidden while preserving end-to-end encryption from the edge to the origin.
+ArtLab is a multi-host homelab orchestrated by **Dockhand**, a Docker management UI running on the central server. Three remote hosts are attached to it through **Hawser** agents in Edge mode, using outbound-only WebSocket connections — zero inbound ports, wherever the host lives.
 
-## Service Stack
+Every stack is versioned in a public GitHub repository ([make-my-server](https://go.arthurdanjou.fr/github)) and deployed through Dockhand's Git integration, with webhooks and auto-sync. Secrets live encrypted inside Dockhand, never in git.
 
-Services are grouped by functional domain to keep orchestration clean and scalable:
+## Network
 
-### Infrastructure & Virtualization
-* **Proxmox VE**: Type-1 hypervisor managing LXC containers and VMs for strict resource isolation.
-* **Docker & Portainer**: Container runtime and orchestration for rapid deployment.
-* **Traefik**: Edge router and reverse proxy providing automatic HTTPS via Let's Encrypt.
-* **Tailscale**: Secure networking layer for cross-device connectivity and remote management.
+A **Tailscale** mesh connects every machine: each host gets a stable `100.x` IP, traffic between hosts is WireGuard-encrypted and direct. Traefik reaches backends through their Tailscale IPs, regardless of the network they sit on.
 
-### Data & Storage
-* **Garage**: S3-compatible distributed object storage for backups and static assets.
-* **Immich**: High-performance photo management and AI-powered backup solution.
-* **Jellyfin**: Media server for hardware-accelerated streaming.
-* **Redis**: In-memory data structure store for caching and session management.
+**AdGuard Home** acts as the DNS for the whole tailnet (global nameserver) and for the LAN (through the router's DHCP). On the public side, everything goes through **Traefik v3**: TLS is terminated at the proxy with Let's Encrypt certificates issued via Cloudflare DNS challenge — no ports to open for ACME.
 
-### Automation & Observability
-* **Uptime Kuma**: Real-time status monitoring and incident alerting.
-* **Beszel**: Lightweight agent-based resource monitoring for CPU/RAM/Disk metrics.
-* **AdGuard Home**: Network-wide DNS sinkhole for ad-blocking and privacy.
-* **Home Assistant MCP Server**: AI agent gateway exposing Home Assistant via the Model Context Protocol for LLM-driven home control.
+## Central Server
 
-### Media & Entertainment
-* **Jellyfin**: Media server for hardware-accelerated streaming.
-* **Music Assistant**: Self-hosted music library manager unifying streaming services and local files with multi-room audio sync.
+The central server is the entry point of the infrastructure:
 
-### Home Intelligence
-* **Home Assistant**: Centralized hub for IoT integration, 27+ automations, and voice control.
-* **MQTT Broker**: Low-latency message bus for device-to-service communication.
-* **Zigbee2MQTT**: Bridge for local Zigbee device control without cloud dependencies.
-* **Matter Server**: WebSocket bridge for Matter-compatible smart home devices.
-* **LLM Vision**: AI-powered security camera analysis with timeline-based event logging, powered by open-weight models.
-* **Alarmo**: Advanced alarm system with presence-based arming/disarming.
-* **Voice Pipeline**: Local voice assistant stack combining openWakeWord (wake word), Piper (TTS), and Speech-to-Phrase (STT) for privacy-preserving voice control.
+- **Traefik v3** — reverse proxy with JSON access logs, Prometheus metrics, OTLP tracing, and a dashboard protected by SSO.
+- **Authentik** — SSO (OIDC + forwardAuth middleware) in front of every admin interface: Proxmox, PBS, NAS, AdGuard, Garage, Zigbee2MQTT, Traefik Manager, and download clients.
+- **Apps** — Karakeep (bookmarks), Mealie (recipes), Stirling-PDF, Speedtest-Tracker, Beszel (monitoring), Uptime-Kuma, Vaultwarden, Dawarich (geodata), AirTrail.
+- **Traefik Manager** — a dedicated UI to edit static and dynamic Traefik config, with automatic backups on every save and restart via poison-pill.
 
-## Backup Strategy
+## Remote Hosts
 
-Data integrity follows a **3-2-1 rule** with a layered pipeline:
+Three dedicated hosts, each focused on one functional domain:
 
-### Proxmox Backup Server (Primary Layer)
-**PBS** runs as a dedicated LXC container on the Beelink, providing agentless, incremental backups of every VM and LXC container. The client handles deduplication, compression, and integrity verification. Backups are stored on a dedicated ZFS dataset with periodic verification tasks.
+- **Photos** — Immich (library on an NFS mount), Immich Power-Tools, Immich Kiosk.
+- **Media** — media server with GPU transcoding, automated download management, subtitle handling and on-demand requesting, all outbound traffic routed through a VPN, plus a daily antivirus scan with Discord alerts.
+- **Storage** — Garage, a self-hosted S3-compatible backend: WebUI behind SSO, public S3 endpoint exposed through Traefik for buckets.
 
-### NAS (Local Aggregation)
-All PBS backup datastores are pushed to the **UGREEN NASync DXP4800**, whose 16TB ZFS pool acts as the local backup aggregation point. Shared folders (Immich photos, Docker volumes, configuration directories) are also backed up here via real-time rsync.
+## Home Automation
 
-### Google Drive (Off-Site, Encrypted)
-The NAS synchronizes its entire backup dataset to **Google Drive** via **rclone** with client-side AES-256 encryption. The encryption keys never leave the homelab, so Google sees only opaque blobs. This covers PBS backups, Immich photos, shared folders, and configuration files.
+Each home automation service runs on its own dedicated host: **Mosquitto** (MQTT broker: TCP 1883 for devices, websockets through Traefik for remote access), **Zigbee2MQTT** with a PoE Zigbee dongle, **Frigate** (AI-powered NVR), **Home Assistant**, **AdGuard Home**, and a monitoring host collecting OTLP traces.
 
-Two sync flows run in parallel:
-- **PBS datastores** → NAS → Google Drive (daily incremental)
-- **Shared folders** (photos, documents) → NAS → Google Drive (near real-time, uni-directional)
+## Backups & Security
 
-### Recovery Testing
-Backups are periodically restored to isolated containers to verify integrity and RTO (recovery time objective). This practice has caught misconfigured backup paths before actual data was at risk.
+**Infrastructure backups** — Proxmox VE on a mini-PC (beelink00) runs the LXC/VMs, backed up by **Proxmox Backup Server**. The UGREEN NAS handles bulk storage.
 
----
+**App backups** — Dockhand's restic module backs up volumes and stack files to S3/REST destinations, with automatic retention.
 
-## Hardware Specifications
+**Security** — not a single secret in git (variables are injected by Dockhand with a fail-fast pattern in the compose files), Authentik SSO across the entire admin surface, TLS everywhere with DNS challenge, backends reachable exclusively through the tailnet, and the Hawser agent is outbound-only.
 
-| Component | Hardware | Role |
-| :--- | :--- | :--- |
-| **Main Host** | **Beelink EQR6** (AMD Ryzen) | Compute, Containers & VMs |
-| **Storage** | **UGREEN NASync DXP4800 Plus** | 4-bay NAS, 16TB ZFS / Backups |
-| **Networking** | **TP-Link 5-port Gigabit Switch** | Local Backbone |
-| **Zigbee** | **SLZB-MR4 Coordinator** | Home Automation Mesh |
+## GitOps
+
+Everything is declarative: stacks are defined in the `make-my-server` repository, synced to Dockhand, and deployed automatically. Config drift is impossible by design — if it's not in git, it doesn't exist.
 
 ---
 
