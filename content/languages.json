@@ -1,16 +1,19 @@
 {
   "body": [
     {
+      "id": "french",
       "name": "French",
       "level": "Native",
       "proficiency": "C2"
     },
     {
+      "id": "english",
       "name": "English",
       "level": "Fluent",
       "proficiency": "C1"
     },
     {
+      "id": "spanish",
       "name": "Spanish",
       "level": "Intermediate",
       "proficiency": "A2"
