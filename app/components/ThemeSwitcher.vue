@@ -55,21 +55,32 @@ defineShortcuts({
 </script>
 
 <template>
-  <UTooltip
-    :kbds="['T']"
-    text="switch theme"
-    class="cursor-pointer"
-    :delay-duration="4"
-  >
-    <UButton
-      :icon="nextTheme === 'dark' ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
-      color="neutral"
-      aria-label="switch theme"
-      size="sm"
-      variant="ghost"
-      @click="toggleDark"
-    />
-  </UTooltip>
+  <ClientOnly>
+    <UTooltip
+      :kbds="['T']"
+      text="switch theme"
+      class="cursor-pointer"
+      :delay-duration="4"
+    >
+      <UButton
+        :icon="nextTheme === 'dark' ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
+        color="neutral"
+        aria-label="switch theme"
+        size="sm"
+        variant="ghost"
+        @click="toggleDark"
+      />
+    </UTooltip>
+    <template #fallback>
+      <UButton
+        icon="i-ph-sun-duotone"
+        color="neutral"
+        aria-label="switch theme"
+        size="sm"
+        variant="ghost"
+      />
+    </template>
+  </ClientOnly>
 </template>
 
 <style>

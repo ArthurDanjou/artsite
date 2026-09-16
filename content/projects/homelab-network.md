@@ -2,7 +2,7 @@
 slug: homelab-network
 title: Homelab Network - Segmented 2.5G Design
 type: Personal Project
-description: A from-scratch network design taking my homelab from a flat Freebox-routed LAN to a segmented 2.5G infrastructure: Cloud Gateway Max, four VLANs, a 19-inch rack, and an isolated camera network. Currently in design phase.
+description: "A from-scratch network design taking my homelab from a flat Freebox-routed LAN to a segmented 2.5G infrastructure: Cloud Gateway Max, four VLANs, a 19-inch rack, and an isolated camera network. Currently in design phase."
 shortDescription: Segmented 2.5G homelab network design with VLAN isolation, UniFi gateway, and rack plan (design phase).
 publishedAt: 2026-09-01
 readingTime: 4
