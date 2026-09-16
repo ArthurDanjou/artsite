@@ -25,6 +25,14 @@ defineOgImage('Pergel.satori', {
 
 type Talk = NonNullable<typeof talks>['body'][number]
 
+function formatTalkDate(iso: string): string {
+  const parts = iso.split('-').map(Number)
+  if (parts.length < 2 || parts.some(n => !Number.isFinite(n))) return iso
+  const [year, month, day] = parts as [number, number, number?]
+  const date = day ? new Date(year, month - 1, day) : new Date(year, month - 1, 1)
+  return date.toLocaleDateString('en-US', day ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long' })
+}
+
 const grouped = computed<Record<string, Talk[]>>(() => {
   const groups: Record<string, Talk[]> = {}
   ;(talks?.body ?? []).forEach((talk) => {
@@ -85,7 +93,7 @@ const grouped = computed<Record<string, Talk[]>>(() => {
             v-for="talk in yearTalks"
             :key="talk.id"
             :title="talk.title"
-            :date="talk.date"
+            :date="formatTalkDate(talk.date)"
             :venue="talk.venue"
             :description="talk.description"
             :icon="talk.icon"
