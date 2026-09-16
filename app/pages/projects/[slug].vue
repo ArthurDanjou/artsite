@@ -34,10 +34,7 @@ useSeoMeta({
   title,
   description,
   ogTitle: `${title} • Arthur Danjou`,
-  ogDescription: description,
-  twitterCard: 'summary_large_image',
-  twitterTitle: title,
-  twitterDescription: description
+  ogDescription: description
 })
 
 useSchemaOrg([

@@ -134,6 +134,12 @@ export default defineNuxtConfig({
       openAPI: true
     },
 
+    // Use the dev-only wrangler config (no ASSETS binding) so @nuxt/content
+    // serves its dumps from .nuxt/content/raw instead of the empty .output/public.
+    cloudflareDev: {
+      configPath: 'wrangler.dev.jsonc'
+    },
+
     prerender: {
       routes: ['/'],
       crawlLinks: true
