@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { LANG_FLAGS } from '~~/app/utils/locale'
+import { LANG_FLAGS } from '~/utils/locale'
 
 defineProps<{
   title: string
