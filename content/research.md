@@ -55,28 +55,12 @@ The experimental backbone is **[Krum](/projects/krum)**, an open-source framewor
 
 ---
 
-## Thesis Axes
+## Thesis Direction
 
-My thesis explores four axes, ordered by priority, all benchmarked on the **[Krum](/projects/krum)** library:
+My thesis work also explores the following direction, benchmarked on the **[Krum](/projects/krum)** library:
 
-::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
-
-:::card{title="1. Empirical Byzantine MoE" icon="i-ph-share-network-duotone"}
+::card{title="Empirical Byzantine MoE" icon="i-ph-share-network-duotone"}
 Mixture-of-Experts creates structural heterogeneity that breaks the IID assumptions of classic aggregation rules: a global Krum mistakes a rare honest expert for an attacker. I study **per-expert aggregation** (one GAR per expert) evaluated on realistic non-IID federated benchmarks rather than synthetic label-skew.
-:::
-
-:::card{title="2. Dataset Ownership × Distributed Learning" icon="i-ph-fingerprint-duotone"}
-Data Taggants sign a dataset via clean-label gradient matching. I ask what happens to that signature under federated training with Byzantine workers: do **Krum and GeoMed filter out signature-carrying gradients**, and can GAR-aware taggants be built to survive both filtering and forging?
-:::
-
-:::card{title="3. Byzantine-Resilient Orthogonalized Momentum" icon="i-ph-arrows-clockwise-duotone"}
-Muon orthogonalizes momentum via Newton-Schulz iteration and outperforms AdamW on LLMs, yet nobody has studied what orthogonalization does to Byzantine aggregation. I test whether **classic GARs survive the reshaped gradient geometry** on a 100M-parameter toy LLM.
-:::
-
-:::card{title="4. Optimal Transport × Robustness" icon="i-ph-function-duotone"}
-An August 2026 literature sweep confirms the gap: no work combines Byzantine aggregation with Wasserstein geometry. I explore **sliced-Wasserstein GARs**, decentralized model fusion via optimal coupling, and distributed minimax rates under Wasserstein contamination.
-:::
-
 ::
 
 ---
