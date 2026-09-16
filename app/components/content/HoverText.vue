@@ -1,19 +1,12 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
+interface HoverTextProps {
+  text: string | number
+  hover: string
+  position?: 'top' | 'right' | 'bottom' | 'left'
+}
 
-defineProps({
-  text: {
-    type: [String, Number],
-    required: true
-  },
-  hover: {
-    type: String,
-    required: true
-  },
-  position: {
-    type: String as PropType<'top' | 'right' | 'bottom' | 'left'>,
-    default: 'top'
-  }
+withDefaults(defineProps<HoverTextProps>(), {
+  position: 'top'
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { navs } from '~~/types'
 
-const openContactDrawer = ref(false)
+const openContactDrawer = shallowRef(false)
 const router = useRouter()
 defineShortcuts({
   c: () => openContactDrawer.value = !openContactDrawer.value,
@@ -9,6 +9,15 @@ defineShortcuts({
 })
 
 const { contact } = await useContent()
+
+const contactItems = computed(() => contact?.body
+  .filter(item => item.priority === 1)
+  .map(item => ({
+    label: item.name,
+    icon: item.icon,
+    href: item.value,
+    target: '_blank'
+  })) ?? [])
 </script>
 
 <template>
@@ -57,12 +66,7 @@ const { contact } = await useContent()
         <UDropdownMenu
           v-if="contact"
           v-model:open="openContactDrawer"
-          :items="contact.body.filter(item => item.priority === 1).map(item => ({
-            label: item.name,
-            icon: item.icon,
-            href: item.value,
-            target: '_blank'
-          }))"
+          :items="contactItems"
           :content="{
             align: 'center',
             side: 'bottom',
@@ -105,10 +109,7 @@ const { contact } = await useContent()
 </template>
 
 <style>
-.handwriting {
-  font-family: 'Dancing Script', cursive;
-}
-
+/* .handwriting lives in assets/css/main.css (shared with AppFooter) */
 @keyframes switch-on {
   0% {
     filter: blur(0);

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { LANG_FLAGS } from '~~/app/utils/locale'
+
 defineProps<{
   title: string
   date: string
@@ -8,11 +10,6 @@ defineProps<{
   icon?: string
   lang?: string
 }>()
-
-const flags: Record<string, string> = {
-  fr: '🇫🇷',
-  en: '🇬🇧'
-}
 </script>
 
 <template>
@@ -35,10 +32,10 @@ const flags: Record<string, string> = {
             {{ title }}
           </h3>
           <span
-            v-if="lang && flags[lang]"
+            v-if="lang && LANG_FLAGS[lang]"
             class="text-sm shrink-0"
           >{{
-            flags[lang]
+            LANG_FLAGS[lang]
           }}</span>
           <UButton
             v-if="slides"

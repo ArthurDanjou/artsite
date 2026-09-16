@@ -1,15 +1,4 @@
 <script setup lang="ts">
-defineProps({
-  icon: {
-    type: String,
-    required: true
-  },
-  color: {
-    type: String,
-    default: 'neutral'
-  }
-})
-
 const colorVariants = {
   neutral: 'text-neutral-500/80 decoration-neutral-400/40',
   red: 'text-red-500/80 decoration-red-400/40',
@@ -29,6 +18,15 @@ const colorVariants = {
   cyan: 'text-cyan-500/80 decoration-cyan-400/40',
   gray: 'text-gray-500/80 decoration-gray-400/40'
 }
+
+interface ProseIconProps {
+  icon: string
+  color?: keyof typeof colorVariants
+}
+
+withDefaults(defineProps<ProseIconProps>(), {
+  color: 'neutral'
+})
 </script>
 
 <template>
@@ -38,7 +36,7 @@ const colorVariants = {
       size="16"
     />
     <span
-      :class="colorVariants[color as keyof typeof colorVariants]"
+      :class="colorVariants[color]"
       class="sofia font-semibold underline-offset-2 underline"
     >
       <slot />

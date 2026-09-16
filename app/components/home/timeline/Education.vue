@@ -2,24 +2,8 @@
 import type { TimelineItem } from '@nuxt/ui'
 
 const { education } = await useContent()
-const { width } = useWindowSize()
 
-const orientation = computed<'vertical' | 'horizontal'>(() =>
-  width.value >= 768 ? 'horizontal' : 'vertical'
-)
-
-const formatDate = (start?: string, end?: string, duration?: string) => {
-  if (!start) return 'N/A'
-
-  const startYear = new Date(start).getFullYear()
-  const endYear = end ? new Date(end).getFullYear() : 'Present'
-  const durationText = duration ? `(${duration})` : ''
-
-  if (startYear === endYear) {
-    return `${startYear} ${durationText}`
-  }
-  return `${startYear} - ${endYear} ${durationText}`
-}
+const orientation = useTimelineOrientation()
 
 const items = computed<TimelineItem[]>(() => {
   if (!education) return []
@@ -29,7 +13,7 @@ const items = computed<TimelineItem[]>(() => {
     .map(item => ({
       title: item.title || 'Degree',
       description: item.institution || '',
-      date: formatDate(item.startDate, item.endDate, item.duration),
+      date: formatTimelineDate(item.startDate, item.endDate, item.duration),
       icon: item.icon || 'i-ph-graduation-cap-duotone'
     }))
 })

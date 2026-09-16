@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { LANG_FLAGS } from '~~/app/utils/locale'
+
 defineProps<{
   title: string
   description: string
@@ -9,11 +11,6 @@ defineProps<{
   to: string
   lang?: string
 }>()
-
-const flags: Record<string, string> = {
-  fr: '🇫🇷',
-  en: '🇬🇧'
-}
 </script>
 
 <template>
@@ -35,9 +32,9 @@ const flags: Record<string, string> = {
               {{ title }}
             </h3>
             <span
-              v-if="lang && flags[lang]"
+              v-if="lang && LANG_FLAGS[lang]"
               class="text-sm shrink-0"
-            >{{ flags[lang] }}</span>
+            >{{ LANG_FLAGS[lang] }}</span>
           </div>
           <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5 line-clamp-3">
             {{ description }}

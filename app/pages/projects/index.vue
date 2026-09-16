@@ -31,7 +31,7 @@ const { data: projectsData } = await useAsyncData('projects', () => {
     .all()
 })
 
-const query = ref('')
+const query = shallowRef('')
 const selectedTags = ref<string[]>([])
 
 const allTags = computed(() => {
