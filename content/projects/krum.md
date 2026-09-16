@@ -151,7 +151,7 @@ uv add krum
 
 Active development: the paper is in preparation, and new aggregation rules, attack models, and protocol reproductions are continuously added as my research progresses.
 
-The roadmap follows my thesis pipeline: **per-expert robust aggregation for Mixture-of-Experts** (P1, core), a miniature real-world non-IID federated benchmark (P5), FP4 quantization survival of aggregators (P2), GAR-aware dataset ownership proofs (P3), Muon under Byzantine attack (P4), and decentralized MoE over gossip (P6). Details live on the [research page](/research).
+The roadmap follows my current work: starting from the optimal robustness coefficient $\kappa^\star$ (Bareilles et al., 2026), derive an explicit **convergence-rate coefficient** for robust aggregators and compute it across the rules implemented here. Details live on the [research page](/research).
 
 ## Repository
 

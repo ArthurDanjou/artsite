@@ -81,16 +81,11 @@ An August 2026 literature sweep confirms the gap: no work combines Byzantine agg
 
 ---
 
-## Thesis Project Pipeline
+## Current Project
 
-Six publishable projects back the axes above, in recommended order:
+My first thesis project starts from the **optimal robustness coefficient $\kappa^\star$** introduced by Bareilles et al. ([MultiKrum and an optimal notion of robustness](https://arxiv.org/abs/2602.03899), 2026): can we derive from it an **explicit convergence-rate coefficient** for a robust gradient aggregator, and compute that coefficient for the standard aggregators of the literature (Krum, MultiKrum, Bulyan, geometric median, coordinate-wise median, trimmed mean)?
 
-- **P1 — Per-expert robust aggregation for MoE [CORE, ~3 months]**: layered defense (independent Krum per expert, protected router, load-balance monitoring) against expert-targeted poisoning and router collapse attacks.
-- **P5 — Miniature real-world non-IID FL [~2 weeks]**: Gboard-like next-word task with true Dirichlet clients and Byzantine injection, comparing FedAvg, FedProx, and SCAFFOLD with GARs.
-- **P2 — Do aggregators survive FP4 quantization? [~1 month]**: whether robustness survives the double noise of quantization and robust aggregation on B200-grade hardware.
-- **P3 — Taggants resilient to robust filtering**: audit whether ownership proofs survive FL aggregation, then construct GAR-aware taggants.
-- **P4 — Muon under Byzantine attack**: convergence analysis plus experiments with Newton-Schulz-orthogonalized updates.
-- **P6 — Decentralized MoE over gossip [sequel to P1]**: per-expert aggregation without a server, under eclipse attacks isolating rare-expert nodes.
+The goal is a number that says, per aggregator, not just *whether* it converges under Byzantine faults but *how fast* — measured on the same [Krum](/projects/krum) bench. Work in progress, no results yet.
 
 ---
 
