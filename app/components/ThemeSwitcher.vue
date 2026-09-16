@@ -73,6 +73,7 @@ defineShortcuts({
 </template>
 
 <style>
+/* Global on purpose: view-transition pseudo-elements live outside component scope */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

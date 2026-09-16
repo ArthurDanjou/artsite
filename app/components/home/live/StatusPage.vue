@@ -37,63 +37,60 @@ const statusState = computed(() => {
   return { color: 'emerald', label: 'All Systems Operational' }
 })
 
-const pingClass = computed(() => {
-  return {
-    'bg-neutral-400': statusState.value.color === 'neutral',
-    'bg-orange-400': statusState.value.color === 'orange',
-    'bg-sky-400': statusState.value.color === 'sky',
-    'bg-emerald-400': statusState.value.color === 'emerald'
+interface StatusTheme {
+  ping: string
+  dot: string
+  label: string
+  progress: 'emerald' | 'orange' | 'sky' | 'neutral'
+  icon: string
+  iconBg: string
+  hoverRing: string
+}
+
+const statusTheme = computed<StatusTheme>(() => {
+  switch (statusState.value.color) {
+    case 'orange':
+      return {
+        ping: 'bg-orange-400',
+        dot: 'bg-orange-500',
+        label: 'text-orange-600 dark:text-orange-400',
+        progress: 'orange',
+        icon: 'i-heroicons-exclamation-triangle',
+        iconBg: 'bg-orange-50 dark:bg-orange-900/30 text-orange-500',
+        hoverRing: 'hover:ring-orange-500/50'
+      }
+    case 'sky':
+      return {
+        ping: 'bg-sky-400',
+        dot: 'bg-sky-500',
+        label: 'text-sky-600 dark:text-sky-400',
+        progress: 'sky',
+        icon: 'i-heroicons-wrench-screwdriver',
+        iconBg: 'bg-sky-50 dark:bg-sky-900/30 text-sky-500',
+        hoverRing: 'hover:ring-sky-500/50'
+      }
+    case 'emerald':
+      return {
+        ping: 'bg-emerald-400',
+        dot: 'bg-emerald-500',
+        label: 'text-emerald-600 dark:text-emerald-400',
+        progress: 'emerald',
+        icon: 'i-heroicons-check-circle',
+        iconBg: 'bg-primary-50 dark:bg-primary-900/30 text-primary-500',
+        hoverRing: 'hover:ring-emerald-500/50'
+      }
+    default:
+      return {
+        ping: 'bg-neutral-400',
+        dot: 'bg-neutral-500',
+        label: 'text-neutral-600 dark:text-neutral-400',
+        progress: 'neutral',
+        icon: 'i-heroicons-question-mark-circle',
+        iconBg: 'bg-primary-50 dark:bg-primary-900/30 text-primary-500',
+        hoverRing: 'hover:ring-neutral-500/50'
+      }
   }
 })
-
-const dotClass = computed(() => {
-  return {
-    'bg-neutral-500': statusState.value.color === 'neutral',
-    'bg-orange-500': statusState.value.color === 'orange',
-    'bg-sky-500': statusState.value.color === 'sky',
-    'bg-emerald-500': statusState.value.color === 'emerald'
-  }
-})
-
-const labelClass = computed(() => {
-  return {
-    'text-neutral-600 dark:text-neutral-400':
-      statusState.value.color === 'neutral',
-    'text-orange-600 dark:text-orange-400':
-      statusState.value.color === 'orange',
-    'text-sky-600 dark:text-sky-400':
-      statusState.value.color === 'sky',
-    'text-emerald-600 dark:text-emerald-400':
-      statusState.value.color === 'emerald'
-  }
-})
-
-const progressColor = computed((): 'emerald' | 'orange' | 'sky' | 'neutral' => {
-  if (statusState.value.color === 'emerald') return 'emerald'
-  if (statusState.value.color === 'orange') return 'orange'
-  if (statusState.value.color === 'sky') return 'sky'
-  return 'neutral'
-})
-
-const iconName = computed(() => {
-  if (statusState.value.color === 'orange') return 'i-heroicons-exclamation-triangle'
-  if (statusState.value.color === 'sky') return 'i-heroicons-wrench-screwdriver'
-  if (statusState.value.color === 'emerald') return 'i-heroicons-check-circle'
-  return 'i-heroicons-question-mark-circle'
-})
-
-const iconBgClass = computed(() => ({
-  'bg-primary-50 dark:bg-primary-900/30 text-primary-500': statusState.value.color === 'emerald' || statusState.value.color === 'neutral',
-  'bg-orange-50 dark:bg-orange-900/30 text-orange-500': statusState.value.color === 'orange',
-  'bg-sky-50 dark:bg-sky-900/30 text-sky-500': statusState.value.color === 'sky'
-}))
-
-const hoverRingClass = computed(() => ({
-  'hover:ring-emerald-500/50': statusState.value.color === 'emerald',
-  'hover:ring-orange-500/50': statusState.value.color === 'orange',
-  'hover:ring-sky-500/50': statusState.value.color === 'sky',
-  'hover:ring-neutral-500/50': statusState.value.color === 'neutral'
-}))
 </script>
 
 <template>
@@ -105,16 +102,16 @@ const hoverRingClass = computed(() => ({
     >
       <UCard
         class="h-full flex flex-col overflow-hidden transition-all duration-200 hover:ring-2"
-        :class="hoverRingClass"
+        :class="statusTheme.hoverRing"
       >
         <div class="flex items-center justify-between mb-2">
           <div class="flex items-center gap-3">
             <div
               class="p-2 rounded-lg flex items-center justify-center"
-              :class="iconBgClass"
+              :class="statusTheme.iconBg"
             >
               <UIcon
-                :name="iconName"
+                :name="statusTheme.icon"
                 class="size-6"
               />
             </div>
@@ -130,11 +127,11 @@ const hoverRingClass = computed(() => ({
             >
               <span
                 class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                :class="pingClass"
+                :class="statusTheme.ping"
               />
               <span
                 class="relative inline-flex rounded-full h-2.5 w-2.5"
-                :class="dotClass"
+                :class="statusTheme.dot"
               />
             </span>
             <USkeleton
@@ -145,7 +142,7 @@ const hoverRingClass = computed(() => ({
             <span
               v-if="!isLoading"
               class="text-xs font-mono font-medium"
-              :class="labelClass"
+              :class="statusTheme.label"
             >
               {{ statusState.label }}
             </span>
@@ -184,7 +181,7 @@ const hoverRingClass = computed(() => ({
           <UProgress
             v-if="!isLoading"
             :model-value="metrics.uptime"
-            :color="progressColor"
+            :color="statusTheme.progress"
             size="sm"
           />
         </div>
