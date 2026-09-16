@@ -36,11 +36,11 @@ export interface Activity {
 }
 
 export const IDEs = [
-  { name: 'Visual Studio Code', icon: 'i-logos:visual-studio-code' },
-  { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos:intellij-idea' },
-  { name: 'WebStorm', icon: 'i-logos:webstorm' },
-  { name: 'PyCharm Professional', icon: 'i-logos:pycharm' },
+  { name: 'Visual Studio Code', icon: 'i-logos-visual-studio-code' },
+  { name: 'IntelliJ IDEA Ultimate', icon: 'i-logos-intellij-idea' },
+  { name: 'WebStorm', icon: 'i-logos-webstorm' },
+  { name: 'PyCharm Professional', icon: 'i-logos-pycharm' },
   { name: 'Cursor', icon: 'i-vscode-icons-file-type-cursorrules' },
   { name: 'Positron', icon: 'i-devicon-positron' },
-  { name: 'Zed', icon: 'i-simple-icons:zedindustries' }
+  { name: 'Zed', icon: 'i-simple-icons-zedindustries' }
 ] as const

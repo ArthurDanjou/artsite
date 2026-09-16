@@ -68,8 +68,8 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
   - :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"}, my default shell, optimized for speed and interactivity.
   - :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"}, a minimal, blazing-fast, and infinitely customizable prompt.
   - :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"}, which replaces Spotlight. I use it for script commands, window management, and quick calculations.
-  - :prose-icon[Firefox]{color="orange" icon="i-logos:firefox"}, chosen for its privacy features and robust DevTools.
-  - :prose-icon[Brave]{color="blue" icon="i-logos:brave"}, a privacy-focused browser with built-in ad blocking and tracking protection.
+  - :prose-icon[Firefox]{color="orange" icon="i-logos-firefox"}, chosen for its privacy features and robust DevTools.
+  - :prose-icon[Brave]{color="blue" icon="i-logos-brave"}, a privacy-focused browser with built-in ad blocking and tracking protection.
   :::
 ::
 
@@ -114,7 +114,7 @@ I run these services using **Docker** and **Portainer**, strictly behind a **Tra
 - :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"}: Home Assistant (27+ automations), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
 - :prose-icon[AI & Voice]{icon="i-ph-magic-wand-duotone"}: LLM Vision (Qwen, DeepSeek, Mistral), openWakeWord, Piper TTS, Speech-to-Phrase.
 - :prose-icon[Security]{icon="i-ph-shield-check-duotone"}: Cloudflare Tunnels, AdGuard Home, Vaultwarden.
-- :prose-icon[Observability]{icon="i-ph-activity-duotone"}: Uptime Kuma, Beszel, Speedtest Tracker.
+- :prose-icon[Observability]{icon="i-ph-pulse-duotone"}: Uptime Kuma, Beszel, Speedtest Tracker.
 - :prose-icon[Utilities]{icon="i-ph-wrench-duotone"}: BentoPDF, HA MCP Server.
 ::
 

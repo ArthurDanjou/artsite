@@ -27,7 +27,7 @@ const { contact } = await useContent()
         :delay-duration="4"
       >
         <UButton
-          :icon="`i-ph-${nav.icon}`"
+          :icon="nav.icon"
           :target="nav.target ? nav.target : '_self'"
           :href="nav.to"
           :aria-label="nav.label"

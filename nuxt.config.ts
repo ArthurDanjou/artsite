@@ -168,6 +168,19 @@ export default defineNuxtConfig({
     }
   },
 
+  icon: {
+    clientBundle: {
+      scan: {
+        globInclude: ['**/*.{vue,ts,js,json,md,mdc,mdx,yml,yaml}'],
+        globExclude: ['node_modules', 'dist', 'build', 'coverage', 'test', 'tests', '.*', '.nuxt', '.output']
+      },
+      sizeLimitKb: 512,
+      icons: [
+        'vscode-icons:file-type-python'
+      ]
+    }
+  },
+
   ogImage: {
     buildCache: true,
     security: {
@@ -176,7 +189,7 @@ export default defineNuxtConfig({
   },
 
   robots: {
-    disallow: ['/api', '/studio']
+    disallow: ['/studio']
   },
 
   schemaOrg: {

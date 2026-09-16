@@ -12,11 +12,11 @@ I work at the intersection of :hover-text{hover="Learning Theory, Robust Optimiz
 My current work is dedicated to :hover-text{hover="Alignment, Robustness & Interpretability 🧭" text="AI Safety"}. Through my M2 internship, I focus on :hover-text{hover="Byzantine-robust aggregation, poisoning resilience, decentralized settings 🛡️" text="adversarially robust distributed learning"} and :hover-text{hover="Open-source tooling, reproducibility, and scientific rigor 🤝" text="secure and trustworthy ML engineering"}.
 
 To drive this research, I leverage
-:prose-icon[Python]{color="amber" icon="i-logos:python"},
-:prose-icon[PyTorch]{color="orange" icon="i-logos:pytorch-icon"} and
-:prose-icon[LaTeX]{color="green" icon="i-simple-icons:latex"} to document and formalize architectures, relying on
-:prose-icon[Docker]{color="sky" icon="i-logos:docker-icon"} and
-:prose-icon[Linux]{color="zinc" icon="i-logos:linux-tux"} to ensure reproducibility within my :hover-text{hover="I self-host my own GPU cluster 🔌" text="homelab"}.
+:prose-icon[Python]{color="amber" icon="i-logos-python"},
+:prose-icon[PyTorch]{color="orange" icon="i-logos-pytorch-icon"} and
+:prose-icon[LaTeX]{color="green" icon="i-simple-icons-latex"} to document and formalize architectures, relying on
+:prose-icon[Docker]{color="sky" icon="i-logos-docker-icon"} and
+:prose-icon[Linux]{color="zinc" icon="i-logos-linux-tux"} to ensure reproducibility within my :hover-text{hover="I self-host my own GPU cluster 🔌" text="homelab"}.
 
 When I'm not debugging training dynamics or refining research pipelines, I enjoy :hover-text{hover="Former Team Captain 🏉" text="Rugby"} and :hover-text{hover="Exploring the world 🌍" text="Traveling"}.
 
