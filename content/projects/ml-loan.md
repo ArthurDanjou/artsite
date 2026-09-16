@@ -15,7 +15,7 @@ icon: i-ph-money-wavy-duotone
 
 This project focuses on building machine learning models to predict loan approval outcomes and assess default risk. The objective is to develop robust classification models that identify creditworthy applicants.
 
-## Project Objectives
+## Overview
 
 - Build and compare multiple classification models for loan prediction
 - Identify key factors influencing loan approval decisions

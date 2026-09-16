@@ -15,7 +15,7 @@ icon: i-ph-dice-five-duotone
 
 This report presents the Monte Carlo Methods Project completed as part of the **Monte Carlo Methods** course at Paris-Dauphine University. The goal was to implement a range of Monte Carlo methods and algorithms in R.
 
-## Methods and Algorithms
+## Methodology
 
 - Plotting graphs of functions
 - Inverse CDF random variation simulation

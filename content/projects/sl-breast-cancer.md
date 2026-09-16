@@ -16,7 +16,7 @@ icon: i-ph-heart-half-duotone
 
 This project was carried out as part of the **Statistical Learning** course at Paris-Dauphine PSL University. The objective is to identify the most effective model for predicting or explaining the presence of breast cancer based on a set of biological and clinical features.
 
-## Project Objectives
+## Overview
 
 Develop and evaluate several supervised classification models to predict the presence of breast cancer based on biological features extracted from the Breast Cancer Coimbra dataset, provided by the UCI Machine Learning Repository.
 

@@ -7,7 +7,6 @@ shortDescription: A cross-platform color theme for VS Code, Home Assistant, Zed,
 publishedAt: 2026-01-01
 readingTime: 2
 status: Active
-favorite: false
 tags:
   - Design
   - TypeScript

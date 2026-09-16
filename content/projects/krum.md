@@ -7,7 +7,7 @@ shortDescription: Open-source framework for Byzantine-resilient aggregation in d
 publishedAt: 2026-06-15
 readingTime: 6
 favorite: true
-status: In progress
+status: Active
 tags:
   - Distributed Learning
   - AI Safety

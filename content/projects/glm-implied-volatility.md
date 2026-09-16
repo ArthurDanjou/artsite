@@ -1,5 +1,5 @@
 ---
-slug: implied-volatility-prediction-from-options-data
+slug: glm-implied-volatility
 title: Implied Volatility Prediction from Options Data
 type: Academic Project
 description: A large-scale statistical study comparing Generalized Linear Models (GLMs) and black-box machine learning architectures to predict the implied volatility of S&P 500 options.
@@ -22,7 +22,7 @@ This project explores the prediction of **implied volatility** from options mark
 
 ---
 
-## Project Overview
+## Overview
 
 ### Problem Statement
 

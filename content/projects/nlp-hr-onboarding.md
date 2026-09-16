@@ -6,7 +6,6 @@ description: Intelligent HR onboarding assistant using RAG, LangChain agents, an
 shortDescription: An AI-powered assistant for streamlining HR onboarding processes and improving new hire experience.
 publishedAt: 2026-03-13
 readingTime: 3
-favorite: false
 status: Completed
 tags:
   - NLP
@@ -17,7 +16,7 @@ icon: i-ph-robot-duotone
 **NLP Project, Master M2**  
 *Authors: Arthur DANJOU, Axelle MERIC, Moritz von SIEMENS*
 
-## Project Overview
+## Overview
 
 The **Intelligent HR Onboarding Assistant** is a conversational AI system designed to guide new employees during their first week at **TechCorp**. It combines retrieval-augmented generation, tool-using agents, and conversational memory to provide accurate and actionable HR support.
 
