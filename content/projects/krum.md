@@ -111,6 +111,19 @@ loss_df = orch.get("loss")  # pandas DataFrame with all run parameters merged
 
 The orchestrator automatically tracks all run parameters and merges them with collected metrics, enabling filtering and aggregation with standard pandas operations, a programmatic approach that contrasts with configuration-file-based alternatives (JSON configs in ByzFL, CLI in FL-Byz-Lib).
 
+## Reproduction Results
+
+Before building on published rules, I reproduced them from scratch in bare-metal PyTorch: MNIST on a 2×256 MLP, $n = 8$ workers with $f = 2$ Byzantine running the **ALIE** attack, 20 epochs, single seed 42.
+
+| Aggregator | Test accuracy | Note |
+| :--- | :--- | :--- |
+| **Average** (non-robust baseline) | ~10% | Random-equivalent, ALIE fully diverges |
+| **Multi-Krum** | ~92% | Converges, slightly below clean |
+| **SignGuard** | ~94% | Sign filtering beats distance filtering in high dimension |
+| **MoNNA** | ~95% | Polyak momentum stabilizes training |
+
+Sequential CPU timings for 8 workers stay negligible at this scale (12–18s), but the exercise surfaced three lessons that shaped the library: `flatten → aggregate → relink` breaks autograd and desynchronizes optimizer buffers, clipping order matters (norm vs sign), and sequential simulation hides true distributed costs (bandwidth, stragglers, async arrival). Figures are indicative single-seed runs; the multi-seed benchmark across $n \in \\{8, 16, 32\\}$ and $f/n$ up to 0.4 is ongoing work.
+
 ## Engineering
 
 - **Datasets**: auto-download, provided list (MNIST, CIFAR-10, Spambase, etc.)
@@ -137,6 +150,8 @@ uv add krum
 ## Status
 
 Active development: the paper is in preparation, and new aggregation rules, attack models, and protocol reproductions are continuously added as my research progresses.
+
+The roadmap follows my thesis pipeline: **per-expert robust aggregation for Mixture-of-Experts** (P1, core), a miniature real-world non-IID federated benchmark (P5), FP4 quantization survival of aggregators (P2), GAR-aware dataset ownership proofs (P3), Muon under Byzantine attack (P4), and decentralized MoE over gossip (P6). Details live on the [research page](/research).
 
 ## Repository
 

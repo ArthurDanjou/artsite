@@ -11,7 +11,7 @@ I work at the intersection of :hover-text{hover="Learning Theory, Robust Optimiz
 
 My current work is dedicated to :hover-text{hover="Alignment, Robustness & Interpretability 🧭" text="AI Safety"}. Through my M2 internship, I focus on :hover-text{hover="Byzantine-robust aggregation, poisoning resilience, decentralized settings 🛡️" text="adversarially robust distributed learning"} and :hover-text{hover="Open-source tooling, reproducibility, and scientific rigor 🤝" text="secure and trustworthy ML engineering"}.
 
-To drive this research, I leverage
+To drive this research, I build :hover-text{hover="10 aggregation rules, 5 attacks, protocol-faithful simulations" text="Krum"}, an open-source Byzantine-robust aggregation framework (paper in preparation, JMLR MLOSS), and start my PhD on resilient distributed learning at CMAP this November. I leverage
 :prose-icon[Python]{color="amber" icon="i-logos-python"},
 :prose-icon[PyTorch]{color="orange" icon="i-logos-pytorch-icon"} and
 :prose-icon[LaTeX]{color="green" icon="i-simple-icons-latex"} to document and formalize architectures, relying on
