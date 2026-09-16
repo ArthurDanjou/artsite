@@ -13,25 +13,25 @@ My research sits at the intersection of **applied mathematics** and **deep learn
 
 ## Research Interests
 
-:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
-::card{title="Adversarially Robust Distributed Learning" icon="i-ph-shield-check-duotone"}
+:::card{title="Adversarially Robust Distributed Learning" icon="i-ph-shield-check-duotone"}
 Distributed training scales learning across many workers, but a single malicious worker can corrupt the model through crafted gradients. I study **Byzantine-resilient aggregation rules** (Krum, coordinate-wise median, trimmed mean) and pre-aggregation schemes that guarantee convergence under a bounded fraction of adversaries.
-::
-
-::card{title="AI Safety & Alignment" icon="i-ph-compass-duotone"}
-Building on my internship, I aim to contribute to **mathematically grounded safety**: formal verification, robustness certificates, and interpretability tools that give us guarantees about model behavior rather than empirical hope.
-::
-
-::card{title="Secure & Reproducible ML Engineering" icon="i-ph-flask-duotone"}
-Research tooling matters as much as theory. I build **open-source, reproducible frameworks** that are documented, tested, and packaged, so that robustness results can be re-run, attacked, and extended by anyone.
-::
-
-::card{title="Learning Theory" icon="i-ph-function-duotone"}
-From generalization bounds for two-layer ReLU networks to stochastic optimization under constraints, I enjoy the **statistical and mathematical foundations** that make robustness arguments rigorous.
-::
-
 :::
+
+:::card{title="AI Safety & Alignment" icon="i-ph-compass-duotone"}
+Building on my internship, I aim to contribute to **mathematically grounded safety**: formal verification, robustness certificates, and interpretability tools that give us guarantees about model behavior rather than empirical hope.
+:::
+
+:::card{title="Secure & Reproducible ML Engineering" icon="i-ph-flask-duotone"}
+Research tooling matters as much as theory. I build **open-source, reproducible frameworks** that are documented, tested, and packaged, so that robustness results can be re-run, attacked, and extended by anyone.
+:::
+
+:::card{title="Learning Theory" icon="i-ph-function-duotone"}
+From generalization bounds for two-layer ReLU networks to stochastic optimization under constraints, I enjoy the **statistical and mathematical foundations** that make robustness arguments rigorous.
+:::
+
+::
 
 ---
 

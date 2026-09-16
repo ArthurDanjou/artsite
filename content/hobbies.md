@@ -15,21 +15,21 @@ Research demands deep focus, but the best ideas rarely come from staring at the 
 
 I am drawn to environments where strategy, speed, and precision meet. These are not pastimes so much as different arenas for the same kind of thinking.
 
-:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
-::card{title="Motorsports Strategy" icon="i-ph-flag-checkered-duotone"}
+:::card{title="Motorsports Strategy" icon="i-ph-flag-checkered-duotone"}
 **Formula 1 Enthusiast**
 F1 is a sport decided in milliseconds, where every call, from tyres and fuel to weather and pit timing, balances human instinct against live :hover-text{text="telemetry data" hover="Tyre degradation, fuel load, weather"}. I follow the engineering as much as the racing.
 * **What I love:** the constant interplay between data and intuition.
-::
+:::
 
-::card{title="Competitive Sports" icon="i-ph-trophy-duotone"}
+:::card{title="Competitive Sports" icon="i-ph-trophy-duotone"}
 **Rugby & Volleyball**
 I played rugby for years, captaining my school team along the way. Leadership, I learned, is not about giving orders. It is about keeping a team cohesive under pressure. Collective effort beats individual brilliance, every time.
 * **Takeaway:** resilience is a team sport.
-::
-
 :::
+
+::
 
 ---
 
@@ -37,20 +37,20 @@ I played rugby for years, captaining my school team along the way. Leadership, I
 
 Travel is my way of resetting how I think. Seeing how other systems work, from cities and cultures to economies, keeps my assumptions honest.
 
-:::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
+::div{class="grid grid-cols-1 md:grid-cols-2 gap-6"}
 
-::card{title="Global Exploration" icon="i-ph-airplane-tilt-duotone"}
+:::card{title="Global Exploration" icon="i-ph-airplane-tilt-duotone"}
 **Travel & Adaptation**
 From the history of **Egypt** and the landscapes of **South Africa** to the vibrancy of **Thailand** and the **USA**, every place challenges the way I default to seeing things. The goal is simple: keep learning from systems unlike my own.
 * **Why it matters:** adaptability is a skill, and it needs training too.
-::
+:::
 
-::card{title="Tactical Analysis" icon="i-ph-soccer-ball-duotone"}
+:::card{title="Tactical Analysis" icon="i-ph-soccer-ball-duotone"}
 **Paris Saint-Germain**
 A long-time PSG supporter, I enjoy football through its tactics: how teams control :hover-text{text="space and transitions" hover="Controlling space & transitions"}, and how managers shape games before a ball is kicked. Match days are also a good excuse to disconnect.
-::
-
 :::
+
+::
 
 ---
 
