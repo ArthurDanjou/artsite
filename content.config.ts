@@ -5,17 +5,19 @@ import { defineOgImageSchema } from 'nuxt-og-image/content'
 import { defineSchemaOrgSchema } from 'nuxt-schema-org/content'
 import { z } from 'zod'
 
+const pageSeoSchema = z.object({
+  robots: defineRobotsSchema(),
+  sitemap: defineSitemapSchema(),
+  ogImage: defineOgImageSchema(),
+  schemaOrg: defineSchemaOrgSchema()
+})
+
 export default defineContentConfig({
   collections: {
     index: defineCollection({
       type: 'page',
       source: 'index.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
-      })
+      schema: pageSeoSchema
     }),
     projects: defineCollection({
       type: 'data',
@@ -27,42 +29,27 @@ export default defineContentConfig({
         description: z.string(),
         shortDescription: z.string(),
         publishedAt: z.string(),
-        readingTime: z.number(),
+        readingTime: z.number().optional(),
         tags: z.array(z.string()),
         favorite: z.boolean().optional(),
-        status: z.enum(['Active', 'Completed', 'Archived', 'In progress']),
+        status: z.enum(['Active', 'Completed', 'Archived']),
         icon: z.string()
       })
     }),
     uses: defineCollection({
       type: 'page',
       source: 'uses.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
-      })
+      schema: pageSeoSchema
     }),
     now: defineCollection({
       type: 'page',
       source: 'now.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
-      })
+      schema: pageSeoSchema
     }),
     research: defineCollection({
       type: 'page',
       source: 'research.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
-      })
+      schema: pageSeoSchema
     }),
     skills: defineCollection({
       type: 'data',
@@ -130,32 +117,28 @@ export default defineContentConfig({
     hobbies: defineCollection({
       type: 'page',
       source: 'hobbies.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
-      })
+      schema: pageSeoSchema
     }),
     languages: defineCollection({
       type: 'data',
       source: 'languages.json',
       schema: z.object({
         body: z.array(z.object({
+          id: z.string(),
           name: z.string(),
           level: z.string(),
           proficiency: z.string()
         }))
       })
     }),
-    talks_entries: defineCollection({
+    talks: defineCollection({
       type: 'data',
       source: 'talks.json',
       schema: z.object({
         body: z.array(z.object({
           id: z.string(),
           title: z.string(),
-          date: z.string(),
+          date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, 'Use ISO date YYYY-MM or YYYY-MM-DD'),
           venue: z.string(),
           description: z.string(),
           icon: z.string().optional(),
@@ -164,16 +147,6 @@ export default defineContentConfig({
           upcoming: z.boolean().optional(),
           slides: z.string().url().nullable().optional()
         }))
-      })
-    }),
-    profile: defineCollection({
-      type: 'page',
-      source: 'profile.md',
-      schema: z.object({
-        robots: defineRobotsSchema(),
-        sitemap: defineSitemapSchema(),
-        ogImage: defineOgImageSchema(),
-        schemaOrg: defineSchemaOrgSchema()
       })
     })
   }

@@ -65,7 +65,7 @@ const flags: Record<string, string> = {
               icon="i-ph-star-four-duotone"
             />
             <UBadge
-              v-if="status === 'In progress'"
+              v-if="status === 'Active'"
               color="blue"
               variant="soft"
               size="sm"
