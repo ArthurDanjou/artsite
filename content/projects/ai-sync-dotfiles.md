@@ -6,7 +6,6 @@ description: My dotfiles with a single source of truth that syncs 16 MCP servers
 shortDescription: One source of truth syncing MCP servers, skills and commands across six AI coding platforms.
 publishedAt: 2026-09-16
 readingTime: 4
-favorite: true
 status: Active
 tags:
   - TypeScript
@@ -15,7 +14,7 @@ tags:
 icon: i-ph-arrows-clockwise-duotone
 ---
 
-[**AI Sync Dotfiles**](https://github.com/ArthurDanjou/ai-sync-dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six dialects.
+[**AI Sync Dotfiles**](https://go.arthurdanjou.fr/dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six dialects.
 
 ## The Problem
 
