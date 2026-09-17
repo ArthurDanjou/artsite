@@ -7,7 +7,7 @@ sitemap:
 
 Hey, I'm :home-name, an :hover-text{hover="Robust Distributed Learning with Adversaries" position="bottom" text="AI Research Intern at CMAP, Ecole Polytechnique"} and a :hover-text{hover="Université Paris-Dauphine - PSL" position="bottom" text="Master 2 student in Statistical & Financial Engineering (ISF)"}.
 
-I work at the intersection of :hover-text{hover="Learning Theory, Robust Optimization & Advanced ML 🧠" position="top" text="theoretical research"} and :hover-text{hover="From MLOps to production-grade systems 🚀" position="right" text="software engineering"}. Unlike a pure theorist, I ship what I model. Unlike a pure developer, I understand the math behind the code.
+I work at the intersection of :hover-text{hover="Learning Theory, Robust Optimization & Advanced ML 🧠" position="top" text="theoretical research"} and :hover-text{hover="From MLOps to production-grade systems 🚀" position="right" text="software engineering"}. So I ship what I model, and I understand the math behind the code.
 
 My current work is dedicated to :hover-text{hover="Alignment, Robustness & Interpretability 🧭" text="AI Safety"}. Through my M2 internship, I focus on :hover-text{hover="Byzantine-robust aggregation, poisoning resilience, decentralized settings 🛡️" text="adversarially robust distributed learning"} and :hover-text{hover="Open-source tooling, reproducibility, and scientific rigor 🤝" text="secure and trustworthy ML engineering"}.
 
@@ -22,25 +22,25 @@ When I'm not working on resilient distributed learning or preparing the Krum wri
 
 ---
 
-## Scientific & Technical Arsenal
+## Skills
 
-My research capabilities rely on a :hover-text{hover="The Scientist & The Builder" text="dual expertise"} : :hover-text{hover="Stochastic Calculus, Optimization, Probability" text="advanced mathematical modeling"} for conception, and :hover-text{hover="CI/CD, Docker, Kubernetes" text="robust engineering"} for execution.
+My research draws on a :hover-text{hover="The Scientist & The Builder" text="dual background"}: :hover-text{hover="Stochastic Calculus, Optimization, Probability" text="mathematical modeling"} for design, and :hover-text{hover="CI/CD, Docker, Kubernetes" text="engineering"} for shipping.
 
 :home-skills
 
 ---
 
-## Research & Engineering Path
+## Experience
 
-Theoretical knowledge is nothing without concrete application. From :hover-text{hover="High-availability architectures" text="building distributed systems"} to designing :hover-text{hover="Adversarial Robustness" text="defensive ML pipelines"}, my path reflects a constant shift toward high-impact and safety-critical challenges.
+From :hover-text{hover="High-availability architectures" text="building distributed systems"} to designing :hover-text{hover="Adversarial Robustness" text="defensive ML pipelines"}, I keep moving toward safety-critical problems.
 
 :home-timeline-experiences{.mb-8}
 
 ---
 
-## Academic Foundation
+## Education
 
-Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{hover="The M280 Trinity 📐" text="Statistics, Probability, and Optimization"} provides the foundations to analyze, stress-test, and secure modern deep learning architectures.
+Safe AI rests on mathematics. My background in :hover-text{hover="The M280 Trinity 📐" text="Statistics, Probability, and Optimization"} is what lets me analyze, stress-test, and secure modern deep learning architectures.
 
 :home-timeline-education{.mb-8}
 

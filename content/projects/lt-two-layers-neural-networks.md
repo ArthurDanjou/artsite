@@ -20,7 +20,7 @@ This rigorous mathematical exercise derives and analyzes generalization bounds f
 
 - **Naive bound**: Classical empirical Rademacher complexity approach (demonstrates why standard bounds fail for overparameterized models)
 - **Symmetrization inequality**: Specialized for ReLU networks, exploiting $|z| = \phi(z) + \phi(-z)$ structure
-- **Scale-invariant complexity measure**: Leverages ReLU positive homogeneity property
+- **Scale-invariant complexity measure**: Uses the ReLU positive homogeneity property
 - **Width-independent bound**: Final tight generalization bound that holds regardless of network width
 
 ## Theoretical Foundation
@@ -44,11 +44,11 @@ Derivation uses:
 - Distributional symmetry: $\sigma$ and $-\sigma$ are identically distributed
 - Rademacher averaging: Cancellation of terms through symmetry arguments
 
-This establishes tighter bounds by leveraging the activation function's inherent structure.
+This establishes tighter bounds by using the activation function's structure.
 
 ## Part C: Scale-Invariant Complexity Measure
 
-Leveraging the **positive homogeneity** of ReLU ($\sigma(\lambda z) = \lambda \sigma(z)$ for $\lambda > 0$), we introduce scale-invariant parameterization: $\hat{u}_j = \frac{u_j}{\|w_j\|}, \quad \hat{w}_j = \frac{w_j}{\|w_j\|}$
+Using the **positive homogeneity** of ReLU ($\sigma(\lambda z) = \lambda \sigma(z)$ for $\lambda > 0$), we introduce scale-invariant parameterization: $\hat{u}_j = \frac{u_j}{\|w_j\|}, \quad \hat{w}_j = \frac{w_j}{\|w_j\|}$
 
 This transformation yields a width-independent bound: $\mathcal{R}(\mathcal{H}) \leq C \cdot B \sqrt{\frac{\log m}{n}}$
 
@@ -57,7 +57,7 @@ where the complexity no longer scales linearly with $m$, making it meaningful fo
 ## Course & Academic Context
 
 - **Course**: Learning Theory: Two-Layer Neural Networks (Exam)
-- **Institution**: Université Paris-Dauphine -- PSL, Department of MIDO
+- **Institution**: Université Paris-Dauphine (PSL), Department of MIDO
 - **Supervisor**: Katia Meziani
 - **Program**: Master 2 ISF (Initial Track)
 - **Academic Year**: 2025/2026

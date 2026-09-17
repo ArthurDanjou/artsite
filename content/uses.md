@@ -36,18 +36,15 @@ My setup is split between mobile efficiency for academic writing and a fixed sta
 
 ### Peripherals
 
-I rely on a specific set of tools to maintain flow during deep work sessions.
-
-- **Audio:** **Apple AirPods Pro**, essential for deep work sessions and noise cancellation.
+- **Audio:** **Apple AirPods Pro**, mostly for noise cancellation.
 - **Input:** :hover-text{hover="OptiPoint Switches" text="SteelSeries Apex 9 TKL"} (Keyboard) & **Logitech G203** (Mouse).
-- **Tablets:** **iPad Air**, dedicated to reading papers and handwriting mathematical proofs.
-- **Stylus:** **Apple Pencil**, essential for annotations and mathematical notation.
+- **Tablets:** **iPad Air** for reading papers and handwriting proofs, with the **Apple Pencil** for annotations and mathematical notation.
 
 ---
 
 ## Development Ecosystem
 
-I prioritize tools that offer **AI-integration** and **strong type-checking**.
+I prioritize tools that offer **AI integration** and **strong type-checking**.
 
 ::div{.grid.grid-cols-1.md:grid-cols-2.gap-6}
   :::card{icon="i-ph-code-duotone" title="IDEs & Editors"}
@@ -65,10 +62,10 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
   :::card{icon="i-ph-terminal-window-duotone" title="Terminal & System"}
   - :prose-icon[Ghostty]{color="gray" icon="i-ph-ghost-duotone"}, a fast, native, and GPU-accelerated terminal emulator.
-  - :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"}, my default shell, optimized for speed and interactivity.
-  - :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"}, a minimal, blazing-fast, and infinitely customizable prompt.
+  - :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"}, my default shell.
+  - :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"}, a minimal and highly customizable prompt.
   - :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"}, which replaces Spotlight. I use it for script commands, window management, and quick calculations.
-  - :prose-icon[Firefox]{color="orange" icon="i-logos-firefox"}, chosen for its privacy features and robust DevTools.
+  - :prose-icon[Firefox]{color="orange" icon="i-logos-firefox"}, chosen for its privacy features and good DevTools.
   - :prose-icon[Brave]{color="blue" icon="i-logos-brave"}, a privacy-focused browser with built-in ad blocking and tracking protection.
   :::
 ::
@@ -77,7 +74,7 @@ I prioritize tools that offer **AI-integration** and **strong type-checking**.
 
 ## Infrastructure & Homelab
 
-To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**. This allows me to experiment with distributed systems, data pipelines, and network security in a controlled environment.
+I maintain a **self-hosted cluster** to experiment with distributed systems, data pipelines, and network security in a controlled environment.
 
 ### Hardware Infrastructure
 
@@ -91,7 +88,7 @@ To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**
   :::card{icon="i-ph-hard-drives-duotone" title="Storage Node"}
   **UGREEN NASync DXP4800** :hover-text{hover="RAID Configuration" text="16TB Raw Storage"}
 
-  Centralized Data Lake for datasets and backups.
+  Central data lake for datasets and backups.
   :::
 
   :::card{icon="i-ph-globe-duotone" title="Network"}
@@ -111,7 +108,7 @@ I run these services on **Proxmox** (a Home Assistant OS virtual machine plus LX
 - :prose-icon[Knowledge & Notes]{icon="i-ph-notebook-duotone"}: Obsidian, Obsidian Sync, Mealie.
 - :prose-icon[Databases]{icon="i-ph-database-duotone"}: PostgreSQL, Redis.
 - :prose-icon[Storage & Media]{icon="i-ph-hard-drives-duotone"}: Garage (S3), Immich (3164 photos, 622 videos).
-- :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"}: Home Assistant (29 automations, 1933 entities, 51 HACS repos — July 2026 snapshot), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
+- :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"}: Home Assistant (29 automations, 1933 entities, 51 HACS repos, July 2026 snapshot), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
 - :prose-icon[AI & Voice]{icon="i-ph-magic-wand-duotone"}: LLM Vision (Qwen, DeepSeek, Mistral), openWakeWord, Piper TTS, Speech-to-Phrase.
 - :prose-icon[Security]{icon="i-ph-shield-check-duotone"}: Cloudflare Tunnels, AdGuard Home, Vaultwarden.
 - :prose-icon[Observability]{icon="i-ph-pulse-duotone"}: Uptime Kuma, Beszel, Speedtest Tracker.
@@ -126,7 +123,7 @@ All AI inference in ArtHome runs on **open-weight models**, with no proprietary 
 
 ### Vision Analysis
 
-**LLM Vision** powers security camera analysis with timeline-based event logging. Every frame is processed locally through open-weight vision models, enabling object detection, person recognition, and activity classification without sending video feeds to external services.
+**LLM Vision** powers security camera analysis with timeline-based event logging. Every frame is processed locally through open-weight vision models for object detection, person recognition, and activity classification; video feeds never leave the homelab.
 
 ### Assistant & Automation
 
@@ -134,7 +131,7 @@ The conversation agent and automation logic layer run on a mix of open-weight mo
 
 ### Why Open Weights
 
-Open-weight models are a strategic choice, not just an ideological one:
+I run open weights for practical reasons:
 
 - **Privacy**: data never leaves the homelab. Camera feeds, daily schedules, and voice commands stay on local hardware. No API calls means no third-party data exposure.
 - **Autonomy**: no vendor lock-in, no deprecation risk, no API pricing changes. Models can be swapped, fine-tuned, or quantized without permission.

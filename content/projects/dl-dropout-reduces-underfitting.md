@@ -17,7 +17,7 @@ icon: i-ph-share-network-duotone
 
 The paper is available at: [https://arxiv.org/abs/2303.01500](https://arxiv.org/abs/2303.01500)
 
-This repository contains a robust, modular **TensorFlow/Keras** implementation of **Early Dropout** and **Late Dropout** strategies. The goal is to verify the hypothesis that dropout, traditionally used to reduce overfitting, can also combat underfitting when applied only during the initial training phase.
+This repository contains a modular **TensorFlow/Keras** implementation of **Early Dropout** and **Late Dropout** strategies. The goal is to verify the hypothesis that dropout, traditionally used to reduce overfitting, can also combat underfitting when applied only during the initial training phase.
 
 ## Scientific Objectives
 
@@ -120,7 +120,7 @@ exp.compare_drop_rates(
 
 ### 4. Data Regimes (Data Scarcity)
 
-Verify the paper's hypothesis that Early Dropout shines on large datasets (or limited models) while Standard Dropout protects small datasets.
+Verify the paper's hypothesis that Early Dropout works best on large datasets (or limited models) while Standard Dropout protects small datasets.
 
 ```python
 # Training on 10%, 50% and 100% of the dataset

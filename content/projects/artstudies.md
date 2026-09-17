@@ -2,7 +2,7 @@
 slug: artstudies
 title: ArtStudies - Academic Projects Collection
 type: Academic Project
-description: A curated collection of mathematics and data science projects developed during my academic journey, spanning Bachelor's and Master's studies.
+description: A collection of mathematics and data science projects developed during my Bachelor's and Master's studies.
 shortDescription: A collection of academic projects in mathematics and data science from my university studies.
 publishedAt: 2023-09-01
 readingTime: 1
@@ -14,7 +14,7 @@ tags:
 icon: i-ph-book-duotone
 ---
 
-[**ArtStudies Projects**](https://github.com/ArthurDanjou/artstudies) is a curated collection of academic projects completed throughout my mathematics studies. The repository showcases work in both _Python_ and _R_, with a focus on mathematical modeling, data analysis, and numerical methods.
+[**ArtStudies Projects**](https://github.com/ArthurDanjou/artstudies) is a collection of the academic projects I completed during my mathematics studies. The repository covers work in both _Python_ and _R_, with a focus on mathematical modeling, data analysis, and numerical methods.
 
 The projects are organized into three main sections:
 - **L3**: third year of the Bachelor's degree in Mathematics
@@ -53,13 +53,13 @@ The projects are organized into three main sections:
 ## Technologies & Tools
 
 - **[Python](https://www.python.org)**: A high-level, interpreted programming language, widely used for data science, machine learning, and scientific computing.
-- **[R](https://www.r-project.org)**: A statistical computing environment, perfect for data analysis and visualization.
+- **[R](https://www.r-project.org)**: A statistical computing environment, well suited for data analysis and visualization.
 - **[Jupyter](https://jupyter.org)**: Interactive notebooks combining code, results, and rich text for reproducible research.
 - **[Pandas](https://pandas.pydata.org)**: A data manipulation library providing data structures and operations for manipulating numerical tables and time series.
 - **[NumPy](https://numpy.org)**: Core package for numerical computing with support for large, multi-dimensional arrays and matrices.
 - **[SciPy](https://www.scipy.org)**: A library for advanced scientific computations including optimization, integration, and signal processing.
-- **[Scikit-learn](https://scikit-learn.org)**: A robust library offering simple and efficient tools for machine learning and statistical modeling, including classification, regression, and clustering.
-- **[TensorFlow](https://www.tensorflow.org)**: A comprehensive open-source framework for building and deploying machine learning and deep learning models.
+- **[Scikit-learn](https://scikit-learn.org)**: A library offering simple and efficient tools for machine learning and statistical modeling, including classification, regression, and clustering.
+- **[TensorFlow](https://www.tensorflow.org)**: An open-source framework for building and deploying machine learning and deep learning models.
 - **[Keras](https://keras.io)**: A high-level neural networks API, running on top of TensorFlow, designed for fast experimentation.
 - **[Matplotlib](https://matplotlib.org)**: A versatile plotting library for creating high-quality static, animated, and interactive visualizations in Python.
 - **[Plotly](https://plotly.com)**: An interactive graphing library for creating dynamic visualizations in Python and R.

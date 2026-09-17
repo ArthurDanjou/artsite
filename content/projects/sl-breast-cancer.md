@@ -35,7 +35,7 @@ The project follows a comparative approach between several algorithms:
 - Naive Bayes
 - Artificial Neural Network (MLP with a 16-8-1 architecture)
 
-Model evaluation is primarily based on the F1-score, which is more suitable in a medical context where identifying positive cases is crucial. Particular attention was paid to stratified cross-validation and to handling class imbalance, notably through the use of class weights and regularization techniques (L2, early stopping).
+Model evaluation is primarily based on the F1-score, which is more suitable in a medical context where identifying positive cases matters most. Particular attention was paid to stratified cross-validation and to handling class imbalance, notably through the use of class weights and regularization techniques (L2, early stopping).
 
 This project illustrates a concrete application of data science techniques to a public health issue, while implementing a rigorous methodology for supervised modeling.
 

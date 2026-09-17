@@ -19,9 +19,9 @@ Our team and I won the hackathon, taking first place among 13 teams.
 
 ## The Challenge
 
-Organized by **Natixis**, this hackathon followed a high-intensity format: **three consecutive Saturdays** of on-site development, bridged by two full weeks of remote collaboration.
+Organized by **Natixis**, this hackathon ran over **three consecutive Saturdays** of on-site development, with two full weeks of remote collaboration in between.
 
-Working in a **team of four**, our goal was to bridge the gap between non-technical stakeholders and complex financial databases by creating an autonomous "Data Talk" agent.
+Working in a **team of four**, our goal was to connect non-technical stakeholders to complex financial databases by creating an autonomous "Data Talk" agent.
 
 ## How We Built It
 
@@ -30,7 +30,7 @@ Working in a **team of four**, our goal was to bridge the gap between non-techni
 Before building the AI layer, we handled a significant data migration task. I led the effort to:
 
 * **ETL Pipeline:** Convert fragmented datasets from **.xlsx** and **.csv** formats into a structured **SQL database**.
-* **Schema Optimization:** Design robust SQL schemas that allow an LLM to understand relationships (foreign keys, indexing) for accurate query generation.
+* **Schema Optimization:** Design SQL schemas that allow an LLM to understand relationships (foreign keys, indexing) for accurate query generation.
 
 ### Natural Language to SQL (NL-to-SQL)
 
@@ -44,7 +44,7 @@ Using the **Vercel AI SDK** and **Ollama**, we implemented an agentic workflow:
 Data is only useful if it's readable. Our Nuxt application goes beyond raw tables:
 
 * **Dynamic Charts:** The agent automatically determines the best visualization type (Bar, Line, Pie) based on the query result and renders it using interactive components.
-* **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English, highlighting anomalies or key trends.
+* **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English and highlights anomalies or key trends.
 
 ## Impact & Results
 
@@ -61,7 +61,7 @@ This project demonstrated that a modern stack (Nuxt + local LLMs) can drasticall
 
 ## Technical Stack
 
-* **Frontend/API:** **Nuxt 3** for a seamless, reactive user interface.
+* **Frontend/API:** **Nuxt 3** for a reactive user interface.
 * **Orchestration:** **Vercel AI SDK** to manage streams and tool-calling logic.
 * **Inference:** **Ollama** for running LLMs locally, ensuring data privacy during development.
 * **Storage:** **PostgreSQL** for the converted data warehouse.
@@ -520,4 +520,4 @@ console.log('⚡ executing SQL:', query)
 
 ---
 
-*Curious about the ETL logic or the prompt structure we used? I can share how we optimized the LLM's SQL accuracy.*
+*Happy to share more on the ETL logic, the prompt structure, or how we optimized the LLM's SQL accuracy.*

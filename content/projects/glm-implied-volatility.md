@@ -26,14 +26,14 @@ This project explores the prediction of **implied volatility** from options mark
 
 ### Problem Statement
 
-Implied volatility represents the market's forward-looking expectation of an asset's future volatility. Accurate prediction is crucial for:
+Implied volatility represents the market's forward-looking expectation of an asset's future volatility. Accurate prediction is important for:
 - **Option pricing** and valuation
 - **Risk management** and hedging strategies
 - **Trading strategies** based on volatility arbitrage
 
 ### Dataset
 
-The project uses a comprehensive panel dataset tracking **3,887 assets** across **544 observation dates** (2019-2022):
+The project uses a panel dataset tracking **3,887 assets** across **544 observation dates** (2019-2022):
 
 | File | Description | Shape |
 |------|-------------|-------|

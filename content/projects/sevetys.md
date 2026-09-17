@@ -2,7 +2,7 @@
 slug: sevetys
 title: Data Engineer Internship at Sevetys
 type: Internship Project
-description: Summary of my internship as a Data Engineer at Sevetys, focusing on data quality, cleaning, standardization, and comprehensive data quality metrics.
+description: Summary of my internship as a Data Engineer at Sevetys, focusing on data quality, cleaning, standardization, and data quality metrics.
 shortDescription: A summary of my Data Engineer internship at Sevetys, focusing on data quality and cleaning processes.
 publishedAt: 2025-07-31
 readingTime: 2
@@ -12,15 +12,15 @@ tags:
 icon: i-ph-dog-duotone
 ---
 
-[**Sevetys**](https://sevetys.fr) is a leading French network of over 200 veterinary clinics, employing more than 1,300 professionals. Founded in 2017, the group provides comprehensive veterinary care for companion animals, exotic pets, and livestock, with services ranging from preventive medicine and surgery to cardiology, dermatology, and 24/7 emergency care.
+[**Sevetys**](https://sevetys.fr) is a French network of over 200 veterinary clinics, employing more than 1,300 professionals. Founded in 2017, the group provides veterinary care for companion animals, exotic pets, and livestock, with services ranging from preventive medicine and surgery to cardiology, dermatology, and 24/7 emergency care.
 
-Committed to digital innovation, Sevetys leverages centralized data systems to optimize clinic operations, improve patient data management, and enhance the overall client experience. This combination of medical excellence and operational efficiency supports veterinarians in delivering high-quality care nationwide.
+Sevetys uses centralized data systems to run clinic operations, manage patient data, and improve the client experience. This supports veterinarians in delivering high-quality care nationwide.
 
 ## Internship Objectives
 
 During my two-month internship as a Data Engineer, I focused primarily on cleaning and standardizing customer and patient data, a critical task because this data is extensively used by clinics, Marketing, and Performance teams. Ensuring data quality was essential to the company's operations.
 
-Additionally, I revised and enhanced an existing data quality report designed to evaluate the effectiveness of my cleaning processes. The report covered 47 detailed metrics assessing data completeness and consistency, providing valuable insights that helped maintain high standards across the organization.
+Additionally, I revised and improved an existing data quality report designed to evaluate the effectiveness of my cleaning processes. The report covered 47 detailed metrics assessing data completeness and consistency, and it was used to keep standards high across the organization.
 
 ## Technology Stack
 

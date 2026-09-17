@@ -3,7 +3,7 @@ slug: climate-issues
 title: Wind Risk Modeling - The 1999 Martin Storm
 type: Academic Project
 description: An advanced study on wind risk modeling and meteorological hazard assessment, focusing on the historical Martin Storm of December 1999. Combines data analysis, statistical modeling, and GIS mapping to quantify natural disaster impacts.
-shortDescription: A comprehensive analysis of wind risk modeling during the 1999 Martin Storm using statistical methods and spatial analysis.
+shortDescription: An analysis of wind risk modeling during the 1999 Martin Storm using statistical methods and spatial analysis.
 publishedAt: 2026-02-17
 readingTime: 5
 status: Completed

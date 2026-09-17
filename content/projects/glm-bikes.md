@@ -30,7 +30,7 @@ The study uses a rigorous statistical workflow, including:
 - **Model Comparison** - Testing multiple GLM families (Poisson, Negative Binomial, Gaussian)
 - **Feature Selection** - Identifying the most influential variables
 - **Model Diagnostics** - Validating assumptions and checking residuals
-- **Cross-validation** - Ensuring robust performance estimates
+- **Cross-validation** - Ensuring reliable performance estimates
 
 ## Key Findings
 
