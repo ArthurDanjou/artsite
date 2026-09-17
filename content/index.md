@@ -16,7 +16,7 @@ To drive this research, I build :hover-text{hover="10 aggregation rules, 5 attac
 :prose-icon[PyTorch]{color="orange" icon="i-logos-pytorch-icon"} and
 :prose-icon[LaTeX]{color="green" icon="i-simple-icons-latex"} to document and formalize architectures, relying on
 :prose-icon[Docker]{color="sky" icon="i-logos-docker-icon"} and
-:prose-icon[Linux]{color="zinc" icon="i-logos-linux-tux"} to ensure reproducibility within my :hover-text{hover="I self-host my own GPU cluster 🔌" text="homelab"}.
+:prose-icon[Linux]{color="zinc" icon="i-logos-linux-tux"} to ensure reproducibility within my :hover-text{hover="I self-host my own GPU cluster 🔌" text="homelab"}, whose live telemetry I share on the [telemetry page](/telemetry).
 
 When I'm not debugging training dynamics or refining research pipelines, I enjoy :hover-text{hover="Former Team Captain 🏉" text="Rugby"} and :hover-text{hover="Exploring the world 🌍" text="Traveling"}.
 
@@ -43,12 +43,6 @@ Theoretical knowledge is nothing without concrete application. From :hover-text{
 Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{hover="The M280 Trinity 📐" text="Statistics, Probability, and Optimization"} provides the foundations to analyze, stress-test, and secure modern deep learning architectures.
 
 :home-timeline-education{.mb-8}
-
----
-
-## Live Telemetry
-
-Live telemetry from my homelab lives on the [telemetry page](/telemetry).
 
 ---
 
