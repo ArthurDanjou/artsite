@@ -72,16 +72,24 @@ jobs:
       - name: Run Cloudflare Wrangler & Capture URL
         id: wrangler
         run: |
+          set -o pipefail
+          # Pour les previews, l'alias donne une URL stable (pr-<numéro>-<worker>.<subdomain>.workers.dev)
+          # qui pointe toujours vers la dernière version uploadée pour cette PR.
+          ALIAS=""
+          if [ "${{ steps.target.outputs.env_name }}" = "Preview" ]; then
+            ALIAS="--preview-alias pr-${{ github.event.number }}"
+          fi
+
           # Exécuter wrangler et rediriger la sortie vers un fichier tout en l'affichant (tee)
-          bunx wrangler ${{ steps.target.outputs.wrangler_command }} | tee wrangler.log
-          
+          bunx wrangler ${{ steps.target.outputs.wrangler_command }} $ALIAS | tee wrangler.log
+
           # Extraction de l'URL
           if [ "${{ steps.target.outputs.env_name }}" = "Preview" ]; then
-            PREVIEW_URL=$(grep -o 'https://[^ ]*\.workers\.dev' wrangler.log | head -n 1)
-            echo "DEPLOY_URL=$PREVIEW_URL" >> $GITHUB_OUTPUT
+            DEPLOY_URL=$(sed -n 's/^Version Preview Alias URL: //p' wrangler.log | head -n 1)
           else
-            echo "DEPLOY_URL=https://arthurdanjou.fr" >> $GITHUB_OUTPUT
+            DEPLOY_URL=https://arthurdanjou.fr
           fi
+          echo "DEPLOY_URL=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
