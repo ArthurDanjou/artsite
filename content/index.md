@@ -18,7 +18,7 @@ To drive this research, I build :hover-text{hover="10 aggregation rules, 5 attac
 :prose-icon[Docker]{color="sky" icon="i-logos-docker-icon"} and
 :prose-icon[Linux]{color="zinc" icon="i-logos-linux-tux"} to ensure reproducibility within my :hover-text{hover="I self-host my own GPU cluster 🔌" text="homelab"}, whose live telemetry I share on the [telemetry page](/telemetry).
 
-When I'm not debugging training dynamics or refining research pipelines, I enjoy :hover-text{hover="Former Team Captain 🏉" text="Rugby"} and :hover-text{hover="Exploring the world 🌍" text="Traveling"}.
+When I'm not debugging training dynamics or refining research pipelines, I enjoy :hover-text{hover="Former Team Captain 🏉" text="Rugby"} and :hover-text{hover="Exploring the world 🌍" text="Traveling"}. A snapshot of what I am currently focused on lives on the [now page](/now).
 
 ---
 
