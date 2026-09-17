@@ -41,6 +41,11 @@ export default defineContentConfig({
       source: 'uses.md',
       schema: pageSeoSchema
     }),
+    telemetry: defineCollection({
+      type: 'page',
+      source: 'telemetry.md',
+      schema: pageSeoSchema
+    }),
     now: defineCollection({
       type: 'page',
       source: 'now.md',

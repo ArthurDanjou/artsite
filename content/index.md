@@ -48,7 +48,7 @@ Mathematical rigor is the cornerstone of Safe AI. My background in :hover-text{h
 
 ## Live Telemetry
 
-:home-live-telemetry
+Live telemetry from my homelab lives on the [telemetry page](/telemetry).
 
 ---
 
