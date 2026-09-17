@@ -18,7 +18,7 @@ To drive this research, I build :hover-text{hover="10 aggregation rules, 5 attac
 :prose-icon[Docker]{color="sky" icon="i-logos-docker-icon"} and
 :prose-icon[Linux]{color="zinc" icon="i-logos-linux-tux"} to ensure reproducibility within my :hover-text{hover="I self-host my own GPU cluster 🔌" text="homelab"}, whose live telemetry I share on the [telemetry page](/telemetry).
 
-When I'm not debugging training dynamics or refining research pipelines, I stay sharp with :hover-text{hover="Former Team Captain 🏉. Resilience is a team sport" text="rugby"}, :hover-text{hover="PSG supporter since birth. I read games through space and transitions ❤️💙" text="football tactics"}, :hover-text{hover="Tyre degradation, fuel load, pit timing 🏎️" text="Formula 1 strategy"}, and :hover-text{hover="Exploring the world 🌍" text="travel"}. A snapshot of what I am currently focused on lives on the [now page](/now).
+When I'm not debugging training dynamics or refining research pipelines, I'm most likely watching :hover-text{hover="Former Team Captain 🏉. Resilience is a team sport" text="rugby"}, dissecting :hover-text{hover="PSG supporter since birth. I read games through space and transitions ❤️💙" text="football"}, following :hover-text{hover="Tyre degradation, fuel load, pit timing 🏎️" text="Formula 1 strategy"}, or planning the next :hover-text{hover="Exploring the world 🌍" text="trip"}. What I'm currently up to lives on the [now page](/now).
 
 ---
 
