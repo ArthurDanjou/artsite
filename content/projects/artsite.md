@@ -23,7 +23,7 @@ It is a modern **Portfolio** designed to be fast, accessible, and type-safe. It 
 This project is built entirely on the **Nuxt ecosystem**, whose modules work well together for a strong developer experience and performance.
 
 ### Core Engine
-- **[Nuxt 3](https://nuxt.com/)**: The meta-framework providing the backbone (SSR, auto-imports, modules).
+- **[Nuxt 4](https://nuxt.com/)**: The meta-framework providing the backbone (SSR, auto-imports, modules).
 - **[Nitro](https://nitro.unjs.io/)**: The high-performance server engine powering API routes and Edge rendering.
 
 ### Infrastructure & Deployment
