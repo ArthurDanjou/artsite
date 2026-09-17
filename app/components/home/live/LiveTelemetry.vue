@@ -1,6 +1,3 @@
-<script lang="ts" setup>
-</script>
-
 <template>
   <HomeLiveArtHomeStatus class="mb-4" />
 
