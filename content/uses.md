@@ -97,7 +97,7 @@ To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**
   :::card{icon="i-ph-globe-duotone" title="Network"}
   **Freebox Ultra & Tailscale** :hover-text{hover="Secure Remote Access" text="Mesh VPN"}
 
-  Freebox routes today; a segmented UniFi design (VLANs, 19" rack) is documented in my [homelab network project](/projects/homelab-network).
+  Freebox routes today; a segmented UniFi design (VLANs, 19" rack) is planned and tracked in my [ArtLab project](/projects/artlab).
   :::
 ::
 

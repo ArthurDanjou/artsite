@@ -29,6 +29,21 @@ A **Tailscale** mesh connects every machine: each host gets a stable `100.x` IP,
 
 **AdGuard Home** acts as the DNS for the whole tailnet (global nameserver) and for the LAN (through the router's DHCP). On the public side, everything goes through **Traefik v3**: TLS is terminated at the proxy with Let's Encrypt certificates issued via Cloudflare DNS challenge — no ports to open for ACME.
 
+## Network Redesign (Planned)
+
+The next milestone is a segmented 2.5G redesign of the flat Freebox Ultra LAN, currently in the design phase. The Freebox drops to **bridge mode** (fiber transport only) and a **Cloud Gateway Max** takes over routing, firewall, VLANs, and IDS/IPS. Two principles drive it: the network must survive a Proxmox reboot (so no virtualized router), and cameras must never touch the internet or the main LAN.
+
+Four VLANs are planned on the gateway:
+
+| VLAN | Subnet | Members | Firewall posture |
+| :--- | :--- | :--- | :--- |
+| **1 — Principal** | 192.168.1.0/24 | NAS, PC, Home Assistant, Apple TV, Hue Bridge | Full access |
+| **10 — IoT** | 192.168.2.0/24 | Connected objects, Zigbee coordinator | Internet allowed, **blocked** from VLAN 1 and NAS |
+| **20 — Cameras** | 192.168.3.0/24 | PoE and Wi-Fi cameras (≤10) | Maximum isolation, no internet; RTSP only to NAS and Frigate |
+| **30 — Guests** | 192.168.4.0/24 | Guest SSID | Internet only |
+
+A closed 19-inch 12U bay at the entrance will centralize the hardware: patch panel, gateway, 2.5G switch, the Beelink, and the NAS on a heavy-duty shelf — with the access point and Zigbee coordinator on top, since a rack is a Faraday cage. The cutover is gated on verifying that the Home Assistant Freebox integration and presence tracking survive bridge mode.
+
 ## Central Server
 
 The central server is the entry point of the infrastructure:
