@@ -9,7 +9,7 @@ sitemap:
 
 My research sits at the intersection of **applied mathematics** and **deep learning**, with a focus on making AI systems safe and reliable in the presence of adversaries. The guiding question: how can we prove, and not just hope, that learning systems remain robust?
 
-My PhD on **Byzantine attacks and defenses in federated learning** starts in **November 2026** at **CMAP, Ecole Polytechnique**, with the **ATLAS chair** (*Adversarial Techniques for Learning and AI Security*).
+My PhD on **resilient distributed learning** — Byzantine attacks and defenses in federated settings — starts in **November 2026** at **CMAP, Ecole Polytechnique**, with the **ATLAS chair** (*Adversarial Techniques for Learning and AI Security*).
 
 ---
 
