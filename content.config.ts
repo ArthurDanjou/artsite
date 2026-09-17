@@ -119,11 +119,6 @@ export default defineContentConfig({
         }))
       })
     }),
-    hobbies: defineCollection({
-      type: 'page',
-      source: 'hobbies.md',
-      schema: pageSeoSchema
-    }),
     languages: defineCollection({
       type: 'data',
       source: 'languages.json',

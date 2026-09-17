@@ -72,14 +72,12 @@ artsite/
 │   │   ├── index.vue          # Home
 │   │   ├── projects/          # /projects & /projects/[slug]
 │   │   ├── talks.vue          # /talks
-│   │   ├── uses.vue           # /uses
-│   │   └── hobbies.vue        # /hobbies
+│   │   └── uses.vue           # /uses
 │   └── app.vue
 ├── content/
 │   ├── index.md               # Homepage content
 │   ├── talks.json             # Talks data (upcoming/past)
 │   ├── uses.md                # Hardware & software setup
-│   ├── hobbies.md             # Hobbies
 │   ├── projects/*.md          # Project pages
 │   ├── experiences/*.md       # Work experience
 │   ├── education/*.md         # Academic background
@@ -100,12 +98,12 @@ artsite/
 
 | Route | Description |
 |---|---|
-| `/` | Home — research focus, skills, experience timeline, live telemetry |
+| `/` | Home — research focus, skills, experience timeline |
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
 | `/talks` | Academic presentations — upcoming & past |
 | `/uses` | Hardware, software, and homelab infrastructure |
-| `/hobbies` | Personal interests |
+| `/telemetry` | Live homelab telemetry — environment, status, coding stats |
 | `/resumes/en` | English resume (PDF) |
 | `/resumes/fr` | French resume (PDF) |
 

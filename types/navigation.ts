@@ -13,7 +13,6 @@ export const navs: readonly Nav[] = [
   { label: 'now', to: '/now', icon: 'i-ph-clock-countdown-duotone' },
   { label: 'telemetry', to: '/telemetry', icon: 'i-ph-activity-duotone' },
   { label: 'uses', to: '/uses', icon: 'i-ph-tree-evergreen-duotone' },
-  { label: 'hobbies', to: '/hobbies', icon: 'i-ph-game-controller-duotone' },
   {
     label: 'resume',
     icon: 'i-ph-address-book-duotone',
