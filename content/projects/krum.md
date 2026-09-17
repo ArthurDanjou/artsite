@@ -25,7 +25,7 @@ The library is the subject of a **JMLR MLOSS** publication in preparation, with 
 
 Distributed learning scales training across multiple workers, but a single malicious worker can collapse the model by sending arbitrary gradients. Krum implements aggregation rules that are provably robust to Byzantine failures, guaranteeing convergence even when a fraction of workers are adversarial.
 
-As the field matures, the number of experimental parameters grows: model architecture, dataset, number of workers and Byzantine workers, communication topology, attack strategy, aggregation rule, learning rate schedule, and initialization scheme. Each paper makes distinct implementation choices that are rarely isolated in reusable components. Krum organizes its functionality into **three layers** to address this:
+The number of experimental parameters keeps growing: model architecture, dataset, number of workers and Byzantine workers, communication topology, attack strategy, aggregation rule, learning rate schedule, and initialization scheme. Each paper makes distinct implementation choices that are rarely isolated in reusable components. Krum organizes its functionality into **three layers** to address this:
 
 1. **Primitives**: aggregation rules, attacks, and a zero-copy model wrapper.
 2. **Simulations**: faithful reproductions of experimental protocols from seminal papers.
@@ -130,7 +130,7 @@ Sequential CPU timings for 8 workers stay negligible at this scale (12–18s), b
 - **Checkpointing**: one-liner to save/load model state
 - **Plotting**: matplotlib/seaborn for manual visualization
 - **Documentation**: ADRs, tutorials, and explicit references to papers, hosted at [calicarpa.github.io/krum](https://calicarpa.github.io/krum/)
-- **Tests**: comprehensive suite covering edge cases ($f = 0$, $n = f$, minimal configs), run on GitHub Actions across Python 3.10–3.14
+- **Tests**: a suite covering edge cases ($f = 0$, $n = f$, minimal configs), run on GitHub Actions across Python 3.10–3.14
 - **CI/CD**: Ruff for linting and formatting, `ty` for type checking, pre-commit hooks
 
 ## Comparison to Related Software

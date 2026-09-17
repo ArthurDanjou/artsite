@@ -7,7 +7,7 @@ sitemap:
 
 # Now
 
-This page is a snapshot of what I am currently focused on, following the [/now page movement](https://nownownow.com/about). It is updated a few times a year. If you want my real-time activity, check my [GitHub](https://go.arthurdanjou.fr/github) or the live telemetry on the [homepage](/).
+This page is a snapshot of what I am currently focused on, following the [/now page movement](https://nownownow.com/about). It is updated a few times a year. If you want my real-time activity, check my [GitHub](https://go.arthurdanjou.fr/github) or the live telemetry on the [telemetry page](/telemetry).
 
 *Last updated: July 2026.*
 

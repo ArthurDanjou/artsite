@@ -41,6 +41,11 @@ export default defineContentConfig({
       source: 'uses.md',
       schema: pageSeoSchema
     }),
+    telemetry: defineCollection({
+      type: 'page',
+      source: 'telemetry.md',
+      schema: pageSeoSchema
+    }),
     now: defineCollection({
       type: 'page',
       source: 'now.md',
@@ -113,11 +118,6 @@ export default defineContentConfig({
           priority: z.number().optional()
         }))
       })
-    }),
-    hobbies: defineCollection({
-      type: 'page',
-      source: 'hobbies.md',
-      schema: pageSeoSchema
     }),
     languages: defineCollection({
       type: 'data',

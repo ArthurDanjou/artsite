@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-const { data: page } = await useAsyncData('hobbies', () => {
-  return queryCollection('hobbies').first()
+const { data: page } = await useAsyncData('telemetry', () => {
+  return queryCollection('telemetry').first()
 })
 
-const title = page.value?.title ?? 'Balance & Perspectives'
-const description = page.value?.description ?? 'Beyond the code: rugby, motorsports, music, and travel.'
+const title = page.value?.title ?? 'Live Homelab Telemetry'
+const description = page.value?.description ?? 'Live telemetry from my homelab: current environment, coding stats, system status, and activity history at a glance.'
 
 const head = {
   title,
   description,
-  headline: 'Arthur Danjou’s Hobbies'
+  headline: 'Arthur Danjou’s Live Homelab Telemetry'
 }
 
 useSeoMeta({

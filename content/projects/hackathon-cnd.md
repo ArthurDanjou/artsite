@@ -2,7 +2,7 @@
 slug: hackathon-cnd
 title: "CND Hackathon: Defense-Grade Log Intelligence"
 type: Hackathon
-description: A high-stakes cybersecurity challenge organized by the French Ministry of Defense (CND). Representing Université Paris-Dauphine, our team spent 3 days in a high-security military fortress developing ML models to detect stealthy cyber threats in firewall logs.
+description: A cybersecurity challenge organized by the French Ministry of Defense (CND). Representing Université Paris-Dauphine, our team spent 3 days in a high-security military fortress developing ML models to detect stealthy cyber threats in firewall logs.
 shortDescription: Cybersecurity threat detection within a high-security military environment.
 publishedAt: 2025-10-28
 readingTime: 4
@@ -17,7 +17,7 @@ icon: i-ph-shield-check-duotone
 
 This was not a typical university hackathon. Organized by the **Commissariat au Numerique de Defense (CND)**, the event took place over three intense days within the walls of the **Fort de Mont-Valerien**, a highly secured military fortress.
 
-Working in this environment underscored the real-world stakes of the mission. Our **team of six**, representing **Universite Paris-Dauphine**, competed against several elite engineering schools to solve critical defense-related data challenges.
+Working in this environment made the real-world stakes of the mission concrete. Our **team of six**, representing **Universite Paris-Dauphine**, competed against several elite engineering schools to solve critical defense-related data challenges.
 
 ## The Mission: Classifying the Invisible
 

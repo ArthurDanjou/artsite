@@ -6,7 +6,7 @@ location: Paris, France
 startDate: 2021-09
 endDate: 2024-06
 duration: 3 years
-description: Comprehensive study of pure and applied mathematics, providing a strong foundation in mathematical theory and problem-solving.
+description: Study of pure and applied mathematics, covering mathematical theory and problem-solving.
 tags:
   - Mathematics
   - Physics

@@ -14,7 +14,7 @@ tags:
 icon: i-ph-arrows-clockwise-duotone
 ---
 
-[**AI Sync Dotfiles**](https://go.arthurdanjou.fr/dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six dialects.
+[**AI Sync Dotfiles**](https://go.arthurdanjou.fr/dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six different formats.
 
 ## The Problem
 
@@ -24,10 +24,10 @@ Six tools, six configuration formats, six locations: Zed wants `context_servers`
 
 Three versioned inputs generate everything else, following the pattern of [theme-artlab](https://github.com/ArthurDanjou/theme-artlab): one source of truth, multiple platform outputs.
 
-- **`scripts/servers.ts`** — the one and only list of MCP servers (command, args, env, remote URLs). Secrets are never hardcoded: values resolve from `process.env` at build time, and unset variables simply omit the `env` block.
-- **`skills/`** — 35 curated agent skills, symlinked into `~/.agents/skills`, `~/.claude/skills`, `~/.config/opencode/skills` and `~/.codex/skills` so every provider sees the same set.
-- **`scripts/commands/`** — shared slash-command templates (YAML frontmatter with `description`, `$ARGUMENTS` placeholder), symlinked into OpenCode, Claude Code and Codex — the three platforms that support custom commands.
-- **`scripts/instructions.md`** — deployed as both `CLAUDE.md` and `AGENTS.md`, so Claude Code and OpenCode share the same behavioral guidelines.
+- **`scripts/servers.ts`**: the single list of MCP servers (command, args, env, remote URLs). Secrets are never hardcoded: values resolve from `process.env` at build time, and unset variables simply omit the `env` block.
+- **`skills/`**: 35 curated agent skills, symlinked into `~/.agents/skills`, `~/.claude/skills`, `~/.config/opencode/skills` and `~/.codex/skills` so every provider sees the same set.
+- **`scripts/commands/`**: shared slash-command templates (YAML frontmatter with `description`, `$ARGUMENTS` placeholder), symlinked into OpenCode, Claude Code and Codex (the three platforms that support custom commands).
+- **`scripts/instructions.md`**: deployed as both `CLAUDE.md` and `AGENTS.md`, so Claude Code and OpenCode share the same behavioral guidelines.
 
 ## Repository Layout
 
@@ -82,10 +82,10 @@ Installation never blindly overwrites. Managed servers merge **per-server** into
 
 ## Safety in Layers
 
-Generated configs bake in secrets, so the pipeline treats them as toxic: `mcp/` output and `.env` are gitignored, a secret audit scans tracked files **and** full git history, a pre-push hook blocks any offending push, and GitHub-side secret scanning with push protection backs it all up. The audit once caught the project's own test fixtures — proof the pipeline works, not just theater.
+Generated configs bake in secrets, so the pipeline treats them as toxic: `mcp/` output and `.env` are gitignored, a secret audit scans tracked files **and** full git history, a pre-push hook blocks any offending push, and GitHub-side secret scanning with push protection backs it all up. The audit once caught the project's own test fixtures, proof that the pipeline works.
 
 ## Quality Assurance
 
-- **[Bun](https://bun.sh/)**: Runtime, test runner and package manager — 77 isolated tests (temporary `$HOME`, scratch git repos) cover generators, installers, backups and the audit itself.
+- **[Bun](https://bun.sh/)**: Runtime, test runner and package manager. 77 isolated tests (temporary `$HOME`, scratch git repos) cover generators, installers, backups and the audit itself.
 - **[TypeScript](https://www.typescriptlang.org/)**: Strict type safety across build, install and setup scripts.
 - **GitHub Actions**: Every push and pull request runs build plus typecheck plus tests plus audit with least-privilege tokens, Dependabot keeps the pinned actions fresh, and `master` is branch-protected with required green checks.

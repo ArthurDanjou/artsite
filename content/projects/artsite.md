@@ -14,29 +14,29 @@ tags:
 icon: i-ph-globe-hemisphere-west-duotone
 ---
 
-[**ArtSite**](https://go.arthurdanjou.fr/website) is my digital headquarters: a unified platform that serves as my engineering portfolio and experimental lab.
+[**ArtSite**](https://go.arthurdanjou.fr/website) is my digital headquarters: my engineering portfolio and experimental lab.
 
-More than a static site, it is a modern **Portfolio** designed to be fast, accessible, and type-safe. It also acts as a live production environment where I test the latest frontend technologies and Edge computing paradigms.
+It is a modern **Portfolio** designed to be fast, accessible, and type-safe. It is also a live production environment where I test the latest frontend technologies and Edge computing paradigms.
 
 ## The Nuxt Stack Architecture
 
-This project is built entirely on the **Nuxt ecosystem**, leveraging module synergy for strong developer experience and performance.
+This project is built entirely on the **Nuxt ecosystem**, whose modules work well together for a strong developer experience and performance.
 
 ### Core Engine
-- **[Nuxt 3](https://nuxt.com/)**: The meta-framework providing the backbone (SSR, auto-imports, modules).
+- **[Nuxt 4](https://nuxt.com/)**: The meta-framework providing the backbone (SSR, auto-imports, modules).
 - **[Nitro](https://nitro.unjs.io/)**: The high-performance server engine powering API routes and Edge rendering.
 
 ### Infrastructure & Deployment
-- **[Cloudflare Workers](https://workers.cloudflare.com/)**: The application runs entirely on Cloudflare's global serverless network (SSR), delivering low latency and high resilience.
+- **[Cloudflare Workers](https://workers.cloudflare.com/)**: The application runs entirely on Cloudflare's global serverless network (SSR), with low latency and high resilience.
 - **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)**: The command-line tool used for deployment pipelines and worker configuration.
 - **[NuxtHub](https://hub.nuxt.com/)**: Integrated for **advanced cache management** and to unify Cloudflare platform features (KV, D1, Blob) within the Nuxt runtime.
 
 ### Content & Data
 - **[Nuxt Content](https://content.nuxtjs.org/)**: A Git-based headless CMS that treats Markdown as a database.
-- **[Nuxt Studio](https://nuxt.studio)**: A live visual editor for seamless content management directly from the browser.
+- **[Nuxt Studio](https://nuxt.studio)**: A live visual editor for content management directly from the browser.
 
 ### Interface & Design
-- **[Nuxt UI](https://nuxtui.com/)**: A comprehensive component library built on Headless UI and Tailwind CSS.
+- **[Nuxt UI](https://nuxtui.com/)**: A component library built on Headless UI and Tailwind CSS.
 - **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first styling for rapid, responsive design.
 
 ### Quality Assurance

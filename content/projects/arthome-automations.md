@@ -3,7 +3,7 @@ slug: arthome-automations
 title: ArtHome - Home Intelligence Layer
 type: Personal Project
 description: A fully self-hosted Home Assistant instance orchestrating 29 automations across lighting, security, media, climate, and daily productivity, backed by 1933 entities, 12 custom scenes, and 22 dashboard views.
-shortDescription: A comprehensive Home Assistant deployment with 29 automations, 12 scenes, and 22 dashboard views.
+shortDescription: A fully self-hosted Home Assistant deployment with 29 automations, 12 scenes, and 22 dashboard views.
 publishedAt: 2026-03-15
 readingTime: 5
 status: Active
@@ -15,7 +15,7 @@ tags:
 icon: i-ph-lightbulb-duotone
 ---
 
-**ArtHome** is the brain of my living space: a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1933 entities** across **33 domains**, orchestrates **29 automations**, and presents everything through **4 dashboards** spanning **22 views** and **300+ cards**.
+**ArtHome** is the intelligence layer of my home: a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1933 entities** across **33 domains**, orchestrates **29 automations**, and presents everything through **4 dashboards** spanning **22 views** and **300+ cards**.
 
 :home-live-art-home-status
 
@@ -83,7 +83,7 @@ A full-screen **device tracking map** showing real-time locations of household m
 
 ### Kiosk Dashboard
 
-An **Immich photo frame** displayed on a wall-mounted tablet. Shows a curated album with the UI hidden, cycling through family photos as a living digital canvas.
+An **Immich photo frame** displayed on a wall-mounted tablet. Shows a curated album with the UI hidden, cycling through family photos.
 
 ---
 
@@ -139,4 +139,4 @@ When Arthur arrives home while music is playing on his iPhone and nobody else is
 
 ---
 
-*ArtHome proves that a completely local, privacy-first smart home can rival any cloud-dependent system in capability. Every trigger is a learned pattern, every action a removal of friction.*
+*ArtHome shows that a completely local, privacy-first smart home can rival any cloud-dependent system in capability. Each trigger encodes a routine learned from daily life, and each action removes a little friction.*
