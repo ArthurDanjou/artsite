@@ -1,13 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps({
-  colorMode: { type: String, required: false, default: 'dark' },
-  title: { type: String, required: false, default: 'title' },
-  description: { type: String, required: false, default: 'description' },
-  headline: { type: String, required: false, default: 'headline' }
+interface PergelProps {
+  colorMode?: string
+  title?: string
+  description?: string
+  headline?: string
+}
+
+const props = withDefaults(defineProps<PergelProps>(), {
+  colorMode: 'dark',
+  title: 'title',
+  description: 'description',
+  headline: 'headline'
 })
-const title = computed(() => props.title.slice(0, 60))
+const truncatedTitle = computed(() => props.title.slice(0, 60))
 </script>
 
 <template>
@@ -86,7 +93,7 @@ const title = computed(() => props.title.slice(0, 60))
         {{ headline }}
       </p>
       <h1 class="m-0 text-[68px] font-bold mb-5 text-neutral-900 dark:text-white leading-[1.1] tracking-tight">
-        {{ title }}
+        {{ truncatedTitle }}
       </h1>
       <p
         v-if="description"

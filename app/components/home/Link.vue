@@ -1,21 +1,14 @@
 <script setup lang="ts">
-defineProps({
-  label: {
-    type: String,
-    required: true
-  },
-  href: {
-    type: String,
-    required: true
-  },
-  icon: {
-    type: String,
-    default: ''
-  },
-  blanked: {
-    type: Boolean,
-    default: false
-  }
+interface LinkProps {
+  label: string
+  href: string
+  icon?: string
+  blanked?: boolean
+}
+
+withDefaults(defineProps<LinkProps>(), {
+  icon: '',
+  blanked: false
 })
 </script>
 

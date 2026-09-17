@@ -1,6 +1,6 @@
 ---
 title: Now
-description: A snapshot of what I am working on right now: a research internship at CMAP, a PhD starting November 2026, and ongoing homelab projects.
+description: "A snapshot of what I am working on right now: a research internship at CMAP, a PhD starting November 2026, and ongoing homelab projects."
 sitemap:
   loc: /now
 ---

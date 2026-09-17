@@ -11,10 +11,7 @@ useSeoMeta({
   title: head.title,
   description: head.description,
   ogTitle: `${head.title} \u2022 Arthur Danjou`,
-  ogDescription: head.description,
-  twitterCard: 'summary_large_image',
-  twitterTitle: head.title,
-  twitterDescription: head.description
+  ogDescription: head.description
 })
 
 defineOgImage('Pergel.satori', {
@@ -25,17 +22,16 @@ defineOgImage('Pergel.satori', {
 
 type Talk = NonNullable<typeof talks>['body'][number]
 
-function formatTalkDate(iso: string): string {
-  const parts = iso.split('-').map(Number)
-  if (parts.length < 2 || parts.some(n => !Number.isFinite(n))) return iso
-  const [year, month, day] = parts as [number, number, number?]
-  const date = day ? new Date(year, month - 1, day) : new Date(year, month - 1, 1)
-  return date.toLocaleDateString('en-US', day ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long' })
-}
+const displayTalks = computed(() =>
+  (talks?.body ?? []).map(talk => ({
+    ...talk,
+    formattedDate: formatTalkDate(talk.date)
+  }))
+)
 
 const grouped = computed<Record<string, Talk[]>>(() => {
   const groups: Record<string, Talk[]> = {}
-  ;(talks?.body ?? []).forEach((talk) => {
+  ;(displayTalks.value ?? []).forEach((talk) => {
     const yearMatch = talk.date.match(/\d{4}/)
     const key = yearMatch ? yearMatch[0] : 'TBA'
     ;(groups[key] ||= []).push(talk)
@@ -93,7 +89,7 @@ const grouped = computed<Record<string, Talk[]>>(() => {
             v-for="talk in yearTalks"
             :key="talk.id"
             :title="talk.title"
-            :date="formatTalkDate(talk.date)"
+            :date="talk.formattedDate"
             :venue="talk.venue"
             :description="talk.description"
             :icon="talk.icon"

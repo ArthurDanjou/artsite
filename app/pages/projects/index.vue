@@ -11,10 +11,7 @@ useSeoMeta({
   title: head.title,
   description: head.description,
   ogTitle: `${head.title} \u2022 Arthur Danjou`,
-  ogDescription: head.description,
-  twitterCard: 'summary_large_image',
-  twitterTitle: head.title,
-  twitterDescription: head.description
+  ogDescription: head.description
 })
 
 defineOgImage('Pergel.satori', {
@@ -31,7 +28,7 @@ const { data: projectsData } = await useAsyncData('projects', () => {
     .all()
 })
 
-const query = ref('')
+const query = shallowRef('')
 const selectedTags = ref<string[]>([])
 
 const allTags = computed(() => {
@@ -156,7 +153,7 @@ const grouped_projects = computed(() => {
               :key="project.slug"
               :to="`/projects/${project.slug}`"
               :title="project.title"
-              :description="project.shortDescription"
+              :description="project.shortDescription || ''"
               :icon="project.icon"
               :tags="project.tags"
               :favorite="project.favorite"

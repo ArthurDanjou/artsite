@@ -8,6 +8,8 @@ const socials = computed(() => contact?.body
   .filter(item => item.id !== 'email'))
 const email = computed(() => contact?.body.find(item => item.id === 'email'))
 const statusPage = computed(() => contact?.body.find(item => item.id === 'status-page'))
+
+const currentYear = computed(() => new Date().getFullYear())
 </script>
 
 <template>
@@ -114,7 +116,7 @@ const statusPage = computed(() => contact?.body.find(item => item.id === 'status
       class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500 dark:text-neutral-400"
     >
       <p>
-        © {{ new Date().getFullYear() }} Arthur Danjou. All rights reserved.
+        © {{ currentYear }} Arthur Danjou. All rights reserved.
       </p>
       <NuxtLink
         to="/projects/artsite"

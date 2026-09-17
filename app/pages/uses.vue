@@ -13,10 +13,7 @@ useSeoMeta({
   title: head.title,
   description: head.description,
   ogTitle: `${head.title} • Arthur Danjou`,
-  ogDescription: head.description,
-  twitterCard: 'summary_large_image',
-  twitterTitle: head.title,
-  twitterDescription: head.description
+  ogDescription: head.description
 })
 
 defineOgImage('Pergel.satori', {

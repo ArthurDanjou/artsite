@@ -34,10 +34,7 @@ useSeoMeta({
   title,
   description,
   ogTitle: `${title} • Arthur Danjou`,
-  ogDescription: description,
-  twitterCard: 'summary_large_image',
-  twitterTitle: title,
-  twitterDescription: description
+  ogDescription: description
 })
 
 useSchemaOrg([
@@ -59,11 +56,7 @@ useBreadcrumbItems({
 
 const formattedDate = computed(() => {
   if (!project.value?.publishedAt) return null
-  return new Date(project.value.publishedAt).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
+  return formatLongDate(project.value.publishedAt)
 })
 </script>
 

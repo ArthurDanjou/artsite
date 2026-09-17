@@ -75,3 +75,7 @@
 .sofia {
   --ui-font-family: 'Sofia Sans', sans-serif;
 }
+
+.handwriting {
+  font-family: 'Dancing Script', cursive;
+}

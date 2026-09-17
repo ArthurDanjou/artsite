@@ -1,6 +1,6 @@
 ---
 title: Balance & Perspectives
-description: Beyond the code: rugby, motorsports, music, and travel. The passions that keep me sharp, resilient, and curious.
+description: "Beyond the code: rugby, motorsports, music, and travel. The passions that keep me sharp, resilient, and curious."
 sitemap:
   loc: /hobbies
 ---

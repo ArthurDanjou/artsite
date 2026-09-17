@@ -85,7 +85,7 @@ To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**
   :::card{icon="i-ph-cpu-duotone" title="Compute Node"}
   **Beelink EQR6** :hover-text{hover="Proxmox Host" text="AMD Ryzen"}
 
-  Runs my containerized workloads and Docker services.
+  Proxmox host running the ArtHome Home Assistant OS virtual machine and 10 LXC containers.
   :::
 
   :::card{icon="i-ph-hard-drives-duotone" title="Storage Node"}
@@ -95,23 +95,23 @@ To bridge the gap between theory and MLOps, I maintain a **self-hosted cluster**
   :::
 
   :::card{icon="i-ph-globe-duotone" title="Network"}
-  **TP-Link Switch & Tailscale** :hover-text{hover="Secure Remote Access" text="Mesh VPN"}
+  **Freebox Ultra & Tailscale** :hover-text{hover="Secure Remote Access" text="Mesh VPN"}
 
-  Ensures fast, stable local communication.
+  Freebox routes today; a segmented UniFi design (VLANs, 19" rack) is planned and tracked in my [ArtLab project](/projects/artlab).
   :::
 ::
 
 ### Service Stack
 
-I run these services using **Docker** and **Portainer**, strictly behind a **Traefik** reverse proxy, inside a **Tailscale** VPN mesh.
+I run these services on **Proxmox** (a Home Assistant OS virtual machine plus LXC containers), exposed through a **Cloudflare Tunnel** with no open ports, inside a **Tailscale** VPN mesh.
 
 ::div{.grid.grid-cols-1.gap-4}
 - :prose-icon[DevOps & Infra]{icon="i-ph-washing-machine-duotone"}: Traefik, Portainer, Gitea.
 - :prose-icon[Music & Audio]{icon="i-ph-music-notes-duotone"}: Music Assistant, Jellyfin.
 - :prose-icon[Knowledge & Notes]{icon="i-ph-notebook-duotone"}: Obsidian, Obsidian Sync, Mealie.
 - :prose-icon[Databases]{icon="i-ph-database-duotone"}: PostgreSQL, Redis.
-- :prose-icon[Storage & Media]{icon="i-ph-hard-drives-duotone"}: Garage (S3), Immich.
-- :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"}: Home Assistant (27+ automations), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
+- :prose-icon[Storage & Media]{icon="i-ph-hard-drives-duotone"}: Garage (S3), Immich (3164 photos, 622 videos).
+- :prose-icon[Home Intelligence]{icon="i-ph-lightbulb-duotone"}: Home Assistant (29 automations, 1933 entities, 51 HACS repos — July 2026 snapshot), Zigbee2MQTT, Matter Server, MQTT, Alarmo.
 - :prose-icon[AI & Voice]{icon="i-ph-magic-wand-duotone"}: LLM Vision (Qwen, DeepSeek, Mistral), openWakeWord, Piper TTS, Speech-to-Phrase.
 - :prose-icon[Security]{icon="i-ph-shield-check-duotone"}: Cloudflare Tunnels, AdGuard Home, Vaultwarden.
 - :prose-icon[Observability]{icon="i-ph-pulse-duotone"}: Uptime Kuma, Beszel, Speedtest Tracker.

@@ -2,8 +2,8 @@
 slug: arthome-automations
 title: ArtHome - Home Intelligence Layer
 type: Personal Project
-description: A fully self-hosted Home Assistant instance orchestrating 27+ automations across lighting, security, media, climate, and daily productivity, backed by 1500+ sensors, 12 custom scenes, and 20 dashboard views.
-shortDescription: A comprehensive Home Assistant deployment with 27 automations, 12 scenes, and 20 dashboard views.
+description: A fully self-hosted Home Assistant instance orchestrating 29 automations across lighting, security, media, climate, and daily productivity, backed by 1933 entities, 12 custom scenes, and 22 dashboard views.
+shortDescription: A comprehensive Home Assistant deployment with 29 automations, 12 scenes, and 22 dashboard views.
 publishedAt: 2026-03-15
 readingTime: 5
 status: Active
@@ -15,7 +15,7 @@ tags:
 icon: i-ph-lightbulb-duotone
 ---
 
-**ArtHome** is the brain of my living space: a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1500+ entities** across **33 domains**, orchestrates **27 automations**, and presents everything through **3 dashboards** spanning **20 views** and **300+ cards**.
+**ArtHome** is the brain of my living space: a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1933 entities** across **33 domains**, orchestrates **29 automations**, and presents everything through **4 dashboards** spanning **22 views** and **300+ cards**.
 
 :home-live-art-home-status
 
