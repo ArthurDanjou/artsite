@@ -15,9 +15,9 @@ icon: i-ph-shield-check-duotone
 
 ## The Setting: Fort de Mont-Valérien
 
-This was not a typical university hackathon. Organized by the **Commissariat au Numerique de Defense (CND)**, the event took place over three intense days within the walls of the **Fort de Mont-Valerien**, a highly secured military fortress.
+The **Commissariat au Numerique de Defense (CND)** hosted the event over three intense days within the walls of the **Fort de Mont-Valerien**, a highly secured military fortress.
 
-Working in this environment made the real-world stakes of the mission concrete. Our **team of six**, representing **Universite Paris-Dauphine**, competed against several elite engineering schools to solve critical defense-related data challenges.
+Our **team of six**, representing **Universite Paris-Dauphine**, competed against several elite engineering schools to solve critical defense-related data challenges.
 
 ## The Mission: Classifying the Invisible
 

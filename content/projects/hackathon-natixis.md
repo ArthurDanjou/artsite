@@ -41,14 +41,14 @@ Using the **Vercel AI SDK** and **Ollama**, we implemented an agentic workflow:
 
 ### Automated Insights & Visualization
 
-Data is only useful if it's readable. Our Nuxt application goes beyond raw tables:
+Our Nuxt application turns query results into readable output:
 
 * **Dynamic Charts:** The agent automatically determines the best visualization type (Bar, Line, Pie) based on the query result and renders it using interactive components.
 * **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English and highlights anomalies or key trends.
 
 ## Impact & Results
 
-This project demonstrated that a modern stack (Nuxt + local LLMs) can drastically reduce the time needed for data discovery. By the final Saturday, our team presented a working prototype capable of handling multi-table joins and generating real-time financial dashboards from simple chat prompts.
+By the final Saturday, our team presented a working prototype capable of handling multi-table joins and generating real-time financial dashboards from simple chat prompts, built on a modern stack (Nuxt + local LLMs).
 
 ## Features
 
