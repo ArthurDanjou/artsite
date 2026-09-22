@@ -29,6 +29,8 @@ defineOgImage('Pergel.satori', {
 
 const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
+const yearHeadingClass = 'w-full mt-6 mb-3 font-mono font-bold text-2xl md:text-4xl text-transparent opacity-25 dark:opacity-40 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-1'
+
 const sortedPublications = computed(() =>
   [...(publications?.body ?? [])].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
 )
@@ -93,7 +95,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
           v-for="(yearPubs, year) in groupedPublications"
           :key="year"
         >
-          <h3 :class="sectionHeadingClass">
+          <h3 :class="yearHeadingClass">
             {{ year }}
           </h3>
           <div class="space-y-4">
@@ -130,7 +132,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
           :key="year"
           class="relative"
         >
-          <h3 :class="sectionHeadingClass">
+          <h3 :class="yearHeadingClass">
             {{ year }}
           </h3>
           <div class="space-y-4">
