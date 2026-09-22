@@ -5,7 +5,7 @@ const { data: ha, refresh, pending, error } = useFetch<HAStatus>('/api/ha/status
   server: false,
   lazy: true
 })
-useIntervalFn(refresh, 120_000)
+useLiveRefresh(refresh, 120_000)
 
 const weatherIcons: Record<string, { icon: string, color: string }> = {
   'sunny': { icon: 'i-ph-sun-duotone', color: 'text-yellow-500' },
@@ -21,136 +21,56 @@ const weatherIcons: Record<string, { icon: string, color: string }> = {
   'windy': { icon: 'i-ph-wind-duotone', color: 'text-teal-500' }
 }
 
+interface StatCardConfig {
+  label: string
+  icon: string
+  color: string
+  value: (s: HAStatus) => string | null
+}
+
+const statCardConfigs: StatCardConfig[] = [
+  { label: 'Status', icon: 'i-ph-palms-duotone', color: 'text-amber-500', value: s => (s.isHoliday ? 'Holiday' : null) },
+  { label: 'Lighting', icon: 'i-ph-lightbulb-duotone', color: 'text-yellow-500', value: s => s.totalLights?.toString() ?? null },
+  { label: 'Automations', icon: 'i-ph-magic-wand-duotone', color: 'text-indigo-500', value: s => s.totalAutomations?.toString() ?? null },
+  { label: 'Scenes', icon: 'i-ph-palette-duotone', color: 'text-pink-500', value: s => s.totalScenes?.toString() ?? null },
+  { label: 'Domains', icon: 'i-ph-devices-duotone', color: 'text-teal-500', value: s => s.totalDomains?.toString() ?? null },
+  { label: 'Entities', icon: 'i-ph-database-duotone', color: 'text-emerald-500', value: s => s.totalEntities?.toString() ?? null },
+  { label: 'LXC', icon: 'i-ph-hard-drives-duotone', color: 'text-orange-500', value: s => s.lxcContainers?.toString() ?? null },
+  { label: 'VMs', icon: 'i-ph-desktop-tower-duotone', color: 'text-orange-600', value: s => s.virtualMachines?.toString() ?? null },
+  { label: 'Players', icon: 'i-ph-speaker-high-duotone', color: 'text-violet-500', value: s => s.totalMediaPlayers?.toString() ?? null },
+  { label: 'Now Playing', icon: 'i-ph-music-notes-duotone', color: 'text-pink-500', value: s => s.activeMediaPlayers?.toString() ?? null },
+  { label: 'Photos', icon: 'i-ph-image-duotone', color: 'text-rose-500', value: s => s.immichPhotos?.toLocaleString('en-US') ?? null },
+  { label: 'Videos', icon: 'i-ph-video-camera-duotone', color: 'text-fuchsia-500', value: s => s.immichVideos?.toLocaleString('en-US') ?? null },
+  { label: 'DNS Queries', icon: 'i-ph-globe-duotone', color: 'text-blue-500', value: s => s.dnsRequests?.toLocaleString('en-US') ?? null },
+  { label: 'DNS Blocked', icon: 'i-ph-shield-warning-duotone', color: 'text-cyan-500', value: s => s.dnsBlocked?.toLocaleString('en-US') ?? null }
+]
+
 const statsCards = computed<StatsCard[]>(() => {
   if (!ha.value) return []
 
-  const weather = ha.value.weather
-    ? {
-        label: 'Weather',
-        value: `${Math.round(ha.value.weather.temperature)}°C`,
-        icon:
-          weatherIcons[ha.value.weather.condition]?.icon
-          ?? 'i-ph-question-duotone',
-        color:
-          weatherIcons[ha.value.weather.condition]?.color ?? 'text-gray-500'
-      }
-    : null
+  const cards: (StatsCard | null)[] = []
 
-  const cards = [
-    weather,
-    ha.value.isHoliday
-      ? {
-          label: 'Status',
-          value: 'Holiday',
-          icon: 'i-ph-palms-duotone',
-          color: 'text-amber-500'
-        }
-      : null,
-    ha.value.totalLights != null
-      ? {
-          label: 'Lighting',
-          value: `${ha.value.totalLights}`,
-          icon: 'i-ph-lightbulb-duotone',
-          color: 'text-yellow-500'
-        }
-      : null,
-    ha.value.totalAutomations != null
-      ? {
-          label: 'Automations',
-          value: `${ha.value.totalAutomations}`,
-          icon: 'i-ph-magic-wand-duotone',
-          color: 'text-indigo-500'
-        }
-      : null,
-    ha.value.totalScenes != null
-      ? {
-          label: 'Scenes',
-          value: `${ha.value.totalScenes}`,
-          icon: 'i-ph-palette-duotone',
-          color: 'text-pink-500'
-        }
-      : null,
-    ha.value.totalDomains != null
-      ? {
-          label: 'Domains',
-          value: `${ha.value.totalDomains}`,
-          icon: 'i-ph-devices-duotone',
-          color: 'text-teal-500'
-        }
-      : null,
-    ha.value.totalEntities != null
-      ? {
-          label: 'Entities',
-          value: `${ha.value.totalEntities}`,
-          icon: 'i-ph-database-duotone',
-          color: 'text-emerald-500'
-        }
-      : null,
-    ha.value.lxcContainers != null
-      ? {
-          label: 'LXC',
-          value: `${ha.value.lxcContainers}`,
-          icon: 'i-ph-hard-drives-duotone',
-          color: 'text-orange-500'
-        }
-      : null,
-    ha.value.virtualMachines != null
-      ? {
-          label: 'VMs',
-          value: `${ha.value.virtualMachines}`,
-          icon: 'i-ph-desktop-tower-duotone',
-          color: 'text-orange-600'
-        }
-      : null,
-    ha.value.totalMediaPlayers != null
-      ? {
-          label: 'Players',
-          value: `${ha.value.totalMediaPlayers}`,
-          icon: 'i-ph-speaker-high-duotone',
-          color: 'text-violet-500'
-        }
-      : null,
-    ha.value.activeMediaPlayers != null
-      ? {
-          label: 'Now Playing',
-          value: `${ha.value.activeMediaPlayers}`,
-          icon: 'i-ph-music-notes-duotone',
-          color: 'text-pink-500'
-        }
-      : null,
-    ha.value.immichPhotos != null
-      ? {
-          label: 'Photos',
-          value: ha.value.immichPhotos.toLocaleString('en-US'),
-          icon: 'i-ph-image-duotone',
-          color: 'text-rose-500'
-        }
-      : null,
-    ha.value.immichVideos != null
-      ? {
-          label: 'Videos',
-          value: ha.value.immichVideos.toLocaleString('en-US'),
-          icon: 'i-ph-video-camera-duotone',
-          color: 'text-fuchsia-500'
-        }
-      : null,
-    ha.value.dnsRequests != null
-      ? {
-          label: 'DNS Queries',
-          value: ha.value.dnsRequests.toLocaleString('en-US'),
-          icon: 'i-ph-globe-duotone',
-          color: 'text-blue-500'
-        }
-      : null,
-    ha.value.dnsBlocked != null
-      ? {
-          label: 'DNS Blocked',
-          value: ha.value.dnsBlocked.toLocaleString('en-US'),
-          icon: 'i-ph-shield-warning-duotone',
-          color: 'text-cyan-500'
-        }
-      : null
-  ]
+  if (ha.value.weather) {
+    cards.push({
+      label: 'Weather',
+      value: `${Math.round(ha.value.weather.temperature)}°C`,
+      icon: weatherIcons[ha.value.weather.condition]?.icon
+        ?? 'i-ph-question-duotone',
+      color: weatherIcons[ha.value.weather.condition]?.color ?? 'text-gray-500'
+    })
+  }
+
+  for (const config of statCardConfigs) {
+    const value = config.value(ha.value)
+    if (value !== null) {
+      cards.push({
+        label: config.label,
+        value,
+        icon: config.icon,
+        color: config.color
+      })
+    }
+  }
 
   return cards.filter((c): c is StatsCard => c !== null)
 })

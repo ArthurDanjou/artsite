@@ -2,9 +2,8 @@
 import type { Stats } from '~~/types'
 import type { ProgressGroupItem } from '@nuxt/ui'
 import { usePrecision } from '@vueuse/math'
-import { computed } from 'vue'
 
-const { data: stats, pending } = useFetch<Stats>('/api/stats', {
+const { data: stats, pending, error } = useFetch<Stats>('/api/stats', {
   server: false,
   lazy: true
 })
@@ -51,15 +50,69 @@ const osItems = computed<ProgressGroupItem[]>(() =>
     color: getOSColor(os.name)
   }))
 )
+
+const statColumns = computed(() => [
+  {
+    title: 'Top Languages',
+    icon: 'i-ph-code-block-duotone',
+    color: 'text-emerald-500',
+    items: languageItems.value
+  },
+  {
+    title: 'Preferred Editors',
+    icon: 'i-ph-terminal-window-duotone',
+    color: 'text-blue-500',
+    items: editorItems.value
+  },
+  {
+    title: 'Operating Systems',
+    icon: 'i-ph-desktop-duotone',
+    color: 'text-neutral-700 dark:text-neutral-300',
+    items: osItems.value
+  }
+].filter(column => column.items.length))
 </script>
 
 <template>
   <ClientOnly>
+    <UAlert
+      v-if="error"
+      color="red"
+      variant="soft"
+      icon="i-ph-warning-circle-duotone"
+      title="Coding stats unreachable"
+      description="The stats API returned an error. Check the worker logs for details."
+      class="mb-4"
+    />
+
     <div
-      v-if="pending"
+      v-else-if="pending"
       class="space-y-6"
     >
-      <USkeleton class="h-96 w-full rounded-xl" />
+      <UCard>
+        <template #header>
+          <div class="flex items-center gap-3">
+            <USkeleton class="w-9 h-9 rounded-lg" />
+            <USkeleton class="h-5 w-40" />
+          </div>
+        </template>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            v-for="i in 3"
+            :key="i"
+            class="space-y-4"
+          >
+            <USkeleton class="h-5 w-32" />
+            <div class="space-y-2.5">
+              <USkeleton
+                v-for="j in 3"
+                :key="j"
+                class="h-2.5 w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </UCard>
     </div>
 
     <UCard
@@ -79,85 +132,30 @@ const osItems = computed<ProgressGroupItem[]>(() =>
       />
 
       <template #header>
-        <div class="flex items-center gap-3 relative z-10">
-          <div
-            class="p-2 rounded-lg bg-primary-50 dark:bg-primary-900/30 text-primary-500 flex items-center justify-center"
-          >
-            <UIcon
-              name="i-ph-chart-bar-duotone"
-              class="w-5 h-5"
-            />
-          </div>
-          <h3 class="text-lg font-bold text-neutral-900 dark:text-white">
-            Coding Statistics
-          </h3>
-        </div>
+        <HomeLiveCardHeader
+          title="Coding Statistics"
+          icon="i-ph-chart-bar-duotone"
+          class="relative z-10"
+        />
       </template>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
         <div
-          v-if="topLanguages.length"
+          v-for="column in statColumns"
+          :key="column.title"
           class="space-y-4"
         >
           <h4
             class="text-sm font-bold text-neutral-900 dark:text-white flex items-center gap-2"
           >
             <UIcon
-              name="i-ph-code-block-duotone"
-              class="text-emerald-500 w-5 h-5"
+              :name="column.icon"
+              :class="[column.color, 'w-5 h-5']"
             />
-            Top Languages
+            {{ column.title }}
           </h4>
           <UProgressGroup
-            :items="languageItems"
-            :max="100"
-            :ui="{ base: 'gap-px' }"
-          >
-            <template #item-trailing="{ item }">
-              <span class="font-medium">{{ item.value }}%</span>
-            </template>
-          </UProgressGroup>
-        </div>
-
-        <div
-          v-if="topEditors.length"
-          class="space-y-4"
-        >
-          <h4
-            class="text-sm font-bold text-neutral-900 dark:text-white flex items-center gap-2"
-          >
-            <UIcon
-              name="i-ph-terminal-window-duotone"
-              class="text-blue-500 w-5 h-5"
-            />
-            Preferred Editors
-          </h4>
-          <UProgressGroup
-            :items="editorItems"
-            :max="100"
-            :ui="{ base: 'gap-px' }"
-          >
-            <template #item-trailing="{ item }">
-              <span class="font-medium">{{ item.value }}%</span>
-            </template>
-          </UProgressGroup>
-        </div>
-
-        <div
-          v-if="topOS.length"
-          class="space-y-4"
-        >
-          <h4
-            class="text-sm font-bold text-neutral-900 dark:text-white flex items-center gap-2"
-          >
-            <UIcon
-              name="i-ph-desktop-duotone"
-              class="text-neutral-700 dark:text-neutral-300 w-5 h-5"
-            />
-            Operating Systems
-          </h4>
-          <UProgressGroup
-            :items="osItems"
+            :items="column.items"
             :max="100"
             :ui="{ base: 'gap-px' }"
           >
@@ -189,7 +187,7 @@ const osItems = computed<ProgressGroupItem[]>(() =>
               color="emerald"
               variant="subtle"
               size="xs"
-              class="font-mediumt"
+              class="font-medium"
             >
               {{ yearsCollected }}
             </UBadge>
