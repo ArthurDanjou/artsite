@@ -30,7 +30,7 @@ withDefaults(defineProps<ProseIconProps>(), {
 </script>
 
 <template>
-  <span class="inline-flex items-center transform translate-y-1 gap-1">
+  <span class="inline-flex items-center transform translate-y-0.5 gap-1">
     <UIcon
       :name="icon"
       size="16"
