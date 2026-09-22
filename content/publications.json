@@ -9,8 +9,10 @@
       "description": "An open-source framework with 10 aggregation rules, 5 attacks, and faithful NIPS 2017 / ICML 2018 / ICML 2023 protocol reproductions.",
       "icon": "i-ph-book-duotone",
       "tags": ["Open Source", "Byzantine Robustness", "Distributed Learning"],
-      "url": "https://github.com/calicarpa/krum",
-      "linkLabel": "View on GitHub"
+      "links": [
+        { "label": "View on GitHub", "url": "https://github.com/calicarpa/krum", "icon": "i-ph-github-logo-duotone" },
+        { "label": "Project page", "url": "/projects/krum", "icon": "i-ph-article-duotone" }
+      ]
     }
   ]
 }

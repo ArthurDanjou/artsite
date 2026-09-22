@@ -68,8 +68,11 @@ export default defineContentConfig({
           description: z.string(),
           icon: z.string().optional(),
           tags: z.array(z.string()).optional(),
-          url: z.string().url().optional(),
-          linkLabel: z.string().optional()
+          links: z.array(z.object({
+            label: z.string(),
+            url: z.string(),
+            icon: z.string().optional()
+          })).optional()
         }))
       })
     }),

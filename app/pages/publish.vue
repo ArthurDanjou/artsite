@@ -89,8 +89,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
           :status="pub.status"
           :authors="pub.authors"
           :tags="pub.tags"
-          :url="pub.url"
-          :link-label="pub.linkLabel"
+          :links="pub.links"
           :icon="pub.icon"
         />
       </div>

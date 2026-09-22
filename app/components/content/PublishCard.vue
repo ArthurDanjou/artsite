@@ -1,4 +1,10 @@
 <script lang="ts" setup>
+interface PublicationLink {
+  label: string
+  url: string
+  icon?: string
+}
+
 defineProps<{
   title: string
   description: string
@@ -6,8 +12,7 @@ defineProps<{
   status?: string
   authors?: string
   tags?: string[]
-  url?: string
-  linkLabel?: string
+  links?: PublicationLink[]
   icon?: string
 }>()
 </script>
@@ -40,7 +45,7 @@ defineProps<{
         {{ description }}
       </p>
       <div
-        v-if="$slots.tags || url || tags?.length"
+        v-if="$slots.tags || links?.length || tags?.length"
         class="flex flex-wrap items-center gap-2 mt-3"
       >
         <slot name="tags" />
@@ -54,17 +59,18 @@ defineProps<{
           {{ tag }}
         </UBadge>
         <UButton
-          v-if="url"
-          :to="url"
-          target="_blank"
+          v-for="link in links"
+          :key="link.url"
+          :to="link.url"
+          :target="link.url.startsWith('http') ? '_blank' : undefined"
+          :rel="link.url.startsWith('http') ? 'noopener noreferrer' : undefined"
+          :icon="link.icon || 'i-ph-link-duotone'"
           variant="subtle"
           color="neutral"
           size="xs"
-          icon="i-ph-github-logo-duotone"
           class="shrink-0"
-          rel="noopener noreferrer"
         >
-          {{ linkLabel || 'View on GitHub' }}
+          {{ link.label }}
         </UButton>
       </div>
     </div>
