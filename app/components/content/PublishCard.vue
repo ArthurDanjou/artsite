@@ -1,14 +1,13 @@
 <script lang="ts" setup>
-import { LANG_FLAGS } from '~/utils/locale'
-
 defineProps<{
   title: string
-  date: string
-  venue: string
   description: string
-  slides?: string
+  status?: string
+  authors?: string
+  tags?: string[]
+  url?: string
+  linkLabel?: string
   icon?: string
-  lang?: string
 }>()
 </script>
 
@@ -17,46 +16,55 @@ defineProps<{
     <div class="flex items-start gap-4">
       <div class="mt-0.5 shrink-0 flex size-10 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10">
         <UIcon
-          :name="icon || 'i-ph-presentation-duotone'"
+          :name="icon || 'i-ph-book-duotone'"
           class="text-primary size-5"
         />
       </div>
       <div class="min-w-0 flex-1">
-        <p class="text-xs text-neutral-500 uppercase tracking-wider font-medium">
-          {{ date }}
+        <p
+          v-if="status"
+          class="text-xs text-neutral-500 uppercase tracking-wider font-medium"
+        >
+          {{ status }}
         </p>
-        <div class="flex items-center gap-2 mt-0.5">
-          <h3 class="font-semibold text-neutral-900 dark:text-white">
-            {{ title }}
-          </h3>
-          <span
-            v-if="lang && LANG_FLAGS[lang]"
-            class="text-sm shrink-0"
-          >{{ LANG_FLAGS[lang] }}</span>
-        </div>
-        <p class="text-sm text-neutral-500 italic">
-          {{ venue }}
+        <h3 class="font-semibold text-neutral-900 dark:text-white mt-0.5">
+          {{ title }}
+        </h3>
+        <p
+          v-if="authors"
+          class="text-sm text-neutral-500 italic mt-0.5"
+        >
+          {{ authors }}
         </p>
         <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1.5">
           {{ description }}
         </p>
         <div
-          v-if="$slots.tags || slides"
+          v-if="$slots.tags || url || tags?.length"
           class="flex flex-wrap items-center gap-2 mt-3"
         >
           <slot name="tags" />
+          <UBadge
+            v-for="tag in tags"
+            :key="tag"
+            color="neutral"
+            variant="outline"
+            size="xs"
+          >
+            {{ tag }}
+          </UBadge>
           <UButton
-            v-if="slides"
-            :to="slides"
+            v-if="url"
+            :to="url"
             target="_blank"
             variant="subtle"
             color="neutral"
             size="xs"
-            icon="i-ph-slideshow-duotone"
+            icon="i-ph-github-logo-duotone"
             class="shrink-0"
             rel="noopener noreferrer"
           >
-            See Slides
+            {{ linkLabel || 'View on GitHub' }}
           </UButton>
         </div>
       </div>
