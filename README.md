@@ -86,14 +86,12 @@ artsite/
 │   │   │   ├── index.vue        # /projects
 │   │   │   └── [slug].vue       # /projects/[slug]
 │   │   ├── talks.vue            # /talks
-│   │   ├── now.vue              # /now
 │   │   ├── telemetry.vue        # /telemetry
 │   │   └── uses.vue             # /uses
 │   └── app.vue
 ├── content/
 │   ├── index.md                 # Homepage content
 │   ├── research.md              # Research page
-│   ├── now.md                   # Current focus
 │   ├── uses.md                  # Hardware and software setup
 │   ├── telemetry.md             # Live telemetry page
 │   ├── projects/*.md            # Project pages
@@ -127,7 +125,6 @@ artsite/
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
 | `/talks` | Academic presentations, upcoming and past |
-| `/now` | Current focus snapshot plus link to live telemetry |
 | `/telemetry` | Live homelab telemetry with environment, status, and activity |
 | `/uses` | Hardware, software, and homelab infrastructure |
 | `/resumes/en` | English resume (PDF) |
@@ -135,7 +132,7 @@ artsite/
 
 ## Content Model
 
-Page collections use `pageSeoSchema` and pair one Markdown file with one page component. The SEO title and description come from the Markdown frontmatter, following the `now` and `research` pattern. Data collections back the portfolio sections and the homepage timelines.
+Page collections use `pageSeoSchema` and pair one Markdown file with one page component. The SEO title and description come from the Markdown frontmatter, following the `research` pattern. Data collections back the portfolio sections and the homepage timelines.
 
 ## API Overview
 
