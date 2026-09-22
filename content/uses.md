@@ -50,7 +50,7 @@ I prioritize tools that offer **AI integration** and **strong type-checking**.
   :::card{icon="i-ph-code-duotone" title="IDEs & Editors"}
   - :prose-icon[Zed]{color="blue" icon="i-devicon-zed"}, used for general-purpose scripting and remote SSH development.
   - :prose-icon[OpenCode AI]{color="purple" icon="i-material-symbols-deployed-code"}, an open-source AI coding agent with multi-provider support, dual build/plan agents, and native LSP integration.
-  - :prose-icon[T3.codes]{color="neutral" icon="i-carbon-kubernetes"}, an open-source unified GUI control plane for AI coding agents.
+  - :prose-icon[Orca]{color="neutral" icon="i-ph-browser-duotone"}, an open-source agent development environment to run Claude Code, Codex and OpenCode side by side, each in its own git worktree.
   - **Theme:** :prose-icon[ArtLab Theme]{color="indigo" icon="i-ph-palette-duotone"}, a custom cross-platform theme blending Vitesse clarity with Catppuccin palettes, available for VS Code, Home Assistant, Zed, and Ghostty.
   - **Font:** GitHub Monaspace Neon (primary, ligatures enabled) & JetBrains Mono.
 
@@ -64,7 +64,7 @@ I prioritize tools that offer **AI integration** and **strong type-checking**.
   - :prose-icon[Ghostty]{color="gray" icon="i-ph-ghost-duotone"}, a fast, native, and GPU-accelerated terminal emulator.
   - :prose-icon[Zsh]{color="green" icon="i-simple-icons-zsh"}, my default shell.
   - :prose-icon[Starship]{color="purple" icon="i-simple-icons-starship"}, a minimal and highly customizable prompt.
-  - :prose-icon[Raycast]{color="red" icon="i-simple-icons-raycast"}, which replaces Spotlight. I use it for script commands, window management, and quick calculations.
+  - :prose-icon[Tinycast]{color="red" icon="i-ph-command-duotone"}, an open-source, fully native macOS launcher that replaces Spotlight. I use it for custom commands, window management, and quick calculations.
   - :prose-icon[Firefox]{color="orange" icon="i-logos-firefox"}, chosen for its privacy features and good DevTools.
   - :prose-icon[Brave]{color="blue" icon="i-logos-brave"}, a privacy-focused browser with built-in ad blocking and tracking protection.
   :::
