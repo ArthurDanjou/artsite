@@ -29,35 +29,36 @@ defineProps<{
           <h3 class="font-semibold text-neutral-900 dark:text-white">
             {{ title }}
           </h3>
-        <span
-          v-if="lang && LANG_FLAGS[lang]"
-          class="text-sm shrink-0"
-        >{{ LANG_FLAGS[lang] }}</span>
-      </div>
-      <p class="text-sm text-neutral-500 italic">
-        {{ venue }}
-      </p>
-      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1.5">
-        {{ description }}
-      </p>
-      <div
-        v-if="$slots.tags || slides"
-        class="flex flex-wrap items-center gap-2 mt-3"
-      >
-        <slot name="tags" />
-        <UButton
-          v-if="slides"
-          :to="slides"
-          target="_blank"
-          variant="subtle"
-          color="neutral"
-          size="xs"
-          icon="i-ph-slideshow-duotone"
-          class="shrink-0"
-          rel="noopener noreferrer"
+          <span
+            v-if="lang && LANG_FLAGS[lang]"
+            class="text-sm shrink-0"
+          >{{ LANG_FLAGS[lang] }}</span>
+        </div>
+        <p class="text-sm text-neutral-500 italic">
+          {{ venue }}
+        </p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1.5">
+          {{ description }}
+        </p>
+        <div
+          v-if="$slots.tags || slides"
+          class="flex flex-wrap items-center gap-2 mt-3"
         >
-          See Slides
-        </UButton>
+          <slot name="tags" />
+          <UButton
+            v-if="slides"
+            :to="slides"
+            target="_blank"
+            variant="subtle"
+            color="neutral"
+            size="xs"
+            icon="i-ph-slideshow-duotone"
+            class="shrink-0"
+            rel="noopener noreferrer"
+          >
+            See Slides
+          </UButton>
+        </div>
       </div>
     </div>
   </div>

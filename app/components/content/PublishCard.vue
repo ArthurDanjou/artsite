@@ -35,48 +35,49 @@ defineProps<{
         <h3 class="font-semibold text-neutral-900 dark:text-white mt-0.5">
           {{ title }}
         </h3>
-      <p
-        v-if="authors"
-        class="text-sm text-neutral-500 italic mt-0.5"
-      >
-        {{ authors }}
-      </p>
-      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1.5">
-        {{ description }}
-      </p>
-      <div
-        v-if="$slots.tags || tags?.length"
-        class="flex flex-wrap items-center gap-2 mt-3"
-      >
-        <slot name="tags" />
-        <UBadge
-          v-for="tag in tags"
-          :key="tag"
-          color="neutral"
-          variant="outline"
-          size="xs"
+        <p
+          v-if="authors"
+          class="text-sm text-neutral-500 italic mt-0.5"
         >
-          {{ tag }}
-        </UBadge>
-      </div>
-      <div
-        v-if="links?.length"
-        class="flex flex-wrap items-center gap-2 mt-2.5"
-      >
-        <UButton
-          v-for="link in links"
-          :key="link.url"
-          :to="link.url"
-          :target="link.url.startsWith('http') ? '_blank' : undefined"
-          :rel="link.url.startsWith('http') ? 'noopener noreferrer' : undefined"
-          :icon="link.icon || 'i-ph-link-duotone'"
-          variant="subtle"
-          color="neutral"
-          size="xs"
-          class="shrink-0"
+          {{ authors }}
+        </p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1.5">
+          {{ description }}
+        </p>
+        <div
+          v-if="$slots.tags || tags?.length"
+          class="flex flex-wrap items-center gap-2 mt-3"
         >
-          {{ link.label }}
-        </UButton>
+          <slot name="tags" />
+          <UBadge
+            v-for="tag in tags"
+            :key="tag"
+            color="neutral"
+            variant="outline"
+            size="xs"
+          >
+            {{ tag }}
+          </UBadge>
+        </div>
+        <div
+          v-if="links?.length"
+          class="flex flex-wrap items-center gap-2 mt-2.5"
+        >
+          <UButton
+            v-for="link in links"
+            :key="link.url"
+            :to="link.url"
+            :target="link.url.startsWith('http') ? '_blank' : undefined"
+            :rel="link.url.startsWith('http') ? 'noopener noreferrer' : undefined"
+            :icon="link.icon || 'i-ph-link-duotone'"
+            variant="subtle"
+            color="neutral"
+            size="xs"
+            class="shrink-0"
+          >
+            {{ link.label }}
+          </UButton>
+        </div>
       </div>
     </div>
   </div>
