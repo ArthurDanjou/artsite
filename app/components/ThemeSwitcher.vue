@@ -3,6 +3,9 @@ const colorMode = useColorMode()
 const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
 
 function switchTheme() {
+  // Freeze every CSS transition while the theme flips, so the view
+  // transition snapshots capture final colors instead of mid-fade ones.
+  document.documentElement.classList.add('theme-switching')
   colorMode.preference = nextTheme.value
 }
 
@@ -13,6 +16,7 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
 
   if (!isAppearanceTransition) {
     switchTheme()
+    setTimeout(() => document.documentElement.classList.remove('theme-switching'), 300)
     return
   }
 
@@ -47,6 +51,9 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
         }
       )
     })
+  transition.finished.finally(() => {
+    document.documentElement.classList.remove('theme-switching')
+  })
 }
 
 defineShortcuts({
@@ -101,5 +108,12 @@ defineShortcuts({
 }
 .dark::view-transition-new(root) {
   z-index: 1;
+}
+
+/* Kill color fades while the theme flips, inside the view transition too */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: none !important;
 }
 </style>
