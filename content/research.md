@@ -9,7 +9,7 @@ sitemap:
 
 My research sits at the intersection of **applied mathematics** and **deep learning**, with a focus on making AI systems safe and reliable in the presence of adversaries. The guiding question: how can we prove, and not just hope, that learning systems remain robust?
 
-My PhD on **resilient distributed learning** (Byzantine attacks and defenses in federated settings) starts in **November 2026** at **CMAP, Ecole Polytechnique**, with the **ATLAS chair** (*Adversarial Techniques for Learning and AI Security*).
+My PhD on **resilient distributed learning** (Byzantine attacks and defenses in federated settings) starts in **November 2026** at **CMAP, Ecole Polytechnique**, under the supervision of [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/), with the **ATLAS chair** (*Adversarial Techniques for Learning and AI Security*).
 
 ---
 
@@ -40,7 +40,7 @@ From generalization bounds for two-layer ReLU networks to stochastic optimizatio
 ## Ongoing Work
 
 ::card{title="M2 Research Internship at CMAP, Ecole Polytechnique" icon="i-ph-brain-duotone"}
-From **April to October 2026**, I work under [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/) on robust distributed learning with adversaries: gradient manipulation attacks, open-source research tooling, and improvements to existing aggregation frameworks.
+From **April to October 2026**, I work under the supervision of [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/), with [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, on robust distributed learning with adversaries: gradient manipulation attacks, open-source research tooling, and improvements to existing aggregation frameworks.
 
 The experimental backbone is **[Krum](/projects/krum)**, my first research project: an open-source framework for Byzantine-resilient aggregation, installable via `pip install krum`.
 ::
