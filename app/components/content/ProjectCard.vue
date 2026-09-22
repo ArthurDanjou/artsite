@@ -20,7 +20,7 @@ defineProps<{
     class="group block h-full rounded-lg p-4 transition-colors duration-300 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50"
   >
     <div class="flex items-start gap-4">
-      <div class="mt-0.5 shrink-0 flex size-10 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10 transition-colors group-hover:bg-primary-100 dark:group-hover:bg-primary-400/20">
+      <div class="mt-0.5 shrink-0 flex size-10 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10">
         <UIcon
           :name="icon || 'i-ph-folder-duotone'"
           class="text-primary size-5"
@@ -28,7 +28,7 @@ defineProps<{
       </div>
       <div class="min-w-0">
         <div class="flex items-center gap-2">
-          <h3 class="font-semibold text-neutral-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
+          <h3 class="font-semibold text-neutral-900 dark:text-white line-clamp-1">
             {{ title }}
           </h3>
           <span
