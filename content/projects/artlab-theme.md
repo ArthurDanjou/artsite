@@ -21,7 +21,7 @@ Design consistency across tools reduces cognitive load. **ArtLab Theme** applies
 
 ## Design Philosophy
 
-The theme combines two influences: the **clean readability of Vitesse** (by antfu) and the **cozy, well-tested palettes of Catppuccin**. The result is a theme that is neither too cold nor too warm, optimized for extended coding sessions without eye fatigue.
+The theme combines two influences: the **clean readability of Vitesse** (by antfu) and the **cozy, well-tested palettes of Catppuccin**. The result is a theme that sits between the two, readable over long coding sessions.
 
 Both light and dark variants are available with **system auto-detection** support via VS Code's `autoDetectColorScheme`.
 

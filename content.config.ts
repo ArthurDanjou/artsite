@@ -25,7 +25,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string(),
         title: z.string(),
-        type: z.enum(['Personal Project', 'Academic Project', 'Hackathon', 'Research Project', 'Internship Project']),
+        type: z.enum(['Personal Project', 'Academic Project', 'Hackathon', 'Research Project']),
         description: z.string(),
         shortDescription: z.string(),
         publishedAt: z.string(),
@@ -46,15 +46,36 @@ export default defineContentConfig({
       source: 'telemetry.md',
       schema: pageSeoSchema
     }),
-    now: defineCollection({
-      type: 'page',
-      source: 'now.md',
-      schema: pageSeoSchema
-    }),
     research: defineCollection({
       type: 'page',
       source: 'research.md',
       schema: pageSeoSchema
+    }),
+    publicationsPage: defineCollection({
+      type: 'page',
+      source: 'publications.md',
+      schema: pageSeoSchema
+    }),
+    publications: defineCollection({
+      type: 'data',
+      source: 'publications.json',
+      schema: z.object({
+        body: z.array(z.object({
+          id: z.string(),
+          title: z.string(),
+          year: z.number().optional(),
+          status: z.string().optional(),
+          authors: z.string().optional(),
+          description: z.string(),
+          icon: z.string().optional(),
+          tags: z.array(z.string()).optional(),
+          links: z.array(z.object({
+            label: z.string(),
+            url: z.string(),
+            icon: z.string().optional()
+          })).optional()
+        }))
+      })
     }),
     skills: defineCollection({
       type: 'data',
@@ -69,39 +90,6 @@ export default defineContentConfig({
             icon: z.string().optional()
           }))
         }))
-      })
-    }),
-    experiences: defineCollection({
-      type: 'data',
-      source: 'experiences/*.md',
-      schema: z.object({
-        title: z.string(),
-        type: z.string().optional(),
-        company: z.string(),
-        companyUrl: z.string().url().optional(),
-        startDate: z.string(),
-        endDate: z.string().optional(),
-        duration: z.string().optional(),
-        location: z.string(),
-        description: z.string(),
-        tags: z.array(z.string()).optional(),
-        icon: z.string()
-      })
-    }),
-    education: defineCollection({
-      type: 'data',
-      source: 'education/*.md',
-      schema: z.object({
-        title: z.string(),
-        degree: z.string().optional(),
-        institution: z.string(),
-        startDate: z.string(),
-        endDate: z.string().optional(),
-        duration: z.string().optional(),
-        location: z.string(),
-        description: z.string().optional(),
-        tags: z.array(z.string()).optional(),
-        icon: z.string()
       })
     }),
     contact: defineCollection({
@@ -144,7 +132,6 @@ export default defineContentConfig({
           icon: z.string().optional(),
           tags: z.array(z.string()).optional(),
           lang: z.enum(['fr', 'en']).optional(),
-          upcoming: z.boolean().optional(),
           slides: z.string().url().nullable().optional()
         }))
       })

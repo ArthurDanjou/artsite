@@ -39,8 +39,7 @@ export default defineCachedEventHandler(async (event) => {
   const up = monitors.filter(m => m.state === 'up').length
   const down = monitors.filter(m => m.state === 'down' || m.state === 'pending').length
   const maintenance = monitors.filter(m => m.state === 'maintenance').length
-  const total = monitors.length
-  const operational = up + maintenance
+  const total = up + down + maintenance
 
   return {
     updatedAt: new Date().toISOString(),
@@ -48,8 +47,7 @@ export default defineCachedEventHandler(async (event) => {
     up,
     down,
     maintenance,
-    degraded: down,
-    uptime: total > 0 ? ((operational / total) * 100).toFixed(1) : '0.0'
+    uptime: total > 0 ? (up / total) * 100 : 0
   }
 }, {
   maxAge: 30,

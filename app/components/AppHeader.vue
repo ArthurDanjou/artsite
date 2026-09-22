@@ -47,7 +47,7 @@ const contactItems = computed(() => contact?.body
       </UTooltip>
       <UTooltip
         :delay-duration="4"
-        text="Status Page"
+        text="status page"
       >
         <UButton
           icon="i-ph-warning-duotone"
@@ -75,7 +75,7 @@ const contactItems = computed(() => contact?.body
         >
           <UTooltip
             :kbds="['C']"
-            text="Contact Me"
+            text="contact me"
             :delay-duration="4"
             class="cursor-pointer"
           >
@@ -91,7 +91,7 @@ const contactItems = computed(() => contact?.body
         <template #fallback>
           <UTooltip
             :kbds="['C']"
-            text="Contact Me"
+            text="contact me"
             :delay-duration="4"
           >
             <UButton

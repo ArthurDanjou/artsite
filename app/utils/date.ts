@@ -6,19 +6,6 @@ export function formatTalkDate(iso: string): string {
   return date.toLocaleDateString('en-US', day ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long' })
 }
 
-export function formatTimelineDate(start?: string, end?: string, duration?: string): string {
-  if (!start) return 'N/A'
-
-  const startYear = new Date(start).getFullYear()
-  const endYear = end ? new Date(end).getFullYear() : 'Present'
-  const durationText = duration ? `(${duration})` : ''
-
-  if (startYear === endYear) {
-    return `${startYear} ${durationText}`
-  }
-  return `${startYear} - ${endYear} ${durationText}`
-}
-
 export function formatLongDate(value: string): string {
   return new Date(value).toLocaleDateString('en-US', {
     year: 'numeric',

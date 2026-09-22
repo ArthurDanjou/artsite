@@ -10,6 +10,56 @@ const email = computed(() => contact?.body.find(item => item.id === 'email'))
 const statusPage = computed(() => contact?.body.find(item => item.id === 'status-page'))
 
 const currentYear = computed(() => new Date().getFullYear())
+
+interface MonitorStatus {
+  total: number
+  up: number
+  down: number
+  maintenance: number
+  degraded: number
+  uptime: string
+}
+
+const { data: monitors } = useFetch<MonitorStatus | null>('/api/ha/monitors', {
+  server: false,
+  lazy: true
+})
+
+const total = computed(() => {
+  const m = monitors.value
+  if (!m) return 0
+  return m.up + m.down + (m.degraded ?? 0) + (m.maintenance ?? 0)
+})
+
+const status = computed(() => {
+  const m = monitors.value
+  if (!m || total.value === 0) {
+    return {
+      label: 'all systems operational',
+      dot: 'bg-emerald-500',
+      ping: 'bg-emerald-400'
+    }
+  }
+  if (m.down > 0) {
+    return {
+      label: `${m.down} service${m.down > 1 ? 's' : ''} down`,
+      dot: 'bg-red-500',
+      ping: 'bg-red-400'
+    }
+  }
+  if (m.maintenance > 0) {
+    return {
+      label: 'maintenance in progress',
+      dot: 'bg-amber-500',
+      ping: 'bg-amber-400'
+    }
+  }
+  return {
+    label: 'all systems operational',
+    dot: 'bg-emerald-500',
+    ping: 'bg-emerald-400'
+  }
+})
 </script>
 
 <template>
@@ -47,13 +97,15 @@ const currentYear = computed(() => new Date().getFullYear())
         >
           <span class="relative flex h-2 w-2">
             <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+              :class="status.ping"
             />
             <span
-              class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+              class="relative inline-flex rounded-full h-2 w-2"
+              :class="status.dot"
             />
           </span>
-          All systems operational
+          {{ status.label }}
         </NuxtLink>
       </div>
 
@@ -95,7 +147,7 @@ const currentYear = computed(() => new Date().getFullYear())
               :aria-label="social.name"
               target="_blank"
               color="neutral"
-              size="sm"
+              size="md"
               variant="ghost"
             />
           </UTooltip>

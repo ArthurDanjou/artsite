@@ -1,16 +1,20 @@
 <script lang="ts" setup>
 import type { HAMediaResponse } from '~~/types'
 
-const { data, refresh, pending } = useFetch<HAMediaResponse>('/api/ha/media', {
+const { data, refresh, pending, error } = useFetch<HAMediaResponse>('/api/ha/media', {
   server: false,
   lazy: true
 })
-useIntervalFn(refresh, 15_000)
+useLiveRefresh(refresh, 15_000)
 
 const nowPlaying = computed(() => data.value?.nowPlaying ?? null)
 const isPlaying = computed(() => !!nowPlaying.value)
 
 const statusLabel = computed(() => isPlaying.value ? 'Now Playing' : 'Idle')
+
+const headerIcon = computed(() => isPlaying.value
+  ? 'i-ph-music-notes-duotone'
+  : 'i-ph-pause-circle-duotone')
 
 const hoverRingClass = computed(() => ({
   'hover:ring-pink-500/50': isPlaying.value,
@@ -22,34 +26,37 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
 
 <template>
   <ClientOnly>
+    <UAlert
+      v-if="error"
+      color="red"
+      variant="soft"
+      icon="i-ph-warning-circle-duotone"
+      title="Media player unreachable"
+      description="The Home Assistant media API returned an error. Check the worker logs for details."
+    />
+
     <UCard
-      v-if="data"
+      v-else-if="data"
       class="h-full flex flex-col transition-all duration-200 hover:ring-2"
       :class="hoverRingClass"
     >
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="relative flex h-3 w-3">
-            <span
-              v-if="isPlaying"
-              class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-pink-400"
-            />
-            <span
-              class="relative inline-flex rounded-full h-3 w-3 transition-colors duration-300"
-              :class="isPlaying ? 'bg-pink-500' : 'bg-neutral-400'"
-            />
+      <HomeLiveCardHeader
+        title="Music"
+        :icon="headerIcon"
+        :icon-bg="isPlaying
+          ? 'bg-pink-50 dark:bg-pink-900/30 text-pink-500'
+          : 'bg-neutral-100 dark:bg-neutral-900/30 text-neutral-500'"
+        title-size="sm"
+      >
+        <template #right>
+          <div class="flex items-center gap-2.5">
+            <HomeLiveStatusDot :color="isPlaying ? 'pink' : 'neutral'" />
+            <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              {{ statusLabel }}
+            </span>
           </div>
-          <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            {{ statusLabel }}
-          </span>
-        </div>
-        <div class="p-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-500 flex items-center justify-center">
-          <UIcon
-            name="i-ph-music-notes-duotone"
-            class="w-6 h-6 opacity-80"
-          />
-        </div>
-      </div>
+        </template>
+      </HomeLiveCardHeader>
 
       <!-- Playing state -->
       <div
@@ -108,10 +115,6 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
         v-else
         class="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-2 pl-6 border-l-2 border-neutral-200 dark:border-neutral-800 ml-1.5 mt-3"
       >
-        <UIcon
-          name="i-ph-pause-circle-duotone"
-          class="w-4 h-4 shrink-0"
-        />
         <p>No music playing.</p>
       </div>
     </UCard>

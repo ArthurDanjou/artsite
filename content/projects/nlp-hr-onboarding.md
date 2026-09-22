@@ -37,16 +37,16 @@ The assistant can answer policy questions, retrieve employee information, schedu
 ┌──────────────────────────────────────────────────────────┐
 │           HR Onboarding Assistant - TechCorp            │
 │                                                         │
-│  📝 System prompts (LangChain LCEL)                     │
-│  🧠 Sliding window conversational memory                │
-│  🔧 Tools:                                              │
-│     ├── 🔍 Knowledge base search (RAG)                  │
-│     ├── 👤 Employee directory                           │
-│     ├── 📅 Meeting scheduling                           │
-│     ├── 🏖️ Leave request submission                     │
-│     └── 🕐 Current date and time                        │
-│  🔄 ReAct loop: reason → act → observe                  │
-│  📊 MistralAI Embeddings + Qdrant Vector Store          │
+│  System prompts (LangChain LCEL)                        │
+│  Sliding window conversational memory                   │
+│  Tools:                                                 │
+│     ├── Knowledge base search (RAG)                     │
+│     ├── Employee directory                              │
+│     ├── Meeting scheduling                              │
+│     ├── Leave request submission                        │
+│     └── Current date and time                           │
+│  ReAct loop: reason -> act -> observe                   │
+│  MistralAI Embeddings + Qdrant Vector Store             │
 └──────────────────────────────────────────────────────────┘
 ```
 

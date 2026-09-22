@@ -2,11 +2,11 @@
 import type { Activity } from '~~/types'
 import { IDEs } from '~~/types'
 
-const { data: activity, refresh } = useFetch<Activity>('/api/activity', {
+const { data: activity, error, refresh } = useFetch<Activity>('/api/activity', {
   server: false,
   lazy: true
 })
-useIntervalFn(refresh, 5000)
+useLiveRefresh(refresh, 5000)
 
 const currentSession = computed(() => {
   const list = activity.value?.data.activities ?? []
@@ -14,12 +14,10 @@ const currentSession = computed(() => {
 
   if (!ideActivity) return null
 
-  const name
-    = ideActivity.assets?.small_text === 'Cursor'
-      ? 'Cursor'
-      : ideActivity.assets?.small_text === 'Positron'
-        ? 'Positron'
-        : ideActivity.name
+  const smallText = ideActivity.assets?.small_text
+  const name = smallText === 'Cursor' || smallText === 'Positron'
+    ? smallText
+    : ideActivity.name
 
   const isIdling = ideActivity.details?.toLowerCase().includes('idling')
 
@@ -47,9 +45,11 @@ const timeAgo = useTimeAgo(
   computed(() => currentSession.value?.startTime ?? new Date())
 )
 
-const statusColor = computed(() => {
-  if (!currentSession.value) return 'red'
-  return currentSession.value.isIdling ? 'orange' : 'green'
+type ActivityStatus = 'blue' | 'neutral'
+
+const statusColor = computed<ActivityStatus>(() => {
+  if (!currentSession.value) return 'neutral'
+  return currentSession.value.isIdling ? 'neutral' : 'blue'
 })
 
 const statusLabel = computed(() => {
@@ -58,64 +58,65 @@ const statusLabel = computed(() => {
   return 'Active Development'
 })
 
+const headerIcon = computed(() => {
+  if (!currentSession.value) return 'i-ph-power-duotone'
+  return currentSession.value.isIdling
+    ? 'i-ph-hourglass-duotone'
+    : currentSession.value.icon
+})
+
+const headerIconBg = computed(() => statusColor.value === 'blue'
+  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-500'
+  : 'bg-neutral-100 dark:bg-neutral-900/30 text-neutral-500')
+
 const hoverRingClass = computed(() => ({
-  'hover:ring-green-500/50': statusColor.value === 'green',
-  'hover:ring-orange-500/50': statusColor.value === 'orange',
-  'hover:ring-red-500/50': statusColor.value === 'red'
+  'hover:ring-blue-500/50': statusColor.value === 'blue',
+  'hover:ring-neutral-500/30': statusColor.value !== 'blue'
 }))
+
+const barColorClass = computed(() => statusColor.value === 'blue'
+  ? 'border-blue-200 dark:border-blue-900/30'
+  : 'border-neutral-200 dark:border-neutral-800')
 </script>
 
 <template>
   <ClientOnly>
-    <UCard
-      v-if="activity"
-      class="transition-all duration-200 hover:ring-2"
-      :class="[
-        hoverRingClass
-      ]"
-    >
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="relative flex h-3 w-3">
-            <span
-              v-if="statusColor === 'green'"
-              class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-green-400"
-            />
-            <span
-              class="relative inline-flex rounded-full h-3 w-3 transition-colors duration-300"
-              :class="{
-                'bg-green-500': statusColor === 'green',
-                'bg-orange-500': statusColor === 'orange',
-                'bg-red-500': statusColor === 'red'
-              }"
-            />
-          </div>
+    <UAlert
+      v-if="error"
+      color="red"
+      variant="soft"
+      icon="i-ph-warning-circle-duotone"
+      title="Activity feed unreachable"
+      description="The activity API returned an error. Check the worker logs for details."
+    />
 
-          <span
-            class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
-          >
-            {{ statusLabel }}
-          </span>
-        </div>
-        <div
-          class="p-2 rounded-lg bg-primary-50 dark:bg-primary-900/30 text-primary-500 flex items-center justify-center"
-        >
-          <UIcon
-            v-if="currentSession"
-            :name="currentSession.icon"
-            class="w-8 h-8 opacity-80"
-          />
-          <UIcon
-            v-else
-            name="i-ph-power-duotone"
-            class="w-8 h-8 text-red-400 opacity-80"
-          />
-        </div>
-      </div>
+    <UCard
+      v-else-if="activity"
+      class="transition-all duration-200 hover:ring-2"
+      :class="[hoverRingClass]"
+    >
+      <HomeLiveCardHeader
+        title="Activity"
+        title-size="sm"
+        :icon="headerIcon"
+        :icon-bg="headerIconBg"
+      >
+        <template #right>
+          <div class="flex items-center gap-2.5">
+            <HomeLiveStatusDot :color="statusColor" />
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+            >
+              {{ statusLabel }}
+            </span>
+          </div>
+        </template>
+      </HomeLiveCardHeader>
 
       <div
         v-if="currentSession"
-        class="space-y-1 py-2 pl-6 border-l-2 border-neutral-200 dark:border-neutral-800 ml-1.5"
+        class="space-y-1 py-2 mt-3 pl-6 border-l-2 ml-1.5"
+        :class="barColorClass"
       >
         <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
           <h3 class="font-semibold text-neutral-900 dark:text-white truncate">
@@ -138,7 +139,8 @@ const hoverRingClass = computed(() => ({
 
       <div
         v-else
-        class="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-2 pl-6 border-l-2 border-red-100 dark:border-red-900/30 ml-1.5"
+        class="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-2 mt-3 pl-6 border-l-2 ml-1.5"
+        :class="barColorClass"
       >
         <p>Telemetry disconnected. Research in progress.</p>
       </div>

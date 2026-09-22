@@ -3,7 +3,7 @@ import type { ProjectsCollectionItem } from '@nuxt/content'
 
 const head = {
   title: 'Engineering & Research Labs',
-  description: 'Bridging the gap between theoretical models and production systems. Explore my experimental labs, open-source contributions, and engineering work.',
+  description: 'From theoretical models to production systems. Explore my experimental labs, open-source contributions, and engineering work.',
   headline: 'Arthur Danjou\u2019s Projects'
 }
 
@@ -89,7 +89,7 @@ const grouped_projects = computed(() => {
         Engineering & Research Labs
       </h1>
       <p class="max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-400">
-        Bridging the gap between theoretical models and production systems. <br>Explore my experimental labs, open-source contributions, and engineering work.
+        From theoretical models to production systems. <br>Explore my experimental labs, open-source contributions, and engineering work.
       </p>
       <UButton
         size="md"
@@ -144,7 +144,7 @@ const grouped_projects = computed(() => {
           :key="group"
           class="relative"
         >
-          <h1 class="w-full md:w-[110%] mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 text-stroke-neutral-500 text-stroke-2 md:-translate-x-16">
+          <h1 class="w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2">
             {{ group }}
           </h1>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">

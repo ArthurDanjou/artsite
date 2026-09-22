@@ -24,13 +24,13 @@ This project was completed as part of the **Generalized Linear Models** course a
 
 ## Methodology
 
-The study uses a rigorous statistical workflow, including:
+The workflow:
 
 - **Exploratory Data Analysis (EDA)** - Understanding feature distributions and relationships
 - **Model Comparison** - Testing multiple GLM families (Poisson, Negative Binomial, Gaussian)
 - **Feature Selection** - Identifying the most influential variables
 - **Model Diagnostics** - Validating assumptions and checking residuals
-- **Cross-validation** - Ensuring reliable performance estimates
+- **Cross-validation** for reliable performance estimates
 
 ## Key Findings
 

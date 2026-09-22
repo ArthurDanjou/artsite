@@ -16,7 +16,7 @@ AI Research Intern at CMAP, Ecole Polytechnique. Personal portfolio built with N
 
 ## Overview
 
-This repository contains my personal portfolio and research site. It presents my research focus, projects, talks, experience, education, setup, and live homelab telemetry. Content lives in Markdown and JSON under `content/`, pages live under `app/pages/`, and the site is deployed to Cloudflare Workers.
+This repository contains my personal portfolio and research site. It presents my research focus, projects, talks, news, setup, and live homelab telemetry. Content lives in Markdown and JSON under `content/`, pages live under `app/pages/`, and the site is deployed to Cloudflare Workers.
 
 ## Tech Stack
 
@@ -76,35 +76,33 @@ artsite/
 │   │   ├── AppBackground.vue
 │   │   ├── ThemeSwitcher.vue
 │   │   ├── content/             # MDC components (HoverText, ProjectCard, TalkCard, ProseH1, ProseH2, ProseIcon)
-│   │   ├── home/                # Homepage sections (Name, Skills, Quote, CatchPhrase, Link, timeline, live widgets)
+│   │   ├── home/                # Homepage sections (Name, Skills, Quote, CatchPhrase, Link, live widgets)
 │   │   └── OgImage/             # Pergel.satori template for social images
-│   ├── composables/             # useContent and timeline helpers
+│   ├── composables/             # useContent helper
 │   ├── pages/
 │   │   ├── index.vue            # Home
 │   │   ├── research.vue         # /research
+│   │   ├── publications.vue     # /publications
 │   │   ├── projects/
 │   │   │   ├── index.vue        # /projects
 │   │   │   └── [slug].vue       # /projects/[slug]
-│   │   ├── talks.vue            # /talks
-│   │   ├── now.vue              # /now
 │   │   ├── telemetry.vue        # /telemetry
 │   │   └── uses.vue             # /uses
 │   └── app.vue
 ├── content/
 │   ├── index.md                 # Homepage content
 │   ├── research.md              # Research page
-│   ├── now.md                   # Current focus
+│   ├── publications.md          # Publications and talks page
+│   ├── publications.json        # Publications data feeding the publications page
+│   ├── talks.json               # Talks data
 │   ├── uses.md                  # Hardware and software setup
 │   ├── telemetry.md             # Live telemetry page
 │   ├── projects/*.md            # Project pages
-│   ├── experiences/*.md         # Work experience entries
-│   ├── education/*.md           # Academic background entries
 │   ├── skills.json              # Skills data
-│   ├── talks.json               # Talks data (upcoming and past)
 │   ├── languages.json           # Languages data
 │   └── contact.json             # Contact links
 ├── server/
-│   ├── api/                     # Read endpoints (projects, experiences, education, skills, talks, languages, contact, stats, activity)
+│   ├── api/                     # Read endpoints (projects, skills, talks, languages, contact, stats, activity)
 │   │   └── ha/                  # Home Assistant proxy (status, media, media-cover, monitors)
 │   ├── routes/
 │   │   └── resumes/             # Static PDF resume endpoints (en, fr)
@@ -122,12 +120,11 @@ artsite/
 
 | Route | Description |
 |---|---|
-| `/` | Home with research focus, skills, experience, education, and quotes |
+| `/` | Home with research focus, skills, news, and quotes |
 | `/research` | Research interests and thesis direction |
+| `/publications` | Publications and talks, with slides when available |
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
-| `/talks` | Academic presentations, upcoming and past |
-| `/now` | Current focus snapshot plus link to live telemetry |
 | `/telemetry` | Live homelab telemetry with environment, status, and activity |
 | `/uses` | Hardware, software, and homelab infrastructure |
 | `/resumes/en` | English resume (PDF) |
@@ -135,7 +132,7 @@ artsite/
 
 ## Content Model
 
-Page collections use `pageSeoSchema` and pair one Markdown file with one page component. The SEO title and description come from the Markdown frontmatter, following the `now` and `research` pattern. Data collections back the portfolio sections and the homepage timelines.
+Page collections use `pageSeoSchema` and pair one Markdown file with one page component. The SEO title and description come from the Markdown frontmatter, following the `research` pattern. Data collections back the portfolio sections and the homepage skills grid.
 
 ## API Overview
 
