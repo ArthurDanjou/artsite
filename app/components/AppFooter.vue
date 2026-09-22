@@ -147,7 +147,7 @@ const status = computed(() => {
               :aria-label="social.name"
               target="_blank"
               color="neutral"
-              size="sm"
+              size="md"
               variant="ghost"
             />
           </UTooltip>
