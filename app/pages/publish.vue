@@ -93,7 +93,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
           v-for="(yearPubs, year) in groupedPublications"
           :key="year"
         >
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
+          <h3 :class="sectionHeadingClass">
             {{ year }}
           </h3>
           <div class="space-y-4">
@@ -130,7 +130,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
           :key="year"
           class="relative"
         >
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
+          <h3 :class="sectionHeadingClass">
             {{ year }}
           </h3>
           <div class="space-y-4">
@@ -146,7 +146,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
               :slides="talk.slides ?? undefined"
             >
               <template
-                v-if="talk.tags?.length || talk.upcoming"
+                v-if="talk.tags?.length"
                 #tags
               >
                 <div class="flex flex-wrap gap-1.5">
@@ -160,15 +160,6 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
                     {{ tag }}
                   </UBadge>
                 </div>
-                <UBadge
-                  v-if="talk.upcoming"
-                  color="blue"
-                  variant="soft"
-                  size="sm"
-                  icon="i-ph-hourglass-duotone"
-                >
-                  Upcoming
-                </UBadge>
               </template>
             </TalkCard>
           </div>
