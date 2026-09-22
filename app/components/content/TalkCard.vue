@@ -15,7 +15,7 @@ defineProps<{
 <template>
   <div
     class="group rounded-lg p-4 transition-colors duration-300"
-    :class="slides && CARD_HOVER_CLASS"
+    :class="CARD_HOVER_CLASS"
   >
     <div class="flex items-start gap-4">
       <div class="mt-0.5 shrink-0 flex size-10 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10 transition-colors group-hover:bg-primary-100 dark:group-hover:bg-primary-400/20">
