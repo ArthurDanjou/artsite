@@ -29,7 +29,7 @@ defineOgImage('Pergel.satori', {
 
 const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
-const yearHeadingClass = 'w-full mt-6 mb-3 font-mono font-bold text-xl md:text-2xl text-neutral-600 dark:text-neutral-400'
+const yearHeadingClass = 'w-full mt-4 mb-2 text-transparent italic text-2xl md:text-4xl text-neutral-600  dark:text-neutral-400 opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
 const groupedPublications = computed(() =>
   groupByYearDesc(publications?.body ?? [], pub => pub.year)
