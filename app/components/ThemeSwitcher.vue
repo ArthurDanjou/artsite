@@ -76,34 +76,36 @@ defineShortcuts({
 </template>
 
 <style>
-/* Global on purpose: view-transition pseudo-elements live outside component scope */
-::view-transition-old(root),
-::view-transition-new(root) {
+/* Global on purpose: view-transition pseudo-elements live outside component scope.
+   Scoped to the theme swap (.theme-switching is on <html> for its duration) so
+   page navigations keep the native View Transition cross-fade. */
+html.theme-switching::view-transition-old(root),
+html.theme-switching::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
-::view-transition-old(root) {
+html.theme-switching::view-transition-old(root) {
   z-index: 1;
 }
-::view-transition-new(root) {
+html.theme-switching::view-transition-new(root) {
   z-index: 9999;
 }
-.dark::view-transition-old(root) {
+html.theme-switching.dark::view-transition-old(root) {
   z-index: 9999;
 }
-.dark::view-transition-new(root) {
+html.theme-switching.dark::view-transition-new(root) {
   z-index: 1;
 }
 
 /* Light to dark: the light snapshot shrinks into the click point.
    Keyframes instead of element.animate() so the clip applies from the
    very first painted frame, with no unclipped flash. */
-.dark::view-transition-old(root) {
+html.theme-switching.dark::view-transition-old(root) {
   animation: reveal-out 400ms ease-out forwards;
 }
 
 /* Dark to light: the light layer expands from the click point. */
-html:not(.dark)::view-transition-new(root) {
+html.theme-switching:not(.dark)::view-transition-new(root) {
   animation: reveal-in 400ms ease-out forwards;
 }
 
