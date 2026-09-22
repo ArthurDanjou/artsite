@@ -26,7 +26,7 @@ defineProps<{
           {{ date }}
         </p>
         <div class="flex items-center gap-2 mt-0.5">
-          <h3 class="font-semibold text-neutral-900 dark:text-white group-hover:text-primary transition-colors">
+          <h3 class="font-semibold text-neutral-900 dark:text-white">
             {{ title }}
           </h3>
         <span

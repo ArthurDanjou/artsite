@@ -32,7 +32,7 @@ defineProps<{
         >
           {{ status }}
         </p>
-        <h3 class="font-semibold text-neutral-900 dark:text-white mt-0.5 group-hover:text-primary transition-colors">
+        <h3 class="font-semibold text-neutral-900 dark:text-white mt-0.5">
           {{ title }}
         </h3>
       <p

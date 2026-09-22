@@ -45,6 +45,9 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
         {
           duration: 400,
           easing: 'ease-out',
+          // Hold the final clip until the pseudo tree is torn down, otherwise
+          // the old snapshot flashes back to full size for a frame.
+          fill: 'forwards',
           pseudoElement: colorMode.value === 'dark'
             ? '::view-transition-old(root)'
             : '::view-transition-new(root)'
