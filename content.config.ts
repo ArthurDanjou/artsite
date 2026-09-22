@@ -62,6 +62,7 @@ export default defineContentConfig({
         body: z.array(z.object({
           id: z.string(),
           title: z.string(),
+          year: z.number().optional(),
           status: z.string().optional(),
           authors: z.string().optional(),
           description: z.string(),

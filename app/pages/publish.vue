@@ -29,6 +29,10 @@ defineOgImage('Pergel.satori', {
 
 const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
+const sortedPublications = computed(() =>
+  [...(publications?.body ?? [])].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
+)
+
 const displayTalks = computed(() =>
   (talks?.body ?? []).map(talk => ({
     ...talk,
@@ -77,10 +81,11 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
         class="space-y-4"
       >
         <PublishCard
-          v-for="pub in publications.body"
+          v-for="pub in sortedPublications"
           :key="pub.id"
           :title="pub.title"
           :description="pub.description"
+          :year="pub.year"
           :status="pub.status"
           :authors="pub.authors"
           :tags="pub.tags"
