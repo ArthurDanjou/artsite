@@ -14,46 +14,28 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
   const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  if (!isAppearanceTransition) {
-    switchTheme()
-    setTimeout(() => document.documentElement.classList.remove('theme-switching'), 300)
-    return
-  }
-
   const x = event.clientX
   const y = event.clientY
   const endRadius = Math.hypot(
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y)
   )
+
+  // Click point and radius as CSS variables so the keyframes can use them.
+  document.documentElement.style.setProperty('--reveal-x', `${x}px`)
+  document.documentElement.style.setProperty('--reveal-y', `${y}px`)
+  document.documentElement.style.setProperty('--reveal-r', `${endRadius}px`)
+
+  if (!isAppearanceTransition) {
+    switchTheme()
+    setTimeout(() => document.documentElement.classList.remove('theme-switching'), 300)
+    return
+  }
+
   const transition = document.startViewTransition(async () => {
     switchTheme()
     await nextTick()
   })
-  transition.ready
-    .then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`
-      ]
-      document.documentElement.animate(
-        {
-          clipPath: colorMode.value === 'dark'
-            ? [...clipPath].reverse()
-            : clipPath
-        },
-        {
-          duration: 400,
-          easing: 'ease-out',
-          // Hold the final clip until the pseudo tree is torn down, otherwise
-          // the old snapshot flashes back to full size for a frame.
-          fill: 'forwards',
-          pseudoElement: colorMode.value === 'dark'
-            ? '::view-transition-old(root)'
-            : '::view-transition-new(root)'
-        }
-      )
-    })
   transition.finished.finally(() => {
     document.documentElement.classList.remove('theme-switching')
   })
@@ -111,6 +93,36 @@ defineShortcuts({
 }
 .dark::view-transition-new(root) {
   z-index: 1;
+}
+
+/* Light to dark: the light snapshot shrinks into the click point.
+   Keyframes instead of element.animate() so the clip applies from the
+   very first painted frame, with no unclipped flash. */
+.dark::view-transition-old(root) {
+  animation: reveal-out 400ms ease-out forwards;
+}
+
+/* Dark to light: the light layer expands from the click point. */
+html:not(.dark)::view-transition-new(root) {
+  animation: reveal-in 400ms ease-out forwards;
+}
+
+@keyframes reveal-out {
+  from {
+    clip-path: circle(var(--reveal-r) at var(--reveal-x) var(--reveal-y));
+  }
+  to {
+    clip-path: circle(0px at var(--reveal-x) var(--reveal-y));
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    clip-path: circle(0px at var(--reveal-x) var(--reveal-y));
+  }
+  to {
+    clip-path: circle(var(--reveal-r) at var(--reveal-x) var(--reveal-y));
+  }
 }
 
 /* Kill color fades while the theme flips, inside the view transition too */
