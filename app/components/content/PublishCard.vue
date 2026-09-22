@@ -8,7 +8,6 @@ interface PublicationLink {
 defineProps<{
   title: string
   description: string
-  year?: number
   status?: string
   authors?: string
   tags?: string[]
@@ -27,10 +26,10 @@ defineProps<{
     </div>
     <div class="min-w-0 flex-1">
       <p
-        v-if="year || status"
+        v-if="status"
         class="text-xs text-neutral-500 uppercase tracking-wider font-medium"
       >
-        {{ [year, status].filter(Boolean).join(' · ') }}
+        {{ status }}
       </p>
       <h3 class="font-semibold text-neutral-900 dark:text-white mt-0.5">
         {{ title }}
@@ -45,7 +44,7 @@ defineProps<{
         {{ description }}
       </p>
       <div
-        v-if="$slots.tags || links?.length || tags?.length"
+        v-if="$slots.tags || tags?.length"
         class="flex flex-wrap items-center gap-2 mt-3"
       >
         <slot name="tags" />
@@ -58,6 +57,11 @@ defineProps<{
         >
           {{ tag }}
         </UBadge>
+      </div>
+      <div
+        v-if="links?.length"
+        class="flex flex-wrap items-center gap-2 mt-2.5"
+      >
         <UButton
           v-for="link in links"
           :key="link.url"

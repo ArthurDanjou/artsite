@@ -33,6 +33,15 @@ const sortedPublications = computed(() =>
   [...(publications?.body ?? [])].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
 )
 
+const groupedPublications = computed<Record<string, typeof sortedPublications.value>>(() => {
+  const groups: Record<string, typeof sortedPublications.value> = {}
+  ;(sortedPublications.value ?? []).forEach((pub) => {
+    const key = pub.year ? String(pub.year) : 'TBA'
+    ;(groups[key] ||= []).push(pub)
+  })
+  return groups
+})
+
 const displayTalks = computed(() =>
   (talks?.body ?? []).map(talk => ({
     ...talk,
@@ -77,21 +86,30 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
         Publications
       </h2>
       <div
-        v-if="publications?.body?.length"
-        class="space-y-4"
+        v-if="sortedPublications.length"
+        class="space-y-10"
       >
-        <PublishCard
-          v-for="pub in sortedPublications"
-          :key="pub.id"
-          :title="pub.title"
-          :description="pub.description"
-          :year="pub.year"
-          :status="pub.status"
-          :authors="pub.authors"
-          :tags="pub.tags"
-          :links="pub.links"
-          :icon="pub.icon"
-        />
+        <div
+          v-for="(yearPubs, year) in groupedPublications"
+          :key="year"
+        >
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
+            {{ year }}
+          </h3>
+          <div class="space-y-4">
+            <PublishCard
+              v-for="pub in yearPubs"
+              :key="pub.id"
+              :title="pub.title"
+              :description="pub.description"
+              :status="pub.status"
+              :authors="pub.authors"
+              :tags="pub.tags"
+              :links="pub.links"
+              :icon="pub.icon"
+            />
+          </div>
+        </div>
       </div>
     </section>
 
