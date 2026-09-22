@@ -17,7 +17,7 @@ defineProps<{
   <NuxtLink
     :to="to"
     :aria-label="`Open project: ${title}`"
-    class="group block h-full rounded-lg p-4 transition-colors duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+    class="group block h-full rounded-lg p-4 transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-800/50"
   >
     <div class="flex items-start gap-4">
       <div class="mt-0.5 shrink-0 flex size-10 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10 transition-colors group-hover:bg-primary-100 dark:group-hover:bg-primary-400/20">
