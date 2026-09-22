@@ -9,7 +9,7 @@ export const navs: readonly Nav[] = [
   { label: 'home', to: '/', icon: 'i-ph-house-duotone' },
   { label: 'research', to: '/research', icon: 'i-ph-flask-duotone' },
   { label: 'projects', to: '/projects', icon: 'i-ph-folder-duotone' },
-  { label: 'publications', to: '/publish', icon: 'i-ph-books-duotone' },
+  { label: 'publications', to: '/publications', icon: 'i-ph-books-duotone' },
   { label: 'telemetry', to: '/telemetry', icon: 'i-ph-activity-duotone' },
   { label: 'uses', to: '/uses', icon: 'i-ph-tree-evergreen-duotone' },
   {

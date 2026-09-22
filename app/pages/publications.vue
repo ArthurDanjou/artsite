@@ -43,7 +43,10 @@ const displayTalks = computed(() =>
 )
 
 const groupedTalks = computed(() =>
-  groupByYearDesc(displayTalks.value, talk => talk.date.match(/\d{4}/)?.[0] ? Number(talk.date.match(/\d{4}/)![0]) : undefined)
+  groupByYearDesc(displayTalks.value, (talk) => {
+    const year = talk.date.match(/\d{4}/)?.[0]
+    return year ? Number(year) : undefined
+  })
 )
 </script>
 

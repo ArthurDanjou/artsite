@@ -132,7 +132,6 @@ export default defineContentConfig({
           icon: z.string().optional(),
           tags: z.array(z.string()).optional(),
           lang: z.enum(['fr', 'en']).optional(),
-          upcoming: z.boolean().optional(),
           slides: z.string().url().nullable().optional()
         }))
       })

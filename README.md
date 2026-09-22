@@ -82,25 +82,23 @@ artsite/
 │   ├── pages/
 │   │   ├── index.vue            # Home
 │   │   ├── research.vue         # /research
-│   │   ├── publish.vue          # /publish
+│   │   ├── publications.vue     # /publications
 │   │   ├── projects/
 │   │   │   ├── index.vue        # /projects
 │   │   │   └── [slug].vue       # /projects/[slug]
-│   │   ├── talks.vue            # /talks
 │   │   ├── telemetry.vue        # /telemetry
 │   │   └── uses.vue             # /uses
 │   └── app.vue
 ├── content/
 │   ├── index.md                 # Homepage content
 │   ├── research.md              # Research page
-│   ├── publish.md               # Publications and talks page
-│   ├── publications.json        # Publications data feeding the publish page
-│   ├── talks.json               # Talks data (upcoming and past)
+│   ├── publications.md          # Publications and talks page
+│   ├── publications.json        # Publications data feeding the publications page
+│   ├── talks.json               # Talks data
 │   ├── uses.md                  # Hardware and software setup
 │   ├── telemetry.md             # Live telemetry page
 │   ├── projects/*.md            # Project pages
 │   ├── skills.json              # Skills data
-│   ├── talks.json               # Talks data (upcoming and past)
 │   ├── languages.json           # Languages data
 │   └── contact.json             # Contact links
 ├── server/
@@ -124,7 +122,7 @@ artsite/
 |---|---|
 | `/` | Home with research focus, skills, news, and quotes |
 | `/research` | Research interests and thesis direction |
-| `/publish` | Publications and talks, with slides when available |
+| `/publications` | Publications and talks, with slides when available |
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
 | `/telemetry` | Live homelab telemetry with environment, status, and activity |

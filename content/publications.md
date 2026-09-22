@@ -2,7 +2,7 @@
 title: Publications & Talks
 description: My publications, including the Krum library paper in preparation at JMLR MLOSS, and my academic talks on Byzantine-resilient aggregation.
 sitemap:
-  loc: /publish
+  loc: /publications
 ---
 
 # Publications & Talks
