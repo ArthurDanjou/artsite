@@ -7,7 +7,7 @@ useIntervalFn(refresh, 60_000)
 
 const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
 const hasNoData = computed(
-  () => !isLoading.value && (!data.value || data.value.total === 0)
+  () => !isLoading.value && (!data.value || metrics.value.total === 0)
 )
 
 const metrics = computed(() => {
@@ -15,11 +15,16 @@ const metrics = computed(() => {
     return { up: 0, down: 0, maintenance: 0, total: 0, uptime: 0 }
   }
 
+  const total = data.value.up
+    + data.value.down
+    + (data.value.degraded ?? 0)
+    + (data.value.maintenance ?? 0)
+
   return {
     up: data.value.up,
     down: data.value.down,
     maintenance: data.value.maintenance ?? 0,
-    total: data.value.total,
+    total,
     uptime: Number(data.value.uptime)
   }
 })

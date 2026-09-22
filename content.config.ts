@@ -51,9 +51,9 @@ export default defineContentConfig({
       source: 'research.md',
       schema: pageSeoSchema
     }),
-    publish: defineCollection({
+    publicationsPage: defineCollection({
       type: 'page',
-      source: 'publish.md',
+      source: 'publications.md',
       schema: pageSeoSchema
     }),
     publications: defineCollection({

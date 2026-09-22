@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-const { data: page } = await useAsyncData('publish', () => {
-  return queryCollection('publish').first()
+const { data: page } = await useAsyncData('publicationsPage', () => {
+  return queryCollection('publicationsPage').first()
 })
 
 const { publications, talks } = await useContent()
 
 const title = page.value?.title ?? 'Publications & Talks'
-const description = page.value?.description ?? 'My publications, including the Krum library paper in preparation at JMLR MLOSS, and my academic talks on Byzantine-resilient aggregation.'
+const description = page.value?.description ?? 'My publications and talks.'
 
 const head = {
   title,
@@ -31,18 +31,9 @@ const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl tex
 
 const yearHeadingClass = 'w-full mt-6 mb-3 font-mono font-bold text-2xl md:text-4xl text-transparent opacity-25 dark:opacity-40 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-1'
 
-const sortedPublications = computed(() =>
-  [...(publications?.body ?? [])].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
+const groupedPublications = computed(() =>
+  groupByYearDesc(publications?.body ?? [], pub => pub.year)
 )
-
-const groupedPublications = computed<Record<string, typeof sortedPublications.value>>(() => {
-  const groups: Record<string, typeof sortedPublications.value> = {}
-  ;(sortedPublications.value ?? []).forEach((pub) => {
-    const key = pub.year ? String(pub.year) : 'TBA'
-    ;(groups[key] ||= []).push(pub)
-  })
-  return groups
-})
 
 const displayTalks = computed(() =>
   (talks?.body ?? []).map(talk => ({
@@ -51,28 +42,9 @@ const displayTalks = computed(() =>
   }))
 )
 
-const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
-  const groups: Record<string, typeof displayTalks.value> = {}
-  ;(displayTalks.value ?? []).forEach((talk) => {
-    const yearMatch = talk.date.match(/\d{4}/)
-    const key = yearMatch ? yearMatch[0] : 'TBA'
-    ;(groups[key] ||= []).push(talk)
-  })
-
-  return Object.fromEntries(
-    Object.entries(groups).sort(([a], [b]) => {
-      const aNum = Number(a)
-      const bNum = Number(b)
-      const aIsYear = Number.isFinite(aNum)
-      const bIsYear = Number.isFinite(bNum)
-
-      if (aIsYear && bIsYear) return bNum - aNum
-      if (aIsYear) return -1
-      if (bIsYear) return 1
-      return a.localeCompare(b)
-    })
-  )
-})
+const groupedTalks = computed(() =>
+  groupByYearDesc(displayTalks.value, talk => talk.date.match(/\d{4}/)?.[0] ? Number(talk.date.match(/\d{4}/)![0]) : undefined)
+)
 </script>
 
 <template>
@@ -88,7 +60,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
         Publications
       </h2>
       <div
-        v-if="sortedPublications.length"
+        v-if="publications?.body?.length"
         class="space-y-10"
       >
         <div
@@ -128,7 +100,7 @@ const grouped = computed<Record<string, typeof displayTalks.value>>(() => {
         class="space-y-10"
       >
         <div
-          v-for="(yearTalks, year) in grouped"
+          v-for="(yearTalks, year) in groupedTalks"
           :key="year"
           class="relative"
         >
