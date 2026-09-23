@@ -79,3 +79,30 @@
 .handwriting {
   font-family: 'Dancing Script', cursive;
 }
+
+/* Spec-sheet blocks on /uses: bordered node columns rendered from markdown.
+   Targets direct children because MDC inline classes cannot use variants. */
+.lab-node {
+  border-left: 2px solid var(--ui-border-accented, var(--ui-border));
+  padding-left: 1rem;
+}
+
+.lab-node > h4 {
+  margin: 0 0 0.375rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ui-muted);
+}
+
+.lab-node > h4 a {
+  text-decoration: none;
+}
+
+.lab-node > p {
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}

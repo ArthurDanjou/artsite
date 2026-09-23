@@ -22,7 +22,7 @@ Six tools, six configuration formats, six locations: Zed wants `context_servers`
 
 ## One Source of Truth
 
-Three versioned inputs generate everything else, following the pattern of [theme-artlab](https://github.com/ArthurDanjou/theme-artlab): one source of truth, multiple platform outputs.
+Three versioned inputs generate everything else, following the pattern of [ArtLab Theme](/projects/artlab-theme): one source of truth, multiple platform outputs.
 
 - **`scripts/servers.ts`**: the single list of MCP servers (command, args, env, remote URLs). Secrets are never hardcoded: values resolve from `process.env` at build time, and unset variables simply omit the `env` block.
 - **`skills/`**: 35 curated agent skills, symlinked into `~/.agents/skills`, `~/.claude/skills`, `~/.config/opencode/skills` and `~/.codex/skills` so every provider sees the same set.
