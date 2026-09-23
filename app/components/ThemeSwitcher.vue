@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
 const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
+const buttonRef = ref<{ $el?: HTMLElement } | null>(null)
 
 function switchTheme() {
   // Freeze every CSS transition while the theme flips, so the view
@@ -9,13 +10,15 @@ function switchTheme() {
   colorMode.preference = nextTheme.value
 }
 
-function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
+function toggleDark(event?: MouseEvent | { clientX: number, clientY: number }) {
   // @ts-expect-error experimental API
   const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const x = event.clientX
-  const y = event.clientY
+  // Default to the button center (keyboard shortcut), or the actual click point.
+  const rect = buttonRef.value?.$el?.getBoundingClientRect()
+  const x = event?.clientX ?? (rect ? rect.left + rect.width / 2 : innerWidth / 2)
+  const y = event?.clientY ?? (rect ? rect.top + rect.height / 2 : 0)
   const endRadius = Math.hypot(
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y)
@@ -42,7 +45,7 @@ function toggleDark(event: MouseEvent | { clientX: number, clientY: number }) {
 }
 
 defineShortcuts({
-  t: () => toggleDark({ clientX: window.innerWidth, clientY: 0 })
+  t: () => toggleDark()
 })
 </script>
 
@@ -55,6 +58,7 @@ defineShortcuts({
       :delay-duration="4"
     >
       <UButton
+        ref="buttonRef"
         :icon="nextTheme === 'dark' ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"
         color="neutral"
         aria-label="switch theme"
