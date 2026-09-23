@@ -14,16 +14,8 @@
           "icon": "i-logos-pytorch-icon"
         },
         {
-          "name": "R Lang",
-          "icon": "i-logos-r-lang"
-        },
-        {
           "name": "LaTeX",
           "icon": "i-file-icons-latex"
-        },
-        {
-          "name": "Tensorflow",
-          "icon": "i-logos-tensorflow"
         },
         {
           "name": "Scikit-Learn",
@@ -40,21 +32,21 @@
         {
           "name": "MatPlotLib",
           "icon": "i-devicon-matplotlib"
+        },
+        {
+          "name": "Hugging Face",
+          "icon": "i-logos-hugging-face-icon"
         }
       ]
     },
     {
-      "id": "data-engineering-mlops",
-      "name": "Data Engineering & MLOps",
+      "id": "infrastructure-self-hosting",
+      "name": "Infrastructure & Self-Hosting",
       "description": "Infrastructure, data pipelines, and production deployment. Managing databases, containerization, and scalable systems for ML models.",
       "items": [
         {
           "name": "PostgreSQL",
           "icon": "i-logos-postgresql"
-        },
-        {
-          "name": "MySQL",
-          "icon": "i-logos-mysql-icon"
         },
         {
           "name": "Docker",
@@ -89,10 +81,6 @@
           "icon": "i-logos-redis"
         },
         {
-          "name": "Apache Spark (PySpark)",
-          "icon": "i-logos-apache-spark"
-        },
-        {
           "name": "Cloudflare",
           "icon": "i-logos-cloudflare-icon"
         }
@@ -112,20 +100,39 @@
           "icon": "i-logos-nuxt-icon"
         },
         {
-          "name": "Java",
-          "icon": "i-logos-java"
-        },
-        {
           "name": "TailwindCSS",
           "icon": "i-logos-tailwindcss-icon"
         },
         {
-          "name": "AdonisJs",
-          "icon": "i-logos-adonisjs-icon"
-        },
-        {
           "name": "Gradio",
           "icon": "i-logos-gradio-icon"
+        }
+      ]
+    },
+    {
+      "id": "ai-tooling",
+      "name": "AI Tooling",
+      "description": "AI coding agents and developer tooling for assisted research and engineering workflows.",
+      "items": [
+        {
+          "name": "Claude Code",
+          "icon": "i-simple-icons-anthropic"
+        },
+        {
+          "name": "OpenCode",
+          "icon": "i-material-symbols-deployed-code"
+        },
+        {
+          "name": "Codex",
+          "icon": "i-simple-icons-openai"
+        },
+        {
+          "name": "Orca",
+          "icon": "i-ph-browser-duotone"
+        },
+        {
+          "name": "Plannotator",
+          "icon": "i-ph-paper-plane-tilt-duotone"
         }
       ]
     },
