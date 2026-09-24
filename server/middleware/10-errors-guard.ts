@@ -2,6 +2,7 @@
 // also applies to SSR, curl, and non-JS clients. Host literals are duplicated
 // here on purpose to keep the server bundle free of app imports.
 const ERRORS_HOSTNAME = 'errors.arthurdanjou.fr'
+const CANONICAL_HOSTNAME = 'arthurdanjou.fr'
 const MAIN_HOSTNAMES = ['arthurdanjou.fr', 'www.arthurdanjou.fr']
 
 const PASSTHROUGH_PREFIXES = ['/api/', '/_nuxt/', '/_ipx/', '/__nuxt', '/.well-known/']
@@ -20,6 +21,13 @@ export default defineEventHandler((event) => {
 
   if (isErrorsHost) {
     setHeader(event, 'X-Robots-Tag', 'noindex, nofollow')
+  }
+
+  // Canonical domain: www -> root (replaces the @nuxtjs/seo canonical redirect,
+  // disabled so it does not 301 the errors subdomain). Assets keep serving
+  // directly, like the module did.
+  if (host === 'www.arthurdanjou.fr' && !isAsset(pathname)) {
+    return sendRedirect(event, `https://${CANONICAL_HOSTNAME}${pathname}${search}`, 301)
   }
 
   if (pathname === '/errors' && isMainHost) {

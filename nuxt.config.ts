@@ -228,7 +228,10 @@ export default defineNuxtConfig({
   },
 
   seo: {
-    redirectToCanonicalSiteUrl: true
+    // Disabled: the module 301-redirects EVERY non-canonical host (including
+    // errors.arthurdanjou.fr) with no per-host opt-out. The www -> root
+    // canonicalization is handled manually in server/middleware/10-errors-guard.ts.
+    redirectToCanonicalSiteUrl: false
   },
 
   sitemap: {
