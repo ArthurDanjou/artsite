@@ -142,7 +142,11 @@ export default defineNuxtConfig({
 
     prerender: {
       routes: ['/'],
-      crawlLinks: true
+      crawlLinks: true,
+      // The Traefik fallback page is fully dynamic (error code from query,
+      // host gating, per-request HTTP status): never prerender it, even when
+      // the crawler spots it inside the inlined robots debug payload.
+      ignore: ['/errors']
     },
 
     externals: {
@@ -195,7 +199,7 @@ export default defineNuxtConfig({
   },
 
   robots: {
-    disallow: ['/studio']
+    disallow: ['/studio', '/errors']
   },
 
   schemaOrg: {
