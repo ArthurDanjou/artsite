@@ -37,7 +37,7 @@
     "rehype-katex": "7.0.1",
     "remark-math": "6.0.0",
     "satori": "0.33.3",
-    "vue": "3.5.41",
+    "vue": "3.5.42",
     "vue-router": "5.2.0",
     "zod": "4.4.3"
   },
