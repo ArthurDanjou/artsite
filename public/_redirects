@@ -1,4 +1,0 @@
-# Canonical domain: redirect www to root at the edge, including prerendered
-# static assets (which never reach the worker). Worker-side handling in
-# server/middleware/10-errors-guard.ts covers dynamic paths as a fallback.
-https://www.arthurdanjou.fr/* https://arthurdanjou.fr/:splat 301
