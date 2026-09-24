@@ -3,7 +3,6 @@
 // here on purpose to keep the server bundle free of app imports.
 const ERRORS_HOSTNAME = 'errors.arthurdanjou.fr'
 const CANONICAL_HOSTNAME = 'arthurdanjou.fr'
-const MAIN_HOSTNAMES = ['arthurdanjou.fr', 'www.arthurdanjou.fr']
 
 const PASSTHROUGH_PREFIXES = ['/api/', '/_nuxt/', '/_ipx/', '/__nuxt', '/.well-known/']
 
@@ -17,7 +16,6 @@ export default defineEventHandler((event) => {
   const host = (getRequestHost(event) || '').split(':')[0].toLowerCase()
   const { pathname, search } = getRequestURL(event)
   const isErrorsHost = host === ERRORS_HOSTNAME
-  const isMainHost = MAIN_HOSTNAMES.includes(host)
 
   if (isErrorsHost) {
     setHeader(event, 'X-Robots-Tag', 'noindex, nofollow')
@@ -30,10 +28,10 @@ export default defineEventHandler((event) => {
     return sendRedirect(event, `https://${CANONICAL_HOSTNAME}${pathname}${search}`, 301)
   }
 
-  if (pathname === '/errors' && isMainHost) {
-    throw createError({ statusCode: 404, statusMessage: 'Not Found' })
-  }
-
+  // The /errors page is served on every host with HTTP 200 (the error
+  // code lives in the query and the rendered content, never in the
+  // status): the Traefik errors middleware replays the original status
+  // itself, and a throw here would break its fallback chain.
   if (isErrorsHost && pathname !== '/errors' && !isAsset(pathname)) {
     return sendRedirect(event, `/errors${search}`, 302)
   }

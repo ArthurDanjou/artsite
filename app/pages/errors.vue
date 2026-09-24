@@ -125,10 +125,12 @@ useSeoMeta({
   robots: 'noindex, nofollow'
 })
 
-// Reflect the error code in the HTTP status for direct visits and curl.
+// Always respond 200 with the error content inside: the Traefik errors
+// middleware replays the original status itself, and a non-2xx from the
+// error service can break the fallback chain.
 const requestEvent = useRequestEvent()
 if (requestEvent) {
-  setResponseStatus(requestEvent, statusCode.value)
+  setResponseStatus(requestEvent, 200)
 }
 
 interface StatusPageSummary {
