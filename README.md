@@ -154,7 +154,7 @@ The server exposes read only JSON endpoints for the frontend sections, a Home As
 
 ## SEO & AEO
 
-- **Crawl** — `/robots.txt` (with `Content-Usage` / `Content-Signal` allow-all), `/sitemap.xml` (28 URLs incl. all `/projects/:slug` via `server/api/__sitemap__/urls.ts`).
+- **Crawl** — `/robots.txt` (allows search and RAG/grounding, refuses AI training via `Content-Usage` / `Content-Signal`), `/sitemap.xml` (28 URLs incl. all `/projects/:slug` via `server/api/__sitemap__/urls.ts`).
 - **Share** — Satori OG images (`Pergel.satori`), canonical URLs, Schema.org `Person` identity, breadcrumbs and per-project `Article`.
 - **AI Ready** — `/llms.txt` + `/llms-full.txt`, every route as `.md`, `/sitemap.md`, `rel="describedby"` headers, D1-backed index restored from the build dump, `/mcp` tools (`list_pages`, `search_pages`, `get_page_markdown`), WebMCP, SEP-2127 server card + `/.well-known/ai-catalog.json`, RFC 9727 `/.well-known/api-catalog`, Agent Skill `portfolio`, runtime sync (`/__ai-ready/*`, cron every 5 min) and IndexNow submission on `contentChanged`.
 - **Skew Protection** — polling every 5 min with `<SkewNotification>` prompt; previous build assets cached in CI (`node_modules/.cache/nuxt-seo`).
