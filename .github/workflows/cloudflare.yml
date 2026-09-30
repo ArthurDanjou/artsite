@@ -36,6 +36,12 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Cache for Nuxt SEO (Skew Protection)
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/nuxt-seo
+          key: deployment-${{ github.ref_name }}
+
       - name: Setup Wrangler Types
         uses: cloudflare/wrangler-action@v4
         with:
@@ -57,6 +63,9 @@ jobs:
           STUDIO_GITHUB_CLIENT_ID: ${{ secrets.STUDIO_GITHUB_CLIENT_ID }}
           STUDIO_GITHUB_CLIENT_SECRET: ${{ secrets.STUDIO_GITHUB_CLIENT_SECRET }}
           STUDIO_GITHUB_MODERATORS: ${{ secrets.STUDIO_GITHUB_MODERATORS }}
+          NUXT_AI_READY_RUNTIME_SYNC_SECRET: ${{ secrets.NUXT_AI_READY_RUNTIME_SYNC_SECRET }}
+          NUXT_INDEX_NOW_KEY: ${{ secrets.NUXT_INDEX_NOW_KEY }}
+          NUXT_INDEX_NOW_SITE_URL: https://arthurdanjou.fr
 
       - name: Determine Deployment Command
         id: target
