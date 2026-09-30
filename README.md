@@ -24,6 +24,8 @@ This repository contains my personal portfolio and research site. It presents my
 - **UI** — [Nuxt UI v4](https://ui.nuxt.com/) plus Tailwind CSS
 - **Content** — [Nuxt Content](https://content.nuxt.com/) with Zod schemas in `content.config.ts`
 - **Math** — remark-math and rehype-katex for formulas, plus Satori for OG images
+- **SEO** — [@nuxtjs/seo](https://nuxtseo.com/) bundle (Robots, Sitemap, OG Image, Schema.org, Link Checker, SEO Utils, Site Config)
+- **AEO** — [nuxt-ai-ready](https://nuxtseo.com/docs/ai-ready/getting-started/introduction) (`/llms.txt`, `/llms-full.txt`, `.md` twins, `/sitemap.md`, MCP at `/mcp`, WebMCP, Content Signals, Agent Skills, IndexNow) plus [nuxt-skew-protection](https://nuxtseo.com/docs/skew-protection/getting-started/introduction) (polling + update prompt)
 - **Data** — Cloudflare D1 through SQLite and Drizzle, with Cloudflare KV cache
 - **Deployment** — [NuxtHub](https://hub.nuxt.com/) and Wrangler on Cloudflare
 - **Package Manager** — [Bun](https://bun.sh/)
@@ -61,6 +63,9 @@ NUXT_HA_URL=           # Home Assistant instance URL
 NUXT_HA_TOKEN=         # Home Assistant long-lived access token
 NUXT_DISCORD_USER_ID=  # Discord user ID for activity
 NUXT_WAKATIME_*        # WakaTime API keys (optional)
+NUXT_AI_READY_RUNTIME_SYNC_SECRET=  # Stable secret for /__ai-ready/* admin endpoints (required when cron/runtimeSync is enabled)
+NUXT_INDEX_NOW_KEY=    # 32-char hex key for IndexNow submissions (optional)
+NUXT_INDEX_NOW_SITE_URL=https://arthurdanjou.fr
 ```
 
 Only `NUXT_HA_URL` plus `NUXT_HA_TOKEN` are needed for the live status widget. The site works without any env vars.
@@ -103,11 +108,20 @@ artsite/
 │   └── contact.json             # Contact links
 ├── server/
 │   ├── api/                     # Read endpoints (projects, skills, talks, languages, contact, stats, activity)
+│   │   ├── __sitemap__/         # Dynamic sitemap source (project URLs)
 │   │   └── ha/                  # Home Assistant proxy (status, media, media-cover, monitors)
 │   ├── routes/
+│   │   ├── indexnow-key.txt.get.ts  # IndexNow ownership verification
 │   │   └── resumes/             # Static PDF resume endpoints (en, fr)
+│   ├── plugins/
+│   │   ├── ai-ready-markdown.ts # mdream excludes + .md provenance footer
+│   │   └── indexnow.ts          # Submit changed pages to IndexNow on reindex
+│   ├── utils/
+│   │   └── indexnow.ts          # IndexNow submission helper
 │   └── db/
 │       └── migrations/          # SQLite migrations
+├── skills/
+│   └── portfolio/SKILL.md       # Agent Skill published via AI Ready discovery
 ├── types/                       # TypeScript definitions plus navigation config
 ├── nuxt.config.ts
 ├── content.config.ts            # Content collections with Zod schemas
@@ -137,6 +151,15 @@ Page collections use `pageSeoSchema` and pair one Markdown file with one page co
 ## API Overview
 
 The server exposes read only JSON endpoints for the frontend sections, a Home Assistant proxy under `server/api/ha/`, and resume file routes under `server/routes/resumes/`. Responses are cached through Cloudflare KV where configured.
+
+## SEO & AEO
+
+- **Crawl** — `/robots.txt` (with `Content-Usage` / `Content-Signal` allow-all), `/sitemap.xml` (28 URLs incl. all `/projects/:slug` via `server/api/__sitemap__/urls.ts`).
+- **Share** — Satori OG images (`Pergel.satori`), canonical URLs, Schema.org `Person` identity, breadcrumbs and per-project `Article`.
+- **AI Ready** — `/llms.txt` + `/llms-full.txt`, every route as `.md`, `/sitemap.md`, `rel="describedby"` headers, D1-backed index restored from the build dump, `/mcp` tools (`list_pages`, `search_pages`, `get_page_markdown`), WebMCP, SEP-2127 server card + `/.well-known/ai-catalog.json`, RFC 9727 `/.well-known/api-catalog`, Agent Skill `portfolio`, runtime sync (`/__ai-ready/*`, cron every 5 min) and IndexNow submission on `contentChanged`.
+- **Skew Protection** — polling every 5 min with `<SkewNotification>` prompt; previous build assets cached in CI (`node_modules/.cache/nuxt-seo`).
+
+Verify after deploy: `/llms.txt`, `/llms-full.txt`, `/sitemap.md`, `/research.md`, `/robots.txt`, `/sitemap.xml`, `/mcp` (Streamable HTTP), `/indexnow-key.txt` (once `NUXT_INDEX_NOW_KEY` is set).
 
 ## Deployment
 
