@@ -225,13 +225,13 @@ export default defineNuxtConfig({
     },
     sitemapMd: true,
     describedby: true,
-    // Publish AI usage preferences in robots.txt. Allow search, RAG/grounding
-    // and training so AI search can cite the portfolio. Relies on crawlers
-    // honoring Content-Usage / Content-Signal.
+    // Publish AI usage preferences in robots.txt. Allow search indexing and
+    // RAG/grounding so AI search can cite the portfolio, but refuse model
+    // training. Relies on crawlers honoring Content-Usage / Content-Signal.
     contentSignal: {
       search: true,
       aiInput: true,
-      aiTrain: true
+      aiTrain: false
     },
     // Reuse the existing Cloudflare D1 binding (see wrangler.jsonc). Build
     // prerendering writes __ai-ready/pages.dump, the Worker restores it into

@@ -24,23 +24,28 @@ const projectWithBody = computed(() => {
 const title = project.value.title
 const description = project.value.description
 
+// Meta-only truncation: the visible h1 and page copy keep the full text,
+// search and social tags stay within display limits (60 / 155 chars).
+const metaTitle = truncateMetaText(title, 60)
+const metaDescription = truncateMetaText(description, 155)
+
 const [ogImageUrl] = defineOgImage('Pergel.satori', {
-  title,
-  description,
+  title: metaTitle,
+  description: metaDescription,
   headline: 'Arthur Danjou\u2019s Projects'
 })
 
 useSeoMeta({
-  title,
-  description,
-  ogTitle: `${title} • Arthur Danjou`,
-  ogDescription: description
+  title: metaTitle,
+  description: metaDescription,
+  ogTitle: `${metaTitle} • Arthur Danjou`,
+  ogDescription: metaDescription
 })
 
 useSchemaOrg([
   defineArticle({
     headline: title,
-    description,
+    description: metaDescription,
     datePublished: project.value.publishedAt,
     image: ogImageUrl
   })
