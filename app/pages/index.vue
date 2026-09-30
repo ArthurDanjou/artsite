@@ -9,19 +9,21 @@ const description = page.value?.description ?? 'AI Research Intern at CMAP, Ecol
 const head = {
   title,
   description,
+  // Meta-only truncation: frontmatter copy stays untouched.
+  metaDescription: truncateMetaText(description, 155),
   headline: 'Arthur Danjou’s Research'
 }
 
 useSeoMeta({
   title: head.title,
-  description: head.description,
+  description: head.metaDescription,
   ogTitle: `Arthur Danjou • ${head.title}`,
-  ogDescription: head.description
+  ogDescription: head.metaDescription
 })
 
 defineOgImage('Pergel.satori', {
   title: head.title,
-  description: head.description,
+  description: head.metaDescription,
   headline: head.headline
 })
 </script>
