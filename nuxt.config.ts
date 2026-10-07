@@ -130,7 +130,10 @@ export default defineNuxtConfig({
 
   experimental: {
     viewTransition: true,
-    checkOutdatedBuildInterval: 5 * 60 * 1000
+    checkOutdatedBuildInterval: 5 * 60 * 1000,
+    routeTypedFetch: true,
+    strictRouteTypes: true,
+    early404: true
   },
   compatibilityDate: '2026-02-24',
 
@@ -140,32 +143,8 @@ export default defineNuxtConfig({
       openAPI: true
     },
 
-    // Use the dev-only wrangler config (no ASSETS binding) so @nuxt/content
-    // serves its dumps from .nuxt/content/raw instead of the empty .output/public.
     cloudflareDev: {
       configPath: 'wrangler.dev.jsonc'
-    },
-
-    prerender: {
-      routes: [
-        '/',
-        '/projects',
-        '/publications',
-        '/research',
-        '/telemetry',
-        '/uses',
-        '/sitemap.xml',
-        '/robots.txt',
-        '/llms.txt',
-        '/llms-full.txt',
-        '/sitemap.md'
-      ],
-      crawlLinks: true,
-      // The Traefik fallback page is fully dynamic (error code from query,
-      // host gating, per-request HTTP status): never prerender it, even when
-      // the crawler spots it inside the inlined robots debug payload.
-      // Studio, APIs and module internals are runtime-only as well.
-      ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp']
     },
 
     externals: {
@@ -189,8 +168,6 @@ export default defineNuxtConfig({
   },
 
   aiReady: {
-    // llms.txt index + llms-full.txt export. `markdownLinks: true` points
-    // agents to the static .md twins of prerendered pages.
     llmsTxt: {
       markdownLinks: true,
       notes: [
@@ -225,23 +202,15 @@ export default defineNuxtConfig({
     },
     sitemapMd: true,
     describedby: true,
-    // Publish AI usage preferences in robots.txt. Allow search indexing and
-    // RAG/grounding so AI search can cite the portfolio, but refuse model
-    // training. Relies on crawlers honoring Content-Usage / Content-Signal.
     contentSignal: {
       search: true,
       aiInput: true,
       aiTrain: false
     },
-    // Reuse the existing Cloudflare D1 binding (see wrangler.jsonc). Build
-    // prerendering writes __ai-ready/pages.dump, the Worker restores it into
-    // D1 on first query. Enables MCP tools, runtime llms-full.txt and search.
     database: {
       type: 'd1',
       bindingName: 'DB'
     },
-    // Prefer raw Markdown from @nuxt/content collections, fall back to
-    // rendered HTML conversion for dynamic pages.
     contentSource: true,
     tools: {
       listPages: {
@@ -260,12 +229,7 @@ export default defineNuxtConfig({
       description: 'Search and read arthurdanjou.fr research portfolio pages.',
       websiteUrl: 'https://arthurdanjou.fr'
     },
-    // Expose list_pages / search_pages / get_page_markdown to browser agents.
     webmcp: true,
-    // Dynamic content only changes on deploy (static portfolio), but runtime
-    // sync keeps the D1 index fresh between builds and powers the
-    // /__ai-ready/* admin endpoints. Secret must be stable across deploys:
-    // set NUXT_AI_READY_RUNTIME_SYNC_SECRET in the environment.
     runtimeSync: {
       ttl: 3600,
       batchSize: 50
@@ -319,12 +283,25 @@ export default defineNuxtConfig({
     }
   },
 
+  prerender: {
+    routes: [
+      '/',
+      '/projects',
+      '/publications',
+      '/research',
+      '/telemetry',
+      '/uses',
+      '/sitemap.xml',
+      '/robots.txt',
+      '/llms.txt',
+      '/llms-full.txt',
+      '/sitemap.md'
+    ],
+    crawlLinks: true,
+    ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp']
+  },
+
   robots: {
-    // Wildcard group: index everything except app internals. The sitemap URL
-    // is injected automatically and AI Ready appends Content-Usage /
-    // Content-Signal lines from `aiReady.contentSignal` below.
-    // AI crawlers (GPTBot, ClaudeBot, ...) stay allowed on purpose: AEO
-    // citation requires readable pages, llms.txt and .md endpoints.
     disallow: ['/studio', '/errors', '/api/', '/__ai-ready/', '/__skew/', '/mcp']
   },
 
@@ -354,9 +331,6 @@ export default defineNuxtConfig({
   },
 
   seo: {
-    // Disabled: the module 301-redirects EVERY non-canonical host (including
-    // errors.arthurdanjou.fr) with no per-host opt-out. The www -> root
-    // canonicalization is handled manually in server/middleware/10-errors-guard.ts.
     redirectToCanonicalSiteUrl: false
   },
 
@@ -380,11 +354,6 @@ export default defineNuxtConfig({
   },
 
   skewProtection: {
-    // Cloudflare Workers (cloudflare_module preset) has no persistent
-    // connections: poll for new deployments every 5 min (see
-    // experimental.checkOutdatedBuildInterval above). Previous build assets
-    // stay available across deploys via the fs cache restored in CI
-    // (.github/workflows/cloudflare.yml).
     updateStrategy: 'polling',
     reloadStrategy: 'prompt',
     multiTab: true,

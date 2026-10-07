@@ -9,7 +9,6 @@ const description = page.value?.description ?? 'AI Research Intern at CMAP, Ecol
 const head = {
   title,
   description,
-  // Meta-only truncation: frontmatter copy stays untouched.
   metaDescription: truncateMetaText(description, 155),
   headline: 'Arthur Danjou’s Research'
 }

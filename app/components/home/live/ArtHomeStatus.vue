@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { HAStatus, StatsCard } from '~~/types'
 
-const { data: ha, refresh, pending, error } = useFetch<HAStatus>('/api/ha/status', {
+const { data: ha, pending, error } = useLiveFetch<HAStatus>('/api/ha/status', {
   server: false,
-  lazy: true
+  lazy: true,
+  pollInterval: 120_000
 })
-useLiveRefresh(refresh, 120_000)
 
 const weatherIcons: Record<string, { icon: string, color: string }> = {
   'sunny': { icon: 'i-ph-sun-duotone', color: 'text-yellow-500' },

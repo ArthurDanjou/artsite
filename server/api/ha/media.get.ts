@@ -30,8 +30,6 @@ export default defineCachedEventHandler(async (event) => {
   const players = mediaStates.map((s) => {
     const a = s.attributes
     const rawArtwork = toStringOrNull(a.entity_picture)
-    // Keep raw path; frontend will use proxy endpoint for auth.
-    // Also provide absolute fallback for public HA.
     let artwork: string | null = null
     if (rawArtwork) {
       if (rawArtwork.startsWith('http')) artwork = rawArtwork
@@ -53,7 +51,6 @@ export default defineCachedEventHandler(async (event) => {
     }
   })
 
-  // Prioritise Music Assistant players that are playing with a title
   const isMA = (p: typeof players[number]) =>
     p.app_name?.toLowerCase().includes('music assistant')
     || p.entity_id.toLowerCase().includes('mass')
@@ -67,8 +64,6 @@ export default defineCachedEventHandler(async (event) => {
     nowPlaying = (maPlaying.length ? maPlaying[0] : playing[0]) ?? null
   }
 
-  // If nothing playing but something paused with metadata, keep null (idle handled in UI)
-  // Return also non-playing players for debugging, but limit to those with some metadata or active
   const relevantPlayers = players.filter(p =>
     p.state === 'playing' || p.state === 'paused' || p.title || isMA(p)
   )

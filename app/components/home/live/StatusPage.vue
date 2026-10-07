@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-const { data, status, error, refresh } = useFetch('/api/ha/monitors', {
+const { data, status, error } = useLiveFetch('/api/ha/monitors', {
   server: false,
-  lazy: true
+  lazy: true,
+  pollInterval: 60_000
 })
-useLiveRefresh(refresh, 60_000)
 
 const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
 const hasNoData = computed(
