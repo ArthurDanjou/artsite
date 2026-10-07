@@ -13,7 +13,6 @@ export default defineEventHandler(async (event) => {
   const headers = { Authorization: `Bearer ${config.ha.token}` }
   const base = config.ha.url.replace(/\/$/, '')
 
-  // Fetch entity to get fresh entity_picture path
   const state = await $fetch<{ attributes: Record<string, unknown> }>(
     `${base}/api/states/${entityId}`,
     { headers }
@@ -24,10 +23,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, message: 'No artwork' })
   }
 
-  // HA returns relative path like /api/media_player_proxy/...
   const url = pic.startsWith('http') ? pic : `${base}${pic}`
 
-  // Proxy the image with auth
   const res = await fetch(url, { headers })
   if (!res.ok || !res.body) {
     throw createError({ statusCode: res.status || 404, message: 'Artwork fetch failed' })
@@ -36,6 +33,5 @@ export default defineEventHandler(async (event) => {
   const contentType = res.headers.get('content-type') || 'image/jpeg'
   setHeader(event, 'content-type', contentType)
   setHeader(event, 'cache-control', 'public, max-age=60, stale-while-revalidate=30')
-  // Allow frontend to cache aggressively
   return sendStream(event, res.body as unknown as ReadableStream)
 })

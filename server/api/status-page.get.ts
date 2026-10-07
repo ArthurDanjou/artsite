@@ -1,7 +1,5 @@
 import type { StatusMaintenance, StatusPageData } from '../../types/status'
 
-// Public Uptime Kuma status page. No secret required and independent from
-// Home Assistant, so the error page stays informative even when HA is down.
 const STATUS_PAGE_BASE = 'https://status.arthurdanjou.fr'
 const STATUS_PAGE_SLUG = 'homelab'
 
@@ -25,7 +23,6 @@ interface StatusIncident {
   active?: boolean | number | null
 }
 
-// Uptime Kuma monitor statuses: 0 = down, 1 = up, 2 = pending, 3 = maintenance.
 function lastStatus(list: HeartbeatEntry[] | undefined): number | null {
   if (!list || list.length === 0) return null
   return list[list.length - 1]?.status ?? null
@@ -80,7 +77,6 @@ export default defineCachedEventHandler(async (event) => {
     }
   }
 
-  // Fallback on the Home Assistant monitors when the status page is unreachable.
   const ha = await event.$fetch('/api/ha/monitors').catch(() => null) as {
     updatedAt: string
     total: number

@@ -125,9 +125,6 @@ useSeoMeta({
   robots: 'noindex, nofollow'
 })
 
-// Always respond 200 with the error content inside: the Traefik errors
-// middleware replays the original status itself, and a non-2xx from the
-// error service can break the fallback chain.
 const requestEvent = useRequestEvent()
 if (requestEvent) {
   setResponseStatus(requestEvent, 200)
@@ -145,10 +142,10 @@ interface StatusPageSummary {
   maintenanceActive: { title: string } | null
 }
 
-const { data: monitors, status: monitorsStatus, refresh: refreshMonitors } = useFetch<StatusPageSummary | null>('/api/status-page', {
-  lazy: true
+const { data: monitors, status: monitorsStatus } = useLiveFetch<StatusPageSummary | null>('/api/status-page', {
+  lazy: true,
+  pollInterval: 30_000
 })
-useLiveRefresh(refreshMonitors, 30_000)
 
 const monitorsLoading = computed(() => monitorsStatus.value === 'pending' || monitorsStatus.value === 'idle')
 const hasMonitors = computed(() => !!monitors.value && monitors.value.total > 0)
@@ -174,10 +171,6 @@ const currentYear = new Date().getFullYear()
 
 const isErrorsHost = useIsErrorsHost()
 
-// Real Traefik flow: the browser URL is already the service URL, so a plain
-// reload retries the service through Traefik. Only when visiting the errors
-// domain directly with a known service host is it better to navigate back
-// to the service root.
 const retryTarget = computed(() => {
   if (originHost.value && isErrorsHost.value) return `https://${originHost.value}`
   return null

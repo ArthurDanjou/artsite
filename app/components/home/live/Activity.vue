@@ -2,11 +2,11 @@
 import type { Activity } from '~~/types'
 import { IDEs } from '~~/types'
 
-const { data: activity, error, refresh } = useFetch<Activity>('/api/activity', {
+const { data: activity, error } = useLiveFetch<Activity>('/api/activity', {
   server: false,
-  lazy: true
+  lazy: true,
+  pollInterval: 5000
 })
-useLiveRefresh(refresh, 5000)
 
 const currentSession = computed(() => {
   const list = activity.value?.data.activities ?? []

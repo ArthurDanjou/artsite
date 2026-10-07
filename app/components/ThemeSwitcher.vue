@@ -4,18 +4,14 @@ const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark')
 const buttonRef = ref<{ $el?: HTMLElement } | null>(null)
 
 function switchTheme() {
-  // Freeze every CSS transition while the theme flips, so the view
-  // transition snapshots capture final colors instead of mid-fade ones.
   document.documentElement.classList.add('theme-switching')
   colorMode.preference = nextTheme.value
 }
 
 function toggleDark(event?: MouseEvent | { clientX: number, clientY: number }) {
-  // @ts-expect-error experimental API
-  const isAppearanceTransition = document.startViewTransition
+  const isAppearanceTransition = 'startViewTransition' in document
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  // Default to the button center (keyboard shortcut), or the actual click point.
   const rect = buttonRef.value?.$el?.getBoundingClientRect()
   const x = event?.clientX ?? (rect ? rect.left + rect.width / 2 : innerWidth / 2)
   const y = event?.clientY ?? (rect ? rect.top + rect.height / 2 : 0)
@@ -24,7 +20,6 @@ function toggleDark(event?: MouseEvent | { clientX: number, clientY: number }) {
     Math.max(y, innerHeight - y)
   )
 
-  // Click point and radius as CSS variables so the keyframes can use them.
   document.documentElement.style.setProperty('--reveal-x', `${x}px`)
   document.documentElement.style.setProperty('--reveal-y', `${y}px`)
   document.documentElement.style.setProperty('--reveal-r', `${endRadius}px`)

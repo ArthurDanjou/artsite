@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { HAMediaResponse } from '~~/types'
 
-const { data, refresh, pending, error } = useFetch<HAMediaResponse>('/api/ha/media', {
+const { data, pending, error } = useLiveFetch<HAMediaResponse>('/api/ha/media', {
   server: false,
-  lazy: true
+  lazy: true,
+  pollInterval: 15_000
 })
-useLiveRefresh(refresh, 15_000)
 
 const nowPlaying = computed(() => data.value?.nowPlaying ?? null)
 const isPlaying = computed(() => !!nowPlaying.value)

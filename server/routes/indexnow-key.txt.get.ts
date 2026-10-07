@@ -1,13 +1,15 @@
+import { createError, defineEventHandler, useRuntimeConfig } from 'nuxt/server'
+
 export default defineEventHandler((event) => {
-  const { indexNowKey } = useRuntimeConfig(event)
+  const { indexNowKey } = useRuntimeConfig()
 
   if (!indexNowKey) {
     throw createError({
-      statusCode: 500,
-      statusMessage: 'IndexNow key is not configured.'
+      status: 500,
+      statusText: 'IndexNow key is not configured.'
     })
   }
 
-  setResponseHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
+  event.res.headers.set('Content-Type', 'text/plain; charset=utf-8')
   return indexNowKey
 })

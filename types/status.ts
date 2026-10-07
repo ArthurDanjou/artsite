@@ -29,7 +29,7 @@ export interface StatusMaintenance {
   description: string
   strategy: string
   active: boolean
-  status: string // 'under-maintenance', etc.
+  status: string
 }
 
 export interface StatusConfig {
