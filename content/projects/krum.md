@@ -151,7 +151,7 @@ uv add krum
 
 Active development: the paper is in preparation, and new aggregation rules, attack models, and protocol reproductions are continuously added as my research progresses.
 
-The roadmap follows my current work: starting from the optimal robustness coefficient $\kappa^\star$ (Bareilles et al., 2026), derive an explicit **convergence-rate coefficient** for robust aggregators and compute it across the rules implemented here. Details live on the [research page](/research).
+The library provides the experimental foundation of my M2 internship. My first thesis project studies the **Byzantine fault tolerance of signSGD**, within a broader investigation of adversarial robustness, data ownership verification, and efficient learning. Details live on the [research page](/research).
 
 ## Repository
 

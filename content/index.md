@@ -1,6 +1,6 @@
 ---
 title: AI Safety & Applied Mathematics
-description: AI Research Intern at CMAP (Ecole Polytechnique) and Master 2 ISF student at Paris-Dauphine. Working on robust distributed learning, AI alignment, and secure deep learning.
+description: AI Research Intern at CMAP, Ecole Polytechnique. Research on adversarial distributed learning, data ownership verification, and efficient learning.
 sitemap:
   loc: /
 ---
@@ -11,9 +11,9 @@ I split my time between :hover-text{hover="Learning Theory, Robust Optimization 
 
 I came to research through mathematics. I spent three years on :hover-text{hover="Pure & applied mathematics" text="pure and applied mathematics"} at Paris-Saclay University, then moved to Paris-Dauphine for the M1 and the M2 in Statistical & Financial Engineering, where :hover-text{hover="Stochastic optimization, learning theory, and a first research project" text="optimization and machine learning"} took over my curriculum.
 
-My work is now part of the :hover-text{hover="Adversarial Techniques for Learning and AI Security" text="ATLAS chair"}, a research chair on AI security at CMAP led by [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/), who also supervises my PhD. My M2 internship is co-advised by [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/), and I focus on :hover-text{hover="Byzantine-robust aggregation, poisoning resilience, decentralized settings" text="adversarially robust distributed learning"}: how a single malicious worker can corrupt a distributed training run, and what provable guarantees aggregation rules can offer against it.
+My work is now part of the :hover-text{hover="Adversarial Techniques for Learning and AI Security" text="ATLAS chair"}, a research chair on AI security at CMAP led by [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/). He will supervise my PhD with Katia Meziani and Vladimir Kostic as co-directors, and [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, continuing their involvement in my M2 internship. My thesis will study the trade-offs between :hover-text{hover="Adversarial learning, distributed learning, fault tolerance, data poisoning, digital watermarking, efficient learning" text="adversarial robustness, data ownership verification, and efficient learning"}: can we protect training from malicious actors, verify the use of a dataset through watermarking, and reduce communication and computation costs at the same time?
 
-The open-source backbone of this work is :hover-text{hover="10 aggregation rules, 5 attacks, protocol-faithful simulations" text="Krum"}, an open-source Byzantine-robust aggregation framework (paper in preparation, JMLR MLOSS). My first thesis project extends it: turning a recent :hover-text{hover="Bareilles et al., 2026" text="optimal robustness result"} into explicit convergence rates for the classic aggregators. I start my PhD on resilient distributed learning at CMAP this November.
+The open-source backbone of my internship is :hover-text{hover="10 aggregation rules, 5 attacks, protocol-faithful simulations" text="Krum"}, an open-source Byzantine-robust aggregation framework (paper in preparation, JMLR MLOSS). My first thesis project, already underway, studies whether :hover-text{hover="Gradient compression using only the sign of each coordinate" text="signSGD"} can be proved Byzantine fault tolerant, as a first case study of compression under adversarial conditions. I start my PhD at CMAP this November. More on the [research page](/research).
 
 Day to day, I use :prose-icon[Python]{color="amber" icon="i-logos-python"},
 :prose-icon[PyTorch]{color="orange" icon="i-logos-pytorch-icon"} and
@@ -39,7 +39,7 @@ Milestones since I started my math degree, newest first.
 
 | Date | News |
 | :--- | :--- |
-| Nov 2026 | I start my PhD on resilient distributed learning at CMAP, under the supervision of El Mahdi El Mhamdi. |
+| Nov 2026 | I start my PhD at CMAP on adversarial robustness, data ownership verification, and efficient learning, supervised by El Mahdi El Mhamdi, with Katia Meziani and Vladimir Kostic as co-directors and Peva Blanchard and Sébastien Rouault as co-advisors. |
 | Oct 2026 | I release [Krum](https://github.com/calicarpa/krum) on PyPI, an open-source Byzantine-robust aggregation framework, installable via `pip install krum`. |
 | Apr 2026 | I joined CMAP, Ecole Polytechnique as an AI Research Intern on adversarially robust distributed learning. |
 | Sep 2025 | I started the M2 in Statistical & Financial Engineering (ISF) at Paris-Dauphine. |
