@@ -111,8 +111,7 @@ artsite/
 │   │   ├── __sitemap__/         # Dynamic sitemap source (project URLs)
 │   │   └── ha/                  # Home Assistant proxy (status, media, media-cover, monitors)
 │   ├── routes/
-│   │   ├── indexnow-key.txt.get.ts  # IndexNow ownership verification
-│   │   └── resumes/             # Static PDF resume endpoints (en, fr)
+│   │   └── indexnow-key.txt.get.ts  # IndexNow ownership verification
 │   ├── plugins/
 │   │   ├── ai-ready-markdown.ts # mdream excludes + .md provenance footer
 │   │   └── indexnow.ts          # Submit changed pages to IndexNow on reindex
@@ -141,8 +140,7 @@ artsite/
 | `/projects/[slug]` | Individual project page |
 | `/telemetry` | Live homelab telemetry with environment, status, and activity |
 | `/uses` | Hardware, software, and homelab infrastructure |
-| `/resumes/en` | English resume (PDF) |
-| `/resumes/fr` | French resume (PDF) |
+| `https://cv.arthurdanjou.fr` | Hosted resume |
 
 ## Content Model
 
@@ -150,7 +148,7 @@ Page collections use `pageSeoSchema` and pair one Markdown file with one page co
 
 ## API Overview
 
-The server exposes read only JSON endpoints for the frontend sections, a Home Assistant proxy under `server/api/ha/`, and resume file routes under `server/routes/resumes/`. Responses are cached through Cloudflare KV where configured.
+The server exposes read only JSON endpoints for the frontend sections and a Home Assistant proxy under `server/api/ha/`. Responses are cached through Cloudflare KV where configured.
 
 ## SEO & AEO
 
