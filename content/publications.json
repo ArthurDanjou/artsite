@@ -2,15 +2,17 @@
   "body": [
     {
       "id": "krum-jmlr-mloss",
-      "title": "Krum: Byzantine-Robust Distributed Learning Library",
+      "title": "Krum, the Library: Automated Byzantine Machine Learning Experiments on Python with Orchestration",
       "year": 2026,
       "status": "In preparation, JMLR MLOSS",
-      "authors": "Sébastien Rouault, Mohammad Ammar Said, Peva Blanchard, El Mahdi El Mhamdi",
-      "description": "An open-source framework with 10 aggregation rules, 5 attacks, and faithful NIPS 2017 / ICML 2018 / ICML 2023 protocol reproductions.",
+      "authors": "Sébastien Rouault, Arthur Danjou, Mohamad-Ammar Said, Peva Blanchard and El Mahdi El Mhamdi",
+      "description": "An open-source Python/PyTorch framework with 11 aggregation rules, 5 attacks, 4 data partitioners, 6 model architectures and 3 protocol-faithful simulations (NIPS 2017, ICML 2018, ICML 2023 MoNNA), plus a programmatic orchestrator with typed metrics and replay-after-change. Released v0.9.0 on PyPI under MIT.",
       "icon": "i-ph-book-duotone",
       "tags": ["Open Source", "Byzantine Robustness", "Distributed Learning"],
       "links": [
         { "label": "View on GitHub", "url": "https://github.com/calicarpa/krum", "icon": "i-ph-github-logo-duotone" },
+        { "label": "Documentation", "url": "https://calicarpa.github.io/krum/", "icon": "i-ph-book-open-duotone" },
+        { "label": "M2 report", "url": "https://m2-internship-report.arthurdanjou.fr/", "icon": "i-ph-article-duotone" },
         { "label": "Project page", "url": "/projects/krum", "icon": "i-ph-article-duotone" }
       ]
     }
