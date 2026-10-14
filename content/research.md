@@ -31,9 +31,11 @@ My PhD will study **the trade-offs between adversarial robustness, data ownershi
 
 ## Ongoing Work
 
-From **April to October 2026**, I work under the supervision of [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/), with [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, on robust distributed learning with adversaries: gradient manipulation attacks, open-source research tooling, and improvements to existing aggregation frameworks.
+From **7 April to 14 October 2026**, I work under the supervision of [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/), with [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, on robust distributed learning with adversaries: gradient manipulation attacks, open-source research tooling, and improvements to existing aggregation frameworks. Full account in my [M2 internship report](https://m2-internship-report.arthurdanjou.fr/) (defended 2 Nov 2026, Université Paris-Dauphine – PSL).
 
-The experimental backbone is **[Krum](/projects/krum)**, my first research project: an open-source framework for Byzantine-resilient aggregation, installable via `pip install krum`.
+The experimental backbone is **[Krum](/projects/krum)**, my first research project: an open-source Python/PyTorch framework (v0.9.0 on PyPI, MIT) with **11 aggregation rules, 5 attacks, 4 data partitioners, 6 model architectures and 3 protocol-faithful simulations** (NIPS 2017, ICML 2018, ICML 2023 MoNNA decentralised), plus a programmatic orchestrator with typed metrics and replay-after-change.
+
+Three validations run in under 3 minutes on CPU at fixed seeds: on Spambase ($n = 20$, $f = 6$, SignFlip), MultiKrum holds ~0.77 accuracy where Average diverges; on MNIST ($n = 39$, $f = 9$, SmallPerturbation $\gamma = 4$), Bulyan stays at ~0.94 while MultiKrum plateaus at ~0.90 against a 0.95 clean baseline; decentralised MoNNA ($n = 16$, $f = 5$) lets NNA reach ~0.84 while Average stays at chance level (~0.10).
 
 ---
 
@@ -53,6 +55,13 @@ My first thesis project, **already underway**, focuses on **signSGD**, a compres
 
 This provides a first case study of the interaction between compression and adversarial conditions, before extending the investigation to data ownership verification and the broader trade-offs of the thesis. Work in progress, no results yet.
 
+## Next Steps
+
+- **Pre-aggregators**: bucketing, clipping and robust client weighting, kept in the stateless `aggregate`-style design.
+- **Theory**: $\kappa^\star$ optimal robustness coefficient per rule (finite $\kappa^\star$ gives an explicit convergence rate), with signSGD as 12th rule and first experimental campaign (Byzantine fraction x batch size on MNIST).
+- **Data-level attacks**: poisoned partitioning and trigger-sensitive metrics to compare gradient-level and dataset-level robustness on the same sweep machinery, including taggants for black-box ownership verification with statistical certification.
+- **Scale**: more faithful protocols, then parallel sweeps and real-network conditions beyond single-host simulation.
+
 ---
 
 ## Selected References
@@ -66,4 +75,9 @@ These papers provide background for the thesis topic.
 - **Winter Soldier.** Bouaziz et al. *Winter Soldier: Backdooring Language Models at Pre-Training with Indirect Data Poisoning.* ICLR, 2026. [Paper](https://arxiv.org/abs/2506.14913).
 - **signSGD.** Bernstein et al. *signSGD with Majority Vote is Communication Efficient and Fault Tolerant.* ICLR, 2019. [Paper](https://arxiv.org/abs/1810.05291).
 - **Byzantine Fault Tolerance of signSGD.** Mengoli et al. *On the Byzantine Fault Tolerance of signSGD with Majority Vote.* Preprint, 2025. [Paper](https://arxiv.org/abs/2502.19170).
+- **Aksel.** Boussetta et al. *AKSEL: Fast Byzantine SGD.* OPODIS, 2020. [Paper](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.OPODIS.2020.8).
+- **ALIE.** Baruch et al. *A Little Is Enough: Circumventing Defenses For Distributed Learning.* NeurIPS, 2019. [Paper](https://arxiv.org/abs/1902.06156).
+- **Fall of Empires.** Xie et al. *Fall of Empires: Breaking Byzantine-tolerant SGD by Inner Product Manipulation.* UAI, 2020. [Paper](https://arxiv.org/abs/1903.03936).
+- **MoNNA.** Farhadkhani et al. *Robust Collaborative Learning with Linear Gradient Overhead.* ICML, 2023. [Paper](https://arxiv.org/abs/2209.10931).
+- **Optimal robustness ($\kappa^\star$).** Bareilles et al. *Byzantine Machine Learning: MultiKrum and an optimal notion of robustness.* Preprint, 2026. [Paper](https://arxiv.org/abs/2602.03899).
 

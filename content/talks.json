@@ -1,6 +1,17 @@
 {
   "body": [
     {
+      "id": "m2-defense-2026",
+      "title": "Agrégation byzantine-résiliente pour l'apprentissage distribué : la librairie Krum",
+      "date": "2026-11-02",
+      "venue": "M2 ISF thesis defense, Université Paris-Dauphine – PSL",
+      "description": "Defense of my M2 internship report (CMAP, École Polytechnique, Apr–Oct 2026): 11 aggregation rules, 5 attacks, zero-copy model wrapper, 3 protocol-faithful reproductions under 3 min CPU each, and the v0.9.0 PyPI release.",
+      "icon": "i-ph-presentation-duotone",
+      "tags": ["Byzantine Robustness", "Distributed Learning", "Krum"],
+      "lang": "fr",
+      "slides": null
+    },
+    {
       "id": "seminar-cmap-2026",
       "title": "Byzantine Robustness in Distributed Learning",
       "date": "2026-09-01",

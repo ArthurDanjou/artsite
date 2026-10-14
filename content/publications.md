@@ -7,5 +7,5 @@ sitemap:
 
 # Publications & Talks
 
-My research output is young: one paper in preparation, one seminar talk, both on Byzantine-resilient distributed learning. This page tracks it as it grows; the ideas behind the work live on the [research page](/research).
+My research output is young: one paper in preparation, one seminar talk and my M2 defense, all on Byzantine-resilient distributed learning. This page tracks it as it grows; the ideas behind the work live on the [research page](/research).
 
