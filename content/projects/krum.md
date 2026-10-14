@@ -50,16 +50,26 @@ Gradient aggregation rules that take one gradient per worker and produce a singl
 | **Multi Krum** | $f \le (n-3)/2$ | Averages the $m$ smallest Krum scores, $m = n-2f-3$ by default, single-pass |
 | **Bulyan** | $f \le (n-3)/4$ | Krum + trimmed mean two-stage procedure (El Mhamdi et al., 2018); selects $\theta = n-2f-2$ vectors (documented variant, paper uses $n-2f$) |
 | **Brute** | exact | Combinatorial subset search with minimum diameter |
-| **GeoMed** | $f \le (n-1)/2$ | Geometric median via smoothed Weiszfeld iterations ($\nu = 0.1$) |
+| **GeometricMedian** | $f \le (n-1)/2$ | Geometric median via smoothed Weiszfeld iterations ($\nu = 0.1$) |
 | **Medoid** | none | Vector submitted minimizing total distance to others; non-resilient baseline |
 | **Aksel** | $f \le (n-1)/2$ | Median-pivot aggregator averaging the $n-f$ closest gradients, $O(nd)$ complexity (documented variant of the median-threshold paper) |
 | **Nearest Neighbor Average** | caller policy | Averages the $k$ closest gradients to a pivot ($k = n-2f$ in MoNNA, Farhadkhani et al., 2023) |
 
-Each rule is a **stateless classmethod** with no instance state and no hidden parameters. Specialized hyperparameters ($f$, $n$, $m$) are keyword-only:
+Each rule is a **stateless classmethod** with no instance state and no hidden parameters. Import per module, pass classes (not instances) to simulations. All aggregators take a `(n, d)` tensor and return a `(d,)` vector:
 
 ```python
-from krum.primitives.aggregators import Krum
-aggregated = Krum.aggregate(gradients, f=2, n=10)
+import torch
+from krum.primitives.aggregators.krum import Krum
+from krum.primitives.aggregators.multikrum import MultiKrum
+from krum.primitives.aggregators.geometric_median import GeometricMedian
+from krum.primitives.aggregators.nearest_neighbor_average import NearestNeighborAverage
+
+result = Krum.aggregate(torch.randn(10, 100), n=10, f=2)
+print(result.shape)  # (100,)
+
+result = MultiKrum.aggregate(gradients, n=10, f=2)  # m = n - 2f - 3 by default
+result = GeometricMedian.aggregate(gradients, n=10, f=2)  # n, f accepted for API uniformity
+result = NearestNeighborAverage.aggregate(gradients, pivot=gradients[0], num_closest=3)
 ```
 
 ### Attacks (5)
@@ -74,13 +84,53 @@ Byzantine attack strategies that generate adversarial gradients from the honest 
 | **Full Gradient Negation** | $-\kappa g_{full}$ assuming full-dataset gradient knowledge, $\kappa = 100$ (El Mhamdi et al., 2018) |
 | **Small Perturbation** | $B(\gamma)$ = honest mean $+ \gamma E$ on the max-variance coordinate, largest $\gamma$ still selected by the target aggregator ($\gamma_{max} = 10^6$, $\ell_2$). The only attack finely exploiting Krum's selection boundary, kept so the evaluation stays honest (El Mhamdi et al., 2018) |
 
+All attacks follow the same pattern: honest gradients + `f`, returning an `(f, d)` tensor. Class names carry the `Attack` suffix:
+
+```python
+import torch
+from krum.primitives.aggregators.average import Average
+from krum.primitives.aggregators.multikrum import MultiKrum
+from krum.primitives.attacks.sign_flip import SignFlipAttack
+
+n_workers, n_byzantine, dim = 10, 2, 100
+honest = torch.randn(n_workers - n_byzantine, dim)
+malicious = SignFlipAttack.generate(honest, f=n_byzantine, scale=1.5)
+all_grads = torch.cat([honest, malicious], dim=0)
+
+result = MultiKrum.aggregate(all_grads, n=n_workers, f=n_byzantine)
+baseline = Average.aggregate(all_grads)
+```
+
 ### Data partitioners (4)
 
 Unified `partition` interface returning one subset per worker: **IidPartitioner** (shuffle + split), **PerLabelsPartitioner** (label-sorted, granularity $\lambda \in [0,1]$), **DirichletPartitioner** (class proportions $\sim \mathrm{Dirichlet}(\alpha)$, accepts partial/empty shards), **MixingPartitioner** (fraction $1-\gamma$ via $p_1$ + $\gamma$ via $p_2$, one-parameter IID to non-IID sweep).
 
 ### Model Wrapper
 
-The `Model` class wraps any `torch.nn.Module` and provides **flat tensor views** of parameters and gradients without copying: reading `model.parameters` or `model.gradients` returns a 1D tensor of shape $(d,)$ sharing memory with the underlying module, and writing to `model.gradients` unpacks the flat vector back into each parameter gradient in place. Standard architectures from the literature are provided (Krum2017CNN, Monna2023CNNMnist, etc.). Without it, every step would pay one full copy per worker (nearly 12,000 copies for the 2018 protocol alone: 39 workers x 300 rounds). Krum is the only compared library with this zero-copy guarantee.
+The `Model` class wraps any `torch.nn.Module` and provides **flat tensor views** of parameters and gradients without copying: reading `model.parameters` or `model.gradients` returns a 1D tensor of shape $(d,)$ sharing memory with the underlying module, and writing to `model.gradients` unpacks the flat vector back into each parameter gradient in place. Without it, every step would pay one full copy per worker (nearly 12,000 copies for the 2018 protocol alone: 39 workers x 300 rounds). Krum is the only compared library with this zero-copy guarantee.
+
+```python
+from krum.primitives.models import Model
+from krum.primitives.models.mlp import Krum2017MLPMnist
+import torch.nn as nn
+
+model = Model(Krum2017MLPMnist())
+flat_params = model.parameters  # shape: (d,), shares memory with the module
+
+loss = model.module(torch.randn(3, 784)).sum()
+loss.backward()
+flat_grads = model.gradients  # flat view of every param.grad
+
+model.gradients = aggregated_flat  # write back in place, no copy
+```
+
+Caveat: `optimizer.zero_grad()` (with `set_to_none=True`) drops `.grad` tensors and breaks the cached view. Restore it in one call:
+
+```python
+optimizer.zero_grad()
+grads = model.relink_gradients()  # re-link + flat view
+grads[:] = 0
+```
 
 ### Ready-to-use architectures (6)
 
@@ -93,9 +143,18 @@ The `Model` class wraps any `torch.nn.Module` and provides **flat tensor views**
 | **Monna2023CNNMnist** | C(20)-R-M-C(20)-R-M-L(500)-R-L(10), 5x5 kernels, raw logits | Farhadkhani et al., 2023 |
 | **Monna2023CNNCifar10** | 4 conv + batchnorm + 2 max-pool + dropout 0.25 + 2 dense (128, 10) | Farhadkhani et al., 2023 |
 
+All models take no constructor arguments. Import by family:
+
+```python
+from krum.primitives.models.mlp import Krum2017MLPMnist, Krum2017MLPSpambase, Monna2023SmallMnist
+from krum.primitives.models.cnn import Krum2017CNN, Monna2023CNNMnist, Monna2023CNNCifar10
+
+mlp = Krum2017MLPMnist()  # fixed architecture matching its paper
+```
+
 ### Extensibility
 
-Both `Aggregator` and `Attack` are abstract base classes with a single required classmethod (`aggregate` / `generate`). Custom rules and attacks integrate with the simulation layer by inheriting and overriding the one abstract method.
+`Aggregator`, `Attack` and `DataPartitioner` are abstract base classes with a single required classmethod (`aggregate` / `generate` / `partition`). Custom rules, attacks and partitioners integrate with the simulation and orchestration layers by inheriting and overriding the one abstract method, with hyperparameters as plain keyword arguments.
 
 ## Simulations
 
@@ -105,33 +164,79 @@ Faithful reproductions of experimental protocols from seminal papers, in both **
 - **ICML 2018 Hidden Vulnerability** (El Mhamdi et al.): Robbins-Monro schedule $\eta(t) = r_\eta \cdot \eta_0 / (t + r_\eta)$, L2 regularization, Xavier initialization as in Section 5.1 of the original paper.
 - **ICML 2023 MoNNA** (Farhadkhani et al.): decentralized peer-to-peer protocol with one local momentum SGD step per honest worker, then replacement by a nearest-neighbor average over the $n - 2f$ closest models among $n - f$ neighbors. Supports two Byzantine reach modes: *all* (worst case) and *sampled* (gossip style). `stop_attack_at` stops attacks mid-training to study recovery.
 
+Aggregator and attack are passed as **classes**, not instances; extra parameters go through `aggregator_kwargs` / `attack_kwargs`. The caller partitions, the simulation batches; `len(train_datasets)` must equal `n`:
+
+```python
+from krum.primitives.aggregators.multikrum import MultiKrum
+from krum.primitives.attacks.sign_flip import SignFlipAttack
+from krum.primitives.data_partitioners.iid import IidPartitioner
+from krum.primitives.models.mlp import Krum2017MLPMnist
+from krum.simulations.centralised.krum_nips_2017 import KrumSimulation
+
+train_datasets = IidPartitioner.partition(train_set, n=10, seed=42)
+
+sim = KrumSimulation(
+    model_cls=Krum2017MLPMnist,
+    train_datasets=train_datasets,
+    test_set=test_set,
+    aggregator=MultiKrum,
+    attack=SignFlipAttack,
+    attack_kwargs={"scale": 1.5},
+    n=10, f=2, rounds=50,
+    batch_size=64, lr=0.01, seed=42,
+)
+sim.setup()
+for round_idx in range(50):
+    sim.step()
+    if round_idx % 10 == 0:
+        loss, accuracy = sim.evaluate()
+```
+
+The ICML 2018 variant (`HiddenVulnerabilitySimulation`) adds Xavier init, L2 and the Robbins-Monro schedule, and returns a `(loss, error, accuracy)` triple. The decentralised `MonnaSimulation` exposes the same pattern with a `run()` helper.
+
 ## Orchestration
 
-The layer that was **lacking in all previously published libraries**: declare experiment parameters, collect typed metrics over time, and produce pandas DataFrames from full parameter sweeps.
+The layer that was **lacking in all previously published libraries**: declare experiment parameters, collect typed metrics over time, and produce tables from full parameter sweeps.
+
+A `Metric` is created **inside** the experiment function with a value type, and finds its job through a context variable. `run()` only enqueues; `drain()`, the first `get()`, or leaving a `with` block executes. `get()` returns a `MetricTable` (plain Python lists, not a DataFrame) with `step`, `value`, every run parameter and `job_key`:
 
 ```python
 from krum.orchestration import Metric, Orchestrator
-from krum.primitives.aggregators.krum import Krum
-from krum.primitives.attacks.alie import ALIEAttack
+from krum.primitives.aggregators.average import Average
+from krum.primitives.aggregators.multikrum import MultiKrum
+from krum.primitives.attacks.sign_flip import SignFlipAttack
+from krum.primitives.data_partitioners.iid import IidPartitioner
+from krum.primitives.models.mlp import Krum2017MLPMnist
+from krum.simulations.centralised.krum_nips_2017 import KrumSimulation
 
-def my_experiment(n, f, aggregator, attack, n_steps):
-    sim = KrumSimulation(n=n, f=f, aggregator=aggregator, attack=attack)
-    loss = Metric("loss")
-    for step in range(n_steps):
+def run_experiment(*, aggregator, attack, n, f, seed=42, rounds=50):
+    train_datasets = IidPartitioner.partition(train_set, n=n, seed=seed)
+    sim = KrumSimulation(
+        model_cls=Krum2017MLPMnist, train_datasets=train_datasets,
+        test_set=test_set, aggregator=aggregator, attack=attack,
+        n=n, f=f, rounds=rounds, batch_size=64, lr=0.01, seed=seed,
+    )
+    sim.setup()
+    test_loss = Metric("test_loss", dtype=float)
+    test_accuracy = Metric("test_accuracy", dtype=float)
+    for step in range(rounds):
         sim.step()
-        loss.push(step, sim.loss())
+        if step % 10 == 0:
+            loss_val, acc_val = sim.evaluate()
+            test_loss.push(step, loss_val)
+            test_accuracy.push(step, acc_val)
 
-orch = Orchestrator("krum_byzantine_study")
-for n in [10, 20]:
-    for f in [2, 3]:
-        orch.run(my_experiment, n=n, f=f, aggregator=Krum, attack=ALIEAttack, n_steps=100)
+with Orchestrator("byzantine_study") as orch:
+    for n, f in [(10, 2), (20, 3)]:
+        for aggregator in [Average, MultiKrum]:
+            orch.run(run_experiment, aggregator=aggregator, attack=SignFlipAttack, n=n, f=f, seed=42)
 
-loss_df = orch.get("loss")  # pandas DataFrame with all run parameters merged
+df = orch.get("test_accuracy").to_pandas()  # needs pandas; .to_dict() / .to_csv() need nothing
 ```
 
 The orchestrator automatically tracks all run parameters and merges them with collected metrics, enabling filtering and aggregation with standard pandas operations, a programmatic approach that contrasts with configuration-file-based alternatives (JSON configs in ByzFL, CLI in FL-Byz-Lib).
 
-Orchestrator v2 (Oct 2026, PR #66): results stored per job with `job_key`, only new / failed / stale jobs are replayed (stale after parameter, code or environment change); execution is sequential fail-fast naming the short job key; reads are scoped to the current sweep so no table mixes two code versions; `isolate=True` runs each job in a fresh interpreter. Single-host by design (simulated sweeps, not real distributed infra); parallelism is future work.
+Orchestrator v2 (Oct 2026, PR #66): results stored per job with `job_key`, only new / failed / stale jobs are replayed (stale after parameter, code or environment change); `plan()` previews what a sweep would run without running it, `force=True` recomputes regardless; reads are scoped to the current sweep so no table mixes two code versions. Single-host by design (simulated sweeps, not real distributed infra); parallelism is future work.
 
 ## Validation (3 faithful reproductions, < 3 min CPU each)
 

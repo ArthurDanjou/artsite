@@ -55,7 +55,7 @@ My first thesis project, **already underway**, focuses on **signSGD**, a compres
 
 This provides a first case study of the interaction between compression and adversarial conditions, before extending the investigation to data ownership verification and the broader trade-offs of the thesis. Work in progress, no results yet.
 
-## Near-term extensions (from the internship report)
+## Next Steps
 
 - **Pre-aggregators**: bucketing, clipping and robust client weighting, kept in the stateless `aggregate`-style design.
 - **Theory**: $\kappa^\star$ optimal robustness coefficient per rule (finite $\kappa^\star$ gives an explicit convergence rate), with signSGD as 12th rule and first experimental campaign (Byzantine fraction x batch size on MNIST).

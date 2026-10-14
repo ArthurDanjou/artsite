@@ -39,7 +39,7 @@ Milestones since I started my math degree, newest first.
 
 | Date | News |
 | :--- | :--- |
-| Nov 2026 | I defend my M2 thesis *Agrégation byzantine-résiliente pour l'apprentissage distribué : la librairie Krum* (2 Nov, Paris-Dauphine) and start my PhD at CMAP on adversarial robustness, data ownership verification, and efficient learning, supervised by El Mahdi El Mhamdi, with Katia Meziani and Vladimir Kostic as co-directors and Peva Blanchard and Sébastien Rouault as co-advisors. |
+| Nov 2026 | I defend my M2 thesis *[Agrégation byzantine-résiliente pour l'apprentissage distribué : la librairie Krum](https://m2-internship-report.arthurdanjou.fr/)* (2 Nov, Paris-Dauphine) and start my PhD at CMAP on adversarial robustness, data ownership verification, and efficient learning, supervised by El Mahdi El Mhamdi, with Katia Meziani and Vladimir Kostic as co-directors and Peva Blanchard and Sébastien Rouault as co-advisors. |
 | Oct 2026 | I release [Krum](https://github.com/calicarpa/krum) v0.9.0 on PyPI (MIT, 11 aggregation rules, 5 attacks, 3 faithful protocols, docs at [calicarpa.github.io/krum](https://calicarpa.github.io/krum/)), an open-source Byzantine-robust aggregation framework, installable via `pip install krum`. |
 | Apr 2026 | I joined CMAP, Ecole Polytechnique as an AI Research Intern on adversarially robust distributed learning. |
 | Sep 2025 | I started the M2 in Statistical & Financial Engineering (ISF) at Paris-Dauphine. |
