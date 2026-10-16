@@ -23,10 +23,11 @@ const contactItems = computed(() => contact?.body
 <template>
   <header class="flex md:items-center justify-between my-8 gap-2">
     <NuxtLink
-      class="handwriting text-xl sm:text-3xl text-nowrap gap-2 font-bold duration-300 text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white"
+      class="text-xl sm:text-3xl gap-2 font-bold duration-300 text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white"
       to="/"
+      aria-label="Arthur Danjou - home"
     >
-      Arthur Danjou
+      <AppSignature animated />
     </NuxtLink>
     <nav class="flex gap-1 items-center justify-end flex-wrap">
       <UTooltip
