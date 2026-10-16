@@ -11,6 +11,16 @@ tags:
   - Deep Learning
   - Research
 icon: i-ph-share-network-duotone
+authorNote: |
+  Our reproduction focuses on when dropout is active during training. I find the learning curves especially useful here: they let us examine what happens around the switch epoch and compare it with a model trained without dropout. The expected benefits still need to be checked for each dataset and architecture.
+summary:
+  role: "Team member on the TensorFlow/Keras reproduction study."
+  context: "A research project examining Early and Late Dropout strategies from Liu et al. (2023)."
+  outcome: "A dynamic dropout implementation and experiment pipeline for comparing training schedules and data regimes."
+  links:
+    - label: "Report"
+      url: "/projects/dropout-reduces-underfitting.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 > **Study and reproduction of the paper:** Liu, Z., et al. (2023). *Dropout Reduces Underfitting*. arXiv:2303.01500.

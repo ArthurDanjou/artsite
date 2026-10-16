@@ -11,6 +11,22 @@ tags:
   - Data Visualization
   - Statistics
 icon: i-ph-chart-bar-duotone
+authorNote: |
+  I wanted readers to be able to move between a global picture and the data for a particular country or year. The clustering is one way to explore the WHO data; keeping the raw tables accessible also lets readers examine what sits behind each group.
+summary:
+  role: "Development of the Shiny dashboard and country segmentation analysis."
+  context: "M2 Data Visualisation coursework using WHO tuberculosis data."
+  outcome: "An interactive dashboard with country clusters, regional filters and time-series exploration."
+  links:
+    - label: "Code"
+      url: "https://github.com/ArthurDanjou/Tuberculose-Visualisation"
+      icon: i-ph-code-duotone
+    - label: "Live demo"
+      url: "https://go.arthurdanjou.fr/datavis-app"
+      icon: i-ph-arrow-square-out-duotone
+    - label: "Report"
+      url: "/projects/datavis.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 Interactive Shiny dashboard for WHO tuberculosis data analysis and clustering.

@@ -12,6 +12,19 @@ tags:
   - Data Visualization
   - Mathematics
 icon: i-ph-city-duotone
+authorNote: |
+  Implementing the Schelling model let me examine how local movement rules produce spatial patterns over time. I use the simulation as a way to explore those assumptions, with the plots helping connect individual steps to the resulting distribution.
+summary:
+  role: "Python implementation and statistical analysis of the simulation."
+  context: "Projet Numérique coursework at Paris-Saclay University."
+  outcome: "A report and visualisations examining the spatial patterns produced by local movement rules."
+  links:
+    - label: "Code"
+      url: "https://go.arthurdanjou.fr/schelling-code"
+      icon: i-ph-code-duotone
+    - label: "Report"
+      url: "/projects/schelling.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 This report presents the Schelling Segregation Model project completed as part of the **Projet Numerique** course at Paris-Saclay University. The goal was to implement the Schelling Segregation Model in Python and analyze the results using statistics and data visualization.

@@ -11,6 +11,12 @@ tags:
   - NLP
   - Data Engineering
 icon: i-ph-database-duotone
+authorNote: |
+  My work began with turning the source spreadsheets into a database the agent could query. That part of the project made the relationship between data preparation and SQL generation particularly clear to me. Winning with the team was a great outcome, and the working prototype gave us something concrete to demonstrate.
+summary:
+  role: "Led spreadsheet-to-SQL data preparation and schema design within a team of four."
+  context: "A Natixis hackathon to help non-technical users query financial data through natural language."
+  outcome: "First place among 13 teams, with a working agent generating SQL queries, charts and explanations."
 ---
 
 ::note

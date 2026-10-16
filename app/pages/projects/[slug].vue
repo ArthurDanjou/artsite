@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute()
 const slug = route.params.slug as string
+const article = useTemplateRef('article')
 
 const { data: project } = await useAsyncData(`project-${slug}`, () => {
   return queryCollection('projects').where('extension', '=', 'md').where('slug', '=', slug).first()
@@ -66,6 +67,7 @@ const formattedDate = computed(() => {
 <template>
   <main
     v-if="project"
+    ref="article"
     class="space-y-8"
   >
     <div>
@@ -154,6 +156,11 @@ const formattedDate = computed(() => {
 
     <USeparator />
 
+    <ProjectSummary
+      v-if="project.summary"
+      :summary="project.summary"
+    />
+
     <ContentRenderer
       v-if="projectWithBody"
       :value="projectWithBody"
@@ -177,10 +184,25 @@ const formattedDate = computed(() => {
         </p>
       </template>
     </ContentRenderer>
+
+    <ProjectAuthorNote
+      v-if="project.authorNote?.trim()"
+      :note="project.authorNote"
+    />
+    <ClientOnly>
+      <Teleport to="body">
+        <AppTableOfContents :content="article" />
+      </Teleport>
+    </ClientOnly>
   </main>
 </template>
 
 <style scoped>
+:deep(h2),
+:deep(h3) {
+  scroll-margin-top: 1.5rem;
+}
+
 .katex-html {
   display: none !important;
 }

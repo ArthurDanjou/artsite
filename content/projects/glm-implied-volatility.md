@@ -12,6 +12,16 @@ tags:
   - Machine Learning
   - Statistics
 icon: i-ph-graph-duotone
+authorNote: |
+  The mixed-effects models are the part of this comparison I would return to first: accounting for differences between assets gave strong results on this dataset. The chronological split is just as central to how I read those results, since the model must predict observations later in time.
+summary:
+  role: "Team member on the statistical modelling and benchmarking project."
+  context: "M2 Classification and Regression coursework using a large financial panel dataset."
+  outcome: "Mixed-effects models achieved lower validation error than the compared boosting models under a chronological split."
+  links:
+    - label: "Code"
+      url: "https://github.com/ArthurDanjou/Implied-Volatility-from-Options-Data"
+      icon: i-ph-code-duotone
 ---
 
 > **M2 Master's Project**: predicting implied volatility using advanced regression techniques and machine learning models on financial options data.

@@ -12,6 +12,19 @@ tags:
   - AI Safety
   - Research
 icon: i-ph-flask-duotone
+authorNote: |
+  I started with small implementations so I could follow each aggregation rule through an actual training step. The problems with gradient views and optimizer state gave me concrete requirements for Krum. Keeping this repository separate preserves the experiments that led to those design choices.
+summary:
+  role: "From-scratch implementation of aggregation rules and attacks in PyTorch."
+  context: "Research paper reproductions carried out as groundwork for the Krum library."
+  outcome: "Implementations of SignGuard, Multi-Krum and MoNNA, with implementation pitfalls informing Krum's design."
+  links:
+    - label: "Code"
+      url: "https://github.com/ArthurDanjou/Byzantine-Robust-Aggregation-Reproduction"
+      icon: i-ph-code-duotone
+    - label: "M2 report"
+      url: "https://m2-internship-report.arthurdanjou.fr/"
+      icon: i-ph-file-text-duotone
 ---
 
 > **Reproduction of the papers:** Xu, J., et al. (2022). *Byzantine-robust Federated Learning through Collaborative Malicious Gradient Filtering*. ICDCS. [arXiv:2109.05872](https://arxiv.org/pdf/2109.05872v2) — plus Farhadkhani, S., et al. (2023). *Robust Collaborative Learning with Linear Gradient Overhead*. ICML. [PMLR 202](https://proceedings.mlr.press/v202/farhadkhani23a.html)

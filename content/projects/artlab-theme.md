@@ -11,6 +11,19 @@ tags:
   - Design
   - TypeScript
 icon: i-ph-palette-duotone
+authorNote: |
+  I wanted the tools I use every day to share a palette, from my editor to the home dashboard. Porting the theme means deciding what each color should communicate in a different interface, while keeping text comfortable to read.
+summary:
+  role: "Theme design and implementation of the platform ports."
+  context: "A shared visual palette for my development tools and home dashboards."
+  outcome: "Light and dark themes for VS Code, Home Assistant, Zed and Ghostty, published as open source."
+  links:
+    - label: "Code"
+      url: "https://github.com/ArthurDanjou/theme-artlab"
+      icon: i-ph-code-duotone
+    - label: "Marketplace"
+      url: "https://marketplace.visualstudio.com/items?itemName=arthurdanjou.theme-artlab"
+      icon: i-ph-arrow-square-out-duotone
 ---
 
 Design consistency across tools reduces cognitive load. **ArtLab Theme** applies that principle: a unified color system that spans my entire development and home automation environment, from code editor to dashboard.

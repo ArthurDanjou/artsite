@@ -13,6 +13,12 @@ tags:
   - Self-Hosted
   - Voice Assistant
 icon: i-ph-lightbulb-duotone
+authorNote: |
+  I build these automations around routines at home, from pausing a film to leaving for the day. Local control is a deliberate choice: I want to understand what triggers each action and keep control of the system that runs my home.
+summary:
+  role: "Design and maintenance of my Home Assistant deployment."
+  context: "A self-hosted smart home running on ArtLab, with local device control and voice services."
+  outcome: "29 automations covering daily routines, lighting, security and infrastructure safeguards."
 ---
 
 **ArtHome** is the intelligence layer of my home: a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1933 entities** across **33 domains**, orchestrates **29 automations**, and presents everything through **4 dashboards** spanning **22 views** and **300+ cards**.

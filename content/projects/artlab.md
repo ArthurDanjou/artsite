@@ -13,6 +13,16 @@ tags:
   - Docker
   - Infrastructure
 icon: i-ph-flask-duotone
+authorNote: |
+  ArtLab is where I try infrastructure ideas on services I actually use. That makes backups and recovery part of each experiment. I can change how a service is deployed, but I still need to be able to bring it back when something breaks.
+summary:
+  role: "Architecture, deployment and maintenance of my personal homelab."
+  context: "A multi-host environment for self-hosted applications and infrastructure experiments."
+  outcome: "Git-based deployments with centralised authentication, monitoring and backups."
+  links:
+    - label: "Service status"
+      url: "https://go.arthurdanjou.fr/status"
+      icon: i-ph-arrow-square-out-duotone
 ---
 
 [**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab: a controlled environment for experimenting with DevOps, distributed systems, and private cloud architecture.

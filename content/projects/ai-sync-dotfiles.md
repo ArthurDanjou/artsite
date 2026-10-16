@@ -12,6 +12,16 @@ tags:
   - MCP
   - Infrastructure
 icon: i-ph-arrows-clockwise-duotone
+authorNote: |
+  I built this after repeating the same configuration changes across my coding tools. Keeping one source of truth makes switching tools less work, while the merge and backup logic lets me keep local settings without losing them at the next install.
+summary:
+  role: "Design and development of the configuration generators and installers."
+  context: "Personal dotfiles shared across six AI coding platforms with different configuration formats."
+  outcome: "One source of truth for MCP servers, skills and commands, with backups and isolated tests."
+  links:
+    - label: "Code"
+      url: "https://go.arthurdanjou.fr/dotfiles"
+      icon: i-ph-code-duotone
 ---
 
 [**AI Sync Dotfiles**](https://go.arthurdanjou.fr/dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six different formats.

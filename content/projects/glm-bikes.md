@@ -11,6 +11,19 @@ tags:
   - Statistics
   - Mathematics
 icon: i-ph-bicycle-duotone
+authorNote: |
+  Bicycle rental counts gave me a practical way to compare GLM assumptions. I paid attention to the residuals as well as the predictions, because a model needs to account for how demand varies with the weather and the calendar.
+summary:
+  role: "Statistical modelling, model comparison and diagnostics."
+  context: "Generalized Linear Models coursework at Paris-Dauphine PSL, applied to bike rental demand."
+  outcome: "A comparison of GLM families using weather and calendar features, with residual checks and cross-validation."
+  links:
+    - label: "Code"
+      url: "https://go.arthurdanjou.fr/glm-bikes-code"
+      icon: i-ph-code-duotone
+    - label: "Report"
+      url: "/projects/bikes-glm.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 This project was completed as part of the **Generalized Linear Models** course at Paris-Dauphine PSL University. The objective was to develop and compare statistical models that predict bicycle rentals in a bike-sharing system using environmental and temporal features.
