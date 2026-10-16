@@ -76,7 +76,7 @@ defineProps<{
             variant="subtle"
             color="neutral"
             size="xs"
-            class="shrink-0"
+            class="shrink-0 bg-default ring-neutral-200 hover:bg-muted dark:bg-elevated dark:ring-accented dark:hover:bg-accented/75"
           >
             {{ link.label }}
           </UButton>
