@@ -21,6 +21,15 @@
 
   const links = [...document.querySelectorAll('#page-table-of-contents a')]
   assert(links.length > 1, 'The table of contents should contain several sections.')
+  links[0].dispatchEvent(new FocusEvent('focusout', { bubbles: true, relatedTarget: null }))
+  await new Promise(resolve => requestAnimationFrame(resolve))
+  assert(links[0].isConnected, 'A touch focus change without a target should not remove links before their click.')
+  if (window.matchMedia('(max-width: 1279px)').matches) {
+    const bounds = trigger.getBoundingClientRect()
+    assert(bounds.bottom > window.innerHeight * 0.75, 'The mobile TOC trigger should sit near the bottom.')
+    const panelBounds = document.querySelector('#page-table-of-contents').getBoundingClientRect()
+    assert(panelBounds.top >= 0 && panelBounds.bottom <= window.innerHeight, 'The mobile panel should fit inside the viewport.')
+  }
   for (const link of links) {
     const id = decodeURIComponent(link.hash.slice(1))
     const matches = document.querySelectorAll(`#${CSS.escape(id)}`)

@@ -71,7 +71,7 @@ function onPointerLeave() {
 }
 
 function onFocusOut(event: FocusEvent) {
-  if (!root.value?.contains(event.relatedTarget as Node | null)) close()
+  if (event.relatedTarget && !root.value?.contains(event.relatedTarget as Node)) close()
 }
 
 function navigate(heading: Heading) {
@@ -101,7 +101,7 @@ watch(() => props.content, () => {
   <div
     v-if="headings.length > 1"
     ref="root"
-    class="fixed right-[calc(1rem+env(safe-area-inset-right))] top-1/2 z-60 -translate-y-1/2"
+    class="fixed right-[calc(1rem+env(safe-area-inset-right))] bottom-[calc(5rem+env(safe-area-inset-bottom))] z-60 xl:bottom-auto xl:top-1/2 xl:-translate-y-1/2"
     @pointerenter="onPointerEnter"
     @pointerleave="onPointerLeave"
     @focusout="onFocusOut"
@@ -133,7 +133,7 @@ watch(() => props.content, () => {
       id="page-table-of-contents"
       ref="panel"
       aria-label="On this page"
-      class="absolute right-full top-1/2 max-h-[70dvh] w-[min(18rem,calc(100vw-4rem))] -translate-y-1/2 overflow-y-auto overscroll-contain rounded-lg border border-neutral-200 dark:border-default bg-default p-2 shadow-lg"
+      class="absolute right-full bottom-0 max-h-[min(70dvh,calc(100dvh-6rem-env(safe-area-inset-bottom)))] w-[min(18rem,calc(100vw-4rem))] overflow-y-auto overscroll-contain rounded-lg border border-neutral-200 dark:border-default bg-default p-2 shadow-lg xl:bottom-auto xl:top-1/2 xl:max-h-[70dvh] xl:-translate-y-1/2"
     >
       <div class="sticky -top-2 flex items-center justify-between gap-3 bg-default px-3 py-2">
         <p class="text-xs font-medium uppercase tracking-wide text-muted">
