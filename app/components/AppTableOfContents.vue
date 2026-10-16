@@ -16,6 +16,7 @@ const isOpen = ref(false)
 const root = useTemplateRef('root')
 const trigger = useTemplateRef('trigger')
 const panel = useTemplateRef('panel')
+const reducedMotion = usePreferredReducedMotion()
 
 function updateActiveHeading() {
   let active = headings.value[0]
@@ -74,10 +75,15 @@ function onFocusOut(event: FocusEvent) {
   if (event.relatedTarget && !root.value?.contains(event.relatedTarget as Node)) close()
 }
 
-function navigate(heading: Heading) {
+function navigate(event: MouseEvent, heading: Heading) {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+  event.preventDefault()
   close()
+  const hash = `#${encodeURIComponent(heading.id)}`
+  if (window.location.hash !== hash) window.history.pushState(window.history.state, '', hash)
   heading.element.setAttribute('tabindex', '-1')
   heading.element.focus({ preventScroll: true })
+  heading.element.scrollIntoView({ behavior: reducedMotion.value === 'reduce' ? 'instant' : 'smooth', block: 'start' })
 }
 
 onClickOutside(root, () => close())
@@ -164,7 +170,7 @@ watch(() => props.content, () => {
               heading.level === 3 ? 'pl-6' : 'pl-3',
               heading.id === activeId ? 'font-medium text-highlighted' : 'text-muted'
             ]"
-            @click="navigate(heading)"
+            @click="navigate($event, heading)"
           >
             {{ heading.text }}
           </a>

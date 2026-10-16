@@ -51,7 +51,20 @@
   window.scrollTo({ top: window.scrollY + target.getBoundingClientRect().top - 24, behavior: 'instant' })
   await waitFor(() => document.querySelector('#page-table-of-contents [aria-current="location"]')?.hash === targetLink.hash)
   assert(trigger.children[links.indexOf(targetLink)].classList.contains('bg-inverted'), 'The active bar should follow page scrolling.')
-  targetLink.click()
+  const originalScrollIntoView = target.scrollIntoView
+  let scrollOptions
+  target.scrollIntoView = function (options) {
+    scrollOptions = options
+    originalScrollIntoView.call(this, options)
+  }
+  try {
+    targetLink.click()
+  }
+  finally {
+    target.scrollIntoView = originalScrollIntoView
+  }
+  const expectedBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+  assert(scrollOptions?.behavior === expectedBehavior, 'TOC navigation should scroll smoothly unless reduced motion is preferred.')
   await waitFor(() => location.hash === targetLink.hash && Math.abs(target.getBoundingClientRect().top - 24) < 2)
   assert(document.activeElement === target, 'Navigation should move keyboard focus to the heading.')
   assert(trigger.getAttribute('aria-expanded') === 'false', 'Navigation should close the panel.')
