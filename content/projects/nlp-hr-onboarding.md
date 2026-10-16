@@ -11,6 +11,12 @@ tags:
   - NLP
   - Machine Learning
 icon: i-ph-robot-duotone
+authorNote: |
+  Our assistant combines policy retrieval with tools that act on structured information. I wanted those steps to be visible in the interface, so a reader can distinguish a retrieved answer from an action such as preparing a leave request. The fictional TechCorp setting gave us a manageable scope for testing the workflow.
+summary:
+  role: "Team member developing the HR assistant with Axelle Meric and Moritz von Siemens."
+  context: "M2 NLP coursework using a fictional company knowledge base and employee directory."
+  outcome: "A Gradio assistant combining policy retrieval, employee lookup and tools for meeting and leave workflows."
 ---
 
 **NLP Project, Master M2**  

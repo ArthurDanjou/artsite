@@ -11,6 +11,12 @@ tags:
   - Machine Learning
   - Finance
 icon: i-ph-money-wavy-duotone
+authorNote: |
+  I used this project to compare classification methods within the same data preparation and validation workflow. For a loan prediction task, I also want to understand which applicant features influence the output and how the evaluation treats different kinds of errors.
+summary:
+  role: "Classification modelling and comparative evaluation."
+  context: "An academic machine learning project on loan approval and default risk."
+  outcome: "A report comparing classifiers within a workflow of feature engineering, tuning and cross-validation."
 ---
 
 This project focuses on building machine learning models to predict loan approval outcomes and assess default risk. The objective is to develop classification models that identify creditworthy applicants.

@@ -12,6 +12,16 @@ tags:
   - Mathematics
   - Statistics
 icon: i-ph-book-duotone
+authorNote: |
+  I keep these projects together as a record of my mathematics studies, including the smaller numerical exercises. Reading the code alongside the reports makes it easier to revisit how I translated a mathematical argument into a computation.
+summary:
+  role: "Collection and organisation of my academic code and reports."
+  context: "Mathematics and data science coursework spanning my Bachelor's and Master's studies."
+  outcome: "A repository of Python and R projects organised by academic year, from L3 to M2."
+  links:
+    - label: "Code"
+      url: "https://github.com/ArthurDanjou/artstudies"
+      icon: i-ph-code-duotone
 ---
 
 [**ArtStudies Projects**](https://github.com/ArthurDanjou/artstudies) is a collection of the academic projects I completed during my mathematics studies. The repository covers work in both _Python_ and _R_, with a focus on mathematical modeling, data analysis, and numerical methods.

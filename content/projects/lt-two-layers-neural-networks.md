@@ -12,6 +12,16 @@ tags:
   - Deep Learning
   - Research
 icon: i-ph-function-duotone
+authorNote: |
+  I approached this exercise by following where the dependence on network width enters the argument. Using the structure of ReLU changes the complexity analysis, which makes the choice of parameterisation a substantial part of the proof.
+summary:
+  role: "Mathematical derivation and analysis of generalisation bounds."
+  context: "M2 Learning Theory work on two-layer ReLU networks at Paris-Dauphine PSL."
+  outcome: "An analysis of how ReLU homogeneity and symmetrisation improve the dependence of complexity bounds on network width."
+  links:
+    - label: "Report"
+      url: "/projects/lt-two-layer-neural-networks.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 ## Overview

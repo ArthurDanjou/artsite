@@ -12,6 +12,19 @@ tags:
   - Statistics
   - Healthcare
 icon: i-ph-heart-half-duotone
+authorNote: |
+  With only 116 observations, I read the model comparisons cautiously. Stratified validation and the choice of F1-score are central to this academic study. The results describe performance on this dataset and do not establish that a model is suitable for clinical use.
+summary:
+  role: "Supervised model comparison and statistical evaluation."
+  context: "Statistical Learning coursework using the 116-observation Breast Cancer Coimbra dataset."
+  outcome: "A comparison of four classifiers using F1-score and stratified cross-validation, documented as an academic study."
+  links:
+    - label: "Code"
+      url: "https://go.arthurdanjou.fr/breast-cancer-detection-code"
+      icon: i-ph-code-duotone
+    - label: "Report"
+      url: "/projects/breast-cancer.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 This project was carried out as part of the **Statistical Learning** course at Paris-Dauphine PSL University. The objective is to identify the most effective model for predicting or explaining the presence of breast cancer based on a set of biological and clinical features.

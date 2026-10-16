@@ -28,6 +28,17 @@ export default defineContentConfig({
         type: z.enum(['Personal Project', 'Academic Project', 'Hackathon', 'Research Project']),
         description: z.string(),
         shortDescription: z.string(),
+        authorNote: z.string().optional(),
+        summary: z.object({
+          role: z.string(),
+          context: z.string(),
+          outcome: z.string(),
+          links: z.array(z.object({
+            label: z.string(),
+            url: z.string(),
+            icon: z.string()
+          })).optional()
+        }).optional(),
         publishedAt: z.string(),
         readingTime: z.number().optional(),
         tags: z.array(z.string()),

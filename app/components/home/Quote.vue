@@ -1,38 +1,38 @@
 <template>
-  <div class="flex items-start sm:items-center gap-4">
-    <ClientOnly>
-      <UTooltip
-        text="Arthur Danjou • Research & Engineering"
-        :popper="{ placement: 'top' }"
-      >
-        <UAvatar
-          src="/arthur.webp"
-          alt="Arthur Danjou"
-          size="xl"
-          class="ring-2 ring-primary-500/20 dark:ring-primary-400/20 transition-transform duration-700 ease-in-out hover:rotate-360 shadow-sm"
-        />
-      </UTooltip>
-    </ClientOnly>
-
-    <div class="space-y-2">
-      <h3 class="font-semibold text-neutral-900 dark:text-white flex items-center gap-2">
-        My inbox is always open
+  <section
+    aria-labelledby="contact-invitation-title"
+    class="not-prose rounded-2xl border border-neutral-200 dark:border-default bg-default dark:bg-elevated/30 p-6 sm:p-8"
+  >
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
+      <div class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-default text-muted ring-1 ring-default">
         <UIcon
           name="i-ph-chat-circle-dots-duotone"
-          class="text-primary-500 w-5 h-5"
+          class="size-6"
         />
-      </h3>
-      <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
-        Want to argue about robust aggregation rules, report a Krum bug, trade homelab tips, or just say hi? Write me, I read everything.
-      </p>
+      </div>
+
+      <div class="min-w-0 flex-1 space-y-2">
+        <h3
+          id="contact-invitation-title"
+          class="text-lg font-semibold text-highlighted"
+        >
+          My inbox is always open
+        </h3>
+        <p class="max-w-2xl text-sm leading-relaxed text-toned">
+          Want to argue about robust aggregation rules, report a Krum bug, trade homelab tips, or just say hi? Write me, I read everything.
+        </p>
+      </div>
+
       <UButton
         to="mailto:contact@arthurdanjou.fr"
         icon="i-ph-envelope-simple-duotone"
         label="Write me"
-        size="xs"
+        size="lg"
+        color="neutral"
         variant="soft"
+        class="min-h-11 justify-center rounded-md px-5 shrink-0 self-start sm:self-center"
         target="_blank"
       />
     </div>
-  </div>
+  </section>
 </template>

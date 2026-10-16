@@ -94,6 +94,7 @@ const grouped_projects = computed(() => {
       <UButton
         size="md"
         label="See more open source projects on Github"
+        class="bg-default ring-1 ring-neutral-200 hover:bg-muted dark:bg-elevated dark:ring-0 dark:hover:bg-accented/75"
         variant="soft"
         color="neutral"
         icon="i-ph-github-logo"

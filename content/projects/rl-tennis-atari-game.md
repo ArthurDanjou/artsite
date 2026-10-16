@@ -11,6 +11,16 @@ tags:
   - Reinforcement Learning
   - Machine Learning
 icon: i-ph-lightning-duotone
+authorNote: |
+  The gap between SARSA and DQN in our results makes this a useful experiment to revisit. I would read those scores together with the training setup and the checkpoint-loading issues we documented. The tournament adds another view of how the agents behave against different opponents.
+summary:
+  role: "Team member comparing reinforcement learning agents with Moritz von Siemens."
+  context: "An academic study of Atari Tennis using RAM observations and head-to-head tournaments."
+  outcome: "SARSA reached an 88.9% win rate against the random baseline; checkpoint-loading limitations are documented."
+  links:
+    - label: "Code"
+      url: "https://github.com/ArthurDanjou/Tennis-Atari-Game"
+      icon: i-ph-code-duotone
 ---
 
 Comparison of Reinforcement Learning algorithms on Atari Tennis (`ALE/Tennis-v5` via Gymnasium/PettingZoo).

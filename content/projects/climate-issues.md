@@ -12,6 +12,16 @@ tags:
   - Data Visualization
   - Climate Science
 icon: i-ph-wind-duotone
+authorNote: |
+  Using the Martin storm as a case study gave me a concrete setting for working with extreme values and spatial data. I read the return-period estimates alongside the maps: the assumptions behind the statistical model matter when interpreting a local risk estimate.
+summary:
+  role: "Statistical modelling and spatial analysis of wind risk."
+  context: "An academic case study of the Martin storm in December 1999."
+  outcome: "A report combining extreme-value modelling, return-period estimates and geographic risk mapping."
+  links:
+    - label: "Report"
+      url: "/projects/climate-issues.pdf"
+      icon: i-ph-file-text-duotone
 ---
 
 ## Overview

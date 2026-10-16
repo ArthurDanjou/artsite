@@ -4,6 +4,10 @@ title: ArtSite - Personal Research Hub
 type: Personal Project
 description: My digital headquarters. A high-performance portfolio built on the Edge using the full Nuxt ecosystem, deployed to Cloudflare Workers via Wrangler.
 shortDescription: A modern portfolio and experimental lab built on the Nuxt ecosystem and deployed to Cloudflare Workers.
+authorNote: |
+  I use this site both to share my work and to try out the tools I build with. It is a working project in its own right, with the same deployment and maintenance concerns as the other applications I develop.
+
+  As my projects and research evolve, this is where I keep a record of them.
 publishedAt: 2024-06-01
 readingTime: 2
 favorite: true
@@ -12,6 +16,14 @@ tags:
   - TypeScript
   - Nuxt
 icon: i-ph-globe-hemisphere-west-duotone
+summary:
+  role: "Design, development and deployment of this portfolio."
+  context: "A personal research hub and a production environment for frontend experiments."
+  outcome: "A Nuxt portfolio with Markdown content, deployed to Cloudflare Workers."
+  links:
+    - label: "Website"
+      url: "https://go.arthurdanjou.fr/website"
+      icon: i-ph-arrow-square-out-duotone
 ---
 
 [**ArtSite**](https://go.arthurdanjou.fr/website) is my digital headquarters: my engineering portfolio and experimental lab.

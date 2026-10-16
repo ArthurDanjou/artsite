@@ -10,56 +10,6 @@ const email = computed(() => contact?.body.find(item => item.id === 'email'))
 const statusPage = computed(() => contact?.body.find(item => item.id === 'status-page'))
 
 const currentYear = computed(() => new Date().getFullYear())
-
-interface MonitorStatus {
-  total: number
-  up: number
-  down: number
-  maintenance: number
-  degraded: number
-  uptime: string
-}
-
-const { data: monitors } = useFetch<MonitorStatus | null>('/api/ha/monitors', {
-  server: false,
-  lazy: true
-})
-
-const total = computed(() => {
-  const m = monitors.value
-  if (!m) return 0
-  return m.up + m.down + (m.degraded ?? 0) + (m.maintenance ?? 0)
-})
-
-const status = computed(() => {
-  const m = monitors.value
-  if (!m || total.value === 0) {
-    return {
-      label: 'all systems operational',
-      dot: 'bg-emerald-500',
-      ping: 'bg-emerald-400'
-    }
-  }
-  if (m.down > 0) {
-    return {
-      label: `${m.down} service${m.down > 1 ? 's' : ''} down`,
-      dot: 'bg-red-500',
-      ping: 'bg-red-400'
-    }
-  }
-  if (m.maintenance > 0) {
-    return {
-      label: 'maintenance in progress',
-      dot: 'bg-amber-500',
-      ping: 'bg-amber-400'
-    }
-  }
-  return {
-    label: 'all systems operational',
-    dot: 'bg-emerald-500',
-    ping: 'bg-emerald-400'
-  }
-})
 </script>
 
 <template>
@@ -67,55 +17,45 @@ const status = computed(() => {
     v-if="contact?.body?.length"
     class="relative my-16"
   >
-    <div class="flex justify-center mb-12">
-      <USeparator
-        class="md:w-2/3"
-        size="xs"
-        type="solid"
-      />
-    </div>
+    <USeparator class="mb-8" />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-      <div class="space-y-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.1fr_0.8fr_1.1fr] gap-8">
+      <div class="space-y-3 sm:col-span-2 md:col-span-1">
         <NuxtLink
-          class="handwriting text-2xl font-bold duration-300 text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white"
+          class="flex items-center gap-3 w-fit text-base font-semibold text-highlighted"
           to="/"
+          aria-label="Arthur Danjou - home"
         >
-          Arthur Danjou
+          <UAvatar
+            src="/arthur.webp"
+            alt="Arthur Danjou"
+            size="xl"
+            class="ring-2 ring-primary-500/20 dark:ring-primary-400/20 shadow-sm"
+          />
+          <span class="space-y-1">
+            <span class="block">Arthur Danjou</span>
+            <span class="block text-xs font-normal text-muted">PhD Student in AI Safety</span>
+            <span class="block text-xs font-normal text-muted">CMAP, École Polytechnique</span>
+          </span>
         </NuxtLink>
         <p
           class="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400"
         >
-          Research in AI Safety and mathematical robustness. Building
-          open-source tools and self-hosted infrastructure.
+          Robust learning research and open-source engineering.
         </p>
-        <NuxtLink
-          v-if="statusPage"
-          :to="statusPage.value"
-          target="_blank"
-          class="flex items-center gap-2 w-fit text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
-        >
-          <span class="relative flex h-2 w-2">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-              :class="status.ping"
-            />
-            <span
-              class="relative inline-flex rounded-full h-2 w-2"
-              :class="status.dot"
-            />
-          </span>
-          {{ status.label }}
-        </NuxtLink>
       </div>
 
       <div class="space-y-3">
         <h2
+          id="footer-navigation-title"
           class="text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"
         >
           Navigate
         </h2>
-        <nav class="flex flex-col gap-2">
+        <nav
+          aria-labelledby="footer-navigation-title"
+          class="grid grid-cols-2 gap-x-4 gap-y-2"
+        >
           <NuxtLink
             v-for="nav in navs"
             :key="nav.label"
@@ -124,6 +64,14 @@ const status = computed(() => {
             class="w-fit text-sm capitalize text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
             {{ nav.label }}
+          </NuxtLink>
+          <NuxtLink
+            v-if="statusPage"
+            :to="statusPage.value"
+            target="_blank"
+            class="w-fit text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+          >
+            Status
           </NuxtLink>
         </nav>
       </div>
@@ -134,7 +82,19 @@ const status = computed(() => {
         >
           Connect
         </h2>
-        <div class="flex gap-1 flex-wrap">
+        <NuxtLink
+          v-if="email"
+          :to="email.value"
+          target="_blank"
+          class="flex items-center gap-2 w-fit text-sm font-medium text-toned hover:text-highlighted transition-colors"
+        >
+          <UIcon
+            :name="email.icon"
+            class="size-4 shrink-0"
+          />
+          <span class="break-all">contact@arthurdanjou.fr</span>
+        </NuxtLink>
+        <div class="-ml-1.5 flex gap-1 flex-wrap">
           <UTooltip
             v-for="social in socials"
             :key="social.id"
@@ -147,32 +107,23 @@ const status = computed(() => {
               :aria-label="social.name"
               target="_blank"
               color="neutral"
-              size="md"
+              size="sm"
               variant="ghost"
             />
           </UTooltip>
-        </div>
-        <div class="ml-1">
-          <HomeLink
-            v-if="email"
-            blanked
-            :href="email.value"
-            :icon="email.icon"
-            label="contact@arthurdanjou.fr"
-          />
         </div>
       </div>
     </div>
 
     <div
-      class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500 dark:text-neutral-400"
+      class="mt-8 pt-5 border-t border-default flex flex-wrap items-center justify-between gap-x-6 gap-y-3 text-xs text-neutral-500 dark:text-neutral-400"
     >
       <p>
         © {{ currentYear }} Arthur Danjou. All rights reserved.
       </p>
       <NuxtLink
         to="/projects/artsite"
-        class="hidden sm:inline hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+        class="hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
       >
         Built with Nuxt, deployed on Cloudflare
       </NuxtLink>

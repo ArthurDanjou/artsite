@@ -11,6 +11,12 @@ tags:
   - Cybersecurity
   - Machine Learning
 icon: i-ph-shield-check-duotone
+authorNote: |
+  Working on noisy firewall logs made the cost of a missed attack very concrete. In our team, that shaped both the recall-focused evaluation and the interface for inspecting individual logs. I wanted the model's output to be something a person could investigate.
+summary:
+  role: "Member of Dauphine's six-person team working on threat classification."
+  context: "A three-day cybersecurity challenge at Fort de Mont-Valérien, using noisy firewall logs."
+  outcome: "Recall-focused classifiers and a Streamlit interface for inspecting individual logs and uploaded batches."
 ---
 
 ## The Setting: Fort de Mont-Valérien

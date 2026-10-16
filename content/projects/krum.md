@@ -7,12 +7,28 @@ shortDescription: Open-source framework for Byzantine-resilient aggregation in d
 publishedAt: 2026-06-15
 readingTime: 10
 favorite: true
-status: Active
+status: Completed
 tags:
   - Distributed Learning
   - AI Safety
   - Research
 icon: i-ph-shield-check-duotone
+authorNote: |
+  This project grew out of the implementation problems I encountered while reproducing aggregation papers. I worked on making the centralised experiments and primitives easier to reuse, with tests and documentation that explain the choices behind them. I want another researcher to be able to trace an experimental result back to the code and protocol that produced it.
+summary:
+  role: "Aggregators, zero-copy model wrapper, centralised simulations, tests and most of the documentation."
+  context: "M2 research internship at CMAP, École Polytechnique, in a four-person research-product team."
+  outcome: "A Python library released on PyPI, with 11 aggregation rules and three validated protocol reproductions."
+  links:
+    - label: "Code"
+      url: "https://github.com/calicarpa/krum"
+      icon: i-ph-code-duotone
+    - label: "Documentation"
+      url: "https://calicarpa.github.io/krum/"
+      icon: i-ph-arrow-square-out-duotone
+    - label: "M2 report"
+      url: "https://m2-internship-report.arthurdanjou.fr/"
+      icon: i-ph-file-text-duotone
 ---
 
 [**Krum**](https://github.com/calicarpa/krum) is an open-source Python library for Byzantine-resilient distributed machine learning, built on PyTorch and released under the **MIT license** (v0.9.0 on PyPI, Oct 2026). It was developed during my **M2 research internship at CMAP, Ecole Polytechnique (7 Apr - 14 Oct 2026)**, in a four-person research-product team: [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) (Product Owner), [Sébastien Rouault](https://sebastien.rouau.lt/) (Tech Lead), Mohamad-Ammar Said and myself (development), supervised by [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/). Docs at [calicarpa.github.io/krum](https://calicarpa.github.io/krum/), full account in my [M2 internship report](https://m2-internship-report.arthurdanjou.fr/) (defended 2 Nov 2026).
@@ -236,7 +252,7 @@ df = orch.get("test_accuracy").to_pandas()  # needs pandas; .to_dict() / .to_csv
 
 The orchestrator automatically tracks all run parameters and merges them with collected metrics, enabling filtering and aggregation with standard pandas operations, a programmatic approach that contrasts with configuration-file-based alternatives (JSON configs in ByzFL, CLI in FL-Byz-Lib).
 
-Orchestrator v2 (Oct 2026, PR #66): results stored per job with `job_key`, only new / failed / stale jobs are replayed (stale after parameter, code or environment change); `plan()` previews what a sweep would run without running it, `force=True` recomputes regardless; reads are scoped to the current sweep so no table mixes two code versions. Single-host by design (simulated sweeps, not real distributed infra); parallelism is future work.
+Orchestrator v2 (Oct 2026, PR #66): results stored per job with `job_key`, only new / failed / stale jobs are replayed (stale after parameter, code or environment change); `plan()` previews what a sweep would run without running it, `force=True` recomputes regardless; reads are scoped to the current sweep so no table mixes two code versions. Execution is sequential and single-host by design, using simulated sweeps.
 
 ## Validation (3 faithful reproductions, < 3 min CPU each)
 
@@ -271,7 +287,7 @@ Before building on published rules, I reproduced them from scratch in bare-metal
 | **SignGuard** | ~94% | Sign filtering beats distance filtering in high dimension |
 | **MoNNA** | ~95% | Polyak momentum stabilizes training |
 
-Sequential CPU timings for 8 workers stay negligible at this scale (12–18s), but the exercise surfaced three lessons that shaped the library: `flatten → aggregate → relink` breaks autograd and desynchronizes optimizer buffers, clipping order matters (norm vs sign), and sequential simulation hides true distributed costs (bandwidth, stragglers, async arrival). Figures are indicative single-seed runs; the multi-seed benchmark across $n \in \{8, 16, 32\}$ and $f/n$ up to 0.4 is ongoing work.
+Sequential CPU timings for 8 workers stay negligible at this scale (12–18s), but the exercise surfaced three lessons that shaped the library: `flatten → aggregate → relink` breaks autograd and desynchronizes optimizer buffers, clipping order matters (norm vs sign), and sequential simulation hides true distributed costs (bandwidth, stragglers, async arrival). Figures are indicative single-seed runs.
 
 ## Engineering
 
@@ -293,9 +309,9 @@ No pre-aggregators yet (bucketing, clipping, robust client weighting — none of
 
 ## Status
 
-Active development: v0.9.0 on PyPI, paper in preparation, and new aggregation rules, attack models, and protocol reproductions continuously added. Next: pre-aggregators, $\kappa^\star$ robustness coefficient per rule with signSGD as 12th rule and first compression-under-attack case study, poisoned-partition + trigger-sensitive metrics for data poisoning / taggants (black-box ownership verification), then parallel sweeps and real-network conditions.
+The project is **completed**, with v0.9.0 released on PyPI at the end of my M2 research internship. The accompanying JMLR MLOSS paper remains in preparation.
 
-The library provides the experimental foundation of my M2 internship. My first thesis project studies the **Byzantine fault tolerance of signSGD**, within a broader investigation of adversarial robustness, data ownership verification, and efficient learning. Details live on the [research page](/research).
+The library provided the experimental foundation of my M2 internship. My first thesis project studies the **Byzantine fault tolerance of signSGD**, within a broader investigation of adversarial robustness, data ownership verification, and efficient learning. Details live on the [research page](/research).
 
 ## Repository
 
