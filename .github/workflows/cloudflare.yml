@@ -66,7 +66,6 @@ jobs:
           NUXT_AI_READY_RUNTIME_SYNC_SECRET: ${{ secrets.NUXT_AI_READY_RUNTIME_SYNC_SECRET }}
           NUXT_INDEX_NOW_KEY: ${{ secrets.NUXT_INDEX_NOW_KEY }}
           NUXT_INDEX_NOW_SITE_URL: https://arthurdanjou.fr
-          NUXT_LINKS_ADMIN_TOKEN: ${{ secrets.NUXT_LINKS_ADMIN_TOKEN }}
 
       - name: Apply D1 migrations
         if: github.ref_name == 'main' || github.ref_name == 'master'

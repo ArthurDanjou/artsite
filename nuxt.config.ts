@@ -125,10 +125,7 @@ export default defineNuxtConfig({
       token: ''
     },
     indexNowKey: '',
-    indexNowSiteUrl: 'https://arthurdanjou.fr',
-    links: {
-      adminToken: ''
-    }
+    indexNowSiteUrl: 'https://arthurdanjou.fr'
   },
 
   experimental: {
@@ -313,11 +310,11 @@ export default defineNuxtConfig({
       '/sitemap.md'
     ],
     crawlLinks: true,
-    ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp', '/links', '/links/manage', '/qr']
+    ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp', '/links', '/qr']
   },
 
   robots: {
-    disallow: ['/studio', '/errors', '/api/', '/__ai-ready/', '/__skew/', '/mcp', '/links/manage', '/qr/']
+    disallow: ['/studio', '/errors', '/api/', '/__ai-ready/', '/__skew/', '/mcp', '/qr/']
   },
 
   schemaOrg: {
@@ -361,7 +358,6 @@ export default defineNuxtConfig({
       '/__ai-ready/**',
       '/__skew/**',
       '/mcp',
-      '/links/manage',
       '/qr/**'
     ],
     defaults: {
