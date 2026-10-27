@@ -125,7 +125,10 @@ export default defineNuxtConfig({
       token: ''
     },
     indexNowKey: '',
-    indexNowSiteUrl: 'https://arthurdanjou.fr'
+    indexNowSiteUrl: 'https://arthurdanjou.fr',
+    links: {
+      adminToken: ''
+    }
   },
 
   experimental: {
@@ -147,6 +150,14 @@ export default defineNuxtConfig({
       configPath: 'wrangler.dev.jsonc'
     },
 
+    cloudflare: {
+      wrangler: {
+        assets: {
+          run_worker_first: ['/']
+        }
+      }
+    },
+
     externals: {
       inline: ['sharp']
     }
@@ -158,6 +169,9 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    server: {
+      allowedHosts: ['links.arthurdanjou.fr', 'go.arthurdanjou.fr']
+    },
     optimizeDeps: {
       include: [
         '@vue/devtools-core',
@@ -187,6 +201,7 @@ export default defineNuxtConfig({
           title: 'Engineering',
           links: [
             { title: 'Projects', href: '/projects', description: 'Experimental labs, open-source work and engineering projects.' },
+            { title: 'Links', href: '/links', description: 'Short links to research, projects, social profiles and contact.' },
             { title: 'Homelab Telemetry', href: '/telemetry', description: 'Live self-hosted infrastructure telemetry.' },
             { title: 'Uses', href: '/uses', description: 'Hardware, software and self-hosted setup.' }
           ]
@@ -266,7 +281,7 @@ export default defineNuxtConfig({
     enabled: true,
     showLiveInspections: true,
     runOnBuild: true,
-    excludeLinks: ['/errors*', '/studio*']
+    excludeLinks: ['/errors*', '/studio*', 'https://links.arthurdanjou.fr**', 'https://go.arthurdanjou.fr**']
   },
 
   mcp: {
@@ -298,11 +313,11 @@ export default defineNuxtConfig({
       '/sitemap.md'
     ],
     crawlLinks: true,
-    ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp']
+    ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp', '/links', '/links/manage', '/qr']
   },
 
   robots: {
-    disallow: ['/studio', '/errors', '/api/', '/__ai-ready/', '/__skew/', '/mcp']
+    disallow: ['/studio', '/errors', '/api/', '/__ai-ready/', '/__skew/', '/mcp', '/links/manage', '/qr/']
   },
 
   schemaOrg: {
@@ -345,7 +360,9 @@ export default defineNuxtConfig({
       '/api/**',
       '/__ai-ready/**',
       '/__skew/**',
-      '/mcp'
+      '/mcp',
+      '/links/manage',
+      '/qr/**'
     ],
     defaults: {
       changefreq: 'weekly',

@@ -66,6 +66,7 @@ NUXT_WAKATIME_*        # WakaTime API keys (optional)
 NUXT_AI_READY_RUNTIME_SYNC_SECRET=  # Stable secret for /__ai-ready/* admin endpoints (required when cron/runtimeSync is enabled)
 NUXT_INDEX_NOW_KEY=    # 32-char hex key for IndexNow submissions (optional)
 NUXT_INDEX_NOW_SITE_URL=https://arthurdanjou.fr
+NUXT_LINKS_ADMIN_TOKEN= # Bearer token for /links/manage and /api/links/admin/*
 ```
 
 Only `NUXT_HA_URL` plus `NUXT_HA_TOKEN` are needed for the live status widget. The site works without any env vars.
@@ -86,6 +87,9 @@ artsite/
 │   ├── composables/             # useContent helper
 │   ├── pages/
 │   │   ├── index.vue            # Home
+│   │   ├── links/
+│   │   │   ├── index.vue        # /links
+│   │   │   └── manage.vue       # /links/manage (token protected)
 │   │   ├── research.vue         # /research
 │   │   ├── publications.vue     # /publications
 │   │   ├── projects/
@@ -109,15 +113,23 @@ artsite/
 ├── server/
 │   ├── api/                     # Read endpoints (projects, skills, talks, languages, contact, stats, activity)
 │   │   ├── __sitemap__/         # Dynamic sitemap source (project URLs)
+│   │   ├── links/               # Public links feed and token protected admin CRUD/analytics
 │   │   └── ha/                  # Home Assistant proxy (status, media, media-cover, monitors)
 │   ├── routes/
-│   │   └── indexnow-key.txt.get.ts  # IndexNow ownership verification
+│   │   ├── indexnow-key.txt.get.ts  # IndexNow ownership verification
+│   │   └── qr/[slug].get.ts     # SVG QR code for a short link
+│   ├── middleware/
+│   │   ├── 05-links-host.ts     # Short link redirects on links./go.
+│   │   └── 10-errors-guard.ts   # errors. host routing
 │   ├── plugins/
 │   │   ├── ai-ready-markdown.ts # mdream excludes + .md provenance footer
 │   │   └── indexnow.ts          # Submit changed pages to IndexNow on reindex
 │   ├── utils/
-│   │   └── indexnow.ts          # IndexNow submission helper
+│   │   ├── indexnow.ts          # IndexNow submission helper
+│   │   └── links.ts             # Link serialization, redirects, click tracking
 │   └── db/
+│       ├── schema.ts            # Drizzle schema for links and link_clicks
+│       ├── seed-links.json      # Curated import of the Dub links
 │       └── migrations/          # SQLite migrations
 ├── skills/
 │   └── portfolio/SKILL.md       # Agent Skill published via AI Ready discovery
@@ -138,9 +150,17 @@ artsite/
 | `/publications` | Publications and talks, with slides when available |
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
+| `/links` | Link hub (also served at the root of `links.arthurdanjou.fr` and `go.arthurdanjou.fr`) |
+| `/links/manage` | Token protected dashboard for links, clicks, QR codes and the Dub CSV import |
 | `/telemetry` | Live homelab telemetry with environment, status, and activity |
 | `/uses` | Hardware, software, and homelab infrastructure |
 | `https://cv.arthurdanjou.fr` | Hosted resume |
+
+## Links & Short URLs
+
+Links live in the NuxtHub D1 database (`links`) and every redirect is recorded in `link_clicks` with country, referrer, device, browser, and OS. The public hub is `/links`; the root of `links.arthurdanjou.fr` and `go.arthurdanjou.fr` redirects to it, and every other single-segment path on those hosts is treated as a short link. `POST` a `{ csv }` payload to `/api/links/admin/import` to refresh existing records, or paste it in `/links/manage`.
+
+Set `NUXT_LINKS_ADMIN_TOKEN` in `.env` and in the GitHub Actions secrets. The admin API expects `Authorization: Bearer <token>`. `/qr/:slug.svg` returns a QR code for the public short URL. The curated Dub import is `server/db/seed-links.json`; regenerate its SQL with `bun scripts/generate-links-seed.ts > server/db/migrations/sqlite/0001_seed_links.sql`.
 
 ## Content Model
 
@@ -148,7 +168,7 @@ Page collections use `pageSeoSchema` and pair one Markdown file with one page co
 
 ## API Overview
 
-The server exposes read only JSON endpoints for the frontend sections and a Home Assistant proxy under `server/api/ha/`. Responses are cached through Cloudflare KV where configured.
+The server exposes read-only public JSON endpoints, a token-protected links admin under `/api/links/admin/*`, and a Home Assistant proxy under `server/api/ha/`. Responses are cached through Cloudflare KV where configured.
 
 ## SEO & AEO
 
