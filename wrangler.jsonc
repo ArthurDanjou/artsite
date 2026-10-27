@@ -23,6 +23,16 @@
             "pattern": "errors.arthurdanjou.fr",
             "zone_name": "arthurdanjou.fr",
             "custom_domain": true
+        },
+        {
+            "pattern": "links.arthurdanjou.fr",
+            "zone_name": "arthurdanjou.fr",
+            "custom_domain": true
+        },
+        {
+            "pattern": "go.arthurdanjou.fr",
+            "zone_name": "arthurdanjou.fr",
+            "custom_domain": true
         }
     ],
     "placement": {
@@ -37,7 +47,7 @@
             "binding": "DB",
             "database_id": "d6e8c2ff-399a-4bec-b1b3-4bfe57d50ea8",
             "migrations_table": "_hub_migrations",
-            "migrations_dir": ".output/server/db/migrations/"
+            "migrations_dir": ".output/server/db/migrations/sqlite/"
         }
     ],
     "kv_namespaces": [
@@ -67,7 +77,7 @@
                     "binding": "DB",
                     "database_id": "d6e8c2ff-399a-4bec-b1b3-4bfe57d50ea8",
                     "migrations_table": "_hub_migrations",
-                    "migrations_dir": ".output/server/db/migrations/"
+                    "migrations_dir": ".output/server/db/migrations/sqlite/"
                 }
             ],
             "kv_namespaces": [
