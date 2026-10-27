@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import { navs } from '~~/types'
+import { isShortHost, LINKS_SITE_URL } from '~~/shared/links'
 
 const { contact } = await useContent()
+const requestUrl = useRequestURL()
+const onShortHost = computed(() => isShortHost(requestUrl.hostname))
+
+function resolveNav(to: string): string {
+  if (!onShortHost.value || !to.startsWith('/')) return to
+  return `${LINKS_SITE_URL}${to}`
+}
 
 const socials = computed(() => contact?.body
   .filter(item => item.priority === 1)
@@ -23,7 +31,7 @@ const currentYear = computed(() => new Date().getFullYear())
       <div class="space-y-3 sm:col-span-2 md:col-span-1">
         <NuxtLink
           class="flex items-center gap-3 w-fit text-base font-semibold text-highlighted"
-          to="/"
+          :to="resolveNav('/')"
           aria-label="Arthur Danjou - home"
         >
           <UAvatar
@@ -59,7 +67,7 @@ const currentYear = computed(() => new Date().getFullYear())
           <NuxtLink
             v-for="nav in navs"
             :key="nav.label"
-            :to="nav.to"
+            :to="resolveNav(nav.to)"
             :target="nav.target ? nav.target : '_self'"
             class="w-fit text-sm capitalize text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
@@ -122,7 +130,7 @@ const currentYear = computed(() => new Date().getFullYear())
         © {{ currentYear }} Arthur Danjou. All rights reserved.
       </p>
       <NuxtLink
-        to="/projects/artsite"
+        :to="resolveNav('/projects/artsite')"
         class="hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
       >
         Built with Nuxt, deployed on Cloudflare
