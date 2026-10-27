@@ -1,0 +1,18 @@
+{
+  "slug": "datavis-code",
+  "url": "https://github.com/ArthurDanjou/ArtStudies/tree/master/M2/Data%20Visualisation/Project",
+  "title": "Data Visualization code",
+  "category": "Engineering",
+  "tags": [
+    "projects",
+    "code",
+    "dataviz"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 50,
+  "archived": false,
+  "label": "Code",
+  "description": "Source code for the tuberculosis data visualization.",
+  "icon": "i-simple-icons-github"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "krum-pypi",
+  "url": "https://pypi.org/project/krum/",
+  "title": "Krum on PyPI",
+  "category": "Engineering",
+  "tags": [
+    "projects",
+    "open-source",
+    "package",
+    "krum"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 16,
+  "archived": false,
+  "label": "Package",
+  "description": "Install Krum with pip and start aggregating.",
+  "icon": "i-ph-package-duotone"
+}

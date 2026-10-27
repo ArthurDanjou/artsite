@@ -20,7 +20,7 @@ summary:
   outcome: "A report and visualisations examining the spatial patterns produced by local movement rules."
   links:
     - label: "Code"
-      url: "https://go.arthurdanjou.fr/schelling-code"
+      url: "https://links.arthurdanjou.fr/schelling-code"
       icon: i-ph-code-duotone
     - label: "Report"
       url: "/projects/schelling.pdf"
@@ -31,7 +31,7 @@ This report presents the Schelling Segregation Model project completed as part o
 
 ## Resources
 
-You can find the code here: [Schelling Segregation Model Code](https://go.arthurdanjou.fr/schelling-code)
+You can find the code here: [Schelling Segregation Model Code](https://links.arthurdanjou.fr/schelling-code)
 
 ## Detailed Report
 

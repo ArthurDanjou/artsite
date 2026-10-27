@@ -1,0 +1,17 @@
+{
+  "slug": "uses",
+  "url": "https://arthurdanjou.fr/uses",
+  "title": "Uses",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "setup"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 40,
+  "archived": false,
+  "label": "Setup",
+  "description": "The hardware, software, and homelab that power my work.",
+  "icon": "i-ph-tree-evergreen-duotone"
+}

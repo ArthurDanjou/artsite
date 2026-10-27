@@ -98,7 +98,7 @@ const grouped_projects = computed(() => {
         variant="soft"
         color="neutral"
         icon="i-ph-github-logo"
-        to="https://go.arthurdanjou.fr/github"
+        to="https://links.arthurdanjou.fr/github"
       />
     </div>
     <div class="flex flex-col gap-3">

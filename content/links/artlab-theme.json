@@ -1,0 +1,19 @@
+{
+  "slug": "artlab-theme",
+  "url": "https://marketplace.visualstudio.com/items?itemName=arthurdanjou.theme-artlab",
+  "title": "ArtLab Theme",
+  "category": "Engineering",
+  "tags": [
+    "projects",
+    "open-source",
+    "design",
+    "vscode"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 30,
+  "archived": false,
+  "label": "VS Code",
+  "description": "A cross-platform color theme for VS Code, Zed, Ghostty, and Home Assistant.",
+  "icon": "i-ph-palette-duotone"
+}

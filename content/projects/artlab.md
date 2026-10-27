@@ -21,17 +21,17 @@ summary:
   outcome: "Git-based deployments with centralised authentication, monitoring and backups."
   links:
     - label: "Service status"
-      url: "https://go.arthurdanjou.fr/status"
+      url: "https://links.arthurdanjou.fr/status"
       icon: i-ph-arrow-square-out-duotone
 ---
 
-[**ArtLab**](https://go.arthurdanjou.fr/status) is my personal homelab: a controlled environment for experimenting with DevOps, distributed systems, and private cloud architecture.
+[**ArtLab**](https://links.arthurdanjou.fr/status) is my personal homelab: a controlled environment for experimenting with DevOps, distributed systems, and private cloud architecture.
 
 ## Global Architecture
 
 ArtLab is a multi-host homelab orchestrated by **Dockhand**, a Docker management UI running on the central server. Three remote hosts are attached to it through **Hawser** agents in Edge mode, using outbound-only WebSocket connections, with zero inbound ports wherever the host lives.
 
-Every stack is versioned in a public GitHub repository ([make-my-server](https://go.arthurdanjou.fr/github)) and deployed through Dockhand's Git integration, with webhooks and auto-sync. Secrets live encrypted inside Dockhand, never in git.
+Every stack is versioned in a public GitHub repository ([make-my-server](https://links.arthurdanjou.fr/github)) and deployed through Dockhand's Git integration, with webhooks and auto-sync. Secrets live encrypted inside Dockhand, never in git.
 
 ## Network
 

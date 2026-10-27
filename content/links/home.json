@@ -1,0 +1,17 @@
+{
+  "slug": "home",
+  "url": "https://arthurdanjou.fr",
+  "title": "Portfolio (legacy root)",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "legacy"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 5,
+  "archived": false,
+  "label": "Legacy",
+  "description": "The old go.arthurdanjou.fr root redirect.",
+  "icon": "i-ph-globe-duotone"
+}

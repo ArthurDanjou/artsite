@@ -22,7 +22,7 @@ summary:
       url: "https://github.com/ArthurDanjou/Tuberculose-Visualisation"
       icon: i-ph-code-duotone
     - label: "Live demo"
-      url: "https://go.arthurdanjou.fr/datavis-app"
+      url: "https://arthurdanjou-datavis-project.share.connect.posit.cloud/"
       icon: i-ph-arrow-square-out-duotone
     - label: "Report"
       url: "/projects/datavis.pdf"
@@ -32,7 +32,7 @@ summary:
 Interactive Shiny dashboard for WHO tuberculosis data analysis and clustering.
 
 - **GitHub Repository:** [Tuberculose-Visualisation](https://github.com/ArthurDanjou/Tuberculose-Visualisation)
-- **Live Application:** [Tuberculose Data Visualization](https://go.arthurdanjou.fr/datavis-app)
+- **Live Application:** [Tuberculose Data Visualization](https://arthurdanjou-datavis-project.share.connect.posit.cloud/)
 
 ## Overview
 
@@ -98,6 +98,6 @@ This project provides an interactive visualization tool for monitoring and segme
 
 ## Resources
 
-You can find the code here: [Data Visualisation Code](https://go.arthurdanjou.fr/datavis-code)
+You can find the code here: [Data Visualisation Code](https://links.arthurdanjou.fr/datavis-code)
 
-And the online application here: [Data Visualisation App](https://go.arthurdanjou.fr/datavis-app)
+And the online application here: [Data Visualisation App](https://arthurdanjou-datavis-project.share.connect.posit.cloud/)

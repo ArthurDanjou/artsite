@@ -1,0 +1,18 @@
+{
+  "slug": "git",
+  "url": "https://github.com/arthurdanjou",
+  "title": "GitHub alias",
+  "category": "Social",
+  "tags": [
+    "social",
+    "code",
+    "alias"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 80,
+  "archived": false,
+  "label": "Alias",
+  "description": "Alias for my GitHub profile.",
+  "icon": "i-simple-icons-github"
+}

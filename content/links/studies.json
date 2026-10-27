@@ -1,0 +1,18 @@
+{
+  "slug": "studies",
+  "url": "https://github.com/arthurdanjou/artstudies",
+  "title": "ArtStudies code",
+  "category": "Research",
+  "tags": [
+    "code",
+    "academic",
+    "alias"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 50,
+  "archived": false,
+  "label": "Code",
+  "description": "Code archive for my academic projects.",
+  "icon": "i-simple-icons-github"
+}

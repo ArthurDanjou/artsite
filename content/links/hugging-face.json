@@ -1,0 +1,18 @@
+{
+  "slug": "hugging-face",
+  "url": "https://huggingface.co/ArthurDanjou",
+  "title": "Hugging Face",
+  "category": "Social",
+  "tags": [
+    "social",
+    "ai",
+    "profile"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 45,
+  "archived": false,
+  "label": "AI",
+  "description": "My models, datasets, and experiments on the Hugging Face Hub.",
+  "icon": "i-simple-icons-huggingface"
+}

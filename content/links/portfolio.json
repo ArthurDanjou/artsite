@@ -1,0 +1,17 @@
+{
+  "slug": "portfolio",
+  "url": "https://arthurdanjou.fr/projects",
+  "title": "Projects",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "projects"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 20,
+  "archived": false,
+  "label": "Portfolio",
+  "description": "Experimental labs, academic work, and open-source engineering.",
+  "icon": "i-ph-folder-duotone"
+}

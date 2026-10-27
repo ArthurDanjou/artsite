@@ -118,6 +118,24 @@ export default defineContentConfig({
         }))
       })
     }),
+    links: defineCollection({
+      type: 'data',
+      source: 'links/*.json',
+      schema: z.object({
+        slug: z.string(),
+        url: z.string(),
+        title: z.string(),
+        label: z.string().optional(),
+        description: z.string().optional(),
+        icon: z.string().optional(),
+        category: z.string(),
+        tags: z.array(z.string()),
+        featured: z.boolean(),
+        listed: z.boolean(),
+        position: z.number(),
+        archived: z.boolean()
+      })
+    }),
     languages: defineCollection({
       type: 'data',
       source: 'languages.json',

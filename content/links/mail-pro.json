@@ -1,0 +1,17 @@
+{
+  "slug": "mail-pro",
+  "url": "mailto:contact@arthurdanjou.fr",
+  "title": "Email",
+  "category": "Social",
+  "tags": [
+    "social",
+    "contact"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 50,
+  "archived": false,
+  "label": "Email",
+  "description": "contact@arthurdanjou.fr",
+  "icon": "i-ph-envelope-simple-duotone"
+}

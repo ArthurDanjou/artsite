@@ -1,0 +1,17 @@
+{
+  "slug": "artlab",
+  "url": "https://arthurdanjou.fr/projects/artlab",
+  "title": "ArtLab",
+  "category": "Homelab",
+  "tags": [
+    "homelab",
+    "projects"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 10,
+  "archived": false,
+  "label": "Homelab",
+  "description": "Self-hosted lab for distributed systems and private cloud experiments.",
+  "icon": "i-ph-flask-duotone"
+}

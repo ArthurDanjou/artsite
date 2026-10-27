@@ -1,0 +1,17 @@
+{
+  "slug": "linkedin",
+  "url": "https://www.linkedin.com/in/arthurdanjou",
+  "title": "LinkedIn",
+  "category": "Social",
+  "tags": [
+    "social",
+    "profile"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 10,
+  "archived": false,
+  "label": "Social",
+  "description": "Professional profile, experience, and updates.",
+  "icon": "i-simple-icons-linkedin"
+}

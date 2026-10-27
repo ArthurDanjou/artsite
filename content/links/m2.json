@@ -1,0 +1,18 @@
+{
+  "slug": "m2",
+  "url": "https://m2-internship-report.arthurdanjou.fr",
+  "title": "M2 Thesis",
+  "category": "Research",
+  "tags": [
+    "research",
+    "thesis",
+    "krum"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 20,
+  "archived": false,
+  "label": "Thesis",
+  "description": "Byzantine-resilient aggregation for distributed learning: the Krum library.",
+  "icon": "i-ph-file-text-duotone"
+}

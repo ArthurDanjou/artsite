@@ -1,0 +1,18 @@
+{
+  "slug": "call",
+  "url": "https://cal.com/arthurdanjou",
+  "title": "Book a call",
+  "category": "Social",
+  "tags": [
+    "social",
+    "contact",
+    "calendar"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 60,
+  "archived": false,
+  "label": "Calendar",
+  "description": "Pick a slot for a research or engineering conversation.",
+  "icon": "i-ph-calendar-dots-duotone"
+}

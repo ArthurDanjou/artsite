@@ -86,6 +86,8 @@ artsite/
 │   ├── composables/             # useContent helper
 │   ├── pages/
 │   │   ├── index.vue            # Home
+│   │   ├── links/
+│   │   │   └── index.vue        # /links
 │   │   ├── research.vue         # /research
 │   │   ├── publications.vue     # /publications
 │   │   ├── projects/
@@ -105,19 +107,28 @@ artsite/
 │   ├── projects/*.md            # Project pages
 │   ├── skills.json              # Skills data
 │   ├── languages.json           # Languages data
-│   └── contact.json             # Contact links
+│   ├── contact.json             # Contact links
+│   └── links/*.json             # Short links, one file per link (edited in Nuxt Studio)
 ├── server/
 │   ├── api/                     # Read endpoints (projects, skills, talks, languages, contact, stats, activity)
 │   │   ├── __sitemap__/         # Dynamic sitemap source (project URLs)
 │   │   └── ha/                  # Home Assistant proxy (status, media, media-cover, monitors)
 │   ├── routes/
-│   │   └── indexnow-key.txt.get.ts  # IndexNow ownership verification
+│   │   ├── indexnow-key.txt.get.ts  # IndexNow ownership verification
+│   │   └── qr/[slug].get.ts     # SVG QR code for a short link
+│   ├── middleware/
+│   │   ├── 05-links-host.ts     # Short link redirects on links./go.
+│   │   └── 10-errors-guard.ts   # errors. host routing
 │   ├── plugins/
 │   │   ├── ai-ready-markdown.ts # mdream excludes + .md provenance footer
 │   │   └── indexnow.ts          # Submit changed pages to IndexNow on reindex
 │   ├── utils/
-│   │   └── indexnow.ts          # IndexNow submission helper
+│   │   ├── indexnow.ts          # IndexNow submission helper
+│   │   ├── links.ts             # Click tracking (link_clicks inserts)
+│   │   └── request-host.ts      # Actual request host on Cloudflare
 │   └── db/
+│       ├── schema.ts            # Drizzle schema for link_clicks
+│       ├── seed-links.json      # Historical Dub import (content files are the source of truth)
 │       └── migrations/          # SQLite migrations
 ├── skills/
 │   └── portfolio/SKILL.md       # Agent Skill published via AI Ready discovery
@@ -138,9 +149,16 @@ artsite/
 | `/publications` | Publications and talks, with slides when available |
 | `/projects` | Project portfolio grouped by type |
 | `/projects/[slug]` | Individual project page |
+| `/links` | Link hub, also served at the root of `links.arthurdanjou.fr` and `go.arthurdanjou.fr` |
 | `/telemetry` | Live homelab telemetry with environment, status, and activity |
 | `/uses` | Hardware, software, and homelab infrastructure |
 | `https://cv.arthurdanjou.fr` | Hosted resume |
+
+## Links & Short URLs
+
+Links live in `content/links/*.json`, one file per link, and are edited in Nuxt Studio (GitHub OAuth, form generated from the `links` collection schema). Publishing commits to GitHub and triggers the Cloudflare deployment. The public hub is `/links`; the root of `links.arthurdanjou.fr` and `go.arthurdanjou.fr` redirects to it, and every other single-segment path on those hosts is treated as a short link.
+
+Every redirect is recorded in the D1 `link_clicks` table (country, referrer, device, browser, OS) with bot filtering. `/qr/:slug.svg` returns a QR code for the public short URL. The historical Dub import lives in `server/db/seed-links.json`; regenerate its SQL with `bun scripts/generate-links-seed.ts > server/db/migrations/sqlite/0001_seed_links.sql`.
 
 ## Content Model
 
@@ -148,7 +166,7 @@ Page collections use `pageSeoSchema` and pair one Markdown file with one page co
 
 ## API Overview
 
-The server exposes read only JSON endpoints for the frontend sections and a Home Assistant proxy under `server/api/ha/`. Responses are cached through Cloudflare KV where configured.
+The server exposes read-only public JSON endpoints and a Home Assistant proxy under `server/api/ha/`. Responses are cached through Cloudflare KV where configured.
 
 ## SEO & AEO
 

@@ -1,0 +1,17 @@
+{
+  "slug": "artstudies",
+  "url": "https://arthurdanjou.fr/projects/artstudies",
+  "title": "ArtStudies",
+  "category": "Research",
+  "tags": [
+    "research",
+    "academic"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 40,
+  "archived": false,
+  "label": "Academics",
+  "description": "My academic projects at Paris-Saclay and Paris-Dauphine.",
+  "icon": "i-ph-student-duotone"
+}

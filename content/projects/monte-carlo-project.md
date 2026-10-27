@@ -19,7 +19,7 @@ summary:
   outcome: "A report and code covering inverse-CDF sampling, accept-reject methods and stratification."
   links:
     - label: "Code"
-      url: "https://go.arthurdanjou.fr/monte-carlo-code"
+      url: "https://links.arthurdanjou.fr/monte-carlo-code"
       icon: i-ph-code-duotone
     - label: "Report"
       url: "/projects/monte-carlo.pdf"
@@ -39,7 +39,7 @@ This report presents the Monte Carlo Methods Project completed as part of the **
 
 ## Resources
 
-You can find the code here: [Monte Carlo Project Code](https://go.arthurdanjou.fr/monte-carlo-code)
+You can find the code here: [Monte Carlo Project Code](https://links.arthurdanjou.fr/monte-carlo-code)
 
 ## Detailed Report
 

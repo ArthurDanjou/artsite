@@ -5,7 +5,7 @@
       "name": "Email",
       "category": "communication",
       "icon": "i-ph-envelope-simple-duotone",
-      "value": "https://go.arthurdanjou.fr/mail-pro",
+      "value": "https://links.arthurdanjou.fr/mail-pro",
       "priority": 1
     },
     {
@@ -13,7 +13,7 @@
       "name": "LinkedIn",
       "category": "social",
       "icon": "i-ph-linkedin-logo-duotone",
-      "value": "https://go.arthurdanjou.fr/linkedin",
+      "value": "https://links.arthurdanjou.fr/linkedin",
       "priority": 1
     },
     {
@@ -21,7 +21,7 @@
       "name": "GitHub",
       "category": "social",
       "icon": "i-ph-github-logo-duotone",
-      "value": "https://go.arthurdanjou.fr/github",
+      "value": "https://links.arthurdanjou.fr/github",
       "username": "ArthurDanjou",
       "priority": 1
     },
@@ -30,7 +30,7 @@
       "name": "Twitter / X",
       "category": "social",
       "icon": "i-ph-x-logo-duotone",
-      "value": "https://go.arthurdanjou.fr/twitter",
+      "value": "https://links.arthurdanjou.fr/twitter",
       "priority": 1
     },
     {
@@ -38,7 +38,7 @@
       "name": "Discord",
       "category": "communication",
       "icon": "i-ph-discord-logo-duotone",
-      "value": "https://go.arthurdanjou.fr/discord",
+      "value": "https://links.arthurdanjou.fr/discord",
       "priority": 1
     },
     {
@@ -54,7 +54,7 @@
       "name": "Status Page",
       "category": "infrastructure",
       "icon": "i-ph-fire-duotone",
-      "value": "https://go.arthurdanjou.fr/status",
+      "value": "https://links.arthurdanjou.fr/status",
       "priority": 2
     }
   ]
