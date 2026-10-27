@@ -1,0 +1,17 @@
+{
+  "slug": "github",
+  "url": "https://github.com/arthurdanjou",
+  "title": "GitHub",
+  "category": "Social",
+  "tags": [
+    "social",
+    "code"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 20,
+  "archived": false,
+  "label": "Open source",
+  "description": "Open-source projects, experiments, and dotfiles.",
+  "icon": "i-simple-icons-github"
+}

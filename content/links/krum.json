@@ -1,0 +1,19 @@
+{
+  "slug": "krum",
+  "url": "https://github.com/calicarpa/krum",
+  "title": "Krum",
+  "category": "Engineering",
+  "tags": [
+    "projects",
+    "open-source",
+    "research",
+    "krum"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 10,
+  "archived": false,
+  "label": "Open source",
+  "description": "Open-source Byzantine-robust aggregation framework, v0.9.0.",
+  "icon": "i-ph-cube-duotone"
+}

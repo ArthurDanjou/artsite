@@ -1,0 +1,18 @@
+{
+  "slug": "cv",
+  "url": "https://cv.arthurdanjou.fr/",
+  "title": "Curriculum Vitae",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "cv",
+    "career"
+  ],
+  "featured": true,
+  "listed": true,
+  "position": 50,
+  "archived": false,
+  "label": "Hiring",
+  "description": "My academic and engineering background, in one page.",
+  "icon": "i-ph-address-book-duotone"
+}

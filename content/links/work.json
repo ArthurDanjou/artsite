@@ -1,0 +1,17 @@
+{
+  "slug": "work",
+  "url": "https://arthurdanjou.fr/projects",
+  "title": "Work",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "alias"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 70,
+  "archived": false,
+  "label": "Alias",
+  "description": "Alias for my projects page.",
+  "icon": "i-ph-folder-duotone"
+}

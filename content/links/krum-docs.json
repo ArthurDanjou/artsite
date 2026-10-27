@@ -1,0 +1,19 @@
+{
+  "slug": "krum-docs",
+  "url": "https://calicarpa.github.io/krum/",
+  "title": "Krum documentation",
+  "category": "Engineering",
+  "tags": [
+    "projects",
+    "open-source",
+    "docs",
+    "krum"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 15,
+  "archived": false,
+  "label": "Docs",
+  "description": "Guides, API reference, and protocol notes for the Krum library.",
+  "icon": "i-ph-book-open-duotone"
+}

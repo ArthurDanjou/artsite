@@ -1,82 +1,6 @@
 import type { H3Event } from 'h3'
-import { and, asc, eq, sql } from 'drizzle-orm'
+import { getHeader } from 'h3'
 import { db, schema } from 'hub:db'
-import type { AdminLink, LinkGroup, PublicLink, PublicLinksResponse } from '~~/types/links'
-import { categoryRank } from '~~/shared/links'
-
-export type LinkRow = typeof schema.links.$inferSelect
-
-export function serializeAdminLink(row: LinkRow): AdminLink {
-  return {
-    id: row.id,
-    slug: row.slug,
-    url: row.url,
-    title: row.title,
-    label: row.label,
-    description: row.description,
-    icon: row.icon,
-    category: row.category,
-    tags: Array.isArray(row.tags) ? row.tags : [],
-    featured: row.featured,
-    listed: row.listed,
-    archived: row.archived,
-    position: row.position,
-    clicks: row.clicks,
-    dubId: row.dubId,
-    lastClickedAt: row.lastClickedAt?.toISOString() ?? null,
-    createdAt: row.createdAt.toISOString(),
-    updatedAt: row.updatedAt.toISOString()
-  }
-}
-
-export function serializePublicLink(row: LinkRow): PublicLink {
-  return {
-    slug: row.slug,
-    title: row.title,
-    label: row.label,
-    description: row.description,
-    icon: row.icon,
-    category: row.category,
-    tags: Array.isArray(row.tags) ? row.tags : [],
-    featured: row.featured
-  }
-}
-
-export async function getPublicLinks(): Promise<PublicLinksResponse> {
-  const rows = await db
-    .select()
-    .from(schema.links)
-    .where(and(eq(schema.links.listed, true), eq(schema.links.archived, false)))
-    .orderBy(asc(schema.links.position), asc(schema.links.title))
-
-  const links = rows.map(serializePublicLink)
-  const socials = links.filter(link => link.category === 'Social')
-
-  const groups = new Map<string, PublicLink[]>()
-  for (const link of links) {
-    if (link.category === 'Social') continue
-    const group = groups.get(link.category) ?? []
-    group.push(link)
-    groups.set(link.category, group)
-  }
-
-  return {
-    socials,
-    groups: [...groups.entries()]
-      .sort(([left], [right]) => categoryRank(left) - categoryRank(right) || left.localeCompare(right))
-      .map(([label, groupLinks]): LinkGroup => ({ label, links: groupLinks }))
-  }
-}
-
-export async function findActiveLinkBySlug(slug: string): Promise<LinkRow | null> {
-  const [link] = await db
-    .select()
-    .from(schema.links)
-    .where(and(eq(schema.links.slug, slug), eq(schema.links.archived, false)))
-    .limit(1)
-
-  return link ?? null
-}
 
 const BOT_PATTERN = /bot|crawler|spider|preview|slack|discord|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegram|pinterest|embedly|quora link preview|outbrain|vkshare/i
 
@@ -128,38 +52,27 @@ export function parseUserAgent(userAgent: string | null): {
   return { device, browser, os }
 }
 
-export async function trackLinkClick(event: H3Event, link: LinkRow): Promise<void> {
+export async function trackLinkClick(event: H3Event, slug: string): Promise<void> {
   const userAgent = getHeader(event, 'user-agent') ?? null
   if (userAgent && BOT_PATTERN.test(userAgent)) return
 
   const cf = getCloudflareRequestCf(event)
   const referrer = truncate(getHeader(event, 'referer'), 512)
   const { device, browser, os } = parseUserAgent(userAgent)
-  const now = new Date()
 
   try {
-    await db.batch([
-      db.insert(schema.linkClicks).values({
-        linkId: link.id,
-        slug: link.slug,
-        timestamp: now,
-        country: truncate(cf?.country, 8),
-        region: truncate(cf?.region, 120),
-        city: truncate(cf?.city, 120),
-        referrer,
-        userAgent: truncate(userAgent, 512),
-        device,
-        browser,
-        os
-      }),
-      db
-        .update(schema.links)
-        .set({
-          clicks: sql`${schema.links.clicks} + 1`,
-          lastClickedAt: now
-        })
-        .where(eq(schema.links.id, link.id))
-    ])
+    await db.insert(schema.linkClicks).values({
+      slug,
+      timestamp: new Date(),
+      country: truncate(cf?.country, 8),
+      region: truncate(cf?.region, 120),
+      city: truncate(cf?.city, 120),
+      referrer,
+      userAgent: truncate(userAgent, 512),
+      device,
+      browser,
+      os
+    })
   }
   catch (error) {
     console.error('[links] Failed to track click', error)

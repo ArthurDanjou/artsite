@@ -1,0 +1,17 @@
+{
+  "slug": "status",
+  "url": "https://status.arthurdanjou.fr",
+  "title": "Status",
+  "category": "Homelab",
+  "tags": [
+    "homelab",
+    "status"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 30,
+  "archived": false,
+  "label": "Uptime",
+  "description": "Live uptime and infrastructure telemetry.",
+  "icon": "i-ph-pulse-duotone"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "website",
+  "url": "https://arthurdanjou.fr",
+  "title": "Portfolio",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "portfolio"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 10,
+  "archived": false,
+  "label": "Website",
+  "description": "AI safety research, engineering projects, and everything in between.",
+  "icon": "i-ph-globe-duotone"
+}

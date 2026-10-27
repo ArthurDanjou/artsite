@@ -1,0 +1,18 @@
+{
+  "slug": "glm-bikes-code",
+  "url": "https://github.com/ArthurDanjou/ArtStudies/blob/master/M1/General%20Linear%20Models/Projet/GLM%20Code%20-%20DANJOU%20%26%20DUROUSSEAU.rmd",
+  "title": "GLM Bikes code",
+  "category": "Engineering",
+  "tags": [
+    "projects",
+    "code",
+    "academic"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 90,
+  "archived": false,
+  "label": "Code",
+  "description": "Generalized linear models project on bike data.",
+  "icon": "i-simple-icons-github"
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "mail-perso",
+  "url": "mailto:arthurdanjou@outlook.fr",
+  "title": "Personal email",
+  "category": "Social",
+  "tags": [
+    "social",
+    "contact",
+    "personal"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 70,
+  "archived": false,
+  "label": "Email",
+  "description": "Personal email, not for work.",
+  "icon": "i-ph-envelope-simple-duotone"
+}

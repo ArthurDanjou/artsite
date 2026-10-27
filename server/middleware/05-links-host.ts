@@ -1,8 +1,9 @@
 import type { H3Event } from 'h3'
+import { queryCollection } from '@nuxt/content/server'
 import { createError, getRequestURL, sendRedirect, setHeader } from 'h3'
 import { isShortHost, normalizeSlug, RESERVED_SLUGS } from '~~/shared/links'
 import { getRequestHostname } from '../utils/request-host'
-import { findActiveLinkBySlug, trackLinkClick } from '../utils/links'
+import { trackLinkClick } from '../utils/links'
 
 const PASSTHROUGH_PREFIXES = [
   '/.well-known/',
@@ -54,12 +55,15 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: 'Link not found.' })
   }
 
-  const link = await findActiveLinkBySlug(slug)
-  if (!link) {
+  const link = await queryCollection(event, 'links')
+    .where('slug', '=', slug)
+    .first()
+
+  if (!link || link.archived) {
     throw createError({ statusCode: 404, statusMessage: 'Link not found.' })
   }
 
-  const tracking = trackLinkClick(event, link)
+  const tracking = trackLinkClick(event, slug)
   const waitUntil = (event as H3Event & { waitUntil?: (promise: Promise<unknown>) => void }).waitUntil
   if (waitUntil) {
     waitUntil(tracking)

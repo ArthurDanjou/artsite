@@ -1,0 +1,17 @@
+{
+  "slug": "hobbies",
+  "url": "https://arthurdanjou.fr/hobbies",
+  "title": "Hobbies",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "archive"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 100,
+  "archived": true,
+  "label": "Archive",
+  "description": "A former page about life outside research.",
+  "icon": "i-ph-archive-duotone"
+}

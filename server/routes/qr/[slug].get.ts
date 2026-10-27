@@ -1,6 +1,6 @@
+import { queryCollection } from '@nuxt/content/server'
 import { renderSVG } from 'uqr'
 import { shortLinkUrl } from '~~/shared/links'
-import { findActiveLinkBySlug } from '../../utils/links'
 
 export default defineEventHandler(async (event) => {
   const rawSlug = getRouterParam(event, 'slug')
@@ -9,8 +9,11 @@ export default defineEventHandler(async (event) => {
   }
 
   const slug = decodeURIComponent(rawSlug).replace(/\.svg$/i, '').toLowerCase()
-  const link = await findActiveLinkBySlug(slug)
-  if (!link) {
+  const link = await queryCollection(event, 'links')
+    .where('slug', '=', slug)
+    .first()
+
+  if (!link || link.archived) {
     throw createError({ statusCode: 404, statusMessage: 'Link not found.' })
   }
 

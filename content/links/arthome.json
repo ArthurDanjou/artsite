@@ -1,0 +1,17 @@
+{
+  "slug": "arthome",
+  "url": "https://home.arthurdanjou.fr",
+  "title": "ArtHome",
+  "category": "Homelab",
+  "tags": [
+    "homelab",
+    "automation"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 20,
+  "archived": false,
+  "label": "Homelab",
+  "description": "Home automation, sensors, and a house that runs itself.",
+  "icon": "i-ph-house-line-duotone"
+}

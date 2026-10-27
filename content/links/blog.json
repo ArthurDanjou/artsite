@@ -1,0 +1,18 @@
+{
+  "slug": "blog",
+  "url": "https://arthurdanjou.fr/publications",
+  "title": "Blog",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "alias",
+    "writing"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 90,
+  "archived": false,
+  "label": "Alias",
+  "description": "Alias for publications and talks.",
+  "icon": "i-ph-books-duotone"
+}

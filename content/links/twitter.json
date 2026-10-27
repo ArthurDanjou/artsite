@@ -1,0 +1,16 @@
+{
+  "slug": "twitter",
+  "url": "https://x.com/ArthurDanj",
+  "title": "X",
+  "category": "Social",
+  "tags": [
+    "social"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 30,
+  "archived": false,
+  "label": "Social",
+  "description": "Short thoughts on research, engineering, and Formula 1.",
+  "icon": "i-simple-icons-x"
+}

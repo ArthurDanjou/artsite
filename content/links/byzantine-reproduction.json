@@ -1,0 +1,18 @@
+{
+  "slug": "byzantine-reproduction",
+  "url": "https://github.com/ArthurDanjou/Byzantine-Robust-Aggregation-Reproduction",
+  "title": "Byzantine aggregation reproduction",
+  "category": "Research",
+  "tags": [
+    "research",
+    "code",
+    "reproduction"
+  ],
+  "featured": false,
+  "listed": false,
+  "position": 45,
+  "archived": false,
+  "label": "Research code",
+  "description": "From-scratch reproductions of Byzantine-robust aggregation papers.",
+  "icon": "i-simple-icons-github"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "publications",
+  "url": "https://arthurdanjou.fr/publications",
+  "title": "Publications",
+  "category": "Portfolio",
+  "tags": [
+    "website",
+    "research"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 30,
+  "archived": false,
+  "label": "Research",
+  "description": "Papers, talks, and the research behind them.",
+  "icon": "i-ph-books-duotone"
+}

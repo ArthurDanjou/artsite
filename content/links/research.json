@@ -1,0 +1,17 @@
+{
+  "slug": "research",
+  "url": "https://arthurdanjou.fr/research",
+  "title": "Research",
+  "category": "Research",
+  "tags": [
+    "research",
+    "ai-safety"
+  ],
+  "featured": true,
+  "listed": true,
+  "position": 10,
+  "archived": false,
+  "label": "Research",
+  "description": "Adversarial robustness, data ownership verification, and efficient learning at CMAP.",
+  "icon": "i-ph-flask-duotone"
+}

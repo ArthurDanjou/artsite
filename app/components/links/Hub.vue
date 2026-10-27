@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import type { PublicLinksResponse } from '~~/types/links'
-import { isShortHost, LINKS_PAGE_PATH, LINKS_SITE_URL, shortLinkUrl } from '~~/shared/links'
+import type { LinksCollectionItem } from '@nuxt/content'
+import { groupPublicLinks, isShortHost, LINKS_PAGE_PATH, LINKS_SITE_URL, shortLinkUrl } from '~~/shared/links'
 
 const requestUrl = useRequestURL()
 const onShortHost = computed(() => isShortHost(requestUrl.hostname))
 
-const { data } = await useFetch<PublicLinksResponse>('/api/links', {
-  key: 'links-page'
+const { data } = await useAsyncData('links-page', () => {
+  return queryCollection('links').all()
 })
 
-const groups = computed(() => data.value?.groups ?? [])
-const socials = computed(() => data.value?.socials ?? [])
+const grouped = computed(() => groupPublicLinks(data.value ?? [] as LinksCollectionItem[]))
+const groups = computed(() => grouped.value.groups)
+const socials = computed(() => grouped.value.socials)
 
 const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
