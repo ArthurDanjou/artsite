@@ -14,7 +14,7 @@
     "preview": "bun run build && wrangler dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "deploy": "bun run cf-typegen && bun run build && wrangler d1 migrations apply DB --remote --yes && wrangler deploy",
+    "deploy": "bun run cf-typegen && bun run build && wrangler d1 migrations apply DB --remote && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
