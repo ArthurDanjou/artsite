@@ -20,11 +20,11 @@ summary:
   outcome: "One source of truth for MCP servers, skills and commands, with backups and isolated tests."
   links:
     - label: "Code"
-      url: "https://go.arthurdanjou.fr/dotfiles"
+      url: "https://links.arthurdanjou.fr/dotfiles"
       icon: i-ph-code-duotone
 ---
 
-[**AI Sync Dotfiles**](https://go.arthurdanjou.fr/dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six different formats.
+[**AI Sync Dotfiles**](https://links.arthurdanjou.fr/dotfiles) is my machine configuration with a twist: every AI coding tool I use is driven from a **single source of truth**. A new MCP server, skill or slash command lands everywhere at once instead of being configured six times in six different formats.
 
 ## The Problem
 

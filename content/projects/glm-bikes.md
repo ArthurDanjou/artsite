@@ -19,7 +19,7 @@ summary:
   outcome: "A comparison of GLM families using weather and calendar features, with residual checks and cross-validation."
   links:
     - label: "Code"
-      url: "https://go.arthurdanjou.fr/glm-bikes-code"
+      url: "https://links.arthurdanjou.fr/glm-bikes-code"
       icon: i-ph-code-duotone
     - label: "Report"
       url: "/projects/bikes-glm.pdf"
@@ -55,7 +55,7 @@ The analysis identified critical factors influencing bike-sharing demand:
 
 ## Resources
 
-You can find the code here: [GLM Bikes Code](https://go.arthurdanjou.fr/glm-bikes-code)
+You can find the code here: [GLM Bikes Code](https://links.arthurdanjou.fr/glm-bikes-code)
 
 ## Detailed Report
 

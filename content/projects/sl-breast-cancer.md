@@ -20,7 +20,7 @@ summary:
   outcome: "A comparison of four classifiers using F1-score and stratified cross-validation, documented as an academic study."
   links:
     - label: "Code"
-      url: "https://go.arthurdanjou.fr/breast-cancer-detection-code"
+      url: "https://links.arthurdanjou.fr/breast-cancer-detection-code"
       icon: i-ph-code-duotone
     - label: "Report"
       url: "/projects/breast-cancer.pdf"
@@ -52,7 +52,7 @@ Model evaluation is primarily based on the F1-score, which is more suitable in a
 
 ## Resources
 
-You can find the code here: [Breast Cancer Detection](https://go.arthurdanjou.fr/breast-cancer-detection-code)
+You can find the code here: [Breast Cancer Detection](https://links.arthurdanjou.fr/breast-cancer-detection-code)
 
 ## Detailed Report
 

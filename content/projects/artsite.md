@@ -22,11 +22,11 @@ summary:
   outcome: "A Nuxt portfolio with Markdown content, deployed to Cloudflare Workers."
   links:
     - label: "Website"
-      url: "https://go.arthurdanjou.fr/website"
+      url: "https://links.arthurdanjou.fr/website"
       icon: i-ph-arrow-square-out-duotone
 ---
 
-[**ArtSite**](https://go.arthurdanjou.fr/website) is my digital headquarters: my engineering portfolio and experimental lab.
+[**ArtSite**](https://links.arthurdanjou.fr/website) is my digital headquarters: my engineering portfolio and experimental lab.
 
 It is a modern **Portfolio** designed to be fast, accessible, and type-safe. It is also a live production environment where I test the latest frontend technologies and Edge computing paradigms.
 

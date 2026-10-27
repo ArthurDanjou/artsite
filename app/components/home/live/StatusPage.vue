@@ -82,7 +82,7 @@ const statusTheme = computed<StatusTheme>(() => {
   <ClientOnly>
     <NuxtLink
       v-if="data && !hasNoData"
-      to="https://go.arthurdanjou.fr/status"
+      to="https://links.arthurdanjou.fr/status"
       target="_blank"
     >
       <UCard

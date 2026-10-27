@@ -238,7 +238,7 @@ function retry() {
         Back to home
       </UButton>
       <UButton
-        to="https://go.arthurdanjou.fr/status"
+        to="https://links.arthurdanjou.fr/status"
         target="_blank"
         icon="i-ph-heartbeat-duotone"
         color="neutral"
@@ -362,7 +362,7 @@ function retry() {
           <span v-if="updatedAtLabel">Updated {{ updatedAtLabel }}</span>
           <span v-else>Auto-refresh</span>
           <UButton
-            to="https://go.arthurdanjou.fr/status"
+            to="https://links.arthurdanjou.fr/status"
             target="_blank"
             variant="link"
             color="neutral"
