@@ -98,6 +98,6 @@ This project provides an interactive visualization tool for monitoring and segme
 
 ## Resources
 
-You can find the code here: [Data Visualisation Code](https://links.arthurdanjou.fr/datavis-code)
+You can find the code here: [Data Visualisation Code](https://github.com/ArthurDanjou/Tuberculose-Visualisation)
 
 And the online application here: [Data Visualisation App](https://arthurdanjou-datavis-project.share.connect.posit.cloud/)

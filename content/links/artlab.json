@@ -8,7 +8,7 @@
     "projects"
   ],
   "featured": false,
-  "listed": false,
+  "listed": true,
   "position": 10,
   "archived": false,
   "label": "Homelab",
