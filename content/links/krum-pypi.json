@@ -10,7 +10,7 @@
     "krum"
   ],
   "featured": false,
-  "listed": false,
+  "listed": true,
   "position": 16,
   "archived": false,
   "label": "Package",
