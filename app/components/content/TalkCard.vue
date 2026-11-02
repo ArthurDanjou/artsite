@@ -44,12 +44,16 @@ defineProps<{
           {{ description }}
         </p>
         <div
-          v-if="$slots.tags || slides"
+          v-if="$slots.tags"
           class="flex flex-wrap items-center gap-2 mt-3"
         >
           <slot name="tags" />
+        </div>
+        <div
+          v-if="slides"
+          class="flex flex-wrap items-center gap-2 mt-2.5"
+        >
           <UButton
-            v-if="slides"
             :to="slides"
             target="_blank"
             variant="subtle"
