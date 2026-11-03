@@ -48,7 +48,7 @@ I pick tools with AI integration and strong type-checking. My whole setup (dotfi
 
 - :prose-icon[Zed]{color="blue" icon="i-devicon-zed"}, for general-purpose scripting and remote SSH development.
 - :prose-icon[OpenCode AI]{color="purple" icon="i-material-symbols-deployed-code"}, an open-source AI coding agent with multi-provider support, dual build/plan agents, and native LSP integration.
-- :prose-icon[Orca]{color="neutral" icon="i-ph-browser-duotone"}, an open-source agent development environment to run Claude Code, Codex and OpenCode side by side, each in its own git worktree.
+- :prose-icon[T3.codes]{color="neutral" icon="i-ph-browser-duotone"}, the open-source control plane for coding agents, orchestrating Claude Code, Codex and OpenCode from one surface with a branch and pull request per agent thread.
 - **Theme:** :prose-icon[ArtLab Theme]{color="indigo" icon="i-ph-palette-duotone"}, a cross-platform theme blending Vitesse clarity with Catppuccin palettes, available for VS Code, Home Assistant, Zed, and Ghostty. See my [ArtLab Theme](/projects/artlab-theme) project.
 - **Font:** GitHub Monaspace Neon (primary, ligatures enabled) and JetBrains Mono.
 
