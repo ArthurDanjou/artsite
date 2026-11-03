@@ -1,11 +1,11 @@
 ---
 title: AI Safety & Applied Mathematics
-description: AI Research Intern at CMAP, Ecole Polytechnique. Research on adversarial distributed learning, data ownership verification, and efficient learning.
+description: PhD student in AI Safety at CMAP, Ecole Polytechnique. Research on adversarial distributed learning, data ownership verification, and efficient learning.
 sitemap:
   loc: /
 ---
 
-Hey, I'm :home-name, an :hover-text{hover="Robust Distributed Learning with Adversaries" position="bottom" text="AI Research Intern at CMAP, Ecole Polytechnique"} and a :hover-text{hover="Université Paris-Dauphine - PSL" position="bottom" text="Master 2 student in Statistical & Financial Engineering (ISF)"}.
+Hey, I'm :home-name, a :hover-text{hover="Robust Distributed Learning with Adversaries" position="bottom" text="PhD student in AI Safety at CMAP, Ecole Polytechnique"} and a :hover-text{hover="Université Paris-Dauphine - PSL" position="bottom" text="Master 2 student in Statistical & Financial Engineering (ISF)"}.
 
 I split my time between :hover-text{hover="Learning Theory, Robust Optimization & Advanced ML" position="top" text="theoretical research"} and :hover-text{hover="From MLOps to production-grade systems" position="right" text="software engineering"}. I ship what I model, and I can explain the math behind it.
 
@@ -13,7 +13,7 @@ I came to research through mathematics. I spent three years on :hover-text{hover
 
 My work is now part of the :hover-text{hover="Adversarial Techniques for Learning and AI Security" text="ATLAS chair"}, a research chair on AI security at CMAP led by [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/). He will supervise my PhD with Katia Meziani and Vladimir Kostic as co-directors, and [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, continuing their involvement in my M2 internship. My thesis will study the trade-offs between :hover-text{hover="Adversarial learning, distributed learning, fault tolerance, data poisoning, digital watermarking, efficient learning" text="adversarial robustness, data ownership verification, and efficient learning"}: can we protect training from malicious actors, verify the use of a dataset through watermarking, and reduce communication and computation costs at the same time?
 
-The open-source backbone of my internship is :hover-text{hover="10 aggregation rules, 5 attacks, protocol-faithful simulations" text="Krum"}, an open-source Byzantine-robust aggregation framework (paper in preparation, JMLR MLOSS). My first thesis project, already underway, studies whether :hover-text{hover="Gradient compression using only the sign of each coordinate" text="signSGD"} can be proved Byzantine fault tolerant, as a first case study of compression under adversarial conditions. I start my PhD at CMAP this November. More on the [research page](/research).
+The open-source backbone of my internship is :hover-text{hover="10 aggregation rules, 5 attacks, protocol-faithful simulations" text="Krum"}, an open-source Byzantine-robust aggregation framework (paper in preparation, JMLR MLOSS). My first thesis project, already underway, studies whether :hover-text{hover="Gradient compression using only the sign of each coordinate" text="signSGD"} can be proved Byzantine fault tolerant, as a first case study of compression under adversarial conditions. More on the [research page](/research).
 
 Day to day, I use :prose-icon[Python]{color="amber" icon="i-logos-python"},
 :prose-icon[PyTorch]{color="orange" icon="i-logos-pytorch-icon"} and
