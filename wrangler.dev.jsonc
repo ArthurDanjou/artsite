@@ -24,19 +24,5 @@
             "binding": "CACHE",
             "id": "f0766ace1d24423ba6e5cac4fb8f2054"
         }
-    ],
-    "observability": {
-        "enabled": true,
-        "logs": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "persist": true,
-            "invocation_logs": true
-        },
-        "traces": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "persist": true
-        }
-    }
+    ]
 }
