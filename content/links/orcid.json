@@ -1,0 +1,18 @@
+{
+  "slug": "orcid",
+  "url": "https://orcid.org/0009-0002-9450-2812",
+  "title": "ORCID",
+  "category": "Social",
+  "tags": [
+    "social",
+    "research",
+    "publications"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 40,
+  "archived": false,
+  "label": "Researcher ID",
+  "description": "Persistent researcher identifier, with affiliations, education and publications.",
+  "icon": "i-simple-icons-orcid"
+}

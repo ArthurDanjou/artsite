@@ -26,6 +26,14 @@
       "priority": 1
     },
     {
+      "id": "orcid",
+      "name": "ORCID",
+      "category": "social",
+      "icon": "i-simple-icons-orcid",
+      "value": "https://links.arthurdanjou.fr/orcid",
+      "priority": 1
+    },
+    {
       "id": "twitter",
       "name": "Twitter / X",
       "category": "social",
