@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import { getHeader } from 'h3'
+import { getHeader, getRequestURL } from 'h3'
 import { db, schema } from 'hub:db'
 
 const BOT_PATTERN = /bot|crawler|spider|preview|slack|discord|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegram|pinterest|embedly|quora link preview|outbrain|vkshare/i
@@ -11,8 +11,12 @@ function truncate(value: string | null | undefined, maxLength: number): string |
 
 interface CloudflareRequestCf {
   country?: string
+  continent?: string
   region?: string
   city?: string
+  timezone?: string
+  asn?: number
+  asOrganization?: string
 }
 
 function getCloudflareRequestCf(event: H3Event): CloudflareRequestCf | null {
@@ -58,6 +62,7 @@ export async function trackLinkClick(event: H3Event, slug: string): Promise<void
 
   const cf = getCloudflareRequestCf(event)
   const referrer = truncate(getHeader(event, 'referer'), 512)
+  const query = truncate(getRequestURL(event).search.replace(/^\?/, ''), 512)
   const { device, browser, os } = parseUserAgent(userAgent)
 
   try {
@@ -65,8 +70,13 @@ export async function trackLinkClick(event: H3Event, slug: string): Promise<void
       slug,
       timestamp: new Date(),
       country: truncate(cf?.country, 8),
+      continent: truncate(cf?.continent, 8),
       region: truncate(cf?.region, 120),
       city: truncate(cf?.city, 120),
+      timezone: truncate(cf?.timezone, 64),
+      asn: typeof cf?.asn === 'number' ? cf.asn : null,
+      asOrganization: truncate(cf?.asOrganization, 128),
+      query,
       referrer,
       userAgent: truncate(userAgent, 512),
       device,
