@@ -33,7 +33,5 @@ defineOgImage('Pergel.satori', {
       :value="page"
       class="mt-8 md:mt-16"
     />
-
-    <TelemetryLinkClicks />
   </main>
 </template>
