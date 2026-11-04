@@ -117,7 +117,7 @@ const statColumns = computed(() => [
 
     <UCard
       v-else-if="stats"
-      class="relative overflow-hidden transition-all duration-300 hover:shadow-md hover:ring-2 hover:ring-neutral-300/50 dark:hover:ring-neutral-700/50 group"
+      class="relative overflow-hidden transition-all duration-300 hover:ring-2 hover:ring-neutral-300/50 dark:hover:ring-neutral-700/50 group"
       :ui="{
         body: { padding: 'sm:p-6' },
         header: { padding: 'sm:px-6 sm:py-4' },
