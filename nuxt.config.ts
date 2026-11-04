@@ -310,11 +310,11 @@ export default defineNuxtConfig({
       '/sitemap.md'
     ],
     crawlLinks: true,
-    ignore: ['/errors', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp', '/links', '/qr']
+    ignore: ['/errors', '/redirect', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp', '/links', '/qr']
   },
 
   robots: {
-    disallow: ['/studio', '/errors', '/api/', '/__ai-ready/', '/__skew/', '/mcp', '/qr/']
+    disallow: ['/studio', '/errors', '/redirect', '/api/', '/__ai-ready/', '/__skew/', '/mcp', '/qr/']
   },
 
   schemaOrg: {
@@ -354,6 +354,7 @@ export default defineNuxtConfig({
     exclude: [
       '/studio/**',
       '/errors/**',
+      '/redirect',
       '/api/**',
       '/__ai-ready/**',
       '/__skew/**',

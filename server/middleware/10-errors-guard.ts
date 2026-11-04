@@ -24,6 +24,10 @@ export default defineEventHandler((event) => {
     return sendRedirect(event, `https://${CANONICAL_HOSTNAME}${pathname}${search}`, 301)
   }
 
+  if (isErrorsHost && pathname === '/redirect') {
+    return
+  }
+
   if (isErrorsHost && pathname !== '/errors' && !isAsset(pathname)) {
     return sendRedirect(event, `/errors${search}`, 302)
   }
