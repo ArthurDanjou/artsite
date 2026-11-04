@@ -1,4 +1,14 @@
 <script lang="ts" setup>
+const route = useRoute()
+const error = useError()
+
+if (import.meta.client && error.value?.statusCode === 404 && MAIN_HOSTNAMES.includes(getCurrentHost())) {
+  const target = new URL(`https://${ERRORS_HOSTNAME}/errors`)
+  target.searchParams.set('code', '404')
+  target.searchParams.set('path', error.value.url || route.fullPath)
+  window.location.replace(target.toString())
+}
+
 useSeoMeta({
   title: '404 - Page Not Found',
   robots: 'noindex, nofollow'
