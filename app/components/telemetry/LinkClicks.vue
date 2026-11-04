@@ -46,45 +46,236 @@ const { data, pending, error } = useLiveFetch<LinkClicksResponse>(
   }
 )
 
+const chartEl = ref<HTMLElement | null>(null)
+const svgEl = ref<SVGSVGElement | null>(null)
+const { width: chartWidth } = useElementSize(chartEl)
+
+const CHART_HEIGHT = 180
+const CHART_PADDING = { top: 14, right: 10, bottom: 24, left: 34 }
+
+const areaGradientId = `link-clicks-area-${useId()}`
+
+const dailySeries = computed(() => data.value?.daily ?? [])
+const periodTotal = computed(() =>
+  dailySeries.value.reduce((sum, day) => sum + day.clicks, 0)
+)
+const averagePerDay = computed(() =>
+  dailySeries.value.length
+    ? periodTotal.value / dailySeries.value.length
+    : 0
+)
+const peakDay = computed(() =>
+  dailySeries.value.reduce<DailyClicks | null>(
+    (best, day) => (!best || day.clicks > best.clicks ? day : best),
+    null
+  )
+)
+const hasClicks = computed(() => periodTotal.value > 0)
+
+const formatDay = (date?: string) =>
+  date
+    ? new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'UTC'
+      })
+    : ''
+
+const formatDayLong = (date?: string) =>
+  date
+    ? new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'UTC'
+      })
+    : ''
+
+const niceScale = (peak: number) => {
+  let magnitude = 1
+  for (let power = 0; power < 6; power++) {
+    for (const candidate of [1, 2, 5, 10]) {
+      const step = candidate * magnitude
+      const intervals = Math.ceil(peak / step)
+      if (intervals <= 5) return { step, intervals }
+    }
+    magnitude *= 10
+  }
+  return { step: Math.max(peak, 1), intervals: 1 }
+}
+
+/**
+ * Monotone cubic interpolation, so the curve never overshoots the daily counts.
+ */
+const monotonePath = (points: Array<{ x: number, y: number }>) => {
+  if (!points.length) return ''
+  if (points.length === 1) {
+    return `M${points[0]!.x.toFixed(1)},${points[0]!.y.toFixed(1)}`
+  }
+
+  const count = points.length
+  const tangents: number[] = []
+
+  for (let index = 1; index < count - 1; index++) {
+    const previous = points[index - 1]!
+    const current = points[index]!
+    const next = points[index + 1]!
+    const h0 = current.x - previous.x || 1
+    const h1 = next.x - current.x || 1
+    const slope0 = (current.y - previous.y) / h0
+    const slope1 = (next.y - current.y) / h1
+
+    if (slope0 * slope1 <= 0) {
+      tangents[index] = 0
+      continue
+    }
+
+    const weighted = (slope0 * h1 + slope1 * h0) / (h0 + h1)
+    tangents[index]
+      = (Math.sign(slope0) + Math.sign(slope1))
+        * Math.min(
+          Math.abs(slope0),
+          Math.abs(slope1),
+          0.5 * Math.abs(weighted)
+        )
+  }
+
+  tangents[0]
+    = (points[1]!.y - points[0]!.y) / (points[1]!.x - points[0]!.x || 1)
+  tangents[count - 1]
+    = (points[count - 1]!.y - points[count - 2]!.y)
+      / (points[count - 1]!.x - points[count - 2]!.x || 1)
+
+  let path = `M${points[0]!.x.toFixed(1)},${points[0]!.y.toFixed(1)}`
+
+  for (let index = 0; index < count - 1; index++) {
+    const current = points[index]!
+    const next = points[index + 1]!
+    const handle = (next.x - current.x) / 3
+    const c1x = current.x + handle
+    const c1y = current.y + tangents[index]! * handle
+    const c2x = next.x - handle
+    const c2y = next.y - tangents[index + 1]! * handle
+    path += ` C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${next.x.toFixed(1)},${next.y.toFixed(1)}`
+  }
+
+  return path
+}
+
 const chart = computed(() => {
-  const width = 600
-  const height = 160
-  const paddingX = 4
-  const paddingY = 12
-  const values = data.value?.daily ?? []
+  const series = dailySeries.value
+  const width = Math.max(260, Math.round(chartWidth.value) || 600)
+  const height = CHART_HEIGHT
+  const innerWidth = width - CHART_PADDING.left - CHART_PADDING.right
+  const innerHeight = height - CHART_PADDING.top - CHART_PADDING.bottom
+  const baseline = CHART_PADDING.top + innerHeight
 
-  const max = Math.max(1, ...values.map(day => day.clicks))
-  const step
-    = values.length > 1 ? (width - paddingX * 2) / (values.length - 1) : 0
+  const peakValue = Math.max(1, ...series.map(day => day.clicks))
+  const { step: yStep, intervals: yIntervals } = niceScale(peakValue)
+  const yMax = yStep * yIntervals
 
-  const points = values.map((day, index) => ({
+  const x = (index: number) =>
+    series.length <= 1
+      ? CHART_PADDING.left + innerWidth / 2
+      : CHART_PADDING.left + (index / (series.length - 1)) * innerWidth
+
+  const y = (value: number) =>
+    CHART_PADDING.top + (1 - value / yMax) * innerHeight
+
+  const points = series.map((day, index) => ({
     ...day,
-    x: paddingX + index * step,
-    y: paddingY + (1 - day.clicks / max) * (height - paddingY * 2)
+    index,
+    x: x(index),
+    y: y(day.clicks)
   }))
 
-  const line = points
-    .map(
-      (point, index) =>
-        `${index === 0 ? 'M' : 'L'}${point.x.toFixed(1)},${point.y.toFixed(1)}`
-    )
-    .join(' ')
-
-  const area = points.length
-    ? `${line} L${points.at(-1)!.x.toFixed(1)},${height} L${points[0]!.x.toFixed(1)},${height} Z`
+  const line = hasClicks.value ? monotonePath(points) : ''
+  const area = line
+    ? `${line} L${points.at(-1)!.x.toFixed(1)},${baseline} L${points[0]!.x.toFixed(1)},${baseline} Z`
     : ''
+
+  const yTicks = Array.from({ length: yIntervals + 1 }, (_, index) => ({
+    value: index * yStep,
+    y: y(index * yStep)
+  }))
+
+  const xTickCount = Math.min(5, series.length)
+  const xTicks = Array.from({ length: xTickCount }, (_, index) => {
+    const pointIndex
+      = xTickCount > 1
+        ? Math.round((index * (series.length - 1)) / (xTickCount - 1))
+        : 0
+    const point = points[pointIndex]!
+    return { index: pointIndex, x: point.x, label: formatDay(point.date) }
+  })
 
   return {
     width,
     height,
-    max,
+    baseline,
+    plotTop: CHART_PADDING.top,
+    left: CHART_PADDING.left,
+    right: width - CHART_PADDING.right,
+    innerWidth,
+    points,
+    lastPoint: points.at(-1) ?? null,
     line,
     area,
-    points,
-    start: values.at(0)?.date,
-    end: values.at(-1)?.date
+    yTicks,
+    xTicks,
+    averageY: y(averagePerDay.value)
   }
 })
+
+const activeIndex = ref<number | null>(null)
+
+const activePoint = computed(() =>
+  activeIndex.value === null
+    ? null
+    : chart.value.points[activeIndex.value] ?? null
+)
+
+const activeShare = computed(() => {
+  const point = activePoint.value
+  if (!point || !periodTotal.value) return 0
+  return Math.round((point.clicks / periodTotal.value) * 100)
+})
+
+const tooltipStyle = computed(() => {
+  const point = activePoint.value
+  if (!point) return {}
+  const half = 66
+  const left = Math.min(
+    Math.max(point.x, half),
+    Math.max(chart.value.width - half, half)
+  )
+  const above = point.y > 68
+  return {
+    left: `${left}px`,
+    top: above ? `${point.y - 14}px` : `${point.y + 16}px`,
+    transform: above ? 'translate(-50%, -100%)' : 'translate(-50%, 0)'
+  }
+})
+
+const updateActivePoint = (event: PointerEvent) => {
+  const element = svgEl.value
+  const points = chart.value.points
+  if (!element || !points.length) return
+
+  const rect = element.getBoundingClientRect()
+  if (!rect.width) return
+
+  const position
+    = ((event.clientX - rect.left) / rect.width) * chart.value.width
+  const ratio
+    = (position - chart.value.left) / (chart.value.innerWidth || 1)
+  const index = Math.round(ratio * (points.length - 1))
+  activeIndex.value = Math.min(Math.max(index, 0), points.length - 1)
+}
+
+const clearActivePoint = () => {
+  activeIndex.value = null
+}
 
 const topLinks = computed(() => (data.value?.links ?? []).slice(0, 8))
 const maxLinkClicks = computed(() =>
@@ -147,15 +338,6 @@ const share = (clicks: number) =>
 
 const formatNumber = (value: number) =>
   new Intl.NumberFormat('en-US').format(value)
-
-const formatDay = (date?: string) =>
-  date
-    ? new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        timeZone: 'UTC'
-      })
-    : ''
 
 const stats = computed(() => [
   {
@@ -245,75 +427,212 @@ const stats = computed(() => [
               title="Clicks per day"
               title-size="sm"
               icon="i-ph-chart-line-up-duotone"
-            />
+            >
+              <template #right>
+                <UBadge
+                  color="primary"
+                  variant="subtle"
+                  size="sm"
+                >
+                  {{ formatNumber(periodTotal) }} in {{ dailySeries.length }} days
+                </UBadge>
+              </template>
+            </HomeLiveCardHeader>
           </template>
 
-          <div class="relative text-primary-500">
-            <svg
-              :viewBox="`0 0 ${chart.width} ${chart.height}`"
-              preserveAspectRatio="none"
-              class="h-44 w-full overflow-visible"
-              role="img"
-              aria-label="Daily link clicks over the last 30 days"
+          <div class="text-primary-500">
+            <div
+              ref="chartEl"
+              class="relative"
             >
-              <defs>
-                <linearGradient
-                  id="link-clicks-area"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="currentColor"
-                    stop-opacity="0.35"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="currentColor"
-                    stop-opacity="0"
-                  />
-                </linearGradient>
-              </defs>
-
-              <path
-                :d="chart.area"
-                fill="url(#link-clicks-area)"
-              />
-              <path
-                :d="chart.line"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                vector-effect="non-scaling-stroke"
-              />
-              <circle
-                v-for="point in chart.points"
-                :key="point.date"
-                :cx="point.x"
-                :cy="point.y"
-                r="4"
-                fill="transparent"
-                class="hover:fill-current"
+              <svg
+                v-if="chartWidth"
+                ref="svgEl"
+                :viewBox="`0 0 ${chart.width} ${chart.height}`"
+                :style="{ height: `${chart.height}px` }"
+                class="block w-full overflow-visible"
+                role="img"
+                :aria-label="`Daily link clicks over the last ${dailySeries.length} days, ${formatNumber(periodTotal)} clicks in total`"
+                @pointermove="updateActivePoint"
+                @pointerdown="updateActivePoint"
+                @pointerleave="clearActivePoint"
               >
-                <title>
-                  {{ formatDay(point.date) }}:
-                  {{ point.clicks }} click{{
-                    point.clicks === 1 ? "" : "s"
+                <defs>
+                  <linearGradient
+                    :id="areaGradientId"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="currentColor"
+                      stop-opacity="0.3"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="currentColor"
+                      stop-opacity="0"
+                    />
+                  </linearGradient>
+                </defs>
+
+                <g>
+                  <line
+                    v-for="tick in chart.yTicks"
+                    :key="`grid-${tick.value}`"
+                    :x1="chart.left"
+                    :x2="chart.right"
+                    :y1="tick.y"
+                    :y2="tick.y"
+                    class="stroke-neutral-200 dark:stroke-neutral-800"
+                    :stroke-dasharray="tick.value === 0 ? undefined : '3 4'"
+                    stroke-width="1"
+                    vector-effect="non-scaling-stroke"
+                  />
+                </g>
+
+                <g>
+                  <text
+                    v-for="tick in chart.yTicks"
+                    :key="`y-label-${tick.value}`"
+                    :x="chart.left - 8"
+                    :y="tick.y"
+                    text-anchor="end"
+                    dominant-baseline="middle"
+                    font-size="10"
+                    class="fill-neutral-400 tabular-nums dark:fill-neutral-500"
+                  >
+                    {{ formatNumber(tick.value) }}
+                  </text>
+                </g>
+
+                <line
+                  v-if="hasClicks"
+                  :x1="chart.left"
+                  :x2="chart.right"
+                  :y1="chart.averageY"
+                  :y2="chart.averageY"
+                  class="stroke-neutral-400/70 dark:stroke-neutral-500/70"
+                  stroke-width="1"
+                  stroke-dasharray="4 4"
+                  vector-effect="non-scaling-stroke"
+                />
+
+                <path
+                  v-if="chart.area"
+                  :d="chart.area"
+                  :fill="`url(#${areaGradientId})`"
+                />
+                <path
+                  v-if="chart.line"
+                  :d="chart.line"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  vector-effect="non-scaling-stroke"
+                />
+
+                <circle
+                  v-if="chart.lastPoint"
+                  :cx="chart.lastPoint.x"
+                  :cy="chart.lastPoint.y"
+                  r="3"
+                  fill="currentColor"
+                  class="stroke-white dark:stroke-neutral-900"
+                  stroke-width="2"
+                />
+
+                <g v-if="activePoint">
+                  <line
+                    :x1="activePoint.x"
+                    :x2="activePoint.x"
+                    :y1="chart.plotTop"
+                    :y2="chart.baseline"
+                    class="stroke-neutral-300 dark:stroke-neutral-600"
+                    stroke-width="1"
+                    stroke-dasharray="3 3"
+                    vector-effect="non-scaling-stroke"
+                  />
+                  <circle
+                    :cx="activePoint.x"
+                    :cy="activePoint.y"
+                    r="9"
+                    fill="currentColor"
+                    opacity="0.15"
+                  />
+                  <circle
+                    :cx="activePoint.x"
+                    :cy="activePoint.y"
+                    r="3.5"
+                    fill="currentColor"
+                  />
+                </g>
+
+                <g>
+                  <text
+                    v-for="tick in chart.xTicks"
+                    :key="`x-label-${tick.index}`"
+                    :x="tick.x"
+                    :y="chart.height - 6"
+                    text-anchor="middle"
+                    font-size="10"
+                    class="fill-neutral-400 dark:fill-neutral-500"
+                  >
+                    {{ tick.label }}
+                  </text>
+                </g>
+              </svg>
+
+              <p
+                v-if="!hasClicks"
+                class="pointer-events-none absolute inset-0 flex items-center justify-center"
+              >
+                <span
+                  class="rounded-full bg-neutral-50/90 px-3 py-1 text-xs text-neutral-500 dark:bg-neutral-900/90 dark:text-neutral-400"
+                >
+                  No clicks in this period
+                </span>
+              </p>
+
+              <div
+                v-if="activePoint"
+                class="pointer-events-none absolute z-10 whitespace-nowrap rounded-lg border border-neutral-200 bg-white px-2.5 py-1.5 shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
+                :style="tooltipStyle"
+              >
+                <p
+                  class="text-[11px] font-medium text-neutral-500 dark:text-neutral-400"
+                >
+                  {{ formatDayLong(activePoint.date) }}
+                </p>
+                <p class="text-xs font-bold text-neutral-900 dark:text-white">
+                  {{ formatNumber(activePoint.clicks) }} click{{
+                    activePoint.clicks === 1 ? "" : "s"
                   }}
-                </title>
-              </circle>
-            </svg>
+                  <span
+                    v-if="activePoint.clicks"
+                    class="font-normal text-neutral-400"
+                  >· {{ activeShare }}%</span>
+                </p>
+              </div>
+            </div>
 
             <div
-              class="mt-2 flex justify-between text-xs text-neutral-400"
+              class="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] text-neutral-400"
             >
-              <span>{{ formatDay(chart.start) }}</span>
-              <span>{{ chart.max }} max</span>
-              <span>{{ formatDay(chart.end) }}</span>
+              <span class="inline-flex items-center gap-1.5">
+                <span
+                  class="inline-block w-4 border-t border-dashed border-neutral-400"
+                />
+                {{ averagePerDay.toFixed(1) }} avg/day
+              </span>
+              <span v-if="peakDay && peakDay.clicks">
+                Peak {{ formatNumber(peakDay.clicks) }} on
+                {{ formatDay(peakDay.date) }}
+              </span>
             </div>
           </div>
         </UCard>
@@ -356,7 +675,7 @@ const stats = computed(() => [
                 class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800"
               >
                 <div
-                  class="h-full rounded-full bg-primary-500"
+                  class="h-full rounded-full bg-amber-500"
                   :style="{
                     width: `${(link.clicks / maxLinkClicks) * 100}%`
                   }"
