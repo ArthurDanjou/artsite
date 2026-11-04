@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 definePageMeta({ layout: 'errors' })
 
+useHead({ base: { href: `https://${ERRORS_HOSTNAME}/` } })
+
 const route = useRoute()
 
 const statusCode = computed(() => {
