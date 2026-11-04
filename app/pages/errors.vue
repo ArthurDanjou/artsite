@@ -21,6 +21,12 @@ const originHost = computed(() => {
   }
 })
 
+const originPath = computed(() => {
+  const raw = route.query.path
+  const value = (Array.isArray(raw) ? raw[0] : raw)?.trim()
+  return value ? value.slice(0, 200) : null
+})
+
 interface ErrorCopy {
   badge: 'neutral' | 'red' | 'amber' | 'orange'
   icon: string
@@ -55,10 +61,10 @@ const copy = computed<ErrorCopy>(() => {
       return {
         badge: 'neutral',
         icon: 'i-ph-magnifying-glass-duotone',
-        title: 'Service not found',
+        title: originHost.value ? 'Service not found' : 'Page not found',
         description: originHost.value
           ? `The ${originHost.value} service does not exist, is no longer exposed, or the address is incorrect.`
-          : 'This resource does not exist, is no longer exposed, or the address is incorrect.'
+          : 'This page does not exist, has moved, or the address is incorrect.'
       }
     case 408:
       return {
@@ -125,9 +131,12 @@ useSeoMeta({
   robots: 'noindex, nofollow'
 })
 
+// A 404 is never inlined by the Traefik errors middleware (it only
+// intercepts 429 and 5xx), so it can safely carry the real status. Other
+// codes stay 200 so a non-2xx error page cannot break the fallback chain.
 const requestEvent = useRequestEvent()
 if (requestEvent) {
-  setResponseStatus(requestEvent, 200)
+  setResponseStatus(requestEvent, statusCode.value === 404 ? 404 : 200)
 }
 
 interface StatusPageSummary {
@@ -219,6 +228,12 @@ function retry() {
       class="mt-3 max-w-full truncate font-mono text-xs text-neutral-400 dark:text-neutral-500"
     >
       Requested service: {{ originHost }}
+    </p>
+    <p
+      v-if="originPath"
+      class="mt-1 max-w-full truncate font-mono text-xs text-neutral-400 dark:text-neutral-500"
+    >
+      Requested path: {{ originPath }}
     </p>
 
     <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
