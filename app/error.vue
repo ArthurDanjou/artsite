@@ -1,12 +1,21 @@
 <script lang="ts" setup>
 const route = useRoute()
 const error = useError()
+const errorData = error.value?.data as { path?: string } | undefined
 
-if (import.meta.client && error.value?.statusCode === 404 && MAIN_HOSTNAMES.includes(getCurrentHost())) {
-  const target = new URL(`https://${ERRORS_HOSTNAME}/errors`)
-  target.searchParams.set('code', '404')
-  target.searchParams.set('path', error.value.url || route.fullPath)
-  window.location.replace(target.toString())
+const host = getCurrentHost()
+const isMainHost = MAIN_HOSTNAMES.includes(host)
+  || (import.meta.dev && (host === 'localhost' || host === '127.0.0.1'))
+
+if (import.meta.client && error.value?.statusCode === 404 && isMainHost) {
+  const search = new URLSearchParams({
+    code: '404',
+    path: errorData?.path || error.value.url || route.fullPath
+  })
+  const target = import.meta.dev
+    ? `/errors?${search}`
+    : `https://${ERRORS_HOSTNAME}/errors?${search}`
+  window.location.replace(target)
 }
 
 useSeoMeta({

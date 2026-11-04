@@ -2,9 +2,15 @@ import { getRequestHeader, getRequestHost, getRequestURL, getResponseStatus } fr
 
 const ERRORS_HOSTNAME = 'errors.arthurdanjou.fr'
 const MAIN_HOSTNAMES = new Set(['arthurdanjou.fr'])
+const DEV_HOSTNAMES = new Set(['localhost', '127.0.0.1'])
 
 const PASSTHROUGH_PREFIXES = ['/api/', '/_nuxt/', '/_ipx/', '/__nuxt', '/.well-known/']
 const PASSTHROUGH_PATHS = new Set(['/errors', '/redirect', '/studio', '/mcp', '/qr'])
+
+function isMainHost(host: string) {
+  if (MAIN_HOSTNAMES.has(host)) return true
+  return import.meta.dev && DEV_HOSTNAMES.has(host)
+}
 
 function isAsset(pathname: string) {
   if (pathname === '/favicon.ico') return true
@@ -25,7 +31,7 @@ export default defineNitroPlugin((nitroApp) => {
     if ((response.statusCode ?? getResponseStatus(event)) !== 200) return
 
     const host = getRequestHost(event).split(':')[0]?.toLowerCase() ?? ''
-    if (!MAIN_HOSTNAMES.has(host)) return
+    if (!isMainHost(host)) return
 
     const accept = getRequestHeader(event, 'accept') ?? ''
     if (!accept.includes('text/html')) return
@@ -34,16 +40,20 @@ export default defineNitroPlugin((nitroApp) => {
     const originalURL = new URL(original, `https://${host}`)
     if (isAsset(originalURL.pathname) || PASSTHROUGH_PATHS.has(originalURL.pathname)) return
 
-    const target = new URL(`https://${ERRORS_HOSTNAME}/errors`)
-    target.searchParams.set('code', '404')
-    target.searchParams.set('path', `${originalURL.pathname}${originalURL.search}`)
+    const search = new URLSearchParams({
+      code: '404',
+      path: `${originalURL.pathname}${originalURL.search}`
+    })
+    const target = import.meta.dev
+      ? `/errors?${search}`
+      : `https://${ERRORS_HOSTNAME}/errors?${search}`
 
     response.statusCode = 302
     response.statusMessage = 'Found'
     response.headers = {
       ...response.headers,
       'cache-control': 'no-store',
-      'location': target.toString()
+      'location': target
     }
     response.body = ''
   })
