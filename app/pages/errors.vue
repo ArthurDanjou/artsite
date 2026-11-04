@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({ layout: 'errors' })
 
-// Traefik inlines this page on the host of a failing service, keeping that
-// host in the address bar. Root-absolute asset URLs (/_nuxt/...) would then
-// resolve against the broken host and fail, so pin the document base to the
-// errors host. On errors.arthurdanjou.fr itself the base is same-origin and
-// changes nothing.
 useHead({ base: { href: `https://${ERRORS_HOSTNAME}/` } })
 
 const route = useRoute()
