@@ -1,0 +1,19 @@
+{
+  "slug": "m2-slides",
+  "url": "https://talks.arthurdanjou.fr/2026/soutenance-m2-krum/slides.pdf",
+  "title": "M2 defence slides",
+  "category": "Research",
+  "tags": [
+    "research",
+    "thesis",
+    "talks",
+    "krum"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 22,
+  "archived": false,
+  "label": "Slides",
+  "description": "Defence slides for the Krum master's thesis.",
+  "icon": "i-ph-presentation-duotone"
+}
