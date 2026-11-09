@@ -43,6 +43,14 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // Route matching is case sensitive so /Projects is a 404 instead of a
+  // duplicate of /projects. Nuxt turns this on by default in v5.
+  router: {
+    options: {
+      sensitive: true
+    }
+  },
+
   site: {
     url: 'https://arthurdanjou.fr',
     name: 'Arthur Danjou',
