@@ -1,0 +1,18 @@
+{
+  "slug": "lt-two-layers-neural-networks",
+  "url": "https://arthurdanjou.fr/projects/lt-two-layers-neural-networks",
+  "title": "Two-layer ReLU generalisation bounds",
+  "category": "Research",
+  "tags": [
+    "research",
+    "academic",
+    "learning-theory"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 46,
+  "archived": false,
+  "label": "M2 project",
+  "description": "Derivation of tight generalisation bounds for two-layer ReLU networks.",
+  "icon": "i-ph-function-duotone"
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "dl-dropout-reduces-underfitting",
+  "url": "https://arthurdanjou.fr/projects/dl-dropout-reduces-underfitting",
+  "title": "Dropout Reduces Underfitting",
+  "category": "Research",
+  "tags": [
+    "research",
+    "academic",
+    "deep-learning"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 47,
+  "archived": false,
+  "label": "M2 project",
+  "description": "TensorFlow/Keras reproduction of early and late dropout strategies.",
+  "icon": "i-ph-share-network-duotone"
+}
