@@ -1,0 +1,18 @@
+{
+  "slug": "monte-carlo-project",
+  "url": "https://arthurdanjou.fr/projects/monte-carlo-project",
+  "title": "Monte Carlo methods",
+  "category": "Research",
+  "tags": [
+    "research",
+    "academic",
+    "statistics"
+  ],
+  "featured": false,
+  "listed": true,
+  "position": 48,
+  "archived": false,
+  "label": "M1 project",
+  "description": "Inverse-CDF sampling, acceptance-rejection and stratification in R.",
+  "icon": "i-ph-dice-five-duotone"
+}
