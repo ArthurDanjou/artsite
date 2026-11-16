@@ -295,9 +295,9 @@ function reset() {
     </ul>
 
     <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-neutral-200 pt-3 dark:border-default">
-      <p class="text-xs text-toned">
-        Average drift
-        <strong class="ml-1 font-mono tabular-nums text-highlighted">{{ drift }}</strong>
+      <p class="flex flex-wrap items-baseline gap-1.5 text-xs text-toned">
+        <span>Average drift</span>
+        <strong class="font-mono tabular-nums text-highlighted">{{ drift }}</strong>
         <span class="text-muted">plot units from the honest centre</span>
       </p>
       <div class="flex flex-wrap items-center gap-3">
