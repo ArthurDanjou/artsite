@@ -20,6 +20,15 @@ const handle = ref<Point>({ ...DEFAULT_HANDLE })
 const dragging = ref(false)
 const plot = useTemplateRef<SVGSVGElement>('plot')
 
+const honestJitter = ref<Point[]>(HONEST_GRADIENTS.map(() => ({ x: 0, y: 0 })))
+
+const honest = computed(() =>
+  HONEST_GRADIENTS.map((point, index) => ({
+    x: clamp(point.x + (honestJitter.value[index]?.x ?? 0), 20, WIDTH - 20),
+    y: clamp(point.y + (honestJitter.value[index]?.y ?? 0), 20, HEIGHT - 20)
+  }))
+)
+
 const adversaries = computed(() =>
   ADVERSARIAL_OFFSETS.slice(0, count.value).map(offset => ({
     x: handle.value.x + offset.x,
@@ -27,14 +36,25 @@ const adversaries = computed(() =>
   }))
 )
 
-const points = computed(() => [...HONEST_GRADIENTS, ...adversaries.value])
+const points = computed(() => [...honest.value, ...adversaries.value])
 const averagePoint = computed(() => average(points.value))
 const medianPoint = computed(() => geometricMedian(points.value))
 const krumPoint = computed(() => multiKrum(points.value, count.value))
-const honestCenter = average(HONEST_GRADIENTS)
+const honestCenter = computed(() => average(honest.value))
 const drift = computed(() =>
-  Math.round(Math.hypot(averagePoint.value.x - honestCenter.x, averagePoint.value.y - honestCenter.y))
+  Math.round(Math.hypot(averagePoint.value.x - honestCenter.value.x, averagePoint.value.y - honestCenter.value.y))
 )
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value))
+}
+
+function shuffleHonest() {
+  honestJitter.value = HONEST_GRADIENTS.map(() => ({
+    x: (Math.random() - 0.5) * 44,
+    y: (Math.random() - 0.5) * 36
+  }))
+}
 
 function moveHandle(x: number, y: number) {
   handle.value = {
@@ -78,6 +98,7 @@ function moveWithKeyboard(event: KeyboardEvent) {
 function reset() {
   count.value = DEFAULT_COUNT
   handle.value = { ...DEFAULT_HANDLE }
+  honestJitter.value = HONEST_GRADIENTS.map(() => ({ x: 0, y: 0 }))
 }
 </script>
 
@@ -149,7 +170,7 @@ function reset() {
       />
 
       <circle
-        v-for="(point, index) in HONEST_GRADIENTS"
+        v-for="(point, index) in honest"
         :key="`honest-${index}`"
         :cx="point.x"
         :cy="point.y"
@@ -279,15 +300,26 @@ function reset() {
         <strong class="ml-1 font-mono tabular-nums text-highlighted">{{ drift }}</strong>
         <span class="text-muted">plot units from the honest centre</span>
       </p>
-      <UButton
-        color="neutral"
-        variant="link"
-        size="xs"
-        icon="i-ph-arrow-counter-clockwise-duotone"
-        @click="reset"
-      >
-        Reset
-      </UButton>
+      <div class="flex flex-wrap items-center gap-3">
+        <UButton
+          color="neutral"
+          variant="link"
+          size="xs"
+          icon="i-ph-shuffle-duotone"
+          @click="shuffleHonest"
+        >
+          Shuffle honest
+        </UButton>
+        <UButton
+          color="neutral"
+          variant="link"
+          size="xs"
+          icon="i-ph-arrow-counter-clockwise-duotone"
+          @click="reset"
+        >
+          Reset
+        </UButton>
+      </div>
     </div>
 
     <figcaption class="mt-3 text-xs leading-relaxed text-muted">
