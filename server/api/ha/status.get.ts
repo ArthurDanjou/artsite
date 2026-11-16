@@ -34,7 +34,7 @@ export default defineCachedEventHandler(async (event) => {
     totalMediaPlayers = 0
     activeMediaPlayers = 0
     for (const s of states) {
-      const domain = s.entity_id.split('.')[0]
+      const domain = s.entity_id.split('.')[0] ?? ''
       domains[domain] = (domains[domain] || 0) + 1
       if (domain === 'media_player') {
         totalMediaPlayers++

@@ -2,7 +2,7 @@ export const ERRORS_HOSTNAME = 'errors.arthurdanjou.fr'
 export const MAIN_HOSTNAMES = ['arthurdanjou.fr', 'www.arthurdanjou.fr']
 
 function normalizeHost(host: string) {
-  return host.split(':')[0].toLowerCase()
+  return host.split(':')[0]?.toLowerCase() ?? host
 }
 
 export function getCurrentHost() {

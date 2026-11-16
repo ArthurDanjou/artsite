@@ -116,9 +116,8 @@ const ringColorMap: Record<string, string> = {
           ringColorMap[card.color]
         ]"
         :ui="{
-          body: { padding: 'p-2' },
-          ring: 'ring-2 ring-gray-200 dark:ring-gray-800',
-          shadow: 'shadow-sm'
+          root: 'ring-2 ring-gray-200 dark:ring-gray-800 shadow-sm',
+          body: 'p-2'
         }"
       >
         <div class="flex flex-col items-center text-center gap-1">
@@ -166,7 +165,7 @@ const ringColorMap: Record<string, string> = {
         <UCard
           v-for="i in 6"
           :key="i"
-          :ui="{ body: { padding: 'p-3' } }"
+          :ui="{ body: 'p-3' }"
         >
           <div class="flex flex-col items-center gap-2 animate-pulse">
             <div class="size-6 bg-gray-200 dark:bg-gray-800 rounded-full" />

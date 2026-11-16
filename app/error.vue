@@ -10,7 +10,7 @@ const isMainHost = MAIN_HOSTNAMES.includes(host)
 if (import.meta.client && error.value?.statusCode === 404 && isMainHost) {
   const search = new URLSearchParams({
     code: '404',
-    path: errorData?.path || error.value.url || route.fullPath
+    path: errorData?.path || route.fullPath
   })
   const target = import.meta.dev
     ? `/errors?${search}`

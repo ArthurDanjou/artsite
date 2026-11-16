@@ -45,6 +45,10 @@ The library is the subject of a **JMLR MLOSS** publication in preparation: *Krum
 
 Distributed learning scales training across multiple workers, but a single malicious worker can collapse the model by sending arbitrary gradients. Krum implements aggregation rules that are provably robust to Byzantine failures, guaranteeing convergence even when a fraction of workers are adversarial.
 
+The figure below is one of those runs, taken from the orchestrator: six of the twenty workers send sign-flipped gradients, and the aggregation rule decides the outcome.
+
+:krum-robustness
+
 The number of experimental parameters keeps growing: model architecture, dataset, number of workers and Byzantine workers, communication topology, attack strategy, aggregation rule, learning rate schedule, and initialization scheme. Each paper makes distinct implementation choices that are rarely isolated in reusable components. Krum organizes its functionality into **three layers** to address this:
 
 1. **Primitives**: aggregation rules, attacks, and a zero-copy model wrapper.
