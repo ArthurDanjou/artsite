@@ -29,58 +29,43 @@ const Y_MAX = 0.85
 const innerWidth = WIDTH - PADDING.left - PADDING.right
 const innerHeight = HEIGHT - PADDING.top - PADDING.bottom
 
-const attacked = ref(false)
 const hovered = shallowRef<number | null>(null)
 const plot = useTemplateRef<SVGSVGElement>('plot')
 
-const runs = computed<Run[]>(() => {
-  if (!attacked.value) {
-    return [{
-      key: 'clean',
-      label: 'Average = MultiKrum',
-      points: KRUM_CLEAN_ACCURACY,
-      stroke: 'stroke-neutral-900 dark:stroke-neutral-100',
-      fill: 'fill-neutral-900 dark:fill-neutral-100',
-      swatch: 'bg-neutral-900 dark:bg-neutral-100'
-    }]
+const runs: Run[] = [
+  {
+    key: 'clean',
+    label: 'No adversary',
+    points: KRUM_CLEAN_ACCURACY,
+    stroke: 'stroke-neutral-300 dark:stroke-neutral-700',
+    fill: 'fill-neutral-300 dark:fill-neutral-700',
+    swatch: 'bg-neutral-300 dark:bg-neutral-700',
+    dash: '2 4'
+  },
+  {
+    key: 'average',
+    label: 'Average',
+    points: KRUM_ATTACKED_ACCURACY.average,
+    stroke: 'stroke-neutral-400 dark:stroke-neutral-500',
+    fill: 'fill-neutral-400 dark:fill-neutral-500',
+    swatch: 'bg-neutral-400 dark:bg-neutral-500',
+    dash: '5 4'
+  },
+  {
+    key: 'multiKrum',
+    label: 'MultiKrum',
+    points: KRUM_ATTACKED_ACCURACY.multiKrum,
+    stroke: 'stroke-neutral-900 dark:stroke-neutral-100',
+    fill: 'fill-neutral-900 dark:fill-neutral-100',
+    swatch: 'bg-neutral-900 dark:bg-neutral-100'
   }
-  return [
-    {
-      key: 'clean',
-      label: 'No adversary',
-      points: KRUM_CLEAN_ACCURACY,
-      stroke: 'stroke-neutral-300 dark:stroke-neutral-700',
-      fill: 'fill-neutral-300 dark:fill-neutral-700',
-      swatch: 'bg-neutral-300 dark:bg-neutral-700',
-      dash: '2 4'
-    },
-    {
-      key: 'average',
-      label: 'Average',
-      points: KRUM_ATTACKED_ACCURACY.average,
-      stroke: 'stroke-neutral-400 dark:stroke-neutral-500',
-      fill: 'fill-neutral-400 dark:fill-neutral-500',
-      swatch: 'bg-neutral-400 dark:bg-neutral-500',
-      dash: '5 4'
-    },
-    {
-      key: 'multiKrum',
-      label: 'MultiKrum',
-      points: KRUM_ATTACKED_ACCURACY.multiKrum,
-      stroke: 'stroke-neutral-900 dark:stroke-neutral-100',
-      fill: 'fill-neutral-900 dark:fill-neutral-100',
-      swatch: 'bg-neutral-900 dark:bg-neutral-100'
-    }
-  ]
-})
+]
 
 const lastIndex = KRUM_CLEAN_ACCURACY.length - 1
 const activeIndex = computed(() => hovered.value ?? lastIndex)
 const crosshairX = computed(() => x(KRUM_CLEAN_ACCURACY[activeIndex.value]![0]))
 
-const description = computed(() => attacked.value
-  ? 'Test accuracy over 300 rounds on Spambase with six of twenty workers attacking. MultiKrum reaches 77.2 percent while Average stays flat at 59.6 percent.'
-  : 'Test accuracy over 300 rounds on Spambase with no adversary. Average and MultiKrum both reach 82.4 percent.')
+const description = 'Test accuracy over 300 rounds on Spambase with six of twenty workers attacking. MultiKrum reaches 77.2 percent while Average stays flat at 59.6 percent. The dotted line is the same run with no adversary, at 82.4 percent.'
 
 function x(round: number) {
   return PADDING.left + (round / KRUM_SPAMBASE_ROUNDS) * innerWidth
@@ -126,12 +111,13 @@ function updateHover(event: PointerEvent) {
           }}</span>
         </p>
       </div>
-      <USwitch
-        v-model="attacked"
-        label="Sign-flip attack"
-        :description="`${KRUM_SPAMBASE_BYZANTINE} of ${KRUM_SPAMBASE_WORKERS} workers`"
+      <UBadge
+        color="neutral"
+        variant="subtle"
         size="sm"
-      />
+      >
+        Sign-flip attack · {{ KRUM_SPAMBASE_BYZANTINE }} of {{ KRUM_SPAMBASE_WORKERS }} workers
+      </UBadge>
     </div>
 
     <svg
@@ -230,10 +216,11 @@ function updateHover(event: PointerEvent) {
       class="mt-4 border-t border-neutral-200 pt-3 text-xs leading-relaxed text-muted dark:border-default"
     >
       MLP 57 → 20 → 20 → 2, learning rate 0.01, batch size 3, IID partition,
-      seed 42, sign-flip scale 10. Under attack, Average settles on the Spambase
-      majority class (59.6 %), a constant predictor, while MultiKrum keeps
-      learning. With no adversary the two rules coincide, because MultiKrum then
-      runs with m = n. Recorded by Krum's orchestrator, not a schematic.
+      seed 42, sign-flip scale 10. Average settles on the Spambase majority
+      class (59.6 %), a constant predictor, while MultiKrum keeps learning up to
+      77.2 %. The dotted line is the same run with no adversary, where both
+      rules coincide at 82.4 % because MultiKrum then runs with m = n. Recorded
+      by Krum's orchestrator, not a schematic.
     </figcaption>
   </figure>
 </template>
