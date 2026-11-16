@@ -51,7 +51,7 @@ useSchemaOrg([
 ])
 
 useBreadcrumbItems({
-  items: [
+  overrides: [
     { label: 'Home', to: '/' },
     { label: 'Projects', to: '/projects' },
     { label: title, to: `/projects/${slug}` }

@@ -151,11 +151,10 @@ export default defineNuxtConfig({
       openAPI: true
     },
 
-    cloudflareDev: {
-      configPath: 'wrangler.dev.jsonc'
-    },
-
     cloudflare: {
+      dev: {
+        configPath: 'wrangler.dev.jsonc'
+      },
       wrangler: {
         assets: {
           run_worker_first: ['/']
@@ -295,9 +294,6 @@ export default defineNuxtConfig({
 
   ogImage: {
     buildCache: true,
-    defaults: {
-      component: 'Pergel.satori'
-    },
     security: {
       renderTimeout: 60000
     }
