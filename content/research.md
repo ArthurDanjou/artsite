@@ -19,6 +19,8 @@ My PhD will study **the trade-offs between adversarial robustness, data ownershi
 
 **Adversarially robust distributed learning.** Distributed training scales learning across many workers, but a single malicious worker can corrupt the model through crafted gradients. I study Byzantine-resilient aggregation rules (Krum, coordinate-wise median, trimmed mean) and pre-aggregation schemes that guarantee convergence under a bounded fraction of adversaries.
 
+:gradient-aggregation
+
 **Data Ownership Verification & Digital Watermarking.** Can a dataset owner verify that their data was used to train a model? I study how targeted, controlled data poisoning can embed a signature in training data that propagates to the learned model, enabling ownership verification.
 
 **Efficient Learning.** Large-scale training incurs communication and local computation costs. Compression methods such as signSGD reduce communication costs; my research asks how these efficiency gains interact with adversarial robustness and data watermarking.

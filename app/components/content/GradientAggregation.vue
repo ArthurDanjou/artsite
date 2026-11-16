@@ -296,8 +296,12 @@ function reset() {
       aggregate the same points, so the markers show where each one would take
       the model. Pull the attackers away and the average follows them, the
       geometric median barely moves, and MultiKrum stays on the honest cluster.
-      Two dimensions, for intuition: the recorded curves above carry the real
-      numbers.
+      Two dimensions, for intuition:
+      <NuxtLink
+        to="/projects/krum"
+        class="underline decoration-neutral-300 underline-offset-2 hover:text-highlighted dark:decoration-neutral-600"
+      >the recorded curves on the Krum page</NuxtLink>
+      carry the real numbers.
     </figcaption>
   </figure>
 </template>
