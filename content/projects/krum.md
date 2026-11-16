@@ -61,6 +61,8 @@ The number of experimental parameters keeps growing: model architecture, dataset
 
 Gradient aggregation rules that take one gradient per worker and produce a single aggregated gradient robust to up to $f$ Byzantine outliers among $n$ workers:
 
+:gradient-aggregation
+
 | Rule | Robustness | Notes |
 | :--- | :--- | :--- |
 | **Average** | none | Arithmetic mean baseline |
