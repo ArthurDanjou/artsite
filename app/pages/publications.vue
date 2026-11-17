@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { VISIBLE_PUBLICATION_TAGS } from '~~/types'
+
 const { data: page } = await useAsyncData('publicationsPage', () => {
   return queryCollection('publicationsPage').first()
 })
@@ -33,8 +35,6 @@ const yearHeadingClass = 'w-full mt-4 mb-2 text-transparent italic text-2xl md:t
 
 // Anonymous submissions and work in preparation stay in the data file but
 // are not published on the site: only explicitly released work is listed.
-const VISIBLE_PUBLICATION_TAGS = new Set(['Published', 'Accepted', 'Preprint'])
-
 const visiblePublications = computed(() =>
   (publications?.body ?? []).filter(pub =>
     pub.tags?.some(tag => VISIBLE_PUBLICATION_TAGS.has(tag)) ?? false
