@@ -31,8 +31,14 @@ const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl tex
 
 const yearHeadingClass = 'w-full mt-4 mb-2 text-transparent italic text-2xl md:text-4xl text-neutral-600  dark:text-neutral-400 opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
+// Anonymous submissions are kept in the data file but not published on the
+// site: listing them would break the double-blind review.
+const visiblePublications = computed(() =>
+  (publications?.body ?? []).filter(pub => !pub.tags?.includes('Submitted'))
+)
+
 const groupedPublications = computed(() =>
-  groupByYearDesc(publications?.body ?? [], pub => pub.year)
+  groupByYearDesc(visiblePublications.value, pub => pub.year)
 )
 
 const displayTalks = computed(() =>
@@ -66,7 +72,7 @@ const groupedTalks = computed(() =>
         My research papers and preprints, with code and project pages linked when they exist.
       </p>
       <div
-        v-if="publications?.body?.length"
+        v-if="visiblePublications.length"
         class="space-y-10"
       >
         <div
