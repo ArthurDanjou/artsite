@@ -1,6 +1,15 @@
 {
   "body": [
     {
+      "id": "signsgd-kappa-star-sirocco",
+      "title": "Robust Binary-Compressed Communication in Distributed Learning and the Optimality of SignSGD",
+      "year": 2027,
+      "status": "Submitted, SIROCCO 2027",
+      "description": "Exact worst-case robustness coefficient of majority vote over sign messages, with closed forms for odd and even numbers of workers, minimax optimality among binary aggregation rules, and a convergence guarantee for signSGD under colluding Byzantine workers. Submitted on 9 November 2026.",
+      "icon": "i-ph-function-duotone",
+      "tags": ["Byzantine Robustness", "Distributed Learning", "Compression"]
+    },
+    {
       "id": "krum-jmlr-mloss",
       "title": "Krum, the Library: Automated Byzantine Machine Learning Experiments on Python with Orchestration",
       "year": 2026,
