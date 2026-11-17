@@ -1,10 +1,7 @@
 const INDEX_NOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
 const INDEX_NOW_LIMIT = 10000
 
-export async function submitIndexNow(
-  paths: string[],
-  config: { key: string, siteUrl: string }
-) {
+export async function submitIndexNow(paths: string[], config: { key: string; siteUrl: string }) {
   if (paths.length === 0) return
 
   if (!config.key) {

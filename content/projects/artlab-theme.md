@@ -14,15 +14,15 @@ icon: i-ph-palette-duotone
 authorNote: |
   I wanted the tools I use every day to share a palette, from my editor to the home dashboard. Porting the theme means deciding what each color should communicate in a different interface, while keeping text comfortable to read.
 summary:
-  role: "Theme design and implementation of the platform ports."
-  context: "A shared visual palette for my development tools and home dashboards."
-  outcome: "Light and dark themes for VS Code, Home Assistant, Zed and Ghostty, published as open source."
+  role: 'Theme design and implementation of the platform ports.'
+  context: 'A shared visual palette for my development tools and home dashboards.'
+  outcome: 'Light and dark themes for VS Code, Home Assistant, Zed and Ghostty, published as open source.'
   links:
-    - label: "Code"
-      url: "https://github.com/ArthurDanjou/theme-artlab"
+    - label: 'Code'
+      url: 'https://github.com/ArthurDanjou/theme-artlab'
       icon: i-ph-code-duotone
-    - label: "Marketplace"
-      url: "https://marketplace.visualstudio.com/items?itemName=arthurdanjou.theme-artlab"
+    - label: 'Marketplace'
+      url: 'https://marketplace.visualstudio.com/items?itemName=arthurdanjou.theme-artlab'
       icon: i-ph-arrow-square-out-duotone
 ---
 
@@ -69,7 +69,7 @@ The theme is defined as a **VS Code extension** (yo code + TypeScript) with sepa
 {
   "window.autoDetectColorScheme": true,
   "workbench.preferredLightColorTheme": "ArtLab Light",
-  "workbench.preferredDarkColorTheme": "ArtLab Dark",
+  "workbench.preferredDarkColorTheme": "ArtLab Dark"
 }
 ```
 
@@ -77,4 +77,4 @@ The Home Assistant port adapts the Bubble card theme structure to ArtLab's palet
 
 ---
 
-*ArtLab Theme shows that visual consistency across a development ecosystem is achievable with a well-defined palette and per-platform adapters, without giving up aesthetics or readability.*
+_ArtLab Theme shows that visual consistency across a development ecosystem is achievable with a well-defined palette and per-platform adapters, without giving up aesthetics or readability._

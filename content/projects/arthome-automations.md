@@ -16,9 +16,9 @@ icon: i-ph-lightbulb-duotone
 authorNote: |
   I build these automations around routines at home, from pausing a film to leaving for the day. Local control is a deliberate choice: I want to understand what triggers each action and keep control of the system that runs my home.
 summary:
-  role: "Design and maintenance of my Home Assistant deployment."
-  context: "A self-hosted smart home running on ArtLab, with local device control and voice services."
-  outcome: "29 automations covering daily routines, lighting, security and infrastructure safeguards."
+  role: 'Design and maintenance of my Home Assistant deployment.'
+  context: 'A self-hosted smart home running on ArtLab, with local device control and voice services.'
+  outcome: '29 automations covering daily routines, lighting, security and infrastructure safeguards.'
 ---
 
 **ArtHome** is the intelligence layer of my home: a fully self-hosted **Home Assistant** instance running on my **[ArtLab](/projects/artlab)** homelab. It processes data from **1933 entities** across **33 domains**, orchestrates **29 automations**, and presents everything through **4 dashboards** spanning **22 views** and **300+ cards**.
@@ -35,19 +35,19 @@ ArtHome runs as a Home Assistant OS instance on the Beelink EQR6, exposed throug
 
 The instance runs **11 add-ons** that extend core capabilities:
 
-| Add-on | Role |
-| :--- | :--- |
-| **Zigbee2MQTT** | Universal Zigbee bridge that controls all Hue, IKEA, and Aqara devices locally |
-| **Matter Server** | WebSocket bridge for Matter-compatible accessories |
-| **Music Assistant** | Multi-room audio server unifying local files with streaming services |
-| **Tailscale** | Zero-config VPN for secure remote management |
-| **Cloudflared** | Cloudflare Tunnel for HTTPS access without port forwarding |
-| **openWakeWord** | Privacy-preserving wake word detection (local, no cloud) |
-| **Piper** | Neural text-to-speech engine running on-device |
-| **Speech-to-Phrase** | Fast local speech-to-text pipeline |
-| **Beszel Agent** | Lightweight resource monitoring agent |
-| **HA MCP Server** | AI agent gateway exposing Home Assistant via the Model Context Protocol |
-| **Advanced SSH & Web Terminal** | Browser-based terminal access for maintenance |
+| Add-on                          | Role                                                                           |
+| :------------------------------ | :----------------------------------------------------------------------------- |
+| **Zigbee2MQTT**                 | Universal Zigbee bridge that controls all Hue, IKEA, and Aqara devices locally |
+| **Matter Server**               | WebSocket bridge for Matter-compatible accessories                             |
+| **Music Assistant**             | Multi-room audio server unifying local files with streaming services           |
+| **Tailscale**                   | Zero-config VPN for secure remote management                                   |
+| **Cloudflared**                 | Cloudflare Tunnel for HTTPS access without port forwarding                     |
+| **openWakeWord**                | Privacy-preserving wake word detection (local, no cloud)                       |
+| **Piper**                       | Neural text-to-speech engine running on-device                                 |
+| **Speech-to-Phrase**            | Fast local speech-to-text pipeline                                             |
+| **Beszel Agent**                | Lightweight resource monitoring agent                                          |
+| **HA MCP Server**               | AI agent gateway exposing Home Assistant via the Model Context Protocol        |
+| **Advanced SSH & Web Terminal** | Browser-based terminal access for maintenance                                  |
 
 ### HACS & Custom Integrations
 
@@ -134,15 +134,15 @@ When Arthur arrives home while music is playing on his iPhone and nobody else is
 
 ## Devices & Connectivity
 
-| Protocol | Hardware | Role |
-| :--- | :--- | :--- |
-| **Zigbee** (Zigbee2MQTT) | SLZB-MR4 coordinator | All smart lighting, dimmers, sensors |
-| **Matter** | Matter Server add-on | Cross-ecosystem device compatibility |
-| **Wi-Fi** | iPhone/iPad Companion Apps | Presence detection, push notifications |
-| **LAN** | Apple TV, Panasonic TV, PS5, Sonos | Media playback detection and control |
-| **Bluetooth** | openWakeWord + Piper | Voice assistant input/output |
-| **Cloud** | Cloudflare Tunnel | Secure remote access, webhooks |
+| Protocol                 | Hardware                           | Role                                   |
+| :----------------------- | :--------------------------------- | :------------------------------------- |
+| **Zigbee** (Zigbee2MQTT) | SLZB-MR4 coordinator               | All smart lighting, dimmers, sensors   |
+| **Matter**               | Matter Server add-on               | Cross-ecosystem device compatibility   |
+| **Wi-Fi**                | iPhone/iPad Companion Apps         | Presence detection, push notifications |
+| **LAN**                  | Apple TV, Panasonic TV, PS5, Sonos | Media playback detection and control   |
+| **Bluetooth**            | openWakeWord + Piper               | Voice assistant input/output           |
+| **Cloud**                | Cloudflare Tunnel                  | Secure remote access, webhooks         |
 
 ---
 
-*ArtHome shows that a completely local, privacy-first smart home can rival any cloud-dependent system in capability. Each trigger encodes a routine learned from daily life, and each action removes a little friction.*
+_ArtHome shows that a completely local, privacy-first smart home can rival any cloud-dependent system in capability. Each trigger encodes a routine learned from daily life, and each action removes a little friction._

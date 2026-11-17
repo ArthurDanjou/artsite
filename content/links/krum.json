@@ -3,12 +3,7 @@
   "url": "https://github.com/calicarpa/krum",
   "title": "Krum",
   "category": "Engineering",
-  "tags": [
-    "projects",
-    "open-source",
-    "research",
-    "krum"
-  ],
+  "tags": ["projects", "open-source", "research", "krum"],
   "featured": false,
   "listed": true,
   "position": 10,

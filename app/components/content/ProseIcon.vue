@@ -31,14 +31,8 @@ withDefaults(defineProps<ProseIconProps>(), {
 
 <template>
   <span class="inline-flex items-center transform translate-y-0.5 gap-1">
-    <UIcon
-      :name="icon"
-      size="16"
-    />
-    <span
-      :class="colorVariants[color]"
-      class="sofia font-semibold underline-offset-2 underline"
-    >
+    <UIcon :name="icon" size="16" />
+    <span :class="colorVariants[color]" class="sofia font-semibold underline-offset-2 underline">
       <slot />
     </span>
   </span>

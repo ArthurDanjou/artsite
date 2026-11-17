@@ -11,20 +11,17 @@ function resolveNav(to: string): string {
   return `${LINKS_SITE_URL}${to}`
 }
 
-const socials = computed(() => contact?.body
-  .filter(item => item.priority === 1)
-  .filter(item => item.id !== 'email'))
-const email = computed(() => contact?.body.find(item => item.id === 'email'))
-const statusPage = computed(() => contact?.body.find(item => item.id === 'status-page'))
+const socials = computed(() =>
+  contact?.body.filter((item) => item.priority === 1).filter((item) => item.id !== 'email')
+)
+const email = computed(() => contact?.body.find((item) => item.id === 'email'))
+const statusPage = computed(() => contact?.body.find((item) => item.id === 'status-page'))
 
 const currentYear = computed(() => new Date().getFullYear())
 </script>
 
 <template>
-  <footer
-    v-if="contact?.body?.length"
-    class="relative my-16"
-  >
+  <footer v-if="contact?.body?.length" class="relative my-16">
     <USeparator class="mb-8" />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.1fr_0.8fr_1.1fr] gap-8">
@@ -46,9 +43,7 @@ const currentYear = computed(() => new Date().getFullYear())
             <span class="block text-xs font-normal text-muted">CMAP, École Polytechnique</span>
           </span>
         </NuxtLink>
-        <p
-          class="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400"
-        >
+        <p class="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
           Robust learning research and open-source engineering.
         </p>
       </div>
@@ -60,10 +55,7 @@ const currentYear = computed(() => new Date().getFullYear())
         >
           Navigate
         </h2>
-        <nav
-          aria-labelledby="footer-navigation-title"
-          class="grid grid-cols-2 gap-x-4 gap-y-2"
-        >
+        <nav aria-labelledby="footer-navigation-title" class="grid grid-cols-2 gap-x-4 gap-y-2">
           <NuxtLink
             v-for="nav in navs"
             :key="nav.label"
@@ -96,10 +88,7 @@ const currentYear = computed(() => new Date().getFullYear())
           target="_blank"
           class="flex items-center gap-2 w-fit text-sm font-medium text-toned hover:text-highlighted transition-colors"
         >
-          <UIcon
-            :name="email.icon"
-            class="size-4 shrink-0"
-          />
+          <UIcon :name="email.icon" class="size-4 shrink-0" />
           <span class="break-all">contact@arthurdanjou.fr</span>
         </NuxtLink>
         <div class="-ml-1.5 flex gap-1 flex-wrap">
@@ -126,9 +115,7 @@ const currentYear = computed(() => new Date().getFullYear())
     <div
       class="mt-8 pt-5 border-t border-default flex flex-wrap items-center justify-between gap-x-6 gap-y-3 text-xs text-neutral-500 dark:text-neutral-400"
     >
-      <p>
-        © {{ currentYear }} Arthur Danjou. All rights reserved.
-      </p>
+      <p>© {{ currentYear }} Arthur Danjou. All rights reserved.</p>
       <NuxtLink
         :to="resolveNav('/projects/artsite')"
         class="hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"

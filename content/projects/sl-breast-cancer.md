@@ -15,15 +15,15 @@ icon: i-ph-heart-half-duotone
 authorNote: |
   With only 116 observations, I read the model comparisons cautiously. Stratified validation and the choice of F1-score are central to this academic study. The results describe performance on this dataset and do not establish that a model is suitable for clinical use.
 summary:
-  role: "Supervised model comparison and statistical evaluation."
-  context: "Statistical Learning coursework using the 116-observation Breast Cancer Coimbra dataset."
-  outcome: "A comparison of four classifiers using F1-score and stratified cross-validation, documented as an academic study."
+  role: 'Supervised model comparison and statistical evaluation.'
+  context: 'Statistical Learning coursework using the 116-observation Breast Cancer Coimbra dataset.'
+  outcome: 'A comparison of four classifiers using F1-score and stratified cross-validation, documented as an academic study.'
   links:
-    - label: "Code"
-      url: "https://links.arthurdanjou.fr/breast-cancer-detection-code"
+    - label: 'Code'
+      url: 'https://links.arthurdanjou.fr/breast-cancer-detection-code'
       icon: i-ph-code-duotone
-    - label: "Report"
-      url: "/projects/breast-cancer.pdf"
+    - label: 'Report'
+      url: '/projects/breast-cancer.pdf'
       icon: i-ph-file-text-duotone
 ---
 
@@ -34,6 +34,7 @@ This project was carried out as part of the **Statistical Learning** course at P
 Develop and evaluate several supervised classification models to predict the presence of breast cancer based on biological features extracted from the Breast Cancer Coimbra dataset, provided by the UCI Machine Learning Repository.
 
 The dataset contains 116 observations divided into two classes:
+
 - **1**: healthy individuals (controls)
 - **2**: patients diagnosed with breast cancer
 

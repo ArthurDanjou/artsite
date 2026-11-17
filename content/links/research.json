@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr/research",
   "title": "Research",
   "category": "Research",
-  "tags": [
-    "research",
-    "ai-safety"
-  ],
+  "tags": ["research", "ai-safety"],
   "featured": true,
   "listed": true,
   "position": 10,

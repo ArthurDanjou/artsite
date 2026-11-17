@@ -11,8 +11,7 @@ const regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 function countryName(code: string): string {
   try {
     return regionNames.of(code) ?? code
-  }
-  catch {
+  } catch {
     return code
   }
 }
@@ -23,7 +22,10 @@ function toDayKey(date: Date): string {
 
 const SOURCE_PARAMS = ['utm_source', 'ref', 'source', 'src'] as const
 
-function resolveSource(referrer: string | null, query: string | null): { name: string, kind: 'campaign' | 'referrer' | 'direct' } {
+function resolveSource(
+  referrer: string | null,
+  query: string | null
+): { name: string; kind: 'campaign' | 'referrer' | 'direct' } {
   if (query) {
     const params = new URLSearchParams(query)
     for (const key of SOURCE_PARAMS) {
@@ -36,8 +38,7 @@ function resolveSource(referrer: string | null, query: string | null): { name: s
     try {
       const host = new URL(referrer).hostname.replace(/^www\./, '')
       if (host) return { name: host, kind: 'referrer' }
-    }
-    catch {
+    } catch {
       // Ignore malformed referrers and fall through to direct traffic.
     }
   }
@@ -45,20 +46,38 @@ function resolveSource(referrer: string | null, query: string | null): { name: s
   return { name: 'Direct', kind: 'direct' }
 }
 
-async function linkMetadata(event: H3Event): Promise<Map<string, { title: string, icon: string | null, category: string }>> {
+async function linkMetadata(
+  event: H3Event
+): Promise<Map<string, { title: string; icon: string | null; category: string }>> {
   const links = await queryCollection(event, 'links').all()
-  return new Map(links.map(link => [link.slug, {
-    title: link.title,
-    icon: link.icon ?? null,
-    category: link.category
-  }]))
+  return new Map(
+    links.map((link) => [
+      link.slug,
+      {
+        title: link.title,
+        icon: link.icon ?? null,
+        category: link.category
+      }
+    ])
+  )
 }
 
 export default defineEventHandler(async (event) => {
   const since = new Date(Date.now() - (WINDOW_DAYS - 1) * DAY_MS)
   since.setUTCHours(0, 0, 0, 0)
 
-  const [bySlug, byDay, byCountry, byDevice, byOS, bySource, byBrowser, byCity, byNetwork, metadata] = await Promise.all([
+  const [
+    bySlug,
+    byDay,
+    byCountry,
+    byDevice,
+    byOS,
+    bySource,
+    byBrowser,
+    byCity,
+    byNetwork,
+    metadata
+  ] = await Promise.all([
     db
       .select({
         slug: schema.linkClicks.slug,
@@ -147,24 +166,27 @@ export default defineEventHandler(async (event) => {
   ])
 
   const countries = byCountry
-    .filter(row => row.code)
-    .map(row => ({
+    .filter((row) => row.code)
+    .map((row) => ({
       code: row.code as string,
       name: countryName(row.code as string),
       clicks: Number(row.clicks)
     }))
 
-  const devices = byDevice.map(row => ({
+  const devices = byDevice.map((row) => ({
     name: row.name ?? 'Unknown',
     clicks: Number(row.clicks)
   }))
 
-  const operatingSystems = byOS.map(row => ({
+  const operatingSystems = byOS.map((row) => ({
     name: row.name ?? 'Unknown',
     clicks: Number(row.clicks)
   }))
 
-  const sourceMap = new Map<string, { name: string, kind: 'campaign' | 'referrer' | 'direct', clicks: number }>()
+  const sourceMap = new Map<
+    string,
+    { name: string; kind: 'campaign' | 'referrer' | 'direct'; clicks: number }
+  >()
   for (const row of bySource) {
     const source = resolveSource(row.referrer, row.query)
     const key = `${source.kind}:${source.name}`
@@ -176,14 +198,14 @@ export default defineEventHandler(async (event) => {
     .sort((left, right) => right.clicks - left.clicks)
     .slice(0, 8)
 
-  const browsers = byBrowser.map(row => ({
+  const browsers = byBrowser.map((row) => ({
     name: row.name ?? 'Unknown',
     clicks: Number(row.clicks)
   }))
 
   const cities = byCity
-    .filter(row => row.city)
-    .map(row => ({
+    .filter((row) => row.city)
+    .map((row) => ({
       name: row.city as string,
       region: row.region ?? null,
       country: row.country ?? null,
@@ -192,20 +214,20 @@ export default defineEventHandler(async (event) => {
     }))
 
   const networks = byNetwork
-    .filter(row => row.name)
-    .map(row => ({
+    .filter((row) => row.name)
+    .map((row) => ({
       name: row.name as string,
       asn: row.asn ?? null,
       clicks: Number(row.clicks)
     }))
 
-  const dailyCounts = new Map(byDay.map(row => [row.date, Number(row.clicks)]))
+  const dailyCounts = new Map(byDay.map((row) => [row.date, Number(row.clicks)]))
   const daily = Array.from({ length: WINDOW_DAYS }, (_, index) => {
     const date = toDayKey(new Date(since.getTime() + index * DAY_MS))
     return { date, clicks: dailyCounts.get(date) ?? 0 }
   })
 
-  const links = bySlug.map(row => ({
+  const links = bySlug.map((row) => ({
     slug: row.slug,
     clicks: Number(row.clicks),
     title: metadata.get(row.slug)?.title ?? row.slug,

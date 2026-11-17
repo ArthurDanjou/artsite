@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "@nuxt/ui";
+@import 'tailwindcss';
+@import '@nuxt/ui';
 
 @utility text-stroke-* {
   -webkit-text-stroke-width: calc(--value(integer) * 1px);

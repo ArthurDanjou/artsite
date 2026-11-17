@@ -65,7 +65,8 @@ const lastIndex = KRUM_CLEAN_ACCURACY.length - 1
 const activeIndex = computed(() => hovered.value ?? lastIndex)
 const crosshairX = computed(() => x(KRUM_CLEAN_ACCURACY[activeIndex.value]![0]))
 
-const description = 'Test accuracy over 300 rounds on Spambase with six of twenty workers attacking. MultiKrum reaches 77.2 percent while Average stays flat at 59.6 percent. The dotted line is the same run with no adversary, at 82.4 percent.'
+const description =
+  'Test accuracy over 300 rounds on Spambase with six of twenty workers attacking. MultiKrum reaches 77.2 percent while Average stays flat at 59.6 percent. The dotted line is the same run with no adversary, at 82.4 percent.'
 
 function x(round: number) {
   return PADDING.left + (round / KRUM_SPAMBASE_ROUNDS) * innerWidth
@@ -77,7 +78,10 @@ function y(accuracy: number) {
 
 function path(points: readonly AccuracyPoint[]) {
   return points
-    .map(([round, accuracy], index) => `${index === 0 ? 'M' : 'L'}${x(round).toFixed(1)},${y(accuracy).toFixed(1)}`)
+    .map(
+      ([round, accuracy], index) =>
+        `${index === 0 ? 'M' : 'L'}${x(round).toFixed(1)},${y(accuracy).toFixed(1)}`
+    )
     .join(' ')
 }
 
@@ -101,9 +105,7 @@ function updateHover(event: PointerEvent) {
   >
     <div class="flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
       <div>
-        <p class="text-xs font-medium uppercase tracking-wider text-muted">
-          Krum · Spambase
-        </p>
+        <p class="text-xs font-medium uppercase tracking-wider text-muted">Krum · Spambase</p>
         <p class="mt-1 text-sm text-toned">
           Test accuracy per round ·
           <span class="font-mono text-highlighted">{{
@@ -111,11 +113,7 @@ function updateHover(event: PointerEvent) {
           }}</span>
         </p>
       </div>
-      <UBadge
-        color="neutral"
-        variant="subtle"
-        size="sm"
-      >
+      <UBadge color="neutral" variant="subtle" size="sm">
         Sign-flip attack · {{ KRUM_SPAMBASE_BYZANTINE }} of {{ KRUM_SPAMBASE_WORKERS }} workers
       </UBadge>
     </div>
@@ -151,7 +149,9 @@ function updateHover(event: PointerEvent) {
         dominant-baseline="middle"
         font-size="10"
         class="fill-neutral-400 tabular-nums dark:fill-neutral-500"
-      >{{ Math.round(tick * 100) }}%</text>
+      >
+        {{ Math.round(tick * 100) }}%
+      </text>
       <text
         v-for="tick in X_TICKS"
         :key="`x-label-${tick}`"
@@ -160,7 +160,9 @@ function updateHover(event: PointerEvent) {
         text-anchor="middle"
         font-size="10"
         class="fill-neutral-400 tabular-nums dark:fill-neutral-500"
-      >{{ tick }}</text>
+      >
+        {{ tick }}
+      </text>
 
       <line
         v-if="hovered !== null"
@@ -197,30 +199,23 @@ function updateHover(event: PointerEvent) {
     </svg>
 
     <ul class="mt-4 grid gap-x-6 gap-y-2 text-xs sm:grid-cols-3">
-      <li
-        v-for="run in runs"
-        :key="`legend-${run.key}`"
-        class="flex items-center gap-2"
-      >
-        <span
-          class="h-0.5 w-4 shrink-0 rounded-full"
-          :class="run.swatch"
-          aria-hidden="true"
-        />
+      <li v-for="run in runs" :key="`legend-${run.key}`" class="flex items-center gap-2">
+        <span class="h-0.5 w-4 shrink-0 rounded-full" :class="run.swatch" aria-hidden="true" />
         <span class="text-toned">{{ run.label }}</span>
-        <span class="ml-auto font-mono tabular-nums text-highlighted">{{ percent(run.points[activeIndex]![1]) }}</span>
+        <span class="ml-auto font-mono tabular-nums text-highlighted">{{
+          percent(run.points[activeIndex]![1])
+        }}</span>
       </li>
     </ul>
 
     <figcaption
       class="mt-4 border-t border-neutral-200 pt-3 text-xs leading-relaxed text-muted dark:border-default"
     >
-      MLP 57 → 20 → 20 → 2, learning rate 0.01, batch size 3, IID partition,
-      seed 42, sign-flip scale 10. Average settles on the Spambase majority
-      class (59.6 %), a constant predictor, while MultiKrum keeps learning up to
-      77.2 %. The dotted line is the same run with no adversary, where both
-      rules coincide at 82.4 % because MultiKrum then runs with m = n. Recorded
-      by Krum's orchestrator, not a schematic.
+      MLP 57 → 20 → 20 → 2, learning rate 0.01, batch size 3, IID partition, seed 42, sign-flip
+      scale 10. Average settles on the Spambase majority class (59.6 %), a constant predictor, while
+      MultiKrum keeps learning up to 77.2 %. The dotted line is the same run with no adversary,
+      where both rules coincide at 82.4 % because MultiKrum then runs with m = n. Recorded by Krum's
+      orchestrator, not a schematic.
     </figcaption>
   </figure>
 </template>

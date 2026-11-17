@@ -21,16 +21,11 @@ const PASSTHROUGH_PREFIXES = [
   '/studio'
 ]
 
-const PASSTHROUGH_FILES = new Set([
-  '/favicon.ico',
-  '/llms.txt',
-  '/robots.txt',
-  '/sitemap.xml'
-])
+const PASSTHROUGH_FILES = new Set(['/favicon.ico', '/llms.txt', '/robots.txt', '/sitemap.xml'])
 
 function isPassthrough(pathname: string): boolean {
   if (PASSTHROUGH_FILES.has(pathname)) return true
-  if (PASSTHROUGH_PREFIXES.some(prefix => pathname.startsWith(prefix))) return true
+  if (PASSTHROUGH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) return true
   return /\.[a-z0-9]+$/i.test(pathname)
 }
 
@@ -55,20 +50,18 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: 'Link not found.' })
   }
 
-  const link = await queryCollection(event, 'links')
-    .where('slug', '=', slug)
-    .first()
+  const link = await queryCollection(event, 'links').where('slug', '=', slug).first()
 
   if (!link || link.archived) {
     throw createError({ statusCode: 404, statusMessage: 'Link not found.' })
   }
 
   const tracking = trackLinkClick(event, slug)
-  const waitUntil = (event as H3Event & { waitUntil?: (promise: Promise<unknown>) => void }).waitUntil
+  const waitUntil = (event as H3Event & { waitUntil?: (promise: Promise<unknown>) => void })
+    .waitUntil
   if (waitUntil) {
     waitUntil(tracking)
-  }
-  else {
+  } else {
     await tracking
   }
 

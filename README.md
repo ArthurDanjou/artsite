@@ -142,17 +142,17 @@ artsite/
 
 ## Pages
 
-| Route | Description |
-|---|---|
-| `/` | Home with research focus, skills, news, and quotes |
-| `/research` | Research interests and thesis direction |
-| `/publications` | Publications and talks, with slides when available |
-| `/projects` | Project portfolio grouped by type |
-| `/projects/[slug]` | Individual project page |
-| `/links` | Link hub, also served at the root of `links.arthurdanjou.fr` and `go.arthurdanjou.fr` |
-| `/telemetry` | Live homelab telemetry with environment, status, and activity |
-| `/uses` | Hardware, software, and homelab infrastructure |
-| `https://cv.arthurdanjou.fr` | Hosted resume |
+| Route                        | Description                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------- |
+| `/`                          | Home with research focus, skills, news, and quotes                                    |
+| `/research`                  | Research interests and thesis direction                                               |
+| `/publications`              | Publications and talks, with slides when available                                    |
+| `/projects`                  | Project portfolio grouped by type                                                     |
+| `/projects/[slug]`           | Individual project page                                                               |
+| `/links`                     | Link hub, also served at the root of `links.arthurdanjou.fr` and `go.arthurdanjou.fr` |
+| `/telemetry`                 | Live homelab telemetry with environment, status, and activity                         |
+| `/uses`                      | Hardware, software, and homelab infrastructure                                        |
+| `https://cv.arthurdanjou.fr` | Hosted resume                                                                         |
 
 ## Links & Short URLs
 

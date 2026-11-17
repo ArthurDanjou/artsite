@@ -6,7 +6,7 @@ export default defineSitemapEventHandler(async (event) => {
     .all()
     .catch(() => [])
 
-  return projects.map(project => ({
+  return projects.map((project) => ({
     loc: `/projects/${project.slug}`,
     lastmod: project.publishedAt,
     changefreq: 'monthly' as const,

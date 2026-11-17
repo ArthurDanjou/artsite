@@ -10,26 +10,20 @@ const { data: activity, error } = useLiveFetch<Activity>('/api/activity', {
 
 const currentSession = computed(() => {
   const list = activity.value?.data.activities ?? []
-  const ideActivity = list.find(a => IDEs.some(ide => ide.name === a.name))
+  const ideActivity = list.find((a) => IDEs.some((ide) => ide.name === a.name))
 
   if (!ideActivity) return null
 
   const smallText = ideActivity.assets?.small_text
-  const name = smallText === 'Cursor' || smallText === 'Positron'
-    ? smallText
-    : ideActivity.name
+  const name = smallText === 'Cursor' || smallText === 'Positron' ? smallText : ideActivity.name
 
   const isIdling = ideActivity.details?.toLowerCase().includes('idling')
 
   const rawProject = ideActivity.details
-    ? ideActivity.details
-        .replace('Workspace:', '')
-        .replace('Editing', '')
-        .trim()
+    ? ideActivity.details.replace('Workspace:', '').replace('Editing', '').trim()
     : 'Building something great...'
   const project = rawProject.charAt(0).toUpperCase() + rawProject.slice(1)
-  const file
-    = ideActivity.state?.replace('Editing', '').trim() || 'No active file'
+  const file = ideActivity.state?.replace('Editing', '').trim() || 'No active file'
 
   return {
     name,
@@ -37,13 +31,11 @@ const currentSession = computed(() => {
     file,
     isIdling,
     startTime: ideActivity.timestamps?.start,
-    icon: IDEs.find(ide => ide.name === name)?.icon ?? 'i-ph-code-duotone'
+    icon: IDEs.find((ide) => ide.name === name)?.icon ?? 'i-ph-code-duotone'
   }
 })
 
-const timeAgo = useTimeAgo(
-  computed(() => currentSession.value?.startTime ?? new Date())
-)
+const timeAgo = useTimeAgo(computed(() => currentSession.value?.startTime ?? new Date()))
 
 type ActivityStatus = 'blue' | 'neutral'
 
@@ -60,23 +52,25 @@ const statusLabel = computed(() => {
 
 const headerIcon = computed(() => {
   if (!currentSession.value) return 'i-ph-power-duotone'
-  return currentSession.value.isIdling
-    ? 'i-ph-hourglass-duotone'
-    : currentSession.value.icon
+  return currentSession.value.isIdling ? 'i-ph-hourglass-duotone' : currentSession.value.icon
 })
 
-const headerIconBg = computed(() => statusColor.value === 'blue'
-  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-500'
-  : 'bg-neutral-100 dark:bg-neutral-900/30 text-neutral-500')
+const headerIconBg = computed(() =>
+  statusColor.value === 'blue'
+    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-500'
+    : 'bg-neutral-100 dark:bg-neutral-900/30 text-neutral-500'
+)
 
 const hoverRingClass = computed(() => ({
   'hover:ring-blue-500/50': statusColor.value === 'blue',
   'hover:ring-neutral-500/30': statusColor.value !== 'blue'
 }))
 
-const barColorClass = computed(() => statusColor.value === 'blue'
-  ? 'border-blue-200 dark:border-blue-900/30'
-  : 'border-neutral-200 dark:border-neutral-800')
+const barColorClass = computed(() =>
+  statusColor.value === 'blue'
+    ? 'border-blue-200 dark:border-blue-900/30'
+    : 'border-neutral-200 dark:border-neutral-800'
+)
 </script>
 
 <template>
@@ -129,10 +123,7 @@ const barColorClass = computed(() => statusColor.value === 'blue'
         </div>
 
         <div class="flex items-center gap-2 text-xs text-neutral-400 mt-1">
-          <UIcon
-            name="i-ph-timer-duotone"
-            class="w-4 h-4"
-          />
+          <UIcon name="i-ph-timer-duotone" class="w-4 h-4" />
           <span>Started {{ timeAgo }}</span>
         </div>
       </div>

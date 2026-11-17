@@ -3,11 +3,7 @@
   "url": "https://arthurdanjou.fr/projects/monte-carlo-project",
   "title": "Monte Carlo methods",
   "category": "Research",
-  "tags": [
-    "research",
-    "academic",
-    "statistics"
-  ],
+  "tags": ["research", "academic", "statistics"],
   "featured": false,
   "listed": true,
   "position": 48,

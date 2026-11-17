@@ -9,7 +9,7 @@ sitemap:
 
 My research combines applied mathematics and deep learning, with one focus: making AI systems safe and reliable in the presence of adversaries. The guiding question: how can we prove, and not just hope, that learning systems remain robust?
 
-My PhD will study **the trade-offs between adversarial robustness, data ownership verification, and efficient learning**. It starts in **November 2026** at **CMAP, Ecole Polytechnique**, with the **ATLAS chair** (*Adversarial Techniques for Learning and AI Security*). [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/) will supervise the thesis, with **[Katia Meziani](https://katia-meziani.github.io/index.html)** and **[Vladimir Kostic](https://vladi-slk.github.io/)** as co-directors and [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, continuing the collaboration established during my M2 internship. Published work and presentations are collected on the [publications page](/publications).
+My PhD will study **the trade-offs between adversarial robustness, data ownership verification, and efficient learning**. It starts in **November 2026** at **CMAP, Ecole Polytechnique**, with the **ATLAS chair** (_Adversarial Techniques for Learning and AI Security_). [El Mahdi El Mhamdi](https://elmahdielmhamdi.com/) will supervise the thesis, with **[Katia Meziani](https://katia-meziani.github.io/index.html)** and **[Vladimir Kostic](https://vladi-slk.github.io/)** as co-directors and [Peva Blanchard](https://scholar.google.com/citations?user=ZX4C7ScAAAAJ&hl=en) and [Sébastien Rouault](https://sebastien.rouau.lt/) as co-advisors, continuing the collaboration established during my M2 internship. Published work and presentations are collected on the [publications page](/publications).
 
 **Keywords:** Adversarial learning, distributed learning, fault tolerance, data poisoning, digital watermarking, efficient learning.
 
@@ -70,16 +70,15 @@ This provides a first case study of the interaction between compression and adve
 
 These papers provide background for the thesis topic.
 
-- **Krum.** Blanchard et al. *Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent.* NeurIPS, 2017. [Paper](https://arxiv.org/abs/1703.02757).
-- **Bulyan.** El-Mhamdi, Guerraoui and Rouault. *The Hidden Vulnerability of Distributed Learning in Byzantium.* ICML, 2018. [Paper](https://arxiv.org/abs/1802.07927).
-- **Collaborative Learning in the Jungle.** El-Mhamdi et al. *Collaborative Learning in the Jungle (Decentralized, Byzantine, Heterogeneous, Asynchronous and Nonconvex Learning).* NeurIPS, 2021. [Paper](https://proceedings.neurips.cc/paper/2021/hash/d2cd33e9c0236a8c2d8bd3fa91ad3acf-Abstract.html).
-- **Data Taggants.** Bouaziz, Usunier and El-Mhamdi. *Data Taggants: Dataset Ownership Verification via Harmless Targeted Data Poisoning.* ICLR, 2025 (Spotlight). [Paper](https://arxiv.org/abs/2410.09101).
-- **Winter Soldier.** Bouaziz et al. *Winter Soldier: Backdooring Language Models at Pre-Training with Indirect Data Poisoning.* ICLR, 2026. [Paper](https://arxiv.org/abs/2506.14913).
-- **signSGD.** Bernstein et al. *signSGD with Majority Vote is Communication Efficient and Fault Tolerant.* ICLR, 2019. [Paper](https://arxiv.org/abs/1810.05291).
-- **Byzantine Fault Tolerance of signSGD.** Mengoli et al. *On the Byzantine Fault Tolerance of signSGD with Majority Vote.* Preprint, 2025. [Paper](https://arxiv.org/abs/2502.19170).
-- **Aksel.** Boussetta et al. *AKSEL: Fast Byzantine SGD.* OPODIS, 2020. [Paper](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.OPODIS.2020.8).
-- **ALIE.** Baruch et al. *A Little Is Enough: Circumventing Defenses For Distributed Learning.* NeurIPS, 2019. [Paper](https://arxiv.org/abs/1902.06156).
-- **Fall of Empires.** Xie et al. *Fall of Empires: Breaking Byzantine-tolerant SGD by Inner Product Manipulation.* UAI, 2020. [Paper](https://arxiv.org/abs/1903.03936).
-- **MoNNA.** Farhadkhani et al. *Robust Collaborative Learning with Linear Gradient Overhead.* ICML, 2023. [Paper](https://arxiv.org/abs/2209.10931).
-- **Optimal robustness ($\kappa^\star$).** Bareilles et al. *Byzantine Machine Learning: MultiKrum and an optimal notion of robustness.* Preprint, 2026. [Paper](https://arxiv.org/abs/2602.03899).
-
+- **Krum.** Blanchard et al. _Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent._ NeurIPS, 2017. [Paper](https://arxiv.org/abs/1703.02757).
+- **Bulyan.** El-Mhamdi, Guerraoui and Rouault. _The Hidden Vulnerability of Distributed Learning in Byzantium._ ICML, 2018. [Paper](https://arxiv.org/abs/1802.07927).
+- **Collaborative Learning in the Jungle.** El-Mhamdi et al. _Collaborative Learning in the Jungle (Decentralized, Byzantine, Heterogeneous, Asynchronous and Nonconvex Learning)._ NeurIPS, 2021. [Paper](https://proceedings.neurips.cc/paper/2021/hash/d2cd33e9c0236a8c2d8bd3fa91ad3acf-Abstract.html).
+- **Data Taggants.** Bouaziz, Usunier and El-Mhamdi. _Data Taggants: Dataset Ownership Verification via Harmless Targeted Data Poisoning._ ICLR, 2025 (Spotlight). [Paper](https://arxiv.org/abs/2410.09101).
+- **Winter Soldier.** Bouaziz et al. _Winter Soldier: Backdooring Language Models at Pre-Training with Indirect Data Poisoning._ ICLR, 2026. [Paper](https://arxiv.org/abs/2506.14913).
+- **signSGD.** Bernstein et al. _signSGD with Majority Vote is Communication Efficient and Fault Tolerant._ ICLR, 2019. [Paper](https://arxiv.org/abs/1810.05291).
+- **Byzantine Fault Tolerance of signSGD.** Mengoli et al. _On the Byzantine Fault Tolerance of signSGD with Majority Vote._ Preprint, 2025. [Paper](https://arxiv.org/abs/2502.19170).
+- **Aksel.** Boussetta et al. _AKSEL: Fast Byzantine SGD._ OPODIS, 2020. [Paper](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.OPODIS.2020.8).
+- **ALIE.** Baruch et al. _A Little Is Enough: Circumventing Defenses For Distributed Learning._ NeurIPS, 2019. [Paper](https://arxiv.org/abs/1902.06156).
+- **Fall of Empires.** Xie et al. _Fall of Empires: Breaking Byzantine-tolerant SGD by Inner Product Manipulation._ UAI, 2020. [Paper](https://arxiv.org/abs/1903.03936).
+- **MoNNA.** Farhadkhani et al. _Robust Collaborative Learning with Linear Gradient Overhead._ ICML, 2023. [Paper](https://arxiv.org/abs/2209.10931).
+- **Optimal robustness ($\kappa^\star$).** Bareilles et al. _Byzantine Machine Learning: MultiKrum and an optimal notion of robustness._ Preprint, 2026. [Paper](https://arxiv.org/abs/2602.03899).

@@ -3,10 +3,7 @@
   "url": "https://github.com/arthurdanjou",
   "title": "GitHub",
   "category": "Social",
-  "tags": [
-    "social",
-    "code"
-  ],
+  "tags": ["social", "code"],
   "featured": false,
   "listed": true,
   "position": 20,

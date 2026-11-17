@@ -14,16 +14,16 @@ icon: i-ph-share-network-duotone
 authorNote: |
   Our reproduction focuses on when dropout is active during training. I find the learning curves especially useful here: they let us examine what happens around the switch epoch and compare it with a model trained without dropout. The expected benefits still need to be checked for each dataset and architecture.
 summary:
-  role: "Team member on the TensorFlow/Keras reproduction study."
-  context: "A research project examining Early and Late Dropout strategies from Liu et al. (2023)."
-  outcome: "A dynamic dropout implementation and experiment pipeline for comparing training schedules and data regimes."
+  role: 'Team member on the TensorFlow/Keras reproduction study.'
+  context: 'A research project examining Early and Late Dropout strategies from Liu et al. (2023).'
+  outcome: 'A dynamic dropout implementation and experiment pipeline for comparing training schedules and data regimes.'
   links:
-    - label: "Report"
-      url: "/projects/dropout-reduces-underfitting.pdf"
+    - label: 'Report'
+      url: '/projects/dropout-reduces-underfitting.pdf'
       icon: i-ph-file-text-duotone
 ---
 
-> **Study and reproduction of the paper:** Liu, Z., et al. (2023). *Dropout Reduces Underfitting*. arXiv:2303.01500.
+> **Study and reproduction of the paper:** Liu, Z., et al. (2023). _Dropout Reduces Underfitting_. arXiv:2303.01500.
 
 The paper is available at: [https://arxiv.org/abs/2303.01500](https://arxiv.org/abs/2303.01500)
 
@@ -44,9 +44,9 @@ Unlike naive Keras callback implementations, this project uses a **dynamic appro
 
 ### Key Components
 
-* **`DynamicDropout`**: A custom layer inheriting from `keras.layers.Layer` that reads its rate from a shared `tf.Variable`.
-* **`DropoutScheduler`**: A Keras `Callback` that drives the rate variable based on the current epoch and the chosen strategy (`early`, `late`, `standard`).
-* **`ExperimentPipeline`**: An orchestrator class that handles data loading (MNIST, CIFAR-10, Fashion MNIST), model creation (Dense or CNN), and execution of comparative benchmarks.
+- **`DynamicDropout`**: A custom layer inheriting from `keras.layers.Layer` that reads its rate from a shared `tf.Variable`.
+- **`DropoutScheduler`**: A Keras `Callback` that drives the rate variable based on the current epoch and the chosen strategy (`early`, `late`, `standard`).
+- **`ExperimentPipeline`**: An orchestrator class that handles data loading (MNIST, CIFAR-10, Fashion MNIST), model creation (Dense or CNN), and execution of comparative benchmarks.
 
 ## File Structure
 
@@ -86,6 +86,7 @@ The main notebook pipeline.ipynb contains all necessary code. Here is how to run
 ### 1. Initialization
 
 Choose your dataset (cifar10, fashion_mnist, mnist) and architecture (cnn, dense).
+
 ```python
 from pipeline import ExperimentPipeline
 

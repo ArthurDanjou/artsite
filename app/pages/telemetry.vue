@@ -4,7 +4,9 @@ const { data: page } = await useAsyncData('telemetry', () => {
 })
 
 const title = page.value?.title ?? 'Live Homelab Telemetry'
-const description = page.value?.description ?? 'Live telemetry from my homelab: current environment, coding stats, system status, and activity history at a glance.'
+const description =
+  page.value?.description ??
+  'Live telemetry from my homelab: current environment, coding stats, system status, and activity history at a glance.'
 
 const head = {
   title,
@@ -28,10 +30,6 @@ defineOgImage('Pergel.satori', {
 
 <template>
   <main>
-    <ContentRenderer
-      v-if="page"
-      :value="page"
-      class="mt-8 md:mt-16"
-    />
+    <ContentRenderer v-if="page" :value="page" class="mt-8 md:mt-16" />
   </main>
 </template>

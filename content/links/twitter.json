@@ -3,9 +3,7 @@
   "url": "https://x.com/ArthurDanj",
   "title": "X",
   "category": "Social",
-  "tags": [
-    "social"
-  ],
+  "tags": ["social"],
   "featured": false,
   "listed": true,
   "position": 30,

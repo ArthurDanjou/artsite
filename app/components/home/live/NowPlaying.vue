@@ -10,11 +10,11 @@ const { data, pending, error } = useLiveFetch<HAMediaResponse>('/api/ha/media', 
 const nowPlaying = computed(() => data.value?.nowPlaying ?? null)
 const isPlaying = computed(() => !!nowPlaying.value)
 
-const statusLabel = computed(() => isPlaying.value ? 'Now Playing' : 'Idle')
+const statusLabel = computed(() => (isPlaying.value ? 'Now Playing' : 'Idle'))
 
-const headerIcon = computed(() => isPlaying.value
-  ? 'i-ph-music-notes-duotone'
-  : 'i-ph-pause-circle-duotone')
+const headerIcon = computed(() =>
+  isPlaying.value ? 'i-ph-music-notes-duotone' : 'i-ph-pause-circle-duotone'
+)
 
 const hoverRingClass = computed(() => ({
   'hover:ring-pink-500/50': isPlaying.value,
@@ -43,15 +43,19 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
       <HomeLiveCardHeader
         title="Music"
         :icon="headerIcon"
-        :icon-bg="isPlaying
-          ? 'bg-pink-50 dark:bg-pink-900/30 text-pink-500'
-          : 'bg-neutral-100 dark:bg-neutral-900/30 text-neutral-500'"
+        :icon-bg="
+          isPlaying
+            ? 'bg-pink-50 dark:bg-pink-900/30 text-pink-500'
+            : 'bg-neutral-100 dark:bg-neutral-900/30 text-neutral-500'
+        "
         title-size="sm"
       >
         <template #right>
           <div class="flex items-center gap-2.5">
             <HomeLiveStatusDot :color="isPlaying ? 'pink' : 'neutral'" />
-            <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+            >
               {{ statusLabel }}
             </span>
           </div>
@@ -71,15 +75,12 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
             class="w-20 h-20 rounded-lg object-cover shadow-sm bg-neutral-100 dark:bg-neutral-800"
             loading="lazy"
             @error="(e) => ((e.target as HTMLImageElement).style.display = 'none')"
-          >
+          />
           <div
             v-else
             class="w-20 h-20 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center"
           >
-            <UIcon
-              name="i-ph-vinyl-record-duotone"
-              class="w-10 h-10 text-neutral-400"
-            />
+            <UIcon name="i-ph-vinyl-record-duotone" class="w-10 h-10 text-neutral-400" />
           </div>
         </div>
 
@@ -97,15 +98,11 @@ const hasArtwork = computed(() => !!nowPlaying.value?.artwork)
             {{ nowPlaying.album }}
           </p>
           <div class="flex items-center gap-1.5 mt-1.5 text-xs text-neutral-400">
-            <UIcon
-              name="i-ph-speaker-high-duotone"
-              class="w-3.5 h-3.5 shrink-0"
-            />
+            <UIcon name="i-ph-speaker-high-duotone" class="w-3.5 h-3.5 shrink-0" />
             <span class="truncate">{{ nowPlaying.friendly_name }}</span>
-            <span
-              v-if="nowPlaying.source"
-              class="hidden sm:inline truncate"
-            >• {{ nowPlaying.source }}</span>
+            <span v-if="nowPlaying.source" class="hidden sm:inline truncate"
+              >• {{ nowPlaying.source }}</span
+            >
           </div>
         </div>
       </div>

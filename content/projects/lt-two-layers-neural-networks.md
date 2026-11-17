@@ -15,12 +15,12 @@ icon: i-ph-function-duotone
 authorNote: |
   I approached this exercise by following where the dependence on network width enters the argument. Using the structure of ReLU changes the complexity analysis, which makes the choice of parameterisation a substantial part of the proof.
 summary:
-  role: "Mathematical derivation and analysis of generalisation bounds."
-  context: "M2 Learning Theory work on two-layer ReLU networks at Paris-Dauphine PSL."
-  outcome: "An analysis of how ReLU homogeneity and symmetrisation improve the dependence of complexity bounds on network width."
+  role: 'Mathematical derivation and analysis of generalisation bounds.'
+  context: 'M2 Learning Theory work on two-layer ReLU networks at Paris-Dauphine PSL.'
+  outcome: 'An analysis of how ReLU homogeneity and symmetrisation improve the dependence of complexity bounds on network width.'
   links:
-    - label: "Report"
-      url: "/projects/lt-two-layer-neural-networks.pdf"
+    - label: 'Report'
+      url: '/projects/lt-two-layer-neural-networks.pdf'
       icon: i-ph-file-text-duotone
 ---
 
@@ -50,7 +50,8 @@ This bound demonstrates the fundamental problem: it depends linearly on network 
 
 Key insight exploiting ReLU structure: $$\mathbb{E}\left[\sup |\mathcal{Z}|\right] \leq 2 \cdot \mathbb{E}\left[\sup \phi(\mathcal{Z})\right]$$
 Derivation uses:
-- ReLU decomposition: $|z| = \phi(z) + \phi(-z)$  
+
+- ReLU decomposition: $|z| = \phi(z) + \phi(-z)$
 - Distributional symmetry: $\sigma$ and $-\sigma$ are identically distributed
 - Rademacher averaging: Cancellation of terms through symmetry arguments
 

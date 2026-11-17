@@ -1,7 +1,7 @@
 import seed from '../server/db/seed-links.json'
 
 function sqlString(value: string): string {
-  return `'${value.replace(/'/g, '\'\'')}'`
+  return `'${value.replace(/'/g, "''")}'`
 }
 
 function sqlNullable(value: string | null | undefined): string {
@@ -62,6 +62,6 @@ const rows = seed.map((link) => {
   return `  (${values.join(', ')})`
 })
 
-const statement = `-- Curated Dub import for links.arthurdanjou.fr.\nINSERT OR IGNORE INTO \`links\` (${columns.map(column => `\`${column}\``).join(', ')})\nVALUES\n${rows.join(',\n')};\n`
+const statement = `-- Curated Dub import for links.arthurdanjou.fr.\nINSERT OR IGNORE INTO \`links\` (${columns.map((column) => `\`${column}\``).join(', ')})\nVALUES\n${rows.join(',\n')};\n`
 
 process.stdout.write(statement)

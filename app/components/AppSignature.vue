@@ -2,16 +2,21 @@
 import { TegakiRenderer } from 'tegaki/vue'
 import parisienne from 'tegaki/fonts/parisienne'
 
-const props = withDefaults(defineProps<{
-  animated?: boolean
-  playing?: boolean
-}>(), {
-  playing: true
-})
+const props = withDefaults(
+  defineProps<{
+    animated?: boolean
+    playing?: boolean
+  }>(),
+  {
+    playing: true
+  }
+)
 
-const time = computed(() => props.animated
-  ? { mode: 'uncontrolled' as const, duration: 5, playing: props.playing }
-  : '100%' as const)
+const time = computed(() =>
+  props.animated
+    ? { mode: 'uncontrolled' as const, duration: 5, playing: props.playing }
+    : ('100%' as const)
+)
 </script>
 
 <template>

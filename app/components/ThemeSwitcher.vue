@@ -8,17 +8,15 @@ function switchTheme() {
   colorMode.preference = nextTheme.value
 }
 
-function toggleDark(event?: MouseEvent | { clientX: number, clientY: number }) {
-  const isAppearanceTransition = 'startViewTransition' in document
-    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+function toggleDark(event?: MouseEvent | { clientX: number; clientY: number }) {
+  const isAppearanceTransition =
+    'startViewTransition' in document &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   const rect = buttonRef.value?.$el?.getBoundingClientRect()
   const x = event?.clientX ?? (rect ? rect.left + rect.width / 2 : innerWidth / 2)
   const y = event?.clientY ?? (rect ? rect.top + rect.height / 2 : 0)
-  const endRadius = Math.hypot(
-    Math.max(x, innerWidth - x),
-    Math.max(y, innerHeight - y)
-  )
+  const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y))
 
   document.documentElement.style.setProperty('--reveal-x', `${x}px`)
   document.documentElement.style.setProperty('--reveal-y', `${y}px`)
@@ -46,12 +44,7 @@ defineShortcuts({
 
 <template>
   <ClientOnly>
-    <UTooltip
-      :kbds="['T']"
-      text="switch theme"
-      class="cursor-pointer"
-      :delay-duration="4"
-    >
+    <UTooltip :kbds="['T']" text="switch theme" class="cursor-pointer" :delay-duration="4">
       <UButton
         ref="buttonRef"
         :icon="nextTheme === 'dark' ? 'i-ph-moon-duotone' : 'i-ph-sun-duotone'"

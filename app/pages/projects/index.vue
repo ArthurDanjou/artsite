@@ -3,7 +3,8 @@ import type { ProjectsCollectionItem } from '@nuxt/content'
 
 const head = {
   title: 'Engineering & Research Labs',
-  description: 'From theoretical models to production systems. Explore my experimental labs, open-source contributions, and engineering work.',
+  description:
+    'From theoretical models to production systems. Explore my experimental labs, open-source contributions, and engineering work.',
   headline: 'Arthur Danjou\u2019s Projects'
 }
 
@@ -34,7 +35,7 @@ const selectedTags = ref<string[]>([])
 const allTags = computed(() => {
   const counts = new Map<string, number>()
   projectsData.value?.forEach((project) => {
-    project.tags?.forEach(tag => counts.set(tag, (counts.get(tag) ?? 0) + 1))
+    project.tags?.forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1))
   })
   return [...counts.entries()]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
@@ -44,12 +45,15 @@ const allTags = computed(() => {
 const filteredProjects = computed(() => {
   const q = query.value.trim().toLowerCase()
   return (projectsData.value ?? []).filter((project) => {
-    if (selectedTags.value.length && !selectedTags.value.every(tag => project.tags?.includes(tag)))
+    if (
+      selectedTags.value.length &&
+      !selectedTags.value.every((tag) => project.tags?.includes(tag))
+    )
       return false
-    if (!q)
-      return true
-    return [project.title, project.shortDescription, ...(project.tags ?? [])]
-      .some(field => field?.toLowerCase().includes(q))
+    if (!q) return true
+    return [project.title, project.shortDescription, ...(project.tags ?? [])].some((field) =>
+      field?.toLowerCase().includes(q)
+    )
   })
 })
 
@@ -85,11 +89,14 @@ const grouped_projects = computed(() => {
 <template>
   <main class="space-y-8 py-4">
     <div class="space-y-4">
-      <h1 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white font-mono tracking-tight">
+      <h1
+        class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white font-mono tracking-tight"
+      >
         Engineering & Research Labs
       </h1>
       <p class="max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-400">
-        From theoretical models to production systems. <br>Explore my experimental labs, open-source contributions, and engineering work.
+        From theoretical models to production systems. <br />Explore my experimental labs,
+        open-source contributions, and engineering work.
       </p>
       <UButton
         size="md"
@@ -140,12 +147,10 @@ const grouped_projects = computed(() => {
     </div>
     <template v-if="filteredProjects.length">
       <div class="flex flex-col gap-16">
-        <div
-          v-for="(projects, group) in grouped_projects"
-          :key="group"
-          class="relative"
-        >
-          <h1 class="w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2">
+        <div v-for="(projects, group) in grouped_projects" :key="group" class="relative">
+          <h1
+            class="w-full mt-4 mb-2 font-bold text-4xl md:text-7xl text-transparent opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2"
+          >
             {{ group }}
           </h1>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 grid-rows-auto">
@@ -164,10 +169,7 @@ const grouped_projects = computed(() => {
         </div>
       </div>
     </template>
-    <p
-      v-else
-      class="text-center text-neutral-500 dark:text-neutral-400 py-16"
-    >
+    <p v-else class="text-center text-neutral-500 dark:text-neutral-400 py-16">
       No projects match your search.
     </p>
   </main>

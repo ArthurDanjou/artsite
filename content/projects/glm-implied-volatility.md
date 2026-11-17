@@ -3,7 +3,7 @@ slug: glm-implied-volatility
 title: Implied Volatility Prediction from Options Data
 type: Academic Project
 description: A large-scale statistical study comparing Generalized Linear Models (GLMs) and black-box machine learning architectures to predict the implied volatility of S&P 500 options.
-shortDescription: Predicting implied volatility using advanced regression techniques and machine learning models on financial options data. 
+shortDescription: Predicting implied volatility using advanced regression techniques and machine learning models on financial options data.
 publishedAt: 2026-02-28
 readingTime: 3
 status: Completed
@@ -15,12 +15,12 @@ icon: i-ph-graph-duotone
 authorNote: |
   The mixed-effects models are the part of this comparison I would return to first: accounting for differences between assets gave strong results on this dataset. The chronological split is just as central to how I read those results, since the model must predict observations later in time.
 summary:
-  role: "Team member on the statistical modelling and benchmarking project."
-  context: "M2 Classification and Regression coursework using a large financial panel dataset."
-  outcome: "Mixed-effects models achieved lower validation error than the compared boosting models under a chronological split."
+  role: 'Team member on the statistical modelling and benchmarking project.'
+  context: 'M2 Classification and Regression coursework using a large financial panel dataset.'
+  outcome: 'Mixed-effects models achieved lower validation error than the compared boosting models under a chronological split.'
   links:
-    - label: "Code"
-      url: "https://github.com/ArthurDanjou/Implied-Volatility-from-Options-Data"
+    - label: 'Code'
+      url: 'https://github.com/ArthurDanjou/Implied-Volatility-from-Options-Data'
       icon: i-ph-code-duotone
 ---
 
@@ -37,6 +37,7 @@ This project explores the prediction of **implied volatility** from options mark
 ### Problem Statement
 
 Implied volatility represents the market's forward-looking expectation of an asset's future volatility. Accurate prediction is important for:
+
 - **Option pricing** and valuation
 - **Risk management** and hedging strategies
 - **Trading strategies** based on volatility arbitrage
@@ -45,18 +46,20 @@ Implied volatility represents the market's forward-looking expectation of an ass
 
 The project uses a panel dataset tracking **3,887 assets** across **544 observation dates** (2019-2022):
 
-| File | Description | Shape |
-|------|-------------|-------|
+| File            | Description                        | Shape                       |
+| --------------- | ---------------------------------- | --------------------------- |
 | `Train_ISF.csv` | Training data with target variable | 1,909,465 rows × 21 columns |
-| `Test_ISF.csv` | Test data for prediction | 1,251,308 rows × 18 columns |
-| `hat_y.csv` | Final predictions from both models | 1,251,308 rows × 2 columns |
+| `Test_ISF.csv`  | Test data for prediction           | 1,251,308 rows × 18 columns |
+| `hat_y.csv`     | Final predictions from both models | 1,251,308 rows × 2 columns  |
 
 ### Key Variables
 
 **Target Variable:**
+
 - `implied_vol_ref`: the implied volatility to predict
 
 **Feature Categories:**
+
 - **Identifiers:** `asset_id`, `obs_date`
 - **Market Activity:** `call_volume`, `put_volume`, `call_oi`, `put_oi`, `total_contracts`
 - **Volatility Metrics:** `realized_vol_short`, `realized_vol_mid1-3`, `realized_vol_long1-4`, `market_vol_index`
@@ -101,16 +104,16 @@ Three Datasets Generated:
 
 New financial indicators created to capture market dynamics:
 
-| Feature | Description | Formula |
-|---------|-------------|---------|
-| `pulse_ratio` | Volatility trend direction | RV_short / RV_long |
-| `stress_spread` | Asset vs market stress | RV_short - Market_VIX |
-| `put_call_ratio_volume` | Immediate market stress | Put_Volume / Call_Volume |
-| `put_call_ratio_oi` | Long-term risk structure | Put_OI / Call_OI |
-| `liquidity_ratio` | Market depth | Total_Volume / Total_OI |
-| `option_dispersion` | Market uncertainty | Strike_Dispersion / Total_Contracts |
-| `put_low_strike` | Downside protection density | Strike_Dispersion / Put_OI |
-| `put_proportion` | Hedging vs speculation | Put_Volume / Total_Volume |
+| Feature                 | Description                 | Formula                             |
+| ----------------------- | --------------------------- | ----------------------------------- |
+| `pulse_ratio`           | Volatility trend direction  | RV_short / RV_long                  |
+| `stress_spread`         | Asset vs market stress      | RV_short - Market_VIX               |
+| `put_call_ratio_volume` | Immediate market stress     | Put_Volume / Call_Volume            |
+| `put_call_ratio_oi`     | Long-term risk structure    | Put_OI / Call_OI                    |
+| `liquidity_ratio`       | Market depth                | Total_Volume / Total_OI             |
+| `option_dispersion`     | Market uncertainty          | Strike_Dispersion / Total_Contracts |
+| `put_low_strike`        | Downside protection density | Strike_Dispersion / Put_OI          |
+| `put_proportion`        | Hedging vs speculation      | Put_Volume / Total_Volume           |
 
 ---
 
@@ -118,41 +121,41 @@ New financial indicators created to capture market dynamics:
 
 ### Linear Models
 
-| Model | Description | Best RMSE |
-|-------|-------------|-----------|
-| **OLS** | Ordinary Least Squares | 11.26 |
-| **Ridge** | L2 regularization | 12.48 |
-| **Lasso** | L1 regularization (variable selection) | 12.03 |
-| **Elastic Net** | L1 + L2 combined | ~12.03 |
-| **PLS** | Partial Least Squares (on PCA) | 12.79 |
+| Model           | Description                            | Best RMSE |
+| --------------- | -------------------------------------- | --------- |
+| **OLS**         | Ordinary Least Squares                 | 11.26     |
+| **Ridge**       | L2 regularization                      | 12.48     |
+| **Lasso**       | L1 regularization (variable selection) | 12.03     |
+| **Elastic Net** | L1 + L2 combined                       | ~12.03    |
+| **PLS**         | Partial Least Squares (on PCA)         | 12.79     |
 
 ### Linear Mixed-Effects Models (LMM)
 
 Advanced panel data models accounting for asset-specific effects:
 
-| Model | Features | RMSE |
-|-------|----------|------|
-| LMM Baseline | All variables + Random Intercept | 8.77 |
-| LMM Reduced | Collinearity removal | ~8.77 |
-| LMM Interactions | Financial interaction terms | ~8.77 |
-| LMM + Quadratic | Convexity terms (vol of vol) | 8.41 |
-| **LMM + Random Slopes (mod_lmm_5)** | Asset-specific betas | **8.10** ⭐ |
+| Model                               | Features                         | RMSE        |
+| ----------------------------------- | -------------------------------- | ----------- |
+| LMM Baseline                        | All variables + Random Intercept | 8.77        |
+| LMM Reduced                         | Collinearity removal             | ~8.77       |
+| LMM Interactions                    | Financial interaction terms      | ~8.77       |
+| LMM + Quadratic                     | Convexity terms (vol of vol)     | 8.41        |
+| **LMM + Random Slopes (mod_lmm_5)** | Asset-specific betas             | **8.10** ⭐ |
 
 ### Tree-Based Models
 
-| Model | Strategy | Validation RMSE | Training RMSE |
-|-------|----------|-----------------|---------------|
-| **XGBoost** | Level-wise, Bayesian tuning | 10.70 | 0.57 |
-| **LightGBM** | Leaf-wise, feature regularization | **10.61** ⭐ | 10.90 |
-| Random Forest | Bagging | DNF* | - |
+| Model         | Strategy                          | Validation RMSE | Training RMSE |
+| ------------- | --------------------------------- | --------------- | ------------- |
+| **XGBoost**   | Level-wise, Bayesian tuning       | 10.70           | 0.57          |
+| **LightGBM**  | Leaf-wise, feature regularization | **10.61** ⭐    | 10.90         |
+| Random Forest | Bagging                           | DNF*            | -             |
 
 *DNF: Did Not Finish (computational constraints)
 
 ### Neural Networks
 
-| Model | Architecture | Status |
-|-------|--------------|--------|
-| MLP | 128-64 units, tanh activation | Failed to converge |
+| Model | Architecture                  | Status             |
+| ----- | ----------------------------- | ------------------ |
+| MLP   | 128-64 units, tanh activation | Failed to converge |
 
 ---
 
@@ -215,7 +218,6 @@ PROJECT/
 
 ## Getting Started
 
-
 ### Prerequisites
 
 - **R** ≥ 4.0
@@ -241,12 +243,14 @@ install.packages(c(
 ### Running the Analysis
 
 1. **Open the Quarto document:**
+
    ```r
    # In RStudio
    rstudioapi::navigateToFile("Projet_MRC_DANJOU_LEGRAND_MERIC_VONSIEMENS.qmd")
    ```
 
 2. **Render the document:**
+
    ```r
    quarto::quarto_render("Projet_MRC_DANJOU_LEGRAND_MERIC_VONSIEMENS.qmd")
    ```
@@ -304,8 +308,9 @@ Models trained on log-transformed target for variance stabilization.
 ## Authors
 
 **Team:**
+
 - Arthur DANJOU
-- Camille LEGRAND  
+- Camille LEGRAND
 - Axelle MERIC
 - Moritz VON SIEMENS
 
@@ -325,6 +330,7 @@ Models trained on log-transformed target for variance stabilization.
 ## References
 
 Key R packages used:
+
 - `tidymodels`: modern modeling framework
 - `glmnet`: regularized regression
 - `lme4` / `lmerTest`: mixed-effects models

@@ -1,24 +1,28 @@
 <script lang="ts" setup>
 import type { HAStatus, StatsCard } from '~~/types'
 
-const { data: ha, pending, error } = useLiveFetch<HAStatus>('/api/ha/status', {
+const {
+  data: ha,
+  pending,
+  error
+} = useLiveFetch<HAStatus>('/api/ha/status', {
   server: false,
   lazy: true,
   pollInterval: 120_000
 })
 
-const weatherIcons: Record<string, { icon: string, color: string }> = {
-  'sunny': { icon: 'i-ph-sun-duotone', color: 'text-yellow-500' },
+const weatherIcons: Record<string, { icon: string; color: string }> = {
+  sunny: { icon: 'i-ph-sun-duotone', color: 'text-yellow-500' },
   'clear-night': { icon: 'i-ph-moon-stars-duotone', color: 'text-indigo-400' },
-  'partlycloudy': { icon: 'i-ph-cloud-sun-duotone', color: 'text-gray-400' },
-  'cloudy': { icon: 'i-ph-cloud-duotone', color: 'text-gray-400' },
-  'rainy': { icon: 'i-ph-cloud-rain-duotone', color: 'text-blue-500' },
-  'pouring': { icon: 'i-ph-cloud-rain-duotone', color: 'text-blue-600' },
-  'lightning': { icon: 'i-ph-cloud-lightning-duotone', color: 'text-purple-500' },
-  'snowy': { icon: 'i-ph-snowflake-duotone', color: 'text-sky-300' },
+  partlycloudy: { icon: 'i-ph-cloud-sun-duotone', color: 'text-gray-400' },
+  cloudy: { icon: 'i-ph-cloud-duotone', color: 'text-gray-400' },
+  rainy: { icon: 'i-ph-cloud-rain-duotone', color: 'text-blue-500' },
+  pouring: { icon: 'i-ph-cloud-rain-duotone', color: 'text-blue-600' },
+  lightning: { icon: 'i-ph-cloud-lightning-duotone', color: 'text-purple-500' },
+  snowy: { icon: 'i-ph-snowflake-duotone', color: 'text-sky-300' },
   'snowy-rainy': { icon: 'i-ph-cloud-snow-duotone', color: 'text-sky-400' },
-  'fog': { icon: 'i-ph-cloud-fog-duotone', color: 'text-slate-400' },
-  'windy': { icon: 'i-ph-wind-duotone', color: 'text-teal-500' }
+  fog: { icon: 'i-ph-cloud-fog-duotone', color: 'text-slate-400' },
+  windy: { icon: 'i-ph-wind-duotone', color: 'text-teal-500' }
 }
 
 interface StatCardConfig {
@@ -29,20 +33,90 @@ interface StatCardConfig {
 }
 
 const statCardConfigs: StatCardConfig[] = [
-  { label: 'Status', icon: 'i-ph-palms-duotone', color: 'text-amber-500', value: s => (s.isHoliday ? 'Holiday' : null) },
-  { label: 'Lighting', icon: 'i-ph-lightbulb-duotone', color: 'text-yellow-500', value: s => s.totalLights?.toString() ?? null },
-  { label: 'Automations', icon: 'i-ph-magic-wand-duotone', color: 'text-indigo-500', value: s => s.totalAutomations?.toString() ?? null },
-  { label: 'Scenes', icon: 'i-ph-palette-duotone', color: 'text-pink-500', value: s => s.totalScenes?.toString() ?? null },
-  { label: 'Domains', icon: 'i-ph-devices-duotone', color: 'text-teal-500', value: s => s.totalDomains?.toString() ?? null },
-  { label: 'Entities', icon: 'i-ph-database-duotone', color: 'text-emerald-500', value: s => s.totalEntities?.toString() ?? null },
-  { label: 'LXC', icon: 'i-ph-hard-drives-duotone', color: 'text-orange-500', value: s => s.lxcContainers?.toString() ?? null },
-  { label: 'VMs', icon: 'i-ph-desktop-tower-duotone', color: 'text-orange-600', value: s => s.virtualMachines?.toString() ?? null },
-  { label: 'Players', icon: 'i-ph-speaker-high-duotone', color: 'text-violet-500', value: s => s.totalMediaPlayers?.toString() ?? null },
-  { label: 'Now Playing', icon: 'i-ph-music-notes-duotone', color: 'text-pink-500', value: s => s.activeMediaPlayers?.toString() ?? null },
-  { label: 'Photos', icon: 'i-ph-image-duotone', color: 'text-rose-500', value: s => s.immichPhotos?.toLocaleString('en-US') ?? null },
-  { label: 'Videos', icon: 'i-ph-video-camera-duotone', color: 'text-fuchsia-500', value: s => s.immichVideos?.toLocaleString('en-US') ?? null },
-  { label: 'DNS Queries', icon: 'i-ph-globe-duotone', color: 'text-blue-500', value: s => s.dnsRequests?.toLocaleString('en-US') ?? null },
-  { label: 'DNS Blocked', icon: 'i-ph-shield-warning-duotone', color: 'text-cyan-500', value: s => s.dnsBlocked?.toLocaleString('en-US') ?? null }
+  {
+    label: 'Status',
+    icon: 'i-ph-palms-duotone',
+    color: 'text-amber-500',
+    value: (s) => (s.isHoliday ? 'Holiday' : null)
+  },
+  {
+    label: 'Lighting',
+    icon: 'i-ph-lightbulb-duotone',
+    color: 'text-yellow-500',
+    value: (s) => s.totalLights?.toString() ?? null
+  },
+  {
+    label: 'Automations',
+    icon: 'i-ph-magic-wand-duotone',
+    color: 'text-indigo-500',
+    value: (s) => s.totalAutomations?.toString() ?? null
+  },
+  {
+    label: 'Scenes',
+    icon: 'i-ph-palette-duotone',
+    color: 'text-pink-500',
+    value: (s) => s.totalScenes?.toString() ?? null
+  },
+  {
+    label: 'Domains',
+    icon: 'i-ph-devices-duotone',
+    color: 'text-teal-500',
+    value: (s) => s.totalDomains?.toString() ?? null
+  },
+  {
+    label: 'Entities',
+    icon: 'i-ph-database-duotone',
+    color: 'text-emerald-500',
+    value: (s) => s.totalEntities?.toString() ?? null
+  },
+  {
+    label: 'LXC',
+    icon: 'i-ph-hard-drives-duotone',
+    color: 'text-orange-500',
+    value: (s) => s.lxcContainers?.toString() ?? null
+  },
+  {
+    label: 'VMs',
+    icon: 'i-ph-desktop-tower-duotone',
+    color: 'text-orange-600',
+    value: (s) => s.virtualMachines?.toString() ?? null
+  },
+  {
+    label: 'Players',
+    icon: 'i-ph-speaker-high-duotone',
+    color: 'text-violet-500',
+    value: (s) => s.totalMediaPlayers?.toString() ?? null
+  },
+  {
+    label: 'Now Playing',
+    icon: 'i-ph-music-notes-duotone',
+    color: 'text-pink-500',
+    value: (s) => s.activeMediaPlayers?.toString() ?? null
+  },
+  {
+    label: 'Photos',
+    icon: 'i-ph-image-duotone',
+    color: 'text-rose-500',
+    value: (s) => s.immichPhotos?.toLocaleString('en-US') ?? null
+  },
+  {
+    label: 'Videos',
+    icon: 'i-ph-video-camera-duotone',
+    color: 'text-fuchsia-500',
+    value: (s) => s.immichVideos?.toLocaleString('en-US') ?? null
+  },
+  {
+    label: 'DNS Queries',
+    icon: 'i-ph-globe-duotone',
+    color: 'text-blue-500',
+    value: (s) => s.dnsRequests?.toLocaleString('en-US') ?? null
+  },
+  {
+    label: 'DNS Blocked',
+    icon: 'i-ph-shield-warning-duotone',
+    color: 'text-cyan-500',
+    value: (s) => s.dnsBlocked?.toLocaleString('en-US') ?? null
+  }
 ]
 
 const statsCards = computed<StatsCard[]>(() => {
@@ -54,8 +128,7 @@ const statsCards = computed<StatsCard[]>(() => {
     cards.push({
       label: 'Weather',
       value: `${Math.round(ha.value.weather.temperature)}°C`,
-      icon: weatherIcons[ha.value.weather.condition]?.icon
-        ?? 'i-ph-question-duotone',
+      icon: weatherIcons[ha.value.weather.condition]?.icon ?? 'i-ph-question-duotone',
       color: weatherIcons[ha.value.weather.condition]?.color ?? 'text-gray-500'
     })
   }
@@ -111,20 +184,14 @@ const ringColorMap: Record<string, string> = {
       <UCard
         v-for="card in statsCards"
         :key="card.label"
-        :class="[
-          'transition-all duration-200 hover:ring-2',
-          ringColorMap[card.color]
-        ]"
+        :class="['transition-all duration-200 hover:ring-2', ringColorMap[card.color]]"
         :ui="{
           root: 'ring-2 ring-gray-200 dark:ring-gray-800 shadow-sm',
           body: 'p-2'
         }"
       >
         <div class="flex flex-col items-center text-center gap-1">
-          <UIcon
-            :name="card.icon"
-            :class="['size-8', card.color]"
-          />
+          <UIcon :name="card.icon" :class="['size-8', card.color]" />
           <span
             class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400 font-bold"
           >
@@ -162,11 +229,7 @@ const ringColorMap: Record<string, string> = {
         class="grid gap-3 mt-4"
         style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))"
       >
-        <UCard
-          v-for="i in 6"
-          :key="i"
-          :ui="{ body: 'p-3' }"
-        >
+        <UCard v-for="i in 6" :key="i" :ui="{ body: 'p-3' }">
           <div class="flex flex-col items-center gap-2 animate-pulse">
             <div class="size-6 bg-gray-200 dark:bg-gray-800 rounded-full" />
             <div class="h-2 w-10 bg-gray-200 dark:bg-gray-800 rounded" />

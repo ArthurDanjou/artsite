@@ -14,12 +14,12 @@ icon: i-ph-lightning-duotone
 authorNote: |
   The gap between SARSA and DQN in our results makes this a useful experiment to revisit. I would read those scores together with the training setup and the checkpoint-loading issues we documented. The tournament adds another view of how the agents behave against different opponents.
 summary:
-  role: "Team member comparing reinforcement learning agents with Moritz von Siemens."
-  context: "An academic study of Atari Tennis using RAM observations and head-to-head tournaments."
-  outcome: "SARSA reached an 88.9% win rate against the random baseline; checkpoint-loading limitations are documented."
+  role: 'Team member comparing reinforcement learning agents with Moritz von Siemens.'
+  context: 'An academic study of Atari Tennis using RAM observations and head-to-head tournaments.'
+  outcome: 'SARSA reached an 88.9% win rate against the random baseline; checkpoint-loading limitations are documented.'
   links:
-    - label: "Code"
-      url: "https://github.com/ArthurDanjou/Tennis-Atari-Game"
+    - label: 'Code'
+      url: 'https://github.com/ArthurDanjou/Tennis-Atari-Game'
       icon: i-ph-code-duotone
 ---
 
@@ -33,13 +33,13 @@ This project implements and compares five RL agents playing Atari Tennis against
 
 ## Algorithms
 
-| Agent | Type | Policy | Update Rule |
-|-------|------|--------|-------------|
-| **Random** | Baseline | Uniform random | None |
-| **SARSA** | TD(0), on-policy | ε-greedy | $W_a \leftarrow W_a + \alpha \cdot (r + \gamma \hat{q}(s', a') - \hat{q}(s, a)) \cdot \phi(s)$ |
-| **Q-Learning** | TD(0), off-policy | ε-greedy | $W_a \leftarrow W_a + \alpha \cdot (r + \gamma \max_{a'} \hat{q}(s', a') - \hat{q}(s, a)) \cdot \phi(s)$ |
-| **Monte Carlo** | First-visit MC | ε-greedy | $W_a \leftarrow W_a + \alpha \cdot (G_t - \hat{q}(s, a)) \cdot \phi(s)$ |
-| **DQN** | Deep Q-Network | ε-greedy | MLP (256→256) with experience replay & target network |
+| Agent           | Type              | Policy         | Update Rule                                                                                              |
+| --------------- | ----------------- | -------------- | -------------------------------------------------------------------------------------------------------- |
+| **Random**      | Baseline          | Uniform random | None                                                                                                     |
+| **SARSA**       | TD(0), on-policy  | ε-greedy       | $W_a \leftarrow W_a + \alpha \cdot (r + \gamma \hat{q}(s', a') - \hat{q}(s, a)) \cdot \phi(s)$           |
+| **Q-Learning**  | TD(0), off-policy | ε-greedy       | $W_a \leftarrow W_a + \alpha \cdot (r + \gamma \max_{a'} \hat{q}(s', a') - \hat{q}(s, a)) \cdot \phi(s)$ |
+| **Monte Carlo** | First-visit MC    | ε-greedy       | $W_a \leftarrow W_a + \alpha \cdot (G_t - \hat{q}(s, a)) \cdot \phi(s)$                                  |
+| **DQN**         | Deep Q-Network    | ε-greedy       | MLP (256→256) with experience replay & target network                                                    |
 
 ## Architecture
 
@@ -77,12 +77,12 @@ This project implements and compares five RL agents playing Atari Tennis against
 
 ### Win Rate vs Random Baseline
 
-| Agent | Win Rate |
-|-------|----------|
-| SARSA | 88.9% |
-| Q-Learning | 41.2% |
-| Monte Carlo | 47.1% |
-| DQN | 6.2% |
+| Agent       | Win Rate |
+| ----------- | -------- |
+| SARSA       | 88.9%    |
+| Q-Learning  | 41.2%    |
+| Monte Carlo | 47.1%    |
+| DQN         | 6.2%     |
 
 ### Championship Tournament
 

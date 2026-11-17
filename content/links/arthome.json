@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr/projects/arthome-automations",
   "title": "ArtHome",
   "category": "Homelab",
-  "tags": [
-    "homelab",
-    "automation"
-  ],
+  "tags": ["homelab", "automation"],
   "featured": false,
   "listed": true,
   "position": 20,

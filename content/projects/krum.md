@@ -16,18 +16,18 @@ icon: i-ph-shield-check-duotone
 authorNote: |
   This project grew out of the implementation problems I encountered while reproducing aggregation papers. I worked on making the centralised experiments and primitives easier to reuse, with tests and documentation that explain the choices behind them. I want another researcher to be able to trace an experimental result back to the code and protocol that produced it.
 summary:
-  role: "Aggregators, zero-copy model wrapper, centralised simulations, tests and most of the documentation."
-  context: "M2 research internship at CMAP, École Polytechnique, in a four-person research-product team."
-  outcome: "A Python library released on PyPI, with 11 aggregation rules and three validated protocol reproductions."
+  role: 'Aggregators, zero-copy model wrapper, centralised simulations, tests and most of the documentation.'
+  context: 'M2 research internship at CMAP, École Polytechnique, in a four-person research-product team.'
+  outcome: 'A Python library released on PyPI, with 11 aggregation rules and three validated protocol reproductions.'
   links:
-    - label: "Code"
-      url: "https://github.com/calicarpa/krum"
+    - label: 'Code'
+      url: 'https://github.com/calicarpa/krum'
       icon: i-ph-code-duotone
-    - label: "Documentation"
-      url: "https://calicarpa.github.io/krum/"
+    - label: 'Documentation'
+      url: 'https://calicarpa.github.io/krum/'
       icon: i-ph-arrow-square-out-duotone
-    - label: "M2 report"
-      url: "https://m2-internship-report.arthurdanjou.fr/"
+    - label: 'M2 report'
+      url: 'https://m2-internship-report.arthurdanjou.fr/'
       icon: i-ph-file-text-duotone
 ---
 
@@ -39,7 +39,7 @@ I owned the **aggregators**, the zero-copy `Model` wrapper, the **CNN/MLP archit
 
 ## Paper in Preparation
 
-The library is the subject of a **JMLR MLOSS** publication in preparation: *Krum, the Library: Automated Byzantine Machine Learning Experiments on Python with Orchestration* (2026), with co-authors Sébastien Rouault, Arthur Danjou, Mohamad-Ammar Said, Peva Blanchard, and El Mahdi El Mhamdi. I handled most of the writing, corrected with El Mahdi El Mhamdi.
+The library is the subject of a **JMLR MLOSS** publication in preparation: _Krum, the Library: Automated Byzantine Machine Learning Experiments on Python with Orchestration_ (2026), with co-authors Sébastien Rouault, Arthur Danjou, Mohamad-Ammar Said, Peva Blanchard, and El Mahdi El Mhamdi. I handled most of the writing, corrected with El Mahdi El Mhamdi.
 
 ## Overview
 
@@ -61,19 +61,19 @@ The number of experimental parameters keeps growing: model architecture, dataset
 
 Gradient aggregation rules that take one gradient per worker and produce a single aggregated gradient robust to up to $f$ Byzantine outliers among $n$ workers:
 
-| Rule | Robustness | Notes |
-| :--- | :--- | :--- |
-| **Average** | none | Arithmetic mean baseline |
-| **Median** | $f \le (n-1)/2$ | Coordinate-wise median |
-| **Trimmed Mean** | $f \le (n-1)/2$ | Removes the $f$ smallest/largest values per coordinate ($\beta = f/n$) |
-| **Krum** | $f \le (n-3)/2$ | Selects the gradient closest to its neighbors in $L_2$ (Blanchard et al., 2017) |
-| **Multi Krum** | $f \le (n-3)/2$ | Averages the $m$ smallest Krum scores, $m = n-2f-3$ by default, single-pass |
-| **Bulyan** | $f \le (n-3)/4$ | Krum + trimmed mean two-stage procedure (El Mhamdi et al., 2018); selects $\theta = n-2f-2$ vectors (documented variant, paper uses $n-2f$) |
-| **Brute** | exact | Combinatorial subset search with minimum diameter |
-| **GeometricMedian** | $f \le (n-1)/2$ | Geometric median via smoothed Weiszfeld iterations ($\nu = 0.1$) |
-| **Medoid** | none | Vector submitted minimizing total distance to others; non-resilient baseline |
-| **Aksel** | $f \le (n-1)/2$ | Median-pivot aggregator averaging the $n-f$ closest gradients, $O(nd)$ complexity (documented variant of the median-threshold paper) |
-| **Nearest Neighbor Average** | caller policy | Averages the $k$ closest gradients to a pivot ($k = n-2f$ in MoNNA, Farhadkhani et al., 2023) |
+| Rule                         | Robustness      | Notes                                                                                                                                       |
+| :--------------------------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Average**                  | none            | Arithmetic mean baseline                                                                                                                    |
+| **Median**                   | $f \le (n-1)/2$ | Coordinate-wise median                                                                                                                      |
+| **Trimmed Mean**             | $f \le (n-1)/2$ | Removes the $f$ smallest/largest values per coordinate ($\beta = f/n$)                                                                      |
+| **Krum**                     | $f \le (n-3)/2$ | Selects the gradient closest to its neighbors in $L_2$ (Blanchard et al., 2017)                                                             |
+| **Multi Krum**               | $f \le (n-3)/2$ | Averages the $m$ smallest Krum scores, $m = n-2f-3$ by default, single-pass                                                                 |
+| **Bulyan**                   | $f \le (n-3)/4$ | Krum + trimmed mean two-stage procedure (El Mhamdi et al., 2018); selects $\theta = n-2f-2$ vectors (documented variant, paper uses $n-2f$) |
+| **Brute**                    | exact           | Combinatorial subset search with minimum diameter                                                                                           |
+| **GeometricMedian**          | $f \le (n-1)/2$ | Geometric median via smoothed Weiszfeld iterations ($\nu = 0.1$)                                                                            |
+| **Medoid**                   | none            | Vector submitted minimizing total distance to others; non-resilient baseline                                                                |
+| **Aksel**                    | $f \le (n-1)/2$ | Median-pivot aggregator averaging the $n-f$ closest gradients, $O(nd)$ complexity (documented variant of the median-threshold paper)        |
+| **Nearest Neighbor Average** | caller policy   | Averages the $k$ closest gradients to a pivot ($k = n-2f$ in MoNNA, Farhadkhani et al., 2023)                                               |
 
 Each rule is a **stateless classmethod** with no instance state and no hidden parameters. Import per module, pass classes (not instances) to simulations. All aggregators take a `(n, d)` tensor and return a `(d,)` vector:
 
@@ -96,13 +96,13 @@ result = NearestNeighborAverage.aggregate(gradients, pivot=gradients[0], num_clo
 
 Byzantine attack strategies that generate adversarial gradients from the honest workers' gradients (defaults from the report):
 
-| Attack | Description |
-| :--- | :--- |
-| **SignFlip** | Sends the negation of the honest mean, $g_{byz} = -g_{honest}$ (scale = 1) |
-| **ALIE** | Oracle variant: honest mean $\pm z\sigma$ coordinate-wise, $z = z_{max}$, negative direction |
-| **Gaussian** | Isotropic Gaussian noise, independent of honest gradients ($\mu = 0$, $\sigma = 200$) |
-| **Full Gradient Negation** | $-\kappa g_{full}$ assuming full-dataset gradient knowledge, $\kappa = 100$ (El Mhamdi et al., 2018) |
-| **Small Perturbation** | $B(\gamma)$ = honest mean $+ \gamma E$ on the max-variance coordinate, largest $\gamma$ still selected by the target aggregator ($\gamma_{max} = 10^6$, $\ell_2$). The only attack finely exploiting Krum's selection boundary, kept so the evaluation stays honest (El Mhamdi et al., 2018) |
+| Attack                     | Description                                                                                                                                                                                                                                                                                  |
+| :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SignFlip**               | Sends the negation of the honest mean, $g_{byz} = -g_{honest}$ (scale = 1)                                                                                                                                                                                                                   |
+| **ALIE**                   | Oracle variant: honest mean $\pm z\sigma$ coordinate-wise, $z = z_{max}$, negative direction                                                                                                                                                                                                 |
+| **Gaussian**               | Isotropic Gaussian noise, independent of honest gradients ($\mu = 0$, $\sigma = 200$)                                                                                                                                                                                                        |
+| **Full Gradient Negation** | $-\kappa g_{full}$ assuming full-dataset gradient knowledge, $\kappa = 100$ (El Mhamdi et al., 2018)                                                                                                                                                                                         |
+| **Small Perturbation**     | $B(\gamma)$ = honest mean $+ \gamma E$ on the max-variance coordinate, largest $\gamma$ still selected by the target aggregator ($\gamma_{max} = 10^6$, $\ell_2$). The only attack finely exploiting Krum's selection boundary, kept so the evaluation stays honest (El Mhamdi et al., 2018) |
 
 All attacks follow the same pattern: honest gradients + `f`, returning an `(f, d)` tensor. Class names carry the `Attack` suffix:
 
@@ -154,14 +154,14 @@ grads[:] = 0
 
 ### Ready-to-use architectures (6)
 
-| Model | Architecture | Origin |
-| :--- | :--- | :--- |
-| **Krum2017MLPMnist** | MLP 784 -> 100 -> 10 (ReLU) | Blanchard et al., 2017 |
-| **Krum2017MLPSpambase** | MLP 57 -> 20 -> 20 -> 2 (ReLU, hidden sizes from lab reference impls) | Blanchard et al., 2017 |
-| **Krum2017CNN** | 2 conv (16, 64 filters) + 3 dense (384, 192, 10), ReLU + max-pool | El Mhamdi et al., 2018 |
-| **Monna2023SmallMnist** | MLP 784 -> 128 -> 10, lightweight CPU variant, off-paper | - |
-| **Monna2023CNNMnist** | C(20)-R-M-C(20)-R-M-L(500)-R-L(10), 5x5 kernels, raw logits | Farhadkhani et al., 2023 |
-| **Monna2023CNNCifar10** | 4 conv + batchnorm + 2 max-pool + dropout 0.25 + 2 dense (128, 10) | Farhadkhani et al., 2023 |
+| Model                   | Architecture                                                          | Origin                   |
+| :---------------------- | :-------------------------------------------------------------------- | :----------------------- |
+| **Krum2017MLPMnist**    | MLP 784 -> 100 -> 10 (ReLU)                                           | Blanchard et al., 2017   |
+| **Krum2017MLPSpambase** | MLP 57 -> 20 -> 20 -> 2 (ReLU, hidden sizes from lab reference impls) | Blanchard et al., 2017   |
+| **Krum2017CNN**         | 2 conv (16, 64 filters) + 3 dense (384, 192, 10), ReLU + max-pool     | El Mhamdi et al., 2018   |
+| **Monna2023SmallMnist** | MLP 784 -> 128 -> 10, lightweight CPU variant, off-paper              | -                        |
+| **Monna2023CNNMnist**   | C(20)-R-M-C(20)-R-M-L(500)-R-L(10), 5x5 kernels, raw logits           | Farhadkhani et al., 2023 |
+| **Monna2023CNNCifar10** | 4 conv + batchnorm + 2 max-pool + dropout 0.25 + 2 dense (128, 10)    | Farhadkhani et al., 2023 |
 
 All models take no constructor arguments. Import by family:
 
@@ -182,7 +182,7 @@ Faithful reproductions of experimental protocols from seminal papers, in both **
 
 - **NIPS 2017 Krum protocol** (Blanchard et al.): fixed learning rate, no scheduler, reports misclassification error and cross-entropy loss.
 - **ICML 2018 Hidden Vulnerability** (El Mhamdi et al.): Robbins-Monro schedule $\eta(t) = r_\eta \cdot \eta_0 / (t + r_\eta)$, L2 regularization, Xavier initialization as in Section 5.1 of the original paper.
-- **ICML 2023 MoNNA** (Farhadkhani et al.): decentralized peer-to-peer protocol with one local momentum SGD step per honest worker, then replacement by a nearest-neighbor average over the $n - 2f$ closest models among $n - f$ neighbors. Supports two Byzantine reach modes: *all* (worst case) and *sampled* (gossip style). `stop_attack_at` stops attacks mid-training to study recovery.
+- **ICML 2023 MoNNA** (Farhadkhani et al.): decentralized peer-to-peer protocol with one local momentum SGD step per honest worker, then replacement by a nearest-neighbor average over the $n - 2f$ closest models among $n - f$ neighbors. Supports two Byzantine reach modes: _all_ (worst case) and _sampled_ (gossip style). `stop_attack_at` stops attacks mid-training to study recovery.
 
 Aggregator and attack are passed as **classes**, not instances; extra parameters go through `aggregator_kwargs` / `attack_kwargs`. The caller partitions, the simulation batches; `len(train_datasets)` must equal `n`:
 
@@ -284,12 +284,12 @@ Clean: both converge to ~0.87. Under attack, Average never leaves chance level (
 
 Before building on published rules, I reproduced them from scratch in bare-metal PyTorch (see the [reproduction project](/projects/byzantine-robust-aggregation-reproduction)): MNIST on a 2x256 MLP, $n = 8$ workers with $f = 2$ Byzantine running the **ALIE** attack, 20 epochs, single seed 42.
 
-| Aggregator | Test accuracy | Note |
-| :--- | :--- | :--- |
-| **Average** (non-robust baseline) | ~10% | Random-equivalent, ALIE fully diverges |
-| **Multi-Krum** | ~92% | Converges, slightly below clean |
-| **SignGuard** | ~94% | Sign filtering beats distance filtering in high dimension |
-| **MoNNA** | ~95% | Polyak momentum stabilizes training |
+| Aggregator                        | Test accuracy | Note                                                      |
+| :-------------------------------- | :------------ | :-------------------------------------------------------- |
+| **Average** (non-robust baseline) | ~10%          | Random-equivalent, ALIE fully diverges                    |
+| **Multi-Krum**                    | ~92%          | Converges, slightly below clean                           |
+| **SignGuard**                     | ~94%          | Sign filtering beats distance filtering in high dimension |
+| **MoNNA**                         | ~95%          | Polyak momentum stabilizes training                       |
 
 Sequential CPU timings for 8 workers stay negligible at this scale (12–18s), but the exercise surfaced three lessons that shaped the library: `flatten → aggregate → relink` breaks autograd and desynchronizes optimizer buffers, clipping order matters (norm vs sign), and sequential simulation hides true distributed costs (bandwidth, stragglers, async arrival). Figures are indicative single-seed runs.
 

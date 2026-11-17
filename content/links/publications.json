@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr/publications",
   "title": "Publications",
   "category": "Portfolio",
-  "tags": [
-    "website",
-    "research"
-  ],
+  "tags": ["website", "research"],
   "featured": false,
   "listed": true,
   "position": 30,

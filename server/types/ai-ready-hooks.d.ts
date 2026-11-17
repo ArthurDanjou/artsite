@@ -3,7 +3,7 @@ import type { H3Event } from 'h3'
 interface MarkdownSourceContext {
   route: string
   event: H3Event
-  source: { markdown: string, title?: string, description?: string, updatedAt?: string } | null
+  source: { markdown: string; title?: string; description?: string; updatedAt?: string } | null
 }
 
 interface MarkdownContext {

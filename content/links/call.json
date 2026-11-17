@@ -3,11 +3,7 @@
   "url": "https://cal.com/arthurdanjou",
   "title": "Book a call",
   "category": "Social",
-  "tags": [
-    "social",
-    "contact",
-    "calendar"
-  ],
+  "tags": ["social", "contact", "calendar"],
   "featured": false,
   "listed": true,
   "position": 60,

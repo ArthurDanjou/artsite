@@ -21,11 +21,7 @@ const generate = computed(() => {
     :id="props.id"
     class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white font-mono tracking-tight"
   >
-    <a
-      v-if="props.id && generate"
-      :href="`#${props.id}`"
-      class="no-underline hover:underline"
-    >
+    <a v-if="props.id && generate" :href="`#${props.id}`" class="no-underline hover:underline">
       <slot />
     </a>
     <slot v-else />

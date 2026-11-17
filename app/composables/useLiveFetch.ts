@@ -13,8 +13,7 @@ const livePolling = defineUseFetchAddon<{ pollInterval?: number }>({
         if (state === 'visible') {
           asyncData.refresh()
           resume()
-        }
-        else {
+        } else {
           pause()
         }
       })

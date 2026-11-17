@@ -3,10 +3,7 @@
   "url": "https://www.linkedin.com/in/arthurdanjou",
   "title": "LinkedIn",
   "category": "Social",
-  "tags": [
-    "social",
-    "profile"
-  ],
+  "tags": ["social", "profile"],
   "featured": false,
   "listed": true,
   "position": 10,

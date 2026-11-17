@@ -16,12 +16,12 @@ icon: i-ph-flask-duotone
 authorNote: |
   ArtLab is where I try infrastructure ideas on services I actually use. That makes backups and recovery part of each experiment. I can change how a service is deployed, but I still need to be able to bring it back when something breaks.
 summary:
-  role: "Architecture, deployment and maintenance of my personal homelab."
-  context: "A multi-host environment for self-hosted applications and infrastructure experiments."
-  outcome: "Git-based deployments with centralised authentication, monitoring and backups."
+  role: 'Architecture, deployment and maintenance of my personal homelab.'
+  context: 'A multi-host environment for self-hosted applications and infrastructure experiments.'
+  outcome: 'Git-based deployments with centralised authentication, monitoring and backups.'
   links:
-    - label: "Service status"
-      url: "https://links.arthurdanjou.fr/status"
+    - label: 'Service status'
+      url: 'https://links.arthurdanjou.fr/status'
       icon: i-ph-arrow-square-out-duotone
 ---
 
@@ -45,12 +45,12 @@ The next milestone is a segmented 2.5G redesign of the flat Freebox Ultra LAN, c
 
 Four VLANs are planned on the gateway:
 
-| VLAN | Subnet | Members | Firewall posture |
-| :--- | :--- | :--- | :--- |
-| **1: Principal** | 192.168.1.0/24 | NAS, PC, Home Assistant, Apple TV, Hue Bridge | Full access |
-| **10: IoT** | 192.168.2.0/24 | Connected objects, Zigbee coordinator | Internet allowed, **blocked** from VLAN 1 and NAS |
-| **20: Cameras** | 192.168.3.0/24 | PoE and Wi-Fi cameras (≤10) | Maximum isolation, no internet; RTSP only to NAS and Frigate |
-| **30: Guests** | 192.168.4.0/24 | Guest SSID | Internet only |
+| VLAN             | Subnet         | Members                                       | Firewall posture                                             |
+| :--------------- | :------------- | :-------------------------------------------- | :----------------------------------------------------------- |
+| **1: Principal** | 192.168.1.0/24 | NAS, PC, Home Assistant, Apple TV, Hue Bridge | Full access                                                  |
+| **10: IoT**      | 192.168.2.0/24 | Connected objects, Zigbee coordinator         | Internet allowed, **blocked** from VLAN 1 and NAS            |
+| **20: Cameras**  | 192.168.3.0/24 | PoE and Wi-Fi cameras (≤10)                   | Maximum isolation, no internet; RTSP only to NAS and Frigate |
+| **30: Guests**   | 192.168.4.0/24 | Guest SSID                                    | Internet only                                                |
 
 A closed 19-inch 12U bay at the entrance will centralize the hardware: patch panel, gateway, 2.5G switch, the Beelink, and the NAS on a heavy-duty shelf, with the access point and Zigbee coordinator on top, since a rack is a Faraday cage. The cutover is gated on verifying that the Home Assistant Freebox integration and presence tracking survive bridge mode.
 

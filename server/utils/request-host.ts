@@ -14,8 +14,7 @@ function toHostname(value: string | URL | null | undefined): string | null {
 
   try {
     return new URL(text.includes('://') ? text : `https://${text}`).hostname.toLowerCase()
-  }
-  catch {
+  } catch {
     return null
   }
 }
@@ -40,7 +39,9 @@ export function getRequestHostname(event: H3Event): string {
     .map(toHostname)
     .filter((hostname): hostname is string => Boolean(hostname))
 
-  return candidates.find(hostname => (SHORT_DOMAINS as readonly string[]).includes(hostname))
-    ?? candidates[0]
-    ?? ''
+  return (
+    candidates.find((hostname) => (SHORT_DOMAINS as readonly string[]).includes(hostname)) ??
+    candidates[0] ??
+    ''
+  )
 }

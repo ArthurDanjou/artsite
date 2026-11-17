@@ -15,36 +15,36 @@ icon: i-ph-flask-duotone
 authorNote: |
   I started with small implementations so I could follow each aggregation rule through an actual training step. The problems with gradient views and optimizer state gave me concrete requirements for Krum. Keeping this repository separate preserves the experiments that led to those design choices.
 summary:
-  role: "From-scratch implementation of aggregation rules and attacks in PyTorch."
-  context: "Research paper reproductions carried out as groundwork for the Krum library."
+  role: 'From-scratch implementation of aggregation rules and attacks in PyTorch.'
+  context: 'Research paper reproductions carried out as groundwork for the Krum library.'
   outcome: "Implementations of SignGuard, Multi-Krum and MoNNA, with implementation pitfalls informing Krum's design."
   links:
-    - label: "Code"
-      url: "https://github.com/ArthurDanjou/Byzantine-Robust-Aggregation-Reproduction"
+    - label: 'Code'
+      url: 'https://github.com/ArthurDanjou/Byzantine-Robust-Aggregation-Reproduction'
       icon: i-ph-code-duotone
-    - label: "M2 report"
-      url: "https://m2-internship-report.arthurdanjou.fr/"
+    - label: 'M2 report'
+      url: 'https://m2-internship-report.arthurdanjou.fr/'
       icon: i-ph-file-text-duotone
 ---
 
-> **Reproduction of the papers:** Xu, J., et al. (2022). *Byzantine-robust Federated Learning through Collaborative Malicious Gradient Filtering*. ICDCS. [arXiv:2109.05872](https://arxiv.org/pdf/2109.05872v2) — plus Farhadkhani, S., et al. (2023). *Robust Collaborative Learning with Linear Gradient Overhead*. ICML. [PMLR 202](https://proceedings.mlr.press/v202/farhadkhani23a.html)
+> **Reproduction of the papers:** Xu, J., et al. (2022). _Byzantine-robust Federated Learning through Collaborative Malicious Gradient Filtering_. ICDCS. [arXiv:2109.05872](https://arxiv.org/pdf/2109.05872v2) — plus Farhadkhani, S., et al. (2023). _Robust Collaborative Learning with Linear Gradient Overhead_. ICML. [PMLR 202](https://proceedings.mlr.press/v202/farhadkhani23a.html)
 
 [**Byzantine-Robust-Aggregation-Reproduction**](https://github.com/ArthurDanjou/Byzantine-Robust-Aggregation-Reproduction) is a bare-metal **PyTorch** reproduction of seminal Byzantine-robust gradient aggregation papers, released under the **MIT license**. The goal is **not** to produce new results: it is to identify what is hard, redundant, and error-prone when implementing Byzantine-robust aggregation research from scratch. Every pain point logged here became a candidate for a first-class abstraction in [**Krum**](/projects/krum), my research library for Byzantine-resilient distributed learning. This repo is cited in my [M2 internship report](https://m2-internship-report.arthurdanjou.fr/) (Chapter 2): together with the audit of Sébastien Rouault's research code reused across papers, these from-scratch reproductions identified the most costly tasks for a researcher turning theory into Python experiments.
 
 ## Implemented Aggregators
 
-| Rule | Reference | Notes |
-| :--- | :--- | :--- |
-| **SignGuard** | Xu et al., 2022 | Sign-based clustering and norm clipping |
-| **Multi-Krum** | Blanchard et al., 2017 | Distance-based outlier filtering |
-| **MoNNA** | Farhadkhani et al., 2023 | Polyak momentum + Nearest-Neighbor Averaging |
+| Rule           | Reference                | Notes                                        |
+| :------------- | :----------------------- | :------------------------------------------- |
+| **SignGuard**  | Xu et al., 2022          | Sign-based clustering and norm clipping      |
+| **Multi-Krum** | Blanchard et al., 2017   | Distance-based outlier filtering             |
+| **MoNNA**      | Farhadkhani et al., 2023 | Polyak momentum + Nearest-Neighbor Averaging |
 
 ## Implemented Attacks
 
-| Attack | Reference | Notes |
-| :--- | :--- | :--- |
+| Attack                        | Reference           | Notes                                           |
+| :---------------------------- | :------------------ | :---------------------------------------------- |
 | **A Little Is Enough (ALIE)** | Baruch et al., 2019 | Crafted malicious gradients within noise bounds |
-| **Fall of Empires** | Xie et al., 2020 | Model poisoning through parameter scaling |
+| **Fall of Empires**           | Xie et al., 2020    | Model poisoning through parameter scaling       |
 
 ## Methodology
 

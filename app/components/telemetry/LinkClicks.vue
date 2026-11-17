@@ -18,15 +18,15 @@ interface LinkClicksResponse {
   trackedLinks: number
   links: LinkClickStat[]
   daily: DailyClicks[]
-  countries: Array<{ code: string, name: string, clicks: number }>
-  devices: Array<{ name: string, clicks: number }>
-  operatingSystems: Array<{ name: string, clicks: number }>
+  countries: Array<{ code: string; name: string; clicks: number }>
+  devices: Array<{ name: string; clicks: number }>
+  operatingSystems: Array<{ name: string; clicks: number }>
   sources: Array<{
     name: string
     kind: 'campaign' | 'referrer' | 'direct'
     clicks: number
   }>
-  browsers: Array<{ name: string, clicks: number }>
+  browsers: Array<{ name: string; clicks: number }>
   cities: Array<{
     name: string
     region: string | null
@@ -34,17 +34,14 @@ interface LinkClicksResponse {
     countryName: string | null
     clicks: number
   }>
-  networks: Array<{ name: string, asn: number | null, clicks: number }>
+  networks: Array<{ name: string; asn: number | null; clicks: number }>
 }
 
-const { data, pending, error } = useLiveFetch<LinkClicksResponse>(
-  '/api/link-clicks',
-  {
-    server: false,
-    lazy: true,
-    pollInterval: 60_000
-  }
-)
+const { data, pending, error } = useLiveFetch<LinkClicksResponse>('/api/link-clicks', {
+  server: false,
+  lazy: true,
+  pollInterval: 60_000
+})
 
 const chartEl = ref<HTMLElement | null>(null)
 const svgEl = ref<SVGSVGElement | null>(null)
@@ -56,13 +53,9 @@ const CHART_PADDING = { top: 14, right: 10, bottom: 24, left: 34 }
 const areaGradientId = `link-clicks-area-${useId()}`
 
 const dailySeries = computed(() => data.value?.daily ?? [])
-const periodTotal = computed(() =>
-  dailySeries.value.reduce((sum, day) => sum + day.clicks, 0)
-)
+const periodTotal = computed(() => dailySeries.value.reduce((sum, day) => sum + day.clicks, 0))
 const averagePerDay = computed(() =>
-  dailySeries.value.length
-    ? periodTotal.value / dailySeries.value.length
-    : 0
+  dailySeries.value.length ? periodTotal.value / dailySeries.value.length : 0
 )
 const peakDay = computed(() =>
   dailySeries.value.reduce<DailyClicks | null>(
@@ -107,7 +100,7 @@ const niceScale = (peak: number) => {
 /**
  * Monotone cubic interpolation, so the curve never overshoots the daily counts.
  */
-const monotonePath = (points: Array<{ x: number, y: number }>) => {
+const monotonePath = (points: Array<{ x: number; y: number }>) => {
   if (!points.length) return ''
   if (points.length === 1) {
     return `M${points[0]!.x.toFixed(1)},${points[0]!.y.toFixed(1)}`
@@ -131,20 +124,15 @@ const monotonePath = (points: Array<{ x: number, y: number }>) => {
     }
 
     const weighted = (slope0 * h1 + slope1 * h0) / (h0 + h1)
-    tangents[index]
-      = (Math.sign(slope0) + Math.sign(slope1))
-        * Math.min(
-          Math.abs(slope0),
-          Math.abs(slope1),
-          0.5 * Math.abs(weighted)
-        )
+    tangents[index] =
+      (Math.sign(slope0) + Math.sign(slope1)) *
+      Math.min(Math.abs(slope0), Math.abs(slope1), 0.5 * Math.abs(weighted))
   }
 
-  tangents[0]
-    = (points[1]!.y - points[0]!.y) / (points[1]!.x - points[0]!.x || 1)
-  tangents[count - 1]
-    = (points[count - 1]!.y - points[count - 2]!.y)
-      / (points[count - 1]!.x - points[count - 2]!.x || 1)
+  tangents[0] = (points[1]!.y - points[0]!.y) / (points[1]!.x - points[0]!.x || 1)
+  tangents[count - 1] =
+    (points[count - 1]!.y - points[count - 2]!.y) /
+    (points[count - 1]!.x - points[count - 2]!.x || 1)
 
   let path = `M${points[0]!.x.toFixed(1)},${points[0]!.y.toFixed(1)}`
 
@@ -170,7 +158,7 @@ const chart = computed(() => {
   const innerHeight = height - CHART_PADDING.top - CHART_PADDING.bottom
   const baseline = CHART_PADDING.top + innerHeight
 
-  const peakValue = Math.max(1, ...series.map(day => day.clicks))
+  const peakValue = Math.max(1, ...series.map((day) => day.clicks))
   const { step: yStep, intervals: yIntervals } = niceScale(peakValue)
   const yMax = yStep * yIntervals
 
@@ -179,8 +167,7 @@ const chart = computed(() => {
       ? CHART_PADDING.left + innerWidth / 2
       : CHART_PADDING.left + (index / (series.length - 1)) * innerWidth
 
-  const y = (value: number) =>
-    CHART_PADDING.top + (1 - value / yMax) * innerHeight
+  const y = (value: number) => CHART_PADDING.top + (1 - value / yMax) * innerHeight
 
   const points = series.map((day, index) => ({
     ...day,
@@ -201,10 +188,8 @@ const chart = computed(() => {
 
   const xTickCount = Math.min(5, series.length)
   const xTicks = Array.from({ length: xTickCount }, (_, index) => {
-    const pointIndex
-      = xTickCount > 1
-        ? Math.round((index * (series.length - 1)) / (xTickCount - 1))
-        : 0
+    const pointIndex =
+      xTickCount > 1 ? Math.round((index * (series.length - 1)) / (xTickCount - 1)) : 0
     const point = points[pointIndex]!
     return { index: pointIndex, x: point.x, label: formatDay(point.date) }
   })
@@ -230,9 +215,7 @@ const chart = computed(() => {
 const activeIndex = ref<number | null>(null)
 
 const activePoint = computed(() =>
-  activeIndex.value === null
-    ? null
-    : chart.value.points[activeIndex.value] ?? null
+  activeIndex.value === null ? null : (chart.value.points[activeIndex.value] ?? null)
 )
 
 const activeShare = computed(() => {
@@ -245,10 +228,7 @@ const tooltipStyle = computed(() => {
   const point = activePoint.value
   if (!point) return {}
   const half = 66
-  const left = Math.min(
-    Math.max(point.x, half),
-    Math.max(chart.value.width - half, half)
-  )
+  const left = Math.min(Math.max(point.x, half), Math.max(chart.value.width - half, half))
   const above = point.y > 68
   return {
     left: `${left}px`,
@@ -265,10 +245,8 @@ const updateActivePoint = (event: PointerEvent) => {
   const rect = element.getBoundingClientRect()
   if (!rect.width) return
 
-  const position
-    = ((event.clientX - rect.left) / rect.width) * chart.value.width
-  const ratio
-    = (position - chart.value.left) / (chart.value.innerWidth || 1)
+  const position = ((event.clientX - rect.left) / rect.width) * chart.value.width
+  const ratio = (position - chart.value.left) / (chart.value.innerWidth || 1)
   const index = Math.round(ratio * (points.length - 1))
   activeIndex.value = Math.min(Math.max(index, 0), points.length - 1)
 }
@@ -278,9 +256,7 @@ const clearActivePoint = () => {
 }
 
 const topLinks = computed(() => (data.value?.links ?? []).slice(0, 8))
-const maxLinkClicks = computed(() =>
-  Math.max(1, ...topLinks.value.map(link => link.clicks))
-)
+const maxLinkClicks = computed(() => Math.max(1, ...topLinks.value.map((link) => link.clicks)))
 
 const countries = computed(() => data.value?.countries ?? [])
 const devices = computed(() => data.value?.devices ?? [])
@@ -290,8 +266,7 @@ const browsers = computed(() => data.value?.browsers ?? [])
 const cities = computed(() => data.value?.cities ?? [])
 const networks = computed(() => data.value?.networks ?? [])
 
-const maxOf = (items: Array<{ clicks: number }>) =>
-  Math.max(1, ...items.map(item => item.clicks))
+const maxOf = (items: Array<{ clicks: number }>) => Math.max(1, ...items.map((item) => item.clicks))
 
 const maxCountryClicks = computed(() => maxOf(countries.value))
 const maxDeviceClicks = computed(() => maxOf(devices.value))
@@ -309,11 +284,7 @@ const sourceIcon = (kind: 'campaign' | 'referrer' | 'direct') => {
 
 const countryFlag = (code: string) =>
   code.length === 2
-    ? String.fromCodePoint(
-        ...[...code.toUpperCase()].map(
-          char => 127397 + char.charCodeAt(0)
-        )
-      )
+    ? String.fromCodePoint(...[...code.toUpperCase()].map((char) => 127397 + char.charCodeAt(0)))
     : ''
 
 const deviceIcon = (name: string) => {
@@ -336,8 +307,7 @@ const osIcon = (name: string) => {
 const share = (clicks: number) =>
   data.value?.total ? Math.round((clicks / data.value.total) * 100) : 0
 
-const formatNumber = (value: number) =>
-  new Intl.NumberFormat('en-US').format(value)
+const formatNumber = (value: number) => new Intl.NumberFormat('en-US').format(value)
 
 const stats = computed(() => [
   {
@@ -372,47 +342,27 @@ const stats = computed(() => [
       description="The short link statistics API returned an error. Check the worker logs for details."
     />
 
-    <div
-      v-else-if="pending"
-      class="space-y-4"
-    >
+    <div v-else-if="pending" class="space-y-4">
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <USkeleton
-          v-for="i in 3"
-          :key="i"
-          class="h-20 rounded-lg"
-        />
+        <USkeleton v-for="i in 3" :key="i" class="h-20 rounded-lg" />
       </div>
       <USkeleton class="h-64 rounded-lg" />
     </div>
 
-    <div
-      v-else-if="data"
-      class="space-y-4"
-    >
+    <div v-else-if="data" class="space-y-4">
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <UCard
-          v-for="stat in stats"
-          :key="stat.label"
-        >
+        <UCard v-for="stat in stats" :key="stat.label">
           <div class="flex items-center gap-3">
             <div
               class="flex size-9 items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-800"
             >
-              <UIcon
-                :name="stat.icon"
-                :class="[stat.color, 'size-5']"
-              />
+              <UIcon :name="stat.icon" :class="[stat.color, 'size-5']" />
             </div>
             <div>
-              <p
-                class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
-              >
+              <p class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
                 {{ stat.label }}
               </p>
-              <p
-                class="text-lg font-bold text-neutral-900 dark:text-white"
-              >
+              <p class="text-lg font-bold text-neutral-900 dark:text-white">
                 {{ stat.value }}
               </p>
             </div>
@@ -429,11 +379,7 @@ const stats = computed(() => [
               icon="i-ph-chart-line-up-duotone"
             >
               <template #right>
-                <UBadge
-                  color="primary"
-                  variant="subtle"
-                  size="sm"
-                >
+                <UBadge color="primary" variant="subtle" size="sm">
                   {{ formatNumber(periodTotal) }} in {{ dailySeries.length }} days
                 </UBadge>
               </template>
@@ -441,10 +387,7 @@ const stats = computed(() => [
           </template>
 
           <div class="text-primary-500">
-            <div
-              ref="chartEl"
-              class="relative"
-            >
+            <div ref="chartEl" class="relative">
               <svg
                 v-if="chartWidth"
                 ref="svgEl"
@@ -458,23 +401,9 @@ const stats = computed(() => [
                 @pointerleave="clearActivePoint"
               >
                 <defs>
-                  <linearGradient
-                    :id="areaGradientId"
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1"
-                  >
-                    <stop
-                      offset="0%"
-                      stop-color="currentColor"
-                      stop-opacity="0.3"
-                    />
-                    <stop
-                      offset="100%"
-                      stop-color="currentColor"
-                      stop-opacity="0"
-                    />
+                  <linearGradient :id="areaGradientId" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="currentColor" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
                   </linearGradient>
                 </defs>
 
@@ -520,11 +449,7 @@ const stats = computed(() => [
                   vector-effect="non-scaling-stroke"
                 />
 
-                <path
-                  v-if="chart.area"
-                  :d="chart.area"
-                  :fill="`url(#${areaGradientId})`"
-                />
+                <path v-if="chart.area" :d="chart.area" :fill="`url(#${areaGradientId})`" />
                 <path
                   v-if="chart.line"
                   :d="chart.line"
@@ -564,12 +489,7 @@ const stats = computed(() => [
                     fill="currentColor"
                     opacity="0.15"
                   />
-                  <circle
-                    :cx="activePoint.x"
-                    :cy="activePoint.y"
-                    r="3.5"
-                    fill="currentColor"
-                  />
+                  <circle :cx="activePoint.x" :cy="activePoint.y" r="3.5" fill="currentColor" />
                 </g>
 
                 <g>
@@ -603,19 +523,16 @@ const stats = computed(() => [
                 class="pointer-events-none absolute z-10 whitespace-nowrap rounded-lg border border-neutral-200 bg-white px-2.5 py-1.5 shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
                 :style="tooltipStyle"
               >
-                <p
-                  class="text-[11px] font-medium text-neutral-500 dark:text-neutral-400"
-                >
+                <p class="text-[11px] font-medium text-neutral-500 dark:text-neutral-400">
                   {{ formatDayLong(activePoint.date) }}
                 </p>
                 <p class="text-xs font-bold text-neutral-900 dark:text-white">
                   {{ formatNumber(activePoint.clicks) }} click{{
-                    activePoint.clicks === 1 ? "" : "s"
+                    activePoint.clicks === 1 ? '' : 's'
                   }}
-                  <span
-                    v-if="activePoint.clicks"
-                    class="font-normal text-neutral-400"
-                  >· {{ activeShare }}%</span>
+                  <span v-if="activePoint.clicks" class="font-normal text-neutral-400"
+                    >· {{ activeShare }}%</span
+                  >
                 </p>
               </div>
             </div>
@@ -624,9 +541,7 @@ const stats = computed(() => [
               class="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] text-neutral-400"
             >
               <span class="inline-flex items-center gap-1.5">
-                <span
-                  class="inline-block w-4 border-t border-dashed border-neutral-400"
-                />
+                <span class="inline-block w-4 border-t border-dashed border-neutral-400" />
                 {{ averagePerDay.toFixed(1) }} avg/day
               </span>
               <span v-if="peakDay && peakDay.clicks">
@@ -647,27 +562,17 @@ const stats = computed(() => [
             />
           </template>
 
-          <ul
-            v-if="topLinks.length"
-            class="space-y-3"
-          >
-            <li
-              v-for="link in topLinks"
-              :key="link.slug"
-            >
+          <ul v-if="topLinks.length" class="space-y-3">
+            <li v-for="link in topLinks" :key="link.slug">
               <div class="flex items-center gap-2 text-sm">
                 <UIcon
                   :name="link.icon || 'i-ph-link-duotone'"
                   class="size-4 shrink-0 text-neutral-500 dark:text-neutral-400"
                 />
-                <span
-                  class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                >
+                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                   {{ link.title }}
                 </span>
-                <span
-                  class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                >
+                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                   {{ formatNumber(link.clicks) }}
                 </span>
               </div>
@@ -684,10 +589,7 @@ const stats = computed(() => [
             </li>
           </ul>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">
             No clicks recorded yet.
           </p>
         </UCard>
@@ -704,28 +606,17 @@ const stats = computed(() => [
             />
           </template>
 
-          <ul
-            v-if="countries.length"
-            class="space-y-3"
-          >
-            <li
-              v-for="country in countries"
-              :key="country.code"
-            >
+          <ul v-if="countries.length" class="space-y-3">
+            <li v-for="country in countries" :key="country.code">
               <div class="flex items-center gap-2 text-sm">
-                <span
-                  class="text-base leading-none"
-                  aria-hidden="true"
-                >{{ countryFlag(country.code) }}</span>
-                <span
-                  class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                >
+                <span class="text-base leading-none" aria-hidden="true">{{
+                  countryFlag(country.code)
+                }}</span>
+                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                   {{ country.name }}
                 </span>
                 <span class="text-xs text-neutral-400">{{ share(country.clicks) }}%</span>
-                <span
-                  class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                >
+                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                   {{ formatNumber(country.clicks) }}
                 </span>
               </div>
@@ -742,12 +633,7 @@ const stats = computed(() => [
             </li>
           </ul>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            No location data yet.
-          </p>
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No location data yet.</p>
         </UCard>
 
         <UCard>
@@ -771,26 +657,17 @@ const stats = computed(() => [
                 Device type
               </h4>
               <ul class="space-y-2.5">
-                <li
-                  v-for="device in devices"
-                  :key="device.name"
-                >
-                  <div
-                    class="flex items-center gap-2 text-sm"
-                  >
+                <li v-for="device in devices" :key="device.name">
+                  <div class="flex items-center gap-2 text-sm">
                     <UIcon
                       :name="deviceIcon(device.name)"
                       class="size-4 shrink-0 text-neutral-500 dark:text-neutral-400"
                     />
-                    <span
-                      class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                    >
+                    <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                       {{ device.name }}
                     </span>
                     <span class="text-xs text-neutral-400">{{ share(device.clicks) }}%</span>
-                    <span
-                      class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                    >
+                    <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                       {{ formatNumber(device.clicks) }}
                     </span>
                   </div>
@@ -815,26 +692,17 @@ const stats = computed(() => [
                 Operating system
               </h4>
               <ul class="space-y-2.5">
-                <li
-                  v-for="os in operatingSystems"
-                  :key="os.name"
-                >
-                  <div
-                    class="flex items-center gap-2 text-sm"
-                  >
+                <li v-for="os in operatingSystems" :key="os.name">
+                  <div class="flex items-center gap-2 text-sm">
                     <UIcon
                       :name="osIcon(os.name)"
                       class="size-4 shrink-0 text-neutral-500 dark:text-neutral-400"
                     />
-                    <span
-                      class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                    >
+                    <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                       {{ os.name }}
                     </span>
                     <span class="text-xs text-neutral-400">{{ share(os.clicks) }}%</span>
-                    <span
-                      class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                    >
+                    <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                       {{ formatNumber(os.clicks) }}
                     </span>
                   </div>
@@ -853,12 +721,7 @@ const stats = computed(() => [
             </div>
           </div>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            No device data yet.
-          </p>
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No device data yet.</p>
         </UCard>
       </div>
 
@@ -873,28 +736,18 @@ const stats = computed(() => [
             />
           </template>
 
-          <ul
-            v-if="sources.length"
-            class="space-y-3"
-          >
-            <li
-              v-for="source in sources"
-              :key="`${source.kind}:${source.name}`"
-            >
+          <ul v-if="sources.length" class="space-y-3">
+            <li v-for="source in sources" :key="`${source.kind}:${source.name}`">
               <div class="flex items-center gap-2 text-sm">
                 <UIcon
                   :name="sourceIcon(source.kind)"
                   class="size-4 shrink-0 text-neutral-500 dark:text-neutral-400"
                 />
-                <span
-                  class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                >
+                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                   {{ source.name }}
                 </span>
                 <span class="text-xs text-neutral-400">{{ share(source.clicks) }}%</span>
-                <span
-                  class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                >
+                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                   {{ formatNumber(source.clicks) }}
                 </span>
               </div>
@@ -911,12 +764,7 @@ const stats = computed(() => [
             </li>
           </ul>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            No source data yet.
-          </p>
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No source data yet.</p>
         </UCard>
 
         <UCard>
@@ -929,24 +777,14 @@ const stats = computed(() => [
             />
           </template>
 
-          <ul
-            v-if="browsers.length"
-            class="space-y-3"
-          >
-            <li
-              v-for="browser in browsers"
-              :key="browser.name"
-            >
+          <ul v-if="browsers.length" class="space-y-3">
+            <li v-for="browser in browsers" :key="browser.name">
               <div class="flex items-center gap-2 text-sm">
-                <span
-                  class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                >
+                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                   {{ browser.name }}
                 </span>
                 <span class="text-xs text-neutral-400">{{ share(browser.clicks) }}%</span>
-                <span
-                  class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                >
+                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                   {{ formatNumber(browser.clicks) }}
                 </span>
               </div>
@@ -963,12 +801,7 @@ const stats = computed(() => [
             </li>
           </ul>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            No browser data yet.
-          </p>
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No browser data yet.</p>
         </UCard>
 
         <UCard>
@@ -981,34 +814,22 @@ const stats = computed(() => [
             />
           </template>
 
-          <ul
-            v-if="cities.length"
-            class="space-y-3"
-          >
+          <ul v-if="cities.length" class="space-y-3">
             <li
               v-for="city in cities"
               :key="`${city.name}:${city.region}:${city.country}`"
               :title="city.countryName ?? undefined"
             >
               <div class="flex items-center gap-2 text-sm">
-                <span
-                  v-if="city.country"
-                  class="text-base leading-none"
-                  aria-hidden="true"
-                >{{ countryFlag(city.country) }}</span>
-                <span
-                  class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                >
+                <span v-if="city.country" class="text-base leading-none" aria-hidden="true">{{
+                  countryFlag(city.country)
+                }}</span>
+                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                   {{ city.name }}
-                  <span
-                    v-if="city.region"
-                    class="text-neutral-400"
-                  >· {{ city.region }}</span>
+                  <span v-if="city.region" class="text-neutral-400">· {{ city.region }}</span>
                 </span>
                 <span class="text-xs text-neutral-400">{{ share(city.clicks) }}%</span>
-                <span
-                  class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                >
+                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                   {{ formatNumber(city.clicks) }}
                 </span>
               </div>
@@ -1025,12 +846,7 @@ const stats = computed(() => [
             </li>
           </ul>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            No city data yet.
-          </p>
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No city data yet.</p>
         </UCard>
 
         <UCard>
@@ -1043,28 +859,15 @@ const stats = computed(() => [
             />
           </template>
 
-          <ul
-            v-if="networks.length"
-            class="space-y-3"
-          >
-            <li
-              v-for="network in networks"
-              :key="`${network.name}:${network.asn}`"
-            >
+          <ul v-if="networks.length" class="space-y-3">
+            <li v-for="network in networks" :key="`${network.name}:${network.asn}`">
               <div class="flex items-center gap-2 text-sm">
-                <span
-                  class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300"
-                >
+                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
                   {{ network.name }}
-                  <span
-                    v-if="network.asn"
-                    class="text-neutral-400"
-                  >· AS{{ network.asn }}</span>
+                  <span v-if="network.asn" class="text-neutral-400">· AS{{ network.asn }}</span>
                 </span>
                 <span class="text-xs text-neutral-400">{{ share(network.clicks) }}%</span>
-                <span
-                  class="font-medium tabular-nums text-neutral-900 dark:text-white"
-                >
+                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
                   {{ formatNumber(network.clicks) }}
                 </span>
               </div>
@@ -1081,12 +884,7 @@ const stats = computed(() => [
             </li>
           </ul>
 
-          <p
-            v-else
-            class="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            No network data yet.
-          </p>
+          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No network data yet.</p>
         </UCard>
       </div>
     </div>

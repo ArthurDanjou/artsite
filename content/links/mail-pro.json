@@ -3,10 +3,7 @@
   "url": "mailto:contact@arthurdanjou.fr",
   "title": "Email",
   "category": "Social",
-  "tags": [
-    "social",
-    "contact"
-  ],
+  "tags": ["social", "contact"],
   "featured": false,
   "listed": true,
   "position": 50,

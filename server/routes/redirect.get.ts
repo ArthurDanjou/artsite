@@ -15,8 +15,7 @@ export default defineEventHandler((event) => {
       const original = new URL(query.url)
       host = original.host
       path = `${original.pathname}${original.search}`
-    }
-    catch {
+    } catch {
       // Ignore malformed URLs and fall back to the generic error page.
     }
   }

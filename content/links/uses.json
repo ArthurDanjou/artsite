@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr/uses",
   "title": "Uses",
   "category": "Portfolio",
-  "tags": [
-    "website",
-    "setup"
-  ],
+  "tags": ["website", "setup"],
   "featured": false,
   "listed": true,
   "position": 40,

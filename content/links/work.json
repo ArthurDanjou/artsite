@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr/projects",
   "title": "Work",
   "category": "Portfolio",
-  "tags": [
-    "website",
-    "alias"
-  ],
+  "tags": ["website", "alias"],
   "featured": false,
   "listed": false,
   "position": 70,

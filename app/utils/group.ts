@@ -3,7 +3,10 @@ export interface YearGroup<T> {
   items: T[]
 }
 
-export function groupByYearDesc<T>(items: T[], getYear: (item: T) => number | undefined): YearGroup<T>[] {
+export function groupByYearDesc<T>(
+  items: T[],
+  getYear: (item: T) => number | undefined
+): YearGroup<T>[] {
   const sorted = [...items].sort((a, b) => (getYear(b) ?? 0) - (getYear(a) ?? 0))
   const groups = new Map<string, T[]>()
   for (const item of sorted) {

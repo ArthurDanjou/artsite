@@ -1,6 +1,6 @@
 ---
 slug: hackathon-natixis
-title: "Natixis Hackathon: Generative SQL Analytics"
+title: 'Natixis Hackathon: Generative SQL Analytics'
 type: Hackathon
 description: An intensive 4-week challenge to build an AI-powered data assistant. Our team developed a GenAI agent that transforms natural language into executable SQL queries, interactive visualizations, and natural language insights.
 shortDescription: A team-based project building an NL-to-SQL agent with Nuxt, Ollama, and Vercel AI SDK.
@@ -14,9 +14,9 @@ icon: i-ph-database-duotone
 authorNote: |
   My work began with turning the source spreadsheets into a database the agent could query. That part of the project made the relationship between data preparation and SQL generation particularly clear to me. Winning with the team was a great outcome, and the working prototype gave us something concrete to demonstrate.
 summary:
-  role: "Led spreadsheet-to-SQL data preparation and schema design within a team of four."
-  context: "A Natixis hackathon to help non-technical users query financial data through natural language."
-  outcome: "First place among 13 teams, with a working agent generating SQL queries, charts and explanations."
+  role: 'Led spreadsheet-to-SQL data preparation and schema design within a team of four.'
+  context: 'A Natixis hackathon to help non-technical users query financial data through natural language.'
+  outcome: 'First place among 13 teams, with a working agent generating SQL queries, charts and explanations.'
 ---
 
 ::note
@@ -35,22 +35,22 @@ Working in a **team of four**, our goal was to connect non-technical stakeholder
 
 Before building the AI layer, we handled a significant data migration task. I led the effort to:
 
-* **ETL Pipeline:** Convert fragmented datasets from **.xlsx** and **.csv** formats into a structured **SQL database**.
-* **Schema Optimization:** Design SQL schemas that allow an LLM to understand relationships (foreign keys, indexing) for accurate query generation.
+- **ETL Pipeline:** Convert fragmented datasets from **.xlsx** and **.csv** formats into a structured **SQL database**.
+- **Schema Optimization:** Design SQL schemas that allow an LLM to understand relationships (foreign keys, indexing) for accurate query generation.
 
 ### Natural Language to SQL (NL-to-SQL)
 
 Using the **Vercel AI SDK** and **Ollama**, we implemented an agentic workflow:
 
-* **Prompt Engineering:** Fine-tuning the agent to translate complex business questions (e.g., "What was our highest growth margin last quarter?") into valid, optimized SQL.
-* **Self-Correction:** If a query fails, the agent analyzes the SQL error and self-corrects the syntax before returning a result.
+- **Prompt Engineering:** Fine-tuning the agent to translate complex business questions (e.g., "What was our highest growth margin last quarter?") into valid, optimized SQL.
+- **Self-Correction:** If a query fails, the agent analyzes the SQL error and self-corrects the syntax before returning a result.
 
 ### Automated Insights & Visualization
 
 Our Nuxt application turns query results into readable output:
 
-* **Dynamic Charts:** The agent automatically determines the best visualization type (Bar, Line, Pie) based on the query result and renders it using interactive components.
-* **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English and highlights anomalies or key trends.
+- **Dynamic Charts:** The agent automatically determines the best visualization type (Bar, Line, Pie) based on the query result and renders it using interactive components.
+- **Narrative Explanations:** A final LLM pass summarizes the data findings in plain English and highlights anomalies or key trends.
 
 ## Impact & Results
 
@@ -67,10 +67,10 @@ By the final Saturday, our team presented a working prototype capable of handlin
 
 ## Technical Stack
 
-* **Frontend/API:** **Nuxt 3** for a reactive user interface.
-* **Orchestration:** **Vercel AI SDK** to manage streams and tool-calling logic.
-* **Inference:** **Ollama** for running LLMs locally, ensuring data privacy during development.
-* **Storage:** **PostgreSQL** for the converted data warehouse.
+- **Frontend/API:** **Nuxt 3** for a reactive user interface.
+- **Orchestration:** **Vercel AI SDK** to manage streams and tool-calling logic.
+- **Inference:** **Ollama** for running LLMs locally, ensuring data privacy during development.
+- **Storage:** **PostgreSQL** for the converted data warehouse.
 
 ## Quick Start
 
@@ -88,6 +88,7 @@ docker compose up -d mysql
 ```
 
 The `natixis` database is created automatically from `init.sql`:
+
 - Default: `mysql://root:@localhost:3306/natixis`
 - Root password is empty for local development only
 
@@ -100,6 +101,7 @@ uv sync          # or: pip install -e .
 ```
 
 Place source files in `./data/` directory:
+
 - `Configuration.xlsx` - Control and typology configuration
 - `anomaly_dump_result.csv` - Anomaly data
 - `GenericAnomaly_dump_result_chunk_*.xlsx` - Generic anomaly chunks
@@ -156,16 +158,16 @@ The database contains the following main tables:
 
 ### Core Tables
 
-| Table | Description |
-|-------|-------------|
-| `anomalies` | Standard anomaly records |
-| `generic_anomalies` | Generic anomaly records (default for analysis) |
-| `typologies` | Anomaly classification typologies |
-| `functional_controls` | Control definitions and ownership |
-| `business_objects` | Business object definitions |
-| `business_object_fields` | Field definitions for business objects |
-| `business_data` | Business data definitions |
-| `business_data_field_link` | Links between fields and business data |
+| Table                      | Description                                    |
+| -------------------------- | ---------------------------------------------- |
+| `anomalies`                | Standard anomaly records                       |
+| `generic_anomalies`        | Generic anomaly records (default for analysis) |
+| `typologies`               | Anomaly classification typologies              |
+| `functional_controls`      | Control definitions and ownership              |
+| `business_objects`         | Business object definitions                    |
+| `business_object_fields`   | Field definitions for business objects         |
+| `business_data`            | Business data definitions                      |
+| `business_data_field_link` | Links between fields and business data         |
 
 ### Key Fields in Anomalies
 
@@ -237,10 +239,12 @@ Rendered Message
 Executes SQL SELECT queries against the database.
 
 **Parameters:**
+
 - `query`: SQL SELECT query (MySQL syntax)
 - `reason`: Explanation for debugging
 
 **Example usage by AI:**
+
 ```sql
 SELECT priority_typ, COUNT(*) AS anomaly_count
 FROM generic_anomalies
@@ -259,6 +263,7 @@ LIMIT 10
 Generates data visualizations.
 
 **Parameters:**
+
 - `chartType`: `line`, `bar`, `area`, `donut`, `bubble`, `gantt`
 - `title`: Chart title
 - `data`: Array of data objects
@@ -270,6 +275,7 @@ Generates data visualizations.
 - `xLabel`, `yLabel`: Axis labels
 
 **Example:**
+
 ```typescript
 {
   chartType: 'donut',
@@ -284,14 +290,14 @@ Generates data visualizations.
 
 **Supported Chart Types:**
 
-| Type | Use Case | Example |
-|------|----------|---------|
-| `line` | Time series trends | Anomalies over time |
-| `bar` | Category comparisons | Anomalies by priority |
-| `area` | Cumulative metrics | Volume over time |
-| `donut` | Proportions | Distribution by type |
+| Type     | Use Case               | Example                      |
+| -------- | ---------------------- | ---------------------------- |
+| `line`   | Time series trends     | Anomalies over time          |
+| `bar`    | Category comparisons   | Anomalies by priority        |
+| `area`   | Cumulative metrics     | Volume over time             |
+| `donut`  | Proportions            | Distribution by type         |
 | `bubble` | Multi-dimensional data | Risk vs. volume vs. severity |
-| `gantt` | Timelines | Remediation schedules |
+| `gantt`  | Timelines              | Remediation schedules        |
 
 ### 3. `kpiTool`
 
@@ -300,9 +306,11 @@ Generates data visualizations.
 Displays KPI cards with metrics.
 
 **Parameters:**
+
 - `kpis`: Array of KPI objects (max 6 recommended)
 
 **KPI Object:**
+
 ```typescript
 {
   label: 'Critical Anomalies',           // Short metric name
@@ -333,16 +341,16 @@ export type MyUIToolInvocation = UIToolInvocation<typeof myTool>
 
 export const myTool = tool({
   description: 'Brief description of what the tool does and when to use it.',
-  
+
   inputSchema: z.object({
     param1: z.string().describe('Parameter description'),
     param2: z.number().optional().describe('Optional parameter')
   }),
-  
+
   outputSchema: z.object({
     result: z.string()
   }),
-  
+
   execute: async ({ param1, param2 }) => {
     return { result: 'processed data' }
   }
@@ -365,13 +373,13 @@ Update `server/api/chat.ts`:
 import { myTool } from '~/shared/utils'
 
 const result = await streamText({
-  model: ollama(model, { /* ... */ }),
+  model: ollama(model, {/* ... */}),
   tools: {
     executeSqlTool,
     chartTool,
     kpiTool,
     myTool
-  },
+  }
 })
 ```
 
@@ -462,9 +470,9 @@ bun run typecheck  # Type check with vue-tsc
 
 ### Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `DATABASE_URL` | MySQL connection string | Yes |
+| Variable       | Description             | Required |
+| -------------- | ----------------------- | -------- |
+| `DATABASE_URL` | MySQL connection string | Yes      |
 
 ### Tech Stack
 
@@ -526,4 +534,4 @@ console.log('⚡ executing SQL:', query)
 
 ---
 
-*Happy to share more on the ETL logic, the prompt structure, or how we optimized the LLM's SQL accuracy.*
+_Happy to share more on the ETL logic, the prompt structure, or how we optimized the LLM's SQL accuracy._
