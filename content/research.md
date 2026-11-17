@@ -55,12 +55,12 @@ The central question is: **can learning methods simultaneously provide adversari
 
 My first thesis project, **already underway**, focuses on **signSGD**, a compression technique for distributed learning that communicates the sign of each gradient coordinate. The goal is to understand under which assumptions signSGD can be proved robust in the sense of **Byzantine fault tolerance (BFT)**.
 
-This provides a first case study of the interaction between compression and adversarial conditions, before extending the investigation to data ownership verification and the broader trade-offs of the thesis. A first manuscript, deriving the exact robustness coefficient of signSGD, its minimax optimality among binary rules and the resulting convergence guarantee, was submitted to SIROCCO 2027 in November 2026.
+This provides a first case study of the interaction between compression and adversarial conditions, before extending the investigation to data ownership verification and the broader trade-offs of the thesis. A first manuscript, submitted to SIROCCO 2027 in November 2026, derives the exact robustness coefficient of majority vote over sign messages, its minimax optimality among binary rules and the resulting convergence guarantee. An empirical companion studies what that coefficient predicts — and does not predict — along real training runs on MNIST and CIFAR-10.
 
 ## Next Steps
 
 - **Pre-aggregators**: bucketing, clipping and robust client weighting, kept in the stateless `aggregate`-style design.
-- **Theory**: $\kappa^\star$ optimal robustness coefficient per rule (finite $\kappa^\star$ gives an explicit convergence rate), with signSGD as 12th rule and first experimental campaign (Byzantine fraction x batch size on MNIST).
+- **Theory**: the exact $\kappa^\star$ coefficient and the transfer threshold are established for majority vote; the next step extends them to other aggregation rules and to an ML manuscript targeting NeurIPS, ICML or ICLR.
 - **Data-level attacks**: poisoned partitioning and trigger-sensitive metrics to compare gradient-level and dataset-level robustness on the same sweep machinery, including taggants for black-box ownership verification with statistical certification.
 - **Scale**: more faithful protocols, then parallel sweeps and real-network conditions beyond single-host simulation.
 

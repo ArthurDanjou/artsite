@@ -2,10 +2,10 @@
   "body": [
     {
       "id": "signsgd-kappa-star-sirocco",
-      "title": "Exact Robustness Coefficient of SignSGD under Byzantine Faults",
+      "title": "Robust Binary-Compressed Communication in Distributed Learning and the Optimality of SignSGD",
       "year": 2027,
       "status": "Submitted, SIROCCO 2027",
-      "description": "The exact robustness coefficient of signSGD under Byzantine faults: closed forms for odd and even numbers of workers, minimax optimality of majority vote among binary aggregation rules, and a convergence guarantee for signSGD when up to f workers collude. Submitted on 9 November 2026.",
+      "description": "Exact worst-case robustness coefficient of majority vote over sign messages, with closed forms for odd and even numbers of workers, minimax optimality among binary aggregation rules, and a convergence guarantee for signSGD under colluding Byzantine workers. Submitted on 9 November 2026.",
       "icon": "i-ph-function-duotone",
       "tags": ["Byzantine Robustness", "Distributed Learning", "Compression"]
     },
