@@ -17,7 +17,7 @@
       "authors": "Sébastien Rouault, Arthur Danjou, Mohamad-Ammar Said, Peva Blanchard and El Mahdi El Mhamdi",
       "description": "An open-source Python/PyTorch framework with 11 aggregation rules, 5 attacks, 4 data partitioners, 6 model architectures and 3 protocol-faithful simulations (NIPS 2017, ICML 2018, ICML 2023 MoNNA), plus a programmatic orchestrator with typed metrics and replay-after-change. Released v0.9.0 on PyPI under MIT.",
       "icon": "i-ph-book-duotone",
-      "tags": ["Open Source", "Byzantine Robustness", "Distributed Learning"],
+      "tags": ["In preparation", "Open Source", "Byzantine Robustness", "Distributed Learning"],
       "links": [
         { "label": "View on GitHub", "url": "https://github.com/calicarpa/krum", "icon": "i-ph-github-logo-duotone" },
         { "label": "Documentation", "url": "https://calicarpa.github.io/krum/", "icon": "i-ph-book-open-duotone" },

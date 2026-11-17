@@ -31,10 +31,14 @@ const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl tex
 
 const yearHeadingClass = 'w-full mt-4 mb-2 text-transparent italic text-2xl md:text-4xl text-neutral-600  dark:text-neutral-400 opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
-// Anonymous submissions are kept in the data file but not published on the
-// site: listing them would break the double-blind review.
+// Anonymous submissions and work in preparation stay in the data file but
+// are not published on the site: only explicitly released work is listed.
+const VISIBLE_PUBLICATION_TAGS = new Set(['Published', 'Accepted', 'Preprint'])
+
 const visiblePublications = computed(() =>
-  (publications?.body ?? []).filter(pub => !pub.tags?.includes('Submitted'))
+  (publications?.body ?? []).filter(pub =>
+    pub.tags?.some(tag => VISIBLE_PUBLICATION_TAGS.has(tag)) ?? false
+  )
 )
 
 const groupedPublications = computed(() =>
@@ -97,6 +101,12 @@ const groupedTalks = computed(() =>
           </div>
         </div>
       </div>
+      <p
+        v-else
+        class="text-sm text-neutral-500 italic"
+      >
+        Accepted papers and preprints will appear here.
+      </p>
     </section>
 
     <section class="mt-12">
