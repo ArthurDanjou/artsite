@@ -63,7 +63,7 @@ const groupedTalks = computed(() =>
         Publications
       </h2>
       <p class="text-neutral-600 dark:text-neutral-400 mb-6">
-        My research papers, one under review and one in preparation, with code and project pages linked when they exist.
+        My research papers and preprints, with code and project pages linked when they exist.
       </p>
       <div
         v-if="publications?.body?.length"

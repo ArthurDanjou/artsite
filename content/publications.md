@@ -1,6 +1,6 @@
 ---
 title: Publications & Talks
-description: My publications, including a manuscript under review at SIROCCO 2027 and the Krum library paper in preparation at JMLR MLOSS, and my academic talks on Byzantine-resilient aggregation.
+description: My publications and academic talks on Byzantine-resilient distributed learning, robust aggregation and communication-efficient machine learning, with code and project pages when available.
 sitemap:
   loc: /publications
 ---
