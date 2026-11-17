@@ -5,7 +5,8 @@ const { data: page } = await useAsyncData('uses', () => {
 
 const head = {
   title: 'Research Lab & Technical Setup',
-  description: 'A curated list of the hardware, software, and self-hosted infrastructure that powers my mathematical modeling and AI research workflows.',
+  description:
+    'A curated list of the hardware, software, and self-hosted infrastructure that powers my mathematical modeling and AI research workflows.',
   headline: 'Arthur Danjou’s Research Lab & Technical Setup'
 }
 
@@ -25,10 +26,6 @@ defineOgImage('Pergel.satori', {
 
 <template>
   <main>
-    <ContentRenderer
-      v-if="page"
-      :value="page"
-      class="mt-8 md:mt-16"
-    />
+    <ContentRenderer v-if="page" :value="page" class="mt-8 md:mt-16" />
   </main>
 </template>

@@ -20,11 +20,10 @@ const href = computed(() => shortLinkUrl(props.link.slug))
     :class="CARD_HOVER_CLASS"
   >
     <div class="flex items-start gap-4">
-      <div class="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10">
-        <UIcon
-          :name="link.icon || 'i-ph-link-duotone'"
-          class="text-primary size-5"
-        />
+      <div
+        class="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-400/10"
+      >
+        <UIcon :name="link.icon || 'i-ph-link-duotone'" class="text-primary size-5" />
       </div>
 
       <div class="min-w-0">

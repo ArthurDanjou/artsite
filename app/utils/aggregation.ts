@@ -25,14 +25,11 @@ export const HONEST_GRADIENTS: readonly Point[] = Array.from(
   }
 )
 
-export const ADVERSARIAL_OFFSETS: readonly Point[] = Array.from(
-  { length: 20 },
-  (_, index) => {
-    const angle = index * 2.3999632297
-    const radius = Math.sqrt(index + 1) * 6.5
-    return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius * 0.8 }
-  }
-)
+export const ADVERSARIAL_OFFSETS: readonly Point[] = Array.from({ length: 20 }, (_, index) => {
+  const angle = index * 2.3999632297
+  const radius = Math.sqrt(index + 1) * 6.5
+  return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius * 0.8 }
+})
 
 export function average(points: readonly Point[]): Point {
   return {
@@ -65,9 +62,11 @@ export function multiKrum(points: readonly Point[], byzantine: number): Point {
   if (selectedCount < 1) return average(points)
   const scores = points.map((point, index) => {
     const distances = points
-      .map((other, otherIndex) => otherIndex === index
-        ? Number.POSITIVE_INFINITY
-        : (point.x - other.x) ** 2 + (point.y - other.y) ** 2)
+      .map((other, otherIndex) =>
+        otherIndex === index
+          ? Number.POSITIVE_INFINITY
+          : (point.x - other.x) ** 2 + (point.y - other.y) ** 2
+      )
       .sort((first, second) => first - second)
     return {
       point,

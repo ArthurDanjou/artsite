@@ -7,7 +7,7 @@ const PASSTHROUGH_PREFIXES = ['/api/', '/_nuxt/', '/_ipx/', '/__nuxt', '/.well-k
 
 function isAsset(pathname: string) {
   if (pathname === '/favicon.ico') return true
-  if (PASSTHROUGH_PREFIXES.some(prefix => pathname.startsWith(prefix))) return true
+  if (PASSTHROUGH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) return true
   return /\.[a-z0-9]+$/i.test(pathname)
 }
 

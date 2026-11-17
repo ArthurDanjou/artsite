@@ -14,7 +14,8 @@ export function getLanguageColor(name: string): string {
 
 export function getEditorColor(name: string): string {
   const n = name.toLowerCase()
-  if (n.includes('vs code') || n.includes('visual studio code') || n === 'vscode') return 'var(--color-blue-500)'
+  if (n.includes('vs code') || n.includes('visual studio code') || n === 'vscode')
+    return 'var(--color-blue-500)'
   if (n.includes('webstorm')) return 'var(--color-amber-500)'
   if (n.includes('intellij')) return 'var(--color-violet-500)'
   if (n.includes('cursor')) return 'var(--color-neutral-800)'
@@ -26,7 +27,8 @@ export function getEditorColor(name: string): string {
 
 export function getOSColor(name: string): string {
   const n = name.toLowerCase()
-  if (n.includes('mac') || n.includes('darwin') || n.includes('macos')) return 'var(--color-neutral-700)'
+  if (n.includes('mac') || n.includes('darwin') || n.includes('macos'))
+    return 'var(--color-neutral-700)'
   if (n.includes('windows') || n.includes('win')) return 'var(--color-blue-500)'
   if (n.includes('linux')) return 'var(--color-orange-500)'
   return 'var(--color-sky-500)'

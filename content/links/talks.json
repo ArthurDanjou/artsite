@@ -3,10 +3,7 @@
   "url": "https://github.com/ArthurDanjou/talks",
   "title": "Talks",
   "category": "Research",
-  "tags": [
-    "research",
-    "talks"
-  ],
+  "tags": ["research", "talks"],
   "featured": false,
   "listed": true,
   "position": 30,

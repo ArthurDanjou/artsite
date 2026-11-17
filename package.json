@@ -7,13 +7,15 @@
     "name": "Arthur Danjou",
     "url": "https://arthurdanjou.fr"
   },
-  "packageManager": "bun@1.3.8",
+  "packageManager": "bun@1.4.4",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "preview": "bun run build && wrangler dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
+    "fmt": "bun fmt --no-script",
+    "fmt:check": "bun fmt --no-script --check",
     "deploy": "bun run cf-typegen && bun run build && wrangler d1 migrations apply DB --remote && wrangler deploy",
     "cf-typegen": "wrangler types"
   },

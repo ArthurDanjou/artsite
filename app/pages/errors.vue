@@ -5,7 +5,7 @@ const route = useRoute()
 
 const statusCode = computed(() => {
   const raw = route.query.code ?? route.query.status
-  const parsed = Number.parseInt(Array.isArray(raw) ? raw[0] ?? '' : raw ?? '', 10)
+  const parsed = Number.parseInt(Array.isArray(raw) ? (raw[0] ?? '') : (raw ?? ''), 10)
   return parsed >= 400 && parsed <= 599 ? parsed : 503
 })
 
@@ -15,8 +15,7 @@ const originHost = computed(() => {
   if (!value) return null
   try {
     return new URL(value.includes('://') ? value : `https://${value}`).host
-  }
-  catch {
+  } catch {
     return value.slice(0, 80)
   }
 })
@@ -71,14 +70,16 @@ const copy = computed<ErrorCopy>(() => {
         badge: 'amber',
         icon: 'i-ph-timer-duotone',
         title: 'Request timed out',
-        description: 'The service took too long to receive your request. Try again in a few moments.'
+        description:
+          'The service took too long to receive your request. Try again in a few moments.'
       }
     case 429:
       return {
         badge: 'amber',
         icon: 'i-ph-traffic-sign-duotone',
         title: 'Too many requests',
-        description: 'You have sent too many requests in a short time. Wait a moment before trying again.'
+        description:
+          'You have sent too many requests in a short time. Wait a moment before trying again.'
       }
     case 500:
       return {
@@ -99,7 +100,8 @@ const copy = computed<ErrorCopy>(() => {
         badge: 'red',
         icon: 'i-ph-wrench-duotone',
         title: 'Service unavailable',
-        description: 'The service is temporarily unavailable or under maintenance. Try again in a few minutes.'
+        description:
+          'The service is temporarily unavailable or under maintenance. Try again in a few minutes.'
       }
     case 504:
       return {
@@ -120,7 +122,8 @@ const copy = computed<ErrorCopy>(() => {
             badge: 'red',
             icon: 'i-ph-cloud-warning-duotone',
             title: 'Service error',
-            description: 'The service is experiencing a temporary issue. Try again in a few moments.'
+            description:
+              'The service is experiencing a temporary issue. Try again in a few moments.'
           }
   }
 })
@@ -147,25 +150,31 @@ interface StatusPageSummary {
   down: number
   maintenance: number
   uptime: number
-  incident: { title: string, style?: string | null } | null
+  incident: { title: string; style?: string | null } | null
   maintenanceActive: { title: string } | null
 }
 
-const { data: monitors, status: monitorsStatus } = useLiveFetch<StatusPageSummary | null>('/api/status-page', {
-  lazy: true,
-  pollInterval: 30_000
-})
+const { data: monitors, status: monitorsStatus } = useLiveFetch<StatusPageSummary | null>(
+  '/api/status-page',
+  {
+    lazy: true,
+    pollInterval: 30_000
+  }
+)
 
-const monitorsLoading = computed(() => monitorsStatus.value === 'pending' || monitorsStatus.value === 'idle')
+const monitorsLoading = computed(
+  () => monitorsStatus.value === 'pending' || monitorsStatus.value === 'idle'
+)
 const hasMonitors = computed(() => !!monitors.value && monitors.value.total > 0)
 
-const infraState = computed<{ dot: 'emerald' | 'red' | 'sky' | 'neutral', label: string }>(() => {
+const infraState = computed<{ dot: 'emerald' | 'red' | 'sky' | 'neutral'; label: string }>(() => {
   if (!hasMonitors.value) return { dot: 'neutral', label: 'Unknown status' }
   if ((monitors.value?.down ?? 0) > 0) {
     const down = monitors.value?.down ?? 0
     return { dot: 'red', label: `${down} service${down > 1 ? 's' : ''} down` }
   }
-  if ((monitors.value?.maintenance ?? 0) > 0) return { dot: 'sky', label: 'Maintenance in progress' }
+  if ((monitors.value?.maintenance ?? 0) > 0)
+    return { dot: 'sky', label: 'Maintenance in progress' }
   return { dot: 'emerald', label: 'All systems operational' }
 })
 
@@ -173,7 +182,12 @@ const updatedAtLabel = computed(() => {
   if (!hasMonitors.value) return null
   const raw = monitors.value?.updatedAt
   if (!raw) return null
-  return new Date(raw).toLocaleString('en-US', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+  return new Date(raw).toLocaleString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
 })
 
 const currentYear = new Date().getFullYear()
@@ -210,17 +224,13 @@ function retry() {
       {{ statusCode }}
     </h1>
 
-    <UBadge
-      :color="copy.badge"
-      :icon="copy.icon"
-      variant="soft"
-      size="lg"
-      class="mt-4"
-    >
+    <UBadge :color="copy.badge" :icon="copy.icon" variant="soft" size="lg" class="mt-4">
       {{ copy.title }}
     </UBadge>
 
-    <p class="mt-6 max-w-md text-center text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+    <p
+      class="mt-6 max-w-md text-center text-sm leading-relaxed text-neutral-500 dark:text-neutral-400"
+    >
       {{ copy.description }}
     </p>
     <p
@@ -237,13 +247,7 @@ function retry() {
     </p>
 
     <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
-      <UButton
-        icon="i-ph-arrow-clockwise-duotone"
-        color="neutral"
-        @click="retry"
-      >
-        Retry
-      </UButton>
+      <UButton icon="i-ph-arrow-clockwise-duotone" color="neutral" @click="retry"> Retry </UButton>
       <UButton
         to="https://arthurdanjou.fr"
         icon="i-ph-house-duotone"
@@ -284,29 +288,17 @@ function retry() {
     <UCard class="mt-12 w-full max-w-xl">
       <template #header>
         <div class="flex items-center justify-between">
-          <p class="text-sm font-semibold">
-            Infrastructure status
-          </p>
+          <p class="text-sm font-semibold">Infrastructure status</p>
           <div class="flex items-center gap-2">
-            <USkeleton
-              v-if="monitorsLoading"
-              class="h-2.5 w-2.5 rounded-full"
-            />
-            <HomeLiveStatusDot
-              v-else
-              :color="infraState.dot"
-              size="sm"
-            />
+            <USkeleton v-if="monitorsLoading" class="h-2.5 w-2.5 rounded-full" />
+            <HomeLiveStatusDot v-else :color="infraState.dot" size="sm" />
             <span
               v-if="!monitorsLoading"
               class="font-mono text-xs font-medium text-neutral-500 dark:text-neutral-400"
             >
               {{ infraState.label }}
             </span>
-            <USkeleton
-              v-else
-              class="h-4 w-24"
-            />
+            <USkeleton v-else class="h-4 w-24" />
           </div>
         </div>
       </template>
@@ -321,33 +313,25 @@ function retry() {
             <p class="font-mono text-xl font-bold">
               {{ monitors?.total }}
             </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400">
-              Monitored
-            </p>
+            <p class="text-xs text-neutral-500 dark:text-neutral-400">Monitored</p>
           </div>
           <div>
             <p class="font-mono text-xl font-bold text-emerald-600 dark:text-emerald-400">
               {{ monitors?.up }}
             </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400">
-              Online
-            </p>
+            <p class="text-xs text-neutral-500 dark:text-neutral-400">Online</p>
           </div>
           <div>
             <p class="font-mono text-xl font-bold text-red-600 dark:text-red-400">
               {{ monitors?.down }}
             </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400">
-              Down
-            </p>
+            <p class="text-xs text-neutral-500 dark:text-neutral-400">Down</p>
           </div>
           <div>
             <p class="font-mono text-xl font-bold text-sky-600 dark:text-sky-400">
               {{ monitors?.maintenance }}
             </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400">
-              Maintenance
-            </p>
+            <p class="text-xs text-neutral-500 dark:text-neutral-400">Maintenance</p>
           </div>
         </div>
 
@@ -357,7 +341,15 @@ function retry() {
         </div>
         <UProgress
           :model-value="monitors?.uptime ?? 0"
-          :color="infraState.dot === 'emerald' ? 'emerald' : infraState.dot === 'red' ? 'red' : infraState.dot === 'sky' ? 'sky' : 'neutral'"
+          :color="
+            infraState.dot === 'emerald'
+              ? 'emerald'
+              : infraState.dot === 'red'
+                ? 'red'
+                : infraState.dot === 'sky'
+                  ? 'sky'
+                  : 'neutral'
+          "
           size="sm"
           class="mt-2"
         />
@@ -373,7 +365,9 @@ function retry() {
       />
 
       <template #footer>
-        <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+        <div
+          class="flex flex-wrap items-center justify-between gap-2 text-xs text-neutral-500 dark:text-neutral-400"
+        >
           <span v-if="updatedAtLabel">Updated {{ updatedAtLabel }}</span>
           <span v-else>Auto-refresh</span>
           <UButton

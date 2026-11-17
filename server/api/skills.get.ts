@@ -1,16 +1,17 @@
 import { queryCollection } from '@nuxt/content/server'
 
-export default defineCachedEventHandler(async (event) => {
-  const result = await queryCollection(event, 'skills')
-    .where('extension', '=', 'json')
-    .first()
+export default defineCachedEventHandler(
+  async (event) => {
+    const result = await queryCollection(event, 'skills').where('extension', '=', 'json').first()
 
-  if (!result) {
-    throw createError({ statusCode: 404, statusMessage: 'Skills not found' })
+    if (!result) {
+      throw createError({ statusCode: 404, statusMessage: 'Skills not found' })
+    }
+
+    return result.body
+  },
+  {
+    maxAge: 60 * 60 * 24,
+    name: 'skills'
   }
-
-  return result.body
-}, {
-  maxAge: 60 * 60 * 24,
-  name: 'skills'
-})
+)

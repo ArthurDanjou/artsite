@@ -3,11 +3,7 @@
   "url": "https://arthurdanjou.fr/projects/dl-dropout-reduces-underfitting",
   "title": "Dropout Reduces Underfitting",
   "category": "Research",
-  "tags": [
-    "research",
-    "academic",
-    "deep-learning"
-  ],
+  "tags": ["research", "academic", "deep-learning"],
   "featured": false,
   "listed": true,
   "position": 47,

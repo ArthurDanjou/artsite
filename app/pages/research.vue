@@ -4,7 +4,9 @@ const { data: page } = await useAsyncData('research', () => {
 })
 
 const title = page.value?.title ?? 'Research'
-const description = page.value?.description ?? 'My research interests in AI Safety, adversarial robustness, and distributed learning, along with my ongoing work at CMAP, Ecole Polytechnique.'
+const description =
+  page.value?.description ??
+  'My research interests in AI Safety, adversarial robustness, and distributed learning, along with my ongoing work at CMAP, Ecole Polytechnique.'
 
 const head = {
   title,
@@ -28,10 +30,6 @@ defineOgImage('Pergel.satori', {
 
 <template>
   <main>
-    <ContentRenderer
-      v-if="page"
-      :value="page"
-      class="mt-8 md:mt-16"
-    />
+    <ContentRenderer v-if="page" :value="page" class="mt-8 md:mt-16" />
   </main>
 </template>

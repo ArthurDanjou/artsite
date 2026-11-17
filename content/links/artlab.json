@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr/projects/artlab",
   "title": "ArtLab",
   "category": "Homelab",
-  "tags": [
-    "homelab",
-    "projects"
-  ],
+  "tags": ["homelab", "projects"],
   "featured": false,
   "listed": true,
   "position": 10,

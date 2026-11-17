@@ -2,7 +2,8 @@ import type { H3Event } from 'h3'
 import { getHeader, getRequestURL } from 'h3'
 import { db, schema } from 'hub:db'
 
-const BOT_PATTERN = /bot|crawler|spider|preview|slack|discord|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegram|pinterest|embedly|quora link preview|outbrain|vkshare/i
+const BOT_PATTERN =
+  /bot|crawler|spider|preview|slack|discord|twitterbot|facebookexternalhit|linkedinbot|whatsapp|telegram|pinterest|embedly|quora link preview|outbrain|vkshare/i
 
 function truncate(value: string | null | undefined, maxLength: number): string | null {
   if (!value) return null
@@ -21,7 +22,8 @@ interface CloudflareRequestCf {
 
 function getCloudflareRequestCf(event: H3Event): CloudflareRequestCf | null {
   const context = event.context as Record<string, unknown>
-  const platform = context._platform as { cloudflare?: { request?: { cf?: CloudflareRequestCf } } } | undefined
+  const platform = context._platform as
+    { cloudflare?: { request?: { cf?: CloudflareRequestCf } } } | undefined
   const cloudflare = context.cloudflare as { request?: { cf?: CloudflareRequestCf } } | undefined
   const nodeRequest = event.node?.req as { cf?: CloudflareRequestCf } | undefined
 
@@ -83,8 +85,7 @@ export async function trackLinkClick(event: H3Event, slug: string): Promise<void
       browser,
       os
     })
-  }
-  catch (error) {
+  } catch (error) {
     console.error('[links] Failed to track click', error)
   }
 }

@@ -3,11 +3,7 @@
   "url": "https://cv.arthurdanjou.fr/",
   "title": "Curriculum Vitae",
   "category": "Portfolio",
-  "tags": [
-    "website",
-    "cv",
-    "career"
-  ],
+  "tags": ["website", "cv", "career"],
   "featured": true,
   "listed": true,
   "position": 50,

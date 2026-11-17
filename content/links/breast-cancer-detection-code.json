@@ -3,11 +3,7 @@
   "url": "https://github.com/ArthurDanjou/breast-cancer-detection",
   "title": "Breast cancer detection code",
   "category": "Engineering",
-  "tags": [
-    "projects",
-    "code",
-    "academic"
-  ],
+  "tags": ["projects", "code", "academic"],
   "featured": false,
   "listed": false,
   "position": 80,

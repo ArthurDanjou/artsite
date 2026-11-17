@@ -6,7 +6,7 @@ const openContactDrawer = shallowRef(false)
 const router = useRouter()
 const requestUrl = useRequestURL()
 const onShortHost = computed(() => isShortHost(requestUrl.hostname))
-const homeUrl = computed(() => onShortHost.value ? LINKS_SITE_URL : '/')
+const homeUrl = computed(() => (onShortHost.value ? LINKS_SITE_URL : '/'))
 
 function resolveNav(to: string): string {
   if (!onShortHost.value || !to.startsWith('/')) return to
@@ -14,24 +14,27 @@ function resolveNav(to: string): string {
 }
 
 defineShortcuts({
-  c: () => openContactDrawer.value = !openContactDrawer.value,
+  c: () => (openContactDrawer.value = !openContactDrawer.value),
   backspace: () => router.back()
 })
 
 const { contact } = await useContent()
 
-const portfolioNavs = navs.filter(nav => nav.to !== '/links' && nav.label !== 'resume')
-const linksNav = navs.find(nav => nav.to === '/links')
-const resumeNav = navs.find(nav => nav.label === 'resume')
+const portfolioNavs = navs.filter((nav) => nav.to !== '/links' && nav.label !== 'resume')
+const linksNav = navs.find((nav) => nav.to === '/links')
+const resumeNav = navs.find((nav) => nav.label === 'resume')
 
-const contactItems = computed(() => contact?.body
-  .filter(item => item.priority === 1)
-  .map(item => ({
-    label: item.name,
-    icon: item.icon,
-    href: item.value,
-    target: '_blank'
-  })) ?? [])
+const contactItems = computed(
+  () =>
+    contact?.body
+      .filter((item) => item.priority === 1)
+      .map((item) => ({
+        label: item.name,
+        icon: item.icon,
+        href: item.value,
+        target: '_blank'
+      })) ?? []
+)
 </script>
 
 <template>
@@ -44,12 +47,7 @@ const contactItems = computed(() => contact?.body
       <AppSignature animated />
     </NuxtLink>
     <nav class="flex gap-1 items-center justify-end flex-wrap">
-      <UTooltip
-        v-for="nav in portfolioNavs"
-        :key="nav.label"
-        :text="nav.label"
-        :delay-duration="4"
-      >
+      <UTooltip v-for="nav in portfolioNavs" :key="nav.label" :text="nav.label" :delay-duration="4">
         <UButton
           :icon="nav.icon"
           :target="nav.target ? nav.target : '_self'"
@@ -61,16 +59,9 @@ const contactItems = computed(() => contact?.body
         />
       </UTooltip>
 
-      <USeparator
-        orientation="vertical"
-        class="h-6"
-      />
+      <USeparator orientation="vertical" class="h-6" />
 
-      <UTooltip
-        v-if="linksNav"
-        :text="linksNav.label"
-        :delay-duration="4"
-      >
+      <UTooltip v-if="linksNav" :text="linksNav.label" :delay-duration="4">
         <UButton
           :icon="linksNav.icon"
           :href="resolveNav(linksNav.to)"
@@ -81,10 +72,7 @@ const contactItems = computed(() => contact?.body
         />
       </UTooltip>
 
-      <UTooltip
-        :delay-duration="4"
-        text="status page"
-      >
+      <UTooltip :delay-duration="4" text="status page">
         <UButton
           icon="i-ph-warning-duotone"
           target="_blank"
@@ -96,11 +84,7 @@ const contactItems = computed(() => contact?.body
         />
       </UTooltip>
 
-      <UTooltip
-        v-if="resumeNav"
-        :text="resumeNav.label"
-        :delay-duration="4"
-      >
+      <UTooltip v-if="resumeNav" :text="resumeNav.label" :delay-duration="4">
         <UButton
           :icon="resumeNav.icon"
           :target="resumeNav.target ? resumeNav.target : '_self'"
@@ -123,12 +107,7 @@ const contactItems = computed(() => contact?.body
             sideOffset: 8
           }"
         >
-          <UTooltip
-            :kbds="['C']"
-            text="contact me"
-            :delay-duration="4"
-            class="cursor-pointer"
-          >
+          <UTooltip :kbds="['C']" text="contact me" :delay-duration="4" class="cursor-pointer">
             <UButton
               icon="i-ph-mailbox-duotone"
               color="neutral"
@@ -140,11 +119,7 @@ const contactItems = computed(() => contact?.body
           </UTooltip>
         </UDropdownMenu>
         <template #fallback>
-          <UTooltip
-            :kbds="['C']"
-            text="contact me"
-            :delay-duration="4"
-          >
+          <UTooltip :kbds="['C']" text="contact me" :delay-duration="4">
             <UButton
               icon="i-ph-mailbox-duotone"
               color="neutral"
@@ -156,10 +131,7 @@ const contactItems = computed(() => contact?.body
         </template>
       </ClientOnly>
 
-      <USeparator
-        orientation="vertical"
-        class="h-6"
-      />
+      <USeparator orientation="vertical" class="h-6" />
 
       <ThemeSwitcher />
     </nav>

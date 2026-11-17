@@ -15,15 +15,15 @@ icon: i-ph-city-duotone
 authorNote: |
   Implementing the Schelling model let me examine how local movement rules produce spatial patterns over time. I use the simulation as a way to explore those assumptions, with the plots helping connect individual steps to the resulting distribution.
 summary:
-  role: "Python implementation and statistical analysis of the simulation."
-  context: "Projet Numérique coursework at Paris-Saclay University."
-  outcome: "A report and visualisations examining the spatial patterns produced by local movement rules."
+  role: 'Python implementation and statistical analysis of the simulation.'
+  context: 'Projet Numérique coursework at Paris-Saclay University.'
+  outcome: 'A report and visualisations examining the spatial patterns produced by local movement rules.'
   links:
-    - label: "Code"
-      url: "https://github.com/ArthurDanjou/ArtStudies/blob/master/L3/Projet%20Num%C3%A9rique/Segregation.ipynb"
+    - label: 'Code'
+      url: 'https://github.com/ArthurDanjou/ArtStudies/blob/master/L3/Projet%20Num%C3%A9rique/Segregation.ipynb'
       icon: i-ph-code-duotone
-    - label: "Report"
-      url: "/projects/schelling.pdf"
+    - label: 'Report'
+      url: '/projects/schelling.pdf'
       icon: i-ph-file-text-duotone
 ---
 

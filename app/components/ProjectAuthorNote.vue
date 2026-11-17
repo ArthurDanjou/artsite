@@ -6,12 +6,16 @@ defineProps<{
 const signature = useTemplateRef('signature')
 const hasBeenVisible = ref(false)
 
-const { stop } = useIntersectionObserver(signature, ([entry]) => {
-  if (entry?.isIntersecting) {
-    hasBeenVisible.value = true
-    stop()
-  }
-}, { threshold: 0.5 })
+const { stop } = useIntersectionObserver(
+  signature,
+  ([entry]) => {
+    if (entry?.isIntersecting) {
+      hasBeenVisible.value = true
+      stop()
+    }
+  },
+  { threshold: 0.5 }
+)
 </script>
 
 <template>
@@ -25,10 +29,7 @@ const { stop } = useIntersectionObserver(signature, ([entry]) => {
       id="author-note-title"
       class="flex items-center gap-2 text-sm font-semibold text-highlighted"
     >
-      <UIcon
-        name="i-ph-pen-nib-duotone"
-        class="size-5 text-muted"
-      />
+      <UIcon name="i-ph-pen-nib-duotone" class="size-5 text-muted" />
       A note from the author
     </h2>
 
@@ -36,14 +37,8 @@ const { stop } = useIntersectionObserver(signature, ([entry]) => {
       {{ note.trim() }}
     </p>
 
-    <div
-      ref="signature"
-      class="w-fit text-2xl text-muted"
-    >
-      <AppSignature
-        animated
-        :playing="hasBeenVisible"
-      />
+    <div ref="signature" class="w-fit text-2xl text-muted">
+      <AppSignature animated :playing="hasBeenVisible" />
     </div>
   </UCard>
 </template>

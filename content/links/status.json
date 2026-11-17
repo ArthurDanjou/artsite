@@ -3,10 +3,7 @@
   "url": "https://status.arthurdanjou.fr",
   "title": "Status",
   "category": "Homelab",
-  "tags": [
-    "homelab",
-    "status"
-  ],
+  "tags": ["homelab", "status"],
   "featured": false,
   "listed": true,
   "position": 30,

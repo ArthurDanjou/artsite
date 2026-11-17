@@ -1,8 +1,11 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  color?: 'green' | 'orange' | 'red' | 'pink' | 'blue' | 'sky' | 'emerald' | 'neutral'
-  size?: 'sm' | 'md'
-}>(), { color: 'neutral', size: 'md' })
+const props = withDefaults(
+  defineProps<{
+    color?: 'green' | 'orange' | 'red' | 'pink' | 'blue' | 'sky' | 'emerald' | 'neutral'
+    size?: 'sm' | 'md'
+  }>(),
+  { color: 'neutral', size: 'md' }
+)
 
 const palettes = {
   green: { ping: 'bg-green-400', dot: 'bg-green-500' },
@@ -19,11 +22,7 @@ const palette = computed(() => palettes[props.color])
 </script>
 
 <template>
-  <span
-    class="relative flex"
-    :class="size === 'sm' ? 'h-2.5 w-2.5' : 'h-3 w-3'"
-    aria-hidden="true"
-  >
+  <span class="relative flex" :class="size === 'sm' ? 'h-2.5 w-2.5' : 'h-3 w-3'" aria-hidden="true">
     <span
       class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
       :class="palette.ping"

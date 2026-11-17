@@ -3,10 +3,7 @@
   "url": "https://arthurdanjou.fr",
   "title": "Portfolio (legacy root)",
   "category": "Portfolio",
-  "tags": [
-    "website",
-    "legacy"
-  ],
+  "tags": ["website", "legacy"],
   "featured": false,
   "listed": false,
   "position": 5,

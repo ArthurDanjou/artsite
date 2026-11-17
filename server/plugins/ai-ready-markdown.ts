@@ -5,7 +5,7 @@ import { groupPublicLinks, LINKS_PAGE_PATH, shortLinkUrl } from '~~/shared/links
 interface MarkdownSourceContext {
   route: string
   event: H3Event
-  source: { markdown: string, title?: string, description?: string, updatedAt?: string } | null
+  source: { markdown: string; title?: string; description?: string; updatedAt?: string } | null
 }
 
 export default defineNitroPlugin((nitroApp) => {
@@ -24,7 +24,10 @@ export default defineNitroPlugin((nitroApp) => {
       ''
     ]
 
-    for (const section of [...(socials.length ? [{ label: 'Social', links: socials }] : []), ...groups]) {
+    for (const section of [
+      ...(socials.length ? [{ label: 'Social', links: socials }] : []),
+      ...groups
+    ]) {
       lines.push(`## ${section.label}`, '')
       for (const link of section.links) {
         const suffix = link.description ? `: ${link.description}` : ''
@@ -35,7 +38,8 @@ export default defineNitroPlugin((nitroApp) => {
 
     context.source = {
       title: 'Links',
-      description: 'All my links in one place: research, projects, social profiles, CV, and contact.',
+      description:
+        'All my links in one place: research, projects, social profiles, CV, and contact.',
       markdown: lines.join('\n')
     }
   })
@@ -56,8 +60,11 @@ export default defineNitroPlugin((nitroApp) => {
     }
   })
 
-  nitroApp.hooks.hook('ai-ready:page:markdown', (ctx: { markdown: string, route: string, isPrerender?: boolean }) => {
-    if (!ctx.markdown) return
-    ctx.markdown += `\n\n---\nSource: https://arthurdanjou.fr${ctx.route}`
-  })
+  nitroApp.hooks.hook(
+    'ai-ready:page:markdown',
+    (ctx: { markdown: string; route: string; isPrerender?: boolean }) => {
+      if (!ctx.markdown) return
+      ctx.markdown += `\n\n---\nSource: https://arthurdanjou.fr${ctx.route}`
+    }
+  )
 })

@@ -3,12 +3,7 @@
   "url": "https://pypi.org/project/krum/",
   "title": "Krum on PyPI",
   "category": "Engineering",
-  "tags": [
-    "projects",
-    "open-source",
-    "package",
-    "krum"
-  ],
+  "tags": ["projects", "open-source", "package", "krum"],
   "featured": false,
   "listed": true,
   "position": 16,

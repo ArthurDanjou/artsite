@@ -8,10 +8,7 @@
     "description": "Professional profile, experience, and updates.",
     "icon": "i-simple-icons-linkedin",
     "category": "Social",
-    "tags": [
-      "social",
-      "profile"
-    ],
+    "tags": ["social", "profile"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -30,10 +27,7 @@
     "description": "Open-source projects, experiments, and dotfiles.",
     "icon": "i-simple-icons-github",
     "category": "Social",
-    "tags": [
-      "social",
-      "code"
-    ],
+    "tags": ["social", "code"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -52,9 +46,7 @@
     "description": "Short thoughts on research, engineering, and Formula 1.",
     "icon": "i-simple-icons-x",
     "category": "Social",
-    "tags": [
-      "social"
-    ],
+    "tags": ["social"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -73,10 +65,7 @@
     "description": "The fastest way to reach me.",
     "icon": "i-simple-icons-discord",
     "category": "Social",
-    "tags": [
-      "social",
-      "contact"
-    ],
+    "tags": ["social", "contact"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -95,11 +84,7 @@
     "description": "My models, datasets, and experiments on the Hugging Face Hub.",
     "icon": "i-simple-icons-huggingface",
     "category": "Social",
-    "tags": [
-      "social",
-      "ai",
-      "profile"
-    ],
+    "tags": ["social", "ai", "profile"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -118,10 +103,7 @@
     "description": "contact@arthurdanjou.fr",
     "icon": "i-ph-envelope-simple-duotone",
     "category": "Social",
-    "tags": [
-      "social",
-      "contact"
-    ],
+    "tags": ["social", "contact"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -140,11 +122,7 @@
     "description": "Pick a slot for a research or engineering conversation.",
     "icon": "i-ph-calendar-dots-duotone",
     "category": "Social",
-    "tags": [
-      "social",
-      "contact",
-      "calendar"
-    ],
+    "tags": ["social", "contact", "calendar"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -163,11 +141,7 @@
     "description": "Personal email, not for work.",
     "icon": "i-ph-envelope-simple-duotone",
     "category": "Social",
-    "tags": [
-      "social",
-      "contact",
-      "personal"
-    ],
+    "tags": ["social", "contact", "personal"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -186,11 +160,7 @@
     "description": "Alias for my GitHub profile.",
     "icon": "i-simple-icons-github",
     "category": "Social",
-    "tags": [
-      "social",
-      "code",
-      "alias"
-    ],
+    "tags": ["social", "code", "alias"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -209,10 +179,7 @@
     "description": "The old go.arthurdanjou.fr root redirect.",
     "icon": "i-ph-globe-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "legacy"
-    ],
+    "tags": ["website", "legacy"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -231,10 +198,7 @@
     "description": "AI safety research, engineering projects, and everything in between.",
     "icon": "i-ph-globe-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "portfolio"
-    ],
+    "tags": ["website", "portfolio"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -253,10 +217,7 @@
     "description": "Experimental labs, academic work, and open-source engineering.",
     "icon": "i-ph-folder-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "projects"
-    ],
+    "tags": ["website", "projects"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -275,11 +236,7 @@
     "description": "Alias for the projects page.",
     "icon": "i-ph-folder-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "alias",
-      "projects"
-    ],
+    "tags": ["website", "alias", "projects"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -298,10 +255,7 @@
     "description": "Papers, talks, and the research behind them.",
     "icon": "i-ph-books-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "research"
-    ],
+    "tags": ["website", "research"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -320,10 +274,7 @@
     "description": "The hardware, software, and homelab that power my work.",
     "icon": "i-ph-tree-evergreen-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "setup"
-    ],
+    "tags": ["website", "setup"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -342,11 +293,7 @@
     "description": "My academic and engineering background, in one page.",
     "icon": "i-ph-address-book-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "cv",
-      "career"
-    ],
+    "tags": ["website", "cv", "career"],
     "featured": true,
     "listed": true,
     "archived": false,
@@ -365,10 +312,7 @@
     "description": "The previous iteration of my portfolio.",
     "icon": "i-ph-clock-counter-clockwise-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "archive"
-    ],
+    "tags": ["website", "archive"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -387,10 +331,7 @@
     "description": "Alias for my projects page.",
     "icon": "i-ph-folder-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "alias"
-    ],
+    "tags": ["website", "alias"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -409,11 +350,7 @@
     "description": "Alias for publications and talks.",
     "icon": "i-ph-books-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "alias",
-      "writing"
-    ],
+    "tags": ["website", "alias", "writing"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -432,11 +369,7 @@
     "description": "Alias for publications and talks.",
     "icon": "i-ph-books-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "alias",
-      "writing"
-    ],
+    "tags": ["website", "alias", "writing"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -455,10 +388,7 @@
     "description": "A former page about life outside research.",
     "icon": "i-ph-archive-duotone",
     "category": "Portfolio",
-    "tags": [
-      "website",
-      "archive"
-    ],
+    "tags": ["website", "archive"],
     "featured": false,
     "listed": false,
     "archived": true,
@@ -477,10 +407,7 @@
     "description": "Adversarial robustness, data ownership verification, and efficient learning at CMAP.",
     "icon": "i-ph-flask-duotone",
     "category": "Research",
-    "tags": [
-      "research",
-      "ai-safety"
-    ],
+    "tags": ["research", "ai-safety"],
     "featured": true,
     "listed": true,
     "archived": false,
@@ -499,11 +426,7 @@
     "description": "Byzantine-resilient aggregation for distributed learning: the Krum library.",
     "icon": "i-ph-file-text-duotone",
     "category": "Research",
-    "tags": [
-      "research",
-      "thesis",
-      "krum"
-    ],
+    "tags": ["research", "thesis", "krum"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -522,10 +445,7 @@
     "description": "Slides and material from my presentations.",
     "icon": "i-ph-presentation-duotone",
     "category": "Research",
-    "tags": [
-      "research",
-      "talks"
-    ],
+    "tags": ["research", "talks"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -544,10 +464,7 @@
     "description": "My academic projects at Paris-Saclay and Paris-Dauphine.",
     "icon": "i-ph-student-duotone",
     "category": "Research",
-    "tags": [
-      "research",
-      "academic"
-    ],
+    "tags": ["research", "academic"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -573,11 +490,7 @@
     "description": "From-scratch reproductions of Byzantine-robust aggregation papers.",
     "icon": "i-simple-icons-github",
     "category": "Research",
-    "tags": [
-      "research",
-      "code",
-      "reproduction"
-    ],
+    "tags": ["research", "code", "reproduction"],
     "position": 45
   },
   {
@@ -589,11 +502,7 @@
     "description": "Code archive for my academic projects.",
     "icon": "i-simple-icons-github",
     "category": "Research",
-    "tags": [
-      "code",
-      "academic",
-      "alias"
-    ],
+    "tags": ["code", "academic", "alias"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -612,12 +521,7 @@
     "description": "Open-source Byzantine-robust aggregation framework, v0.9.0.",
     "icon": "i-ph-cube-duotone",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "open-source",
-      "research",
-      "krum"
-    ],
+    "tags": ["projects", "open-source", "research", "krum"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -643,12 +547,7 @@
     "description": "Guides, API reference, and protocol notes for the Krum library.",
     "icon": "i-ph-book-open-duotone",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "open-source",
-      "docs",
-      "krum"
-    ],
+    "tags": ["projects", "open-source", "docs", "krum"],
     "position": 15
   },
   {
@@ -667,12 +566,7 @@
     "description": "Install Krum with pip and start aggregating.",
     "icon": "i-ph-package-duotone",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "open-source",
-      "package",
-      "krum"
-    ],
+    "tags": ["projects", "open-source", "package", "krum"],
     "position": 16
   },
   {
@@ -684,11 +578,7 @@
     "description": "One source of truth for every AI coding tool I use.",
     "icon": "i-ph-terminal-window-duotone",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "open-source",
-      "dotfiles"
-    ],
+    "tags": ["projects", "open-source", "dotfiles"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -714,12 +604,7 @@
     "description": "A cross-platform color theme for VS Code, Zed, Ghostty, and Home Assistant.",
     "icon": "i-ph-palette-duotone",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "open-source",
-      "design",
-      "vscode"
-    ],
+    "tags": ["projects", "open-source", "design", "vscode"],
     "position": 30
   },
   {
@@ -738,12 +623,7 @@
     "description": "The source and platform ports for ArtLab Theme.",
     "icon": "i-simple-icons-github",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "open-source",
-      "design",
-      "vscode"
-    ],
+    "tags": ["projects", "open-source", "design", "vscode"],
     "position": 31
   },
   {
@@ -755,11 +635,7 @@
     "description": "Source code for the tuberculosis data visualization.",
     "icon": "i-simple-icons-github",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "code",
-      "dataviz"
-    ],
+    "tags": ["projects", "code", "dataviz"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -778,11 +654,7 @@
     "description": "Schelling segregation model notebook.",
     "icon": "i-simple-icons-github",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "code",
-      "academic"
-    ],
+    "tags": ["projects", "code", "academic"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -801,11 +673,7 @@
     "description": "Monte Carlo methods project report and code.",
     "icon": "i-simple-icons-github",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "code",
-      "academic"
-    ],
+    "tags": ["projects", "code", "academic"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -824,11 +692,7 @@
     "description": "Supervised learning project on breast cancer detection.",
     "icon": "i-simple-icons-github",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "code",
-      "academic"
-    ],
+    "tags": ["projects", "code", "academic"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -847,11 +711,7 @@
     "description": "Generalized linear models project on bike data.",
     "icon": "i-simple-icons-github",
     "category": "Engineering",
-    "tags": [
-      "projects",
-      "code",
-      "academic"
-    ],
+    "tags": ["projects", "code", "academic"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -870,10 +730,7 @@
     "description": "Self-hosted lab for distributed systems and private cloud experiments.",
     "icon": "i-ph-flask-duotone",
     "category": "Homelab",
-    "tags": [
-      "homelab",
-      "projects"
-    ],
+    "tags": ["homelab", "projects"],
     "featured": false,
     "listed": false,
     "archived": false,
@@ -892,10 +749,7 @@
     "description": "Home automation, sensors, and a house that runs itself.",
     "icon": "i-ph-house-line-duotone",
     "category": "Homelab",
-    "tags": [
-      "homelab",
-      "automation"
-    ],
+    "tags": ["homelab", "automation"],
     "featured": false,
     "listed": true,
     "archived": false,
@@ -914,10 +768,7 @@
     "description": "Live uptime and infrastructure telemetry.",
     "icon": "i-ph-pulse-duotone",
     "category": "Homelab",
-    "tags": [
-      "homelab",
-      "status"
-    ],
+    "tags": ["homelab", "status"],
     "featured": false,
     "listed": true,
     "archived": false,

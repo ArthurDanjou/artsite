@@ -12,9 +12,11 @@ export default defineNuxtPlugin({
 
     nuxtApp.hook('page:view-transition:start', (transition) => {
       activeTransitions++
-      transition.finished.catch(() => {}).finally(() => {
-        activeTransitions--
-      })
+      transition.finished
+        .catch(() => {})
+        .finally(() => {
+          activeTransitions--
+        })
     })
 
     nuxtApp.hook('page:finish', () => {

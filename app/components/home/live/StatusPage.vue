@@ -6,9 +6,7 @@ const { data, status, error } = useLiveFetch('/api/ha/monitors', {
 })
 
 const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
-const hasNoData = computed(
-  () => !isLoading.value && (!data.value || metrics.value.total === 0)
-)
+const hasNoData = computed(() => !isLoading.value && (!data.value || metrics.value.total === 0))
 
 const metrics = computed(() => ({
   total: data.value?.total ?? 0,
@@ -22,13 +20,19 @@ const hasMaintenance = computed(() => metrics.value.maintenance > 0)
 
 type StatusColor = 'neutral' | 'orange' | 'sky' | 'emerald'
 
-const statusState = computed<{ color: StatusColor, label: string }>(() => {
+const statusState = computed<{ color: StatusColor; label: string }>(() => {
   if (isLoading.value) return { color: 'neutral', label: 'Checking status...' }
   if (hasNoData.value) return { color: 'neutral', label: 'Status unavailable' }
   if (hasDown.value)
-    return { color: 'orange', label: `${metrics.value.down} service${metrics.value.down > 1 ? 's' : ''} down` }
+    return {
+      color: 'orange',
+      label: `${metrics.value.down} service${metrics.value.down > 1 ? 's' : ''} down`
+    }
   if (hasMaintenance.value)
-    return { color: 'sky', label: `${metrics.value.maintenance} service${metrics.value.maintenance > 1 ? 's' : ''} in maintenance` }
+    return {
+      color: 'sky',
+      label: `${metrics.value.maintenance} service${metrics.value.maintenance > 1 ? 's' : ''} in maintenance`
+    }
   return { color: 'emerald', label: 'All Systems Operational' }
 })
 
@@ -80,11 +84,7 @@ const statusTheme = computed<StatusTheme>(() => {
 
 <template>
   <ClientOnly>
-    <NuxtLink
-      v-if="data && !hasNoData"
-      to="https://links.arthurdanjou.fr/status"
-      target="_blank"
-    >
+    <NuxtLink v-if="data && !hasNoData" to="https://links.arthurdanjou.fr/status" target="_blank">
       <UCard
         class="h-full flex flex-col overflow-hidden transition-all duration-200 hover:ring-2"
         :class="statusTheme.hoverRing"
@@ -97,15 +97,8 @@ const statusTheme = computed<StatusTheme>(() => {
         >
           <template #right>
             <div class="flex items-center gap-2">
-              <USkeleton
-                v-if="isLoading"
-                class="h-2.5 w-2.5 rounded-full"
-              />
-              <HomeLiveStatusDot
-                v-else
-                :color="statusState.color"
-                size="sm"
-              />
+              <USkeleton v-if="isLoading" class="h-2.5 w-2.5 rounded-full" />
+              <HomeLiveStatusDot v-else :color="statusState.color" size="sm" />
 
               <span
                 v-if="!isLoading"
@@ -114,10 +107,7 @@ const statusTheme = computed<StatusTheme>(() => {
               >
                 {{ statusState.label }}
               </span>
-              <USkeleton
-                v-else
-                class="h-4 w-24"
-              />
+              <USkeleton v-else class="h-4 w-24" />
             </div>
           </template>
         </HomeLiveCardHeader>
@@ -125,26 +115,18 @@ const statusTheme = computed<StatusTheme>(() => {
         <div class="mt-4 space-y-3">
           <div class="flex justify-between text-xs">
             <span class="text-neutral-500">Monitored Services</span>
-            <span
-              v-if="!isLoading"
-              class="font-mono font-bold text-neutral-900 dark:text-white"
-            >{{ metrics.total }}</span>
-            <USkeleton
-              v-else
-              class="h-4 w-6"
-            />
+            <span v-if="!isLoading" class="font-mono font-bold text-neutral-900 dark:text-white">{{
+              metrics.total
+            }}</span>
+            <USkeleton v-else class="h-4 w-6" />
           </div>
 
           <div class="flex justify-between text-xs mb-4">
             <span class="text-neutral-500">Global Uptime</span>
-            <span
-              v-if="!isLoading"
-              class="font-mono font-bold text-neutral-900 dark:text-white"
-            >{{ metrics.uptime.toFixed(1) }}%</span>
-            <USkeleton
-              v-else
-              class="h-4 w-8"
-            />
+            <span v-if="!isLoading" class="font-mono font-bold text-neutral-900 dark:text-white"
+              >{{ metrics.uptime.toFixed(1) }}%</span
+            >
+            <USkeleton v-else class="h-4 w-8" />
           </div>
 
           <UProgress
@@ -175,9 +157,6 @@ const statusTheme = computed<StatusTheme>(() => {
       description="No monitors were returned by Home Assistant."
     />
 
-    <USkeleton
-      v-else-if="isLoading"
-      class="h-40 w-full rounded-xl"
-    />
+    <USkeleton v-else-if="isLoading" class="h-40 w-full rounded-xl" />
   </ClientOnly>
 </template>

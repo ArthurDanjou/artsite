@@ -1,5 +1,5 @@
 export interface HAStatus {
-  weather?: { condition: string, temperature: number }
+  weather?: { condition: string; temperature: number }
   isHoliday?: boolean
   totalLights?: number
   totalAutomations?: number

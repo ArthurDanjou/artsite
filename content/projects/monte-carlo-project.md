@@ -14,15 +14,15 @@ icon: i-ph-dice-five-duotone
 authorNote: |
   Implementing the sampling methods in R gave me a way to check the probability calculations numerically. Comparing inverse-CDF sampling, accept-reject methods and stratification also makes the computational choices behind a simulation easier to examine.
 summary:
-  role: "Implementation of sampling methods and numerical analysis in R."
-  context: "Monte Carlo Methods coursework at Paris-Dauphine University."
-  outcome: "A report and code covering inverse-CDF sampling, accept-reject methods and stratification."
+  role: 'Implementation of sampling methods and numerical analysis in R.'
+  context: 'Monte Carlo Methods coursework at Paris-Dauphine University.'
+  outcome: 'A report and code covering inverse-CDF sampling, accept-reject methods and stratification.'
   links:
-    - label: "Code"
-      url: "https://github.com/ArthurDanjou/ArtStudies/blob/master/M1/Monte%20Carlo%20Methods/Project%201/003_rapport_DANJOU_DUROUSSEAU.rmd"
+    - label: 'Code'
+      url: 'https://github.com/ArthurDanjou/ArtStudies/blob/master/M1/Monte%20Carlo%20Methods/Project%201/003_rapport_DANJOU_DUROUSSEAU.rmd'
       icon: i-ph-code-duotone
-    - label: "Report"
-      url: "/projects/monte-carlo.pdf"
+    - label: 'Report'
+      url: '/projects/monte-carlo.pdf'
       icon: i-ph-file-text-duotone
 ---
 

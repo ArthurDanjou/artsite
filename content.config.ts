@@ -29,16 +29,22 @@ export default defineContentConfig({
         description: z.string(),
         shortDescription: z.string(),
         authorNote: z.string().optional(),
-        summary: z.object({
-          role: z.string(),
-          context: z.string(),
-          outcome: z.string(),
-          links: z.array(z.object({
-            label: z.string(),
-            url: z.string(),
-            icon: z.string()
-          })).optional()
-        }).optional(),
+        summary: z
+          .object({
+            role: z.string(),
+            context: z.string(),
+            outcome: z.string(),
+            links: z
+              .array(
+                z.object({
+                  label: z.string(),
+                  url: z.string(),
+                  icon: z.string()
+                })
+              )
+              .optional()
+          })
+          .optional(),
         publishedAt: z.string(),
         readingTime: z.number().optional(),
         tags: z.array(z.string()),
@@ -71,51 +77,63 @@ export default defineContentConfig({
       type: 'data',
       source: 'publications.json',
       schema: z.object({
-        body: z.array(z.object({
-          id: z.string(),
-          title: z.string(),
-          year: z.number().optional(),
-          status: z.string().optional(),
-          authors: z.string().optional(),
-          description: z.string(),
-          icon: z.string().optional(),
-          tags: z.array(z.string()).optional(),
-          links: z.array(z.object({
-            label: z.string(),
-            url: z.string(),
-            icon: z.string().optional()
-          })).optional()
-        }))
+        body: z.array(
+          z.object({
+            id: z.string(),
+            title: z.string(),
+            year: z.number().optional(),
+            status: z.string().optional(),
+            authors: z.string().optional(),
+            description: z.string(),
+            icon: z.string().optional(),
+            tags: z.array(z.string()).optional(),
+            links: z
+              .array(
+                z.object({
+                  label: z.string(),
+                  url: z.string(),
+                  icon: z.string().optional()
+                })
+              )
+              .optional()
+          })
+        )
       })
     }),
     skills: defineCollection({
       type: 'data',
       source: 'skills.json',
       schema: z.object({
-        body: z.array(z.object({
-          id: z.string(),
-          name: z.string(),
-          description: z.string().optional(),
-          items: z.array(z.object({
+        body: z.array(
+          z.object({
+            id: z.string(),
             name: z.string(),
-            icon: z.string().optional()
-          }))
-        }))
+            description: z.string().optional(),
+            items: z.array(
+              z.object({
+                name: z.string(),
+                icon: z.string().optional()
+              })
+            )
+          })
+        )
       })
     }),
     contact: defineCollection({
       type: 'data',
       source: 'contact.json',
       schema: z.object({
-        body: z.array(z.object({
-          id: z.string(),
-          name: z.string(),
-          category: z.string().optional(),
-          icon: z.string().optional(),
-          value: z.string().url(),
-          username: z.string().optional(),
-          priority: z.number().optional()
-        }))
+        body: z.array(
+          z.object({
+            id: z.string(),
+            name: z.string(),
+            category: z.string().optional(),
+            icon: z.string().optional(),
+            value: z.string().url(),
+            username: z.string().optional(),
+            priority: z.number().optional()
+          })
+        )
       })
     }),
     links: defineCollection({
@@ -140,29 +158,33 @@ export default defineContentConfig({
       type: 'data',
       source: 'languages.json',
       schema: z.object({
-        body: z.array(z.object({
-          id: z.string(),
-          name: z.string(),
-          level: z.string(),
-          proficiency: z.string()
-        }))
+        body: z.array(
+          z.object({
+            id: z.string(),
+            name: z.string(),
+            level: z.string(),
+            proficiency: z.string()
+          })
+        )
       })
     }),
     talks: defineCollection({
       type: 'data',
       source: 'talks.json',
       schema: z.object({
-        body: z.array(z.object({
-          id: z.string(),
-          title: z.string(),
-          date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, 'Use ISO date YYYY-MM or YYYY-MM-DD'),
-          venue: z.string(),
-          description: z.string(),
-          icon: z.string().optional(),
-          tags: z.array(z.string()).optional(),
-          lang: z.enum(['fr', 'en']).optional(),
-          slides: z.string().url().nullable().optional()
-        }))
+        body: z.array(
+          z.object({
+            id: z.string(),
+            title: z.string(),
+            date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, 'Use ISO date YYYY-MM or YYYY-MM-DD'),
+            venue: z.string(),
+            description: z.string(),
+            icon: z.string().optional(),
+            tags: z.array(z.string()).optional(),
+            lang: z.enum(['fr', 'en']).optional(),
+            slides: z.string().url().nullable().optional()
+          })
+        )
       })
     })
   }

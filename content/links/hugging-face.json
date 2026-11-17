@@ -3,11 +3,7 @@
   "url": "https://huggingface.co/ArthurDanjou",
   "title": "Hugging Face",
   "category": "Social",
-  "tags": [
-    "social",
-    "ai",
-    "profile"
-  ],
+  "tags": ["social", "ai", "profile"],
   "featured": false,
   "listed": true,
   "position": 45,

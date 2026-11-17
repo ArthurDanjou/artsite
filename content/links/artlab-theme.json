@@ -3,12 +3,7 @@
   "url": "https://github.com/ArthurDanjou/theme-artlab",
   "title": "ArtLab Theme",
   "category": "Engineering",
-  "tags": [
-    "projects",
-    "open-source",
-    "design",
-    "vscode"
-  ],
+  "tags": ["projects", "open-source", "design", "vscode"],
   "featured": false,
   "listed": true,
   "position": 30,

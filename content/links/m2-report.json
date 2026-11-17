@@ -3,11 +3,7 @@
   "url": "https://m2-internship-report.arthurdanjou.fr",
   "title": "M2 thesis report",
   "category": "Research",
-  "tags": [
-    "research",
-    "thesis",
-    "krum"
-  ],
+  "tags": ["research", "thesis", "krum"],
   "featured": false,
   "listed": true,
   "position": 21,

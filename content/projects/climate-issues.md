@@ -15,12 +15,12 @@ icon: i-ph-wind-duotone
 authorNote: |
   Using the Martin storm as a case study gave me a concrete setting for working with extreme values and spatial data. I read the return-period estimates alongside the maps: the assumptions behind the statistical model matter when interpreting a local risk estimate.
 summary:
-  role: "Statistical modelling and spatial analysis of wind risk."
-  context: "An academic case study of the Martin storm in December 1999."
-  outcome: "A report combining extreme-value modelling, return-period estimates and geographic risk mapping."
+  role: 'Statistical modelling and spatial analysis of wind risk.'
+  context: 'An academic case study of the Martin storm in December 1999.'
+  outcome: 'A report combining extreme-value modelling, return-period estimates and geographic risk mapping.'
   links:
-    - label: "Report"
-      url: "/projects/climate-issues.pdf"
+    - label: 'Report'
+      url: '/projects/climate-issues.pdf'
       icon: i-ph-file-text-duotone
 ---
 
@@ -41,12 +41,14 @@ The primary objectives of this research were:
 ## Methodology
 
 ### Data Sources
+
 - Historical meteorological records from the 1999 Martin Storm
 - Wind speed measurements from weather stations across France
 - Satellite imagery and atmospheric pressure data
 - Damage assessments and economic loss records
 
 ### Analytical Techniques
+
 - **Time-series analysis** of wind speed and atmospheric pressure
 - **Spatial interpolation** using kriging and other geostatistical methods
 - **Probability distribution fitting** (Weibull, Gumbel, and Log-Normal distributions)
@@ -54,6 +56,7 @@ The primary objectives of this research were:
 - **Geographic Information Systems (GIS)** for hazard mapping and visualization
 
 ### Statistical Models
+
 - Extreme Value Theory (EVT) for tail risk analysis
 - Generalized Extreme Value (GEV) distributions
 - Peak-over-threshold (POT) methods
@@ -62,6 +65,7 @@ The primary objectives of this research were:
 ## Key Findings
 
 The analysis revealed:
+
 - Wind speeds exceeding 100 km/h across multiple regions
 - Non-uniform spatial distribution of damage intensity
 - Correlation patterns between meteorological variables and structural damage
@@ -71,6 +75,7 @@ The analysis revealed:
 ## Applications
 
 The methodologies developed in this project have applications in:
+
 - **Disaster risk reduction and preparedness** planning
 - **Insurance and risk assessment** for natural hazards
 - **Urban planning** and infrastructure resilience

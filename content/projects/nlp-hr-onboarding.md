@@ -2,7 +2,7 @@
 slug: nlp-hr-onboarding
 title: Intelligent HR Onboarding Assistant
 type: Academic Project
-description: Intelligent HR onboarding assistant using RAG, LangChain agents, and MistralAI embeddings to help new employees navigate company policies, employee directory, and administrative tasks. 
+description: Intelligent HR onboarding assistant using RAG, LangChain agents, and MistralAI embeddings to help new employees navigate company policies, employee directory, and administrative tasks.
 shortDescription: An AI-powered assistant for streamlining HR onboarding processes and improving new hire experience.
 publishedAt: 2026-03-13
 readingTime: 3
@@ -14,13 +14,13 @@ icon: i-ph-robot-duotone
 authorNote: |
   Our assistant combines policy retrieval with tools that act on structured information. I wanted those steps to be visible in the interface, so a reader can distinguish a retrieved answer from an action such as preparing a leave request. The fictional TechCorp setting gave us a manageable scope for testing the workflow.
 summary:
-  role: "Team member developing the HR assistant with Axelle Meric and Moritz von Siemens."
-  context: "M2 NLP coursework using a fictional company knowledge base and employee directory."
-  outcome: "A Gradio assistant combining policy retrieval, employee lookup and tools for meeting and leave workflows."
+  role: 'Team member developing the HR assistant with Axelle Meric and Moritz von Siemens.'
+  context: 'M2 NLP coursework using a fictional company knowledge base and employee directory.'
+  outcome: 'A Gradio assistant combining policy retrieval, employee lookup and tools for meeting and leave workflows.'
 ---
 
 **NLP Project, Master M2**  
-*Authors: Arthur DANJOU, Axelle MERIC, Moritz von SIEMENS*
+_Authors: Arthur DANJOU, Axelle MERIC, Moritz von SIEMENS_
 
 ## Overview
 
@@ -64,19 +64,22 @@ The assistant can answer policy questions, retrieve employee information, schedu
 ## Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd NLP-Intelligent-HR-Onboarding-Assistant-with-RAG-and-LangChain
    ```
 
 2. **Install dependencies**
+
    ```bash
    uv sync
    ```
 
 3. **Configure MistralAI API key**
-   
+
    Set the environment variable:
+
    ```bash
    export MISTRAL_API_KEY="your_api_key"
    ```
@@ -90,6 +93,7 @@ jupyter notebook projet.ipynb
 ```
 
 Execute cells sequentially to:
+
 1. Analyze tokenization of HR documents
 2. Create the Qdrant vector database
 3. Initialize the ReAct agent
@@ -106,13 +110,13 @@ data/
 
 ## Learning Modules
 
-| TP | Concept | Usage |
-|:---|:--------|:------|
-| **TP1** | Embeddings | Document vectorization and cosine similarity retrieval |
-| **TP2** | BPE Tokenization | Token-cost analysis with FR/EN comparison |
-| **TP3** | LLM + LangChain | ChatMistralAI setup, prompts, and LCEL chains |
-| **TP4** | Agents + Memory | `@tool` usage, ReAct orchestration, sliding-window memory |
-| **TP5** | RAG + Gradio | Qdrant indexing, semantic retrieval, interactive UI |
+| TP      | Concept          | Usage                                                     |
+| :------ | :--------------- | :-------------------------------------------------------- |
+| **TP1** | Embeddings       | Document vectorization and cosine similarity retrieval    |
+| **TP2** | BPE Tokenization | Token-cost analysis with FR/EN comparison                 |
+| **TP3** | LLM + LangChain  | ChatMistralAI setup, prompts, and LCEL chains             |
+| **TP4** | Agents + Memory  | `@tool` usage, ReAct orchestration, sliding-window memory |
+| **TP5** | RAG + Gradio     | Qdrant indexing, semantic retrieval, interactive UI       |
 
 ## Technologies
 
@@ -148,4 +152,4 @@ pandas>=3.0.1
 - **Axelle MERIC**
 - **Moritz von SIEMENS**
 
-*Project completed as part of the Natural Language Processing course, Master M2*
+_Project completed as part of the Natural Language Processing course, Master M2_

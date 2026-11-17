@@ -3,11 +3,7 @@
   "url": "https://github.com/ArthurDanjou/ai-sync-dotfiles",
   "title": "AI Sync Dotfiles",
   "category": "Engineering",
-  "tags": [
-    "projects",
-    "open-source",
-    "dotfiles"
-  ],
+  "tags": ["projects", "open-source", "dotfiles"],
   "featured": false,
   "listed": true,
   "position": 20,

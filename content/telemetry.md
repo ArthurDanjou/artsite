@@ -1,6 +1,6 @@
 ---
 title: Live Homelab Telemetry
-description: "Live telemetry from my homelab: current environment, coding stats, system status, and activity history at a glance."
+description: 'Live telemetry from my homelab: current environment, coding stats, system status, and activity history at a glance.'
 sitemap:
   loc: /telemetry
 ---

@@ -14,15 +14,15 @@ icon: i-ph-bicycle-duotone
 authorNote: |
   Bicycle rental counts gave me a practical way to compare GLM assumptions. I paid attention to the residuals as well as the predictions, because a model needs to account for how demand varies with the weather and the calendar.
 summary:
-  role: "Statistical modelling, model comparison and diagnostics."
-  context: "Generalized Linear Models coursework at Paris-Dauphine PSL, applied to bike rental demand."
-  outcome: "A comparison of GLM families using weather and calendar features, with residual checks and cross-validation."
+  role: 'Statistical modelling, model comparison and diagnostics.'
+  context: 'Generalized Linear Models coursework at Paris-Dauphine PSL, applied to bike rental demand.'
+  outcome: 'A comparison of GLM families using weather and calendar features, with residual checks and cross-validation.'
   links:
-    - label: "Code"
-      url: "https://links.arthurdanjou.fr/glm-bikes-code"
+    - label: 'Code'
+      url: 'https://links.arthurdanjou.fr/glm-bikes-code'
       icon: i-ph-code-duotone
-    - label: "Report"
-      url: "/projects/bikes-glm.pdf"
+    - label: 'Report'
+      url: '/projects/bikes-glm.pdf'
       icon: i-ph-file-text-duotone
 ---
 
@@ -48,6 +48,7 @@ The workflow:
 ## Key Findings
 
 The analysis identified critical factors influencing bike-sharing demand:
+
 - Seasonal patterns and weather conditions
 - Temperature and humidity effects
 - Holiday and working day distinctions

@@ -19,9 +19,21 @@
       "icon": "i-ph-book-duotone",
       "tags": ["In preparation", "Open Source", "Byzantine Robustness", "Distributed Learning"],
       "links": [
-        { "label": "View on GitHub", "url": "https://github.com/calicarpa/krum", "icon": "i-ph-github-logo-duotone" },
-        { "label": "Documentation", "url": "https://calicarpa.github.io/krum/", "icon": "i-ph-book-open-duotone" },
-        { "label": "M2 report", "url": "https://m2-internship-report.arthurdanjou.fr/", "icon": "i-ph-article-duotone" },
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/calicarpa/krum",
+          "icon": "i-ph-github-logo-duotone"
+        },
+        {
+          "label": "Documentation",
+          "url": "https://calicarpa.github.io/krum/",
+          "icon": "i-ph-book-open-duotone"
+        },
+        {
+          "label": "M2 report",
+          "url": "https://m2-internship-report.arthurdanjou.fr/",
+          "icon": "i-ph-article-duotone"
+        },
         { "label": "Project page", "url": "/projects/krum", "icon": "i-ph-article-duotone" }
       ]
     }

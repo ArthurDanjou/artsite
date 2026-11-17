@@ -23,7 +23,7 @@ jobs:
     concurrency:
       group: cloudflare-${{ github.ref }}
       cancel-in-progress: true
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -133,7 +133,7 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
-          title: "Déploiement Portfolio (${{ steps.target.outputs.env_name }})"
+          title: 'Déploiement Portfolio (${{ steps.target.outputs.env_name }})'
           description: |
             Build terminé sur la branche **${{ github.ref_name }}**.
             Environnement : **${{ steps.target.outputs.env_name }}**
@@ -141,5 +141,5 @@ jobs:
             Commit: `${{ github.sha }}` par ${{ github.actor }}.
           nofail: false
           nodetail: false
-          image: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-          username: "GitHub Actions"
+          image: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
+          username: 'GitHub Actions'

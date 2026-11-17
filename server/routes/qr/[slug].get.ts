@@ -8,10 +8,10 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Missing slug.' })
   }
 
-  const slug = decodeURIComponent(rawSlug).replace(/\.svg$/i, '').toLowerCase()
-  const link = await queryCollection(event, 'links')
-    .where('slug', '=', slug)
-    .first()
+  const slug = decodeURIComponent(rawSlug)
+    .replace(/\.svg$/i, '')
+    .toLowerCase()
+  const link = await queryCollection(event, 'links').where('slug', '=', slug).first()
 
   if (!link || link.archived) {
     throw createError({ statusCode: 404, statusMessage: 'Link not found.' })

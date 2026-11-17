@@ -14,7 +14,7 @@ function isMainHost(host: string) {
 
 function isAsset(pathname: string) {
   if (pathname === '/favicon.ico') return true
-  if (PASSTHROUGH_PREFIXES.some(prefix => pathname.startsWith(prefix))) return true
+  if (PASSTHROUGH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) return true
   return /\.[a-z0-9]+$/i.test(pathname)
 }
 
@@ -53,7 +53,7 @@ export default defineNitroPlugin((nitroApp) => {
     response.headers = {
       ...response.headers,
       'cache-control': 'no-store',
-      'location': target
+      location: target
     }
     response.body = ''
   })

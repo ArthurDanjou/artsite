@@ -75,29 +75,32 @@ Everything runs on one Beelink mini-PC in my apartment: a dozen services, no ope
 ### Hardware Infrastructure
 
 ::div{.grid.grid-cols-1.md:grid-cols-3.gap-x-8.gap-y-6}
-  :::div{.lab-node}
-  #### Compute Node
+:::div{.lab-node}
 
-  **Beelink EQR6** :hover-text{hover="Proxmox Host" text="AMD Ryzen"}
+#### Compute Node
 
-  One Proxmox host, no clustering yet: a Home Assistant OS virtual machine for ArtHome, plus 10 LXC containers for everything else.
-  :::
+**Beelink EQR6** :hover-text{hover="Proxmox Host" text="AMD Ryzen"}
 
-  :::div{.lab-node}
-  #### Storage Node
+One Proxmox host, no clustering yet: a Home Assistant OS virtual machine for ArtHome, plus 10 LXC containers for everything else.
+:::
 
-  **UGREEN NASync DXP4800** :hover-text{hover="RAID Configuration" text="16TB Raw Storage"}
+:::div{.lab-node}
 
-  Where everything ends up: ML datasets, Immich photos, machine images, nightly backups of every container.
-  :::
+#### Storage Node
 
-  :::div{.lab-node}
-  #### Network
+**UGREEN NASync DXP4800** :hover-text{hover="RAID Configuration" text="16TB Raw Storage"}
 
-  **Freebox Ultra & Tailscale** :hover-text{hover="Secure Remote Access" text="Mesh VPN"}
+Where everything ends up: ML datasets, Immich photos, machine images, nightly backups of every container.
+:::
 
-  Freebox routes today; a segmented UniFi design (VLANs, 19" rack) is planned and tracked in my [ArtLab project](/projects/artlab).
-  :::
+:::div{.lab-node}
+
+#### Network
+
+**Freebox Ultra & Tailscale** :hover-text{hover="Secure Remote Access" text="Mesh VPN"}
+
+Freebox routes today; a segmented UniFi design (VLANs, 19" rack) is planned and tracked in my [ArtLab project](/projects/artlab).
+:::
 ::
 
 ### Service Stack
@@ -105,6 +108,7 @@ Everything runs on one Beelink mini-PC in my apartment: a dozen services, no ope
 Every service runs in an LXC container on Proxmox, reached through a Cloudflare Tunnel (no port forwarding) and administered from anywhere over a Tailscale mesh.
 
 ::div{.columns-1.sm:columns-2.gap-x-10.[&_li]:break-inside-avoid}
+
 - :prose-icon[DevOps & Infra]{icon="i-ph-washing-machine-duotone"}: Traefik, Portainer, Gitea.
 - :prose-icon[Communication]{icon="i-simple-icons-thunderbird"}: Thunderbird, Signal, WhatsApp.
 - :prose-icon[Music & Audio]{icon="i-ph-music-notes-duotone"}: Music Assistant, Jellyfin.
@@ -116,7 +120,7 @@ Every service runs in an LXC container on Proxmox, reached through a Cloudflare 
 - :prose-icon[Security]{icon="i-ph-shield-check-duotone"}: Cloudflare Tunnels, AdGuard Home, Vaultwarden.
 - :prose-icon[Observability]{icon="i-ph-pulse-duotone"}: Uptime Kuma, Beszel, Speedtest Tracker.
 - :prose-icon[Utilities]{icon="i-ph-wrench-duotone"}: BentoPDF, HA MCP Server.
-::
+  ::
 
 ---
 
@@ -141,4 +145,4 @@ I run open weights for practical reasons:
 - **Reproducibility**: the same model can be run today and in five years. Closed APIs change versions, behaviors, and availability unilaterally.
 - **Cost**: inference on local GPUs eliminates per-token costs. For a home automation system that processes thousands of events daily, this makes AI economically feasible at home scale.
 
-> *This list is constantly updated as I experiment with new tools and equipment.*
+> _This list is constantly updated as I experiment with new tools and equipment._

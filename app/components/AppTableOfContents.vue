@@ -30,12 +30,16 @@ function updateActiveHeading() {
 function collectHeadings() {
   const elements = props.content?.querySelectorAll<HTMLElement>('h2, h3[id]') ?? []
   headings.value = [...elements]
-    .filter(element => !element.closest('aside, .not-prose') && element.textContent?.trim())
+    .filter((element) => !element.closest('aside, .not-prose') && element.textContent?.trim())
     .map((element, index) => {
       const text = element.textContent!.trim()
       if (!element.id) {
-        const slug = text.toLowerCase().normalize('NFKD')
-          .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+        const slug = text
+          .toLowerCase()
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-|-$/g, '')
         const base = `section-${slug || index + 1}`
         let id = base
         let suffix = 2
@@ -51,7 +55,9 @@ async function toggle() {
   isOpen.value = !isOpen.value
   if (isOpen.value) {
     await nextTick()
-    panel.value?.querySelector<HTMLElement>('[aria-current="location"]')?.focus({ preventScroll: true })
+    panel.value
+      ?.querySelector<HTMLElement>('[aria-current="location"]')
+      ?.focus({ preventScroll: true })
   }
 }
 
@@ -61,14 +67,20 @@ function close(restoreFocus = false) {
 }
 
 function onPointerEnter(event: PointerEvent) {
-  if (event.pointerType === 'mouse' && window.matchMedia('(min-width: 1280px) and (hover: hover)').matches) {
+  if (
+    event.pointerType === 'mouse' &&
+    window.matchMedia('(min-width: 1280px) and (hover: hover)').matches
+  ) {
     isOpen.value = true
   }
 }
 
 function onPointerLeave() {
-  if (window.matchMedia('(min-width: 1280px) and (hover: hover)').matches
-    && !root.value?.contains(document.activeElement)) close()
+  if (
+    window.matchMedia('(min-width: 1280px) and (hover: hover)').matches &&
+    !root.value?.contains(document.activeElement)
+  )
+    close()
 }
 
 function onFocusOut(event: FocusEvent) {
@@ -83,7 +95,10 @@ function navigate(event: MouseEvent, heading: Heading) {
   if (window.location.hash !== hash) window.history.pushState(window.history.state, '', hash)
   heading.element.setAttribute('tabindex', '-1')
   heading.element.focus({ preventScroll: true })
-  heading.element.scrollIntoView({ behavior: reducedMotion.value === 'reduce' ? 'instant' : 'smooth', block: 'start' })
+  heading.element.scrollIntoView({
+    behavior: reducedMotion.value === 'reduce' ? 'instant' : 'smooth',
+    block: 'start'
+  })
 }
 
 onClickOutside(root, () => close())
@@ -97,10 +112,14 @@ watch(isOpen, async (open) => {
 })
 useEventListener('scroll', updateActiveHeading, { passive: true })
 useEventListener('resize', updateActiveHeading)
-watch(() => props.content, () => {
-  close()
-  collectHeadings()
-}, { immediate: true, flush: 'post' })
+watch(
+  () => props.content,
+  () => {
+    close()
+    collectHeadings()
+  },
+  { immediate: true, flush: 'post' }
+)
 </script>
 
 <template>
@@ -142,26 +161,18 @@ watch(() => props.content, () => {
       class="absolute right-full bottom-0 max-h-[min(70dvh,calc(100dvh-6rem-env(safe-area-inset-bottom)))] w-[min(18rem,calc(100vw-4rem))] overflow-y-auto overscroll-contain rounded-lg border border-neutral-200 dark:border-default bg-default p-2 shadow-lg xl:bottom-auto xl:top-1/2 xl:max-h-[70dvh] xl:-translate-y-1/2"
     >
       <div class="sticky -top-2 flex items-center justify-between gap-3 bg-default px-3 py-2">
-        <p class="text-xs font-medium uppercase tracking-wide text-muted">
-          On this page
-        </p>
+        <p class="text-xs font-medium uppercase tracking-wide text-muted">On this page</p>
         <button
           type="button"
           aria-label="Close table of contents"
           class="flex size-8 items-center justify-center rounded-md text-muted hover:bg-elevated hover:text-highlighted focus-visible:outline-2 focus-visible:outline-inverted xl:hidden"
           @click="close(true)"
         >
-          <UIcon
-            name="i-ph-x"
-            class="size-4"
-          />
+          <UIcon name="i-ph-x" class="size-4" />
         </button>
       </div>
       <ul>
-        <li
-          v-for="heading in headings"
-          :key="heading.id"
-        >
+        <li v-for="heading in headings" :key="heading.id">
           <a
             :href="`#${heading.id}`"
             :aria-current="heading.id === activeId ? 'location' : undefined"

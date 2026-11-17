@@ -3,11 +3,7 @@
   "url": "mailto:arthurdanjou@outlook.fr",
   "title": "Personal email",
   "category": "Social",
-  "tags": [
-    "social",
-    "contact",
-    "personal"
-  ],
+  "tags": ["social", "contact", "personal"],
   "featured": false,
   "listed": false,
   "position": 70,
