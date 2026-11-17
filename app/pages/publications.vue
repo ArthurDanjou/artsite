@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { VISIBLE_PUBLICATION_TAGS } from '~~/types'
+
 const { data: page } = await useAsyncData('publicationsPage', () => {
   return queryCollection('publicationsPage').first()
 })
@@ -31,8 +33,16 @@ const sectionHeadingClass = 'w-full mt-4 mb-2 font-bold text-4xl md:text-7xl tex
 
 const yearHeadingClass = 'w-full mt-4 mb-2 text-transparent italic text-2xl md:text-4xl text-neutral-600  dark:text-neutral-400 opacity-15 dark:opacity-30 text-stroke-neutral-500 dark:text-stroke-neutral-300 text-stroke-2'
 
+// Anonymous submissions and work in preparation stay in the data file but
+// are not published on the site: only explicitly released work is listed.
+const visiblePublications = computed(() =>
+  (publications?.body ?? []).filter(pub =>
+    pub.tags?.some(tag => VISIBLE_PUBLICATION_TAGS.has(tag)) ?? false
+  )
+)
+
 const groupedPublications = computed(() =>
-  groupByYearDesc(publications?.body ?? [], pub => pub.year)
+  groupByYearDesc(visiblePublications.value, pub => pub.year)
 )
 
 const displayTalks = computed(() =>
@@ -66,19 +76,19 @@ const groupedTalks = computed(() =>
         My research papers and preprints, with code and project pages linked when they exist.
       </p>
       <div
-        v-if="publications?.body?.length"
+        v-if="visiblePublications.length"
         class="space-y-10"
       >
         <div
-          v-for="(yearPubs, year) in groupedPublications"
-          :key="year"
+          v-for="group in groupedPublications"
+          :key="group.year"
         >
           <h3 :class="yearHeadingClass">
-            {{ year }}
+            {{ group.year }}
           </h3>
           <div class="space-y-4">
             <PublishCard
-              v-for="pub in yearPubs"
+              v-for="pub in group.items"
               :key="pub.id"
               :title="pub.title"
               :description="pub.description"
@@ -91,6 +101,12 @@ const groupedTalks = computed(() =>
           </div>
         </div>
       </div>
+      <p
+        v-else
+        class="text-sm text-neutral-500 italic"
+      >
+        Accepted papers and preprints will appear here.
+      </p>
     </section>
 
     <section class="mt-12">
@@ -106,16 +122,16 @@ const groupedTalks = computed(() =>
         class="space-y-10"
       >
         <div
-          v-for="(yearTalks, year) in groupedTalks"
-          :key="year"
+          v-for="group in groupedTalks"
+          :key="group.year"
           class="relative"
         >
           <h3 :class="yearHeadingClass">
-            {{ year }}
+            {{ group.year }}
           </h3>
           <div class="space-y-4">
             <TalkCard
-              v-for="talk in yearTalks"
+              v-for="talk in group.items"
               :key="talk.id"
               :title="talk.title"
               :date="talk.formattedDate"
