@@ -1,0 +1,9 @@
+[fmt]
+printWidth = 100
+semi = false
+singleQuote = true
+useTabs = false
+trailingComma = "none"
+# Generated files: formatting them would fight the generator.
+# worker-configuration.d.ts comes from `wrangler types`, the meta folder from `drizzle-kit generate`.
+ignorePatterns = ["worker-configuration.d.ts", "server/db/migrations/sqlite/meta/**"]

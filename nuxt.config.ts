@@ -1,7 +1,6 @@
 import { definePerson } from 'nuxt-schema-org/schema'
 
 export default defineNuxtConfig({
-
   modules: [
     '@nuxtjs/seo',
     '@nuxt/ui',
@@ -54,7 +53,8 @@ export default defineNuxtConfig({
   site: {
     url: 'https://arthurdanjou.fr',
     name: 'Arthur Danjou',
-    description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
+    description:
+      'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
     defaultLocale: 'en',
     indexable: true
   },
@@ -177,11 +177,7 @@ export default defineNuxtConfig({
       allowedHosts: ['links.arthurdanjou.fr', 'go.arthurdanjou.fr']
     },
     optimizeDeps: {
-      include: [
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
-        '@unhead/schema-org/vue'
-      ]
+      include: ['@vue/devtools-core', '@vue/devtools-kit', '@unhead/schema-org/vue']
     }
   },
 
@@ -197,24 +193,57 @@ export default defineNuxtConfig({
         {
           title: 'Research',
           links: [
-            { title: 'Research interests', href: '/research', description: 'AI Safety, adversarial robustness and distributed learning at CMAP.' },
-            { title: 'Publications & Talks', href: '/publications', description: 'Papers in preparation and academic talks with slides.' }
+            {
+              title: 'Research interests',
+              href: '/research',
+              description: 'AI Safety, adversarial robustness and distributed learning at CMAP.'
+            },
+            {
+              title: 'Publications & Talks',
+              href: '/publications',
+              description: 'Papers in preparation and academic talks with slides.'
+            }
           ]
         },
         {
           title: 'Engineering',
           links: [
-            { title: 'Projects', href: '/projects', description: 'Experimental labs, open-source work and engineering projects.' },
-            { title: 'Links', href: '/links', description: 'Short links to research, projects, social profiles and contact.' },
-            { title: 'Homelab Telemetry', href: '/telemetry', description: 'Live self-hosted infrastructure telemetry.' },
-            { title: 'Uses', href: '/uses', description: 'Hardware, software and self-hosted setup.' }
+            {
+              title: 'Projects',
+              href: '/projects',
+              description: 'Experimental labs, open-source work and engineering projects.'
+            },
+            {
+              title: 'Links',
+              href: '/links',
+              description: 'Short links to research, projects, social profiles and contact.'
+            },
+            {
+              title: 'Homelab Telemetry',
+              href: '/telemetry',
+              description: 'Live self-hosted infrastructure telemetry.'
+            },
+            {
+              title: 'Uses',
+              href: '/uses',
+              description: 'Hardware, software and self-hosted setup.'
+            }
           ]
         },
         {
           title: 'API',
           links: [
-            { title: 'OpenAPI spec', href: '/_openapi.json', description: 'Machine-readable API description (Nitro openAPI).' },
-            { title: 'MCP endpoint', href: '/mcp', description: 'Model Context Protocol server: list_pages, search_pages, get_page_markdown.' }
+            {
+              title: 'OpenAPI spec',
+              href: '/_openapi.json',
+              description: 'Machine-readable API description (Nitro openAPI).'
+            },
+            {
+              title: 'MCP endpoint',
+              href: '/mcp',
+              description:
+                'Model Context Protocol server: list_pages, search_pages, get_page_markdown.'
+            }
           ]
         }
       ]
@@ -261,10 +290,8 @@ export default defineNuxtConfig({
 
   eslint: {
     config: {
-      stylistic: {
-        quotes: 'single',
-        commaDangle: 'never'
-      }
+      // Formatting is handled by `bun fmt`, ESLint only lints.
+      stylistic: false
     }
   },
 
@@ -272,12 +299,20 @@ export default defineNuxtConfig({
     clientBundle: {
       scan: {
         globInclude: ['**/*.{vue,ts,js,json,md,mdc,mdx,yml,yaml}'],
-        globExclude: ['node_modules', 'dist', 'build', 'coverage', 'test', 'tests', '.*', '.nuxt', '.output']
+        globExclude: [
+          'node_modules',
+          'dist',
+          'build',
+          'coverage',
+          'test',
+          'tests',
+          '.*',
+          '.nuxt',
+          '.output'
+        ]
       },
       sizeLimitKb: 512,
-      icons: [
-        'vscode-icons:file-type-python'
-      ]
+      icons: ['vscode-icons:file-type-python']
     }
   },
 
@@ -285,7 +320,12 @@ export default defineNuxtConfig({
     enabled: true,
     showLiveInspections: true,
     runOnBuild: true,
-    excludeLinks: ['/errors*', '/studio*', 'https://links.arthurdanjou.fr**', 'https://go.arthurdanjou.fr**']
+    excludeLinks: [
+      '/errors*',
+      '/studio*',
+      'https://links.arthurdanjou.fr**',
+      'https://go.arthurdanjou.fr**'
+    ]
   },
 
   mcp: {
@@ -314,11 +354,30 @@ export default defineNuxtConfig({
       '/sitemap.md'
     ],
     crawlLinks: true,
-    ignore: ['/errors', '/redirect', '/studio', '/api', '/__ai-ready', '/__skew', '/mcp', '/links', '/qr']
+    ignore: [
+      '/errors',
+      '/redirect',
+      '/studio',
+      '/api',
+      '/__ai-ready',
+      '/__skew',
+      '/mcp',
+      '/links',
+      '/qr'
+    ]
   },
 
   robots: {
-    disallow: ['/studio', '/errors', '/redirect', '/api/', '/__ai-ready/', '/__skew/', '/mcp', '/qr/']
+    disallow: [
+      '/studio',
+      '/errors',
+      '/redirect',
+      '/api/',
+      '/__ai-ready/',
+      '/__skew/',
+      '/mcp',
+      '/qr/'
+    ]
   },
 
   schemaOrg: {
@@ -327,7 +386,8 @@ export default defineNuxtConfig({
       givenName: 'Arthur',
       familyName: 'Danjou',
       image: '/arthur.webp',
-      description: 'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
+      description:
+        'AI Research Intern at CMAP, Ecole Polytechnique. Focusing on AI Safety, Robustness, and Statistical Learning.',
       jobTitle: 'AI Research Intern',
 
       email: 'contact@arthurdanjou.fr',
@@ -340,8 +400,8 @@ export default defineNuxtConfig({
 
       worksFor: {
         '@type': 'Organization',
-        'name': 'Arthur Danjou',
-        'url': 'https://arthurdanjou.fr'
+        name: 'Arthur Danjou',
+        url: 'https://arthurdanjou.fr'
       }
     })
   },
@@ -352,9 +412,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     zeroRuntime: true,
-    sources: [
-      '/api/__sitemap__/urls'
-    ],
+    sources: ['/api/__sitemap__/urls'],
     exclude: [
       '/studio/**',
       '/errors/**',
