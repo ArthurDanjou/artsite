@@ -76,15 +76,15 @@ const groupedTalks = computed(() =>
         class="space-y-10"
       >
         <div
-          v-for="(yearPubs, year) in groupedPublications"
-          :key="year"
+          v-for="group in groupedPublications"
+          :key="group.year"
         >
           <h3 :class="yearHeadingClass">
-            {{ year }}
+            {{ group.year }}
           </h3>
           <div class="space-y-4">
             <PublishCard
-              v-for="pub in yearPubs"
+              v-for="pub in group.items"
               :key="pub.id"
               :title="pub.title"
               :description="pub.description"
@@ -112,16 +112,16 @@ const groupedTalks = computed(() =>
         class="space-y-10"
       >
         <div
-          v-for="(yearTalks, year) in groupedTalks"
-          :key="year"
+          v-for="group in groupedTalks"
+          :key="group.year"
           class="relative"
         >
           <h3 :class="yearHeadingClass">
-            {{ year }}
+            {{ group.year }}
           </h3>
           <div class="space-y-4">
             <TalkCard
-              v-for="talk in yearTalks"
+              v-for="talk in group.items"
               :key="talk.id"
               :title="talk.title"
               :date="talk.formattedDate"
