@@ -27,14 +27,6 @@ interface LinkClicksResponse {
     clicks: number
   }>
   browsers: Array<{ name: string; clicks: number }>
-  cities: Array<{
-    name: string
-    region: string | null
-    country: string | null
-    countryName: string | null
-    clicks: number
-  }>
-  networks: Array<{ name: string; asn: number | null; clicks: number }>
 }
 
 const { data, pending, error } = useLiveFetch<LinkClicksResponse>('/api/link-clicks', {
@@ -263,8 +255,6 @@ const devices = computed(() => data.value?.devices ?? [])
 const operatingSystems = computed(() => data.value?.operatingSystems ?? [])
 const sources = computed(() => data.value?.sources ?? [])
 const browsers = computed(() => data.value?.browsers ?? [])
-const cities = computed(() => data.value?.cities ?? [])
-const networks = computed(() => data.value?.networks ?? [])
 
 const maxOf = (items: Array<{ clicks: number }>) => Math.max(1, ...items.map((item) => item.clicks))
 
@@ -273,8 +263,6 @@ const maxDeviceClicks = computed(() => maxOf(devices.value))
 const maxOSClicks = computed(() => maxOf(operatingSystems.value))
 const maxSourceClicks = computed(() => maxOf(sources.value))
 const maxBrowserClicks = computed(() => maxOf(browsers.value))
-const maxCityClicks = computed(() => maxOf(cities.value))
-const maxNetworkClicks = computed(() => maxOf(networks.value))
 
 const sourceIcon = (kind: 'campaign' | 'referrer' | 'direct') => {
   if (kind === 'campaign') return 'i-ph-megaphone-duotone'
@@ -802,89 +790,6 @@ const stats = computed(() => [
           </ul>
 
           <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No browser data yet.</p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <HomeLiveCardHeader
-              title="Cities"
-              title-size="sm"
-              icon="i-ph-map-pin-duotone"
-              icon-bg="bg-orange-50 dark:bg-orange-900/30 text-orange-500"
-            />
-          </template>
-
-          <ul v-if="cities.length" class="space-y-3">
-            <li
-              v-for="city in cities"
-              :key="`${city.name}:${city.region}:${city.country}`"
-              :title="city.countryName ?? undefined"
-            >
-              <div class="flex items-center gap-2 text-sm">
-                <span v-if="city.country" class="text-base leading-none" aria-hidden="true">{{
-                  countryFlag(city.country)
-                }}</span>
-                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
-                  {{ city.name }}
-                  <span v-if="city.region" class="text-neutral-400">· {{ city.region }}</span>
-                </span>
-                <span class="text-xs text-neutral-400">{{ share(city.clicks) }}%</span>
-                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
-                  {{ formatNumber(city.clicks) }}
-                </span>
-              </div>
-              <div
-                class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800"
-              >
-                <div
-                  class="h-full rounded-full bg-orange-500"
-                  :style="{
-                    width: `${(city.clicks / maxCityClicks) * 100}%`
-                  }"
-                />
-              </div>
-            </li>
-          </ul>
-
-          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No city data yet.</p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <HomeLiveCardHeader
-              title="Networks"
-              title-size="sm"
-              icon="i-ph-wifi-high-duotone"
-              icon-bg="bg-teal-50 dark:bg-teal-900/30 text-teal-500"
-            />
-          </template>
-
-          <ul v-if="networks.length" class="space-y-3">
-            <li v-for="network in networks" :key="`${network.name}:${network.asn}`">
-              <div class="flex items-center gap-2 text-sm">
-                <span class="min-w-0 flex-1 truncate text-neutral-700 dark:text-neutral-300">
-                  {{ network.name }}
-                  <span v-if="network.asn" class="text-neutral-400">· AS{{ network.asn }}</span>
-                </span>
-                <span class="text-xs text-neutral-400">{{ share(network.clicks) }}%</span>
-                <span class="font-medium tabular-nums text-neutral-900 dark:text-white">
-                  {{ formatNumber(network.clicks) }}
-                </span>
-              </div>
-              <div
-                class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800"
-              >
-                <div
-                  class="h-full rounded-full bg-teal-500"
-                  :style="{
-                    width: `${(network.clicks / maxNetworkClicks) * 100}%`
-                  }"
-                />
-              </div>
-            </li>
-          </ul>
-
-          <p v-else class="text-sm text-neutral-500 dark:text-neutral-400">No network data yet.</p>
         </UCard>
       </div>
     </div>
